@@ -7685,8 +7685,8 @@ if.then:                                          ; preds = %entry
   %7 = load i64, ptr %retval.0.i.i, align 8
   %cmp = icmp eq i64 %add, 1
   %.lobit = lshr i64 %7, 63
-  %spec.select = select i1 %cmp, i64 %.lobit, i64 %add
-  %8 = and i64 %spec.select, 32767
+  %8 = and i64 %add, 32767
+  %9 = select i1 %cmp, i64 %.lobit, i64 %8
   br label %if.end19
 
 if.else:                                          ; preds = %entry
@@ -7699,26 +7699,26 @@ if.then13:                                        ; preds = %if.else
   br label %if.end19
 
 if.else14:                                        ; preds = %if.else
-  %9 = load ptr, ptr %this, align 8
-  %precision.i.i.i4 = getelementptr inbounds i8, ptr %9, i64 4
-  %10 = load i32, ptr %precision.i.i.i4, align 4
-  %11 = add i32 %10, -64
-  %cmp.i.i5 = icmp ult i32 %11, -128
+  %10 = load ptr, ptr %this, align 8
+  %precision.i.i.i4 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load i32, ptr %precision.i.i.i4, align 4
+  %12 = add i32 %11, -64
+  %cmp.i.i5 = icmp ult i32 %12, -128
   %significand.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
-  %12 = load ptr, ptr %significand.i.i6, align 8
-  %retval.0.i.i7 = select i1 %cmp.i.i5, ptr %12, ptr %significand.i.i6
-  %13 = load i64, ptr %retval.0.i.i7, align 8
+  %13 = load ptr, ptr %significand.i.i6, align 8
+  %retval.0.i.i7 = select i1 %cmp.i.i5, ptr %13, ptr %significand.i.i6
+  %14 = load i64, ptr %retval.0.i.i7, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then, %if.else, %if.else14, %if.then13
-  %myexponent.0 = phi i64 [ 32767, %if.then13 ], [ 32767, %if.else14 ], [ 0, %if.else ], [ %8, %if.then ]
-  %mysignificand.0 = phi i64 [ -9223372036854775808, %if.then13 ], [ %13, %if.else14 ], [ 0, %if.else ], [ %7, %if.then ]
+  %myexponent.0 = phi i64 [ 32767, %if.then13 ], [ 32767, %if.else14 ], [ 0, %if.else ], [ %9, %if.then ]
+  %mysignificand.0 = phi i64 [ -9223372036854775808, %if.then13 ], [ %14, %if.else14 ], [ 0, %if.else ], [ %7, %if.then ]
   store i64 %mysignificand.0, ptr %words, align 16
   %bf.lshr = lshr i8 %bf.load.i.i.i, 3
-  %14 = and i8 %bf.lshr, 1
-  %conv25 = zext nneg i8 %14 to i64
+  %15 = and i8 %bf.lshr, 1
+  %conv25 = zext nneg i8 %15 to i64
   %shl = shl nuw nsw i64 %conv25, 15
-  %or = or disjoint i64 %myexponent.0, %shl
+  %or = add nuw nsw i64 %myexponent.0, %shl
   %arrayidx27 = getelementptr inbounds i8, ptr %words, i64 8
   store i64 %or, ptr %arrayidx27, align 8
   call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %agg.result, i32 noundef 80, ptr nonnull %words, i64 2) #26
@@ -8583,8 +8583,8 @@ if.then.i111:                                     ; preds = %if.end17
   %39 = load i64, ptr %retval.0.i.i.i118, align 8, !noalias !60
   %cmp.i119 = icmp eq i64 %add.i114, 1
   %.lobit.i = lshr i64 %39, 63
-  %spec.select.i = select i1 %cmp.i119, i64 %.lobit.i, i64 %add.i114
-  %40 = and i64 %spec.select.i, 32767
+  %40 = and i64 %add.i114, 32767
+  %41 = select i1 %cmp.i119, i64 %.lobit.i, i64 %40
   br label %_ZNK4llvh6detail9IEEEFloat34convertF80LongDoubleAPFloatToAPIntEv.exit
 
 if.else.i99:                                      ; preds = %if.end17
@@ -8598,24 +8598,24 @@ if.then13.i100:                                   ; preds = %if.else.i99
 
 if.else14.i106:                                   ; preds = %if.else.i99
   %precision.i.i.i4.i107 = getelementptr inbounds i8, ptr %0, i64 4
-  %41 = load i32, ptr %precision.i.i.i4.i107, align 4, !noalias !60
-  %42 = add i32 %41, -64
-  %cmp.i.i5.i108 = icmp ult i32 %42, -128
+  %42 = load i32, ptr %precision.i.i.i4.i107, align 4, !noalias !60
+  %43 = add i32 %42, -64
+  %cmp.i.i5.i108 = icmp ult i32 %43, -128
   %significand.i.i6.i109 = getelementptr inbounds i8, ptr %this, i64 8
-  %43 = load ptr, ptr %significand.i.i6.i109, align 8, !noalias !60
-  %retval.0.i.i7.i110 = select i1 %cmp.i.i5.i108, ptr %43, ptr %significand.i.i6.i109
-  %44 = load i64, ptr %retval.0.i.i7.i110, align 8, !noalias !60
+  %44 = load ptr, ptr %significand.i.i6.i109, align 8, !noalias !60
+  %retval.0.i.i7.i110 = select i1 %cmp.i.i5.i108, ptr %44, ptr %significand.i.i6.i109
+  %45 = load i64, ptr %retval.0.i.i7.i110, align 8, !noalias !60
   br label %_ZNK4llvh6detail9IEEEFloat34convertF80LongDoubleAPFloatToAPIntEv.exit
 
 _ZNK4llvh6detail9IEEEFloat34convertF80LongDoubleAPFloatToAPIntEv.exit: ; preds = %if.then.i111, %if.else.i99, %if.then13.i100, %if.else14.i106
-  %myexponent.0.i101 = phi i64 [ 32767, %if.then13.i100 ], [ 32767, %if.else14.i106 ], [ 0, %if.else.i99 ], [ %40, %if.then.i111 ]
-  %mysignificand.0.i102 = phi i64 [ -9223372036854775808, %if.then13.i100 ], [ %44, %if.else14.i106 ], [ 0, %if.else.i99 ], [ %39, %if.then.i111 ]
+  %myexponent.0.i101 = phi i64 [ 32767, %if.then13.i100 ], [ 32767, %if.else14.i106 ], [ 0, %if.else.i99 ], [ %41, %if.then.i111 ]
+  %mysignificand.0.i102 = phi i64 [ -9223372036854775808, %if.then13.i100 ], [ %45, %if.else14.i106 ], [ 0, %if.else.i99 ], [ %39, %if.then.i111 ]
   store i64 %mysignificand.0.i102, ptr %words.i93, align 16, !noalias !60
   %bf.lshr.i103 = lshr i8 %bf.load.i.i.i.i95, 3
-  %45 = and i8 %bf.lshr.i103, 1
-  %conv25.i = zext nneg i8 %45 to i64
+  %46 = and i8 %bf.lshr.i103, 1
+  %conv25.i = zext nneg i8 %46 to i64
   %shl.i104 = shl nuw nsw i64 %conv25.i, 15
-  %or.i105 = or disjoint i64 %myexponent.0.i101, %shl.i104
+  %or.i105 = add nuw nsw i64 %myexponent.0.i101, %shl.i104
   %arrayidx27.i = getelementptr inbounds i8, ptr %words.i93, i64 8
   store i64 %or.i105, ptr %arrayidx27.i, align 8, !noalias !60
   call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %agg.result, i32 noundef 80, ptr nonnull %words.i93, i64 2) #26

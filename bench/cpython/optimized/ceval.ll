@@ -12169,10 +12169,9 @@ TARGET_INSTRUMENTED_POP_JUMP_IF_FALSE:            ; preds = %indirectgoto
   %1375 = load ptr, ptr %incdec.ptr6781, align 8
   %cmp6782 = icmp eq ptr %1375, @_Py_FalseStruct
   %conv6783 = zext i1 %cmp6782 to i16
-  %1376 = sext i32 %oparg.0 to i64
   %arrayidx6786 = getelementptr i8, ptr %next_instr.1, i64 2
-  %1377 = load i16, ptr %arrayidx6786, align 2
-  %shl6788 = shl i16 %1377, 1
+  %1376 = load i16, ptr %arrayidx6786, align 2
+  %shl6788 = shl i16 %1376, 1
   %or6789 = or disjoint i16 %shl6788, %conv6783
   store i16 %or6789, ptr %arrayidx6786, align 2
   %localsplus.i8092 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
@@ -12183,7 +12182,8 @@ TARGET_INSTRUMENTED_POP_JUMP_IF_FALSE:            ; preds = %indirectgoto
   %conv.i8097 = trunc i64 %sub.ptr.div.i8096 to i32
   %stacktop.i8098 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8097, ptr %stacktop.i8098, align 8
-  %idx.ext6793 = select i1 %cmp6782, i64 %1376, i64 0
+  %1377 = sext i32 %oparg.0 to i64
+  %idx.ext6793 = select i1 %cmp6782, i64 %1377, i64 0
   %add.ptr6794 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr6779, i64 %idx.ext6793
   %call6795 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %add.ptr6794) #15
   %1378 = load i32, ptr %stacktop.i8098, align 8
@@ -12356,10 +12356,9 @@ TARGET_INSTRUMENTED_POP_JUMP_IF_TRUE:             ; preds = %indirectgoto
   %1395 = load ptr, ptr %incdec.ptr6927, align 8
   %cmp6929 = icmp eq ptr %1395, @_Py_TrueStruct
   %conv6930 = zext i1 %cmp6929 to i16
-  %1396 = sext i32 %oparg.0 to i64
   %arrayidx6933 = getelementptr i8, ptr %next_instr.1, i64 2
-  %1397 = load i16, ptr %arrayidx6933, align 2
-  %shl6935 = shl i16 %1397, 1
+  %1396 = load i16, ptr %arrayidx6933, align 2
+  %shl6935 = shl i16 %1396, 1
   %or6936 = or disjoint i16 %shl6935, %conv6930
   store i16 %or6936, ptr %arrayidx6933, align 2
   %localsplus.i8125 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
@@ -12370,7 +12369,8 @@ TARGET_INSTRUMENTED_POP_JUMP_IF_TRUE:             ; preds = %indirectgoto
   %conv.i8130 = trunc i64 %sub.ptr.div.i8129 to i32
   %stacktop.i8131 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8130, ptr %stacktop.i8131, align 8
-  %idx.ext6940 = select i1 %cmp6929, i64 %1396, i64 0
+  %1397 = sext i32 %oparg.0 to i64
+  %idx.ext6940 = select i1 %cmp6929, i64 %1397, i64 0
   %add.ptr6941 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr6925, i64 %idx.ext6940
   %call6942 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %add.ptr6941) #15
   %1398 = load i32, ptr %stacktop.i8131, align 8

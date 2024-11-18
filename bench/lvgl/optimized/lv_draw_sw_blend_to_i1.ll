@@ -117,10 +117,10 @@ define void @lv_draw_sw_blend_color_to_i1(ptr nocapture noundef readonly %0) loc
 
 .preheader154.lr.ph:                              ; preds = %.preheader155
   %58 = icmp sgt i32 %3, 0
-  %59 = xor i8 %7, -1
-  %60 = xor i32 %21, 255
+  %59 = xor i32 %21, 255
+  %60 = xor i8 %7, -1
   %isneg150.inv = icmp sgt i8 %.fr, -1
-  %61 = select i1 %isneg150.inv, i8 -1, i8 %59
+  %61 = select i1 %isneg150.inv, i8 -1, i8 %60
   %invariant.op = zext i8 %61 to i32
   %62 = zext i32 %13 to i64
   br i1 %58, label %.preheader154.us, label %.loopexit
@@ -142,7 +142,7 @@ define void @lv_draw_sw_blend_color_to_i1(ptr nocapture noundef readonly %0) loc
   %71 = sub nsw i32 7, %70
   %72 = lshr i32 %69, %71
   %73 = trunc i32 %72 to i1
-  %74 = select i1 %73, i32 %60, i32 0
+  %74 = select i1 %73, i32 %59, i32 0
   %.not151.us = icmp samesign ult i32 %74, %invariant.op
   %75 = shl nuw nsw i32 1, %71
   %76 = trunc i32 %75 to i8

@@ -2512,10 +2512,10 @@ _ZN2cv3PtrINS_16BaseImageDecoderEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_16Bas
 
 228:                                              ; preds = %227
   %229 = and i32 %226, 4088
-  %230 = and i32 %226, 7
   %.not15.i = icmp eq i32 %229, 0
   %or.cond16.i = or i1 %.not14.i, %.not15.i
   %or.cond146 = and i1 %or.cond.i, %or.cond16.i
+  %230 = and i32 %226, 7
   %231 = select i1 %202, i32 0, i32 %230
   %232 = or disjoint i32 %231, 16
   %spec.select156 = select i1 %or.cond146, i32 %231, i32 %232
@@ -6491,10 +6491,10 @@ _ZN2cv3PtrINS_16BaseImageDecoderEE7releaseEv.exit: ; preds = %.thread, %260, %27
 
 315:                                              ; preds = %314
   %316 = and i32 %313, 4088
-  %317 = and i32 %313, 7
   %.not15.i = icmp eq i32 %316, 0
   %or.cond16.i = or i1 %.not14.i, %.not15.i
   %or.cond218 = and i1 %or.cond.i, %or.cond16.i
+  %317 = and i32 %313, 7
   %318 = select i1 %229, i32 0, i32 %317
   %319 = or disjoint i32 %318, 16
   %spec.select237 = select i1 %or.cond218, i32 %318, i32 %319

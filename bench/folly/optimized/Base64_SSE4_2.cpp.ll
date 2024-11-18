@@ -315,8 +315,8 @@ invoke.cont7.i:                                   ; preds = %entry, %invoke.cont
   %0 = phi <16 x i8> [ %elt.min.i.i, %invoke.cont7.i ], [ splat (i8 -1), %entry ]
   %1 = load <16 x i8>, ptr %f.addr.0.i7, align 1, !tbaa !7
   %cmp.i.i.i.i = icmp slt <16 x i8> %1, splat (i8 44)
-  %2 = select <16 x i1> %cmp.i.i.i.i, <16 x i8> splat (i8 15), <16 x i8> zeroinitializer
-  %elt.sat.i.i.i = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %1, <16 x i8> %2)
+  %2 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %1, <16 x i8> splat (i8 -15))
+  %elt.sat.i.i.i = select <16 x i1> %cmp.i.i.i.i, <16 x i8> %2, <16 x i8> %1
   %3 = bitcast <16 x i8> %elt.sat.i.i.i to <4 x i32>
   %4 = lshr <4 x i32> %3, splat (i32 4)
   %5 = bitcast <4 x i32> %4 to <16 x i8>
@@ -348,7 +348,7 @@ invoke.cont9.i:                                   ; preds = %invoke.cont7.i
 if.end.i:                                         ; preds = %invoke.cont9.i, %entry
   %f.addr.0.i.lcssa14 = phi ptr [ %add.ptr.i, %invoke.cont9.i ], [ %f, %entry ]
   %o.addr.0.i.lcssa13 = phi ptr [ %add.ptr8.i, %invoke.cont9.i ], [ %o, %entry ]
-  %call12.i = tail call { i8, ptr } @_ZN5folly6detail13base64_detail16base64DecodeSWAREPKcS3_Pc(ptr noundef %f.addr.0.i.lcssa14, ptr noundef %l, ptr noundef %o.addr.0.i.lcssa13) #5
+  %call12.i = tail call { i8, ptr } @_ZN5folly6detail13base64_detail16base64DecodeSWAREPKcS3_Pc(ptr noundef %f.addr.0.i.lcssa14, ptr noundef %l, ptr noundef %o.addr.0.i.lcssa13) #6
   %17 = extractvalue { i8, ptr } %call12.i, 0
   %18 = extractvalue { i8, ptr } %call12.i, 1
   br label %_ZN5folly6detail13base64_detail16base64SimdDecodeINS1_22Base64_SSE4_2_PlatformEEENS1_18Base64DecodeResultEPKcS6_Pc.exit
@@ -365,9 +365,6 @@ _ZN5folly6detail13base64_detail16base64SimdDecodeINS1_22Base64_SSE4_2_PlatformEE
 declare { i8, ptr } @_ZN5folly6detail13base64_detail16base64DecodeSWAREPKcS3_Pc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8>, <16 x i8>) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <16 x i8> @llvm.umin.v16i8(<16 x i8>, <16 x i8>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -376,12 +373,16 @@ declare <8 x i16> @llvm.x86.ssse3.pmadd.ub.sw.128(<16 x i8>, <16 x i8>) #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8>, <16 x i8>) #5
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

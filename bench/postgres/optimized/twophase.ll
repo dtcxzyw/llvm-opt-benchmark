@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @records.0 = internal unnamed_addr global ptr null, align 8
 @records.1 = internal unnamed_addr global ptr null, align 8
 @records.2 = internal unnamed_addr global i32 0, align 8
-@records.3 = internal unnamed_addr global i32 0, align 8
+@records.3 = internal unnamed_addr global i32 0, align 4
 @records.4 = internal unnamed_addr global i32 0, align 8
 @replorigin_session_origin = external local_unnamed_addr global i16, align 2
 @replorigin_session_origin_lsn = external local_unnamed_addr global i64, align 8
@@ -955,7 +955,7 @@ define dso_local void @StartPrepare(ptr nocapture noundef readonly %0) local_unn
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %18, align 8
-  store i32 512, ptr @records.3, align 8
+  store i32 512, ptr @records.3, align 4
   %19 = tail call ptr @palloc(i64 noundef 512) #15
   %20 = load ptr, ptr @records.0, align 8
   store ptr %19, ptr %20, align 8
@@ -1006,7 +1006,7 @@ define dso_local void @StartPrepare(ptr nocapture noundef readonly %0) local_unn
   store i16 %48, ptr %49, align 2
   %50 = getelementptr inbounds i8, ptr %2, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
-  %51 = load i32, ptr @records.3, align 8
+  %51 = load i32, ptr @records.3, align 4
   %52 = icmp ult i32 %51, 72
   br i1 %52, label %53, label %._crit_edge.i
 
@@ -1028,11 +1028,11 @@ define dso_local void @StartPrepare(ptr nocapture noundef readonly %0) local_unn
   %59 = load i32, ptr @records.2, align 8
   %60 = add i32 %59, 1
   store i32 %60, ptr @records.2, align 8
-  store i32 512, ptr @records.3, align 8
+  store i32 512, ptr @records.3, align 4
   %61 = call ptr @palloc(i64 noundef 512) #15
   %62 = load ptr, ptr @records.1, align 8
   store ptr %61, ptr %62, align 8
-  %.pre9.i = load i32, ptr @records.3, align 8
+  %.pre9.i = load i32, ptr @records.3, align 4
   br label %save_state_data.exit
 
 save_state_data.exit:                             ; preds = %._crit_edge.i, %53
@@ -1048,7 +1048,7 @@ save_state_data.exit:                             ; preds = %._crit_edge.i, %53
   %70 = add i32 %69, 72
   store i32 %70, ptr %65, align 8
   %71 = add i32 %63, -72
-  store i32 %71, ptr @records.3, align 8
+  store i32 %71, ptr @records.3, align 4
   %72 = load i32, ptr @records.4, align 8
   %73 = add i32 %72, 72
   store i32 %73, ptr @records.4, align 8
@@ -1077,12 +1077,12 @@ save_state_data.exit:                             ; preds = %._crit_edge.i, %53
   %86 = add i32 %85, 1
   store i32 %86, ptr @records.2, align 8
   %87 = call i32 @llvm.umax.i32(i32 %77, i32 512)
-  store i32 %87, ptr @records.3, align 8
+  store i32 %87, ptr @records.3, align 4
   %88 = zext nneg i32 %87 to i64
   %89 = call ptr @palloc(i64 noundef %88) #15
   %90 = load ptr, ptr @records.1, align 8
   store ptr %89, ptr %90, align 8
-  %.pre9.i16 = load i32, ptr @records.3, align 8
+  %.pre9.i16 = load i32, ptr @records.3, align 4
   %.phi.trans.insert = getelementptr inbounds i8, ptr %90, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.pre48 = load i32, ptr @records.4, align 8
@@ -1103,7 +1103,7 @@ save_state_data.exit17:                           ; preds = %._crit_edge.i13, %7
   %100 = add i32 %99, %77
   store i32 %100, ptr %96, align 8
   %101 = sub i32 %93, %77
-  store i32 %101, ptr @records.3, align 8
+  store i32 %101, ptr @records.3, align 4
   %102 = add i32 %91, %77
   store i32 %102, ptr @records.4, align 8
   %103 = load i32, ptr %33, align 4
@@ -1136,12 +1136,12 @@ save_state_data.exit17:                           ; preds = %._crit_edge.i13, %7
   %118 = add i32 %117, 1
   store i32 %118, ptr @records.2, align 8
   %119 = call i32 @llvm.umax.i32(i32 %109, i32 512)
-  store i32 %119, ptr @records.3, align 8
+  store i32 %119, ptr @records.3, align 4
   %120 = zext i32 %119 to i64
   %121 = call ptr @palloc(i64 noundef %120) #15
   %122 = load ptr, ptr @records.1, align 8
   store ptr %121, ptr %122, align 8
-  %.pre9.i21 = load i32, ptr @records.3, align 8
+  %.pre9.i21 = load i32, ptr @records.3, align 4
   %.phi.trans.insert49 = getelementptr inbounds i8, ptr %122, i64 8
   %.pre50 = load i32, ptr %.phi.trans.insert49, align 8
   br label %save_state_data.exit22
@@ -1160,7 +1160,7 @@ save_state_data.exit22:                           ; preds = %._crit_edge.i18, %1
   %132 = add i32 %131, %109
   store i32 %132, ptr %128, align 8
   %133 = sub i32 %124, %109
-  store i32 %133, ptr @records.3, align 8
+  store i32 %133, ptr @records.3, align 4
   %134 = load i32, ptr @records.4, align 8
   %135 = add i32 %134, %109
   store i32 %135, ptr @records.4, align 8
@@ -1228,12 +1228,12 @@ GXactLoadSubxactData.exit:                        ; preds = %146, %144, %save_st
   %169 = add i32 %168, 1
   store i32 %169, ptr @records.2, align 8
   %170 = call i32 @llvm.umax.i32(i32 %160, i32 512)
-  store i32 %170, ptr @records.3, align 8
+  store i32 %170, ptr @records.3, align 4
   %171 = zext i32 %170 to i64
   %172 = call ptr @palloc(i64 noundef %171) #15
   %173 = load ptr, ptr @records.1, align 8
   store ptr %172, ptr %173, align 8
-  %.pre9.i26 = load i32, ptr @records.3, align 8
+  %.pre9.i26 = load i32, ptr @records.3, align 4
   %.pre51 = load i32, ptr @records.4, align 8
   br label %save_state_data.exit27
 
@@ -1252,7 +1252,7 @@ save_state_data.exit27:                           ; preds = %._crit_edge.i23, %1
   %184 = add i32 %183, %160
   store i32 %184, ptr %179, align 8
   %185 = sub i32 %175, %160
-  store i32 %185, ptr @records.3, align 8
+  store i32 %185, ptr @records.3, align 4
   %186 = add i32 %174, %160
   store i32 %186, ptr @records.4, align 8
   %187 = load ptr, ptr %4, align 8
@@ -1269,7 +1269,7 @@ save_state_data.exit27:                           ; preds = %._crit_edge.i23, %1
   %193 = mul i32 %189, 12
   %194 = add i32 %193, 7
   %195 = and i32 %194, -8
-  %196 = load i32, ptr @records.3, align 8
+  %196 = load i32, ptr @records.3, align 4
   %197 = icmp ugt i32 %195, %196
   br i1 %197, label %198, label %._crit_edge.i28
 
@@ -1292,12 +1292,12 @@ save_state_data.exit27:                           ; preds = %._crit_edge.i23, %1
   %205 = add i32 %204, 1
   store i32 %205, ptr @records.2, align 8
   %206 = call i32 @llvm.umax.i32(i32 %195, i32 512)
-  store i32 %206, ptr @records.3, align 8
+  store i32 %206, ptr @records.3, align 4
   %207 = zext i32 %206 to i64
   %208 = call ptr @palloc(i64 noundef %207) #15
   %209 = load ptr, ptr @records.1, align 8
   store ptr %208, ptr %209, align 8
-  %.pre9.i31 = load i32, ptr @records.3, align 8
+  %.pre9.i31 = load i32, ptr @records.3, align 4
   br label %save_state_data.exit32
 
 save_state_data.exit32:                           ; preds = %._crit_edge.i28, %198
@@ -1314,7 +1314,7 @@ save_state_data.exit32:                           ; preds = %._crit_edge.i28, %1
   %219 = add i32 %218, %195
   store i32 %219, ptr %214, align 8
   %220 = sub i32 %210, %195
-  store i32 %220, ptr @records.3, align 8
+  store i32 %220, ptr @records.3, align 4
   %221 = load i32, ptr @records.4, align 8
   %222 = add i32 %221, %195
   store i32 %222, ptr @records.4, align 8
@@ -1332,7 +1332,7 @@ save_state_data.exit32:                           ; preds = %._crit_edge.i28, %1
   %229 = mul i32 %225, 12
   %230 = add i32 %229, 7
   %231 = and i32 %230, -8
-  %232 = load i32, ptr @records.3, align 8
+  %232 = load i32, ptr @records.3, align 4
   %233 = icmp ugt i32 %231, %232
   br i1 %233, label %234, label %._crit_edge.i33
 
@@ -1355,12 +1355,12 @@ save_state_data.exit32:                           ; preds = %._crit_edge.i28, %1
   %241 = add i32 %240, 1
   store i32 %241, ptr @records.2, align 8
   %242 = call i32 @llvm.umax.i32(i32 %231, i32 512)
-  store i32 %242, ptr @records.3, align 8
+  store i32 %242, ptr @records.3, align 4
   %243 = zext i32 %242 to i64
   %244 = call ptr @palloc(i64 noundef %243) #15
   %245 = load ptr, ptr @records.1, align 8
   store ptr %244, ptr %245, align 8
-  %.pre9.i36 = load i32, ptr @records.3, align 8
+  %.pre9.i36 = load i32, ptr @records.3, align 4
   br label %save_state_data.exit37
 
 save_state_data.exit37:                           ; preds = %._crit_edge.i33, %234
@@ -1377,7 +1377,7 @@ save_state_data.exit37:                           ; preds = %._crit_edge.i33, %2
   %255 = add i32 %254, %231
   store i32 %255, ptr %250, align 8
   %256 = sub i32 %246, %231
-  store i32 %256, ptr @records.3, align 8
+  store i32 %256, ptr @records.3, align 4
   %257 = load i32, ptr @records.4, align 8
   %258 = add i32 %257, %231
   store i32 %258, ptr @records.4, align 8
@@ -1395,7 +1395,7 @@ save_state_data.exit37:                           ; preds = %._crit_edge.i33, %2
   %265 = mul i32 %261, 12
   %266 = add i32 %265, 7
   %267 = and i32 %266, -8
-  %268 = load i32, ptr @records.3, align 8
+  %268 = load i32, ptr @records.3, align 4
   %269 = icmp ugt i32 %267, %268
   br i1 %269, label %270, label %._crit_edge.i38
 
@@ -1418,12 +1418,12 @@ save_state_data.exit37:                           ; preds = %._crit_edge.i33, %2
   %277 = add i32 %276, 1
   store i32 %277, ptr @records.2, align 8
   %278 = call i32 @llvm.umax.i32(i32 %267, i32 512)
-  store i32 %278, ptr @records.3, align 8
+  store i32 %278, ptr @records.3, align 4
   %279 = zext i32 %278 to i64
   %280 = call ptr @palloc(i64 noundef %279) #15
   %281 = load ptr, ptr @records.1, align 8
   store ptr %280, ptr %281, align 8
-  %.pre9.i41 = load i32, ptr @records.3, align 8
+  %.pre9.i41 = load i32, ptr @records.3, align 4
   br label %save_state_data.exit42
 
 save_state_data.exit42:                           ; preds = %._crit_edge.i38, %270
@@ -1440,7 +1440,7 @@ save_state_data.exit42:                           ; preds = %._crit_edge.i38, %2
   %291 = add i32 %290, %267
   store i32 %291, ptr %286, align 8
   %292 = sub i32 %282, %267
-  store i32 %292, ptr @records.3, align 8
+  store i32 %292, ptr @records.3, align 4
   %293 = load i32, ptr @records.4, align 8
   %294 = add i32 %293, %267
   store i32 %294, ptr @records.4, align 8
@@ -1456,7 +1456,7 @@ save_state_data.exit42:                           ; preds = %._crit_edge.i38, %2
 299:                                              ; preds = %296
   %300 = load ptr, ptr %8, align 8
   %301 = shl i32 %297, 4
-  %302 = load i32, ptr @records.3, align 8
+  %302 = load i32, ptr @records.3, align 4
   %303 = icmp ugt i32 %301, %302
   br i1 %303, label %304, label %._crit_edge.i43
 
@@ -1479,12 +1479,12 @@ save_state_data.exit42:                           ; preds = %._crit_edge.i38, %2
   %311 = add i32 %310, 1
   store i32 %311, ptr @records.2, align 8
   %312 = call i32 @llvm.umax.i32(i32 %301, i32 512)
-  store i32 %312, ptr @records.3, align 8
+  store i32 %312, ptr @records.3, align 4
   %313 = zext i32 %312 to i64
   %314 = call ptr @palloc(i64 noundef %313) #15
   %315 = load ptr, ptr @records.1, align 8
   store ptr %314, ptr %315, align 8
-  %.pre9.i46 = load i32, ptr @records.3, align 8
+  %.pre9.i46 = load i32, ptr @records.3, align 4
   br label %save_state_data.exit47
 
 save_state_data.exit47:                           ; preds = %._crit_edge.i43, %304
@@ -1501,7 +1501,7 @@ save_state_data.exit47:                           ; preds = %._crit_edge.i43, %3
   %325 = add i32 %324, %301
   store i32 %325, ptr %320, align 8
   %326 = sub i32 %316, %301
-  store i32 %326, ptr @records.3, align 8
+  store i32 %326, ptr @records.3, align 4
   %327 = load i32, ptr @records.4, align 8
   %328 = add i32 %327, %301
   store i32 %328, ptr @records.4, align 8
@@ -1527,7 +1527,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @EndPrepare(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @records.3, align 8
+  %2 = load i32, ptr @records.3, align 4
   %3 = icmp ult i32 %2, 8
   br i1 %3, label %4, label %._crit_edge.i.i
 
@@ -1549,11 +1549,11 @@ define dso_local void @EndPrepare(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load i32, ptr @records.2, align 8
   %11 = add i32 %10, 1
   store i32 %11, ptr @records.2, align 8
-  store i32 512, ptr @records.3, align 8
+  store i32 512, ptr @records.3, align 4
   %12 = tail call ptr @palloc(i64 noundef 512) #15
   %13 = load ptr, ptr @records.1, align 8
   store ptr %12, ptr %13, align 8
-  %.pre9.i.i = load i32, ptr @records.3, align 8
+  %.pre9.i.i = load i32, ptr @records.3, align 4
   br label %RegisterTwoPhaseRecord.exit
 
 RegisterTwoPhaseRecord.exit:                      ; preds = %._crit_edge.i.i, %4
@@ -1573,7 +1573,7 @@ RegisterTwoPhaseRecord.exit:                      ; preds = %._crit_edge.i.i, %4
   %21 = add i32 %20, 8
   store i32 %21, ptr %16, align 8
   %22 = add i32 %14, -8
-  store i32 %22, ptr @records.3, align 8
+  store i32 %22, ptr @records.3, align 4
   %23 = load i32, ptr @records.4, align 8
   %24 = add i32 %23, 8
   store i32 %24, ptr @records.4, align 8
@@ -1688,7 +1688,7 @@ RegisterTwoPhaseRecord.exit:                      ; preds = %._crit_edge.i.i, %4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RegisterTwoPhaseRecord(i8 noundef zeroext %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = load i32, ptr @records.3, align 8
+  %5 = load i32, ptr @records.3, align 4
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %7, label %._crit_edge.i
 
@@ -1710,11 +1710,11 @@ define dso_local void @RegisterTwoPhaseRecord(i8 noundef zeroext %0, i16 noundef
   %13 = load i32, ptr @records.2, align 8
   %14 = add i32 %13, 1
   store i32 %14, ptr @records.2, align 8
-  store i32 512, ptr @records.3, align 8
+  store i32 512, ptr @records.3, align 4
   %15 = tail call ptr @palloc(i64 noundef 512) #15
   %16 = load ptr, ptr @records.1, align 8
   store ptr %15, ptr %16, align 8
-  %.pre9.i = load i32, ptr @records.3, align 8
+  %.pre9.i = load i32, ptr @records.3, align 4
   br label %save_state_data.exit
 
 save_state_data.exit:                             ; preds = %._crit_edge.i, %7
@@ -1734,7 +1734,7 @@ save_state_data.exit:                             ; preds = %._crit_edge.i, %7
   %24 = add i32 %23, 8
   store i32 %24, ptr %19, align 8
   %25 = add i32 %17, -8
-  store i32 %25, ptr @records.3, align 8
+  store i32 %25, ptr @records.3, align 4
   %26 = load i32, ptr @records.4, align 8
   %27 = add i32 %26, 8
   store i32 %27, ptr @records.4, align 8
@@ -1765,12 +1765,12 @@ save_state_data.exit:                             ; preds = %._crit_edge.i, %7
   %39 = add i32 %38, 1
   store i32 %39, ptr @records.2, align 8
   %40 = tail call i32 @llvm.umax.i32(i32 %30, i32 512)
-  store i32 %40, ptr @records.3, align 8
+  store i32 %40, ptr @records.3, align 4
   %41 = zext i32 %40 to i64
   %42 = tail call ptr @palloc(i64 noundef %41) #15
   %43 = load ptr, ptr @records.1, align 8
   store ptr %42, ptr %43, align 8
-  %.pre9.i8 = load i32, ptr @records.3, align 8
+  %.pre9.i8 = load i32, ptr @records.3, align 4
   %.phi.trans.insert = getelementptr inbounds i8, ptr %43, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.pre11 = load i32, ptr @records.4, align 8
@@ -1791,7 +1791,7 @@ save_state_data.exit9:                            ; preds = %._crit_edge.i5, %32
   %54 = add i32 %53, %30
   store i32 %54, ptr %50, align 8
   %55 = sub i32 %46, %30
-  store i32 %55, ptr @records.3, align 8
+  store i32 %55, ptr @records.3, align 4
   %56 = add i32 %44, %30
   store i32 %56, ptr @records.4, align 8
   br label %57

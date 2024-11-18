@@ -7223,12 +7223,12 @@ define void @_ZN5image6codecs3ico7decoder10best_entry17hf2af43a31171e0ccE(ptr no
   %.sroa.573.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 13
   %.sroa.573.sroa.7.0.copyload = load i8, ptr %.sroa.573.sroa.7.0..sroa_idx, align 1, !noalias !966
   %40 = icmp eq i8 %.sroa.573.sroa.6.0.copyload, 0
-  %41 = zext i8 %.sroa.573.sroa.6.0.copyload to i32
-  %42 = icmp eq i8 %.sroa.573.sroa.7.0.copyload, 0
-  %43 = zext i8 %.sroa.573.sroa.7.0.copyload to i32
-  %44 = select i1 %40, i32 256, i32 %41
-  %45 = select i1 %42, i32 256, i32 %43
-  %46 = mul nuw nsw i32 %45, %44
+  %41 = icmp eq i8 %.sroa.573.sroa.7.0.copyload, 0
+  %42 = zext i8 %.sroa.573.sroa.6.0.copyload to i32
+  %43 = select i1 %40, i32 256, i32 %42
+  %44 = zext i8 %.sroa.573.sroa.7.0.copyload to i32
+  %45 = select i1 %41, i32 256, i32 %44
+  %46 = mul nuw nsw i32 %45, %43
   %47 = icmp eq i16 %.sroa.573.sroa.5.0.copyload, %.sroa.063.0172
   %48 = icmp ugt i32 %46, %.sroa.564.0171
   %49 = icmp ugt i16 %.sroa.573.sroa.5.0.copyload, %.sroa.063.0172
@@ -21178,10 +21178,10 @@ _ZN5image6codecs4webp3vp813predict_vpred17h50bb02416fd74be3E.exit.thread187.i: ;
   %1841 = add nsw i32 %1840, %1839
   %1842 = icmp slt i32 %1841, 0
   %1843 = call i32 @llvm.umin.i32(i32 %1841, i32 255)
-  %1844 = trunc nuw i32 %1843 to i8
-  %1845 = getelementptr inbounds [0 x i8], ptr %5, i64 0, i64 %1834
-  %1846 = select i1 %1842, i8 0, i8 %1844
-  store i8 %1846, ptr %1845, align 1, !alias.scope !2320, !noalias !2313
+  %1844 = getelementptr inbounds [0 x i8], ptr %5, i64 0, i64 %1834
+  %1845 = trunc nuw i32 %1843 to i8
+  %1846 = select i1 %1842, i8 0, i8 %1845
+  store i8 %1846, ptr %1844, align 1, !alias.scope !2320, !noalias !2313
   %exitcond.not.i70.i = icmp eq i64 %1833, 16
   br i1 %exitcond.not.i70.i, label %.loopexit.split.us.us.i.i, label %1832
 
@@ -21579,10 +21579,10 @@ default.unreachable.i:                            ; preds = %1936
   %1992 = add nsw i32 %1991, %1990
   %1993 = icmp slt i32 %1992, 0
   %1994 = call i32 @llvm.umin.i32(i32 %1992, i32 255)
-  %1995 = trunc nuw i32 %1994 to i8
-  %1996 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %1985
-  %1997 = select i1 %1993, i8 0, i8 %1995
-  store i8 %1997, ptr %1996, align 1, !alias.scope !2369, !noalias !2351
+  %1995 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %1985
+  %1996 = trunc nuw i32 %1994 to i8
+  %1997 = select i1 %1993, i8 0, i8 %1996
+  store i8 %1997, ptr %1995, align 1, !alias.scope !2369, !noalias !2351
   %exitcond.not.i115.i = icmp eq i64 %1984, 8
   br i1 %exitcond.not.i115.i, label %.loopexit.split.us.us.i.i120, label %1983
 
@@ -21615,10 +21615,10 @@ _ZN5image6codecs4webp3vp814predict_tmpred17h8a8322b87a9aad88E.exit.i: ; preds = 
   %2012 = add nsw i32 %2011, %2010
   %2013 = icmp slt i32 %2012, 0
   %2014 = call i32 @llvm.umin.i32(i32 %2012, i32 255)
-  %2015 = trunc nuw i32 %2014 to i8
-  %2016 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %2005
-  %2017 = select i1 %2013, i8 0, i8 %2015
-  store i8 %2017, ptr %2016, align 1, !alias.scope !2372, !noalias !2351
+  %2015 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %2005
+  %2016 = trunc nuw i32 %2014 to i8
+  %2017 = select i1 %2013, i8 0, i8 %2016
+  store i8 %2017, ptr %2015, align 1, !alias.scope !2372, !noalias !2351
   %exitcond.not.i124.i = icmp eq i64 %2004, 8
   br i1 %exitcond.not.i124.i, label %.loopexit.split.us.us.i125.i, label %2003
 
@@ -22469,10 +22469,10 @@ _ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit.loopexit: ; pred
   %115 = sub nsw i32 %112, %114
   %116 = icmp slt i32 %115, 0
   %117 = tail call i32 @llvm.umin.i32(i32 %115, i32 255)
-  %118 = trunc nuw i32 %117 to i8
-  %119 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %104
-  %120 = select i1 %116, i8 0, i8 %118
-  store i8 %120, ptr %119, align 1, !alias.scope !2441
+  %118 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %104
+  %119 = trunc nuw i32 %117 to i8
+  %120 = select i1 %116, i8 0, i8 %119
+  store i8 %120, ptr %118, align 1, !alias.scope !2441
   %exitcond.not.i21 = icmp eq i64 %100, 4
   br i1 %exitcond.not.i21, label %.loopexit.split.us.us.i, label %.split.us.i
 
@@ -24585,10 +24585,10 @@ define void @_ZN5image6codecs4webp3vp814predict_tmpred17h8a8322b87a9aad88E(ptr n
   %35 = sub nsw i32 %32, %34
   %36 = icmp slt i32 %35, 0
   %37 = tail call i32 @llvm.umin.i32(i32 %35, i32 255)
-  %38 = trunc nuw i32 %37 to i8
-  %39 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %24
-  %40 = select i1 %36, i8 0, i8 %38
-  store i8 %40, ptr %39, align 1
+  %38 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %24
+  %39 = trunc nuw i32 %37 to i8
+  %40 = select i1 %36, i8 0, i8 %39
+  store i8 %40, ptr %38, align 1
   %exitcond.not = icmp eq i64 %20, %2
   br i1 %exitcond.not, label %.loopexit.split.us.us, label %.split.us
 

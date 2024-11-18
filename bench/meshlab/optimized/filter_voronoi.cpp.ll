@@ -102229,10 +102229,10 @@ _ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_mmm.exit205: ; preds = %352, %365
   %.0124346 = phi i64 [ %371, %_ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_mmm.exit217 ], [ 0, %.lr.ph347.preheader ]
   %371 = add nuw i64 %.0124346, 1
   %372 = icmp eq i64 %371, %110
-  %373 = shl i64 %371, 1
-  %374 = shl i64 %.0124346, 1
-  %375 = add i64 %374, 3
-  %376 = add i64 %373, 2
+  %373 = shl i64 %.0124346, 1
+  %374 = add i64 %373, 3
+  %375 = shl i64 %371, 1
+  %376 = add i64 %375, 2
   %377 = select i1 %372, i64 2, i64 %376
   %378 = load ptr, ptr %86, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
@@ -102242,8 +102242,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_mmm.exit205: ; preds = %352, %365
 
 380:                                              ; preds = %.lr.ph347
   %381 = getelementptr inbounds %class.CVertexO, ptr %378, i64 %377
-  %382 = getelementptr inbounds %class.CVertexO, ptr %378, i64 %375
-  %383 = getelementptr %class.CVertexO, ptr %378, i64 %374
+  %382 = getelementptr inbounds %class.CVertexO, ptr %378, i64 %374
+  %383 = getelementptr %class.CVertexO, ptr %378, i64 %373
   %384 = getelementptr i8, ptr %383, i64 96
   %385 = getelementptr inbounds i8, ptr %379, i64 8
   store ptr %384, ptr %385, align 8
@@ -102282,7 +102282,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_mmm.exit205: ; preds = %352, %365
   %398 = or disjoint i64 %377, 1
   %399 = getelementptr inbounds %class.CVertexO, ptr %395, i64 %377
   %400 = getelementptr inbounds %class.CVertexO, ptr %395, i64 %398
-  %401 = getelementptr inbounds %class.CVertexO, ptr %395, i64 %375
+  %401 = getelementptr inbounds %class.CVertexO, ptr %395, i64 %374
   %402 = getelementptr inbounds i8, ptr %396, i64 8
   store ptr %401, ptr %402, align 8
   %403 = getelementptr inbounds i8, ptr %396, i64 16

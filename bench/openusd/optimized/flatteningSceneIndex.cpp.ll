@@ -2392,8 +2392,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdFlatteningSceneIndexC2ERKN
 
 .preheader.i.i.i:                                 ; preds = %.preheader14.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %19 = ptrtoint ptr %.ptr12.i.i.i to i64
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4408
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4408
+  %20 = ptrtoint ptr %.ptr12.i.i.i to i64
   br label %23
 
 .preheader14.i.i.i:                               ; preds = %.preheader14.i.i.i, %3
@@ -2409,8 +2409,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdFlatteningSceneIndexC2ERKN
 23:                                               ; preds = %23, %.preheader.i.i.i
   %.01016.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %27, %23 ]
   %24 = icmp eq i64 %.01016.i.i.i, 0
-  %25 = getelementptr inbounds [64 x %"struct.std::atomic.47"], ptr %20, i64 0, i64 %.01016.i.i.i
-  %26 = select i1 %24, i64 %19, i64 0
+  %25 = getelementptr inbounds [64 x %"struct.std::atomic.47"], ptr %19, i64 0, i64 %.01016.i.i.i
+  %26 = select i1 %24, i64 %20, i64 0
   store atomic i64 %26, ptr %25 monotonic, align 8
   %27 = add nuw nsw i64 %.01016.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %27, 64

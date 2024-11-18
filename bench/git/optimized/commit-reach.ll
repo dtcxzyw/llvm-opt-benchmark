@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [14 x i8] c"a from object\00", align 1
 @bit_arrays.0 = internal unnamed_addr global i1 false, align 8
-@bit_arrays.1 = internal unnamed_addr global i1 false, align 8
+@bit_arrays.1 = internal unnamed_addr global i1 false, align 4
 @bit_arrays.2 = internal unnamed_addr global i32 0, align 8
 @bit_arrays.3 = internal unnamed_addr global ptr null, align 8
 @__const.paint_down_to_common.queue = private unnamed_addr constant %struct.prio_queue { ptr @compare_commits_by_gen_then_commit_date, i32 0, ptr null, i32 0, i32 0, ptr null }, align 8
@@ -2341,7 +2341,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   tail call void @ensure_generations_valid(ptr noundef %r, ptr noundef %commits, i64 noundef %commits_nr) #11
-  store i1 true, ptr @bit_arrays.1, align 8
+  store i1 true, ptr @bit_arrays.1, align 4
   store i1 true, ptr @bit_arrays.0, align 8
   store i32 0, ptr @bit_arrays.2, align 8
   store ptr null, ptr @bit_arrays.3, align 8
@@ -2725,7 +2725,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %entry
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %.b = load i1, ptr @bit_arrays.0, align 8
   %conv22.i.i = select i1 %.b, i64 65532, i64 0
-  %.b2 = load i1, ptr @bit_arrays.1, align 8
+  %.b2 = load i1, ptr @bit_arrays.1, align 4
   %mul.i.i = select i1 %.b2, i64 8, i64 0
   %call24.i.i = tail call ptr @xcalloc(i64 noundef %conv22.i.i, i64 noundef %mul.i.i) #11
   %6 = load ptr, ptr @bit_arrays.3, align 8
@@ -2735,7 +2735,7 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
 
 bit_arrays_at.exit:                               ; preds = %if.end12.i.i, %if.end20.i.i
   %7 = phi ptr [ %5, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
-  %.b3 = load i1, ptr @bit_arrays.1, align 8
+  %.b3 = load i1, ptr @bit_arrays.1, align 4
   %8 = zext nneg i32 %rem.i.i to i64
   %idxprom34.i.i = select i1 %.b3, i64 %8, i64 0
   %arrayidx35.i.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom34.i.i

@@ -4987,17 +4987,16 @@ invoke.cont4:                                     ; preds = %if.end.i7.i, %_ZNK6
   %umul.i = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %retval.0.i.i11, i32 %retval.0.i9.i)
   %cmp.i12 = extractvalue { i32, i1 } %umul.i, 1
   %umul.value.i = extractvalue { i32, i1 } %umul.i, 0
-  %10 = zext i32 %umul.value.i to i64
-  %11 = load ptr, ptr %x_cost_vector, align 8
-  %cmp.i13 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %x_cost_vector, align 8
+  %cmp.i13 = icmp eq ptr %10, null
   br i1 %cmp.i13, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %invoke.cont4
-  %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 -4
-  %12 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %11, i64 -8
-  %13 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %12, %13
+  %arrayidx.i = getelementptr inbounds i8, ptr %10, i64 -4
+  %11 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %10, i64 -8
+  %12 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %11, %12
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorISt4pairIjjELb0EjE9push_backEOS1_.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %invoke.cont4
@@ -5011,11 +5010,12 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %_ZN6vectorISt4pairIjjELb0EjE9push_backEOS1_.exit
 
 _ZN6vectorISt4pairIjjELb0EjE9push_backEOS1_.exit: ; preds = %lor.lhs.false.i, %.noexc
-  %14 = phi i32 [ %.pre1.i, %.noexc ], [ %12, %lor.lhs.false.i ]
-  %15 = phi ptr [ %.pre.i, %.noexc ], [ %11, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %14 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair.83", ptr %15, i64 %idx.ext.i
-  %16 = shl nuw i64 %10, 32
+  %13 = phi i32 [ %.pre1.i, %.noexc ], [ %11, %lor.lhs.false.i ]
+  %14 = phi ptr [ %.pre.i, %.noexc ], [ %10, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %13 to i64
+  %add.ptr.i = getelementptr inbounds %"struct.std::pair.83", ptr %14, i64 %idx.ext.i
+  %15 = zext i32 %umul.value.i to i64
+  %16 = shl nuw i64 %15, 32
   %ref.tmp.sroa.2.0.insert.shift = select i1 %cmp.i12, i64 -4294967296, i64 %16
   %ref.tmp.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp.sroa.2.0.insert.shift, %indvars.iv
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %add.ptr.i, align 4

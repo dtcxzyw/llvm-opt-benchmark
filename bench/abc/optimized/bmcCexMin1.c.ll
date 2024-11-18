@@ -1887,11 +1887,11 @@ Saig_ObjIsLo.exit:                                ; preds = %10
 
 Saig_ObjRegId.exit:                               ; preds = %Saig_ObjIsLo.exit
   %47 = sub nsw i32 %.val3.i102, %.val4.i103
-  %48 = shl nsw i32 %47, 1
-  %49 = getelementptr inbounds i8, ptr %.tr118125, i64 40
-  %50 = load i32, ptr %49, align 8
-  %51 = and i32 %50, 1
-  %52 = or disjoint i32 %48, %51
+  %48 = getelementptr inbounds i8, ptr %.tr118125, i64 40
+  %49 = load i32, ptr %48, align 8
+  %50 = and i32 %49, 1
+  %51 = shl nsw i32 %47, 1
+  %52 = or disjoint i32 %51, %50
   %53 = getelementptr inbounds i8, ptr %2, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = load i32, ptr %2, align 8

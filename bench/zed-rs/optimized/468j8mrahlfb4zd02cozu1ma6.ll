@@ -130765,14 +130765,14 @@ define hidden void @_ZN6editor7element15ScrollbarLayout23marker_quads_for_ranges
 .noexc36:                                         ; preds = %.noexc35
   %.not.i.i.i.i = icmp ult i64 %.sroa.05.0.copyload.i, %.sroa.46.0.copyload.i
   %.not2.i.i.i.i = icmp ult i32 %.sroa.57.0.copyload.i, %.sroa.68.0.copyload.i
-  %81 = select i1 %.not2.i.i.i.i, i64 1, i64 2
-  %82 = icmp ne ptr %.val1.i, null
-  call void @llvm.assume(i1 %82)
-  %83 = load ptr, ptr %.val1.i, align 8, !noalias !34133, !nonnull !4, !noundef !4
-  %84 = select i1 %.not.i.i.i.i, i64 %81, i64 0
+  %81 = icmp ne ptr %.val1.i, null
+  call void @llvm.assume(i1 %81)
+  %82 = load ptr, ptr %.val1.i, align 8, !noalias !34133, !nonnull !4, !noundef !4
+  %83 = select i1 %.not2.i.i.i.i, i64 1, i64 2
+  %84 = select i1 %.not.i.i.i.i, i64 %83, i64 0
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6editor7element15ScrollbarLayout23marker_quads_for_ranges17hfaa2d8ea945f0b88E.420, i64 0, i64 %84
   %switch.load = load i64, ptr %switch.gep, align 8
-  %85 = getelementptr inbounds i8, ptr %83, i64 %switch.load
+  %85 = getelementptr inbounds i8, ptr %82, i64 %switch.load
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0141)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0141, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false)
   %86 = extractvalue { i32, i32 } %76, 0
@@ -131027,14 +131027,14 @@ define hidden void @_ZN6editor7element15ScrollbarLayout23marker_quads_for_ranges
 .noexc47:                                         ; preds = %.noexc46
   %.not.i.i.i.i.i.i.i = icmp ult i64 %.sroa.05.0.copyload.i.i.i.i, %.sroa.46.0.copyload.i.i.i.i
   %.not2.i.i.i.i.i.i.i = icmp ult i32 %.sroa.57.0.copyload.i.i.i.i, %.sroa.68.0.copyload.i.i.i.i
-  %152 = select i1 %.not2.i.i.i.i.i.i.i, i64 1, i64 2
-  %153 = icmp ne ptr %.val1.i.i.i.i, null
-  call void @llvm.assume(i1 %153)
-  %154 = load ptr, ptr %.val1.i.i.i.i, align 8, !noalias !34197, !nonnull !4, !noundef !4
-  %155 = select i1 %.not.i.i.i.i.i.i.i, i64 %152, i64 0
+  %152 = icmp ne ptr %.val1.i.i.i.i, null
+  call void @llvm.assume(i1 %152)
+  %153 = load ptr, ptr %.val1.i.i.i.i, align 8, !noalias !34197, !nonnull !4, !noundef !4
+  %154 = select i1 %.not2.i.i.i.i.i.i.i, i64 1, i64 2
+  %155 = select i1 %.not.i.i.i.i.i.i.i, i64 %154, i64 0
   %switch.gep198 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6editor7element15ScrollbarLayout23marker_quads_for_ranges17hfaa2d8ea945f0b88E.420, i64 0, i64 %155
   %switch.load199 = load i64, ptr %switch.gep198, align 8
-  %156 = getelementptr inbounds i8, ptr %154, i64 %switch.load199
+  %156 = getelementptr inbounds i8, ptr %153, i64 %switch.load199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false), !noalias !34168
   %157 = extractvalue { i32, i32 } %147, 0
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21), !noalias !34182

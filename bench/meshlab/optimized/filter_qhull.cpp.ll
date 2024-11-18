@@ -6520,12 +6520,12 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %.noexc243, %378, %2
   %520 = load ptr, ptr %98, align 8
   %521 = add nuw nsw i64 %indvars.iv941, 1
   %.cmp.not = icmp eq i64 %indvars.iv941, 2
-  %522 = and i64 %521, 4294967295
-  %523 = getelementptr inbounds i8, ptr %.0186791, i64 8
-  %524 = select i1 %.cmp.not, i64 0, i64 %522
-  %525 = getelementptr inbounds [3 x ptr], ptr %523, i64 0, i64 %524
+  %522 = getelementptr inbounds i8, ptr %.0186791, i64 8
+  %523 = and i64 %521, 4294967295
+  %524 = select i1 %.cmp.not, i64 0, i64 %523
+  %525 = getelementptr inbounds [3 x ptr], ptr %522, i64 0, i64 %524
   %526 = load ptr, ptr %525, align 8
-  %527 = getelementptr inbounds [3 x ptr], ptr %523, i64 0, i64 %indvars.iv941
+  %527 = getelementptr inbounds [3 x ptr], ptr %522, i64 0, i64 %indvars.iv941
   %528 = load ptr, ptr %527, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %5, i8 0, i64 57, i1 false)

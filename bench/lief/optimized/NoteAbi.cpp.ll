@@ -702,48 +702,48 @@ _ZNK4LIEF3ELF7NoteAbi7versionEv.exit:             ; preds = %7, %15
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   %16 = and i64 %.sroa.3.0.i, 4294967296
   %.not = icmp eq i64 %16, 0
-  %17 = and i64 %.sroa.3.0.i, 4294967295
   %.sroa.02.0.i.sroa.speculated = select i1 %.not, i64 0, i64 %.sroa.05.sroa.0.0.insert.insert.i
   %.sroa.239.0.extract.shift = lshr i64 %.sroa.02.0.i.sroa.speculated, 32
-  %18 = tail call i64 @_ZNK4LIEF3ELF4Note7read_atIjEEN2tl8expectedIT_11lief_errorsEEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef 0)
-  %.sroa.0.0.extract.trunc.i = trunc i64 %18 to i32
-  %19 = and i64 %18, 4294967296
-  %.not.i34 = icmp eq i64 %19, 0
-  br i1 %.not.i34, label %_ZN4LIEF12to_string_orINS_3ELF7NoteAbi3ABIEEEPKcN2tl8expectedIT_11lief_errorsEES5_.exit, label %20
+  %17 = tail call i64 @_ZNK4LIEF3ELF4Note7read_atIjEEN2tl8expectedIT_11lief_errorsEEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef 0)
+  %.sroa.0.0.extract.trunc.i = trunc i64 %17 to i32
+  %18 = and i64 %17, 4294967296
+  %.not.i34 = icmp eq i64 %18, 0
+  br i1 %.not.i34, label %_ZN4LIEF12to_string_orINS_3ELF7NoteAbi3ABIEEEPKcN2tl8expectedIT_11lief_errorsEES5_.exit, label %19
 
-20:                                               ; preds = %_ZNK4LIEF3ELF7NoteAbi7versionEv.exit
+19:                                               ; preds = %_ZNK4LIEF3ELF7NoteAbi7versionEv.exit
   %.not.i.i.i.i.i.i.i.i.i = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 3
   %.add.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 72, i64 8
   %.add.i.i.sroa.sel.sroa.sel.v.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 88, i64 24
   %.add.i.i.sroa.sel.sroa.sel.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_7NoteAbi3ABIE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v.i.i
-  %21 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %21, %.sroa.0.0.extract.trunc.i
+  %20 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel.i.i, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %20, %.sroa.0.0.extract.trunc.i
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
   %.add12.i.i.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i.i.i, %.add.i.i.i.i
   %.ptr15.i.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_7NoteAbi3ABIE.enums2str, i64 %.add12.i.i.i.i
-  %22 = load i32, ptr %.ptr15.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %22, %.sroa.0.0.extract.trunc.i
+  %21 = load i32, ptr %.ptr15.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %21, %.sroa.0.0.extract.trunc.i
   %.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.add13.i.i.i.i = or disjoint i64 %.add12.i.i.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.add13.i.i.i.i, 120
-  br i1 %.not.i.i.i.i, label %_ZN4LIEF12to_string_orINS_3ELF7NoteAbi3ABIEEEPKcN2tl8expectedIT_11lief_errorsEES5_.exit, label %23
+  br i1 %.not.i.i.i.i, label %_ZN4LIEF12to_string_orINS_3ELF7NoteAbi3ABIEEEPKcN2tl8expectedIT_11lief_errorsEES5_.exit, label %22
 
-23:                                               ; preds = %20
+22:                                               ; preds = %19
   %.ptr16.i.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_7NoteAbi3ABIE.enums2str, i64 %.add13.i.i.i.i
-  %24 = load i32, ptr %.ptr16.i.i.i.i, align 8
-  %.not17.i.i.i.i = icmp sgt i32 %24, %.sroa.0.0.extract.trunc.i
-  br i1 %.not17.i.i.i.i, label %_ZN4LIEF12to_string_orINS_3ELF7NoteAbi3ABIEEEPKcN2tl8expectedIT_11lief_errorsEES5_.exit, label %25
+  %23 = load i32, ptr %.ptr16.i.i.i.i, align 8
+  %.not17.i.i.i.i = icmp sgt i32 %23, %.sroa.0.0.extract.trunc.i
+  br i1 %.not17.i.i.i.i, label %_ZN4LIEF12to_string_orINS_3ELF7NoteAbi3ABIEEEPKcN2tl8expectedIT_11lief_errorsEES5_.exit, label %24
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.ptr16.i.i.i.i, i64 8
-  %27 = load ptr, ptr %26, align 8
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %.ptr16.i.i.i.i, i64 8
+  %26 = load ptr, ptr %25, align 8
   br label %_ZN4LIEF12to_string_orINS_3ELF7NoteAbi3ABIEEEPKcN2tl8expectedIT_11lief_errorsEES5_.exit
 
-_ZN4LIEF12to_string_orINS_3ELF7NoteAbi3ABIEEEPKcN2tl8expectedIT_11lief_errorsEES5_.exit: ; preds = %_ZNK4LIEF3ELF7NoteAbi7versionEv.exit, %20, %23, %25
-  %28 = phi ptr [ @.str, %_ZNK4LIEF3ELF7NoteAbi7versionEv.exit ], [ %27, %25 ], [ @.str.9, %20 ], [ @.str.9, %23 ]
+_ZN4LIEF12to_string_orINS_3ELF7NoteAbi3ABIEEEPKcN2tl8expectedIT_11lief_errorsEES5_.exit: ; preds = %_ZNK4LIEF3ELF7NoteAbi7versionEv.exit, %19, %22, %24
+  %27 = phi ptr [ @.str, %_ZNK4LIEF3ELF7NoteAbi7versionEv.exit ], [ %26, %24 ], [ @.str.9, %19 ], [ @.str.9, %22 ]
   %.sroa.073.0.insert.ext.i = and i64 %.sroa.02.0.i.sroa.speculated, 4294967295
-  %.sroa.077.0.insert.ext.i = select i1 %.not, i64 0, i64 %17
-  %29 = ptrtoint ptr %28 to i64
+  %28 = and i64 %.sroa.3.0.i, 4294967295
+  %.sroa.077.0.insert.ext.i = select i1 %.not, i64 0, i64 %28
+  %29 = ptrtoint ptr %27 to i64
   store i64 %.sroa.073.0.insert.ext.i, ptr %4, align 16, !alias.scope !6
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %.sroa.239.0.extract.shift, ptr %30, align 16, !alias.scope !6

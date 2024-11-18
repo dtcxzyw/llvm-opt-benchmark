@@ -1631,9 +1631,9 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   %.0250.lcssa = phi i32 [ 0, %31 ], [ %spec.select, %.lr.ph ]
   %.0248.lcssa = phi i32 [ 0, %31 ], [ %.1249, %.lr.ph ]
   %.0235.lcssa = phi i32 [ 0, %31 ], [ %41, %.lr.ph ]
-  %48 = add nsw i32 %.0250.lcssa, 1
-  %49 = sext i32 %48 to i64
-  %50 = shl nsw i64 %49, 3
+  %48 = add nuw nsw i32 %.0250.lcssa, 1
+  %49 = zext nneg i32 %48 to i64
+  %50 = shl nuw nsw i64 %49, 3
   %51 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %50, i32 noundef 561, ptr noundef nonnull @.str) #6
   %52 = sext i32 %14 to i64
   %53 = shl nsw i64 %52, 2
@@ -1641,37 +1641,37 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   br i1 %38, label %.lr.ph290.preheader, label %._crit_edge291
 
 .lr.ph290.preheader:                              ; preds = %._crit_edge
-  %wide.trip.count328 = zext nneg i32 %14 to i64
+  %wide.trip.count329 = zext nneg i32 %14 to i64
   br label %.lr.ph290
 
 .lr.ph290:                                        ; preds = %.lr.ph290.preheader, %96
-  %indvars.iv325 = phi i64 [ 0, %.lr.ph290.preheader ], [ %indvars.iv.next326, %96 ]
+  %indvars.iv326 = phi i64 [ 0, %.lr.ph290.preheader ], [ %indvars.iv.next327, %96 ]
   %.0237287 = phi i32 [ 0, %.lr.ph290.preheader ], [ %.1238, %96 ]
-  %55 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv325
+  %55 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv326
   %56 = load i32, ptr %55, align 4
   %.not272 = icmp eq i32 %56, 0
   br i1 %.not272, label %96, label %57
 
 57:                                               ; preds = %.lr.ph290
-  %58 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv325
+  %58 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv326
   %59 = load i32, ptr %58, align 4
   %.not273 = icmp eq i32 %59, 0
   br i1 %.not273, label %78, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv325
+  %61 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv326
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv325
+  %63 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv326
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %62, -1
   %66 = add i32 %65, %64
-  %67 = getelementptr inbounds %struct.ADIOI_Access, ptr %22, i64 %indvars.iv325, i32 1
+  %67 = getelementptr inbounds %struct.ADIOI_Access, ptr %22, i64 %indvars.iv326, i32 1
   %68 = load ptr, ptr %67, align 8
   %69 = sext i32 %66 to i64
   %70 = getelementptr inbounds i64, ptr %68, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
-  %73 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv325
+  %73 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv326
   store i32 %72, ptr %73, align 4
   %74 = load i32, ptr %58, align 4
   %75 = sext i32 %74 to i64
@@ -1681,12 +1681,12 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   br label %78
 
 78:                                               ; preds = %60, %57
-  %79 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv325
+  %79 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv326
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds %struct.ADIOI_Access, ptr %22, i64 %indvars.iv325
+  %81 = getelementptr inbounds %struct.ADIOI_Access, ptr %22, i64 %indvars.iv326
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv325
+  %84 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv326
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds i64, ptr %83, i64 %86
@@ -1702,9 +1702,9 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 
 96:                                               ; preds = %.lr.ph290, %78
   %.1238 = phi i32 [ %95, %78 ], [ %.0237287, %.lr.ph290 ]
-  %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
-  %exitcond329.not = icmp eq i64 %indvars.iv.next326, %wide.trip.count328
-  br i1 %exitcond329.not, label %._crit_edge291, label %.lr.ph290, !llvm.loop !31
+  %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
+  %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
+  br i1 %exitcond330.not, label %._crit_edge291, label %.lr.ph290, !llvm.loop !31
 
 ._crit_edge291:                                   ; preds = %96, %._crit_edge
   %.not = icmp eq i32 %.0235.lcssa, 0
@@ -1725,26 +1725,26 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   br i1 %38, label %.lr.ph294.preheader, label %._crit_edge295
 
 .lr.ph294.preheader:                              ; preds = %103
-  %wide.trip.count333 = zext nneg i32 %14 to i64
+  %wide.trip.count334 = zext nneg i32 %14 to i64
   br label %.lr.ph294
 
 .lr.ph294:                                        ; preds = %.lr.ph294.preheader, %120
-  %indvars.iv330 = phi i64 [ 0, %.lr.ph294.preheader ], [ %indvars.iv.next331, %120 ]
-  %104 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv330
+  %indvars.iv331 = phi i64 [ 0, %.lr.ph294.preheader ], [ %indvars.iv.next332, %120 ]
+  %104 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv331
   %105 = load i32, ptr %104, align 4
   %.not271 = icmp eq i32 %105, 0
   br i1 %.not271, label %120, label %106
 
 106:                                              ; preds = %.lr.ph294
-  %107 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv330
+  %107 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv331
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv330
+  %109 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv331
   %110 = load i32, ptr %109, align 4
   %111 = add nsw i32 %110, %108
-  %112 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv330
+  %112 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv331
   %113 = load i32, ptr %112, align 4
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds %struct.ADIOI_Access, ptr %22, i64 %indvars.iv330, i32 1
+  %115 = getelementptr inbounds %struct.ADIOI_Access, ptr %22, i64 %indvars.iv331, i32 1
   %116 = load ptr, ptr %115, align 8
   %117 = sext i32 %111 to i64
   %118 = getelementptr i64, ptr %116, i64 %117
@@ -1753,9 +1753,9 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   br label %120
 
 120:                                              ; preds = %.lr.ph294, %106
-  %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
-  %exitcond334.not = icmp eq i64 %indvars.iv.next331, %wide.trip.count333
-  br i1 %exitcond334.not, label %._crit_edge295, label %.lr.ph294, !llvm.loop !32
+  %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
+  %exitcond335.not = icmp eq i64 %indvars.iv.next332, %wide.trip.count334
+  br i1 %exitcond335.not, label %._crit_edge295, label %.lr.ph294, !llvm.loop !32
 
 ._crit_edge295:                                   ; preds = %120, %103
   tail call void @ADIOI_Free_fn(ptr noundef %54, i32 noundef 603, ptr noundef nonnull @.str) #6
@@ -1769,17 +1769,17 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 
 .preheader279:                                    ; preds = %121
   %123 = icmp sgt i32 %.0235.lcssa, 1
-  %.pre370 = load i32, ptr %.0236, align 4
+  %.pre371 = load i32, ptr %.0236, align 4
   br i1 %123, label %.lr.ph297.preheader, label %.critedge
 
 .lr.ph297.preheader:                              ; preds = %.preheader279
-  %wide.trip.count338 = zext nneg i32 %.0235.lcssa to i64
+  %wide.trip.count339 = zext nneg i32 %.0235.lcssa to i64
   br label %.lr.ph297
 
 .lr.ph297:                                        ; preds = %.lr.ph297.preheader, %139
-  %124 = phi i32 [ %.pre370, %.lr.ph297.preheader ], [ %140, %139 ]
-  %indvars.iv335 = phi i64 [ 1, %.lr.ph297.preheader ], [ %indvars.iv.next336, %139 ]
-  %125 = getelementptr inbounds i64, ptr %.0234, i64 %indvars.iv335
+  %124 = phi i32 [ %.pre371, %.lr.ph297.preheader ], [ %140, %139 ]
+  %indvars.iv336 = phi i64 [ 1, %.lr.ph297.preheader ], [ %indvars.iv.next337, %139 ]
+  %125 = getelementptr inbounds i64, ptr %.0234, i64 %indvars.iv336
   %126 = load i64, ptr %125, align 8
   %127 = load i64, ptr %.0234, align 8
   %128 = sext i32 %124 to i64
@@ -1789,7 +1789,7 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 
 130:                                              ; preds = %.lr.ph297
   %131 = trunc i64 %126 to i32
-  %132 = getelementptr inbounds i32, ptr %.0236, i64 %indvars.iv335
+  %132 = getelementptr inbounds i32, ptr %.0236, i64 %indvars.iv336
   %133 = load i32, ptr %132, align 4
   %134 = trunc i64 %127 to i32
   %135 = sub i32 %131, %134
@@ -1803,12 +1803,12 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 
 139:                                              ; preds = %138, %130
   %140 = phi i32 [ %136, %138 ], [ %124, %130 ]
-  %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
-  %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
-  br i1 %exitcond339.not, label %.critedge, label %.lr.ph297, !llvm.loop !33
+  %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
+  %exitcond340.not = icmp eq i64 %indvars.iv.next337, %wide.trip.count339
+  br i1 %exitcond340.not, label %.critedge, label %.lr.ph297, !llvm.loop !33
 
 .critedge:                                        ; preds = %139, %.preheader279
-  %141 = phi i32 [ %.pre370, %.preheader279 ], [ %140, %139 ]
+  %141 = phi i32 [ %.pre371, %.preheader279 ], [ %140, %139 ]
   %.not259 = icmp eq i32 %9, %141
   br i1 %.not259, label %142, label %.sink.split
 
@@ -1843,7 +1843,7 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 152:                                              ; preds = %146
   %153 = call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef %151, i32 noundef 0, ptr noundef nonnull @ADIOI_W_Exchange_data.myname, i32 noundef 642, i32 noundef 35, ptr noundef nonnull @.str.3, ptr noundef null) #6
   store i32 %153, ptr %30, align 4
-  br label %250
+  br label %249
 
 154:                                              ; preds = %144, %146, %143
   %155 = getelementptr inbounds i8, ptr %0, i64 216
@@ -1852,29 +1852,29 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   br i1 %.not263, label %162, label %157
 
 157:                                              ; preds = %154
-  %158 = add nsw i32 %.0248.lcssa, 1
-  %159 = sext i32 %158 to i64
-  %160 = shl nsw i64 %159, 3
+  %158 = add nuw nsw i32 %.0248.lcssa, 1
+  %159 = zext nneg i32 %158 to i64
+  %160 = shl nuw nsw i64 %159, 3
   %161 = call ptr @ADIOI_Malloc_fn(i64 noundef %160, i32 noundef 652, ptr noundef nonnull @.str) #6
   br label %185
 
 162:                                              ; preds = %154
-  %163 = add nsw i32 %48, %.0248.lcssa
-  %164 = sext i32 %163 to i64
-  %165 = shl nsw i64 %164, 3
+  %163 = add nuw nsw i32 %48, %.0248.lcssa
+  %164 = zext nneg i32 %163 to i64
+  %165 = shl nuw nsw i64 %164, 3
   %166 = call ptr @ADIOI_Malloc_fn(i64 noundef %165, i32 noundef 656, ptr noundef nonnull @.str) #6
   br i1 %38, label %.lr.ph301, label %._crit_edge302
 
 .lr.ph301:                                        ; preds = %162
   %167 = mul nsw i32 %27, 100
   %168 = add i32 %167, %15
-  %wide.trip.count343 = zext nneg i32 %14 to i64
+  %wide.trip.count344 = zext nneg i32 %14 to i64
   br label %169
 
 169:                                              ; preds = %.lr.ph301, %182
-  %indvars.iv340 = phi i64 [ 0, %.lr.ph301 ], [ %indvars.iv.next341, %182 ]
+  %indvars.iv341 = phi i64 [ 0, %.lr.ph301 ], [ %indvars.iv.next342, %182 ]
   %.2239298 = phi i32 [ 0, %.lr.ph301 ], [ %.3240, %182 ]
-  %170 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv340
+  %170 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv341
   %171 = load i32, ptr %170, align 4
   %.not264 = icmp eq i32 %171, 0
   br i1 %.not264, label %182, label %172
@@ -1883,7 +1883,7 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   %173 = sext i32 %.2239298 to i64
   %174 = getelementptr inbounds ptr, ptr %51, i64 %173
   %175 = load ptr, ptr %174, align 8
-  %176 = trunc nuw nsw i64 %indvars.iv340 to i32
+  %176 = trunc nuw nsw i64 %indvars.iv341 to i32
   %177 = add i32 %168, %176
   %178 = load ptr, ptr %35, align 8
   %179 = getelementptr inbounds ptr, ptr %166, i64 %173
@@ -1893,12 +1893,12 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 
 182:                                              ; preds = %169, %172
   %.3240 = phi i32 [ %181, %172 ], [ %.2239298, %169 ]
-  %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
-  %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
-  br i1 %exitcond344.not, label %._crit_edge302, label %169, !llvm.loop !34
+  %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
+  %exitcond345.not = icmp eq i64 %indvars.iv.next342, %wide.trip.count344
+  br i1 %exitcond345.not, label %._crit_edge302, label %169, !llvm.loop !34
 
 ._crit_edge302:                                   ; preds = %182, %162
-  %183 = sext i32 %.0250.lcssa to i64
+  %183 = zext nneg i32 %.0250.lcssa to i64
   %184 = getelementptr inbounds ptr, ptr %166, i64 %183
   br label %185
 
@@ -1914,22 +1914,22 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 .lr.ph305:                                        ; preds = %.preheader277
   %186 = mul nsw i32 %27, 100
   %187 = add i32 %186, %15
-  %wide.trip.count348 = zext nneg i32 %14 to i64
+  %wide.trip.count349 = zext nneg i32 %14 to i64
   br label %188
 
 188:                                              ; preds = %.lr.ph305, %206
-  %indvars.iv345 = phi i64 [ 0, %.lr.ph305 ], [ %indvars.iv.next346, %206 ]
+  %indvars.iv346 = phi i64 [ 0, %.lr.ph305 ], [ %indvars.iv.next347, %206 ]
   %.4241303 = phi i32 [ 0, %.lr.ph305 ], [ %.5242, %206 ]
-  %189 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv345
+  %189 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv346
   %190 = load i32, ptr %189, align 4
   %.not270 = icmp eq i32 %190, 0
   br i1 %.not270, label %206, label %191
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv345
+  %192 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv346
   %193 = load i64, ptr %192, align 8
   %194 = getelementptr inbounds i8, ptr %1, i64 %193
-  %195 = trunc nuw nsw i64 %indvars.iv345 to i32
+  %195 = trunc nuw nsw i64 %indvars.iv346 to i32
   %196 = add i32 %187, %195
   %197 = load ptr, ptr %35, align 8
   %198 = sext i32 %.4241303 to i64
@@ -1945,9 +1945,9 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 
 206:                                              ; preds = %188, %191
   %.5242 = phi i32 [ %201, %191 ], [ %.4241303, %188 ]
-  %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
-  %exitcond349.not = icmp eq i64 %indvars.iv.next346, %wide.trip.count348
-  br i1 %exitcond349.not, label %.loopexit278, label %188, !llvm.loop !35
+  %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
+  %exitcond350.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count349
+  br i1 %exitcond350.not, label %.loopexit278, label %188, !llvm.loop !35
 
 207:                                              ; preds = %185
   %.not266 = icmp eq i32 %.0248.lcssa, 0
@@ -1957,19 +1957,19 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   br i1 %38, label %.lr.ph308.preheader, label %._crit_edge309
 
 .lr.ph308.preheader:                              ; preds = %.preheader276
-  %wide.trip.count353 = zext nneg i32 %14 to i64
+  %wide.trip.count354 = zext nneg i32 %14 to i64
   br label %.lr.ph308
 
 .lr.ph308:                                        ; preds = %.lr.ph308.preheader, %.lr.ph308
-  %indvars.iv350 = phi i64 [ 0, %.lr.ph308.preheader ], [ %indvars.iv.next351, %.lr.ph308 ]
+  %indvars.iv351 = phi i64 [ 0, %.lr.ph308.preheader ], [ %indvars.iv.next352, %.lr.ph308 ]
   %.0307 = phi i64 [ 0, %.lr.ph308.preheader ], [ %211, %.lr.ph308 ]
-  %208 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv350
+  %208 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv351
   %209 = load i32, ptr %208, align 4
   %210 = sext i32 %209 to i64
   %211 = add i64 %.0307, %210
-  %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
-  %exitcond354.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count353
-  br i1 %exitcond354.not, label %._crit_edge309, label %.lr.ph308, !llvm.loop !36
+  %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
+  %exitcond355.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count354
+  br i1 %exitcond355.not, label %._crit_edge309, label %.lr.ph308, !llvm.loop !36
 
 ._crit_edge309:                                   ; preds = %.lr.ph308, %.preheader276
   %.0.lcssa = phi i64 [ 0, %.preheader276 ], [ %211, %.lr.ph308 ]
@@ -1981,22 +1981,22 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   br i1 %215, label %.lr.ph313.preheader, label %._crit_edge314
 
 .lr.ph313.preheader:                              ; preds = %._crit_edge309
-  %wide.trip.count358 = zext nneg i32 %14 to i64
+  %wide.trip.count359 = zext nneg i32 %14 to i64
   %invariant.gep = getelementptr i8, ptr %6, i64 -4
   br label %.lr.ph313
 
 .lr.ph313:                                        ; preds = %.lr.ph313.preheader, %.lr.ph313
   %216 = phi ptr [ %214, %.lr.ph313.preheader ], [ %219, %.lr.ph313 ]
-  %indvars.iv355 = phi i64 [ 1, %.lr.ph313.preheader ], [ %indvars.iv.next356, %.lr.ph313 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv355
+  %indvars.iv356 = phi i64 [ 1, %.lr.ph313.preheader ], [ %indvars.iv.next357, %.lr.ph313 ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv356
   %217 = load i32, ptr %gep, align 4
   %218 = sext i32 %217 to i64
   %219 = getelementptr inbounds i8, ptr %216, i64 %218
-  %220 = getelementptr inbounds ptr, ptr %213, i64 %indvars.iv355
+  %220 = getelementptr inbounds ptr, ptr %213, i64 %indvars.iv356
   store ptr %219, ptr %220, align 8
-  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
-  %exitcond359.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count358
-  br i1 %exitcond359.not, label %._crit_edge314, label %.lr.ph313, !llvm.loop !37
+  %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
+  %exitcond360.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count359
+  br i1 %exitcond360.not, label %._crit_edge314, label %.lr.ph313, !llvm.loop !37
 
 ._crit_edge314:                                   ; preds = %.lr.ph313, %._crit_edge309
   call void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %213, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %.0245, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %17, i64 noundef %18, i64 noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %27, i64 noundef %28)
@@ -2012,13 +2012,13 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 .lr.ph317:                                        ; preds = %.loopexit278
   %222 = mul nsw i32 %27, 100
   %223 = add i32 %222, %15
-  %wide.trip.count363 = zext nneg i32 %14 to i64
+  %wide.trip.count364 = zext nneg i32 %14 to i64
   br label %224
 
 224:                                              ; preds = %.lr.ph317, %236
-  %indvars.iv360 = phi i64 [ 0, %.lr.ph317 ], [ %indvars.iv.next361, %236 ]
+  %indvars.iv361 = phi i64 [ 0, %.lr.ph317 ], [ %indvars.iv.next362, %236 ]
   %.6243315 = phi i32 [ 0, %.lr.ph317 ], [ %.7244, %236 ]
-  %225 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv360
+  %225 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv361
   %226 = load i32, ptr %225, align 4
   %.not269 = icmp eq i32 %226, 0
   br i1 %.not269, label %236, label %227
@@ -2027,7 +2027,7 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   %228 = sext i32 %.6243315 to i64
   %229 = getelementptr inbounds ptr, ptr %51, i64 %228
   %230 = load ptr, ptr %229, align 8
-  %231 = trunc nuw nsw i64 %indvars.iv360 to i32
+  %231 = trunc nuw nsw i64 %indvars.iv361 to i32
   %232 = add i32 %223, %231
   %233 = load ptr, ptr %35, align 8
   %234 = call i32 @PMPI_Recv(ptr noundef null, i32 noundef 1, ptr noundef %230, i32 noundef %231, i32 noundef %232, ptr noundef %233, ptr noundef nonnull %34) #6
@@ -2036,55 +2036,54 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 
 236:                                              ; preds = %224, %227
   %.7244 = phi i32 [ %235, %227 ], [ %.6243315, %224 ]
-  %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
-  %exitcond364.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count363
-  br i1 %exitcond364.not, label %.loopexit, label %224, !llvm.loop !38
+  %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
+  %exitcond365.not = icmp eq i64 %indvars.iv.next362, %wide.trip.count364
+  br i1 %exitcond365.not, label %.loopexit, label %224, !llvm.loop !38
 
 .loopexit:                                        ; preds = %236, %.preheader277, %.loopexit278
-  %.0247374 = phi ptr [ %.0247, %.loopexit278 ], [ null, %.preheader277 ], [ %.0247, %236 ]
-  %237 = icmp sgt i32 %.0250.lcssa, 0
-  br i1 %237, label %.lr.ph320.preheader, label %._crit_edge321
+  %.0247375 = phi ptr [ %.0247, %.loopexit278 ], [ null, %.preheader277 ], [ %.0247, %236 ]
+  br i1 %.not260, label %._crit_edge321, label %.lr.ph320.preheader
 
 .lr.ph320.preheader:                              ; preds = %.loopexit
-  %wide.trip.count368 = zext nneg i32 %.0250.lcssa to i64
+  %wide.trip.count369 = zext i32 %.0250.lcssa to i64
   br label %.lr.ph320
 
 .lr.ph320:                                        ; preds = %.lr.ph320.preheader, %.lr.ph320
-  %indvars.iv365 = phi i64 [ 0, %.lr.ph320.preheader ], [ %indvars.iv.next366, %.lr.ph320 ]
-  %238 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv365
-  %239 = call i32 @PMPI_Type_free(ptr noundef %238) #6
-  %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
-  %exitcond369.not = icmp eq i64 %indvars.iv.next366, %wide.trip.count368
-  br i1 %exitcond369.not, label %._crit_edge321, label %.lr.ph320, !llvm.loop !39
+  %indvars.iv366 = phi i64 [ 0, %.lr.ph320.preheader ], [ %indvars.iv.next367, %.lr.ph320 ]
+  %237 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv366
+  %238 = call i32 @PMPI_Type_free(ptr noundef %237) #6
+  %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
+  %exitcond370.not = icmp eq i64 %indvars.iv.next367, %wide.trip.count369
+  br i1 %exitcond370.not, label %._crit_edge321, label %.lr.ph320, !llvm.loop !39
 
 ._crit_edge321:                                   ; preds = %.lr.ph320, %.loopexit
   call void @ADIOI_Free_fn(ptr noundef %51, i32 noundef 721, ptr noundef nonnull @.str) #6
-  %240 = load i32, ptr %155, align 8
-  %.not268 = icmp eq i32 %240, 0
-  br i1 %.not268, label %243, label %241
+  %239 = load i32, ptr %155, align 8
+  %.not268 = icmp eq i32 %239, 0
+  br i1 %.not268, label %242, label %240
 
-241:                                              ; preds = %._crit_edge321
-  %242 = call i32 @PMPI_Waitall(i32 noundef %.0248.lcssa, ptr noundef %.0245, ptr noundef null) #6
-  br label %246
+240:                                              ; preds = %._crit_edge321
+  %241 = call i32 @PMPI_Waitall(i32 noundef %.0248.lcssa, ptr noundef %.0245, ptr noundef null) #6
+  br label %245
 
-243:                                              ; preds = %._crit_edge321
-  %244 = add nsw i32 %.0248.lcssa, %.0250.lcssa
-  %245 = call i32 @PMPI_Waitall(i32 noundef %244, ptr noundef %.0246, ptr noundef null) #6
-  br label %246
+242:                                              ; preds = %._crit_edge321
+  %243 = add nuw nsw i32 %.0248.lcssa, %.0250.lcssa
+  %244 = call i32 @PMPI_Waitall(i32 noundef %243, ptr noundef %.0246, ptr noundef null) #6
+  br label %245
 
-246:                                              ; preds = %243, %241
+245:                                              ; preds = %242, %240
   call void @ADIOI_Free_fn(ptr noundef %.0246, i32 noundef 761, ptr noundef nonnull @.str) #6
-  %247 = icmp ne i32 %.0248.lcssa, 0
-  %or.cond = select i1 %.not265, i1 %247, i1 false
-  br i1 %or.cond, label %248, label %250
+  %246 = icmp ne i32 %.0248.lcssa, 0
+  %or.cond = select i1 %.not265, i1 %246, i1 false
+  br i1 %or.cond, label %247, label %249
 
-248:                                              ; preds = %246
-  %249 = load ptr, ptr %.0247374, align 8
-  call void @ADIOI_Free_fn(ptr noundef %249, i32 noundef 763, ptr noundef nonnull @.str) #6
-  call void @ADIOI_Free_fn(ptr noundef nonnull %.0247374, i32 noundef 764, ptr noundef nonnull @.str) #6
-  br label %250
+247:                                              ; preds = %245
+  %248 = load ptr, ptr %.0247375, align 8
+  call void @ADIOI_Free_fn(ptr noundef %248, i32 noundef 763, ptr noundef nonnull @.str) #6
+  call void @ADIOI_Free_fn(ptr noundef nonnull %.0247375, i32 noundef 764, ptr noundef nonnull @.str) #6
+  br label %249
 
-250:                                              ; preds = %248, %246, %152
+249:                                              ; preds = %247, %245, %152
   ret void
 }
 

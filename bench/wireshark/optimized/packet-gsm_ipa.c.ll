@@ -74,9 +74,9 @@ target triple = "x86_64-pc-linux-gnu"
 @ipa_udp_handle = internal unnamed_addr global ptr null, align 8
 @.str.40 = private unnamed_addr constant [13 x i8] c"gsm_abis_rsl\00", align 1
 @sub_handles.0 = internal unnamed_addr global ptr null, align 16
-@sub_handles.1 = internal unnamed_addr global ptr null, align 16
+@sub_handles.1 = internal unnamed_addr global ptr null, align 8
 @sub_handles.2 = internal unnamed_addr global ptr null, align 16
-@sub_handles.3 = internal unnamed_addr global ptr null, align 16
+@sub_handles.3 = internal unnamed_addr global ptr null, align 8
 @sub_handles.4 = internal unnamed_addr global ptr null, align 16
 @.str.41 = private unnamed_addr constant [13 x i8] c"gsm_abis_oml\00", align 1
 @.str.42 = private unnamed_addr constant [5 x i8] c"sccp\00", align 1
@@ -202,7 +202,7 @@ define internal i32 @dissect_ipa_udp(ptr noundef %0, ptr noundef %1, ptr noundef
 define hidden void @proto_reg_handoff_gsm_ipa() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_ipa, align 4
   %2 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.40, i32 noundef %1) #2
-  store ptr %2, ptr @sub_handles.1, align 16
+  store ptr %2, ptr @sub_handles.1, align 8
   %3 = load i32, ptr @proto_ipa, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.41, i32 noundef %3) #2
   store ptr %4, ptr @sub_handles.0, align 16
@@ -211,7 +211,7 @@ define hidden void @proto_reg_handoff_gsm_ipa() local_unnamed_addr #0 {
   store ptr %6, ptr @sub_handles.2, align 16
   %7 = load i32, ptr @proto_ipa, align 4
   %8 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.43, i32 noundef %7) #2
-  store ptr %8, ptr @sub_handles.3, align 16
+  store ptr %8, ptr @sub_handles.3, align 8
   %9 = tail call ptr @find_dissector(ptr noundef nonnull @.str.44) #2
   store ptr %9, ptr @sub_handles.4, align 16
   %10 = load ptr, ptr @ipa_tcp_handle, align 8
@@ -373,7 +373,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
   br label %dissect_ipaccess.exit
 
 89:                                               ; preds = %._crit_edge
-  %90 = load ptr, ptr @sub_handles.3, align 16
+  %90 = load ptr, ptr @sub_handles.3, align 8
   %91 = tail call i32 @call_dissector(ptr noundef %90, ptr noundef %40, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_ipaccess.exit
 
@@ -406,7 +406,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
   ]
 
 105:                                              ; preds = %104
-  %106 = load ptr, ptr @sub_handles.3, align 16
+  %106 = load ptr, ptr @sub_handles.3, align 8
   %107 = tail call i32 @call_dissector(ptr noundef %106, ptr noundef %101, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_ipaccess.exit
 
@@ -449,7 +449,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
   br i1 %130, label %131, label %dissect_ipaccess.exit
 
 131:                                              ; preds = %129
-  %132 = load ptr, ptr @sub_handles.1, align 16
+  %132 = load ptr, ptr @sub_handles.1, align 8
   %133 = tail call i32 @call_dissector(ptr noundef %132, ptr noundef %40, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_ipaccess.exit
 

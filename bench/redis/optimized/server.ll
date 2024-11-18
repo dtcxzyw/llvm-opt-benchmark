@@ -13476,7 +13476,6 @@ for.end.thread:                                   ; preds = %entry
 for.body.lr.ph:                                   ; preds = %entry
   %argv = getelementptr inbounds i8, ptr %c, i64 96
   %2 = load ptr, ptr %argv, align 8
-  %invariant.gep = getelementptr inbounds i8, ptr %2, i64 16
   %arg = getelementptr inbounds i8, ptr %filter, i64 8
   br label %for.body
 
@@ -13531,8 +13530,8 @@ if.else29:                                        ; preds = %for.body
   br label %return
 
 for.end:                                          ; preds = %if.end22
-  %gep.le = getelementptr inbounds ptr, ptr %invariant.gep, i64 %indvars.iv
-  %13 = load ptr, ptr %gep.le, align 8
+  %arrayidx26.le = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %13 = load ptr, ptr %arrayidx26.le, align 8
   %ptr27.le = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %ptr27.le, align 8
   store ptr %14, ptr %arg, align 8

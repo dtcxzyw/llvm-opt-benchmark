@@ -848,8 +848,8 @@ _ZNK4node6crypto14ManagedEVPPKey19size_of_private_keyEv.exit: ; preds = %entry
   %call4.i = call i32 @EVP_PKEY_get_raw_private_key(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %len.i) #23
   %cmp.i1 = icmp eq i32 %call4.i, 1
   %1 = load i64, ptr %len.i, align 8
-  %2 = add i64 %1, 72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
+  %2 = add i64 %1, 72
   %add = select i1 %cmp.i1, i64 %2, i64 72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i2)
   store i64 0, ptr %len.i2, align 8

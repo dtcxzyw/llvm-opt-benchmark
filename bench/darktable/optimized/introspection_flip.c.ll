@@ -111,7 +111,7 @@ declare ptr @dt_iop_set_description(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   %7 = icmp eq i32 %2, 1
-  br i1 %7, label %8, label %38
+  br i1 %7, label %8, label %34
 
 8:                                                ; preds = %6
   %9 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #25
@@ -132,34 +132,30 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readonly
   %20 = load i32, ptr %1, align 4, !tbaa !29
   %21 = and i32 %20, 4
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %35, label %23
+  br i1 %22, label %31, label %23
 
 23:                                               ; preds = %18
-  %24 = and i32 %19, 1
-  %25 = icmp eq i32 %24, 0
-  %26 = or i32 %19, 2
-  %27 = and i32 %19, -4
-  %28 = select i1 %25, i32 %27, i32 %26
-  %29 = and i32 %28, -2
-  %30 = lshr i32 %19, 1
-  %31 = and i32 %30, 1
-  %32 = and i32 %19, 4
-  %33 = or disjoint i32 %31, %32
-  %34 = or i32 %33, %29
-  br label %35
+  %24 = shl i32 %19, 1
+  %25 = and i32 %24, 2
+  %26 = lshr i32 %19, 1
+  %27 = and i32 %26, 1
+  %28 = and i32 %19, -4
+  %29 = or disjoint i32 %28, %27
+  %30 = or disjoint i32 %29, %25
+  br label %31
 
-35:                                               ; preds = %23, %18
-  %36 = phi i32 [ %19, %18 ], [ %34, %23 ]
-  %37 = xor i32 %36, %20
-  store i32 %37, ptr %9, align 4, !tbaa !31
+31:                                               ; preds = %23, %18
+  %32 = phi i32 [ %19, %18 ], [ %30, %23 ]
+  %33 = xor i32 %32, %20
+  store i32 %33, ptr %9, align 4, !tbaa !31
   store ptr %9, ptr %3, align 8, !tbaa !33
   store i32 4, ptr %4, align 4, !tbaa !34
   store i32 2, ptr %5, align 4, !tbaa !34
-  br label %38
+  br label %34
 
-38:                                               ; preds = %35, %6
-  %39 = phi i32 [ 0, %35 ], [ 1, %6 ]
-  ret i32 %39
+34:                                               ; preds = %31, %6
+  %35 = phi i32 [ 0, %31 ], [ 1, %6 ]
+  ret i32 %35
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1555,7 +1551,7 @@ define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 16777216
   %11 = icmp ult i32 %10, 33554432
-  br i1 %11, label %74, label %12
+  br i1 %11, label %70, label %12
 
 12:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
@@ -1604,7 +1600,7 @@ define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %42 = load ptr, ptr %2, align 8, !tbaa !33
   %43 = call i32 @sqlite3_step(ptr noundef %42) #24
   %44 = icmp eq i32 %43, 100
-  br i1 %44, label %71, label %45
+  br i1 %44, label %67, label %45
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %6, align 8, !tbaa !6
@@ -1617,35 +1613,31 @@ define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %53 = lshr i32 %52, 24
   %54 = and i32 %52, 67108864
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %68, label %56
+  br i1 %55, label %64, label %56
 
 56:                                               ; preds = %45
-  %57 = and i32 %50, 1
-  %58 = icmp eq i32 %57, 0
-  %59 = or i32 %50, 2
-  %60 = and i32 %50, -4
-  %61 = select i1 %58, i32 %60, i32 %59
-  %62 = and i32 %61, -2
-  %63 = lshr i32 %50, 1
-  %64 = and i32 %63, 1
-  %65 = and i32 %50, 4
-  %66 = or disjoint i32 %64, %65
-  %67 = or i32 %66, %62
-  br label %68
+  %57 = shl i32 %50, 1
+  %58 = and i32 %57, 2
+  %59 = lshr i32 %50, 1
+  %60 = and i32 %59, 1
+  %61 = and i32 %50, -4
+  %62 = or disjoint i32 %61, %60
+  %63 = or disjoint i32 %62, %58
+  br label %64
 
-68:                                               ; preds = %56, %45
-  %69 = phi i32 [ %50, %45 ], [ %67, %56 ]
-  %70 = xor i32 %69, %53
-  store i32 %70, ptr %4, align 4, !tbaa !39
-  br label %71
+64:                                               ; preds = %56, %45
+  %65 = phi i32 [ %50, %45 ], [ %63, %56 ]
+  %66 = xor i32 %65, %53
+  store i32 %66, ptr %4, align 4, !tbaa !39
+  br label %67
 
-71:                                               ; preds = %68, %41
-  %72 = load ptr, ptr %2, align 8, !tbaa !33
-  %73 = call i32 @sqlite3_finalize(ptr noundef %72) #24
+67:                                               ; preds = %64, %41
+  %68 = load ptr, ptr %2, align 8, !tbaa !33
+  %69 = call i32 @sqlite3_finalize(ptr noundef %68) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
-  br label %74
+  br label %70
 
-74:                                               ; preds = %71, %1
+70:                                               ; preds = %67, %1
   ret void
 }
 

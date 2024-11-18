@@ -57700,10 +57700,10 @@ define internal fastcc void @_ZN4time7parsing8parsable6sealed6Sealed5parse17hf22
   %.sroa.4222.0.copyload.i.i = load ptr, ptr %.sroa.4222.0..sroa_idx.i.i, align 8, !noalias !9430
   %.sroa.5223.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %137, i64 16
   %.sroa.5223.0.copyload.i.i = load i64, ptr %.sroa.5223.0..sroa_idx.i.i, align 8, !noalias !9430
-  %142 = trunc i64 %.sroa.5223.0.copyload.i.i to i32
   %.sroa.5.sroa.6.0.i.i = select i1 %.not186.i.i, ptr @anon.83730b5ea31bccde5040e79d43e60e34.156, ptr %.sroa.4222.0.copyload.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %137), !noalias !9430
   %.sroa.10.0.i.i = ptrtoint ptr %.sroa.5.sroa.6.0.i.i to i64
+  %142 = trunc i64 %.sroa.5223.0.copyload.i.i to i32
   br i1 %.not186.i.i, label %171, label %143
 
 143:                                              ; preds = %3
@@ -57737,10 +57737,10 @@ _ZN4time7parsing10combinator10ascii_char17hb042110c83cd3c15E.exit.i.i: ; preds =
   %.sroa.493.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %99, i64 8
   %.sroa.493.0.copyload.i.i.i = load ptr, ptr %.sroa.493.0..sroa_idx.i.i.i, align 8, !noalias !9439
   %.sroa.594.0.copyload.i.i.i = load i64, ptr %151, align 8, !noalias !9439
-  %153 = trunc i64 %.sroa.594.0.copyload.i.i.i to i8
-  %154 = ptrtoint ptr %.sroa.493.0.copyload.i.i.i to i64
-  %155 = inttoptr i64 %.sroa.092.0.copyload.i.i.i to ptr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %99), !noalias !9439
+  %153 = inttoptr i64 %.sroa.092.0.copyload.i.i.i to ptr
+  %154 = ptrtoint ptr %.sroa.493.0.copyload.i.i.i to i64
+  %155 = trunc i64 %.sroa.594.0.copyload.i.i.i to i8
   br i1 %.not143.i.i.i, label %177, label %156
 
 156:                                              ; preds = %_ZN4time7parsing10combinator10ascii_char17hb042110c83cd3c15E.exit.i.i
@@ -57755,12 +57755,12 @@ _ZN4time7parsing10combinator10ascii_char17hb042110c83cd3c15E.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i, label %177, label %161
 
 161:                                              ; preds = %160
-  %162 = load i8, ptr %155, align 1, !alias.scope !9445, !noalias !9443, !noundef !4
+  %162 = load i8, ptr %153, align 1, !alias.scope !9445, !noalias !9443, !noundef !4
   %163 = icmp eq i8 %162, 45
   br i1 %163, label %167, label %177
 
 164:                                              ; preds = %167, %156
-  %.sroa.0137.0.i.i.i = phi ptr [ %.fca.0.extract135.i.i.i, %167 ], [ %155, %156 ]
+  %.sroa.0137.0.i.i.i = phi ptr [ %.fca.0.extract135.i.i.i, %167 ], [ %153, %156 ]
   %.sroa.4139.0.i.i.i = phi i64 [ %.fca.1.extract136.i.i.i, %167 ], [ %154, %156 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %98), !noalias !9439
   %165 = icmp ne ptr %.sroa.0137.0.i.i.i, null
@@ -57779,7 +57779,7 @@ _ZN4time7parsing10combinator10ascii_char17hb042110c83cd3c15E.exit.i.i: ; preds =
 
 167:                                              ; preds = %161
   %168 = add i64 %154, -1
-  %169 = getelementptr inbounds i8, ptr %155, i64 1
+  %169 = getelementptr inbounds i8, ptr %153, i64 1
   %170 = tail call { ptr, i64 } @"_ZN4time7parsing26ParsedItem$LT$$LP$$RP$$GT$10into_inner17he96a610bb04e3bc2E"(ptr noalias noundef nonnull readonly align 1 %169, i64 noundef %168), !noalias !9443
   %.fca.0.extract135.i.i.i = extractvalue { ptr, i64 } %170, 0
   %.fca.1.extract136.i.i.i = extractvalue { ptr, i64 } %170, 1
@@ -57859,7 +57859,7 @@ _ZN4time7parsing10combinator10ascii_char17hb042110c83cd3c15E.exit.i.i: ; preds =
   store i64 %.sroa.5235.0.copyload.i.i, ptr %.sroa.047.sroa.8.0..sroa_idx.i.i, align 8, !noalias !9430
   %.sroa.748.0..sroa_idx49.i.i = getelementptr inbounds i8, ptr %132, i64 47
   store i8 %175, ptr %.sroa.748.0..sroa_idx49.i.i, align 1, !noalias !9430
-  call void @_ZN4time7parsing6parsed6Parsed10with_month17hef0b01f45abed206E(ptr noalias nocapture noundef nonnull sret({ [47 x i8], i8 }) align 8 dereferenceable(48) %135, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %132, i8 noundef %153), !noalias !9438
+  call void @_ZN4time7parsing6parsed6Parsed10with_month17hef0b01f45abed206E(ptr noalias nocapture noundef nonnull sret({ [47 x i8], i8 }) align 8 dereferenceable(48) %135, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %132, i8 noundef %155), !noalias !9438
   %180 = getelementptr inbounds i8, ptr %135, i64 47
   %181 = load i8, ptr %180, align 1, !range !1884, !noalias !9430, !noundef !4
   %182 = icmp eq i8 %181, 2

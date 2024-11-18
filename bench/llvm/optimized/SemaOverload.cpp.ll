@@ -20054,22 +20054,22 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %39, %_ZNK5clang4Typ
   %.sroa.0.0.in.i.sroa.speculated = phi i64 [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ], [ %.sroa.0125.0, %39 ], [ %.sroa.0125.0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ]
   %64 = icmp ugt i16 %.sroa.0122.0.extract.trunc, 1
   %65 = icmp eq i16 %.sroa.0122.0.extract.trunc, 1
-  %66 = select i1 %65, i16 2, i16 1
   store i8 26, ptr %11, align 8
-  %67 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %_ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindEPNS_4ExprE.exit
+  %66 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %_ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindEPNS_4ExprE.exit
 
-69:                                               ; preds = %_ZNK5clang8QualType19getNonReferenceTypeEv.exit
+68:                                               ; preds = %_ZNK5clang8QualType19getNonReferenceTypeEv.exit
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 26) #26
   br label %_ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindEPNS_4ExprE.exit
 
-_ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindEPNS_4ExprE.exit: ; preds = %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %69
-  %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %71 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %72 = select i1 %64, i16 0, i16 %66
-  store i16 %72, ptr %71, align 1
-  store i64 %.sroa.0.0.in.i.sroa.speculated, ptr %70, align 8
+_ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindEPNS_4ExprE.exit: ; preds = %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %68
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %71 = select i1 %65, i16 2, i16 1
+  %72 = select i1 %64, i16 0, i16 %71
+  store i16 %72, ptr %70, align 1
+  store i64 %.sroa.0.0.in.i.sroa.speculated, ptr %69, align 8
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %73, align 8
   %74 = load i32, ptr %11, align 8
@@ -20078,13 +20078,13 @@ _ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKind
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %2, ptr %76, align 4
   %77 = call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_15OpaqueValueExprE(ptr noundef nonnull align 8 dereferenceable(24) %11) #26
-  %78 = load i16, ptr %71, align 1
+  %78 = load i16, ptr %70, align 1
   %79 = and i8 %77, 31
   %80 = zext nneg i8 %79 to i16
   %81 = shl nuw nsw i16 %80, 5
   %82 = and i16 %78, -993
   %83 = or disjoint i16 %81, %82
-  store i16 %83, ptr %71, align 1
+  store i16 %83, ptr %70, align 1
   %84 = load i8, ptr %11, align 8, !noalias !52
   %.not.i160 = icmp eq i8 %84, 53
   br i1 %.not.i160, label %85, label %86

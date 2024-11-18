@@ -2106,22 +2106,22 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
 148:                                              ; preds = %._crit_edge
   %149 = add nsw i32 %136, -6
   %150 = shl nuw i32 1, %149
-  %151 = and i32 %150, 255
-  %152 = icmp ult i8 %108, 7
-  %153 = call i32 @llvm.umin.i32(i32 %136, i32 6)
-  %154 = add nsw i32 %153, -3
-  %155 = shl nuw nsw i32 1, %154
-  %156 = trunc i32 %155 to i8
-  %157 = select i1 %152, i32 1, i32 %151
+  %151 = icmp ult i8 %108, 7
+  %152 = call i32 @llvm.umin.i32(i32 %136, i32 6)
+  %153 = add nsw i32 %152, -3
+  %154 = shl nuw nsw i32 1, %153
+  %155 = trunc i32 %154 to i8
+  %156 = and i32 %150, 255
+  %157 = select i1 %151, i32 1, i32 %156
   %.not134 = icmp eq i32 %157, 0
   br i1 %.not134, label %._crit_edge121.thread, label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %148
-  %.not135 = icmp ugt i32 %154, 7
+  %.not135 = icmp ugt i32 %153, 7
   br i1 %.not135, label %._crit_edge121.thread.thread, label %.lr.ph114.us.preheader
 
 .lr.ph114.us.preheader:                           ; preds = %._crit_edge, %.lr.ph120
-  %158 = phi i8 [ %156, %.lr.ph120 ], [ 1, %._crit_edge ]
+  %158 = phi i8 [ %155, %.lr.ph120 ], [ 1, %._crit_edge ]
   %159 = phi i32 [ %157, %.lr.ph120 ], [ 1, %._crit_edge ]
   %wide.trip.count153 = zext nneg i32 %159 to i64
   %wide.trip.count = zext i8 %158 to i64
@@ -2176,7 +2176,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
 
 ._crit_edge121.thread:                            ; preds = %148, %174, %._crit_edge121
   %.2.lcssa164 = phi i32 [ %172, %174 ], [ %172, %._crit_edge121 ], [ %.1.lcssa, %148 ]
-  %178 = phi i8 [ %158, %174 ], [ %158, %._crit_edge121 ], [ %156, %148 ]
+  %178 = phi i8 [ %158, %174 ], [ %158, %._crit_edge121 ], [ %155, %148 ]
   %179 = icmp ult i8 %178, 4
   br i1 %179, label %.lr.ph125, label %189
 

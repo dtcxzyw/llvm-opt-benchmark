@@ -875,10 +875,10 @@ entry:
   %cmp.i = fcmp olt double %mul, 1.000000e-02
   %cmp1.i = fcmp ogt double %mul, 1.000000e+00
   %max.val.i = select i1 %cmp1.i, double 1.000000e+00, double %mul
-  %0 = fmul double %max.val.i, 1.000000e+03
   %queue_deadline_cap = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %queue_deadline_cap, align 8
   %agg.tmp.sroa.0.0.copyload.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %now.coerce, i64 %agg.tmp.sroa.0.0.copyload.i)
+  %0 = fmul double %max.val.i, 1.000000e+03
   %mul.i = select i1 %cmp.i, double 1.000000e+01, double %0
   %cmp.i5 = fcmp ult double %mul.i, 0x43E0000000000000
   br i1 %cmp.i5, label %if.end.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit

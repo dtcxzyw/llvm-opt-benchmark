@@ -2080,7 +2080,7 @@ _ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEED2Ev.exit.i: ; 
 ._crit_edge.i:                                    ; preds = %_ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEED2Ev.exit.i, %.preheader481.i
   %.0100.lcssa.i = phi i32 [ 0, %.preheader481.i ], [ %spec.select.i, %_ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEED2Ev.exit.i ]
   %.lcssa559.i = phi i32 [ %261, %.preheader481.i ], [ %768, %_ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEED2Ev.exit.i ]
-  %771 = shl nsw i32 %.0100.lcssa.i, 1
+  %771 = shl nuw nsw i32 %.0100.lcssa.i, 1
   %772 = icmp slt i32 %771, %.lcssa559.i
   br i1 %772, label %773, label %774
 

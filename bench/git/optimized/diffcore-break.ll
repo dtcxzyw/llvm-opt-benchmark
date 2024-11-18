@@ -230,14 +230,14 @@ if.then37:                                        ; preds = %if.end86.i, %land.l
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %literal_added.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %options.i)
   %cmp38 = icmp slt i32 %score.1, %spec.store.select1
-  %24 = trunc i32 %score.1 to i16
-  %25 = load ptr, ptr %2, align 8
-  %path43 = getelementptr inbounds i8, ptr %25, i64 40
-  %26 = load ptr, ptr %path43, align 8
-  %call44 = call ptr @alloc_filespec(ptr noundef %26) #11
-  %27 = load ptr, ptr %2, align 8
-  %call46 = call ptr @diff_queue(ptr noundef nonnull %outq, ptr noundef %27, ptr noundef %call44) #11
-  %conv47 = select i1 %cmp38, i16 0, i16 %24
+  %24 = load ptr, ptr %2, align 8
+  %path43 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = load ptr, ptr %path43, align 8
+  %call44 = call ptr @alloc_filespec(ptr noundef %25) #11
+  %26 = load ptr, ptr %2, align 8
+  %call46 = call ptr @diff_queue(ptr noundef nonnull %outq, ptr noundef %26, ptr noundef %call44) #11
+  %27 = trunc i32 %score.1 to i16
+  %conv47 = select i1 %cmp38, i16 0, i16 %27
   %score48 = getelementptr inbounds i8, ptr %call46, i64 16
   store i16 %conv47, ptr %score48, align 8
   %broken_pair = getelementptr inbounds i8, ptr %call46, i64 19

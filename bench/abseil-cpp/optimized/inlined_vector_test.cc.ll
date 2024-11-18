@@ -16068,10 +16068,10 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_110RefCountedEEE9constructIS1_JS1_EEEvR
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %move_values.i.i.i)
-  %5 = shl i64 %this.val4.i.i.i, 1
-  %6 = ptrtoint ptr %this.val1.sink.i.i.i to i64
-  store i64 %6, ptr %move_values.i.i.i, align 8
-  %mul.i.i.i.i = select i1 %tobool.i.not.i.i.i, i64 16, i64 %5
+  %5 = ptrtoint ptr %this.val1.sink.i.i.i to i64
+  store i64 %5, ptr %move_values.i.i.i, align 8
+  %6 = shl i64 %this.val4.i.i.i, 1
+  %mul.i.i.i.i = select i1 %tobool.i.not.i.i.i, i64 16, i64 %6
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %mul.i.i.i.i, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_110RefCountedEELb0EE8AllocateERS4_m.exit.i.i.i.i
 
@@ -17681,8 +17681,8 @@ entry:
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !386
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
-  %3 = shl i64 %2, 1
   %shr.i.sink.i = lshr i64 %0, 1
+  %3 = shl i64 %2, 1
   %mul.i = select i1 %tobool.i.not.i, i64 2, i64 %3
   %cmp.i.i.i.i = icmp ugt i64 %mul.i, 230584300921369395
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEELb0EE8AllocateERSA_m.exit.i
@@ -18052,8 +18052,8 @@ entry:
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !424
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
-  %3 = shl i64 %2, 1
   %shr.i.sink.i = lshr i64 %0, 1
+  %3 = shl i64 %2, 1
   %mul.i = select i1 %tobool.i.not.i, i64 2, i64 %3
   %cmp.i.i.i.i = icmp ugt i64 %mul.i, 230584300921369395
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEELb0EE8AllocateERSA_m.exit.i
@@ -38819,10 +38819,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %move_values.i.i.i)
-  %3 = shl i64 %this.val4.i.i.i, 1
-  %4 = ptrtoint ptr %this.val1.sink.i.i.i to i64
-  store i64 %4, ptr %move_values.i.i.i, align 8
-  %mul.i.i.i.i = select i1 %tobool.i.not.i.i.i, i64 20, i64 %3
+  %3 = ptrtoint ptr %this.val1.sink.i.i.i to i64
+  store i64 %3, ptr %move_values.i.i.i, align 8
+  %4 = shl i64 %this.val4.i.i.i, 1
+  %mul.i.i.i.i = select i1 %tobool.i.not.i.i.i, i64 20, i64 %4
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %mul.i.i.i.i, 1152921504606846975
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i.i.i
 
@@ -44300,8 +44300,8 @@ entry:
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !997
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
-  %3 = shl i64 %2, 1
   %shr.i.sink.i = lshr i64 %0, 1
+  %3 = shl i64 %2, 1
   %mul.i = select i1 %tobool.i.not.i, i64 8, i64 %3
   %cmp.i.i.i.i = icmp ugt i64 %mul.i, 288230376151711743
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS8_m.exit.i
@@ -47347,8 +47347,8 @@ entry:
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !1040
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
-  %3 = shl i64 %2, 1
   %shr.i.sink.i = lshr i64 %0, 1
+  %3 = shl i64 %2, 1
   %mul.i = select i1 %tobool.i.not.i, i64 8, i64 %3
   %cmp.i.i.i.i = icmp ugt i64 %mul.i, 288230376151711743
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS8_m.exit.i
@@ -102852,13 +102852,13 @@ entry:
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !2436
   %.sink5.i = select i1 %tobool.i.not.i, ptr %data_.i2.i, ptr %1
-  %3 = shl i64 %2, 1
   %shr.i.sink.i = lshr i64 %0, 1
   %allocation_tx.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %allocation_tx.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = ptrtoint ptr %.sink5.i to i64
-  store i64 %4, ptr %move_values, align 8
-  %mul.i = select i1 %tobool.i.not.i, i64 2, i64 %3
+  %3 = ptrtoint ptr %.sink5.i to i64
+  store i64 %3, ptr %move_values, align 8
+  %4 = shl i64 %2, 1
+  %mul.i = select i1 %tobool.i.not.i, i64 2, i64 %4
   %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %mul.i, 230584300921369395
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt15__new_allocatorISt6vectorIiN4absl18container_internal17CountingAllocatorIiEEEE8allocateEmPKv.exit.i.i.i.i.i.i.i
 

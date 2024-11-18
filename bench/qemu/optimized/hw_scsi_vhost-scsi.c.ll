@@ -310,12 +310,12 @@ entry:
   %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running, align 2
   %tobool2 = trunc i8 %0 to i1
-  %1 = and i8 %val, 4
-  %2 = icmp ne i8 %1, 0
-  %3 = getelementptr i8, ptr %call.i6, i64 1176
-  %dev.val = load i8, ptr %3, align 8
+  %1 = getelementptr i8, ptr %call.i6, i64 1176
+  %dev.val = load i8, ptr %1, align 8
   %tobool.i = trunc i8 %dev.val to i1
-  %tobool5 = and i1 %2, %tobool2
+  %2 = and i8 %val, 4
+  %3 = icmp ne i8 %2, 0
+  %tobool5 = and i1 %3, %tobool2
   %4 = xor i1 %tobool5, %tobool.i
   br i1 %4, label %if.end9, label %if.end18
 

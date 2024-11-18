@@ -5567,11 +5567,11 @@ define internal fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11Int
 19:                                               ; preds = %3
   %20 = and i8 %16, 8
   %.not = icmp eq i8 %20, 0
-  %21 = select i1 %.not, i64 1, i64 4294967295
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %22, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %23 = select i1 %18, i64 %21, i64 0
+  %22 = select i1 %.not, i64 1, i64 4294967295
+  %23 = select i1 %18, i64 %22, i64 0
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 32, ptr %24, align 8
   store i64 %23, ptr %5, align 8

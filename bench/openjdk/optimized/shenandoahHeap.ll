@@ -11438,11 +11438,9 @@ define linkonce_odr hidden void @_ZN27ShenandoahUpdateRefsClosure6do_oopEP9narro
   %28 = and i64 %27, 3
   %29 = icmp eq i64 %28, 3
   %30 = and i64 %27, -4
-  %31 = inttoptr i64 %30 to ptr
   %.not.i.i.i.i.i = icmp eq i64 %30, 0
-  %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr %26, ptr %31
-  %.0.i.i.i.i.i = select i1 %29, ptr %spec.select.i.i.i.i.i, ptr %26
-  %32 = ptrtoint ptr %.0.i.i.i.i.i to i64
+  %31 = select i1 %.not.i.i.i.i.i, i64 %14, i64 %30
+  %32 = select i1 %29, i64 %31, i64 %14
   %33 = sub i64 %32, %9
   %34 = lshr i64 %33, %12
   %35 = trunc i64 %34 to i32
@@ -23932,11 +23930,9 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI30ShenandoahS
   %65 = and i64 %64, 3
   %66 = icmp eq i64 %65, 3
   %67 = and i64 %64, -4
-  %68 = inttoptr i64 %67 to ptr
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %67, 0
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, ptr %63, ptr %68
-  %.0.i.i.i.i.i.i.i.i = select i1 %66, ptr %spec.select.i.i.i.i.i.i.i.i, ptr %63
-  %69 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
+  %68 = select i1 %.not.i.i.i.i.i.i.i.i, i64 %51, i64 %67
+  %69 = select i1 %66, i64 %68, i64 %51
   %70 = sub i64 %69, %46
   %71 = lshr i64 %70, %49
   %72 = trunc i64 %71 to i32
@@ -24093,11 +24089,9 @@ define linkonce_odr hidden void @_ZN30ShenandoahSTWUpdateRefsClosure6do_oopEP9na
   %28 = and i64 %27, 3
   %29 = icmp eq i64 %28, 3
   %30 = and i64 %27, -4
-  %31 = inttoptr i64 %30 to ptr
   %.not.i.i.i.i.i = icmp eq i64 %30, 0
-  %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr %26, ptr %31
-  %.0.i.i.i.i.i = select i1 %29, ptr %spec.select.i.i.i.i.i, ptr %26
-  %32 = ptrtoint ptr %.0.i.i.i.i.i to i64
+  %31 = select i1 %.not.i.i.i.i.i, i64 %14, i64 %30
+  %32 = select i1 %29, i64 %31, i64 %14
   %33 = sub i64 %32, %9
   %34 = lshr i64 %33, %12
   %35 = trunc i64 %34 to i32
@@ -24257,11 +24251,9 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %66 = and i64 %65, 3
   %67 = icmp eq i64 %66, 3
   %68 = and i64 %65, -4
-  %69 = inttoptr i64 %68 to ptr
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %68, 0
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, ptr %64, ptr %69
-  %.0.i.i.i.i.i.i.i.i = select i1 %67, ptr %spec.select.i.i.i.i.i.i.i.i, ptr %64
-  %70 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
+  %69 = select i1 %.not.i.i.i.i.i.i.i.i, i64 %52, i64 %68
+  %70 = select i1 %67, i64 %69, i64 %52
   %71 = sub i64 %70, %47
   %72 = lshr i64 %71, %50
   %73 = trunc i64 %72 to i32
@@ -24359,11 +24351,9 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %52 = and i64 %51, 3
   %53 = icmp eq i64 %52, 3
   %54 = and i64 %51, -4
-  %55 = inttoptr i64 %54 to ptr
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %54, 0
-  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %50, ptr %55
-  %.0.i.i.i.i.i.i.i.i.i.i = select i1 %53, ptr %spec.select.i.i.i.i.i.i.i.i.i.i, ptr %50
-  %56 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i.i to i64
+  %55 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 %38, i64 %54
+  %56 = select i1 %53, i64 %55, i64 %38
   %57 = sub i64 %56, %33
   %58 = lshr i64 %57, %36
   %59 = trunc i64 %58 to i32
@@ -24388,7 +24378,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass25oop_oop_iterate_discover
   br i1 %.not.i, label %._ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread_crit_edge, label %7
 
 ._ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread_crit_edge: ; preds = %4
-  %.pre14 = ptrtoint ptr %0 to i64
+  %.pre12 = ptrtoint ptr %0 to i64
   br label %_ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread
 
 7:                                                ; preds = %4
@@ -24418,7 +24408,7 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEE
   br i1 %22, label %_ZN16InstanceRefKlass13do_discoveredI9narrowOop30ShenandoahSTWUpdateRefsClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit, label %_ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread
 
 _ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread: ; preds = %._ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread_crit_edge, %16, %7, %_ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit
-  %.pre-phi = phi i64 [ %.pre14, %._ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread_crit_edge ], [ %10, %16 ], [ %10, %7 ], [ %10, %_ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit ]
+  %.pre-phi = phi i64 [ %.pre12, %._ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread_crit_edge ], [ %10, %16 ], [ %10, %7 ], [ %10, %_ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit ]
   %23 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %24 = sext i32 %23 to i64
   %25 = add nsw i64 %.pre-phi, %24
@@ -24465,21 +24455,19 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEE
   %59 = and i64 %58, 3
   %60 = icmp eq i64 %59, 3
   %61 = and i64 %58, -4
-  %62 = inttoptr i64 %61 to ptr
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %61, 0
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %57, ptr %62
-  %.0.i.i.i.i.i.i.i.i.i = select i1 %60, ptr %spec.select.i.i.i.i.i.i.i.i.i, ptr %57
-  %63 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i to i64
+  %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 %45, i64 %61
+  %63 = select i1 %60, i64 %62, i64 %45
   %64 = sub i64 %63, %40
   %65 = lshr i64 %64, %43
   %66 = trunc i64 %65 to i32
   store i32 %66, ptr %26, align 4
   %.pre = load ptr, ptr %3, align 8
-  %.pre13 = load i64, ptr %28, align 8
+  %.pre11 = load i64, ptr %28, align 8
   br label %_ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit
 
 _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread, %33, %36, %56
-  %67 = phi i64 [ %29, %_ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread ], [ %29, %33 ], [ %29, %36 ], [ %.pre13, %56 ]
+  %67 = phi i64 [ %29, %_ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread ], [ %29, %33 ], [ %29, %36 ], [ %.pre11, %56 ]
   %68 = phi ptr [ %27, %_ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread ], [ %27, %33 ], [ %27, %36 ], [ %.pre, %56 ]
   %69 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %70 = sext i32 %69 to i64
@@ -24524,11 +24512,9 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosureK10
   %102 = and i64 %101, 3
   %103 = icmp eq i64 %102, 3
   %104 = and i64 %101, -4
-  %105 = inttoptr i64 %104 to ptr
   %.not.i.i.i.i.i.i.i.i.i9 = icmp eq i64 %104, 0
-  %spec.select.i.i.i.i.i.i.i.i.i10 = select i1 %.not.i.i.i.i.i.i.i.i.i9, ptr %100, ptr %105
-  %.0.i.i.i.i.i.i.i.i.i11 = select i1 %103, ptr %spec.select.i.i.i.i.i.i.i.i.i10, ptr %100
-  %106 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i11 to i64
+  %105 = select i1 %.not.i.i.i.i.i.i.i.i.i9, i64 %88, i64 %104
+  %106 = select i1 %103, i64 %105, i64 %88
   %107 = sub i64 %106, %83
   %108 = lshr i64 %107, %86
   %109 = trunc i64 %108 to i32
@@ -24588,21 +24574,19 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass22oop_oop_iterate_fieldsI9
   %41 = and i64 %40, 3
   %42 = icmp eq i64 %41, 3
   %43 = and i64 %40, -4
-  %44 = inttoptr i64 %43 to ptr
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %43, 0
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %39, ptr %44
-  %.0.i.i.i.i.i.i.i.i.i = select i1 %42, ptr %spec.select.i.i.i.i.i.i.i.i.i, ptr %39
-  %45 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i to i64
+  %44 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 %27, i64 %43
+  %45 = select i1 %42, i64 %44, i64 %27
   %46 = sub i64 %45, %22
   %47 = lshr i64 %46, %25
   %48 = trunc i64 %47 to i32
   store i32 %48, ptr %8, align 4
   %.pre = load ptr, ptr %2, align 8
-  %.pre10 = load i64, ptr %10, align 8
+  %.pre8 = load i64, ptr %10, align 8
   br label %_ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit
 
 _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit: ; preds = %3, %15, %18, %38
-  %49 = phi i64 [ %11, %3 ], [ %11, %15 ], [ %11, %18 ], [ %.pre10, %38 ]
+  %49 = phi i64 [ %11, %3 ], [ %11, %15 ], [ %11, %18 ], [ %.pre8, %38 ]
   %50 = phi ptr [ %9, %3 ], [ %9, %15 ], [ %9, %18 ], [ %.pre, %38 ]
   %51 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %52 = sext i32 %51 to i64
@@ -24647,11 +24631,9 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosureK10
   %84 = and i64 %83, 3
   %85 = icmp eq i64 %84, 3
   %86 = and i64 %83, -4
-  %87 = inttoptr i64 %86 to ptr
   %.not.i.i.i.i.i.i.i.i.i7 = icmp eq i64 %86, 0
-  %spec.select.i.i.i.i.i.i.i.i.i8 = select i1 %.not.i.i.i.i.i.i.i.i.i7, ptr %82, ptr %87
-  %.0.i.i.i.i.i.i.i.i.i9 = select i1 %85, ptr %spec.select.i.i.i.i.i.i.i.i.i8, ptr %82
-  %88 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i9 to i64
+  %87 = select i1 %.not.i.i.i.i.i.i.i.i.i7, i64 %70, i64 %86
+  %88 = select i1 %85, i64 %87, i64 %70
   %89 = sub i64 %88, %65
   %90 = lshr i64 %89, %68
   %91 = trunc i64 %90 to i32
@@ -25191,11 +25173,9 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %65 = and i64 %64, 3
   %66 = icmp eq i64 %65, 3
   %67 = and i64 %64, -4
-  %68 = inttoptr i64 %67 to ptr
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %67, 0
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, ptr %63, ptr %68
-  %.0.i.i.i.i.i.i.i.i = select i1 %66, ptr %spec.select.i.i.i.i.i.i.i.i, ptr %63
-  %69 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
+  %68 = select i1 %.not.i.i.i.i.i.i.i.i, i64 %51, i64 %67
+  %69 = select i1 %66, i64 %68, i64 %51
   %70 = sub i64 %69, %46
   %71 = lshr i64 %70, %49
   %72 = trunc i64 %71 to i32
@@ -25282,11 +25262,9 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
   %122 = and i64 %121, 3
   %123 = icmp eq i64 %122, 3
   %124 = and i64 %121, -4
-  %125 = inttoptr i64 %124 to ptr
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %124, 0
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %120, ptr %125
-  %.0.i.i.i.i.i.i.i.i.i = select i1 %123, ptr %spec.select.i.i.i.i.i.i.i.i.i, ptr %120
-  %126 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i to i64
+  %125 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 %108, i64 %124
+  %126 = select i1 %123, i64 %125, i64 %108
   %127 = sub i64 %126, %103
   %128 = lshr i64 %127, %106
   %129 = trunc i64 %128 to i32
@@ -25589,11 +25567,9 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %65 = and i64 %64, 3
   %66 = icmp eq i64 %65, 3
   %67 = and i64 %64, -4
-  %68 = inttoptr i64 %67 to ptr
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %67, 0
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, ptr %63, ptr %68
-  %.0.i.i.i.i.i.i.i.i = select i1 %66, ptr %spec.select.i.i.i.i.i.i.i.i, ptr %63
-  %69 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
+  %68 = select i1 %.not.i.i.i.i.i.i.i.i, i64 %51, i64 %67
+  %69 = select i1 %66, i64 %68, i64 %51
   %70 = sub i64 %69, %46
   %71 = lshr i64 %70, %49
   %72 = trunc i64 %71 to i32
@@ -25879,11 +25855,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_h
   %44 = and i64 %43, 3
   %45 = icmp eq i64 %44, 3
   %46 = and i64 %43, -4
-  %47 = inttoptr i64 %46 to ptr
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %46, 0
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, ptr %42, ptr %47
-  %.0.i.i.i.i.i.i.i.i = select i1 %45, ptr %spec.select.i.i.i.i.i.i.i.i, ptr %42
-  %48 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
+  %47 = select i1 %.not.i.i.i.i.i.i.i.i, i64 %30, i64 %46
+  %48 = select i1 %45, i64 %47, i64 %30
   %49 = sub i64 %48, %25
   %50 = lshr i64 %49, %28
   %51 = trunc i64 %50 to i32
@@ -25894,12 +25868,12 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
   %.not.i8 = icmp ule ptr %3, %14
   %52 = icmp ugt ptr %15, %14
   %53 = select i1 %.not.i8, i1 %52, i1 false
-  br i1 %53, label %54, label %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit12
+  br i1 %53, label %54, label %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit10
 
 54:                                               ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit
   %55 = load i32, ptr %14, align 4
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit12, label %57
+  br i1 %56, label %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit10, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds i8, ptr %2, i64 24
@@ -25921,7 +25895,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
   %74 = getelementptr inbounds i8, ptr %73, i64 %71
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %75, 1
-  br i1 %76, label %77, label %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit12
+  br i1 %76, label %77, label %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit10
 
 77:                                               ; preds = %57
   %78 = inttoptr i64 %66 to ptr
@@ -25929,18 +25903,16 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
   %80 = and i64 %79, 3
   %81 = icmp eq i64 %80, 3
   %82 = and i64 %79, -4
-  %83 = inttoptr i64 %82 to ptr
   %.not.i.i.i.i.i.i.i.i9 = icmp eq i64 %82, 0
-  %spec.select.i.i.i.i.i.i.i.i10 = select i1 %.not.i.i.i.i.i.i.i.i9, ptr %78, ptr %83
-  %.0.i.i.i.i.i.i.i.i11 = select i1 %81, ptr %spec.select.i.i.i.i.i.i.i.i10, ptr %78
-  %84 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i11 to i64
+  %83 = select i1 %.not.i.i.i.i.i.i.i.i9, i64 %66, i64 %82
+  %84 = select i1 %81, i64 %83, i64 %66
   %85 = sub i64 %84, %61
   %86 = lshr i64 %85, %64
   %87 = trunc i64 %86 to i32
   store i32 %87, ptr %14, align 4
-  br label %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit12
+  br label %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit10
 
-_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit12: ; preds = %77, %57, %54, %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit
+_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit10: ; preds = %77, %57, %54, %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit
   ret void
 }
 
@@ -26059,11 +26031,9 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
   %80 = and i64 %79, 3
   %81 = icmp eq i64 %80, 3
   %82 = and i64 %79, -4
-  %83 = inttoptr i64 %82 to ptr
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %82, 0
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %78, ptr %83
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %81, ptr %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %78
-  %84 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
+  %83 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %66, i64 %82
+  %84 = select i1 %81, i64 %83, i64 %66
   %85 = sub i64 %84, %61
   %86 = lshr i64 %85, %64
   %87 = trunc i64 %86 to i32
@@ -26560,11 +26530,9 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass23oop_oop_iterate_boundedI9na
   %71 = and i64 %70, 3
   %72 = icmp eq i64 %71, 3
   %73 = and i64 %70, -4
-  %74 = inttoptr i64 %73 to ptr
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %73, 0
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %69, ptr %74
-  %.0.i.i.i.i.i.i.i.i.i = select i1 %72, ptr %spec.select.i.i.i.i.i.i.i.i.i, ptr %69
-  %75 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i to i64
+  %74 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 %57, i64 %73
+  %75 = select i1 %72, i64 %74, i64 %57
   %76 = sub i64 %75, %52
   %77 = lshr i64 %76, %55
   %78 = trunc i64 %77 to i32
@@ -26684,11 +26652,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdat
   %55 = and i64 %54, 3
   %56 = icmp eq i64 %55, 3
   %57 = and i64 %54, -4
-  %58 = inttoptr i64 %57 to ptr
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %57, 0
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, ptr %53, ptr %58
-  %.0.i.i.i.i.i.i.i.i = select i1 %56, ptr %spec.select.i.i.i.i.i.i.i.i, ptr %53
-  %59 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
+  %58 = select i1 %.not.i.i.i.i.i.i.i.i, i64 %41, i64 %57
+  %59 = select i1 %56, i64 %58, i64 %41
   %60 = sub i64 %59, %36
   %61 = lshr i64 %60, %39
   %62 = trunc i64 %61 to i32
@@ -26980,11 +26946,9 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
   %56 = and i64 %55, 3
   %57 = icmp eq i64 %56, 3
   %58 = and i64 %55, -4
-  %59 = inttoptr i64 %58 to ptr
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %58, 0
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, ptr %54, ptr %59
-  %.0.i.i.i.i.i.i.i.i = select i1 %57, ptr %spec.select.i.i.i.i.i.i.i.i, ptr %54
-  %60 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
+  %59 = select i1 %.not.i.i.i.i.i.i.i.i, i64 %42, i64 %58
+  %60 = select i1 %57, i64 %59, i64 %42
   %61 = sub i64 %60, %37
   %62 = lshr i64 %61, %40
   %63 = trunc i64 %62 to i32
@@ -27065,11 +27029,9 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %44 = and i64 %43, 3
   %45 = icmp eq i64 %44, 3
   %46 = and i64 %43, -4
-  %47 = inttoptr i64 %46 to ptr
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %46, 0
-  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %42, ptr %47
-  %.0.i.i.i.i.i.i.i.i.i.i = select i1 %45, ptr %spec.select.i.i.i.i.i.i.i.i.i.i, ptr %42
-  %48 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i.i to i64
+  %47 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 %30, i64 %46
+  %48 = select i1 %45, i64 %47, i64 %30
   %49 = sub i64 %48, %25
   %50 = lshr i64 %49, %28
   %51 = trunc i64 %50 to i32
@@ -27113,11 +27075,9 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosure14A
   %81 = and i64 %80, 3
   %82 = icmp eq i64 %81, 3
   %83 = and i64 %80, -4
-  %84 = inttoptr i64 %83 to ptr
   %.not.i.i.i.i.i.i.i.i.i6.i = icmp eq i64 %83, 0
-  %spec.select.i.i.i.i.i.i.i.i.i7.i = select i1 %.not.i.i.i.i.i.i.i.i.i6.i, ptr %79, ptr %84
-  %.0.i.i.i.i.i.i.i.i.i8.i = select i1 %82, ptr %spec.select.i.i.i.i.i.i.i.i.i7.i, ptr %79
-  %85 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i8.i to i64
+  %84 = select i1 %.not.i.i.i.i.i.i.i.i.i6.i, i64 %67, i64 %83
+  %85 = select i1 %82, i64 %84, i64 %67
   %86 = sub i64 %85, %62
   %87 = lshr i64 %86, %65
   %88 = trunc i64 %87 to i32
@@ -27162,11 +27122,9 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosure14A
   %120 = and i64 %119, 3
   %121 = icmp eq i64 %120, 3
   %122 = and i64 %119, -4
-  %123 = inttoptr i64 %122 to ptr
   %.not.i.i.i.i.i.i.i.i.i.i14 = icmp eq i64 %122, 0
-  %spec.select.i.i.i.i.i.i.i.i.i.i15 = select i1 %.not.i.i.i.i.i.i.i.i.i.i14, ptr %118, ptr %123
-  %.0.i.i.i.i.i.i.i.i.i.i16 = select i1 %121, ptr %spec.select.i.i.i.i.i.i.i.i.i.i15, ptr %118
-  %124 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i.i16 to i64
+  %123 = select i1 %.not.i.i.i.i.i.i.i.i.i.i14, i64 %106, i64 %122
+  %124 = select i1 %121, i64 %123, i64 %106
   %125 = sub i64 %124, %101
   %126 = lshr i64 %125, %104
   %127 = trunc i64 %126 to i32
@@ -27258,11 +27216,9 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop30ShenandoahSTWUpdateRefsClosureEE
   %52 = and i64 %51, 3
   %53 = icmp eq i64 %52, 3
   %54 = and i64 %51, -4
-  %55 = inttoptr i64 %54 to ptr
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %54, 0
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %50, ptr %55
-  %.0.i.i.i.i.i.i.i.i.i = select i1 %53, ptr %spec.select.i.i.i.i.i.i.i.i.i, ptr %50
-  %56 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i to i64
+  %55 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 %38, i64 %54
+  %56 = select i1 %53, i64 %55, i64 %38
   %57 = sub i64 %56, %33
   %58 = lshr i64 %57, %36
   %59 = trunc i64 %58 to i32
@@ -27306,11 +27262,9 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop30ShenandoahSTWUpdateRefsClosure14A
   %89 = and i64 %88, 3
   %90 = icmp eq i64 %89, 3
   %91 = and i64 %88, -4
-  %92 = inttoptr i64 %91 to ptr
   %.not.i.i.i.i.i.i.i.i.i8 = icmp eq i64 %91, 0
-  %spec.select.i.i.i.i.i.i.i.i.i9 = select i1 %.not.i.i.i.i.i.i.i.i.i8, ptr %87, ptr %92
-  %.0.i.i.i.i.i.i.i.i.i10 = select i1 %90, ptr %spec.select.i.i.i.i.i.i.i.i.i9, ptr %87
-  %93 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i10 to i64
+  %92 = select i1 %.not.i.i.i.i.i.i.i.i.i8, i64 %75, i64 %91
+  %93 = select i1 %90, i64 %92, i64 %75
   %94 = sub i64 %93, %70
   %95 = lshr i64 %94, %73
   %96 = trunc i64 %95 to i32
@@ -27675,11 +27629,9 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %55 = and i64 %54, 3
   %56 = icmp eq i64 %55, 3
   %57 = and i64 %54, -4
-  %58 = inttoptr i64 %57 to ptr
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %57, 0
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, ptr %53, ptr %58
-  %.0.i.i.i.i.i.i.i.i = select i1 %56, ptr %spec.select.i.i.i.i.i.i.i.i, ptr %53
-  %59 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
+  %58 = select i1 %.not.i.i.i.i.i.i.i.i, i64 %41, i64 %57
+  %59 = select i1 %56, i64 %58, i64 %41
   %60 = sub i64 %59, %36
   %61 = lshr i64 %60, %39
   %62 = trunc i64 %61 to i32
@@ -27762,11 +27714,9 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
   %110 = and i64 %109, 3
   %111 = icmp eq i64 %110, 3
   %112 = and i64 %109, -4
-  %113 = inttoptr i64 %112 to ptr
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %112, 0
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %108, ptr %113
-  %.0.i.i.i.i.i.i.i.i.i = select i1 %111, ptr %spec.select.i.i.i.i.i.i.i.i.i, ptr %108
-  %114 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i to i64
+  %113 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 %96, i64 %112
+  %114 = select i1 %111, i64 %113, i64 %96
   %115 = sub i64 %114, %91
   %116 = lshr i64 %115, %94
   %117 = trunc i64 %116 to i32
@@ -28037,11 +27987,9 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %55 = and i64 %54, 3
   %56 = icmp eq i64 %55, 3
   %57 = and i64 %54, -4
-  %58 = inttoptr i64 %57 to ptr
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %57, 0
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, ptr %53, ptr %58
-  %.0.i.i.i.i.i.i.i.i = select i1 %56, ptr %spec.select.i.i.i.i.i.i.i.i, ptr %53
-  %59 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
+  %58 = select i1 %.not.i.i.i.i.i.i.i.i, i64 %41, i64 %57
+  %59 = select i1 %56, i64 %58, i64 %41
   %60 = sub i64 %59, %36
   %61 = lshr i64 %60, %39
   %62 = trunc i64 %61 to i32
@@ -28241,11 +28189,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass15oop_oop_iterateI9
   %41 = and i64 %40, 3
   %42 = icmp eq i64 %41, 3
   %43 = and i64 %40, -4
-  %44 = inttoptr i64 %43 to ptr
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %43, 0
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %39, ptr %44
-  %.0.i.i.i.i.i.i.i.i.i = select i1 %42, ptr %spec.select.i.i.i.i.i.i.i.i.i, ptr %39
-  %45 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i to i64
+  %44 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 %27, i64 %43
+  %45 = select i1 %42, i64 %44, i64 %27
   %46 = sub i64 %45, %22
   %47 = lshr i64 %46, %25
   %48 = trunc i64 %47 to i32
@@ -28285,11 +28231,9 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
   %74 = and i64 %73, 3
   %75 = icmp eq i64 %74, 3
   %76 = and i64 %73, -4
-  %77 = inttoptr i64 %76 to ptr
   %.not.i.i.i.i.i.i.i.i6.i = icmp eq i64 %76, 0
-  %spec.select.i.i.i.i.i.i.i.i7.i = select i1 %.not.i.i.i.i.i.i.i.i6.i, ptr %72, ptr %77
-  %.0.i.i.i.i.i.i.i.i8.i = select i1 %75, ptr %spec.select.i.i.i.i.i.i.i.i7.i, ptr %72
-  %78 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i8.i to i64
+  %77 = select i1 %.not.i.i.i.i.i.i.i.i6.i, i64 %60, i64 %76
+  %78 = select i1 %75, i64 %77, i64 %60
   %79 = sub i64 %78, %55
   %80 = lshr i64 %79, %58
   %81 = trunc i64 %80 to i32
@@ -28729,11 +28673,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdat
   %66 = and i64 %65, 3
   %67 = icmp eq i64 %66, 3
   %68 = and i64 %65, -4
-  %69 = inttoptr i64 %68 to ptr
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %68, 0
-  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %64, ptr %69
-  %.0.i.i.i.i.i.i.i.i.i.i = select i1 %67, ptr %spec.select.i.i.i.i.i.i.i.i.i.i, ptr %64
-  %70 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i.i.i to i64
+  %69 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 %52, i64 %68
+  %70 = select i1 %67, i64 %69, i64 %52
   %71 = sub i64 %70, %47
   %72 = lshr i64 %71, %50
   %73 = trunc i64 %72 to i32

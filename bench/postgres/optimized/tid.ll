@@ -379,9 +379,8 @@ define dso_local i64 @tidlarger(ptr nocapture noundef readonly %0) local_unnamed
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call i32 @ItemPointerCompare(ptr noundef %4, ptr noundef %7) #10
   %9 = icmp slt i32 %8, 0
-  %10 = select i1 %9, ptr %7, ptr %4
-  %11 = ptrtoint ptr %10 to i64
-  ret i64 %11
+  %10 = select i1 %9, i64 %6, i64 %3
+  ret i64 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -394,9 +393,8 @@ define dso_local i64 @tidsmaller(ptr nocapture noundef readonly %0) local_unname
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call i32 @ItemPointerCompare(ptr noundef %4, ptr noundef %7) #10
   %9 = icmp slt i32 %8, 1
-  %10 = select i1 %9, ptr %4, ptr %7
-  %11 = ptrtoint ptr %10 to i64
-  ret i64 %11
+  %10 = select i1 %9, i64 %3, i64 %6
+  ret i64 %10
 }
 
 ; Function Attrs: nounwind uwtable

@@ -2546,14 +2546,14 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %319
   %438 = and i16 %437, 1
   %.not.i186 = icmp eq i16 %438, 0
   %439 = or disjoint i32 %spec.store.select4, 32
-  %440 = zext nneg i32 %439 to i64
   %narrow222 = sub nuw nsw i32 32, %spec.store.select4
-  %441 = zext nneg i32 %narrow222 to i64
-  %wide.trip.count.i = select i1 %.not.i186, i64 32, i64 %440
+  %440 = zext nneg i32 %narrow222 to i64
+  %441 = zext nneg i32 %439 to i64
+  %wide.trip.count.i = select i1 %.not.i186, i64 32, i64 %441
   br label %.lr.ph.i187
 
 .lr.ph.i187:                                      ; preds = %.lr.ph.i187, %.lr.ph.preheader.i
-  %indvars.iv.i188 = phi i64 [ %441, %.lr.ph.preheader.i ], [ %indvars.iv.next.i189, %.lr.ph.i187 ]
+  %indvars.iv.i188 = phi i64 [ %440, %.lr.ph.preheader.i ], [ %indvars.iv.next.i189, %.lr.ph.i187 ]
   %442 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i188
   %443 = load float, ptr %442, align 4
   %444 = fsub float %443, %359
@@ -2582,14 +2582,14 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %319
   %459 = and i16 %458, 1
   %.not.i191 = icmp eq i16 %459, 0
   %460 = or disjoint i32 %spec.store.select4, 32
-  %461 = zext nneg i32 %460 to i64
   %narrow = sub nuw nsw i32 32, %spec.store.select4
-  %462 = zext nneg i32 %narrow to i64
-  %wide.trip.count.i193 = select i1 %.not.i191, i64 32, i64 %461
+  %461 = zext nneg i32 %narrow to i64
+  %462 = zext nneg i32 %460 to i64
+  %wide.trip.count.i193 = select i1 %.not.i191, i64 32, i64 %462
   br label %.lr.ph.i194
 
 .lr.ph.i194:                                      ; preds = %.lr.ph.i194, %.lr.ph.preheader.i192
-  %indvars.iv.i195 = phi i64 [ %462, %.lr.ph.preheader.i192 ], [ %indvars.iv.next.i196, %.lr.ph.i194 ]
+  %indvars.iv.i195 = phi i64 [ %461, %.lr.ph.preheader.i192 ], [ %indvars.iv.next.i196, %.lr.ph.i194 ]
   %463 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i195
   %464 = load float, ptr %463, align 4
   %465 = fsub float %464, %456
@@ -2695,7 +2695,7 @@ _ZL14accumulate_rgbPA3_fiiffff.exit198:           ; preds = %.lr.ph.i194
   br label %.lr.ph.i203
 
 .lr.ph.i203:                                      ; preds = %.lr.ph.i203, %.lr.ph.preheader.i201
-  %indvars.iv.i204 = phi i64 [ %462, %.lr.ph.preheader.i201 ], [ %indvars.iv.next.i205, %.lr.ph.i203 ]
+  %indvars.iv.i204 = phi i64 [ %461, %.lr.ph.preheader.i201 ], [ %indvars.iv.next.i205, %.lr.ph.i203 ]
   %525 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i204
   %526 = load float, ptr %525, align 4
   %527 = fsub float %526, %.0144

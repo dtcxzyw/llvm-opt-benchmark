@@ -3471,10 +3471,10 @@ define internal noundef i32 @ata_scsiop_inq_b0(ptr nocapture noundef readonly %0
   %11 = icmp eq i16 %10, 24576
   %12 = and i16 %9, 15
   %13 = shl nuw i16 1, %12
-  %14 = tail call i16 @llvm.bswap.i16(i16 %13)
-  %15 = getelementptr i8, ptr %1, i64 6
-  %16 = select i1 %11, i16 %14, i16 256
-  store i16 %16, ptr %15, align 1
+  %14 = getelementptr i8, ptr %1, i64 6
+  %15 = tail call i16 @llvm.bswap.i16(i16 %13)
+  %16 = select i1 %11, i16 %15, i16 256
+  store i16 %16, ptr %14, align 1
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr i8, ptr %17, i64 160
   %19 = load i16, ptr %18, align 2

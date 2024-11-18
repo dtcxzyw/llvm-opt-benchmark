@@ -30613,9 +30613,9 @@ if.end13.i:                                       ; preds = %luaK_exp2nextreg.ex
   %div.i34.i = sdiv i32 %sub.i33.i, 50
   %add.i35.i = add nsw i32 %div.i34.i, 1
   %cmp.i.i110 = icmp eq i32 %91, -1
-  %95 = shl i32 %91, 23
   %cmp1.i36.i = icmp slt i32 %94, 25551
   %shl1.i.i37.i = shl i32 %93, 6
+  %95 = shl i32 %91, 23
   %shl2.i.i.i = select i1 %cmp.i.i110, i32 0, i32 %95
   br i1 %cmp1.i36.i, label %if.then.i50.i, label %if.else.i38.i
 

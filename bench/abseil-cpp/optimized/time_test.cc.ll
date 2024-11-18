@@ -35902,9 +35902,9 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont4:                                     ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #25
-  %call.i.i.i95.i = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 292270897851, i8 noundef signext 7, i64 noundef 2147483647, i64 noundef 90994648, i8 noundef signext 12, i8 noundef signext 21, i8 noundef signext 7) #25
-  %1 = extractvalue { i64, i64 } %call.i.i.i95.i, 1
-  %2 = extractvalue { i64, i64 } %call.i.i.i95.i, 0
+  %call.i.i.i96.i = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 292270897851, i8 noundef signext 7, i64 noundef 2147483647, i64 noundef 90994648, i8 noundef signext 12, i8 noundef signext 21, i8 noundef signext 7) #25
+  %1 = extractvalue { i64, i64 } %call.i.i.i96.i, 1
+  %2 = extractvalue { i64, i64 } %call.i.i.i96.i, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tz.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ti.i)
   store ptr %call.i, ptr %tz.i, align 8
@@ -36047,9 +36047,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  %call.i.i.i95.i344 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 292270897852, i8 noundef signext 7, i64 noundef 2147483647, i64 noundef 90994648, i8 noundef signext 12, i8 noundef signext 21, i8 noundef signext 7) #25
-  %18 = extractvalue { i64, i64 } %call.i.i.i95.i344, 1
-  %19 = extractvalue { i64, i64 } %call.i.i.i95.i344, 0
+  %call.i.i.i96.i344 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 292270897852, i8 noundef signext 7, i64 noundef 2147483647, i64 noundef 90994648, i8 noundef signext 12, i8 noundef signext 21, i8 noundef signext 7) #25
+  %18 = extractvalue { i64, i64 } %call.i.i.i96.i344, 1
+  %19 = extractvalue { i64, i64 } %call.i.i.i96.i344, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tz.i38)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ti.i39)
   store ptr %call.i, ptr %tz.i38, align 8
@@ -36187,9 +36187,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit79:          ; preds = %if.end66, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i78
   store ptr null, ptr %message_.i76, align 8
-  %call.i.i.i95.i367 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef -292270893911, i8 noundef signext 4, i64 noundef -2147483648, i64 noundef -90994649, i8 noundef signext 10, i8 noundef signext 37, i8 noundef signext 52) #25
-  %34 = extractvalue { i64, i64 } %call.i.i.i95.i367, 1
-  %35 = extractvalue { i64, i64 } %call.i.i.i95.i367, 0
+  %call.i.i.i96.i367 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef -292270893911, i8 noundef signext 4, i64 noundef -2147483648, i64 noundef -90994649, i8 noundef signext 10, i8 noundef signext 37, i8 noundef signext 52) #25
+  %34 = extractvalue { i64, i64 } %call.i.i.i96.i367, 1
+  %35 = extractvalue { i64, i64 } %call.i.i.i96.i367, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tz.i81)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ti.i82)
   store ptr %call.i, ptr %tz.i81, align 8
@@ -36327,9 +36327,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit122:         ; preds = %if.end102, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i121
   store ptr null, ptr %message_.i119, align 8
-  %call.i.i.i95.i390 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef -292270893912, i8 noundef signext 4, i64 noundef -2147483648, i64 noundef -90994649, i8 noundef signext 10, i8 noundef signext 37, i8 noundef signext 52) #25
-  %50 = extractvalue { i64, i64 } %call.i.i.i95.i390, 1
-  %51 = extractvalue { i64, i64 } %call.i.i.i95.i390, 0
+  %call.i.i.i96.i390 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef -292270893912, i8 noundef signext 4, i64 noundef -2147483648, i64 noundef -90994649, i8 noundef signext 10, i8 noundef signext 37, i8 noundef signext 52) #25
+  %50 = extractvalue { i64, i64 } %call.i.i.i96.i390, 1
+  %51 = extractvalue { i64, i64 } %call.i.i.i96.i390, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tz.i124)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ti.i125)
   store ptr %call.i, ptr %tz.i124, align 8

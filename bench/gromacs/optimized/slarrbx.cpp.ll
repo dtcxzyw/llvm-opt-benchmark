@@ -176,7 +176,7 @@ define void @slarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %._crit_edge525
-  %89 = add nsw i32 %.5432.lcssa, 1
+  %89 = add nuw nsw i32 %.5432.lcssa, 1
   br label %90
 
 90:                                               ; preds = %._crit_edge517.thread, %._crit_edge525, %88, %._crit_edge517
@@ -271,7 +271,7 @@ define void @slarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %._crit_edge548
-  %132 = add nsw i32 %.11.lcssa, 1
+  %132 = add nuw nsw i32 %.11.lcssa, 1
   br label %133
 
 133:                                              ; preds = %._crit_edge540.thread, %._crit_edge548, %131, %._crit_edge540
@@ -565,7 +565,7 @@ define void @slarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br i1 %278, label %279, label %281
 
 279:                                              ; preds = %._crit_edge582
-  %280 = add nsw i32 %.17.lcssa, 1
+  %280 = add nuw nsw i32 %.17.lcssa, 1
   br label %281
 
 281:                                              ; preds = %._crit_edge574.thread, %._crit_edge582, %279, %._crit_edge574

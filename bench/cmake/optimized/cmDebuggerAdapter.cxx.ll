@@ -7573,10 +7573,10 @@ define internal void @"_ZNSt17_Function_handlerIFvPKvRKSt8functionIFvPKN3dap8Typ
   call void @llvm.lifetime.start.p0(i64 472, ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %12 = trunc i8 %.val4.val5 to i1
-  %13 = and i8 %.val4.val, 1
-  %14 = getelementptr inbounds i8, ptr %.val, i64 192
-  %15 = select i1 %12, i8 %13, i8 0
-  store i8 %15, ptr %14, align 8, !noalias !54
+  %13 = getelementptr inbounds i8, ptr %.val, i64 192
+  %14 = and i8 %.val4.val, 1
+  %15 = select i1 %12, i8 %14, i8 0
+  store i8 %15, ptr %13, align 8, !noalias !54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %9, i8 0, i64 25, i1 false), !alias.scope !54
   %16 = getelementptr inbounds i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %16, i8 0, i64 25, i1 false), !alias.scope !54

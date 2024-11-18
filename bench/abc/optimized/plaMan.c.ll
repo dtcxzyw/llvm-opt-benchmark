@@ -1255,8 +1255,8 @@ Vec_WecInit.exit61:                               ; preds = %Vec_WecInit.exit, %
   %82 = getelementptr inbounds i8, ptr %67, i64 8
   %83 = load ptr, ptr %82, align 8
   %.not9.i = icmp eq ptr %83, null
-  %84 = sext i32 %.0.lcssa to i64
-  %85 = shl nsw i64 %84, 2
+  %84 = zext nneg i32 %.0.lcssa to i64
+  %85 = shl nuw nsw i64 %84, 2
   br i1 %.not9.i, label %88, label %86
 
 86:                                               ; preds = %81

@@ -18461,10 +18461,9 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4llvm6object15MachOOb
   %6 = and i64 %3, 2147483648
   %7 = icmp ne i64 %6, 0
   %.0.i.i = and i1 %5, %7
-  %8 = and i64 %3, 16777215
-  %spec.select.i = select i1 %.0.i.i, i64 %8, i64 %3
-  %9 = and i64 %spec.select.i, 4294967295
-  ret i64 %9
+  %.v = select i1 %.0.i.i, i64 16777215, i64 4294967295
+  %8 = and i64 %.v, %3
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

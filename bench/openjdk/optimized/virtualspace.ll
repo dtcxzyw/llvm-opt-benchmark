@@ -1328,184 +1328,184 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit: ; preds = %.crit
   %108 = inttoptr i64 %106 to ptr
   %109 = icmp ugt ptr %23, %108
   %110 = select i1 %109, ptr %23, ptr %108
-  %.072 = select i1 %107, ptr %110, ptr %23
-  %111 = ptrtoint ptr %.072 to i64
-  %112 = add i64 %17, -1
-  %113 = add i64 %112, %111
-  %114 = and i64 %113, %103
-  %115 = inttoptr i64 %114 to ptr
-  %116 = icmp eq i64 %104, %114
-  br i1 %116, label %126, label %117
+  %111 = ptrtoint ptr %110 to i64
+  %112 = select i1 %107, i64 %111, i64 %22
+  %113 = add i64 %17, -1
+  %114 = add i64 %113, %112
+  %115 = and i64 %114, %103
+  %116 = inttoptr i64 %115 to ptr
+  %117 = icmp eq i64 %104, %115
+  br i1 %117, label %127, label %118
 
-117:                                              ; preds = %99
-  %118 = load i64, ptr @HeapSearchSteps, align 8
-  %119 = sub i64 %104, %114
-  %120 = udiv i64 %119, %17
-  %121 = add i64 %120, 1
-  %122 = tail call noundef i64 @llvm.umin.i64(i64 %118, i64 %121)
-  %123 = udiv i64 %119, %122
-  %124 = add i64 %112, %123
-  %125 = and i64 %124, %103
-  br label %126
+118:                                              ; preds = %99
+  %119 = load i64, ptr @HeapSearchSteps, align 8
+  %120 = sub i64 %104, %115
+  %121 = udiv i64 %120, %17
+  %122 = add i64 %121, 1
+  %123 = tail call noundef i64 @llvm.umin.i64(i64 %119, i64 %122)
+  %124 = udiv i64 %120, %123
+  %125 = add i64 %113, %124
+  %126 = and i64 %125, %103
+  br label %127
 
-126:                                              ; preds = %117, %99
-  %127 = phi i64 [ %125, %117 ], [ %104, %99 ]
-  %.not32.i84 = icmp ult i64 %104, %114
+127:                                              ; preds = %118, %99
+  %128 = phi i64 [ %126, %118 ], [ %104, %99 ]
+  %.not32.i84 = icmp ult i64 %104, %115
   br i1 %.not32.i84, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93, label %.lr.ph.i85
 
-.lr.ph.i85:                                       ; preds = %126
-  %128 = sub i64 0, %127
-  br label %129
+.lr.ph.i85:                                       ; preds = %127
+  %129 = sub i64 0, %128
+  br label %130
 
-129:                                              ; preds = %.critedge2.i89, %.lr.ph.i85
-  %.033.i86 = phi ptr [ %105, %.lr.ph.i85 ], [ %135, %.critedge2.i89 ]
-  %130 = load ptr, ptr %0, align 8
-  %131 = icmp eq ptr %130, null
-  %132 = icmp ult ptr %130, %23
-  %or.cond29.i87 = or i1 %131, %132
-  %133 = getelementptr inbounds i8, ptr %130, i64 %1
-  %134 = icmp ugt ptr %133, %93
-  %or.cond31.i88 = select i1 %or.cond29.i87, i1 true, i1 %134
+130:                                              ; preds = %.critedge2.i89, %.lr.ph.i85
+  %.033.i86 = phi ptr [ %105, %.lr.ph.i85 ], [ %136, %.critedge2.i89 ]
+  %131 = load ptr, ptr %0, align 8
+  %132 = icmp eq ptr %131, null
+  %133 = icmp ult ptr %131, %23
+  %or.cond29.i87 = or i1 %132, %133
+  %134 = getelementptr inbounds i8, ptr %131, i64 %1
+  %135 = icmp ugt ptr %134, %93
+  %or.cond31.i88 = select i1 %or.cond29.i87, i1 true, i1 %135
   br i1 %or.cond31.i88, label %.critedge2.i89, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93
 
-.critedge2.i89:                                   ; preds = %129
+.critedge2.i89:                                   ; preds = %130
   tail call void @_ZN17ReservedHeapSpace16try_reserve_heapEmmmPc(ptr noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %.033.i86)
-  %135 = getelementptr inbounds i8, ptr %.033.i86, i64 %128
-  %.not.i90 = icmp ult ptr %135, %115
-  %.not28.i91 = icmp ugt ptr %135, %105
+  %136 = getelementptr inbounds i8, ptr %.033.i86, i64 %129
+  %.not.i90 = icmp ult ptr %136, %116
+  %.not28.i91 = icmp ugt ptr %136, %105
   %or.cond.i92 = or i1 %.not.i90, %.not28.i91
-  br i1 %or.cond.i92, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93, label %129, !llvm.loop !8
+  br i1 %or.cond.i92, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93, label %130, !llvm.loop !8
 
-_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.critedge2.i89, %129, %126, %94, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit
-  %136 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %137 = tail call noundef i64 @_Z3lcmmm(i64 noundef %136, i64 noundef %2) #13
-  %138 = load i64, ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, align 16
-  %.not19.i = icmp eq i64 %138, 0
+_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.critedge2.i89, %130, %127, %94, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit
+  %137 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %138 = tail call noundef i64 @_Z3lcmmm(i64 noundef %137, i64 noundef %2) #13
+  %139 = load i64, ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, align 16
+  %.not19.i = icmp eq i64 %139, 0
   br i1 %.not19.i, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %.lr.ph.i94
 
 .lr.ph.i94:                                       ; preds = %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93
-  %139 = load i64, ptr @OopEncodingHeapMax, align 8
-  %140 = load i64, ptr @HeapBaseMinAddress, align 8
-  %.fr.i = freeze i64 %140
-  %invariant.umax.i = tail call i64 @llvm.umax.i64(i64 %139, i64 %.fr.i)
-  %or.cond.i95106 = icmp ult i64 %138, %invariant.umax.i
+  %140 = load i64, ptr @OopEncodingHeapMax, align 8
+  %141 = load i64, ptr @HeapBaseMinAddress, align 8
+  %.fr.i = freeze i64 %141
+  %invariant.umax.i = tail call i64 @llvm.umax.i64(i64 %140, i64 %.fr.i)
+  %or.cond.i95106 = icmp ult i64 %139, %invariant.umax.i
   br i1 %or.cond.i95106, label %.critedge2.i96, label %.lr.ph27.i
 
-141:                                              ; preds = %.critedge2.i96
-  %or.cond.i95 = icmp ult i64 %145, %invariant.umax.i
+142:                                              ; preds = %.critedge2.i96
+  %or.cond.i95 = icmp ult i64 %146, %invariant.umax.i
   br i1 %or.cond.i95, label %.critedge2.i96, label %.lr.ph27.i, !llvm.loop !9
 
-.critedge2.i96:                                   ; preds = %.lr.ph.i94, %141
-  %.020.i107 = phi i32 [ %142, %141 ], [ 0, %.lr.ph.i94 ]
-  %142 = add i32 %.020.i107, 1
-  %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %143
-  %145 = load i64, ptr %144, align 8
-  %.not.i97 = icmp eq i64 %145, 0
-  br i1 %.not.i97, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %141, !llvm.loop !9
+.critedge2.i96:                                   ; preds = %.lr.ph.i94, %142
+  %.020.i107 = phi i32 [ %143, %142 ], [ 0, %.lr.ph.i94 ]
+  %143 = add i32 %.020.i107, 1
+  %144 = zext i32 %143 to i64
+  %145 = getelementptr inbounds [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %144
+  %146 = load i64, ptr %145, align 8
+  %.not.i97 = icmp eq i64 %146, 0
+  br i1 %.not.i97, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %142, !llvm.loop !9
 
-.lr.ph27.i:                                       ; preds = %141, %.lr.ph.i94
-  %.lcssa103 = phi i64 [ 0, %.lr.ph.i94 ], [ %143, %141 ]
-  %.020.i.lcssa = phi i32 [ 0, %.lr.ph.i94 ], [ %142, %141 ]
-  %146 = zext i32 %.020.i.lcssa to i64
-  %147 = load i64, ptr @HeapSearchSteps, align 8
+.lr.ph27.i:                                       ; preds = %142, %.lr.ph.i94
+  %.lcssa103 = phi i64 [ 0, %.lr.ph.i94 ], [ %144, %142 ]
+  %.020.i.lcssa = phi i32 [ 0, %.lr.ph.i94 ], [ %143, %142 ]
+  %147 = zext i32 %.020.i.lcssa to i64
+  %148 = load i64, ptr @HeapSearchSteps, align 8
   %invariant.op.i = add i32 %.020.i.lcssa, 1
-  %148 = icmp eq i64 %147, 0
-  br i1 %148, label %._crit_edge, label %.lr.ph
+  %149 = icmp eq i64 %148, 0
+  br i1 %149, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph27.i, %152
-  %.126.i109 = phi i32 [ %153, %152 ], [ 0, %.lr.ph27.i ]
+.lr.ph:                                           ; preds = %.lr.ph27.i, %153
+  %.126.i109 = phi i32 [ %154, %153 ], [ 0, %.lr.ph27.i ]
   %.reass.i = add i32 %invariant.op.i, %.126.i109
-  %149 = zext i32 %.reass.i to i64
-  %150 = getelementptr inbounds [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %149
-  %151 = load i64, ptr %150, align 8
-  %.not15.i = icmp eq i64 %151, 0
-  br i1 %.not15.i, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %152, !llvm.loop !10
+  %150 = zext i32 %.reass.i to i64
+  %151 = getelementptr inbounds [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %150
+  %152 = load i64, ptr %151, align 8
+  %.not15.i = icmp eq i64 %152, 0
+  br i1 %.not15.i, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %153, !llvm.loop !10
 
-152:                                              ; preds = %.lr.ph
-  %153 = add i32 %.126.i109, 1
-  %154 = zext i32 %153 to i64
-  %155 = icmp eq i64 %147, %154
-  br i1 %155, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+153:                                              ; preds = %.lr.ph
+  %154 = add i32 %.126.i109, 1
+  %155 = zext i32 %154 to i64
+  %156 = icmp eq i64 %148, %155
+  br i1 %156, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %152, %.lr.ph27.i
-  %.lcssa = phi i64 [ %146, %.lr.ph27.i ], [ %149, %152 ]
-  %156 = getelementptr inbounds [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %.lcssa
-  store i64 0, ptr %156, align 8
+._crit_edge:                                      ; preds = %153, %.lr.ph27.i
+  %.lcssa = phi i64 [ %147, %.lr.ph27.i ], [ %150, %153 ]
+  %157 = getelementptr inbounds [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %.lcssa
+  store i64 0, ptr %157, align 8
   br label %_ZL38get_attach_addresses_for_disjoint_modev.exit
 
 _ZL38get_attach_addresses_for_disjoint_modev.exit: ; preds = %.critedge2.i96, %.lr.ph, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93, %._crit_edge
-  %.lcssa1834.i = phi i64 [ %.lcssa103, %._crit_edge ], [ 0, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93 ], [ %.lcssa103, %.lr.ph ], [ %143, %.critedge2.i96 ]
-  %157 = getelementptr inbounds [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %.lcssa1834.i
-  %158 = load ptr, ptr %157, align 8
-  %.not81111 = icmp eq ptr %158, null
+  %.lcssa1834.i = phi i64 [ %.lcssa103, %._crit_edge ], [ 0, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93 ], [ %.lcssa103, %.lr.ph ], [ %144, %.critedge2.i96 ]
+  %158 = getelementptr inbounds [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %.lcssa1834.i
+  %159 = load ptr, ptr %158, align 8
+  %.not81111 = icmp eq ptr %159, null
   br i1 %.not81111, label %.critedge, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %_ZL38get_attach_addresses_for_disjoint_modev.exit
-  %159 = add i64 %137, %1
-  br label %160
+  %160 = add i64 %138, %1
+  br label %161
 
-160:                                              ; preds = %.lr.ph113, %.critedge2
-  %161 = phi ptr [ %158, %.lr.ph113 ], [ %174, %.critedge2 ]
+161:                                              ; preds = %.lr.ph113, %.critedge2
+  %162 = phi ptr [ %159, %.lr.ph113 ], [ %175, %.critedge2 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next, %.critedge2 ]
-  %162 = getelementptr inbounds ptr, ptr %157, i64 %indvars.iv
-  %163 = load ptr, ptr %0, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %.critedge2, label %165
+  %163 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv
+  %164 = load ptr, ptr %0, align 8
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %.critedge2, label %166
 
-165:                                              ; preds = %160
-  %166 = getelementptr inbounds i8, ptr %163, i64 %1
-  %167 = load i64, ptr @OopEncodingHeapMax, align 8
-  %168 = inttoptr i64 %167 to ptr
-  %169 = icmp ugt ptr %166, %168
-  br i1 %169, label %170, label %.critedge
+166:                                              ; preds = %161
+  %167 = getelementptr inbounds i8, ptr %164, i64 %1
+  %168 = load i64, ptr @OopEncodingHeapMax, align 8
+  %169 = inttoptr i64 %168 to ptr
+  %170 = icmp ugt ptr %167, %169
+  br i1 %170, label %171, label %.critedge
 
-170:                                              ; preds = %165
-  %171 = tail call noundef zeroext i1 @_ZN14CompressedOops29is_disjoint_heap_base_addressEPh(ptr noundef nonnull %163) #13
-  br i1 %171, label %.critedge, label %..critedge2_crit_edge
+171:                                              ; preds = %166
+  %172 = tail call noundef zeroext i1 @_ZN14CompressedOops29is_disjoint_heap_base_addressEPh(ptr noundef nonnull %164) #13
+  br i1 %172, label %.critedge, label %..critedge2_crit_edge
 
-..critedge2_crit_edge:                            ; preds = %170
-  %.pre = load ptr, ptr %162, align 8
+..critedge2_crit_edge:                            ; preds = %171
+  %.pre = load ptr, ptr %163, align 8
   br label %.critedge2
 
-.critedge2:                                       ; preds = %..critedge2_crit_edge, %160
-  %172 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %161, %160 ]
-  tail call void @_ZN17ReservedHeapSpace16try_reserve_heapEmmmPc(ptr noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %159, i64 noundef %2, i64 noundef %3, ptr noundef %172)
+.critedge2:                                       ; preds = %..critedge2_crit_edge, %161
+  %173 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %162, %161 ]
+  tail call void @_ZN17ReservedHeapSpace16try_reserve_heapEmmmPc(ptr noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %160, i64 noundef %2, i64 noundef %3, ptr noundef %173)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %173 = getelementptr inbounds ptr, ptr %157, i64 %indvars.iv.next
-  %174 = load ptr, ptr %173, align 8
-  %.not81 = icmp eq ptr %174, null
-  br i1 %.not81, label %.critedge, label %160, !llvm.loop !11
+  %174 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv.next
+  %175 = load ptr, ptr %174, align 8
+  %.not81 = icmp eq ptr %175, null
+  br i1 %.not81, label %.critedge, label %161, !llvm.loop !11
 
-.critedge:                                        ; preds = %170, %165, %.critedge2, %_ZL38get_attach_addresses_for_disjoint_modev.exit
-  %175 = load ptr, ptr %0, align 8
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %177, label %_ZN13ReservedSpace10initializeEmmmPcb.exit
+.critedge:                                        ; preds = %171, %166, %.critedge2, %_ZL38get_attach_addresses_for_disjoint_modev.exit
+  %176 = load ptr, ptr %0, align 8
+  %177 = icmp eq ptr %176, null
+  br i1 %177, label %178, label %_ZN13ReservedSpace10initializeEmmmPcb.exit
 
-177:                                              ; preds = %.critedge
-  %178 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_27ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not99 = icmp eq ptr %178, null
-  %.pre125 = add i64 %137, %1
-  br i1 %.not99, label %._crit_edge124, label %179
+178:                                              ; preds = %.critedge
+  %179 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_27ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not99 = icmp eq ptr %179, null
+  %.pre125 = add i64 %138, %1
+  br i1 %.not99, label %._crit_edge124, label %180
 
-179:                                              ; preds = %177
+180:                                              ; preds = %178
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_27ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %.pre125)
   br label %._crit_edge124
 
-._crit_edge124:                                   ; preds = %177, %179
-  %180 = getelementptr inbounds i8, ptr %0, i64 48
-  store i8 0, ptr %180, align 8
+._crit_edge124:                                   ; preds = %178, %180
+  %181 = getelementptr inbounds i8, ptr %0, i64 48
+  store i8 0, ptr %181, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
-  %181 = icmp eq i64 %.pre125, 0
-  br i1 %181, label %_ZN13ReservedSpace10initializeEmmmPcb.exit, label %182
+  %182 = icmp eq i64 %.pre125, 0
+  br i1 %182, label %_ZN13ReservedSpace10initializeEmmmPcb.exit, label %183
 
-182:                                              ; preds = %._crit_edge124
-  %183 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %184 = tail call noundef i64 @llvm.umax.i64(i64 %2, i64 %183)
-  tail call void @_ZN13ReservedSpace7reserveEmmmPcb(ptr noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %.pre125, i64 noundef %184, i64 noundef %3, ptr noundef null, i1 noundef zeroext false)
+183:                                              ; preds = %._crit_edge124
+  %184 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %185 = tail call noundef i64 @llvm.umax.i64(i64 %2, i64 %184)
+  tail call void @_ZN13ReservedSpace7reserveEmmmPcb(ptr noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %.pre125, i64 noundef %185, i64 noundef %3, ptr noundef null, i1 noundef zeroext false)
   br label %_ZN13ReservedSpace10initializeEmmmPcb.exit
 
-_ZN13ReservedSpace10initializeEmmmPcb.exit:       ; preds = %182, %._crit_edge124, %.critedge, %_ZN13ReservedSpace7releaseEv.exit
+_ZN13ReservedSpace10initializeEmmmPcb.exit:       ; preds = %183, %._crit_edge124, %.critedge, %_ZN13ReservedSpace7releaseEv.exit
   ret void
 }
 

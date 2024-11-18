@@ -69513,8 +69513,8 @@ _ZN8blocking8Executor5spawn17h4d3bdb798eed4380E.exit.i.i.i: ; preds = %.noexc.i.
   %1057 = extractvalue { i64, ptr } %1051, 0
   %1058 = icmp eq i64 %1057, 2
   %..i.i.i = select i1 %1058, i8 3, i8 1
-  %1059 = extractvalue { i64, ptr } %1051, 1
   store i8 %..i.i.i, ptr %1048, align 8, !noalias !15203
+  %1059 = extractvalue { i64, ptr } %1051, 1
   br i1 %1058, label %1060, label %1061
 
 1060:                                             ; preds = %1056

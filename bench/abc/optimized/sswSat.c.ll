@@ -642,166 +642,163 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   %14 = and i64 %12, -2
   %15 = inttoptr i64 %14 to ptr
   %16 = ptrtoint ptr %spec.select to i64
-  %17 = xor i64 %16, 1
-  %18 = inttoptr i64 %17 to ptr
-  %.140 = select i1 %.not, ptr %spec.select, ptr %18
   %.1 = select i1 %.not, ptr %spec.select50, ptr %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
-  %20 = load ptr, ptr %19, align 8
-  tail call void @Ssw_CnfNodeAddToSolver(ptr noundef %20, ptr noundef %.1) #6
-  %21 = load ptr, ptr %19, align 8
-  %22 = ptrtoint ptr %.140 to i64
-  %23 = and i64 %22, -2
-  %24 = inttoptr i64 %23 to ptr
-  tail call void @Ssw_CnfNodeAddToSolver(ptr noundef %21, ptr noundef %24) #6
-  %25 = trunc i64 %22 to i32
-  %26 = and i32 %25, 1
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr i8, ptr %27, i64 48
-  %.val59 = load ptr, ptr %28, align 8
-  %29 = icmp eq ptr %.1, %.val59
-  %30 = load ptr, ptr %19, align 8
-  %31 = getelementptr i8, ptr %30, i64 32
-  %.val57 = load ptr, ptr %31, align 8
-  br i1 %29, label %32, label %52
+  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = load ptr, ptr %17, align 8
+  tail call void @Ssw_CnfNodeAddToSolver(ptr noundef %18, ptr noundef %.1) #6
+  %19 = load ptr, ptr %17, align 8
+  %20 = xor i64 %12, %16
+  %21 = and i64 %16, -2
+  %22 = inttoptr i64 %21 to ptr
+  tail call void @Ssw_CnfNodeAddToSolver(ptr noundef %19, ptr noundef %22) #6
+  %23 = trunc i64 %20 to i32
+  %24 = and i32 %23, 1
+  %25 = load ptr, ptr %8, align 8
+  %26 = getelementptr i8, ptr %25, i64 48
+  %.val59 = load ptr, ptr %26, align 8
+  %27 = icmp eq ptr %.1, %.val59
+  %28 = load ptr, ptr %17, align 8
+  %29 = getelementptr i8, ptr %28, i64 32
+  %.val57 = load ptr, ptr %29, align 8
+  br i1 %27, label %30, label %50
 
-32:                                               ; preds = %3
-  %33 = getelementptr i8, ptr %24, i64 36
-  %.val58 = load i32, ptr %33, align 4
-  %34 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val57, i32 %.val58)
-  %35 = shl nsw i32 %34, 1
-  %36 = or disjoint i32 %35, %26
-  store i32 %36, ptr %4, align 4
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 68
-  %39 = load i32, ptr %38, align 4
-  %.not48 = icmp eq i32 %39, 0
-  br i1 %.not48, label %46, label %40
+30:                                               ; preds = %3
+  %31 = getelementptr i8, ptr %22, i64 36
+  %.val58 = load i32, ptr %31, align 4
+  %32 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val57, i32 %.val58)
+  %33 = shl nsw i32 %32, 1
+  %34 = or disjoint i32 %33, %24
+  store i32 %34, ptr %4, align 4
+  %35 = load ptr, ptr %0, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 68
+  %37 = load i32, ptr %36, align 4
+  %.not48 = icmp eq i32 %37, 0
+  br i1 %.not48, label %44, label %38
 
-40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %24, i64 24
-  %42 = load i64, ptr %41, align 8
-  %43 = and i64 %42, 8
-  %.not49 = icmp eq i64 %43, 0
-  br i1 %.not49, label %46, label %44
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds i8, ptr %22, i64 24
+  %40 = load i64, ptr %39, align 8
+  %41 = and i64 %40, 8
+  %.not49 = icmp eq i64 %41, 0
+  br i1 %.not49, label %44, label %42
 
-44:                                               ; preds = %40
-  %45 = xor i32 %36, 1
-  store i32 %45, ptr %4, align 4
-  br label %46
+42:                                               ; preds = %38
+  %43 = xor i32 %34, 1
+  store i32 %43, ptr %4, align 4
+  br label %44
 
-46:                                               ; preds = %40, %44, %32
-  %47 = load ptr, ptr %19, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %4, i64 4
-  %51 = call i32 @sat_solver_addclause(ptr noundef %49, ptr noundef nonnull %4, ptr noundef nonnull %50) #6
-  br label %121
+44:                                               ; preds = %38, %42, %30
+  %45 = load ptr, ptr %17, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %4, i64 4
+  %49 = call i32 @sat_solver_addclause(ptr noundef %47, ptr noundef nonnull %4, ptr noundef nonnull %48) #6
+  br label %119
 
-52:                                               ; preds = %3
-  %53 = getelementptr i8, ptr %.1, i64 36
-  %.1.val56 = load i32, ptr %53, align 4
-  %54 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val57, i32 %.1.val56)
-  %55 = shl nsw i32 %54, 1
-  store i32 %55, ptr %4, align 4
-  %56 = load ptr, ptr %19, align 8
-  %57 = getelementptr i8, ptr %56, i64 32
-  %.val53 = load ptr, ptr %57, align 8
-  %58 = getelementptr i8, ptr %24, i64 36
-  %.val54 = load i32, ptr %58, align 4
-  %59 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val53, i32 %.val54)
-  %60 = shl nsw i32 %59, 1
-  %61 = or disjoint i32 %60, %26
-  %62 = getelementptr inbounds i8, ptr %4, i64 4
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 68
-  %65 = load i32, ptr %64, align 4
-  %.not42 = icmp eq i32 %65, 0
-  br i1 %.not42, label %77, label %66
+50:                                               ; preds = %3
+  %51 = getelementptr i8, ptr %.1, i64 36
+  %.1.val56 = load i32, ptr %51, align 4
+  %52 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val57, i32 %.1.val56)
+  %53 = shl nsw i32 %52, 1
+  store i32 %53, ptr %4, align 4
+  %54 = load ptr, ptr %17, align 8
+  %55 = getelementptr i8, ptr %54, i64 32
+  %.val53 = load ptr, ptr %55, align 8
+  %56 = getelementptr i8, ptr %22, i64 36
+  %.val54 = load i32, ptr %56, align 4
+  %57 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val53, i32 %.val54)
+  %58 = shl nsw i32 %57, 1
+  %59 = or disjoint i32 %58, %24
+  %60 = getelementptr inbounds i8, ptr %4, i64 4
+  %61 = load ptr, ptr %0, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 68
+  %63 = load i32, ptr %62, align 4
+  %.not42 = icmp eq i32 %63, 0
+  br i1 %.not42, label %75, label %64
 
-66:                                               ; preds = %52
-  %67 = getelementptr inbounds i8, ptr %.1, i64 24
-  %68 = load i64, ptr %67, align 8
-  %69 = trunc i64 %68 to i32
-  %70 = lshr i32 %69, 3
-  %71 = and i32 %70, 1
-  %spec.select61 = or disjoint i32 %55, %71
-  %72 = getelementptr inbounds i8, ptr %24, i64 24
-  %73 = load i64, ptr %72, align 8
-  %74 = trunc i64 %73 to i32
-  %75 = lshr i32 %74, 3
-  %76 = and i32 %75, 1
-  %spec.select63 = xor i32 %61, %76
-  br label %77
+64:                                               ; preds = %50
+  %65 = getelementptr inbounds i8, ptr %.1, i64 24
+  %66 = load i64, ptr %65, align 8
+  %67 = trunc i64 %66 to i32
+  %68 = lshr i32 %67, 3
+  %69 = and i32 %68, 1
+  %spec.select61 = or disjoint i32 %53, %69
+  %70 = getelementptr inbounds i8, ptr %22, i64 24
+  %71 = load i64, ptr %70, align 8
+  %72 = trunc i64 %71 to i32
+  %73 = lshr i32 %72, 3
+  %74 = and i32 %73, 1
+  %spec.select63 = xor i32 %59, %74
+  br label %75
 
-77:                                               ; preds = %66, %52
-  %78 = phi i32 [ %61, %52 ], [ %spec.select63, %66 ]
-  %79 = phi i32 [ %55, %52 ], [ %spec.select61, %66 ]
-  %80 = xor i32 %79, 1
-  store i32 %80, ptr %4, align 4
-  store i32 %78, ptr %62, align 4
-  %81 = load ptr, ptr %19, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %4, i64 8
-  %85 = call i32 @sat_solver_addclause(ptr noundef %83, ptr noundef nonnull %4, ptr noundef nonnull %84) #6
-  %86 = load ptr, ptr %19, align 8
-  %87 = getelementptr i8, ptr %86, i64 32
-  %.val52 = load ptr, ptr %87, align 8
-  %.1.val = load i32, ptr %53, align 4
-  %88 = call fastcc i32 @Ssw_ObjSatNum(ptr %.val52, i32 %.1.val)
-  %89 = shl nsw i32 %88, 1
-  %90 = or disjoint i32 %89, 1
-  store i32 %90, ptr %4, align 4
-  %91 = load ptr, ptr %19, align 8
-  %92 = getelementptr i8, ptr %91, i64 32
-  %.val = load ptr, ptr %92, align 8
-  %.val51 = load i32, ptr %58, align 4
-  %93 = call fastcc i32 @Ssw_ObjSatNum(ptr %.val, i32 %.val51)
-  %94 = shl nsw i32 %93, 1
-  %95 = or disjoint i32 %94, %26
-  %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 68
-  %98 = load i32, ptr %97, align 4
-  %.not45 = icmp eq i32 %98, 0
-  br i1 %.not45, label %112, label %99
+75:                                               ; preds = %64, %50
+  %76 = phi i32 [ %59, %50 ], [ %spec.select63, %64 ]
+  %77 = phi i32 [ %53, %50 ], [ %spec.select61, %64 ]
+  %78 = xor i32 %77, 1
+  store i32 %78, ptr %4, align 4
+  store i32 %76, ptr %60, align 4
+  %79 = load ptr, ptr %17, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %4, i64 8
+  %83 = call i32 @sat_solver_addclause(ptr noundef %81, ptr noundef nonnull %4, ptr noundef nonnull %82) #6
+  %84 = load ptr, ptr %17, align 8
+  %85 = getelementptr i8, ptr %84, i64 32
+  %.val52 = load ptr, ptr %85, align 8
+  %.1.val = load i32, ptr %51, align 4
+  %86 = call fastcc i32 @Ssw_ObjSatNum(ptr %.val52, i32 %.1.val)
+  %87 = shl nsw i32 %86, 1
+  %88 = or disjoint i32 %87, 1
+  store i32 %88, ptr %4, align 4
+  %89 = load ptr, ptr %17, align 8
+  %90 = getelementptr i8, ptr %89, i64 32
+  %.val = load ptr, ptr %90, align 8
+  %.val51 = load i32, ptr %56, align 4
+  %91 = call fastcc i32 @Ssw_ObjSatNum(ptr %.val, i32 %.val51)
+  %92 = shl nsw i32 %91, 1
+  %93 = or disjoint i32 %92, %24
+  %94 = load ptr, ptr %0, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 68
+  %96 = load i32, ptr %95, align 4
+  %.not45 = icmp eq i32 %96, 0
+  br i1 %.not45, label %110, label %97
 
-99:                                               ; preds = %77
-  %100 = getelementptr inbounds i8, ptr %.1, i64 24
-  %101 = load i64, ptr %100, align 8
-  %102 = and i64 %101, 8
-  %.not46 = icmp eq i64 %102, 0
-  br i1 %.not46, label %106, label %103
+97:                                               ; preds = %75
+  %98 = getelementptr inbounds i8, ptr %.1, i64 24
+  %99 = load i64, ptr %98, align 8
+  %100 = and i64 %99, 8
+  %.not46 = icmp eq i64 %100, 0
+  br i1 %.not46, label %104, label %101
 
-103:                                              ; preds = %99
-  %104 = load i32, ptr %4, align 4
-  %105 = xor i32 %104, 1
-  store i32 %105, ptr %4, align 4
-  br label %106
+101:                                              ; preds = %97
+  %102 = load i32, ptr %4, align 4
+  %103 = xor i32 %102, 1
+  store i32 %103, ptr %4, align 4
+  br label %104
 
-106:                                              ; preds = %103, %99
-  %107 = getelementptr inbounds i8, ptr %24, i64 24
-  %108 = load i64, ptr %107, align 8
-  %109 = trunc i64 %108 to i32
-  %110 = lshr i32 %109, 3
-  %111 = and i32 %110, 1
-  %spec.select62 = xor i32 %95, %111
-  br label %112
+104:                                              ; preds = %101, %97
+  %105 = getelementptr inbounds i8, ptr %22, i64 24
+  %106 = load i64, ptr %105, align 8
+  %107 = trunc i64 %106 to i32
+  %108 = lshr i32 %107, 3
+  %109 = and i32 %108, 1
+  %spec.select62 = xor i32 %93, %109
+  br label %110
 
-112:                                              ; preds = %106, %77
-  %113 = phi i32 [ %95, %77 ], [ %spec.select62, %106 ]
-  %114 = load i32, ptr %4, align 4
-  %115 = xor i32 %114, 1
-  store i32 %115, ptr %4, align 4
-  %116 = xor i32 %113, 1
-  store i32 %116, ptr %62, align 4
-  %117 = load ptr, ptr %19, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 16
-  %119 = load ptr, ptr %118, align 8
-  %120 = call i32 @sat_solver_addclause(ptr noundef %119, ptr noundef nonnull %4, ptr noundef nonnull %84) #6
-  br label %121
+110:                                              ; preds = %104, %75
+  %111 = phi i32 [ %93, %75 ], [ %spec.select62, %104 ]
+  %112 = load i32, ptr %4, align 4
+  %113 = xor i32 %112, 1
+  store i32 %113, ptr %4, align 4
+  %114 = xor i32 %111, 1
+  store i32 %114, ptr %60, align 4
+  %115 = load ptr, ptr %17, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %117 = load ptr, ptr %116, align 8
+  %118 = call i32 @sat_solver_addclause(ptr noundef %117, ptr noundef nonnull %4, ptr noundef nonnull %82) #6
+  br label %119
 
-121:                                              ; preds = %112, %46
+119:                                              ; preds = %110, %44
   ret i32 1
 }
 

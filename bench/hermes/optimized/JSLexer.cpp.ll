@@ -6922,14 +6922,14 @@ if.end82:                                         ; preds = %for.inc.us.us, %for
   %tobool85 = trunc nuw i8 %failed.0.lcssa172 to i1
   %not.tobool85 = and i8 %failed.0.lcssa172, 1
   %spec.select = xor i8 %not.tobool85, 1
-  %31 = zext i32 %cp.0.lcssa171 to i64
-  %32 = zext nneg i8 %spec.select to i64
-  %33 = shl nuw nsw i64 %32, 32
-  %34 = select i1 %tobool85, i64 0, i64 %31
+  %31 = zext nneg i8 %spec.select to i64
+  %32 = shl nuw nsw i64 %31, 32
+  %33 = zext i32 %cp.0.lcssa171 to i64
+  %34 = select i1 %tobool85, i64 0, i64 %33
   br label %return
 
 return:                                           ; preds = %if.end82, %if.end82.thread, %if.then22, %if.then25, %if.end.i, %if.then79, %if.then59, %if.then40
-  %retval.sroa.2.0 = phi i64 [ 0, %if.then79 ], [ 0, %if.then59 ], [ 0, %if.then40 ], [ 0, %if.end.i ], [ 0, %if.then25 ], [ 0, %if.then22 ], [ 0, %if.end82.thread ], [ %33, %if.end82 ]
+  %retval.sroa.2.0 = phi i64 [ 0, %if.then79 ], [ 0, %if.then59 ], [ 0, %if.then40 ], [ 0, %if.end.i ], [ 0, %if.then25 ], [ 0, %if.then22 ], [ 0, %if.end82.thread ], [ %32, %if.end82 ]
   %retval.sroa.0.0 = phi i64 [ 0, %if.then79 ], [ 0, %if.then59 ], [ 0, %if.then40 ], [ 0, %if.end.i ], [ 0, %if.then25 ], [ 0, %if.then22 ], [ 0, %if.end82.thread ], [ %34, %if.end82 ]
   %retval.sroa.0.0.insert.insert = or i64 %retval.sroa.0.0, %retval.sroa.2.0
   ret i64 %retval.sroa.0.0.insert.insert
@@ -7097,14 +7097,14 @@ if.end82.i:                                       ; preds = %for.inc.us.us.i
   store ptr %incdec.ptr84.i, ptr %curCharPtr_, align 8
   %tobool85.i = trunc nuw i8 %failed.1.us.us.i to i1
   %spec.select.i = xor i8 %failed.1.us.us.i, 1
-  %10 = zext i32 %cp.1.us.us.i to i64
-  %11 = zext i8 %spec.select.i to i64
-  %12 = shl nuw nsw i64 %11, 32
-  %13 = select i1 %tobool85.i, i64 0, i64 %10
+  %10 = zext i8 %spec.select.i to i64
+  %11 = shl nuw nsw i64 %10, 32
+  %12 = zext i32 %cp.1.us.us.i to i64
+  %13 = select i1 %tobool85.i, i64 0, i64 %12
   br label %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit
 
 _ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit: ; preds = %if.else19.us.us.i, %if.then67.i, %if.end82.i
-  %retval.sroa.2.0.i = phi i64 [ 0, %if.then67.i ], [ %12, %if.end82.i ], [ 0, %if.else19.us.us.i ]
+  %retval.sroa.2.0.i = phi i64 [ 0, %if.then67.i ], [ %11, %if.end82.i ], [ 0, %if.else19.us.us.i ]
   %retval.sroa.0.0.i = phi i64 [ 0, %if.then67.i ], [ %13, %if.end82.i ], [ 0, %if.else19.us.us.i ]
   %retval.sroa.0.0.insert.insert.i = or i64 %retval.sroa.0.0.i, %retval.sroa.2.0.i
   %cp.sroa.0.0.extract.trunc = trunc nuw i64 %retval.sroa.0.0.i to i32

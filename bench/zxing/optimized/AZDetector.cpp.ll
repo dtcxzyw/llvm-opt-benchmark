@@ -532,43 +532,43 @@ _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i37.i: ; preds = %
   %175 = icmp sgt i32 %.sroa.04.0.copyload.i.i, 0
   %176 = add i32 %167, %163
   %spec.select.i.i = select i1 %175, i32 %176, i32 %159
-  %177 = select i1 %166, i32 2147483647, i32 %spec.select.i.i
   %.not18.i.i.i.i = icmp eq i32 %.sroa.3.0.copyload.i.i, 0
-  br i1 %.not18.i.i.i.i, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i, label %178
+  br i1 %.not18.i.i.i.i, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i, label %177
 
-178:                                              ; preds = %165
-  %179 = icmp sgt i32 %.sroa.3.0.copyload.i.i, 0
-  br i1 %179, label %180, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i
+177:                                              ; preds = %165
+  %178 = icmp sgt i32 %.sroa.3.0.copyload.i.i, 0
+  br i1 %178, label %179, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i
 
-180:                                              ; preds = %178
-  %181 = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !22
-  %182 = xor i32 %.sroa.10.073.i.i, -1
-  %183 = add i32 %181, %182
+179:                                              ; preds = %177
+  %180 = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !22
+  %181 = xor i32 %.sroa.10.073.i.i, -1
+  %182 = add i32 %180, %181
   br label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i
 
-_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i: ; preds = %180, %178, %165
-  %184 = phi i32 [ %183, %180 ], [ 2147483647, %165 ], [ %.sroa.10.073.i.i, %178 ]
-  %.sroa.speculated.i.i.i39.i = call i32 @llvm.smin.i32(i32 %184, i32 %177)
+_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i: ; preds = %179, %177, %165
+  %183 = phi i32 [ %182, %179 ], [ 2147483647, %165 ], [ %.sroa.10.073.i.i, %177 ]
+  %184 = call i32 @llvm.smin.i32(i32 %183, i32 %spec.select.i.i)
+  %.sroa.speculated.i.i.i39.i = select i1 %166, i32 %183, i32 %184
   %185 = sub i32 0, %169
   store i32 %185, ptr %75, align 8, !noalias !22
   %186 = icmp slt i32 %.sroa.04.0.copyload.i.i, 0
   %spec.select75.i.i = select i1 %186, i32 %176, i32 %159
-  %187 = select i1 %166, i32 2147483647, i32 %spec.select75.i.i
-  br i1 %.not18.i.i.i.i, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit53.i.i.i, label %188
+  br i1 %.not18.i.i.i.i, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit53.i.i.i, label %187
 
-188:                                              ; preds = %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i
-  %189 = icmp slt i32 %.sroa.3.0.copyload.i.i, 0
-  br i1 %189, label %190, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit53.i.i.i
+187:                                              ; preds = %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i
+  %188 = icmp slt i32 %.sroa.3.0.copyload.i.i, 0
+  br i1 %188, label %189, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit53.i.i.i
 
-190:                                              ; preds = %188
-  %191 = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !22
-  %192 = xor i32 %.sroa.10.073.i.i, -1
-  %193 = add i32 %191, %192
+189:                                              ; preds = %187
+  %190 = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !22
+  %191 = xor i32 %.sroa.10.073.i.i, -1
+  %192 = add i32 %190, %191
   br label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit53.i.i.i
 
-_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit53.i.i.i: ; preds = %190, %188, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i
-  %194 = phi i32 [ %193, %190 ], [ 2147483647, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i ], [ %.sroa.10.073.i.i, %188 ]
-  %.sroa.speculated.i52.i.i.i = call i32 @llvm.smin.i32(i32 %194, i32 %187)
+_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit53.i.i.i: ; preds = %189, %187, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i
+  %193 = phi i32 [ %192, %189 ], [ 2147483647, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i ], [ %.sroa.10.073.i.i, %187 ]
+  %194 = call i32 @llvm.smin.i32(i32 %193, i32 %spec.select75.i.i)
+  %.sroa.speculated.i52.i.i.i = select i1 %166, i32 %193, i32 %194
   %.sroa.speculated.i54.i.i.i = call i32 @llvm.smin.i32(i32 %162, i32 %.sroa.speculated.i.i.i39.i)
   %195 = sext i32 %169 to i64
   %smax.i.i.i.i = call i32 @llvm.smax.i32(i32 %.sroa.speculated.i54.i.i.i, i32 0)

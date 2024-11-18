@@ -3015,10 +3015,10 @@ _ZNK4llvm9MemorySSA12getBlockDefsEPKNS_10BasicBlockE.exit.thread: ; preds = %_ZN
   %.not.i.i.i = icmp eq i64 %.sroa.2499.0558.i, 4294967294
   %167 = shl nuw i64 %.sroa.2499.0558.i, 1
   %168 = add nuw nsw i64 %167, 3
-  %169 = and i64 %168, 4294967295
-  %170 = load ptr, ptr %151, align 8
-  %171 = select i1 %.not.i.i.i, i64 1, i64 %169
-  %172 = getelementptr inbounds %"class.llvm::Use", ptr %170, i64 %171
+  %169 = load ptr, ptr %151, align 8
+  %170 = and i64 %168, 4294967295
+  %171 = select i1 %.not.i.i.i, i64 1, i64 %170
+  %172 = getelementptr inbounds %"class.llvm::Use", ptr %169, i64 %171
   %173 = load ptr, ptr %172, align 8
   %174 = call fastcc noundef zeroext i1 @"_ZZL21unswitchTrivialSwitchRN4llvm4LoopERNS_10SwitchInstERNS_13DominatorTreeERNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_16MemorySSAUpdaterEENK3$_1clERNS_10BasicBlockE"(ptr nonnull align 8 dereferenceable(152) %0, ptr nonnull %19, ptr noundef nonnull align 8 dereferenceable(80) %173)
   br i1 %174, label %175, label %186
@@ -3127,10 +3127,10 @@ _ZL21getTopMostExitingLoopPKN4llvm10BasicBlockERKNS_8LoopInfoE.exit.thread.i: ; 
   %.not.i.i216.i = icmp eq i32 %216, -2
   %218 = shl nuw nsw i64 %217, 1
   %219 = add nuw nsw i64 %218, 3
-  %220 = and i64 %219, 4294967295
-  %221 = load ptr, ptr %151, align 8
-  %222 = select i1 %.not.i.i216.i, i64 1, i64 %220
-  %223 = getelementptr inbounds %"class.llvm::Use", ptr %221, i64 %222
+  %220 = load ptr, ptr %151, align 8
+  %221 = and i64 %219, 4294967295
+  %222 = select i1 %.not.i.i216.i, i64 1, i64 %221
+  %223 = getelementptr inbounds %"class.llvm::Use", ptr %220, i64 %222
   %224 = load ptr, ptr %223, align 8
   %225 = call noundef ptr @_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef %224) #19
   %.not10.i217.i = icmp eq ptr %225, null
@@ -4115,20 +4115,20 @@ _ZN4llvm8DebugLocD2Ev.exit363.i:                  ; preds = %667, %_ZN4llvm11Ins
   %.not.i.i368.i = icmp eq i64 %678, 4294967294
   %679 = shl nsw i64 %677, 1
   %680 = add nsw i64 %679, 3
-  %681 = and i64 %680, 4294967295
-  %682 = load ptr, ptr %151, align 8
-  %683 = select i1 %.not.i.i368.i, i64 1, i64 %681
-  %684 = getelementptr inbounds %"class.llvm::Use", ptr %682, i64 %683
+  %681 = load ptr, ptr %151, align 8
+  %682 = and i64 %680, 4294967295
+  %683 = select i1 %.not.i.i368.i, i64 1, i64 %682
+  %684 = getelementptr inbounds %"class.llvm::Use", ptr %681, i64 %683
   %685 = load ptr, ptr %684, align 8
-  %686 = getelementptr inbounds i8, ptr %682, i64 32
+  %686 = getelementptr inbounds i8, ptr %681, i64 32
   %687 = load ptr, ptr %686, align 8
   %.not.i.i.i.i369.i = icmp eq ptr %687, null
   br i1 %.not.i.i.i.i369.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i371.i, label %688
 
 688:                                              ; preds = %671
-  %689 = getelementptr inbounds i8, ptr %682, i64 40
+  %689 = getelementptr inbounds i8, ptr %681, i64 40
   %690 = load ptr, ptr %689, align 8
-  %691 = getelementptr inbounds i8, ptr %682, i64 48
+  %691 = getelementptr inbounds i8, ptr %681, i64 48
   %692 = load ptr, ptr %691, align 8
   store ptr %690, ptr %692, align 8
   %.not.i.i.i.i.i370.i = icmp eq ptr %690, null
@@ -4148,7 +4148,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i.i.i.i371.i: ; preds = %693, %688, %671
 696:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i371.i
   %697 = getelementptr inbounds nuw i8, ptr %685, i64 16
   %698 = load ptr, ptr %697, align 8
-  %699 = getelementptr inbounds i8, ptr %682, i64 40
+  %699 = getelementptr inbounds i8, ptr %681, i64 40
   store ptr %698, ptr %699, align 8
   %.not.i.i.i.i.i.i373.i = icmp eq ptr %698, null
   br i1 %.not.i.i.i.i.i.i373.i, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i374.i, label %700
@@ -4159,7 +4159,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i.i.i.i371.i: ; preds = %693, %688, %671
   br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i374.i
 
 _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i374.i: ; preds = %700, %696
-  %702 = getelementptr inbounds i8, ptr %682, i64 48
+  %702 = getelementptr inbounds i8, ptr %681, i64 48
   store ptr %697, ptr %702, align 8
   store ptr %686, ptr %697, align 8
   br label %_ZN4llvm10SwitchInst14setDefaultDestEPNS_10BasicBlockE.exit375.i
@@ -14832,10 +14832,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_15LogicalOp_matchINS0_11class_matchIS
   %.not.i.i = icmp eq i64 %.sroa.21087.01385, 4294967294
   %254 = shl nuw i64 %.sroa.21087.01385, 1
   %255 = add nuw nsw i64 %254, 3
-  %256 = and i64 %255, 4294967295
-  %257 = load ptr, ptr %252, align 8
-  %258 = select i1 %.not.i.i, i64 1, i64 %256
-  %259 = getelementptr inbounds %"class.llvm::Use", ptr %257, i64 %258
+  %256 = load ptr, ptr %252, align 8
+  %257 = and i64 %255, 4294967295
+  %258 = select i1 %.not.i.i, i64 1, i64 %257
+  %259 = getelementptr inbounds %"class.llvm::Use", ptr %256, i64 %258
   %260 = load ptr, ptr %259, align 8
   %261 = load ptr, ptr %89, align 8
   %.not341 = icmp eq ptr %260, %261
@@ -17915,10 +17915,10 @@ _ZN4llvm10SwitchInst14setDefaultDestEPNS_10BasicBlockE.exit: ; preds = %_ZN4llvm
   %.not.i.i476 = icmp eq i64 %.sroa.5.01402, 4294967294
   %1664 = shl nuw i64 %.sroa.5.01402, 1
   %1665 = add nuw nsw i64 %1664, 3
-  %1666 = and i64 %1665, 4294967295
-  %1667 = load ptr, ptr %1637, align 8
-  %1668 = select i1 %.not.i.i476, i64 1, i64 %1666
-  %1669 = getelementptr inbounds %"class.llvm::Use", ptr %1667, i64 %1668
+  %1666 = load ptr, ptr %1637, align 8
+  %1667 = and i64 %1665, 4294967295
+  %1668 = select i1 %.not.i.i476, i64 1, i64 %1667
+  %1669 = getelementptr inbounds %"class.llvm::Use", ptr %1666, i64 %1668
   %1670 = load ptr, ptr %1669, align 8
   %1671 = load ptr, ptr %89, align 8
   %1672 = icmp eq ptr %1670, %1671
@@ -18330,10 +18330,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_10BasicBlockEEELb1EE9push_b
   %.not.i.i536 = icmp eq i64 %.sroa.21017.01424, 4294967294
   %1866 = shl nuw i64 %.sroa.21017.01424, 1
   %1867 = add nuw nsw i64 %1866, 3
-  %1868 = and i64 %1867, 4294967295
-  %1869 = load ptr, ptr %1864, align 8
-  %1870 = select i1 %.not.i.i536, i64 1, i64 %1868
-  %1871 = getelementptr inbounds %"class.llvm::Use", ptr %1869, i64 %1870
+  %1868 = load ptr, ptr %1864, align 8
+  %1869 = and i64 %1867, 4294967295
+  %1870 = select i1 %.not.i.i536, i64 1, i64 %1869
+  %1871 = getelementptr inbounds %"class.llvm::Use", ptr %1868, i64 %1870
   %1872 = load ptr, ptr %1871, align 8
   call void @_ZN4llvm10BasicBlock17removePredecessorEPS0_b(ptr noundef nonnull align 8 dereferenceable(80) %1872, ptr noundef %120, i1 noundef zeroext true) #19
   %1873 = add nuw nsw i64 %.sroa.21017.01424, 1

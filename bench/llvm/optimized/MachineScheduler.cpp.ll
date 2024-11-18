@@ -6296,7 +6296,7 @@ define dso_local noundef i32 @_ZN4llvm17ScheduleDAGMILive25computeCyclicCritical
 
 18:                                               ; preds = %.lr.ph101, %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit
   %.046100 = phi i32 [ 0, %.lr.ph101 ], [ %.147, %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit ]
-  %.04899 = phi ptr [ %9, %.lr.ph101 ], [ %247, %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit ]
+  %.04899 = phi ptr [ %9, %.lr.ph101 ], [ %248, %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit ]
   %19 = load i32, ptr %.04899, align 8
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit
@@ -6482,15 +6482,15 @@ _ZNK4llvm5SUnit8getDepthEv.exit:                  ; preds = %_ZNK4llvm5SUnit9get
   %.pre107 = load ptr, ptr %15, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %242
-  %129 = phi ptr [ %243, %242 ], [ %.pre107, %.lr.ph.preheader ]
-  %.297 = phi i32 [ %.3, %242 ], [ %.046100, %.lr.ph.preheader ]
-  %.sroa.479.096 = phi i32 [ %245, %242 ], [ %.012.i.i, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %243
+  %129 = phi ptr [ %244, %243 ], [ %.pre107, %.lr.ph.preheader ]
+  %.297 = phi i32 [ %.3, %243 ], [ %.046100, %.lr.ph.preheader ]
+  %.sroa.479.096 = phi i32 [ %246, %243 ], [ %.012.i.i, %.lr.ph.preheader ]
   %130 = zext i32 %.sroa.479.096 to i64
   %131 = getelementptr inbounds %"struct.llvm::SparseMultiSet<llvm::VReg2SUnit, llvm::VirtReg2IndexFunctor>::SMSNode", ptr %129, i64 %130, i32 0, i32 2
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, %17
-  br i1 %133, label %242, label %134
+  br i1 %133, label %243, label %134
 
 134:                                              ; preds = %.lr.ph
   %135 = load ptr, ptr %12, align 8
@@ -6650,7 +6650,7 @@ _ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit:    ; preds = %_ZNK4llvm13LiveInte
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %215, align 8
   %216 = and i64 %.0.copyload.i.i.i.i.i.i, 6
   %217 = icmp eq i64 %216, 0
-  br i1 %217, label %218, label %242
+  br i1 %217, label %218, label %243
 
 218:                                              ; preds = %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit
   %219 = getelementptr inbounds nuw i8, ptr %132, i64 254
@@ -6706,22 +6706,22 @@ _ZNK4llvm5SUnit9getHeightEv.exit73:               ; preds = %231, %234
   %240 = icmp ugt i32 %239, %95
   %241 = sub nuw i32 %239, %95
   %spec.select = tail call i32 @llvm.umin.i32(i32 %241, i32 %.045)
-  %.1 = select i1 %240, i32 %spec.select, i32 0
-  %spec.select58 = tail call i32 @llvm.umax.i32(i32 %.1, i32 %.297)
-  br label %242
+  %242 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %.297)
+  %spec.select58 = select i1 %240, i32 %242, i32 %.297
+  br label %243
 
-242:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit73, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit, %.lr.ph
+243:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit73, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit, %.lr.ph
   %.3 = phi i32 [ %.297, %.lr.ph ], [ %.297, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ %spec.select58, %_ZNK4llvm5SUnit9getHeightEv.exit73 ]
-  %243 = load ptr, ptr %15, align 8
-  %244 = getelementptr inbounds %"struct.llvm::SparseMultiSet<llvm::VReg2SUnit, llvm::VirtReg2IndexFunctor>::SMSNode", ptr %243, i64 %130, i32 2
-  %245 = load i32, ptr %244, align 4
-  %246 = icmp eq i32 %245, -1
-  br i1 %246, label %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit, label %.lr.ph
+  %244 = load ptr, ptr %15, align 8
+  %245 = getelementptr inbounds %"struct.llvm::SparseMultiSet<llvm::VReg2SUnit, llvm::VirtReg2IndexFunctor>::SMSNode", ptr %244, i64 %130, i32 2
+  %246 = load i32, ptr %245, align 4
+  %247 = icmp eq i32 %246, -1
+  br i1 %247, label %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit, label %.lr.ph
 
-_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit: ; preds = %.lr.ph.i.i.i.i, %126, %242, %_ZNK4llvm5SUnit8getDepthEv.exit, %56, %_ZNK4llvm17ScheduleDAGInstrs8getSUnitEPNS_12MachineInstrE.exit, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit, %18
-  %.147 = phi i32 [ %.046100, %_ZNK4llvm17ScheduleDAGInstrs8getSUnitEPNS_12MachineInstrE.exit ], [ %.046100, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ %.046100, %18 ], [ %.046100, %56 ], [ %.046100, %_ZNK4llvm5SUnit8getDepthEv.exit ], [ %.3, %242 ], [ %.046100, %126 ], [ %.046100, %.lr.ph.i.i.i.i ]
-  %247 = getelementptr inbounds i8, ptr %.04899, i64 16
-  %.not = icmp eq ptr %247, %11
+_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit: ; preds = %.lr.ph.i.i.i.i, %126, %243, %_ZNK4llvm5SUnit8getDepthEv.exit, %56, %_ZNK4llvm17ScheduleDAGInstrs8getSUnitEPNS_12MachineInstrE.exit, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit, %18
+  %.147 = phi i32 [ %.046100, %_ZNK4llvm17ScheduleDAGInstrs8getSUnitEPNS_12MachineInstrE.exit ], [ %.046100, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ %.046100, %18 ], [ %.046100, %56 ], [ %.046100, %_ZNK4llvm5SUnit8getDepthEv.exit ], [ %.3, %243 ], [ %.046100, %126 ], [ %.046100, %.lr.ph.i.i.i.i ]
+  %248 = getelementptr inbounds i8, ptr %.04899, i64 16
+  %.not = icmp eq ptr %248, %11
   br i1 %.not, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit, %5, %1

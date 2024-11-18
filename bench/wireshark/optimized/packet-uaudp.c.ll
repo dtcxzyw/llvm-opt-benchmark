@@ -117,7 +117,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.70 = private unnamed_addr constant [9 x i8] c"UDP lost\00", align 1
 @use_sys_ip = internal unnamed_addr global i32 0, align 4
 @cs_address.0 = internal unnamed_addr global i32 0, align 8
-@cs_address.1 = internal unnamed_addr global i32 0, align 8
+@cs_address.1 = internal unnamed_addr global i32 0, align 4
 @cs_address.2 = internal unnamed_addr global ptr null, align 8
 @ua_udp_range = internal unnamed_addr global ptr null, align 8
 @.str.71 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
@@ -172,7 +172,7 @@ define internal i32 @dissect_uaudp(ptr noundef %0, ptr noundef %1, ptr noundef %
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 212
   %13 = load i32, ptr %12, align 4
-  %14 = load i32, ptr @cs_address.1, align 8
+  %14 = load i32, ptr @cs_address.1, align 4
   %15 = icmp eq i32 %13, %14
   br i1 %15, label %16, label %addresses_equal.exit
 
@@ -198,7 +198,7 @@ addresses_equal.exit:                             ; preds = %18, %11, %6
 27:                                               ; preds = %addresses_equal.exit
   %28 = getelementptr inbounds i8, ptr %1, i64 236
   %29 = load i32, ptr %28, align 4
-  %30 = load i32, ptr @cs_address.1, align 8
+  %30 = load i32, ptr @cs_address.1, align 4
   %31 = icmp eq i32 %29, %30
   br i1 %31, label %32, label %addresses_equal.exit30
 
@@ -267,7 +267,7 @@ define internal void @apply_uaudp_prefs() #1 {
 
 7:                                                ; preds = %4
   store i32 2, ptr @cs_address.0, align 8
-  store i32 4, ptr @cs_address.1, align 8
+  store i32 4, ptr @cs_address.1, align 4
   store ptr @cs_ipv4, ptr @cs_address.2, align 8
   br label %15
 
@@ -280,7 +280,7 @@ define internal void @apply_uaudp_prefs() #1 {
 
 12:                                               ; preds = %8
   store i32 3, ptr @cs_address.0, align 8
-  store i32 16, ptr @cs_address.1, align 8
+  store i32 16, ptr @cs_address.1, align 4
   store ptr @cs_ipv6, ptr @cs_address.2, align 8
   br label %15
 
@@ -321,7 +321,7 @@ define hidden void @proto_reg_handoff_uaudp() local_unnamed_addr #1 {
 
 12:                                               ; preds = %9
   store i32 2, ptr @cs_address.0, align 8
-  store i32 4, ptr @cs_address.1, align 8
+  store i32 4, ptr @cs_address.1, align 4
   store ptr @cs_ipv4, ptr @cs_address.2, align 8
   br label %apply_uaudp_prefs.exit
 
@@ -334,7 +334,7 @@ define hidden void @proto_reg_handoff_uaudp() local_unnamed_addr #1 {
 
 17:                                               ; preds = %13
   store i32 3, ptr @cs_address.0, align 8
-  store i32 16, ptr @cs_address.1, align 8
+  store i32 16, ptr @cs_address.1, align 4
   store ptr @cs_ipv6, ptr @cs_address.2, align 8
   br label %apply_uaudp_prefs.exit
 

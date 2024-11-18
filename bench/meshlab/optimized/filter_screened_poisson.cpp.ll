@@ -17774,22 +17774,22 @@ _ZNK8XForm3x3IfE9transposeEv.exit:                ; preds = %19
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %.cmp.not.i = icmp eq i64 %indvars.iv.i13, 2
   %.cmp12.i = icmp eq i64 %indvars.iv.i13, 0
-  %56 = shl i64 %indvars.iv.i13, 32
-  %sext.i = add nsw i64 %56, -4294967296
-  %57 = ashr exact i64 %sext.i, 32
-  %58 = select i1 %.cmp.not.i, i64 0, i64 %indvars.iv.next.i14
-  %59 = getelementptr inbounds [3 x [3 x float]], ptr %5, i64 0, i64 %53, i64 %58
-  %60 = load float, ptr %59, align 4, !noalias !238
-  %61 = select i1 %.cmp12.i, i64 2, i64 %57
+  %56 = select i1 %.cmp.not.i, i64 0, i64 %indvars.iv.next.i14
+  %57 = getelementptr inbounds [3 x [3 x float]], ptr %5, i64 0, i64 %53, i64 %56
+  %58 = load float, ptr %57, align 4, !noalias !238
+  %59 = shl i64 %indvars.iv.i13, 32
+  %sext.i = add nsw i64 %59, -4294967296
+  %60 = ashr exact i64 %sext.i, 32
+  %61 = select i1 %.cmp12.i, i64 2, i64 %60
   %62 = getelementptr inbounds [3 x [3 x float]], ptr %5, i64 0, i64 %54, i64 %61
   %63 = load float, ptr %62, align 4, !noalias !238
   %64 = getelementptr inbounds [3 x [3 x float]], ptr %5, i64 0, i64 %53, i64 %61
   %65 = load float, ptr %64, align 4, !noalias !238
-  %66 = getelementptr inbounds [3 x [3 x float]], ptr %5, i64 0, i64 %54, i64 %58
+  %66 = getelementptr inbounds [3 x [3 x float]], ptr %5, i64 0, i64 %54, i64 %56
   %67 = load float, ptr %66, align 4, !noalias !238
   %68 = fneg float %67
   %69 = fmul float %65, %68
-  %70 = tail call noundef float @llvm.fmuladd.f32(float %60, float %63, float %69)
+  %70 = tail call noundef float @llvm.fmuladd.f32(float %58, float %63, float %69)
   %71 = fdiv float %70, %48
   %72 = getelementptr inbounds [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv.i13, i64 %indvars.iv17.i
   store float %71, ptr %72, align 4, !alias.scope !238
@@ -23368,7 +23368,6 @@ define linkonce_odr noundef double @_ZN6OctreeIfE11memoryUsageEv(ptr noundef non
   %12 = call i32 @fclose(ptr noundef %10)
   %13 = icmp sgt i32 %11, 22
   %14 = load i64, ptr %9, align 8
-  %15 = uitofp i64 %14 to double
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -23377,6 +23376,7 @@ define linkonce_odr noundef double @_ZN6OctreeIfE11memoryUsageEv(ptr noundef non
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %15 = uitofp i64 %14 to double
   %16 = fmul double %15, 0x3EB0000000000000
   %17 = select i1 %13, double %16, double 0.000000e+00
   %18 = getelementptr inbounds i8, ptr %0, i64 56
@@ -73722,17 +73722,17 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %100, %111, %_
 
 162:                                              ; preds = %154
   %163 = shl nuw nsw i32 %.0137230, 1
-  %164 = zext nneg i32 %163 to i64
-  %165 = zext nneg i32 %163 to i64
-  %166 = load ptr, ptr %142, align 8
-  %167 = load i32, ptr %4, align 4
-  %168 = load i32, ptr %27, align 8
-  %169 = add nsw i32 %168, %167
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds %"struct.OctNode<TreeNodeData>::ConstNeighbors", ptr %166, i64 %170
-  %172 = select i1 %145, i64 %165, i64 1
-  %173 = select i1 %144, i64 %164, i64 1
-  %174 = getelementptr inbounds [3 x [3 x [3 x ptr]]], ptr %171, i64 0, i64 %172, i64 %173, i64 1
+  %164 = load ptr, ptr %142, align 8
+  %165 = load i32, ptr %4, align 4
+  %166 = load i32, ptr %27, align 8
+  %167 = add nsw i32 %166, %165
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr inbounds %"struct.OctNode<TreeNodeData>::ConstNeighbors", ptr %164, i64 %168
+  %170 = zext nneg i32 %163 to i64
+  %171 = select i1 %145, i64 %170, i64 1
+  %172 = zext nneg i32 %163 to i64
+  %173 = select i1 %144, i64 %172, i64 1
+  %174 = getelementptr inbounds [3 x [3 x [3 x ptr]]], ptr %169, i64 0, i64 %171, i64 %173, i64 1
   %175 = load ptr, ptr %174, align 8
   %176 = icmp eq ptr %175, null
   br i1 %176, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit145.thread, label %177
@@ -74097,7 +74097,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit150: ; preds = 
   %367 = sext i32 %366 to i64
   %368 = getelementptr %"struct.OctNode<TreeNodeData>::ConstNeighbors", ptr %365, i64 %indvars.iv.next268
   %369 = getelementptr %"struct.OctNode<TreeNodeData>::ConstNeighbors", ptr %368, i64 %367
-  %370 = getelementptr inbounds [3 x [3 x [3 x ptr]]], ptr %369, i64 0, i64 %172, i64 %173, i64 1
+  %370 = getelementptr inbounds [3 x [3 x [3 x ptr]]], ptr %369, i64 0, i64 %171, i64 %173, i64 1
   %371 = load ptr, ptr %370, align 8
   %372 = icmp eq ptr %371, null
   br i1 %372, label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit152.thread, label %373

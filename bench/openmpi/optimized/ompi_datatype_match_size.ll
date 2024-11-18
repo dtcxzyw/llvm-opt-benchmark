@@ -28,11 +28,11 @@ define ptr @ompi_datatype_match_size(i32 noundef %0, i16 noundef zeroext %1, i16
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %8 = zext i16 %2 to i32
-  %9 = icmp ne i16 %1, 12288
-  %10 = icmp eq i16 %2, -32768
-  %or.cond = and i1 %9, %10
-  %11 = select i1 %or.cond, i32 16384, i32 %8
+  %8 = icmp ne i16 %1, 12288
+  %9 = icmp eq i16 %2, -32768
+  %or.cond = and i1 %8, %9
+  %10 = zext i16 %2 to i32
+  %11 = select i1 %or.cond, i32 16384, i32 %10
   br label %12
 
 12:                                               ; preds = %.lr.ph, %37

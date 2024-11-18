@@ -62602,40 +62602,40 @@ define internal fastcc void @_ZL22stbiw__encode_png_linePhiiiiiiPa(ptr nocapture
   %.not20.i139 = icmp samesign ugt i32 %127, %131
   %or.cond.i140 = select i1 %.not.i138, i1 true, i1 %.not20.i139
   %.not21.i = icmp samesign ugt i32 %129, %131
-  %..i = select i1 %.not21.i, i8 %122, i8 %118
-  %.0.in.i141 = select i1 %or.cond.i140, i8 %..i, i8 %114
-  %132 = sub i8 %111, %.0.in.i141
-  %133 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv190
-  store i8 %132, ptr %133, align 1
+  %132 = select i1 %.not21.i, i8 %122, i8 %118
+  %.0.i142 = select i1 %or.cond.i140, i8 %132, i8 %114
+  %133 = sub i8 %111, %.0.i142
+  %134 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv190
+  store i8 %133, ptr %134, align 1
   %indvars.iv.next191 = add nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
   br i1 %exitcond194.not, label %.loopexit, label %.lr.ph167, !llvm.loop !1189
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %.lr.ph165
   %indvars.iv185 = phi i64 [ %65, %.lr.ph165.preheader ], [ %indvars.iv.next186, %.lr.ph165 ]
-  %134 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv185
-  %135 = load i8, ptr %134, align 1
-  %136 = sub nsw i64 %indvars.iv185, %65
-  %137 = getelementptr inbounds i8, ptr %18, i64 %136
-  %138 = load i8, ptr %137, align 1
-  %139 = lshr i8 %138, 1
-  %140 = sub i8 %135, %139
-  %141 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv185
-  store i8 %140, ptr %141, align 1
+  %135 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv185
+  %136 = load i8, ptr %135, align 1
+  %137 = sub nsw i64 %indvars.iv185, %65
+  %138 = getelementptr inbounds i8, ptr %18, i64 %137
+  %139 = load i8, ptr %138, align 1
+  %140 = lshr i8 %139, 1
+  %141 = sub i8 %136, %140
+  %142 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv185
+  store i8 %141, ptr %142, align 1
   %indvars.iv.next186 = add nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
   br i1 %exitcond189.not, label %.loopexit, label %.lr.ph165, !llvm.loop !1190
 
 .lr.ph163:                                        ; preds = %.lr.ph163.preheader, %.lr.ph163
   %indvars.iv180 = phi i64 [ %62, %.lr.ph163.preheader ], [ %indvars.iv.next181, %.lr.ph163 ]
-  %142 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv180
-  %143 = load i8, ptr %142, align 1
-  %144 = sub nsw i64 %indvars.iv180, %62
-  %145 = getelementptr inbounds i8, ptr %18, i64 %144
-  %146 = load i8, ptr %145, align 1
-  %147 = sub i8 %143, %146
-  %148 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv180
-  store i8 %147, ptr %148, align 1
+  %143 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv180
+  %144 = load i8, ptr %143, align 1
+  %145 = sub nsw i64 %indvars.iv180, %62
+  %146 = getelementptr inbounds i8, ptr %18, i64 %145
+  %147 = load i8, ptr %146, align 1
+  %148 = sub i8 %144, %147
+  %149 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv180
+  store i8 %148, ptr %149, align 1
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
   br i1 %exitcond184.not, label %.loopexit, label %.lr.ph163, !llvm.loop !1191

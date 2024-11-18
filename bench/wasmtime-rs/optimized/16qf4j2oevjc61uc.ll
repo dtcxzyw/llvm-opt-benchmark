@@ -12091,8 +12091,8 @@ _ZN5alloc11collections5btree3mem7replace17he067fc850f6d7ac4E.llvm.26514680571674
   %93 = getelementptr inbounds i8, ptr %2, i64 8
   %94 = load i64, ptr %93, align 8, !alias.scope !2274, !noalias !2277
   %.sroa.01.sroa.0.0.i93 = zext i1 %.not.i92 to i64
-  %95 = inttoptr i64 %94 to ptr
   %.sroa.5.0.i95 = select i1 %.not.i92, i64 %86, i64 0
+  %95 = inttoptr i64 %94 to ptr
   %96 = select i1 %.not.i92, ptr %95, ptr undef
   br label %45
 
@@ -12500,8 +12500,8 @@ _ZN5alloc11collections5btree3mem7replace17h7501e7e7bca27d7bE.llvm.26514680571674
   %93 = getelementptr inbounds i8, ptr %2, i64 8
   %94 = load i64, ptr %93, align 8, !alias.scope !2326, !noalias !2329
   %.sroa.01.sroa.0.0.i93 = zext i1 %.not.i92 to i64
-  %95 = inttoptr i64 %94 to ptr
   %.sroa.5.0.i95 = select i1 %.not.i92, i64 %86, i64 0
+  %95 = inttoptr i64 %94 to ptr
   %96 = select i1 %.not.i92, ptr %95, ptr undef
   br label %45
 

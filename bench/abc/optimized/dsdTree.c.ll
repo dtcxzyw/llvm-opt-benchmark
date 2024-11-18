@@ -1460,19 +1460,19 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %6 = alloca [6 x i8], align 1
   %7 = alloca i64, align 8
   %8 = load i32, ptr %2, align 8
-  switch i32 %8, label %145 [
+  switch i32 %8, label %146 [
     i32 1, label %9
     i32 2, label %12
     i32 5, label %20
-    i32 3, label %108
-    i32 4, label %127
+    i32 3, label %109
+    i32 4, label %128
   ]
 
 9:                                                ; preds = %5
   %.not99 = icmp eq i32 %3, 0
   %10 = zext i1 %.not99 to i32
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %10) #14
-  br label %145
+  br label %146
 
 12:                                               ; preds = %5
   %.not96 = icmp eq i32 %3, 0
@@ -1485,14 +1485,14 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %18 = getelementptr inbounds ptr, ptr %4, i64 %17
   %19 = load ptr, ptr %18, align 8
   %fputs98 = tail call i32 @fputs(ptr %19, ptr %0)
-  br label %145
+  br label %146
 
 20:                                               ; preds = %5
   %fputc91 = tail call i32 @fputc(i32 32, ptr %0)
   %21 = getelementptr inbounds i8, ptr %2, i64 40
   %22 = load i16, ptr %21, align 8
   %23 = icmp slt i16 %22, 7
-  br i1 %23, label %24, label %89
+  br i1 %23, label %24, label %90
 
 24:                                               ; preds = %20
   %25 = tail call ptr @Dsd_TreeGetPrimeFunction(ptr noundef %1, ptr noundef nonnull %2) #14
@@ -1514,206 +1514,206 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %36 = sext i16 %35 to i32
   %37 = icmp sgt i16 %35, 5
   %38 = add nsw i32 %36, -2
-  %notmask.i = shl nsw i32 -1, %38
-  %39 = xor i32 %notmask.i, -1
-  %40 = icmp slt i16 %35, 2
-  br i1 %40, label %41, label %48
+  %39 = icmp slt i16 %35, 2
+  br i1 %39, label %40, label %47
 
-41:                                               ; preds = %24
-  %42 = load i64, ptr %7, align 8
-  %43 = trunc i64 %42 to i32
-  %44 = and i32 %43, 15
-  %45 = icmp samesign ult i32 %44, 10
-  %46 = or disjoint i32 %44, 48
-  %47 = add nuw nsw i32 %44, 55
-  %.0.i.i = select i1 %45, i32 %46, i32 %47
+40:                                               ; preds = %24
+  %41 = load i64, ptr %7, align 8
+  %42 = trunc i64 %41 to i32
+  %43 = and i32 %42, 15
+  %44 = icmp samesign ult i32 %43, 10
+  %45 = or disjoint i32 %43, 48
+  %46 = add nuw nsw i32 %43, 55
+  %.0.i.i = select i1 %44, i32 %45, i32 %46
   %fputc17.i = call i32 @fputc(i32 %.0.i.i, ptr %0)
   br label %Abc_TtPrintHexRev.exit
 
-48:                                               ; preds = %24
-  %49 = icmp samesign ult i16 %35, 7
-  %50 = add nsw i32 %36, -6
-  %51 = shl nuw i32 1, %50
-  %52 = sext i32 %51 to i64
-  %53 = select i1 %49, i64 1, i64 %52
-  %54 = getelementptr inbounds i64, ptr %7, i64 %53
-  %.021.i = getelementptr inbounds i8, ptr %54, i64 -8
+47:                                               ; preds = %24
+  %48 = icmp samesign ult i16 %35, 7
+  %49 = add nsw i32 %36, -6
+  %50 = shl nuw i32 1, %49
+  %51 = sext i32 %50 to i64
+  %52 = select i1 %48, i64 1, i64 %51
+  %53 = getelementptr inbounds i64, ptr %7, i64 %52
+  %.021.i = getelementptr inbounds i8, ptr %53, i64 -8
   %.not22.i = icmp ult ptr %.021.i, %7
   br i1 %.not22.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %48
-  %55 = zext nneg i32 %39 to i64
+.lr.ph.us.preheader.i:                            ; preds = %47
+  %notmask.i = shl nsw i32 -1, %38
+  %54 = xor i32 %notmask.i, -1
+  %55 = zext nneg i32 %54 to i64
   %56 = select i1 %37, i64 15, i64 %55
   br label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %select.unfold..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %.023.us.i = phi ptr [ %.0.us.i, %select.unfold..loopexit_crit_edge.us.i ], [ %.021.i, %.lr.ph.us.preheader.i ]
-  br label %select.unfold.us.i
+.lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %.023.us.i = phi ptr [ %.0.us.i, %..loopexit_crit_edge.us.i ], [ %.021.i, %.lr.ph.us.preheader.i ]
+  br label %57
 
-select.unfold.us.i:                               ; preds = %select.unfold.us.i, %.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ %56, %.lr.ph.us.i ], [ %indvars.iv.next.i, %select.unfold.us.i ]
-  %57 = load i64, ptr %.023.us.i, align 8
-  %58 = shl i64 %indvars.iv.i, 2
-  %59 = and i64 %58, 4294967292
-  %60 = lshr i64 %57, %59
-  %61 = trunc i64 %60 to i32
-  %62 = and i32 %61, 15
-  %63 = icmp samesign ult i32 %62, 10
-  %64 = or disjoint i32 %62, 48
-  %65 = add nuw nsw i32 %62, 55
-  %.0.i18.us.i = select i1 %63, i32 %64, i32 %65
+57:                                               ; preds = %57, %.lr.ph.us.i
+  %indvars.iv.i = phi i64 [ %56, %.lr.ph.us.i ], [ %indvars.iv.next.i, %57 ]
+  %58 = load i64, ptr %.023.us.i, align 8
+  %59 = shl i64 %indvars.iv.i, 2
+  %60 = and i64 %59, 4294967292
+  %61 = lshr i64 %58, %60
+  %62 = trunc i64 %61 to i32
+  %63 = and i32 %62, 15
+  %64 = icmp samesign ult i32 %63, 10
+  %65 = or disjoint i32 %63, 48
+  %66 = add nuw nsw i32 %63, 55
+  %.0.i18.us.i = select i1 %64, i32 %65, i32 %66
   %fputc.us.i = call i32 @fputc(i32 %.0.i18.us.i, ptr %0)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %66 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %66, label %select.unfold.us.i, label %select.unfold..loopexit_crit_edge.us.i, !llvm.loop !25
+  %67 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %67, label %57, label %..loopexit_crit_edge.us.i, !llvm.loop !25
 
-select.unfold..loopexit_crit_edge.us.i:           ; preds = %select.unfold.us.i
+..loopexit_crit_edge.us.i:                        ; preds = %57
   %.0.us.i = getelementptr inbounds i8, ptr %.023.us.i, i64 -8
   %.not.us.i = icmp ult ptr %.0.us.i, %7
   br i1 %.not.us.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.i, !llvm.loop !26
 
-Abc_TtPrintHexRev.exit:                           ; preds = %select.unfold..loopexit_crit_edge.us.i, %41, %48
+Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edge.us.i, %40, %47
   %fputc95 = call i32 @fputc(i32 123, ptr %0)
-  %67 = load i16, ptr %21, align 8
-  %68 = icmp sgt i16 %67, 0
-  br i1 %68, label %.lr.ph110, label %._crit_edge111
+  %68 = load i16, ptr %21, align 8
+  %69 = icmp sgt i16 %68, 0
+  br i1 %69, label %.lr.ph110, label %._crit_edge111
 
 .lr.ph110:                                        ; preds = %Abc_TtPrintHexRev.exit
-  %69 = getelementptr inbounds i8, ptr %2, i64 24
-  br label %70
+  %70 = getelementptr inbounds i8, ptr %2, i64 24
+  br label %71
 
-70:                                               ; preds = %.lr.ph110, %70
-  %indvars.iv119 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next120, %70 ]
-  %71 = load ptr, ptr %69, align 8
-  %72 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv119
-  %73 = load i8, ptr %72, align 1
-  %74 = sext i8 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %71, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  %77 = ptrtoint ptr %76 to i64
-  %78 = and i64 %77, -2
-  %79 = inttoptr i64 %78 to ptr
-  %80 = trunc i64 %77 to i32
-  %81 = trunc nuw nsw i64 %indvars.iv119 to i32
-  %82 = lshr i32 %29, %81
-  %83 = xor i32 %82, %80
-  %84 = and i32 %83, 1
-  call void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %79, i32 noundef %84, ptr noundef %4)
+71:                                               ; preds = %.lr.ph110, %71
+  %indvars.iv119 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next120, %71 ]
+  %72 = load ptr, ptr %70, align 8
+  %73 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv119
+  %74 = load i8, ptr %73, align 1
+  %75 = sext i8 %74 to i64
+  %76 = getelementptr inbounds ptr, ptr %72, i64 %75
+  %77 = load ptr, ptr %76, align 8
+  %78 = ptrtoint ptr %77 to i64
+  %79 = and i64 %78, -2
+  %80 = inttoptr i64 %79 to ptr
+  %81 = trunc i64 %78 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv119 to i32
+  %83 = lshr i32 %29, %82
+  %84 = xor i32 %83, %81
+  %85 = and i32 %84, 1
+  call void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %80, i32 noundef %85, ptr noundef %4)
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %85 = load i16, ptr %21, align 8
-  %86 = sext i16 %85 to i64
-  %87 = icmp slt i64 %indvars.iv.next120, %86
-  br i1 %87, label %70, label %._crit_edge111, !llvm.loop !27
+  %86 = load i16, ptr %21, align 8
+  %87 = sext i16 %86 to i64
+  %88 = icmp slt i64 %indvars.iv.next120, %87
+  br i1 %88, label %71, label %._crit_edge111, !llvm.loop !27
 
-._crit_edge111:                                   ; preds = %70, %Abc_TtPrintHexRev.exit
-  %88 = call i64 @fwrite(ptr nonnull @.str.6, i64 2, i64 1, ptr %0)
-  br label %145
+._crit_edge111:                                   ; preds = %71, %Abc_TtPrintHexRev.exit
+  %89 = call i64 @fwrite(ptr nonnull @.str.6, i64 2, i64 1, ptr %0)
+  br label %146
 
-89:                                               ; preds = %20
-  %90 = zext nneg i16 %22 to i32
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %90) #14
+90:                                               ; preds = %20
+  %91 = zext nneg i16 %22 to i32
+  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %91) #14
   %fputc92 = tail call i32 @fputc(i32 123, ptr %0)
-  %92 = load i16, ptr %21, align 8
-  %93 = icmp sgt i16 %92, 0
-  br i1 %93, label %.lr.ph107, label %._crit_edge108
+  %93 = load i16, ptr %21, align 8
+  %94 = icmp sgt i16 %93, 0
+  br i1 %94, label %.lr.ph107, label %._crit_edge108
 
-.lr.ph107:                                        ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %2, i64 24
-  br label %95
+.lr.ph107:                                        ; preds = %90
+  %95 = getelementptr inbounds i8, ptr %2, i64 24
+  br label %96
 
-95:                                               ; preds = %.lr.ph107, %95
-  %indvars.iv116 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next117, %95 ]
-  %96 = load ptr, ptr %94, align 8
-  %97 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv116
-  %98 = load ptr, ptr %97, align 8
-  %99 = ptrtoint ptr %98 to i64
-  %100 = and i64 %99, -2
-  %101 = inttoptr i64 %100 to ptr
-  %102 = trunc i64 %99 to i32
-  %103 = and i32 %102, 1
-  tail call void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %101, i32 noundef %103, ptr noundef %4)
+96:                                               ; preds = %.lr.ph107, %96
+  %indvars.iv116 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next117, %96 ]
+  %97 = load ptr, ptr %95, align 8
+  %98 = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv116
+  %99 = load ptr, ptr %98, align 8
+  %100 = ptrtoint ptr %99 to i64
+  %101 = and i64 %100, -2
+  %102 = inttoptr i64 %101 to ptr
+  %103 = trunc i64 %100 to i32
+  %104 = and i32 %103, 1
+  tail call void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %102, i32 noundef %104, ptr noundef %4)
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %104 = load i16, ptr %21, align 8
-  %105 = sext i16 %104 to i64
-  %106 = icmp slt i64 %indvars.iv.next117, %105
-  br i1 %106, label %95, label %._crit_edge108, !llvm.loop !28
+  %105 = load i16, ptr %21, align 8
+  %106 = sext i16 %105 to i64
+  %107 = icmp slt i64 %indvars.iv.next117, %106
+  br i1 %107, label %96, label %._crit_edge108, !llvm.loop !28
 
-._crit_edge108:                                   ; preds = %95, %89
-  %107 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 2, i64 1, ptr %0)
-  br label %145
+._crit_edge108:                                   ; preds = %96, %90
+  %108 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 2, i64 1, ptr %0)
+  br label %146
 
-108:                                              ; preds = %5
+109:                                              ; preds = %5
   %.not86 = icmp eq i32 %3, 0
-  %109 = select i1 %.not86, ptr @.str.2, ptr @.str.3
-  %fputs87 = tail call i32 @fputs(ptr nonnull %109, ptr %0)
+  %110 = select i1 %.not86, ptr @.str.2, ptr @.str.3
+  %fputs87 = tail call i32 @fputs(ptr nonnull %110, ptr %0)
   %fputc88 = tail call i32 @fputc(i32 40, ptr %0)
-  %110 = getelementptr inbounds i8, ptr %2, i64 40
-  %111 = load i16, ptr %110, align 8
-  %112 = icmp sgt i16 %111, 0
-  br i1 %112, label %.lr.ph103, label %._crit_edge104
+  %111 = getelementptr inbounds i8, ptr %2, i64 40
+  %112 = load i16, ptr %111, align 8
+  %113 = icmp sgt i16 %112, 0
+  br i1 %113, label %.lr.ph103, label %._crit_edge104
 
-.lr.ph103:                                        ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %2, i64 24
-  br label %114
+.lr.ph103:                                        ; preds = %109
+  %114 = getelementptr inbounds i8, ptr %2, i64 24
+  br label %115
 
-114:                                              ; preds = %.lr.ph103, %114
-  %indvars.iv113 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next114, %114 ]
-  %115 = load ptr, ptr %113, align 8
-  %116 = getelementptr inbounds ptr, ptr %115, i64 %indvars.iv113
-  %117 = load ptr, ptr %116, align 8
-  %118 = ptrtoint ptr %117 to i64
-  %119 = and i64 %118, -2
-  %120 = inttoptr i64 %119 to ptr
-  %121 = trunc i64 %118 to i32
-  %122 = and i32 %121, 1
-  %123 = xor i32 %122, 1
-  tail call void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %120, i32 noundef %123, ptr noundef %4)
+115:                                              ; preds = %.lr.ph103, %115
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next114, %115 ]
+  %116 = load ptr, ptr %114, align 8
+  %117 = getelementptr inbounds ptr, ptr %116, i64 %indvars.iv113
+  %118 = load ptr, ptr %117, align 8
+  %119 = ptrtoint ptr %118 to i64
+  %120 = and i64 %119, -2
+  %121 = inttoptr i64 %120 to ptr
+  %122 = trunc i64 %119 to i32
+  %123 = and i32 %122, 1
+  %124 = xor i32 %123, 1
+  tail call void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %121, i32 noundef %124, ptr noundef %4)
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %124 = load i16, ptr %110, align 8
-  %125 = sext i16 %124 to i64
-  %126 = icmp slt i64 %indvars.iv.next114, %125
-  br i1 %126, label %114, label %._crit_edge104, !llvm.loop !29
+  %125 = load i16, ptr %111, align 8
+  %126 = sext i16 %125 to i64
+  %127 = icmp slt i64 %indvars.iv.next114, %126
+  br i1 %127, label %115, label %._crit_edge104, !llvm.loop !29
 
-._crit_edge104:                                   ; preds = %114, %108
+._crit_edge104:                                   ; preds = %115, %109
   %fputc89 = tail call i32 @fputc(i32 41, ptr %0)
-  br label %145
+  br label %146
 
-127:                                              ; preds = %5
+128:                                              ; preds = %5
   %.not = icmp eq i32 %3, 0
-  %128 = select i1 %.not, ptr @.str.3, ptr @.str.2
-  %fputs = tail call i32 @fputs(ptr nonnull %128, ptr %0)
+  %129 = select i1 %.not, ptr @.str.3, ptr @.str.2
+  %fputs = tail call i32 @fputs(ptr nonnull %129, ptr %0)
   %fputc = tail call i32 @fputc(i32 91, ptr %0)
-  %129 = getelementptr inbounds i8, ptr %2, i64 40
-  %130 = load i16, ptr %129, align 8
-  %131 = icmp sgt i16 %130, 0
-  br i1 %131, label %.lr.ph, label %._crit_edge
+  %130 = getelementptr inbounds i8, ptr %2, i64 40
+  %131 = load i16, ptr %130, align 8
+  %132 = icmp sgt i16 %131, 0
+  br i1 %132, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %127
-  %132 = getelementptr inbounds i8, ptr %2, i64 24
-  br label %133
+.lr.ph:                                           ; preds = %128
+  %133 = getelementptr inbounds i8, ptr %2, i64 24
+  br label %134
 
-133:                                              ; preds = %.lr.ph, %133
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %133 ]
-  %134 = load ptr, ptr %132, align 8
-  %135 = getelementptr inbounds ptr, ptr %134, i64 %indvars.iv
-  %136 = load ptr, ptr %135, align 8
-  %137 = ptrtoint ptr %136 to i64
-  %138 = and i64 %137, -2
-  %139 = inttoptr i64 %138 to ptr
-  %140 = trunc i64 %137 to i32
-  %141 = and i32 %140, 1
-  tail call void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %139, i32 noundef %141, ptr noundef %4)
+134:                                              ; preds = %.lr.ph, %134
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %134 ]
+  %135 = load ptr, ptr %133, align 8
+  %136 = getelementptr inbounds ptr, ptr %135, i64 %indvars.iv
+  %137 = load ptr, ptr %136, align 8
+  %138 = ptrtoint ptr %137 to i64
+  %139 = and i64 %138, -2
+  %140 = inttoptr i64 %139 to ptr
+  %141 = trunc i64 %138 to i32
+  %142 = and i32 %141, 1
+  tail call void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %140, i32 noundef %142, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %142 = load i16, ptr %129, align 8
-  %143 = sext i16 %142 to i64
-  %144 = icmp slt i64 %indvars.iv.next, %143
-  br i1 %144, label %133, label %._crit_edge, !llvm.loop !30
+  %143 = load i16, ptr %130, align 8
+  %144 = sext i16 %143 to i64
+  %145 = icmp slt i64 %indvars.iv.next, %144
+  br i1 %145, label %134, label %._crit_edge, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %133, %127
+._crit_edge:                                      ; preds = %134, %128
   %fputc85 = tail call i32 @fputc(i32 93, ptr %0)
-  br label %145
+  br label %146
 
-145:                                              ; preds = %5, %._crit_edge108, %._crit_edge111, %._crit_edge, %._crit_edge104, %12, %9
+146:                                              ; preds = %5, %._crit_edge108, %._crit_edge111, %._crit_edge, %._crit_edge104, %12, %9
   ret void
 }
 

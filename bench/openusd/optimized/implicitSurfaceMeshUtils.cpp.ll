@@ -767,30 +767,26 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__32UsdImaging
   %7 = invoke noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %.preheader2 unwind label %17
 
-.preheader2:                                      ; preds = %6
-  %invariant.gep = getelementptr inbounds i8, ptr %7, i64 8
-  br label %8
-
-8:                                                ; preds = %.preheader2, %8
-  %indvars.iv22 = phi i64 [ 0, %.preheader2 ], [ %indvars.iv.next23, %8 ]
-  %indvars.iv = phi i64 [ 0, %.preheader2 ], [ %indvars.iv.next, %8 ]
+.preheader2:                                      ; preds = %6, %.preheader2
+  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.preheader2 ], [ 0, %6 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader2 ], [ 0, %6 ]
   %indvars28 = trunc i64 %indvars.iv to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars27 = trunc i64 %indvars.iv.next to i32
-  %9 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
-  store i32 3, ptr %9, align 4
-  %10 = icmp eq i32 %indvars27, 10
-  %11 = add nuw nsw i32 %indvars28, 2
-  %12 = select i1 %10, i32 1, i32 %11
-  %13 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv22
-  store i32 %12, ptr %13, align 4
-  %14 = getelementptr i8, ptr %13, i64 4
-  store i32 %indvars27, ptr %14, align 4
+  %8 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  store i32 3, ptr %8, align 4
+  %9 = icmp eq i32 %indvars27, 10
+  %10 = add nuw nsw i32 %indvars28, 2
+  %11 = select i1 %9, i32 1, i32 %10
+  %12 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv22
+  store i32 %11, ptr %12, align 4
+  %13 = getelementptr i8, ptr %12, i64 4
+  store i32 %indvars27, ptr %13, align 4
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 3
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv22
-  store i32 0, ptr %gep, align 4
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %14, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.preheader, label %8, !llvm.loop !5
+  br i1 %exitcond.not, label %.preheader, label %.preheader2, !llvm.loop !5
 
 15:                                               ; preds = %5, %0
   %16 = landingpad { ptr, i32 }
@@ -807,11 +803,11 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__32UsdImaging
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   br label %100
 
-.preheader:                                       ; preds = %8, %42
-  %.112 = phi i32 [ %44, %42 ], [ 10, %8 ]
-  %.16911 = phi i32 [ %43, %42 ], [ 30, %8 ]
-  %.07210 = phi i32 [ %45, %42 ], [ 1, %8 ]
-  %.0749 = phi i32 [ %46, %42 ], [ 0, %8 ]
+.preheader:                                       ; preds = %.preheader2, %42
+  %.112 = phi i32 [ %44, %42 ], [ 10, %.preheader2 ]
+  %.16911 = phi i32 [ %43, %42 ], [ 30, %.preheader2 ]
+  %.07210 = phi i32 [ %45, %42 ], [ 1, %.preheader2 ]
+  %.0749 = phi i32 [ %46, %42 ], [ 0, %.preheader2 ]
   %19 = uitofp nneg i32 %.07210 to float
   %20 = fadd float %19, 1.000000e+01
   %21 = sext i32 %.112 to i64

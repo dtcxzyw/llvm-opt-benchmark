@@ -9763,9 +9763,9 @@ _ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77: ; preds = %.noexc7
   %trunc.i = trunc nuw i64 %74 to i1
   %75 = getelementptr inbounds i8, ptr %3, i64 24
   %76 = load i64, ptr %75, align 8, !noalias !1640
-  %77 = tail call i64 @llvm.umax.i64(i64 %76, i64 1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1640
   %switch.not.not = icmp eq i64 %74, 0
+  %77 = tail call i64 @llvm.umax.i64(i64 %76, i64 1)
   %.049 = select i1 %trunc.i, i64 %77, i64 -1
   %.055 = select i1 %switch.not.not, i64 0, i64 %.049
   %78 = getelementptr inbounds i8, ptr %0, i64 56

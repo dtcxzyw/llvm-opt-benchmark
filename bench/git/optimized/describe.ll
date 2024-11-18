@@ -133,7 +133,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.68 = private unnamed_addr constant [55 x i8] c"No exact match on refs or tags, searching to describe\0A\00", align 1
 @have_util = internal unnamed_addr global i1 false, align 4
 @commit_names.0 = internal unnamed_addr global i1 false, align 8
-@commit_names.1 = internal unnamed_addr global i1 false, align 8
+@commit_names.1 = internal unnamed_addr global i1 false, align 4
 @commit_names.2 = internal unnamed_addr global i32 0, align 8
 @commit_names.3 = internal unnamed_addr global ptr null, align 8
 @.str.69 = private unnamed_addr constant [23 x i8] c"finished search at %s\0A\00", align 1
@@ -1434,7 +1434,7 @@ if.end31:                                         ; preds = %_.exit, %if.end26
   br i1 %.b, label %if.end45, label %if.then33
 
 if.then33:                                        ; preds = %if.end31
-  store i1 true, ptr @commit_names.1, align 8
+  store i1 true, ptr @commit_names.1, align 4
   store i1 true, ptr @commit_names.0, align 8
   store i32 0, ptr @commit_names.2, align 8
   store ptr null, ptr @commit_names.3, align 8
@@ -1561,7 +1561,7 @@ if.end12.i.i103:                                  ; preds = %while.body
   br i1 %tobool16.not.i.i106, label %if.end95, label %cond.end58
 
 cond.end58:                                       ; preds = %if.end12.i.i103
-  %.b229 = load i1, ptr @commit_names.1, align 8
+  %.b229 = load i1, ptr @commit_names.1, align 4
   %29 = zext nneg i32 %rem.i.i101 to i64
   %idxprom34.i.i108 = select i1 %.b229, i64 %29, i64 0
   %arrayidx35.i.i109 = getelementptr inbounds ptr, ptr %28, i64 %idxprom34.i.i108

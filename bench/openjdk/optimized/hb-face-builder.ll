@@ -2755,11 +2755,11 @@ _ZN22hb_serialize_context_t10extend_minIN2OT7ArrayOfINS1_11TableRecordENS1_15Bin
   %.not.i.i.i = icmp eq i32 %2, 0
   %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 true)
   %29 = trunc nuw nsw i32 %28 to i16
-  %30 = shl nuw nsw i16 %29, 8
-  %31 = xor i16 %30, 7936
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
-  %.sroa.0.0.insert.insert.i5.i.i = select i1 %.not.i.i.i, i16 0, i16 %31
-  store i16 %.sroa.0.0.insert.insert.i5.i.i, ptr %32, align 1
+  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = shl nuw nsw i16 %29, 8
+  %32 = xor i16 %31, 7936
+  %.sroa.0.0.insert.insert.i5.i.i = select i1 %.not.i.i.i, i16 0, i16 %32
+  store i16 %.sroa.0.0.insert.insert.i5.i.i, ptr %30, align 1
   %rev.i.i = lshr exact i16 %.sroa.0.0.insert.insert.i5.i.i, 8
   %33 = zext nneg i16 %rev.i.i to i32
   %34 = shl i32 16, %33
@@ -2772,10 +2772,10 @@ _ZN22hb_serialize_context_t10extend_minIN2OT7ArrayOfINS1_11TableRecordENS1_15Bin
   %39 = icmp ugt i32 %37, %38
   %40 = sub i32 %37, %34
   %41 = trunc i32 %40 to i16
-  %42 = tail call i16 @llvm.bswap.i16(i16 %41)
-  %43 = getelementptr inbounds i8, ptr %0, i64 6
-  %.sroa.0.0.insert.insert.i7.i.i = select i1 %39, i16 %42, i16 0
-  store i16 %.sroa.0.0.insert.insert.i7.i.i, ptr %43, align 1
+  %42 = getelementptr inbounds i8, ptr %0, i64 6
+  %43 = tail call i16 @llvm.bswap.i16(i16 %41)
+  %.sroa.0.0.insert.insert.i7.i.i = select i1 %39, i16 %43, i16 0
+  store i16 %.sroa.0.0.insert.insert.i7.i.i, ptr %42, align 1
   %.not.i.i = icmp ult i32 %2, 65536
   %.pre = load i32, ptr %5, align 4
   br i1 %.not.i.i, label %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit, label %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread

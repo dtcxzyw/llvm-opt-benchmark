@@ -684,10 +684,10 @@ Mem_FixedStart.exit:                              ; preds = %Mem_FixedStart.exit
   store i32 %8, ptr %calloc.i, align 8
   %9 = icmp slt i32 %8, 64
   %10 = lshr i32 8192, %7
-  %11 = tail call i32 @llvm.umax.i32(i32 %10, i32 8)
-  %12 = getelementptr inbounds i8, ptr %calloc.i, i64 24
-  %13 = select i1 %9, i32 1024, i32 %11
-  store i32 %13, ptr %12, align 8
+  %11 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  %12 = tail call i32 @llvm.umax.i32(i32 %10, i32 8)
+  %13 = select i1 %9, i32 1024, i32 %12
+  store i32 %13, ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %calloc.i, i64 28
   store i32 64, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %calloc.i, i64 32

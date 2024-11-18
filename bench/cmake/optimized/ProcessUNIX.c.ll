@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [14 x i8] c"Out of memory\00", align 1
 @.str.7 = private unnamed_addr constant [33 x i8] c"Error getting child return code.\00", align 1
 @kwsysProcesses.0 = internal unnamed_addr global i32 0, align 8
-@kwsysProcesses.1 = internal unnamed_addr global i32 0, align 8
+@kwsysProcesses.1 = internal unnamed_addr global i32 0, align 4
 @kwsysProcesses.2 = internal unnamed_addr global ptr null, align 8
 @kwsysProcessesOldSigChldAction = internal global %struct.sigaction zeroinitializer, align 8
 @kwsysProcessesOldSigIntAction = internal global %struct.sigaction zeroinitializer, align 8
@@ -1816,7 +1816,7 @@ kwsysProcessSetNonBlocking.exit22.i:              ; preds = %115
 
 130:                                              ; preds = %126
   %.sroa.0.0.copyload.i = load i32, ptr @kwsysProcesses.0, align 8
-  %.sroa.5.0.copyload.i = load i32, ptr @kwsysProcesses.1, align 8
+  %.sroa.5.0.copyload.i = load i32, ptr @kwsysProcesses.1, align 4
   %.sroa.8.0.copyload.i = load ptr, ptr @kwsysProcesses.2, align 8
   %131 = icmp eq i32 %.sroa.0.0.copyload.i, %.sroa.5.0.copyload.i
   br i1 %131, label %132, label %143
@@ -1856,7 +1856,7 @@ kwsysProcessSetNonBlocking.exit22.i:              ; preds = %115
   %150 = call i32 @sigaddset(ptr noundef nonnull %3, i32 noundef 15) #25
   %151 = call i32 @sigprocmask(i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4) #25
   store i32 %144, ptr @kwsysProcesses.0, align 8
-  store i32 %.sroa.5.0.i, ptr @kwsysProcesses.1, align 8
+  store i32 %.sroa.5.0.i, ptr @kwsysProcesses.1, align 4
   store ptr %.sroa.7.0.i, ptr @kwsysProcesses.2, align 8
   %152 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #25
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
@@ -2480,7 +2480,7 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
 
 53:                                               ; preds = %.critedge2
   %.sroa.0.0.copyload.i = load i32, ptr @kwsysProcesses.0, align 8
-  %.sroa.6.0.copyload.i = load i32, ptr @kwsysProcesses.1, align 8
+  %.sroa.6.0.copyload.i = load i32, ptr @kwsysProcesses.1, align 4
   %.sroa.7.0.copyload.i = load ptr, ptr @kwsysProcesses.2, align 8
   %54 = icmp sgt i32 %.sroa.0.0.copyload.i, 0
   br i1 %54, label %.lr.ph.preheader.i, label %.loopexit.i
@@ -2579,7 +2579,7 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
   %89 = call i32 @sigaddset(ptr noundef nonnull %3, i32 noundef 15) #25
   %90 = call i32 @sigprocmask(i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4) #25
   store i32 %61, ptr @kwsysProcesses.0, align 8
-  store i32 %.sroa.6.0.i, ptr @kwsysProcesses.1, align 8
+  store i32 %.sroa.6.0.i, ptr @kwsysProcesses.1, align 4
   store ptr %.sroa.7.0.i, ptr @kwsysProcesses.2, align 8
   %91 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #25
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)

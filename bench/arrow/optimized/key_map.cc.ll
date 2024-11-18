@@ -841,11 +841,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %0 = load i32, ptr %log_blocks_, align 4
-  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp4.i = icmp slt i32 %0, 30
+  %cmp1.i = icmp samesign ult i32 %0, 14
+  %cmp.i = icmp slt i32 %0, 6
   %1 = select i1 %cmp4.i, i64 40, i64 72
   %2 = select i1 %cmp1.i, i64 24, i64 %1
-  %cmp.i = icmp slt i32 %0, 6
   %add4 = select i1 %cmp.i, i64 16, i64 %2
   %blocks_ = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count = zext nneg i32 %num_keys to i64
@@ -971,11 +971,11 @@ if.end10:                                         ; preds = %land.lhs.true, %if.
 
 for.body.lr.ph.i:                                 ; preds = %if.end10
   %2 = load i32, ptr %log_blocks_.i, align 4
-  %cmp1.i.i = icmp samesign ult i32 %2, 14
   %cmp4.i.i = icmp slt i32 %2, 30
+  %cmp1.i.i = icmp samesign ult i32 %2, 14
+  %cmp.i.i = icmp slt i32 %2, 6
   %3 = select i1 %cmp4.i.i, i64 40, i64 72
   %4 = select i1 %cmp1.i.i, i64 24, i64 %3
-  %cmp.i.i = icmp slt i32 %2, 6
   %add4.i = select i1 %cmp.i.i, i64 16, i64 %4
   %blocks_.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %sub11 to i64
@@ -2488,13 +2488,13 @@ entry:
   %cmp.i78 = icmp slt i32 %0, 5
   %cmp1.i79 = icmp samesign ult i32 %add, 14
   %cmp4.i80 = icmp slt i32 %0, 29
-  %1 = select i1 %cmp4.i80, i64 40, i64 72
-  %2 = select i1 %cmp1.i79, i64 24, i64 %1
   %sub = sub nuw nsw i32 64, %cond7.i
   %sh_prom = zext nneg i32 %sub to i64
   %shr = lshr i64 -1, %sh_prom
   %add6 = add nuw nsw i32 %cond7.i, 8
   %conv = zext nneg i32 %add6 to i64
+  %1 = select i1 %cmp4.i80, i64 40, i64 72
+  %2 = select i1 %cmp1.i79, i64 24, i64 %1
   %add7 = select i1 %cmp.i78, i64 16, i64 %2
   %sh_prom9 = zext nneg i32 %add to i64
   %shl = shl i64 %add7, %sh_prom9
@@ -3366,10 +3366,10 @@ entry:
   %cmp.i = icmp slt i32 %log_blocks, 6
   %cmp1.i = icmp samesign ult i32 %log_blocks, 14
   %cmp4.i = icmp slt i32 %log_blocks, 30
-  %0 = select i1 %cmp4.i, i64 40, i64 72
-  %1 = select i1 %cmp1.i, i64 24, i64 %0
   %num_inserted_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %num_inserted_, align 8
+  %0 = select i1 %cmp4.i, i64 40, i64 72
+  %1 = select i1 %cmp1.i, i64 24, i64 %0
   %add = select i1 %cmp.i, i64 16, i64 %1
   %sh_prom = zext nneg i32 %log_blocks to i64
   %shl = shl i64 %add, %sh_prom

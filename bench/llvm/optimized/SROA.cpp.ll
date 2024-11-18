@@ -42485,15 +42485,15 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %401, %409
   %411 = call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %410, i32 noundef %.) #25
   %412 = and i16 %411, 256
   %.not426 = icmp eq i16 %412, 0
-  %413 = and i16 %411, 255
   call void @_ZNK4llvm5APInt11zextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %21, ptr noundef nonnull align 8 dereferenceable(12) %20, i32 noundef 64) #25
-  %414 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %415 = load i32, ptr %414, align 8
-  %416 = icmp ult i32 %415, 65
-  %417 = load ptr, ptr %21, align 8
-  %.0.in.i = select i1 %416, ptr %21, ptr %417
+  %413 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %414 = load i32, ptr %413, align 8
+  %415 = icmp ult i32 %414, 65
+  %416 = load ptr, ptr %21, align 8
+  %.0.in.i = select i1 %415, ptr %21, ptr %416
   %.0.i = load i64, ptr %.0.in.i, align 8
-  %narrow = select i1 %.not426, i16 0, i16 %413
+  %417 = and i16 %411, 255
+  %narrow = select i1 %.not426, i16 0, i16 %417
   %418 = zext nneg i16 %narrow to i64
   %419 = shl nuw i64 1, %418
   %420 = or i64 %419, %.0.i
@@ -42502,12 +42502,12 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %401, %409
   %423 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %422, i1 false)
   %424 = trunc nuw nsw i64 %423 to i8
   %425 = sub nsw i8 63, %424
-  %426 = icmp eq ptr %417, null
-  %or.cond419 = select i1 %416, i1 true, i1 %426
+  %426 = icmp eq ptr %416, null
+  %or.cond419 = select i1 %415, i1 true, i1 %426
   br i1 %or.cond419, label %_ZN4llvm5APIntD2Ev.exit, label %427
 
 427:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
-  call void @_ZdaPv(ptr noundef nonnull %417) #26
+  call void @_ZdaPv(ptr noundef nonnull %416) #26
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejmbb.exit, %427

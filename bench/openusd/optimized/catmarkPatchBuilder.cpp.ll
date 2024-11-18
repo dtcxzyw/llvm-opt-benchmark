@@ -3164,41 +3164,41 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
   %66 = srem i32 %65, %0
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %67 = icmp eq i64 %indvars.iv.next107, %59
-  %68 = shl nuw i64 %indvars.iv.next107, 1
-  %69 = uitofp nneg i32 %64 to double
-  %70 = fmul double %35, %69
-  %71 = call double @cos(double noundef %70) #16
-  %72 = fmul double %34, %71
-  %73 = fmul double %72, 2.000000e+00
-  %74 = fptrunc double %73 to float
-  %75 = shl nsw i32 %66, 1
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds float, ptr %53, i64 %76
-  %78 = load float, ptr %77, align 4
-  %79 = fadd float %78, %74
-  store float %79, ptr %77, align 4
-  %80 = fptrunc double %72 to float
-  %81 = or disjoint i32 %75, 1
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds float, ptr %53, i64 %82
-  %84 = load float, ptr %83, align 4
-  %85 = fadd float %84, %80
-  store float %85, ptr %83, align 4
-  %86 = fmul double %72, 4.000000e+00
-  %87 = fptrunc double %86 to float
-  %88 = getelementptr inbounds float, ptr %53, i64 %60
-  %89 = load float, ptr %88, align 4
-  %90 = fadd float %89, %87
-  store float %90, ptr %88, align 4
-  %91 = getelementptr inbounds float, ptr %53, i64 %62
-  %92 = load float, ptr %91, align 4
-  %93 = fadd float %92, %80
-  store float %93, ptr %91, align 4
-  %94 = and i64 %68, 4294967294
+  %68 = uitofp nneg i32 %64 to double
+  %69 = fmul double %35, %68
+  %70 = call double @cos(double noundef %69) #16
+  %71 = fmul double %34, %70
+  %72 = fmul double %71, 2.000000e+00
+  %73 = fptrunc double %72 to float
+  %74 = shl nsw i32 %66, 1
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds float, ptr %53, i64 %75
+  %77 = load float, ptr %76, align 4
+  %78 = fadd float %77, %73
+  store float %78, ptr %76, align 4
+  %79 = fptrunc double %71 to float
+  %80 = or disjoint i32 %74, 1
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds float, ptr %53, i64 %81
+  %83 = load float, ptr %82, align 4
+  %84 = fadd float %83, %79
+  store float %84, ptr %82, align 4
+  %85 = fmul double %71, 4.000000e+00
+  %86 = fptrunc double %85 to float
+  %87 = getelementptr inbounds float, ptr %53, i64 %60
+  %88 = load float, ptr %87, align 4
+  %89 = fadd float %88, %86
+  store float %89, ptr %87, align 4
+  %90 = getelementptr inbounds float, ptr %53, i64 %62
+  %91 = load float, ptr %90, align 4
+  %92 = fadd float %91, %79
+  store float %92, ptr %90, align 4
+  %93 = shl nuw i64 %indvars.iv.next107, 1
+  %94 = and i64 %93, 4294967294
   %95 = select i1 %67, i64 0, i64 %94
   %96 = getelementptr inbounds float, ptr %53, i64 %95
   %97 = load float, ptr %96, align 4
-  %98 = fadd float %97, %74
+  %98 = fadd float %97, %73
   store float %98, ptr %96, align 4
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %59
   br i1 %exitcond110.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
@@ -8874,36 +8874,36 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
   %63 = srem i32 %62, %0
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %64 = icmp eq i64 %indvars.iv.next107, %56
-  %65 = shl nuw i64 %indvars.iv.next107, 1
-  %66 = uitofp nneg i32 %61 to double
-  %67 = fmul double %35, %66
-  %68 = call double @cos(double noundef %67) #16
-  %69 = fmul double %34, %68
-  %70 = shl nsw i32 %63, 1
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds double, ptr %52, i64 %71
-  %73 = load double, ptr %72, align 8
-  %74 = call double @llvm.fmuladd.f64(double %69, double 2.000000e+00, double %73)
-  store double %74, ptr %72, align 8
-  %75 = or disjoint i32 %70, 1
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds double, ptr %52, i64 %76
-  %78 = load double, ptr %77, align 8
-  %79 = fadd double %69, %78
-  store double %79, ptr %77, align 8
-  %80 = getelementptr inbounds double, ptr %52, i64 %57
-  %81 = load double, ptr %80, align 8
-  %82 = call double @llvm.fmuladd.f64(double %69, double 4.000000e+00, double %81)
-  store double %82, ptr %80, align 8
-  %83 = getelementptr inbounds double, ptr %52, i64 %59
-  %84 = load double, ptr %83, align 8
-  %85 = fadd double %69, %84
-  store double %85, ptr %83, align 8
-  %86 = and i64 %65, 4294967294
+  %65 = uitofp nneg i32 %61 to double
+  %66 = fmul double %35, %65
+  %67 = call double @cos(double noundef %66) #16
+  %68 = fmul double %34, %67
+  %69 = shl nsw i32 %63, 1
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds double, ptr %52, i64 %70
+  %72 = load double, ptr %71, align 8
+  %73 = call double @llvm.fmuladd.f64(double %68, double 2.000000e+00, double %72)
+  store double %73, ptr %71, align 8
+  %74 = or disjoint i32 %69, 1
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds double, ptr %52, i64 %75
+  %77 = load double, ptr %76, align 8
+  %78 = fadd double %68, %77
+  store double %78, ptr %76, align 8
+  %79 = getelementptr inbounds double, ptr %52, i64 %57
+  %80 = load double, ptr %79, align 8
+  %81 = call double @llvm.fmuladd.f64(double %68, double 4.000000e+00, double %80)
+  store double %81, ptr %79, align 8
+  %82 = getelementptr inbounds double, ptr %52, i64 %59
+  %83 = load double, ptr %82, align 8
+  %84 = fadd double %68, %83
+  store double %84, ptr %82, align 8
+  %85 = shl nuw i64 %indvars.iv.next107, 1
+  %86 = and i64 %85, 4294967294
   %87 = select i1 %64, i64 0, i64 %86
   %88 = getelementptr inbounds double, ptr %52, i64 %87
   %89 = load double, ptr %88, align 8
-  %90 = call double @llvm.fmuladd.f64(double %69, double 2.000000e+00, double %89)
+  %90 = call double @llvm.fmuladd.f64(double %68, double 2.000000e+00, double %89)
   store double %90, ptr %88, align 8
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %56
   br i1 %exitcond110.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49

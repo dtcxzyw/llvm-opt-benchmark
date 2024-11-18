@@ -2242,15 +2242,15 @@ define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr nounde
   %101 = icmp eq i32 %100, 1
   %102 = zext i1 %101 to i32
   %spec.select = add nuw nsw i32 %.0175, %102
-  %103 = zext i8 %99 to i32
-  %104 = load i32, ptr @hf_capwap_header_wireless_length, align 4
-  %105 = add nuw nsw i32 %spec.select, %2
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %104, ptr noundef %0, i32 noundef %105, i32 noundef 1, i32 noundef 0) #2
-  %107 = add nuw nsw i32 %spec.select, 1
-  %108 = load i32, ptr @hf_capwap_header_wireless_data, align 4
-  %109 = add nuw nsw i32 %107, %2
-  %110 = select i1 %101, i32 4, i32 %103
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef %110, i32 noundef 0) #2
+  %103 = load i32, ptr @hf_capwap_header_wireless_length, align 4
+  %104 = add nuw nsw i32 %spec.select, %2
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %103, ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0) #2
+  %106 = add nuw nsw i32 %spec.select, 1
+  %107 = load i32, ptr @hf_capwap_header_wireless_data, align 4
+  %108 = add nuw nsw i32 %106, %2
+  %109 = zext i8 %99 to i32
+  %110 = select i1 %101, i32 4, i32 %109
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %107, ptr noundef %0, i32 noundef %108, i32 noundef %110, i32 noundef 0) #2
   %112 = load i8, ptr %5, align 1
   %113 = icmp eq i8 %112, 1
   br i1 %113, label %114, label %dissect_capwap_data_message_bindings_ieee80211.exit
@@ -2265,16 +2265,16 @@ define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr nounde
 
 118:                                              ; preds = %114
   %119 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_fi, align 4
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %119, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0) #2
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %119, ptr noundef %0, i32 noundef %108, i32 noundef 4, i32 noundef 0) #2
   %121 = load i32, ptr @ett_capwap_data_message_bindings_ieee80211, align 4
   %122 = tail call ptr @proto_item_add_subtree(ptr noundef %120, i32 noundef %121) #2
   %123 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_fi_rssi, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %123, ptr noundef %0, i32 noundef %109, i32 noundef 1, i32 noundef 0) #2
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %123, ptr noundef %0, i32 noundef %108, i32 noundef 1, i32 noundef 0) #2
   %125 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_fi_snr, align 4
-  %126 = add nuw nsw i32 %109, 1
+  %126 = add nuw nsw i32 %108, 1
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %125, ptr noundef %0, i32 noundef %126, i32 noundef 1, i32 noundef 0) #2
   %128 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_fi_data_rate, align 4
-  %129 = add nuw nsw i32 %109, 2
+  %129 = add nuw nsw i32 %108, 2
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %128, ptr noundef %0, i32 noundef %129, i32 noundef 2, i32 noundef 0) #2
   %131 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %129) #2
   %132 = uitofp i16 %131 to float
@@ -2285,18 +2285,18 @@ define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr nounde
 
 135:                                              ; preds = %114
   %136 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_dest_wlan, align 4
-  %137 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %136, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0) #2
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %136, ptr noundef %0, i32 noundef %108, i32 noundef 4, i32 noundef 0) #2
   %138 = load i32, ptr @ett_capwap_data_message_bindings_ieee80211, align 4
   %139 = tail call ptr @proto_item_add_subtree(ptr noundef %137, i32 noundef %138) #2
   %140 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_dw_wlan_id_bitmap, align 4
-  %141 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #2
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %0, i32 noundef %108, i32 noundef 2, i32 noundef 0) #2
   %142 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_dw_reserved, align 4
-  %143 = add nuw nsw i32 %109, 2
+  %143 = add nuw nsw i32 %108, 2
   %144 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %142, ptr noundef %0, i32 noundef %143, i32 noundef 2, i32 noundef 0) #2
   br label %dissect_capwap_data_message_bindings_ieee80211.exit
 
 dissect_capwap_data_message_bindings_ieee80211.exit: ; preds = %135, %118, %97
-  %145 = add nuw nsw i32 %107, %110
+  %145 = add nuw nsw i32 %106, %110
   %146 = add nuw nsw i32 %145, %2
   %147 = and i32 %146, 3
   %.not185 = icmp eq i32 %147, 0

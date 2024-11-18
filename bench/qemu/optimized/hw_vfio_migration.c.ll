@@ -842,8 +842,8 @@ entry:
   %tobool.not.i = icmp eq i32 %call.i, 0
   %data.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %2 = load i64, ptr %data.i, align 8
-  %3 = call i64 @llvm.umin.i64(i64 %2, i64 1048576)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
+  %3 = call i64 @llvm.umin.i64(i64 %2, i64 1048576)
   %cond = select i1 %tobool.not.i, i64 %3, i64 1048576
   %data_buffer_size = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %cond, ptr %data_buffer_size, align 8

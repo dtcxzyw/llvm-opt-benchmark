@@ -6483,11 +6483,11 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %105, %108
   %.not.i.i150 = icmp eq i64 %129, 4294967294
   %130 = shl nuw nsw i64 %129, 1
   %131 = add nuw nsw i64 %130, 3
-  %132 = and i64 %131, 4294967295
-  %133 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -8
-  %134 = load ptr, ptr %133, align 8
-  %135 = select i1 %.not.i.i150, i64 1, i64 %132
-  %136 = getelementptr inbounds %"class.llvm::Use", ptr %134, i64 %135
+  %132 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -8
+  %133 = load ptr, ptr %132, align 8
+  %134 = and i64 %131, 4294967295
+  %135 = select i1 %.not.i.i150, i64 1, i64 %134
+  %136 = getelementptr inbounds %"class.llvm::Use", ptr %133, i64 %135
   %137 = load ptr, ptr %136, align 8
   br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit153
 

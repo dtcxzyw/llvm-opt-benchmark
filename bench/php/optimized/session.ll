@@ -10307,11 +10307,11 @@ define internal i32 @php_session_rfc1867_callback(i32 noundef %0, ptr noundef %1
   %109 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 349), align 1
   %110 = trunc i8 %109 to i1
   %111 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 348), align 4
-  %112 = and i8 %111, 1
-  %113 = xor i8 %112, 1
-  %114 = getelementptr inbounds i8, ptr %11, i64 65
-  %115 = select i1 %110, i8 %113, i8 0
-  store i8 %115, ptr %114, align 1
+  %112 = getelementptr inbounds i8, ptr %11, i64 65
+  %113 = and i8 %111, 1
+  %114 = xor i8 %113, 1
+  %115 = select i1 %110, i8 %114, i8 0
+  store i8 %115, ptr %112, align 1
   tail call fastcc void @php_session_rfc1867_early_find_sid(ptr noundef nonnull %11)
   br label %.thread
 

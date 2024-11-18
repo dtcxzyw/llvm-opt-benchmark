@@ -1456,17 +1456,17 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 165:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit
   %166 = icmp eq i32 %151, 0
   %167 = and i32 %150, 1048320
-  %168 = or disjoint i32 %167, 9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46)
-  %169 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr null, ptr %169, align 8, !alias.scope !31
-  %170 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store ptr %154, ptr %170, align 8, !alias.scope !31
-  %171 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 0, ptr %171, align 4, !alias.scope !31
-  %172 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store i32 0, ptr %172, align 8, !alias.scope !31
-  %173 = select i1 %166, i32 9, i32 %168
+  %168 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr null, ptr %168, align 8, !alias.scope !31
+  %169 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  store ptr %154, ptr %169, align 8, !alias.scope !31
+  %170 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  store i32 0, ptr %170, align 4, !alias.scope !31
+  %171 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  store i32 0, ptr %171, align 8, !alias.scope !31
+  %172 = or disjoint i32 %167, 9
+  %173 = select i1 %166, i32 9, i32 %172
   store i32 %173, ptr %46, align 8, !alias.scope !31
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %145, ptr noundef nonnull align 8 dereferenceable(1041) %144, ptr noundef nonnull align 8 dereferenceable(32) %46) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46)
@@ -1496,7 +1496,6 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   br i1 %96, label %184, label %206
 
 184:                                              ; preds = %183
-  %.neg717 = select i1 %124, i64 -4855, i64 -4854
   %.sroa.0153.0.copyload = load ptr, ptr %48, align 8
   %185 = load ptr, ptr %92, align 8
   store ptr %185, ptr %52, align 8
@@ -1526,6 +1525,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit317: ; preds = %_ZN4llvm
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8
+  %.neg717 = select i1 %124, i64 -4855, i64 -4854
   %.neg718 = select i1 %94, i64 -4853, i64 %.neg717
   %194 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %193, i64 %.neg718
   %195 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %.sroa.0153.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(32) %194)

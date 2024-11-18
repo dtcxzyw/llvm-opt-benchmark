@@ -138,115 +138,115 @@ define dso_local void @_ZN4llvm7CCState11HandleByValEjNS_3MVTES1_NS_11CCValAssig
   %.not.i.i = icmp eq i32 %14, 0
   %15 = trunc nuw nsw i32 %14 to i8
   %16 = add nsw i8 %15, -1
-  %.sroa.0.0.extract.trunc.i = select i1 %.not.i.i, i8 0, i8 %16
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = load i32, ptr %17, align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %5, i32 %18)
   store i32 %spec.select, ptr %9, align 4
-  %.sroa.08.0 = tail call i8 @llvm.umax.i8(i8 %6, i8 %.sroa.0.0.extract.trunc.i)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %20 = load i8, ptr %19, align 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %_ZN4llvm7CCState18ensureMaxAlignmentENS_5AlignE.exit, label %22
+  %19 = tail call i8 @llvm.umax.i8(i8 %6, i8 %16)
+  %.sroa.08.0 = select i1 %.not.i.i, i8 %6, i8 %19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %21 = load i8, ptr %20, align 1
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %_ZN4llvm7CCState18ensureMaxAlignmentENS_5AlignE.exit, label %23
 
-22:                                               ; preds = %8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %26 = load ptr, ptr %25, align 8
-  tail call void @_ZN4llvm16MachineFrameInfo18ensureMaxAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(696) %26, i8 %.sroa.08.0) #10
+23:                                               ; preds = %8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %27 = load ptr, ptr %26, align 8
+  tail call void @_ZN4llvm16MachineFrameInfo18ensureMaxAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(696) %27, i8 %.sroa.08.0) #10
   br label %_ZN4llvm7CCState18ensureMaxAlignmentENS_5AlignE.exit
 
-_ZN4llvm7CCState18ensureMaxAlignmentENS_5AlignE.exit: ; preds = %8, %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
+_ZN4llvm7CCState18ensureMaxAlignmentENS_5AlignE.exit: ; preds = %8, %23
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 144
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(288) %30) #10
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 2240
-  %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(408123) %34, ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %9, i8 %.sroa.08.0) #10
-  %38 = load i32, ptr %9, align 4
-  %39 = zext i32 %38 to i64
-  %40 = zext nneg i8 %6 to i64
-  %41 = shl nuw i64 1, %40
-  %42 = add nuw i64 %41, 4294967295
-  %43 = add nuw i64 %42, %39
-  %44 = sub i64 0, %41
-  %45 = and i64 %43, %44
-  %46 = trunc i64 %45 to i32
-  store i32 %46, ptr %9, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = load i8, ptr %47, align 8
-  %49 = trunc i8 %48 to i1
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %51 = load i64, ptr %50, align 8
-  br i1 %49, label %52, label %62
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 144
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(288) %31) #10
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 2240
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(408123) %35, ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %9, i8 %.sroa.08.0) #10
+  %39 = load i32, ptr %9, align 4
+  %40 = zext i32 %39 to i64
+  %41 = zext nneg i8 %6 to i64
+  %42 = shl nuw i64 1, %41
+  %43 = add nuw i64 %42, 4294967295
+  %44 = add nuw i64 %43, %40
+  %45 = sub i64 0, %42
+  %46 = and i64 %44, %45
+  %47 = trunc i64 %46 to i32
+  store i32 %47, ptr %9, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %49 = load i8, ptr %48, align 8
+  %50 = trunc i8 %49 to i1
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i64, ptr %51, align 8
+  br i1 %50, label %53, label %63
 
-52:                                               ; preds = %_ZN4llvm7CCState18ensureMaxAlignmentENS_5AlignE.exit
-  %53 = and i64 %45, 4294967295
-  %54 = zext nneg i8 %.sroa.08.0 to i64
-  %55 = shl nuw i64 1, %54
-  %56 = add i64 %55, -1
-  %57 = add i64 %56, %51
-  %58 = add i64 %57, %53
-  %59 = sub i64 0, %55
-  %60 = and i64 %58, %59
-  %61 = sub i64 0, %60
-  br label %71
+53:                                               ; preds = %_ZN4llvm7CCState18ensureMaxAlignmentENS_5AlignE.exit
+  %54 = and i64 %46, 4294967295
+  %55 = zext nneg i8 %.sroa.08.0 to i64
+  %56 = shl nuw i64 1, %55
+  %57 = add i64 %56, -1
+  %58 = add i64 %57, %52
+  %59 = add i64 %58, %54
+  %60 = sub i64 0, %56
+  %61 = and i64 %59, %60
+  %62 = sub i64 0, %61
+  br label %72
 
-62:                                               ; preds = %_ZN4llvm7CCState18ensureMaxAlignmentENS_5AlignE.exit
-  %63 = zext nneg i8 %.sroa.08.0 to i64
-  %64 = shl nuw i64 1, %63
-  %65 = add i64 %64, -1
-  %66 = add i64 %65, %51
-  %67 = sub i64 0, %64
-  %68 = and i64 %66, %67
-  %69 = and i64 %45, 4294967295
-  %70 = add nsw i64 %68, %69
-  br label %71
+63:                                               ; preds = %_ZN4llvm7CCState18ensureMaxAlignmentENS_5AlignE.exit
+  %64 = zext nneg i8 %.sroa.08.0 to i64
+  %65 = shl nuw i64 1, %64
+  %66 = add i64 %65, -1
+  %67 = add i64 %66, %52
+  %68 = sub i64 0, %65
+  %69 = and i64 %67, %68
+  %70 = and i64 %46, 4294967295
+  %71 = add nsw i64 %69, %70
+  br label %72
 
-71:                                               ; preds = %62, %52
-  %.sink = phi i64 [ %60, %52 ], [ %70, %62 ]
-  %.0.i = phi i64 [ %61, %52 ], [ %68, %62 ]
-  store i64 %.sink, ptr %50, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.0.0.copyload.i.i = load i8, ptr %72, align 8
+72:                                               ; preds = %63, %53
+  %.sink = phi i64 [ %61, %53 ], [ %71, %63 ]
+  %.0.i = phi i64 [ %62, %53 ], [ %69, %63 ]
+  store i64 %.sink, ptr %51, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.sroa.0.0.copyload.i.i = load i8, ptr %73, align 8
   %.sroa.speculated.i = call i8 @llvm.umax.i8(i8 %.sroa.08.0, i8 %.sroa.0.0.copyload.i.i)
-  store i8 %.sroa.speculated.i, ptr %72, align 8
-  %73 = load i8, ptr %19, align 1
-  %74 = trunc i8 %73 to i1
-  br i1 %74, label %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit, label %75
+  store i8 %.sroa.speculated.i, ptr %73, align 8
+  %74 = load i8, ptr %20, align 1
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit, label %76
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %27, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
-  %78 = load ptr, ptr %77, align 8
-  call void @_ZN4llvm16MachineFrameInfo18ensureMaxAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(696) %78, i8 %.sroa.08.0) #10
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %28, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  %79 = load ptr, ptr %78, align 8
+  call void @_ZN4llvm16MachineFrameInfo18ensureMaxAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(696) %79, i8 %.sroa.08.0) #10
   br label %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit
 
-_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit: ; preds = %71, %75
-  %79 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %80 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %1, ptr %80, align 8, !alias.scope !4
-  %81 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %82 = trunc i32 %4 to i8
-  %83 = shl i8 %82, 1
-  %84 = and i8 %83, 126
-  store i8 %84, ptr %81, align 4, !alias.scope !4
-  %85 = getelementptr inbounds nuw i8, ptr %10, i64 22
-  store i16 %2, ptr %85, align 2, !alias.scope !4
-  %86 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i16 %3, ptr %86, align 8, !alias.scope !4
-  store i8 1, ptr %79, align 8, !alias.scope !4
+_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit: ; preds = %72, %76
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i32 %1, ptr %81, align 8, !alias.scope !4
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %83 = trunc i32 %4 to i8
+  %84 = shl i8 %83, 1
+  %85 = and i8 %84, 126
+  store i8 %85, ptr %82, align 4, !alias.scope !4
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 22
+  store i16 %2, ptr %86, align 2, !alias.scope !4
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i16 %3, ptr %87, align 8, !alias.scope !4
+  store i8 1, ptr %80, align 8, !alias.scope !4
   store i64 %.0.i, ptr %10, align 8, !alias.scope !4
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %88 = load ptr, ptr %87, align 8
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(26) %10)
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %89 = load ptr, ptr %88, align 8
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(26) %10)
   ret void
 }
 

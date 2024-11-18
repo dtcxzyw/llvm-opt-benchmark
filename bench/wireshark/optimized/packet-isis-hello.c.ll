@@ -1281,17 +1281,17 @@ define internal void @dissect_hello_trill_neighbor_clv(ptr noundef %0, ptr nocap
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #4
   %8 = and i8 %7, 31
   %9 = icmp eq i8 %8, 0
-  %10 = add nuw nsw i8 %8, 3
-  %11 = load i32, ptr @hf_isis_hello_trill_neighbor_sf, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
-  %13 = load i32, ptr @hf_isis_hello_trill_neighbor_lf, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
-  %15 = load i32, ptr @hf_isis_hello_trill_neighbor_size, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
-  %17 = add i32 %5, -1
-  %narrow = select i1 %9, i8 9, i8 %10
+  %10 = load i32, ptr @hf_isis_hello_trill_neighbor_sf, align 4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
+  %12 = load i32, ptr @hf_isis_hello_trill_neighbor_lf, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
+  %14 = load i32, ptr @hf_isis_hello_trill_neighbor_size, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
+  %16 = add i32 %5, -1
+  %17 = add nuw nsw i8 %8, 3
+  %narrow = select i1 %9, i8 9, i8 %17
   %18 = zext nneg i8 %narrow to i32
-  %.not37 = icmp slt i32 %17, %18
+  %.not37 = icmp slt i32 %16, %18
   br i1 %.not37, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
@@ -1299,7 +1299,7 @@ define internal void @dissect_hello_trill_neighbor_clv(ptr noundef %0, ptr nocap
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.039 = phi i32 [ %33, %.lr.ph ], [ %17, %.lr.ph.preheader ]
+  %.039 = phi i32 [ %33, %.lr.ph ], [ %16, %.lr.ph.preheader ]
   %.03638 = phi i32 [ %32, %.lr.ph ], [ %19, %.lr.ph.preheader ]
   %20 = load i32, ptr @hf_isis_hello_trill_neighbor_ff, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %.03638, i32 noundef 1, i32 noundef 0) #4

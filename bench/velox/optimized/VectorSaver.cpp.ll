@@ -204833,9 +204833,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorINS0_12UnknownValueEEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIS2_EESt8optionalIiESM_SL_IbESM_SM_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 1 dereferenceable(4) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -206534,9 +206534,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorImEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsImEESt8optionalIiESL_SK_IbESL_SL_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(32) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -208594,8 +208594,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -209355,8 +209355,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -209902,9 +209902,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorISt10shared_ptrIvEEC2EPNS0_6memory10MemoryPoolES2_IKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIS3_EESt8optionalIiESM_SL_IbESM_SM_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(48) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -212023,8 +212023,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -212900,9 +212900,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorIbEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIbEESt8optionalIiESL_SK_IbESL_SL_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 1 dereferenceable(4) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -214896,8 +214896,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -215436,9 +215436,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorIiEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIiEESt8optionalIiESL_SK_IbESL_SL_(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 4 dereferenceable(16) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -217432,8 +217432,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -217992,9 +217992,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorIaEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIaEESt8optionalIiESL_SK_IbESL_SL_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 1 dereferenceable(4) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -219989,8 +219989,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -220549,9 +220549,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorIsEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIsEESt8optionalIiESL_SK_IbESL_SL_(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 2 dereferenceable(8) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -222546,8 +222546,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -223106,9 +223106,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorIlEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIlEESt8optionalIiESL_SK_IbESL_SL_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(32) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -225103,8 +225103,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -225641,9 +225641,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorInEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsInEESt8optionalIiESL_SK_IbESL_SL_(ptr noundef nonnull align 16 dereferenceable(176) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 16 dereferenceable(64) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -227643,8 +227643,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -228210,9 +228210,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorIfEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIfEESt8optionalIiESL_SK_IbESL_SL_(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 4 dereferenceable(16) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -230245,8 +230245,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -230783,9 +230783,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorIdEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIdEESt8optionalIiESL_SK_IbESL_SL_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(32) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -232817,8 +232817,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -233357,9 +233357,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorINS0_10StringViewEEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIS2_EESt8optionalIiESM_SL_IbESM_SM_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(48) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -235432,8 +235432,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4
@@ -236266,9 +236266,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   store ptr null, ptr %agg.tmp5, align 8
   %not.isNull = xor i1 %isNull, true
-  %5 = and i64 %length, 4294967295
   %agg.tmp6.sroa.0.0.insert.ext = zext i1 %not.isNull to i64
   %agg.tmp6.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp6.sroa.0.0.insert.ext, 4294967296
+  %5 = and i64 %length, 4294967295
   %6 = or disjoint i64 %5, 4294967296
   %agg.tmp7.sroa.0.0.insert.insert = select i1 %isNull, i64 %6, i64 4294967296
   invoke void @_ZN8facebook5velox12SimpleVectorINS0_9TimestampEEC2EPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_4TypeEENS0_14VectorEncoding6SimpleEN5boost13intrusive_ptrINS0_6BufferEEEmRKNS0_17SimpleVectorStatsIS2_EESt8optionalIiESM_SL_IbESM_SM_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %pool, ptr noundef nonnull %agg.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp5, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(48) %stats, i64 %agg.tmp6.sroa.0.0.insert.insert, i64 %agg.tmp7.sroa.0.0.insert.insert, i16 257, i64 %representedBytes.coerce, i64 %storageByteCount.coerce)
@@ -238292,8 +238292,8 @@ if.end7:                                          ; preds = %entry
   store i64 %ref.tmp.sroa.0.0.insert.insert, ptr %distinctValueCount_, align 4
   %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %length_, align 8
-  %6 = zext i32 %5 to i64
   %nullCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = zext i32 %5 to i64
   %7 = or disjoint i64 %6, 4294967296
   %ref.tmp13.sroa.0.0.insert.insert = select i1 %call10, i64 %7, i64 4294967296
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %nullCount_, align 4

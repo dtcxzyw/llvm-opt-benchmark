@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.46 = private unnamed_addr constant [11 x i8] c"%9.2f sec\0A\00", align 1
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 @stdout = external local_unnamed_addr global ptr, align 8
-@Prs_BoxSignals.V.1 = internal unnamed_addr global i32 0, align 8
+@Prs_BoxSignals.V.1 = internal unnamed_addr global i32 0, align 4
 @Prs_BoxSignals.V.2 = internal unnamed_addr global ptr null, align 8
 @.str.49 = private unnamed_addr constant [5 x i8] c"1'b0\00", align 1
 @.str.50 = private unnamed_addr constant [5 x i8] c"1'b1\00", align 1
@@ -3572,7 +3572,7 @@ Cba_NtkCleanMap.exit:                             ; preds = %7, %2
   %57 = getelementptr inbounds i32, ptr %.val.i, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i32 %58, -2
-  store i32 %59, ptr @Prs_BoxSignals.V.1, align 8
+  store i32 %59, ptr @Prs_BoxSignals.V.1, align 4
   %.val4.i = load ptr, ptr %22, align 8
   %.val5.i = load ptr, ptr %23, align 8
   %60 = getelementptr inbounds i32, ptr %.val5.i, i64 %indvars.iv561
@@ -3630,7 +3630,7 @@ Cba_NtkCleanMap.exit:                             ; preds = %7, %2
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds i32, ptr %.val206, i64 %95
   %97 = load i32, ptr %96, align 4
-  %Prs_BoxSignals.V.val232 = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val232 = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %Prs_BoxSignals.V.val233 = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %98 = sext i32 %Prs_BoxSignals.V.val232 to i64
   %99 = getelementptr i32, ptr %Prs_BoxSignals.V.val233, i64 %98
@@ -3642,7 +3642,7 @@ Cba_NtkCleanMap.exit:                             ; preds = %7, %2
   %103 = sext i32 %97 to i64
   %104 = getelementptr inbounds i32, ptr %.val.i.i264, i64 %103
   store i32 %101, ptr %104, align 4
-  %Prs_BoxSignals.V.val234 = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val234 = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %Prs_BoxSignals.V.val235 = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %105 = sext i32 %Prs_BoxSignals.V.val234 to i64
   %106 = getelementptr i32, ptr %Prs_BoxSignals.V.val235, i64 %105
@@ -3734,7 +3734,7 @@ Cba_NtkCleanMap2.exit:                            ; preds = %135, %Cba_ManNtkFin
   br label %148
 
 .critedge4.preheader:                             ; preds = %Cba_NtkSetMap2.exit, %Cba_NtkCleanMap2.exit
-  %Prs_BoxSignals.V.val531 = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val531 = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %147 = icmp sgt i32 %Prs_BoxSignals.V.val531, 1
   br i1 %147, label %.lr.ph533, label %.critedge6
 
@@ -4466,7 +4466,7 @@ Cba_NtkSetMap.exit:                               ; preds = %.Vec_IntGrow.exit10
 
 .critedge4:                                       ; preds = %Vec_IntFillExtra.exit376, %Cba_NtkSetMap.exit
   %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 2
-  %Prs_BoxSignals.V.val = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %450 = trunc i64 %indvars.iv.next559 to i32
   %451 = or disjoint i32 %450, 1
   %452 = icmp slt i32 %451, %Prs_BoxSignals.V.val
@@ -4515,7 +4515,7 @@ Cba_NtkSetMap.exit:                               ; preds = %.Vec_IntGrow.exit10
   %469 = getelementptr inbounds i32, ptr %.val.i288, i64 %468
   %470 = load i32, ptr %469, align 4
   %471 = add nsw i32 %470, -2
-  store i32 %471, ptr @Prs_BoxSignals.V.1, align 8
+  store i32 %471, ptr @Prs_BoxSignals.V.1, align 4
   %.val4.i290 = load ptr, ptr %43, align 8
   %.val5.i291 = load ptr, ptr %44, align 8
   %472 = getelementptr inbounds i32, ptr %.val5.i291, i64 %indvars.iv573
@@ -4742,7 +4742,7 @@ Prs_CreateBlifFindFon.exit303:                    ; preds = %Vec_IntFillExtra.ex
 
 578:                                              ; preds = %Prs_CreateBlifFindFon.exit303.thread, %Prs_CreateBlifFindFon.exit303
   %indvars.iv.next571 = add nuw nsw i64 %indvars.iv570, 2
-  %Prs_BoxSignals.V.val194 = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val194 = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %579 = trunc i64 %indvars.iv.next571 to i32
   %580 = or disjoint i32 %579, 1
   %581 = icmp slt i32 %580, %Prs_BoxSignals.V.val194
@@ -4828,7 +4828,7 @@ Cba_NtkCleanMap2.exit316:                         ; preds = %603, %Cba_ObjNtk.ex
   br label %617
 
 .critedge12.preheader:                            ; preds = %Cba_NtkSetMap2.exit325, %Cba_NtkCleanMap2.exit316
-  %Prs_BoxSignals.V.val195540 = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val195540 = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %616 = icmp sgt i32 %Prs_BoxSignals.V.val195540, 1
   br i1 %616, label %.lr.ph542, label %.critedge10
 
@@ -5430,7 +5430,7 @@ Vec_IntFillExtra.exit502:                         ; preds = %Prs_CreateBlifFindF
 
 .critedge12:                                      ; preds = %Prs_CreateBlifFindFon.exit335.thread, %Vec_IntFillExtra.exit474, %Vec_IntFillExtra.exit502
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, 2
-  %Prs_BoxSignals.V.val195 = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val195 = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %864 = trunc i64 %indvars.iv.next568 to i32
   %865 = or disjoint i32 %864, 1
   %866 = icmp slt i32 %865, %Prs_BoxSignals.V.val195

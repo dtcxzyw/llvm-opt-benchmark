@@ -25034,7 +25034,6 @@ _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit24: ; preds = %27
   %33 = getelementptr inbounds float, ptr %28, i64 %25
   %34 = sub i32 %19, %14
   %35 = zext i32 %34 to i64
-  %.sink.i.i.i = select i1 %30, i64 0, i64 %35
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = add nuw nsw i64 %35, %.sroa.0.0.insert.ext.i
@@ -25073,79 +25072,80 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit: ; preds = %
 
 _ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit:    ; preds = %51, %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit
   %.0.i = phi i64 [ 4294967295, %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit ], [ %54, %51 ]
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.sink.i.i.i, i64 %.0.i)
+  %55 = tail call i64 @llvm.umin.i64(i64 %35, i64 %.0.i)
+  %.sroa.speculated = select i1 %30, i64 0, i64 %55
   %.not = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit
-  %55 = getelementptr inbounds i8, ptr %0, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 16
-  br label %59
+  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds i8, ptr %57, i64 16
+  br label %60
 
-59:                                               ; preds = %.lr.ph, %74
-  %.036 = phi i64 [ 0, %.lr.ph ], [ %79, %74 ]
-  %.01635 = phi double [ 0.000000e+00, %.lr.ph ], [ %78, %74 ]
+60:                                               ; preds = %.lr.ph, %75
+  %.036 = phi i64 [ 0, %.lr.ph ], [ %80, %75 ]
+  %.01635 = phi double [ 0.000000e+00, %.lr.ph ], [ %79, %75 ]
   %exitcond.not = icmp eq i64 %.036, %35
-  br i1 %exitcond.not, label %60, label %61
+  br i1 %exitcond.not, label %61, label %62
 
-60:                                               ; preds = %59
+61:                                               ; preds = %60
   tail call void @_ZSt9terminatev() #35
   unreachable
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds i64, ptr %43, i64 %.036
-  %63 = load i64, ptr %62, align 8
-  %64 = mul i64 %63, %20
-  %65 = getelementptr inbounds float, ptr %33, i64 %64
-  %66 = load float, ptr %65, align 4
-  %67 = load i64, ptr %56, align 8
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %74, label %69
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds i64, ptr %43, i64 %.036
+  %64 = load i64, ptr %63, align 8
+  %65 = mul i64 %64, %20
+  %66 = getelementptr inbounds float, ptr %33, i64 %65
+  %67 = load float, ptr %66, align 4
+  %68 = load i64, ptr %57, align 8
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %75, label %70
 
-69:                                               ; preds = %61
-  %70 = icmp ult i64 %1, %67
-  br i1 %70, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %71
+70:                                               ; preds = %62
+  %71 = icmp ult i64 %1, %68
+  br i1 %71, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %72
 
-71:                                               ; preds = %69
+72:                                               ; preds = %70
   tail call void @_ZSt9terminatev() #35
   unreachable
 
-_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i: ; preds = %69
-  %72 = load ptr, ptr %57, align 8
-  %73 = getelementptr inbounds float, ptr %72, i64 %1
-  br label %74
+_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i: ; preds = %70
+  %73 = load ptr, ptr %58, align 8
+  %74 = getelementptr inbounds float, ptr %73, i64 %1
+  br label %75
 
-74:                                               ; preds = %61, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i
-  %.in.i25 = phi ptr [ %73, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i ], [ %58, %61 ]
-  %75 = load float, ptr %.in.i25, align 4
-  %76 = fmul float %66, %75
-  %77 = fpext float %76 to double
-  %78 = fadd double %.01635, %77
-  %79 = add nuw nsw i64 %.036, 1
-  %exitcond37.not = icmp eq i64 %79, %.sroa.speculated
-  br i1 %exitcond37.not, label %._crit_edge, label %59, !llvm.loop !409
+75:                                               ; preds = %62, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i
+  %.in.i25 = phi ptr [ %74, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i ], [ %59, %62 ]
+  %76 = load float, ptr %.in.i25, align 4
+  %77 = fmul float %67, %76
+  %78 = fpext float %77 to double
+  %79 = fadd double %.01635, %78
+  %80 = add nuw nsw i64 %.036, 1
+  %exitcond37.not = icmp eq i64 %80, %.sroa.speculated
+  br i1 %exitcond37.not, label %._crit_edge, label %60, !llvm.loop !409
 
-._crit_edge:                                      ; preds = %74, %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit
-  %.016.lcssa = phi double [ 0.000000e+00, %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit ], [ %78, %74 ]
-  %80 = getelementptr inbounds i8, ptr %0, i64 40
-  %81 = load ptr, ptr %80, align 8
-  %82 = load i64, ptr %81, align 8
-  %83 = icmp ult i64 %1, %82
-  br i1 %83, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit, label %84
+._crit_edge:                                      ; preds = %75, %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit
+  %.016.lcssa = phi double [ 0.000000e+00, %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit ], [ %79, %75 ]
+  %81 = getelementptr inbounds i8, ptr %0, i64 40
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i64, ptr %82, align 8
+  %84 = icmp ult i64 %1, %83
+  br i1 %84, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit, label %85
 
-84:                                               ; preds = %._crit_edge
+85:                                               ; preds = %._crit_edge
   tail call void @_ZSt9terminatev() #35
   unreachable
 
 _ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit: ; preds = %._crit_edge
-  %85 = uitofp nneg i64 %.sroa.speculated to double
-  %86 = fdiv double %.016.lcssa, %85
-  %87 = getelementptr inbounds i8, ptr %81, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds double, ptr %88, i64 %1
-  store double %86, ptr %89, align 8
+  %86 = uitofp nneg i64 %.sroa.speculated to double
+  %87 = fdiv double %.016.lcssa, %86
+  %88 = getelementptr inbounds i8, ptr %82, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds double, ptr %89, i64 %1
+  store double %87, ptr %90, align 8
   ret void
 }
 

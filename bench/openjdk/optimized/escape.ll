@@ -13495,40 +13495,40 @@ define hidden void @_ZN15ConnectionGraph9add_fieldEP4NodeN12PointsToNode11Escape
 
 21:                                               ; preds = %13
   %22 = trunc i8 %15 to i1
-  %23 = trunc i32 %2 to i8
-  %24 = zext i1 %14 to i8
-  %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 296
-  %27 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %26) #12
+  %23 = zext i1 %14 to i8
+  %24 = load ptr, ptr %16, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 296
+  %26 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %25) #12
   store i32 0, ptr %19, align 4
-  %28 = getelementptr inbounds i8, ptr %19, i64 4
-  store i32 2, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %27, ptr %29, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %30 = getelementptr inbounds i8, ptr %19, i64 16
-  %31 = ptrtoint ptr %26 to i64
-  store i64 %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %19, i64 24
-  %33 = load ptr, ptr %16, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 296
-  %35 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %34) #12
-  store i32 0, ptr %32, align 4
-  %36 = getelementptr inbounds i8, ptr %19, i64 28
-  store i32 2, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr %35, ptr %37, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  %38 = getelementptr inbounds i8, ptr %19, i64 40
-  %39 = ptrtoint ptr %34 to i64
-  store i64 %39, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %19, i64 48
-  store i8 3, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %19, i64 49
-  store i8 1, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %19, i64 50
-  %43 = select i1 %22, i8 3, i8 %23
-  store i8 %43, ptr %42, align 2
+  %27 = getelementptr inbounds i8, ptr %19, i64 4
+  store i32 2, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %26, ptr %28, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  %29 = getelementptr inbounds i8, ptr %19, i64 16
+  %30 = ptrtoint ptr %25 to i64
+  store i64 %30, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %19, i64 24
+  %32 = load ptr, ptr %16, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 296
+  %34 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %33) #12
+  store i32 0, ptr %31, align 4
+  %35 = getelementptr inbounds i8, ptr %19, i64 28
+  store i32 2, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %19, i64 32
+  store ptr %34, ptr %36, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  %37 = getelementptr inbounds i8, ptr %19, i64 40
+  %38 = ptrtoint ptr %33 to i64
+  store i64 %38, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %19, i64 48
+  store i8 3, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %19, i64 49
+  store i8 1, ptr %40, align 1
+  %41 = getelementptr inbounds i8, ptr %19, i64 50
+  %42 = trunc i32 %2 to i8
+  %43 = select i1 %22, i8 3, i8 %42
+  store i8 %43, ptr %41, align 2
   %44 = getelementptr inbounds i8, ptr %19, i64 51
   store i8 %43, ptr %44, align 1
   %45 = getelementptr inbounds i8, ptr %19, i64 56
@@ -13558,7 +13558,7 @@ define hidden void @_ZN15ConnectionGraph9add_fieldEP4NodeN12PointsToNode11Escape
   %60 = getelementptr inbounds i8, ptr %19, i64 96
   store i32 %3, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %19, i64 100
-  store i8 %24, ptr %61, align 4
+  store i8 %23, ptr %61, align 4
   %62 = getelementptr inbounds i8, ptr %19, i64 101
   store i8 0, ptr %62, align 1
   br label %63

@@ -2942,11 +2942,11 @@ Wlc_NtkCollectStats.exit:                         ; preds = %.critedge.thread.i,
   %exitcond846.not = icmp eq i64 %indvars.iv.next844, 60
   br i1 %exitcond846.not, label %.preheader, label %.preheader822, !llvm.loop !35
 
-52:                                               ; preds = %.lr.ph, %1293
-  %indvars.iv847 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next848, %1293 ]
-  %.0327833 = phi ptr [ null, %.lr.ph ], [ %.1, %1293 ]
-  %.0328832 = phi i32 [ 0, %.lr.ph ], [ %.1329, %1293 ]
-  %.0334829 = phi i64 [ 0, %.lr.ph ], [ %.1335, %1293 ]
+52:                                               ; preds = %.lr.ph, %1299
+  %indvars.iv847 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next848, %1299 ]
+  %.0327833 = phi ptr [ null, %.lr.ph ], [ %.1, %1299 ]
+  %.0328832 = phi i32 [ 0, %.lr.ph ], [ %.1329, %1299 ]
+  %.0334829 = phi i64 [ 0, %.lr.ph ], [ %.1335, %1299 ]
   %.val359 = load ptr, ptr %43, align 8
   %53 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val359, i64 %indvars.iv847
   %54 = getelementptr i8, ptr %53, i64 8
@@ -3479,47 +3479,47 @@ Vec_WrdPush.exit25.i:                             ; preds = %318, %Vec_WrdGrow.e
 Wlc_NtkPrintDistribAddOne.exit:                   ; preds = %260, %Vec_WrdPush.exit25.i
   %325 = load i16, ptr %53, align 8
   %326 = and i16 %325, 63
-  switch i16 %326, label %1293 [
+  switch i16 %326, label %1299 [
     i16 8, label %327
     i16 9, label %338
-    i16 10, label %363
-    i16 11, label %390
-    i16 12, label %417
-    i16 13, label %444
-    i16 14, label %471
-    i16 52, label %1261
-    i16 16, label %498
-    i16 17, label %516
-    i16 18, label %534
-    i16 19, label %553
-    i16 20, label %571
-    i16 21, label %589
-    i16 51, label %1214
-    i16 50, label %1195
-    i16 49, label %1161
-    i16 48, label %1117
-    i16 26, label %608
-    i16 27, label %625
-    i16 28, label %655
-    i16 29, label %685
-    i16 30, label %715
-    i16 31, label %745
-    i16 32, label %764
-    i16 33, label %783
-    i16 34, label %801
-    i16 35, label %819
-    i16 36, label %837
-    i16 37, label %855
-    i16 38, label %872
-    i16 39, label %889
-    i16 40, label %907
-    i16 41, label %924
-    i16 42, label %941
-    i16 43, label %959
-    i16 44, label %978
-    i16 45, label %997
-    i16 46, label %1029
-    i16 47, label %1073
+    i16 10, label %364
+    i16 11, label %392
+    i16 12, label %420
+    i16 13, label %448
+    i16 14, label %476
+    i16 52, label %1267
+    i16 16, label %504
+    i16 17, label %522
+    i16 18, label %540
+    i16 19, label %559
+    i16 20, label %577
+    i16 21, label %595
+    i16 51, label %1220
+    i16 50, label %1201
+    i16 49, label %1167
+    i16 48, label %1123
+    i16 26, label %614
+    i16 27, label %631
+    i16 28, label %661
+    i16 29, label %691
+    i16 30, label %721
+    i16 31, label %751
+    i16 32, label %770
+    i16 33, label %789
+    i16 34, label %807
+    i16 35, label %825
+    i16 36, label %843
+    i16 37, label %861
+    i16 38, label %878
+    i16 39, label %895
+    i16 40, label %913
+    i16 41, label %930
+    i16 42, label %947
+    i16 43, label %965
+    i16 44, label %984
+    i16 45, label %1003
+    i16 46, label %1035
+    i16 47, label %1079
   ]
 
 327:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
@@ -3538,7 +3538,7 @@ Wlc_NtkPrintDistribAddOne.exit:                   ; preds = %260, %Vec_WrdPush.e
   %336 = load i32, ptr %335, align 4
   %337 = add nsw i32 %334, %336
   store i32 %337, ptr %335, align 4
-  br label %1293
+  br label %1299
 
 338:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
   %339 = getelementptr inbounds i8, ptr %53, i64 4
@@ -3571,1917 +3571,1917 @@ Wlc_ObjFanin0.exit605:                            ; preds = %338, %Wlc_ObjHasArr
   %355 = icmp eq i32 %.val425, %.val426
   %356 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %354, i1 true)
   %357 = sub nuw nsw i32 32, %356
-  %.09.i = select i1 %355, i32 1, i32 %357
-  %358 = tail call i32 @llvm.umin.i32(i32 %352, i32 %.09.i)
+  %358 = tail call i32 @llvm.umin.i32(i32 %352, i32 %357)
   %359 = mul nuw nsw i32 %358, 3
+  %360 = select i1 %355, i32 3, i32 %359
   %.val409 = load ptr, ptr %6, align 8
-  %360 = getelementptr inbounds i8, ptr %.val409, i64 36
-  %361 = load i32, ptr %360, align 4
-  %362 = add nsw i32 %359, %361
-  store i32 %362, ptr %360, align 4
-  br label %1293
+  %361 = getelementptr inbounds i8, ptr %.val409, i64 36
+  %362 = load i32, ptr %361, align 4
+  %363 = add nsw i32 %360, %362
+  store i32 %363, ptr %361, align 4
+  br label %1299
 
-363:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+364:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
   %.val427 = load i32, ptr %54, align 8
   %.val428 = load i32, ptr %55, align 4
-  %364 = sub nsw i32 %.val427, %.val428
-  %365 = tail call i32 @llvm.abs.i32(i32 %364, i1 true)
-  %366 = getelementptr inbounds i8, ptr %53, i64 4
-  %367 = load i32, ptr %366, align 4
-  %368 = icmp ugt i32 %367, 2
-  %369 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %368, label %Wlc_ObjHasArray.exit.thread.i.i.i606, label %Wlc_ObjFanin0.exit608
+  %365 = sub nsw i32 %.val427, %.val428
+  %366 = tail call i32 @llvm.abs.i32(i32 %365, i1 true)
+  %367 = getelementptr inbounds i8, ptr %53, i64 4
+  %368 = load i32, ptr %367, align 4
+  %369 = icmp ugt i32 %368, 2
+  %370 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %369, label %Wlc_ObjHasArray.exit.thread.i.i.i606, label %Wlc_ObjFanin0.exit608
 
-Wlc_ObjHasArray.exit.thread.i.i.i606:             ; preds = %363
-  %370 = load ptr, ptr %369, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i606:             ; preds = %364
+  %371 = load ptr, ptr %370, align 8
   br label %Wlc_ObjFanin0.exit608
 
-Wlc_ObjFanin0.exit608:                            ; preds = %363, %Wlc_ObjHasArray.exit.thread.i.i.i606
-  %371 = phi ptr [ %370, %Wlc_ObjHasArray.exit.thread.i.i.i606 ], [ %369, %363 ]
-  %372 = load i32, ptr %371, align 4
+Wlc_ObjFanin0.exit608:                            ; preds = %364, %Wlc_ObjHasArray.exit.thread.i.i.i606
+  %372 = phi ptr [ %371, %Wlc_ObjHasArray.exit.thread.i.i.i606 ], [ %370, %364 ]
+  %373 = load i32, ptr %372, align 4
   %.val.i607 = load ptr, ptr %43, align 8
-  %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i607, i64 %373
-  %375 = getelementptr i8, ptr %374, i64 8
-  %.val429 = load i32, ptr %375, align 8
-  %376 = getelementptr i8, ptr %374, i64 12
-  %.val430 = load i32, ptr %376, align 4
-  %377 = sub nsw i32 %.val429, %.val430
-  %378 = tail call i32 @llvm.abs.i32(i32 %377, i1 true)
-  %379 = add nuw nsw i32 %378, 1
-  %380 = icmp eq i32 %.val427, %.val428
-  %381 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %365, i1 true)
-  %382 = sub nuw nsw i32 32, %381
-  %.09.i609 = select i1 %380, i32 1, i32 %382
-  %383 = tail call i32 @llvm.umin.i32(i32 %379, i32 %.09.i609)
-  %384 = mul nuw i32 %365, 3
-  %385 = add nuw i32 %384, 3
-  %386 = mul nuw nsw i32 %385, %383
+  %374 = sext i32 %373 to i64
+  %375 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i607, i64 %374
+  %376 = getelementptr i8, ptr %375, i64 8
+  %.val429 = load i32, ptr %376, align 8
+  %377 = getelementptr i8, ptr %375, i64 12
+  %.val430 = load i32, ptr %377, align 4
+  %378 = sub nsw i32 %.val429, %.val430
+  %379 = tail call i32 @llvm.abs.i32(i32 %378, i1 true)
+  %380 = add nuw nsw i32 %379, 1
+  %381 = icmp eq i32 %.val427, %.val428
+  %382 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %366, i1 true)
+  %383 = sub nuw nsw i32 32, %382
+  %384 = tail call i32 @llvm.umin.i32(i32 %380, i32 %383)
+  %385 = select i1 %381, i32 1, i32 %384
+  %386 = mul nuw i32 %366, 3
+  %387 = add nuw i32 %386, 3
+  %388 = mul nuw nsw i32 %387, %385
   %.val408 = load ptr, ptr %6, align 8
-  %387 = getelementptr inbounds i8, ptr %.val408, i64 40
-  %388 = load i32, ptr %387, align 4
-  %389 = add nsw i32 %386, %388
-  store i32 %389, ptr %387, align 4
-  br label %1293
+  %389 = getelementptr inbounds i8, ptr %.val408, i64 40
+  %390 = load i32, ptr %389, align 4
+  %391 = add nsw i32 %388, %390
+  store i32 %391, ptr %389, align 4
+  br label %1299
 
-390:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+392:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
   %.val433 = load i32, ptr %54, align 8
   %.val434 = load i32, ptr %55, align 4
-  %391 = sub nsw i32 %.val433, %.val434
-  %392 = tail call i32 @llvm.abs.i32(i32 %391, i1 true)
-  %393 = getelementptr inbounds i8, ptr %53, i64 4
-  %394 = load i32, ptr %393, align 4
-  %395 = icmp ugt i32 %394, 2
-  %396 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %395, label %Wlc_ObjHasArray.exit.thread.i.i.i610, label %Wlc_ObjFanin0.exit612
+  %393 = sub nsw i32 %.val433, %.val434
+  %394 = tail call i32 @llvm.abs.i32(i32 %393, i1 true)
+  %395 = getelementptr inbounds i8, ptr %53, i64 4
+  %396 = load i32, ptr %395, align 4
+  %397 = icmp ugt i32 %396, 2
+  %398 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %397, label %Wlc_ObjHasArray.exit.thread.i.i.i610, label %Wlc_ObjFanin0.exit612
 
-Wlc_ObjHasArray.exit.thread.i.i.i610:             ; preds = %390
-  %397 = load ptr, ptr %396, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i610:             ; preds = %392
+  %399 = load ptr, ptr %398, align 8
   br label %Wlc_ObjFanin0.exit612
 
-Wlc_ObjFanin0.exit612:                            ; preds = %390, %Wlc_ObjHasArray.exit.thread.i.i.i610
-  %398 = phi ptr [ %397, %Wlc_ObjHasArray.exit.thread.i.i.i610 ], [ %396, %390 ]
-  %399 = load i32, ptr %398, align 4
+Wlc_ObjFanin0.exit612:                            ; preds = %392, %Wlc_ObjHasArray.exit.thread.i.i.i610
+  %400 = phi ptr [ %399, %Wlc_ObjHasArray.exit.thread.i.i.i610 ], [ %398, %392 ]
+  %401 = load i32, ptr %400, align 4
   %.val.i611 = load ptr, ptr %43, align 8
-  %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i611, i64 %400
-  %402 = getelementptr i8, ptr %401, i64 8
-  %.val435 = load i32, ptr %402, align 8
-  %403 = getelementptr i8, ptr %401, i64 12
-  %.val436 = load i32, ptr %403, align 4
-  %404 = sub nsw i32 %.val435, %.val436
-  %405 = tail call i32 @llvm.abs.i32(i32 %404, i1 true)
-  %406 = add nuw nsw i32 %405, 1
-  %407 = icmp eq i32 %.val433, %.val434
-  %408 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %392, i1 true)
-  %409 = sub nuw nsw i32 32, %408
-  %.09.i613 = select i1 %407, i32 1, i32 %409
-  %410 = tail call i32 @llvm.umin.i32(i32 %406, i32 %.09.i613)
-  %411 = mul nuw i32 %392, 3
-  %412 = add nuw i32 %411, 3
-  %413 = mul nuw nsw i32 %412, %410
+  %402 = sext i32 %401 to i64
+  %403 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i611, i64 %402
+  %404 = getelementptr i8, ptr %403, i64 8
+  %.val435 = load i32, ptr %404, align 8
+  %405 = getelementptr i8, ptr %403, i64 12
+  %.val436 = load i32, ptr %405, align 4
+  %406 = sub nsw i32 %.val435, %.val436
+  %407 = tail call i32 @llvm.abs.i32(i32 %406, i1 true)
+  %408 = add nuw nsw i32 %407, 1
+  %409 = icmp eq i32 %.val433, %.val434
+  %410 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %394, i1 true)
+  %411 = sub nuw nsw i32 32, %410
+  %412 = tail call i32 @llvm.umin.i32(i32 %408, i32 %411)
+  %413 = select i1 %409, i32 1, i32 %412
+  %414 = mul nuw i32 %394, 3
+  %415 = add nuw i32 %414, 3
+  %416 = mul nuw nsw i32 %415, %413
   %.val407 = load ptr, ptr %6, align 8
-  %414 = getelementptr inbounds i8, ptr %.val407, i64 44
-  %415 = load i32, ptr %414, align 4
-  %416 = add nsw i32 %413, %415
-  store i32 %416, ptr %414, align 4
-  br label %1293
+  %417 = getelementptr inbounds i8, ptr %.val407, i64 44
+  %418 = load i32, ptr %417, align 4
+  %419 = add nsw i32 %416, %418
+  store i32 %419, ptr %417, align 4
+  br label %1299
 
-417:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+420:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
   %.val439 = load i32, ptr %54, align 8
   %.val440 = load i32, ptr %55, align 4
-  %418 = sub nsw i32 %.val439, %.val440
-  %419 = tail call i32 @llvm.abs.i32(i32 %418, i1 true)
-  %420 = getelementptr inbounds i8, ptr %53, i64 4
-  %421 = load i32, ptr %420, align 4
-  %422 = icmp ugt i32 %421, 2
-  %423 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %422, label %Wlc_ObjHasArray.exit.thread.i.i.i614, label %Wlc_ObjFanin0.exit616
+  %421 = sub nsw i32 %.val439, %.val440
+  %422 = tail call i32 @llvm.abs.i32(i32 %421, i1 true)
+  %423 = getelementptr inbounds i8, ptr %53, i64 4
+  %424 = load i32, ptr %423, align 4
+  %425 = icmp ugt i32 %424, 2
+  %426 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %425, label %Wlc_ObjHasArray.exit.thread.i.i.i614, label %Wlc_ObjFanin0.exit616
 
-Wlc_ObjHasArray.exit.thread.i.i.i614:             ; preds = %417
-  %424 = load ptr, ptr %423, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i614:             ; preds = %420
+  %427 = load ptr, ptr %426, align 8
   br label %Wlc_ObjFanin0.exit616
 
-Wlc_ObjFanin0.exit616:                            ; preds = %417, %Wlc_ObjHasArray.exit.thread.i.i.i614
-  %425 = phi ptr [ %424, %Wlc_ObjHasArray.exit.thread.i.i.i614 ], [ %423, %417 ]
-  %426 = load i32, ptr %425, align 4
+Wlc_ObjFanin0.exit616:                            ; preds = %420, %Wlc_ObjHasArray.exit.thread.i.i.i614
+  %428 = phi ptr [ %427, %Wlc_ObjHasArray.exit.thread.i.i.i614 ], [ %426, %420 ]
+  %429 = load i32, ptr %428, align 4
   %.val.i615 = load ptr, ptr %43, align 8
-  %427 = sext i32 %426 to i64
-  %428 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i615, i64 %427
-  %429 = getelementptr i8, ptr %428, i64 8
-  %.val441 = load i32, ptr %429, align 8
-  %430 = getelementptr i8, ptr %428, i64 12
-  %.val442 = load i32, ptr %430, align 4
-  %431 = sub nsw i32 %.val441, %.val442
-  %432 = tail call i32 @llvm.abs.i32(i32 %431, i1 true)
-  %433 = add nuw nsw i32 %432, 1
-  %434 = icmp eq i32 %.val439, %.val440
-  %435 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %419, i1 true)
-  %436 = sub nuw nsw i32 32, %435
-  %.09.i617 = select i1 %434, i32 1, i32 %436
-  %437 = tail call i32 @llvm.umin.i32(i32 %433, i32 %.09.i617)
-  %438 = mul nuw i32 %419, 3
-  %439 = add nuw i32 %438, 3
-  %440 = mul nuw nsw i32 %439, %437
+  %430 = sext i32 %429 to i64
+  %431 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i615, i64 %430
+  %432 = getelementptr i8, ptr %431, i64 8
+  %.val441 = load i32, ptr %432, align 8
+  %433 = getelementptr i8, ptr %431, i64 12
+  %.val442 = load i32, ptr %433, align 4
+  %434 = sub nsw i32 %.val441, %.val442
+  %435 = tail call i32 @llvm.abs.i32(i32 %434, i1 true)
+  %436 = add nuw nsw i32 %435, 1
+  %437 = icmp eq i32 %.val439, %.val440
+  %438 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %422, i1 true)
+  %439 = sub nuw nsw i32 32, %438
+  %440 = tail call i32 @llvm.umin.i32(i32 %436, i32 %439)
+  %441 = select i1 %437, i32 1, i32 %440
+  %442 = mul nuw i32 %422, 3
+  %443 = add nuw i32 %442, 3
+  %444 = mul nuw nsw i32 %443, %441
   %.val406 = load ptr, ptr %6, align 8
-  %441 = getelementptr inbounds i8, ptr %.val406, i64 48
-  %442 = load i32, ptr %441, align 4
-  %443 = add nsw i32 %440, %442
-  store i32 %443, ptr %441, align 4
-  br label %1293
+  %445 = getelementptr inbounds i8, ptr %.val406, i64 48
+  %446 = load i32, ptr %445, align 4
+  %447 = add nsw i32 %444, %446
+  store i32 %447, ptr %445, align 4
+  br label %1299
 
-444:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+448:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
   %.val445 = load i32, ptr %54, align 8
   %.val446 = load i32, ptr %55, align 4
-  %445 = sub nsw i32 %.val445, %.val446
-  %446 = tail call i32 @llvm.abs.i32(i32 %445, i1 true)
-  %447 = getelementptr inbounds i8, ptr %53, i64 4
-  %448 = load i32, ptr %447, align 4
-  %449 = icmp ugt i32 %448, 2
-  %450 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %449, label %Wlc_ObjHasArray.exit.thread.i.i.i618, label %Wlc_ObjFanin0.exit620
+  %449 = sub nsw i32 %.val445, %.val446
+  %450 = tail call i32 @llvm.abs.i32(i32 %449, i1 true)
+  %451 = getelementptr inbounds i8, ptr %53, i64 4
+  %452 = load i32, ptr %451, align 4
+  %453 = icmp ugt i32 %452, 2
+  %454 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %453, label %Wlc_ObjHasArray.exit.thread.i.i.i618, label %Wlc_ObjFanin0.exit620
 
-Wlc_ObjHasArray.exit.thread.i.i.i618:             ; preds = %444
-  %451 = load ptr, ptr %450, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i618:             ; preds = %448
+  %455 = load ptr, ptr %454, align 8
   br label %Wlc_ObjFanin0.exit620
 
-Wlc_ObjFanin0.exit620:                            ; preds = %444, %Wlc_ObjHasArray.exit.thread.i.i.i618
-  %452 = phi ptr [ %451, %Wlc_ObjHasArray.exit.thread.i.i.i618 ], [ %450, %444 ]
-  %453 = load i32, ptr %452, align 4
+Wlc_ObjFanin0.exit620:                            ; preds = %448, %Wlc_ObjHasArray.exit.thread.i.i.i618
+  %456 = phi ptr [ %455, %Wlc_ObjHasArray.exit.thread.i.i.i618 ], [ %454, %448 ]
+  %457 = load i32, ptr %456, align 4
   %.val.i619 = load ptr, ptr %43, align 8
-  %454 = sext i32 %453 to i64
-  %455 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i619, i64 %454
-  %456 = getelementptr i8, ptr %455, i64 8
-  %.val447 = load i32, ptr %456, align 8
-  %457 = getelementptr i8, ptr %455, i64 12
-  %.val448 = load i32, ptr %457, align 4
-  %458 = sub nsw i32 %.val447, %.val448
-  %459 = tail call i32 @llvm.abs.i32(i32 %458, i1 true)
-  %460 = add nuw nsw i32 %459, 1
-  %461 = icmp eq i32 %.val445, %.val446
-  %462 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %446, i1 true)
-  %463 = sub nuw nsw i32 32, %462
-  %.09.i621 = select i1 %461, i32 1, i32 %463
-  %464 = tail call i32 @llvm.umin.i32(i32 %460, i32 %.09.i621)
-  %465 = mul nuw i32 %446, 3
-  %466 = add nuw i32 %465, 3
-  %467 = mul nuw nsw i32 %466, %464
+  %458 = sext i32 %457 to i64
+  %459 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i619, i64 %458
+  %460 = getelementptr i8, ptr %459, i64 8
+  %.val447 = load i32, ptr %460, align 8
+  %461 = getelementptr i8, ptr %459, i64 12
+  %.val448 = load i32, ptr %461, align 4
+  %462 = sub nsw i32 %.val447, %.val448
+  %463 = tail call i32 @llvm.abs.i32(i32 %462, i1 true)
+  %464 = add nuw nsw i32 %463, 1
+  %465 = icmp eq i32 %.val445, %.val446
+  %466 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %450, i1 true)
+  %467 = sub nuw nsw i32 32, %466
+  %468 = tail call i32 @llvm.umin.i32(i32 %464, i32 %467)
+  %469 = select i1 %465, i32 1, i32 %468
+  %470 = mul nuw i32 %450, 3
+  %471 = add nuw i32 %470, 3
+  %472 = mul nuw nsw i32 %471, %469
   %.val405 = load ptr, ptr %6, align 8
-  %468 = getelementptr inbounds i8, ptr %.val405, i64 52
-  %469 = load i32, ptr %468, align 4
-  %470 = add nsw i32 %467, %469
-  store i32 %470, ptr %468, align 4
-  br label %1293
+  %473 = getelementptr inbounds i8, ptr %.val405, i64 52
+  %474 = load i32, ptr %473, align 4
+  %475 = add nsw i32 %472, %474
+  store i32 %475, ptr %473, align 4
+  br label %1299
 
-471:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+476:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
   %.val451 = load i32, ptr %54, align 8
   %.val452 = load i32, ptr %55, align 4
-  %472 = sub nsw i32 %.val451, %.val452
-  %473 = tail call i32 @llvm.abs.i32(i32 %472, i1 true)
-  %474 = getelementptr inbounds i8, ptr %53, i64 4
-  %475 = load i32, ptr %474, align 4
-  %476 = icmp ugt i32 %475, 2
-  %477 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %476, label %Wlc_ObjHasArray.exit.thread.i.i.i622, label %Wlc_ObjFanin0.exit624
+  %477 = sub nsw i32 %.val451, %.val452
+  %478 = tail call i32 @llvm.abs.i32(i32 %477, i1 true)
+  %479 = getelementptr inbounds i8, ptr %53, i64 4
+  %480 = load i32, ptr %479, align 4
+  %481 = icmp ugt i32 %480, 2
+  %482 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %481, label %Wlc_ObjHasArray.exit.thread.i.i.i622, label %Wlc_ObjFanin0.exit624
 
-Wlc_ObjHasArray.exit.thread.i.i.i622:             ; preds = %471
-  %478 = load ptr, ptr %477, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i622:             ; preds = %476
+  %483 = load ptr, ptr %482, align 8
   br label %Wlc_ObjFanin0.exit624
 
-Wlc_ObjFanin0.exit624:                            ; preds = %471, %Wlc_ObjHasArray.exit.thread.i.i.i622
-  %479 = phi ptr [ %478, %Wlc_ObjHasArray.exit.thread.i.i.i622 ], [ %477, %471 ]
-  %480 = load i32, ptr %479, align 4
+Wlc_ObjFanin0.exit624:                            ; preds = %476, %Wlc_ObjHasArray.exit.thread.i.i.i622
+  %484 = phi ptr [ %483, %Wlc_ObjHasArray.exit.thread.i.i.i622 ], [ %482, %476 ]
+  %485 = load i32, ptr %484, align 4
   %.val.i623 = load ptr, ptr %43, align 8
-  %481 = sext i32 %480 to i64
-  %482 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i623, i64 %481
-  %483 = getelementptr i8, ptr %482, i64 8
-  %.val453 = load i32, ptr %483, align 8
-  %484 = getelementptr i8, ptr %482, i64 12
-  %.val454 = load i32, ptr %484, align 4
-  %485 = sub nsw i32 %.val453, %.val454
-  %486 = tail call i32 @llvm.abs.i32(i32 %485, i1 true)
-  %487 = add nuw nsw i32 %486, 1
-  %488 = icmp eq i32 %.val451, %.val452
-  %489 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %473, i1 true)
-  %490 = sub nuw nsw i32 32, %489
-  %.09.i625 = select i1 %488, i32 1, i32 %490
-  %491 = tail call i32 @llvm.umin.i32(i32 %487, i32 %.09.i625)
-  %492 = mul nuw i32 %473, 3
-  %493 = add nuw i32 %492, 3
-  %494 = mul nuw nsw i32 %493, %491
+  %486 = sext i32 %485 to i64
+  %487 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i623, i64 %486
+  %488 = getelementptr i8, ptr %487, i64 8
+  %.val453 = load i32, ptr %488, align 8
+  %489 = getelementptr i8, ptr %487, i64 12
+  %.val454 = load i32, ptr %489, align 4
+  %490 = sub nsw i32 %.val453, %.val454
+  %491 = tail call i32 @llvm.abs.i32(i32 %490, i1 true)
+  %492 = add nuw nsw i32 %491, 1
+  %493 = icmp eq i32 %.val451, %.val452
+  %494 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %478, i1 true)
+  %495 = sub nuw nsw i32 32, %494
+  %496 = tail call i32 @llvm.umin.i32(i32 %492, i32 %495)
+  %497 = select i1 %493, i32 1, i32 %496
+  %498 = mul nuw i32 %478, 3
+  %499 = add nuw i32 %498, 3
+  %500 = mul nuw nsw i32 %499, %497
   %.val404 = load ptr, ptr %6, align 8
-  %495 = getelementptr inbounds i8, ptr %.val404, i64 56
-  %496 = load i32, ptr %495, align 4
-  %497 = add nsw i32 %494, %496
-  store i32 %497, ptr %495, align 4
-  br label %1293
+  %501 = getelementptr inbounds i8, ptr %.val404, i64 56
+  %502 = load i32, ptr %501, align 4
+  %503 = add nsw i32 %500, %502
+  store i32 %503, ptr %501, align 4
+  br label %1299
 
-498:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %499 = getelementptr inbounds i8, ptr %53, i64 4
-  %500 = load i32, ptr %499, align 4
-  %501 = icmp ugt i32 %500, 2
-  %502 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %501, label %Wlc_ObjHasArray.exit.thread.i.i.i626, label %Wlc_ObjFanin0.exit628
+504:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %505 = getelementptr inbounds i8, ptr %53, i64 4
+  %506 = load i32, ptr %505, align 4
+  %507 = icmp ugt i32 %506, 2
+  %508 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %507, label %Wlc_ObjHasArray.exit.thread.i.i.i626, label %Wlc_ObjFanin0.exit628
 
-Wlc_ObjHasArray.exit.thread.i.i.i626:             ; preds = %498
-  %503 = load ptr, ptr %502, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i626:             ; preds = %504
+  %509 = load ptr, ptr %508, align 8
   br label %Wlc_ObjFanin0.exit628
 
-Wlc_ObjFanin0.exit628:                            ; preds = %498, %Wlc_ObjHasArray.exit.thread.i.i.i626
-  %504 = phi ptr [ %503, %Wlc_ObjHasArray.exit.thread.i.i.i626 ], [ %502, %498 ]
-  %505 = load i32, ptr %504, align 4
+Wlc_ObjFanin0.exit628:                            ; preds = %504, %Wlc_ObjHasArray.exit.thread.i.i.i626
+  %510 = phi ptr [ %509, %Wlc_ObjHasArray.exit.thread.i.i.i626 ], [ %508, %504 ]
+  %511 = load i32, ptr %510, align 4
   %.val.i627 = load ptr, ptr %43, align 8
-  %506 = sext i32 %505 to i64
-  %507 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i627, i64 %506
-  %508 = getelementptr i8, ptr %507, i64 8
-  %.val457 = load i32, ptr %508, align 8
-  %509 = getelementptr i8, ptr %507, i64 12
-  %.val458 = load i32, ptr %509, align 4
-  %510 = sub nsw i32 %.val457, %.val458
-  %511 = tail call i32 @llvm.abs.i32(i32 %510, i1 true)
-  %512 = add nuw nsw i32 %511, 1
+  %512 = sext i32 %511 to i64
+  %513 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i627, i64 %512
+  %514 = getelementptr i8, ptr %513, i64 8
+  %.val457 = load i32, ptr %514, align 8
+  %515 = getelementptr i8, ptr %513, i64 12
+  %.val458 = load i32, ptr %515, align 4
+  %516 = sub nsw i32 %.val457, %.val458
+  %517 = tail call i32 @llvm.abs.i32(i32 %516, i1 true)
+  %518 = add nuw nsw i32 %517, 1
   %.val402 = load ptr, ptr %6, align 8
-  %513 = getelementptr inbounds i8, ptr %.val402, i64 64
-  %514 = load i32, ptr %513, align 4
-  %515 = add nsw i32 %512, %514
-  store i32 %515, ptr %513, align 4
-  br label %1293
+  %519 = getelementptr inbounds i8, ptr %.val402, i64 64
+  %520 = load i32, ptr %519, align 4
+  %521 = add nsw i32 %518, %520
+  store i32 %521, ptr %519, align 4
+  br label %1299
 
-516:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %517 = getelementptr inbounds i8, ptr %53, i64 4
-  %518 = load i32, ptr %517, align 4
-  %519 = icmp ugt i32 %518, 2
-  %520 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %519, label %Wlc_ObjHasArray.exit.thread.i.i.i629, label %Wlc_ObjFanin0.exit631
+522:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %523 = getelementptr inbounds i8, ptr %53, i64 4
+  %524 = load i32, ptr %523, align 4
+  %525 = icmp ugt i32 %524, 2
+  %526 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %525, label %Wlc_ObjHasArray.exit.thread.i.i.i629, label %Wlc_ObjFanin0.exit631
 
-Wlc_ObjHasArray.exit.thread.i.i.i629:             ; preds = %516
-  %521 = load ptr, ptr %520, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i629:             ; preds = %522
+  %527 = load ptr, ptr %526, align 8
   br label %Wlc_ObjFanin0.exit631
 
-Wlc_ObjFanin0.exit631:                            ; preds = %516, %Wlc_ObjHasArray.exit.thread.i.i.i629
-  %522 = phi ptr [ %521, %Wlc_ObjHasArray.exit.thread.i.i.i629 ], [ %520, %516 ]
-  %523 = load i32, ptr %522, align 4
+Wlc_ObjFanin0.exit631:                            ; preds = %522, %Wlc_ObjHasArray.exit.thread.i.i.i629
+  %528 = phi ptr [ %527, %Wlc_ObjHasArray.exit.thread.i.i.i629 ], [ %526, %522 ]
+  %529 = load i32, ptr %528, align 4
   %.val.i630 = load ptr, ptr %43, align 8
-  %524 = sext i32 %523 to i64
-  %525 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i630, i64 %524
-  %526 = getelementptr i8, ptr %525, i64 8
-  %.val459 = load i32, ptr %526, align 8
-  %527 = getelementptr i8, ptr %525, i64 12
-  %.val460 = load i32, ptr %527, align 4
-  %528 = sub nsw i32 %.val459, %.val460
-  %529 = tail call i32 @llvm.abs.i32(i32 %528, i1 true)
-  %530 = add nuw nsw i32 %529, 1
+  %530 = sext i32 %529 to i64
+  %531 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i630, i64 %530
+  %532 = getelementptr i8, ptr %531, i64 8
+  %.val459 = load i32, ptr %532, align 8
+  %533 = getelementptr i8, ptr %531, i64 12
+  %.val460 = load i32, ptr %533, align 4
+  %534 = sub nsw i32 %.val459, %.val460
+  %535 = tail call i32 @llvm.abs.i32(i32 %534, i1 true)
+  %536 = add nuw nsw i32 %535, 1
   %.val401 = load ptr, ptr %6, align 8
-  %531 = getelementptr inbounds i8, ptr %.val401, i64 68
-  %532 = load i32, ptr %531, align 4
-  %533 = add nsw i32 %530, %532
-  store i32 %533, ptr %531, align 4
-  br label %1293
+  %537 = getelementptr inbounds i8, ptr %.val401, i64 68
+  %538 = load i32, ptr %537, align 4
+  %539 = add nsw i32 %536, %538
+  store i32 %539, ptr %537, align 4
+  br label %1299
 
-534:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %535 = getelementptr inbounds i8, ptr %53, i64 4
-  %536 = load i32, ptr %535, align 4
-  %537 = icmp ugt i32 %536, 2
-  %538 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %537, label %Wlc_ObjHasArray.exit.thread.i.i.i632, label %Wlc_ObjFanin0.exit634
+540:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %541 = getelementptr inbounds i8, ptr %53, i64 4
+  %542 = load i32, ptr %541, align 4
+  %543 = icmp ugt i32 %542, 2
+  %544 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %543, label %Wlc_ObjHasArray.exit.thread.i.i.i632, label %Wlc_ObjFanin0.exit634
 
-Wlc_ObjHasArray.exit.thread.i.i.i632:             ; preds = %534
-  %539 = load ptr, ptr %538, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i632:             ; preds = %540
+  %545 = load ptr, ptr %544, align 8
   br label %Wlc_ObjFanin0.exit634
 
-Wlc_ObjFanin0.exit634:                            ; preds = %534, %Wlc_ObjHasArray.exit.thread.i.i.i632
-  %540 = phi ptr [ %539, %Wlc_ObjHasArray.exit.thread.i.i.i632 ], [ %538, %534 ]
-  %541 = load i32, ptr %540, align 4
+Wlc_ObjFanin0.exit634:                            ; preds = %540, %Wlc_ObjHasArray.exit.thread.i.i.i632
+  %546 = phi ptr [ %545, %Wlc_ObjHasArray.exit.thread.i.i.i632 ], [ %544, %540 ]
+  %547 = load i32, ptr %546, align 4
   %.val.i633 = load ptr, ptr %43, align 8
-  %542 = sext i32 %541 to i64
-  %543 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i633, i64 %542
-  %544 = getelementptr i8, ptr %543, i64 8
-  %.val461 = load i32, ptr %544, align 8
-  %545 = getelementptr i8, ptr %543, i64 12
-  %.val462 = load i32, ptr %545, align 4
-  %546 = sub nsw i32 %.val461, %.val462
-  %547 = tail call i32 @llvm.abs.i32(i32 %546, i1 true)
-  %548 = mul i32 %547, 3
+  %548 = sext i32 %547 to i64
+  %549 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i633, i64 %548
+  %550 = getelementptr i8, ptr %549, i64 8
+  %.val461 = load i32, ptr %550, align 8
+  %551 = getelementptr i8, ptr %549, i64 12
+  %.val462 = load i32, ptr %551, align 4
+  %552 = sub nsw i32 %.val461, %.val462
+  %553 = tail call i32 @llvm.abs.i32(i32 %552, i1 true)
+  %554 = mul i32 %553, 3
   %.val400 = load ptr, ptr %6, align 8
-  %549 = getelementptr inbounds i8, ptr %.val400, i64 72
-  %550 = load i32, ptr %549, align 4
-  %551 = add i32 %550, 3
-  %552 = add i32 %551, %548
-  store i32 %552, ptr %549, align 4
-  br label %1293
+  %555 = getelementptr inbounds i8, ptr %.val400, i64 72
+  %556 = load i32, ptr %555, align 4
+  %557 = add i32 %556, 3
+  %558 = add i32 %557, %554
+  store i32 %558, ptr %555, align 4
+  br label %1299
 
-553:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %554 = getelementptr inbounds i8, ptr %53, i64 4
-  %555 = load i32, ptr %554, align 4
-  %556 = icmp ugt i32 %555, 2
-  %557 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %556, label %Wlc_ObjHasArray.exit.thread.i.i.i635, label %Wlc_ObjFanin0.exit637
+559:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %560 = getelementptr inbounds i8, ptr %53, i64 4
+  %561 = load i32, ptr %560, align 4
+  %562 = icmp ugt i32 %561, 2
+  %563 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %562, label %Wlc_ObjHasArray.exit.thread.i.i.i635, label %Wlc_ObjFanin0.exit637
 
-Wlc_ObjHasArray.exit.thread.i.i.i635:             ; preds = %553
-  %558 = load ptr, ptr %557, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i635:             ; preds = %559
+  %564 = load ptr, ptr %563, align 8
   br label %Wlc_ObjFanin0.exit637
 
-Wlc_ObjFanin0.exit637:                            ; preds = %553, %Wlc_ObjHasArray.exit.thread.i.i.i635
-  %559 = phi ptr [ %558, %Wlc_ObjHasArray.exit.thread.i.i.i635 ], [ %557, %553 ]
-  %560 = load i32, ptr %559, align 4
+Wlc_ObjFanin0.exit637:                            ; preds = %559, %Wlc_ObjHasArray.exit.thread.i.i.i635
+  %565 = phi ptr [ %564, %Wlc_ObjHasArray.exit.thread.i.i.i635 ], [ %563, %559 ]
+  %566 = load i32, ptr %565, align 4
   %.val.i636 = load ptr, ptr %43, align 8
-  %561 = sext i32 %560 to i64
-  %562 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i636, i64 %561
-  %563 = getelementptr i8, ptr %562, i64 8
-  %.val463 = load i32, ptr %563, align 8
-  %564 = getelementptr i8, ptr %562, i64 12
-  %.val464 = load i32, ptr %564, align 4
-  %565 = sub nsw i32 %.val463, %.val464
-  %566 = tail call i32 @llvm.abs.i32(i32 %565, i1 true)
-  %567 = add nuw nsw i32 %566, 1
+  %567 = sext i32 %566 to i64
+  %568 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i636, i64 %567
+  %569 = getelementptr i8, ptr %568, i64 8
+  %.val463 = load i32, ptr %569, align 8
+  %570 = getelementptr i8, ptr %568, i64 12
+  %.val464 = load i32, ptr %570, align 4
+  %571 = sub nsw i32 %.val463, %.val464
+  %572 = tail call i32 @llvm.abs.i32(i32 %571, i1 true)
+  %573 = add nuw nsw i32 %572, 1
   %.val399 = load ptr, ptr %6, align 8
-  %568 = getelementptr inbounds i8, ptr %.val399, i64 76
-  %569 = load i32, ptr %568, align 4
-  %570 = add nsw i32 %567, %569
-  store i32 %570, ptr %568, align 4
-  br label %1293
+  %574 = getelementptr inbounds i8, ptr %.val399, i64 76
+  %575 = load i32, ptr %574, align 4
+  %576 = add nsw i32 %573, %575
+  store i32 %576, ptr %574, align 4
+  br label %1299
 
-571:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %572 = getelementptr inbounds i8, ptr %53, i64 4
-  %573 = load i32, ptr %572, align 4
-  %574 = icmp ugt i32 %573, 2
-  %575 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %574, label %Wlc_ObjHasArray.exit.thread.i.i.i638, label %Wlc_ObjFanin0.exit640
+577:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %578 = getelementptr inbounds i8, ptr %53, i64 4
+  %579 = load i32, ptr %578, align 4
+  %580 = icmp ugt i32 %579, 2
+  %581 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %580, label %Wlc_ObjHasArray.exit.thread.i.i.i638, label %Wlc_ObjFanin0.exit640
 
-Wlc_ObjHasArray.exit.thread.i.i.i638:             ; preds = %571
-  %576 = load ptr, ptr %575, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i638:             ; preds = %577
+  %582 = load ptr, ptr %581, align 8
   br label %Wlc_ObjFanin0.exit640
 
-Wlc_ObjFanin0.exit640:                            ; preds = %571, %Wlc_ObjHasArray.exit.thread.i.i.i638
-  %577 = phi ptr [ %576, %Wlc_ObjHasArray.exit.thread.i.i.i638 ], [ %575, %571 ]
-  %578 = load i32, ptr %577, align 4
+Wlc_ObjFanin0.exit640:                            ; preds = %577, %Wlc_ObjHasArray.exit.thread.i.i.i638
+  %583 = phi ptr [ %582, %Wlc_ObjHasArray.exit.thread.i.i.i638 ], [ %581, %577 ]
+  %584 = load i32, ptr %583, align 4
   %.val.i639 = load ptr, ptr %43, align 8
-  %579 = sext i32 %578 to i64
-  %580 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i639, i64 %579
-  %581 = getelementptr i8, ptr %580, i64 8
-  %.val465 = load i32, ptr %581, align 8
-  %582 = getelementptr i8, ptr %580, i64 12
-  %.val466 = load i32, ptr %582, align 4
-  %583 = sub nsw i32 %.val465, %.val466
-  %584 = tail call i32 @llvm.abs.i32(i32 %583, i1 true)
-  %585 = add nuw nsw i32 %584, 1
+  %585 = sext i32 %584 to i64
+  %586 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i639, i64 %585
+  %587 = getelementptr i8, ptr %586, i64 8
+  %.val465 = load i32, ptr %587, align 8
+  %588 = getelementptr i8, ptr %586, i64 12
+  %.val466 = load i32, ptr %588, align 4
+  %589 = sub nsw i32 %.val465, %.val466
+  %590 = tail call i32 @llvm.abs.i32(i32 %589, i1 true)
+  %591 = add nuw nsw i32 %590, 1
   %.val398 = load ptr, ptr %6, align 8
-  %586 = getelementptr inbounds i8, ptr %.val398, i64 80
-  %587 = load i32, ptr %586, align 4
-  %588 = add nsw i32 %585, %587
-  store i32 %588, ptr %586, align 4
-  br label %1293
+  %592 = getelementptr inbounds i8, ptr %.val398, i64 80
+  %593 = load i32, ptr %592, align 4
+  %594 = add nsw i32 %591, %593
+  store i32 %594, ptr %592, align 4
+  br label %1299
 
-589:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %590 = getelementptr inbounds i8, ptr %53, i64 4
-  %591 = load i32, ptr %590, align 4
-  %592 = icmp ugt i32 %591, 2
-  %593 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %592, label %Wlc_ObjHasArray.exit.thread.i.i.i641, label %Wlc_ObjFanin0.exit643
+595:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %596 = getelementptr inbounds i8, ptr %53, i64 4
+  %597 = load i32, ptr %596, align 4
+  %598 = icmp ugt i32 %597, 2
+  %599 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %598, label %Wlc_ObjHasArray.exit.thread.i.i.i641, label %Wlc_ObjFanin0.exit643
 
-Wlc_ObjHasArray.exit.thread.i.i.i641:             ; preds = %589
-  %594 = load ptr, ptr %593, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i641:             ; preds = %595
+  %600 = load ptr, ptr %599, align 8
   br label %Wlc_ObjFanin0.exit643
 
-Wlc_ObjFanin0.exit643:                            ; preds = %589, %Wlc_ObjHasArray.exit.thread.i.i.i641
-  %595 = phi ptr [ %594, %Wlc_ObjHasArray.exit.thread.i.i.i641 ], [ %593, %589 ]
-  %596 = load i32, ptr %595, align 4
+Wlc_ObjFanin0.exit643:                            ; preds = %595, %Wlc_ObjHasArray.exit.thread.i.i.i641
+  %601 = phi ptr [ %600, %Wlc_ObjHasArray.exit.thread.i.i.i641 ], [ %599, %595 ]
+  %602 = load i32, ptr %601, align 4
   %.val.i642 = load ptr, ptr %43, align 8
-  %597 = sext i32 %596 to i64
-  %598 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i642, i64 %597
-  %599 = getelementptr i8, ptr %598, i64 8
-  %.val467 = load i32, ptr %599, align 8
-  %600 = getelementptr i8, ptr %598, i64 12
-  %.val468 = load i32, ptr %600, align 4
-  %601 = sub nsw i32 %.val467, %.val468
-  %602 = tail call i32 @llvm.abs.i32(i32 %601, i1 true)
-  %603 = mul i32 %602, 3
+  %603 = sext i32 %602 to i64
+  %604 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i642, i64 %603
+  %605 = getelementptr i8, ptr %604, i64 8
+  %.val467 = load i32, ptr %605, align 8
+  %606 = getelementptr i8, ptr %604, i64 12
+  %.val468 = load i32, ptr %606, align 4
+  %607 = sub nsw i32 %.val467, %.val468
+  %608 = tail call i32 @llvm.abs.i32(i32 %607, i1 true)
+  %609 = mul i32 %608, 3
   %.val397 = load ptr, ptr %6, align 8
-  %604 = getelementptr inbounds i8, ptr %.val397, i64 84
-  %605 = load i32, ptr %604, align 4
-  %606 = add i32 %605, 3
-  %607 = add i32 %606, %603
-  store i32 %607, ptr %604, align 4
-  br label %1293
+  %610 = getelementptr inbounds i8, ptr %.val397, i64 84
+  %611 = load i32, ptr %610, align 4
+  %612 = add i32 %611, 3
+  %613 = add i32 %612, %609
+  store i32 %613, ptr %610, align 4
+  br label %1299
 
-608:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %609 = getelementptr inbounds i8, ptr %53, i64 4
-  %610 = load i32, ptr %609, align 4
-  %611 = icmp ugt i32 %610, 2
-  %612 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %611, label %Wlc_ObjHasArray.exit.thread.i.i.i644, label %Wlc_ObjFanin0.exit646
+614:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %615 = getelementptr inbounds i8, ptr %53, i64 4
+  %616 = load i32, ptr %615, align 4
+  %617 = icmp ugt i32 %616, 2
+  %618 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %617, label %Wlc_ObjHasArray.exit.thread.i.i.i644, label %Wlc_ObjFanin0.exit646
 
-Wlc_ObjHasArray.exit.thread.i.i.i644:             ; preds = %608
-  %613 = load ptr, ptr %612, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i644:             ; preds = %614
+  %619 = load ptr, ptr %618, align 8
   br label %Wlc_ObjFanin0.exit646
 
-Wlc_ObjFanin0.exit646:                            ; preds = %608, %Wlc_ObjHasArray.exit.thread.i.i.i644
-  %614 = phi ptr [ %613, %Wlc_ObjHasArray.exit.thread.i.i.i644 ], [ %612, %608 ]
-  %615 = load i32, ptr %614, align 4
+Wlc_ObjFanin0.exit646:                            ; preds = %614, %Wlc_ObjHasArray.exit.thread.i.i.i644
+  %620 = phi ptr [ %619, %Wlc_ObjHasArray.exit.thread.i.i.i644 ], [ %618, %614 ]
+  %621 = load i32, ptr %620, align 4
   %.val.i645 = load ptr, ptr %43, align 8
-  %616 = sext i32 %615 to i64
-  %617 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i645, i64 %616
-  %618 = getelementptr i8, ptr %617, i64 8
-  %.val469 = load i32, ptr %618, align 8
-  %619 = getelementptr i8, ptr %617, i64 12
-  %.val470 = load i32, ptr %619, align 4
-  %620 = sub nsw i32 %.val469, %.val470
-  %621 = tail call i32 @llvm.abs.i32(i32 %620, i1 true)
+  %622 = sext i32 %621 to i64
+  %623 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i645, i64 %622
+  %624 = getelementptr i8, ptr %623, i64 8
+  %.val469 = load i32, ptr %624, align 8
+  %625 = getelementptr i8, ptr %623, i64 12
+  %.val470 = load i32, ptr %625, align 4
+  %626 = sub nsw i32 %.val469, %.val470
+  %627 = tail call i32 @llvm.abs.i32(i32 %626, i1 true)
   %.val392 = load ptr, ptr %6, align 8
-  %622 = getelementptr inbounds i8, ptr %.val392, i64 104
-  %623 = load i32, ptr %622, align 4
-  %624 = add nsw i32 %623, %621
-  store i32 %624, ptr %622, align 4
-  br label %1293
+  %628 = getelementptr inbounds i8, ptr %.val392, i64 104
+  %629 = load i32, ptr %628, align 4
+  %630 = add nsw i32 %629, %627
+  store i32 %630, ptr %628, align 4
+  br label %1299
 
-625:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %626 = getelementptr inbounds i8, ptr %53, i64 4
-  %627 = load i32, ptr %626, align 4
-  %628 = icmp ugt i32 %627, 2
-  %629 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %628, label %Wlc_ObjHasArray.exit.thread.i.i.i647, label %Wlc_ObjFanin0.exit649
+631:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %632 = getelementptr inbounds i8, ptr %53, i64 4
+  %633 = load i32, ptr %632, align 4
+  %634 = icmp ugt i32 %633, 2
+  %635 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %634, label %Wlc_ObjHasArray.exit.thread.i.i.i647, label %Wlc_ObjFanin0.exit649
 
-Wlc_ObjHasArray.exit.thread.i.i.i647:             ; preds = %625
-  %630 = load ptr, ptr %629, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i647:             ; preds = %631
+  %636 = load ptr, ptr %635, align 8
   br label %Wlc_ObjFanin0.exit649
 
-Wlc_ObjFanin0.exit649:                            ; preds = %625, %Wlc_ObjHasArray.exit.thread.i.i.i647
-  %631 = phi ptr [ %630, %Wlc_ObjHasArray.exit.thread.i.i.i647 ], [ %629, %625 ]
-  %632 = load i32, ptr %631, align 4
+Wlc_ObjFanin0.exit649:                            ; preds = %631, %Wlc_ObjHasArray.exit.thread.i.i.i647
+  %637 = phi ptr [ %636, %Wlc_ObjHasArray.exit.thread.i.i.i647 ], [ %635, %631 ]
+  %638 = load i32, ptr %637, align 4
   %.val.i648 = load ptr, ptr %43, align 8
-  %633 = sext i32 %632 to i64
-  %634 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i648, i64 %633
-  %635 = getelementptr i8, ptr %634, i64 8
-  %.val471 = load i32, ptr %635, align 8
-  %636 = getelementptr i8, ptr %634, i64 12
-  %.val472 = load i32, ptr %636, align 4
-  %637 = sub nsw i32 %.val471, %.val472
-  %638 = tail call i32 @llvm.abs.i32(i32 %637, i1 true)
-  %639 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %628, label %Wlc_ObjHasArray.exit.thread.i.i.i650, label %Wlc_ObjFanin1.exit652
+  %639 = sext i32 %638 to i64
+  %640 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i648, i64 %639
+  %641 = getelementptr i8, ptr %640, i64 8
+  %.val471 = load i32, ptr %641, align 8
+  %642 = getelementptr i8, ptr %640, i64 12
+  %.val472 = load i32, ptr %642, align 4
+  %643 = sub nsw i32 %.val471, %.val472
+  %644 = tail call i32 @llvm.abs.i32(i32 %643, i1 true)
+  %645 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %634, label %Wlc_ObjHasArray.exit.thread.i.i.i650, label %Wlc_ObjFanin1.exit652
 
 Wlc_ObjHasArray.exit.thread.i.i.i650:             ; preds = %Wlc_ObjFanin0.exit649
-  %640 = load ptr, ptr %639, align 8
+  %646 = load ptr, ptr %645, align 8
   br label %Wlc_ObjFanin1.exit652
 
 Wlc_ObjFanin1.exit652:                            ; preds = %Wlc_ObjFanin0.exit649, %Wlc_ObjHasArray.exit.thread.i.i.i650
-  %641 = phi ptr [ %640, %Wlc_ObjHasArray.exit.thread.i.i.i650 ], [ %639, %Wlc_ObjFanin0.exit649 ]
-  %642 = getelementptr inbounds i8, ptr %641, i64 4
-  %643 = load i32, ptr %642, align 4
-  %644 = sext i32 %643 to i64
-  %645 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i648, i64 %644
-  %646 = getelementptr i8, ptr %645, i64 8
-  %.val473 = load i32, ptr %646, align 8
-  %647 = getelementptr i8, ptr %645, i64 12
-  %.val474 = load i32, ptr %647, align 4
-  %648 = sub nsw i32 %.val473, %.val474
-  %649 = tail call i32 @llvm.abs.i32(i32 %648, i1 true)
+  %647 = phi ptr [ %646, %Wlc_ObjHasArray.exit.thread.i.i.i650 ], [ %645, %Wlc_ObjFanin0.exit649 ]
+  %648 = getelementptr inbounds i8, ptr %647, i64 4
+  %649 = load i32, ptr %648, align 4
+  %650 = sext i32 %649 to i64
+  %651 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i648, i64 %650
+  %652 = getelementptr i8, ptr %651, i64 8
+  %.val473 = load i32, ptr %652, align 8
+  %653 = getelementptr i8, ptr %651, i64 12
+  %.val474 = load i32, ptr %653, align 4
+  %654 = sub nsw i32 %.val473, %.val474
+  %655 = tail call i32 @llvm.abs.i32(i32 %654, i1 true)
   %.val391 = load ptr, ptr %6, align 8
-  %650 = getelementptr inbounds i8, ptr %.val391, i64 108
-  %651 = load i32, ptr %650, align 4
-  %652 = add nuw i32 %638, 1
-  %653 = add nuw i32 %652, %649
-  %654 = add nsw i32 %653, %651
-  store i32 %654, ptr %650, align 4
-  br label %1293
-
-655:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %656 = getelementptr inbounds i8, ptr %53, i64 4
+  %656 = getelementptr inbounds i8, ptr %.val391, i64 108
   %657 = load i32, ptr %656, align 4
-  %658 = icmp ugt i32 %657, 2
-  %659 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %658, label %Wlc_ObjHasArray.exit.thread.i.i.i653, label %Wlc_ObjFanin0.exit655
+  %658 = add nuw i32 %644, 1
+  %659 = add nuw i32 %658, %655
+  %660 = add nsw i32 %659, %657
+  store i32 %660, ptr %656, align 4
+  br label %1299
 
-Wlc_ObjHasArray.exit.thread.i.i.i653:             ; preds = %655
-  %660 = load ptr, ptr %659, align 8
+661:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %662 = getelementptr inbounds i8, ptr %53, i64 4
+  %663 = load i32, ptr %662, align 4
+  %664 = icmp ugt i32 %663, 2
+  %665 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %664, label %Wlc_ObjHasArray.exit.thread.i.i.i653, label %Wlc_ObjFanin0.exit655
+
+Wlc_ObjHasArray.exit.thread.i.i.i653:             ; preds = %661
+  %666 = load ptr, ptr %665, align 8
   br label %Wlc_ObjFanin0.exit655
 
-Wlc_ObjFanin0.exit655:                            ; preds = %655, %Wlc_ObjHasArray.exit.thread.i.i.i653
-  %661 = phi ptr [ %660, %Wlc_ObjHasArray.exit.thread.i.i.i653 ], [ %659, %655 ]
-  %662 = load i32, ptr %661, align 4
+Wlc_ObjFanin0.exit655:                            ; preds = %661, %Wlc_ObjHasArray.exit.thread.i.i.i653
+  %667 = phi ptr [ %666, %Wlc_ObjHasArray.exit.thread.i.i.i653 ], [ %665, %661 ]
+  %668 = load i32, ptr %667, align 4
   %.val.i654 = load ptr, ptr %43, align 8
-  %663 = sext i32 %662 to i64
-  %664 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i654, i64 %663
-  %665 = getelementptr i8, ptr %664, i64 8
-  %.val475 = load i32, ptr %665, align 8
-  %666 = getelementptr i8, ptr %664, i64 12
-  %.val476 = load i32, ptr %666, align 4
-  %667 = sub nsw i32 %.val475, %.val476
-  %668 = tail call i32 @llvm.abs.i32(i32 %667, i1 true)
-  %669 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %658, label %Wlc_ObjHasArray.exit.thread.i.i.i656, label %Wlc_ObjFanin1.exit658
+  %669 = sext i32 %668 to i64
+  %670 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i654, i64 %669
+  %671 = getelementptr i8, ptr %670, i64 8
+  %.val475 = load i32, ptr %671, align 8
+  %672 = getelementptr i8, ptr %670, i64 12
+  %.val476 = load i32, ptr %672, align 4
+  %673 = sub nsw i32 %.val475, %.val476
+  %674 = tail call i32 @llvm.abs.i32(i32 %673, i1 true)
+  %675 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %664, label %Wlc_ObjHasArray.exit.thread.i.i.i656, label %Wlc_ObjFanin1.exit658
 
 Wlc_ObjHasArray.exit.thread.i.i.i656:             ; preds = %Wlc_ObjFanin0.exit655
-  %670 = load ptr, ptr %669, align 8
+  %676 = load ptr, ptr %675, align 8
   br label %Wlc_ObjFanin1.exit658
 
 Wlc_ObjFanin1.exit658:                            ; preds = %Wlc_ObjFanin0.exit655, %Wlc_ObjHasArray.exit.thread.i.i.i656
-  %671 = phi ptr [ %670, %Wlc_ObjHasArray.exit.thread.i.i.i656 ], [ %669, %Wlc_ObjFanin0.exit655 ]
-  %672 = getelementptr inbounds i8, ptr %671, i64 4
-  %673 = load i32, ptr %672, align 4
-  %674 = sext i32 %673 to i64
-  %675 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i654, i64 %674
-  %676 = getelementptr i8, ptr %675, i64 8
-  %.val477 = load i32, ptr %676, align 8
-  %677 = getelementptr i8, ptr %675, i64 12
-  %.val478 = load i32, ptr %677, align 4
-  %678 = sub nsw i32 %.val477, %.val478
-  %679 = tail call i32 @llvm.abs.i32(i32 %678, i1 true)
+  %677 = phi ptr [ %676, %Wlc_ObjHasArray.exit.thread.i.i.i656 ], [ %675, %Wlc_ObjFanin0.exit655 ]
+  %678 = getelementptr inbounds i8, ptr %677, i64 4
+  %679 = load i32, ptr %678, align 4
+  %680 = sext i32 %679 to i64
+  %681 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i654, i64 %680
+  %682 = getelementptr i8, ptr %681, i64 8
+  %.val477 = load i32, ptr %682, align 8
+  %683 = getelementptr i8, ptr %681, i64 12
+  %.val478 = load i32, ptr %683, align 4
+  %684 = sub nsw i32 %.val477, %.val478
+  %685 = tail call i32 @llvm.abs.i32(i32 %684, i1 true)
   %.val390 = load ptr, ptr %6, align 8
-  %680 = getelementptr inbounds i8, ptr %.val390, i64 112
-  %681 = load i32, ptr %680, align 4
-  %682 = add nuw i32 %668, 1
-  %683 = add nuw i32 %682, %679
-  %684 = add nsw i32 %683, %681
-  store i32 %684, ptr %680, align 4
-  br label %1293
-
-685:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %686 = getelementptr inbounds i8, ptr %53, i64 4
+  %686 = getelementptr inbounds i8, ptr %.val390, i64 112
   %687 = load i32, ptr %686, align 4
-  %688 = icmp ugt i32 %687, 2
-  %689 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %688, label %Wlc_ObjHasArray.exit.thread.i.i.i659, label %Wlc_ObjFanin0.exit661
+  %688 = add nuw i32 %674, 1
+  %689 = add nuw i32 %688, %685
+  %690 = add nsw i32 %689, %687
+  store i32 %690, ptr %686, align 4
+  br label %1299
 
-Wlc_ObjHasArray.exit.thread.i.i.i659:             ; preds = %685
-  %690 = load ptr, ptr %689, align 8
+691:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %692 = getelementptr inbounds i8, ptr %53, i64 4
+  %693 = load i32, ptr %692, align 4
+  %694 = icmp ugt i32 %693, 2
+  %695 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %694, label %Wlc_ObjHasArray.exit.thread.i.i.i659, label %Wlc_ObjFanin0.exit661
+
+Wlc_ObjHasArray.exit.thread.i.i.i659:             ; preds = %691
+  %696 = load ptr, ptr %695, align 8
   br label %Wlc_ObjFanin0.exit661
 
-Wlc_ObjFanin0.exit661:                            ; preds = %685, %Wlc_ObjHasArray.exit.thread.i.i.i659
-  %691 = phi ptr [ %690, %Wlc_ObjHasArray.exit.thread.i.i.i659 ], [ %689, %685 ]
-  %692 = load i32, ptr %691, align 4
+Wlc_ObjFanin0.exit661:                            ; preds = %691, %Wlc_ObjHasArray.exit.thread.i.i.i659
+  %697 = phi ptr [ %696, %Wlc_ObjHasArray.exit.thread.i.i.i659 ], [ %695, %691 ]
+  %698 = load i32, ptr %697, align 4
   %.val.i660 = load ptr, ptr %43, align 8
-  %693 = sext i32 %692 to i64
-  %694 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i660, i64 %693
-  %695 = getelementptr i8, ptr %694, i64 8
-  %.val479 = load i32, ptr %695, align 8
-  %696 = getelementptr i8, ptr %694, i64 12
-  %.val480 = load i32, ptr %696, align 4
-  %697 = sub nsw i32 %.val479, %.val480
-  %698 = tail call i32 @llvm.abs.i32(i32 %697, i1 true)
-  %699 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %688, label %Wlc_ObjHasArray.exit.thread.i.i.i662, label %Wlc_ObjFanin1.exit664
+  %699 = sext i32 %698 to i64
+  %700 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i660, i64 %699
+  %701 = getelementptr i8, ptr %700, i64 8
+  %.val479 = load i32, ptr %701, align 8
+  %702 = getelementptr i8, ptr %700, i64 12
+  %.val480 = load i32, ptr %702, align 4
+  %703 = sub nsw i32 %.val479, %.val480
+  %704 = tail call i32 @llvm.abs.i32(i32 %703, i1 true)
+  %705 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %694, label %Wlc_ObjHasArray.exit.thread.i.i.i662, label %Wlc_ObjFanin1.exit664
 
 Wlc_ObjHasArray.exit.thread.i.i.i662:             ; preds = %Wlc_ObjFanin0.exit661
-  %700 = load ptr, ptr %699, align 8
+  %706 = load ptr, ptr %705, align 8
   br label %Wlc_ObjFanin1.exit664
 
 Wlc_ObjFanin1.exit664:                            ; preds = %Wlc_ObjFanin0.exit661, %Wlc_ObjHasArray.exit.thread.i.i.i662
-  %701 = phi ptr [ %700, %Wlc_ObjHasArray.exit.thread.i.i.i662 ], [ %699, %Wlc_ObjFanin0.exit661 ]
-  %702 = getelementptr inbounds i8, ptr %701, i64 4
-  %703 = load i32, ptr %702, align 4
-  %704 = sext i32 %703 to i64
-  %705 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i660, i64 %704
-  %706 = getelementptr i8, ptr %705, i64 8
-  %.val481 = load i32, ptr %706, align 8
-  %707 = getelementptr i8, ptr %705, i64 12
-  %.val482 = load i32, ptr %707, align 4
-  %708 = sub nsw i32 %.val481, %.val482
-  %709 = tail call i32 @llvm.abs.i32(i32 %708, i1 true)
+  %707 = phi ptr [ %706, %Wlc_ObjHasArray.exit.thread.i.i.i662 ], [ %705, %Wlc_ObjFanin0.exit661 ]
+  %708 = getelementptr inbounds i8, ptr %707, i64 4
+  %709 = load i32, ptr %708, align 4
+  %710 = sext i32 %709 to i64
+  %711 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i660, i64 %710
+  %712 = getelementptr i8, ptr %711, i64 8
+  %.val481 = load i32, ptr %712, align 8
+  %713 = getelementptr i8, ptr %711, i64 12
+  %.val482 = load i32, ptr %713, align 4
+  %714 = sub nsw i32 %.val481, %.val482
+  %715 = tail call i32 @llvm.abs.i32(i32 %714, i1 true)
   %.val389 = load ptr, ptr %6, align 8
-  %710 = getelementptr inbounds i8, ptr %.val389, i64 116
-  %711 = load i32, ptr %710, align 4
-  %712 = add nuw i32 %698, 1
-  %713 = add nuw i32 %712, %709
-  %714 = add nsw i32 %713, %711
-  store i32 %714, ptr %710, align 4
-  br label %1293
-
-715:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %716 = getelementptr inbounds i8, ptr %53, i64 4
+  %716 = getelementptr inbounds i8, ptr %.val389, i64 116
   %717 = load i32, ptr %716, align 4
-  %718 = icmp ugt i32 %717, 2
-  %719 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %718, label %Wlc_ObjHasArray.exit.thread.i.i.i665, label %Wlc_ObjFanin0.exit667
+  %718 = add nuw i32 %704, 1
+  %719 = add nuw i32 %718, %715
+  %720 = add nsw i32 %719, %717
+  store i32 %720, ptr %716, align 4
+  br label %1299
 
-Wlc_ObjHasArray.exit.thread.i.i.i665:             ; preds = %715
-  %720 = load ptr, ptr %719, align 8
+721:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %722 = getelementptr inbounds i8, ptr %53, i64 4
+  %723 = load i32, ptr %722, align 4
+  %724 = icmp ugt i32 %723, 2
+  %725 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %724, label %Wlc_ObjHasArray.exit.thread.i.i.i665, label %Wlc_ObjFanin0.exit667
+
+Wlc_ObjHasArray.exit.thread.i.i.i665:             ; preds = %721
+  %726 = load ptr, ptr %725, align 8
   br label %Wlc_ObjFanin0.exit667
 
-Wlc_ObjFanin0.exit667:                            ; preds = %715, %Wlc_ObjHasArray.exit.thread.i.i.i665
-  %721 = phi ptr [ %720, %Wlc_ObjHasArray.exit.thread.i.i.i665 ], [ %719, %715 ]
-  %722 = load i32, ptr %721, align 4
+Wlc_ObjFanin0.exit667:                            ; preds = %721, %Wlc_ObjHasArray.exit.thread.i.i.i665
+  %727 = phi ptr [ %726, %Wlc_ObjHasArray.exit.thread.i.i.i665 ], [ %725, %721 ]
+  %728 = load i32, ptr %727, align 4
   %.val.i666 = load ptr, ptr %43, align 8
-  %723 = sext i32 %722 to i64
-  %724 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i666, i64 %723
-  %725 = getelementptr i8, ptr %724, i64 8
-  %.val483 = load i32, ptr %725, align 8
-  %726 = getelementptr i8, ptr %724, i64 12
-  %.val484 = load i32, ptr %726, align 4
-  %727 = sub nsw i32 %.val483, %.val484
-  %728 = tail call i32 @llvm.abs.i32(i32 %727, i1 true)
-  %729 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %718, label %Wlc_ObjHasArray.exit.thread.i.i.i668, label %Wlc_ObjFanin1.exit670
+  %729 = sext i32 %728 to i64
+  %730 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i666, i64 %729
+  %731 = getelementptr i8, ptr %730, i64 8
+  %.val483 = load i32, ptr %731, align 8
+  %732 = getelementptr i8, ptr %730, i64 12
+  %.val484 = load i32, ptr %732, align 4
+  %733 = sub nsw i32 %.val483, %.val484
+  %734 = tail call i32 @llvm.abs.i32(i32 %733, i1 true)
+  %735 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %724, label %Wlc_ObjHasArray.exit.thread.i.i.i668, label %Wlc_ObjFanin1.exit670
 
 Wlc_ObjHasArray.exit.thread.i.i.i668:             ; preds = %Wlc_ObjFanin0.exit667
-  %730 = load ptr, ptr %729, align 8
+  %736 = load ptr, ptr %735, align 8
   br label %Wlc_ObjFanin1.exit670
 
 Wlc_ObjFanin1.exit670:                            ; preds = %Wlc_ObjFanin0.exit667, %Wlc_ObjHasArray.exit.thread.i.i.i668
-  %731 = phi ptr [ %730, %Wlc_ObjHasArray.exit.thread.i.i.i668 ], [ %729, %Wlc_ObjFanin0.exit667 ]
-  %732 = getelementptr inbounds i8, ptr %731, i64 4
-  %733 = load i32, ptr %732, align 4
-  %734 = sext i32 %733 to i64
-  %735 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i666, i64 %734
-  %736 = getelementptr i8, ptr %735, i64 8
-  %.val485 = load i32, ptr %736, align 8
-  %737 = getelementptr i8, ptr %735, i64 12
-  %.val486 = load i32, ptr %737, align 4
-  %738 = sub nsw i32 %.val485, %.val486
-  %739 = tail call i32 @llvm.abs.i32(i32 %738, i1 true)
+  %737 = phi ptr [ %736, %Wlc_ObjHasArray.exit.thread.i.i.i668 ], [ %735, %Wlc_ObjFanin0.exit667 ]
+  %738 = getelementptr inbounds i8, ptr %737, i64 4
+  %739 = load i32, ptr %738, align 4
+  %740 = sext i32 %739 to i64
+  %741 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i666, i64 %740
+  %742 = getelementptr i8, ptr %741, i64 8
+  %.val485 = load i32, ptr %742, align 8
+  %743 = getelementptr i8, ptr %741, i64 12
+  %.val486 = load i32, ptr %743, align 4
+  %744 = sub nsw i32 %.val485, %.val486
+  %745 = tail call i32 @llvm.abs.i32(i32 %744, i1 true)
   %.val388 = load ptr, ptr %6, align 8
-  %740 = getelementptr inbounds i8, ptr %.val388, i64 120
-  %741 = load i32, ptr %740, align 4
-  %742 = add nuw i32 %728, 3
-  %743 = add i32 %742, %739
-  %744 = add nsw i32 %743, %741
-  store i32 %744, ptr %740, align 4
-  br label %1293
-
-745:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %746 = getelementptr inbounds i8, ptr %53, i64 4
+  %746 = getelementptr inbounds i8, ptr %.val388, i64 120
   %747 = load i32, ptr %746, align 4
-  %748 = icmp ugt i32 %747, 2
-  %749 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %748, label %Wlc_ObjHasArray.exit.thread.i.i.i671, label %Wlc_ObjFanin0.exit673
+  %748 = add nuw i32 %734, 3
+  %749 = add i32 %748, %745
+  %750 = add nsw i32 %749, %747
+  store i32 %750, ptr %746, align 4
+  br label %1299
 
-Wlc_ObjHasArray.exit.thread.i.i.i671:             ; preds = %745
-  %750 = load ptr, ptr %749, align 8
+751:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %752 = getelementptr inbounds i8, ptr %53, i64 4
+  %753 = load i32, ptr %752, align 4
+  %754 = icmp ugt i32 %753, 2
+  %755 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %754, label %Wlc_ObjHasArray.exit.thread.i.i.i671, label %Wlc_ObjFanin0.exit673
+
+Wlc_ObjHasArray.exit.thread.i.i.i671:             ; preds = %751
+  %756 = load ptr, ptr %755, align 8
   br label %Wlc_ObjFanin0.exit673
 
-Wlc_ObjFanin0.exit673:                            ; preds = %745, %Wlc_ObjHasArray.exit.thread.i.i.i671
-  %751 = phi ptr [ %750, %Wlc_ObjHasArray.exit.thread.i.i.i671 ], [ %749, %745 ]
-  %752 = load i32, ptr %751, align 4
+Wlc_ObjFanin0.exit673:                            ; preds = %751, %Wlc_ObjHasArray.exit.thread.i.i.i671
+  %757 = phi ptr [ %756, %Wlc_ObjHasArray.exit.thread.i.i.i671 ], [ %755, %751 ]
+  %758 = load i32, ptr %757, align 4
   %.val.i672 = load ptr, ptr %43, align 8
-  %753 = sext i32 %752 to i64
-  %754 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i672, i64 %753
-  %755 = getelementptr i8, ptr %754, i64 8
-  %.val487 = load i32, ptr %755, align 8
-  %756 = getelementptr i8, ptr %754, i64 12
-  %.val488 = load i32, ptr %756, align 4
-  %757 = sub nsw i32 %.val487, %.val488
-  %758 = tail call i32 @llvm.abs.i32(i32 %757, i1 true)
-  %759 = shl i32 %758, 2
+  %759 = sext i32 %758 to i64
+  %760 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i672, i64 %759
+  %761 = getelementptr i8, ptr %760, i64 8
+  %.val487 = load i32, ptr %761, align 8
+  %762 = getelementptr i8, ptr %760, i64 12
+  %.val488 = load i32, ptr %762, align 4
+  %763 = sub nsw i32 %.val487, %.val488
+  %764 = tail call i32 @llvm.abs.i32(i32 %763, i1 true)
+  %765 = shl i32 %764, 2
   %.val387 = load ptr, ptr %6, align 8
-  %760 = getelementptr inbounds i8, ptr %.val387, i64 124
-  %761 = load i32, ptr %760, align 4
-  %762 = add i32 %761, 3
-  %763 = add i32 %762, %759
-  store i32 %763, ptr %760, align 4
-  br label %1293
+  %766 = getelementptr inbounds i8, ptr %.val387, i64 124
+  %767 = load i32, ptr %766, align 4
+  %768 = add i32 %767, 3
+  %769 = add i32 %768, %765
+  store i32 %769, ptr %766, align 4
+  br label %1299
 
-764:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %765 = getelementptr inbounds i8, ptr %53, i64 4
-  %766 = load i32, ptr %765, align 4
-  %767 = icmp ugt i32 %766, 2
-  %768 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %767, label %Wlc_ObjHasArray.exit.thread.i.i.i674, label %Wlc_ObjFanin0.exit676
+770:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %771 = getelementptr inbounds i8, ptr %53, i64 4
+  %772 = load i32, ptr %771, align 4
+  %773 = icmp ugt i32 %772, 2
+  %774 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %773, label %Wlc_ObjHasArray.exit.thread.i.i.i674, label %Wlc_ObjFanin0.exit676
 
-Wlc_ObjHasArray.exit.thread.i.i.i674:             ; preds = %764
-  %769 = load ptr, ptr %768, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i674:             ; preds = %770
+  %775 = load ptr, ptr %774, align 8
   br label %Wlc_ObjFanin0.exit676
 
-Wlc_ObjFanin0.exit676:                            ; preds = %764, %Wlc_ObjHasArray.exit.thread.i.i.i674
-  %770 = phi ptr [ %769, %Wlc_ObjHasArray.exit.thread.i.i.i674 ], [ %768, %764 ]
-  %771 = load i32, ptr %770, align 4
+Wlc_ObjFanin0.exit676:                            ; preds = %770, %Wlc_ObjHasArray.exit.thread.i.i.i674
+  %776 = phi ptr [ %775, %Wlc_ObjHasArray.exit.thread.i.i.i674 ], [ %774, %770 ]
+  %777 = load i32, ptr %776, align 4
   %.val.i675 = load ptr, ptr %43, align 8
-  %772 = sext i32 %771 to i64
-  %773 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i675, i64 %772
-  %774 = getelementptr i8, ptr %773, i64 8
-  %.val489 = load i32, ptr %774, align 8
-  %775 = getelementptr i8, ptr %773, i64 12
-  %.val490 = load i32, ptr %775, align 4
-  %776 = sub nsw i32 %.val489, %.val490
-  %777 = tail call i32 @llvm.abs.i32(i32 %776, i1 true)
-  %778 = shl i32 %777, 2
+  %778 = sext i32 %777 to i64
+  %779 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i675, i64 %778
+  %780 = getelementptr i8, ptr %779, i64 8
+  %.val489 = load i32, ptr %780, align 8
+  %781 = getelementptr i8, ptr %779, i64 12
+  %.val490 = load i32, ptr %781, align 4
+  %782 = sub nsw i32 %.val489, %.val490
+  %783 = tail call i32 @llvm.abs.i32(i32 %782, i1 true)
+  %784 = shl i32 %783, 2
   %.val386 = load ptr, ptr %6, align 8
-  %779 = getelementptr inbounds i8, ptr %.val386, i64 128
-  %780 = load i32, ptr %779, align 4
-  %781 = add i32 %780, 3
-  %782 = add i32 %781, %778
-  store i32 %782, ptr %779, align 4
-  br label %1293
+  %785 = getelementptr inbounds i8, ptr %.val386, i64 128
+  %786 = load i32, ptr %785, align 4
+  %787 = add i32 %786, 3
+  %788 = add i32 %787, %784
+  store i32 %788, ptr %785, align 4
+  br label %1299
 
-783:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %784 = getelementptr inbounds i8, ptr %53, i64 4
-  %785 = load i32, ptr %784, align 4
-  %786 = icmp ugt i32 %785, 2
-  %787 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %786, label %Wlc_ObjHasArray.exit.thread.i.i.i677, label %Wlc_ObjFanin0.exit679
+789:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %790 = getelementptr inbounds i8, ptr %53, i64 4
+  %791 = load i32, ptr %790, align 4
+  %792 = icmp ugt i32 %791, 2
+  %793 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %792, label %Wlc_ObjHasArray.exit.thread.i.i.i677, label %Wlc_ObjFanin0.exit679
 
-Wlc_ObjHasArray.exit.thread.i.i.i677:             ; preds = %783
-  %788 = load ptr, ptr %787, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i677:             ; preds = %789
+  %794 = load ptr, ptr %793, align 8
   br label %Wlc_ObjFanin0.exit679
 
-Wlc_ObjFanin0.exit679:                            ; preds = %783, %Wlc_ObjHasArray.exit.thread.i.i.i677
-  %789 = phi ptr [ %788, %Wlc_ObjHasArray.exit.thread.i.i.i677 ], [ %787, %783 ]
-  %790 = load i32, ptr %789, align 4
+Wlc_ObjFanin0.exit679:                            ; preds = %789, %Wlc_ObjHasArray.exit.thread.i.i.i677
+  %795 = phi ptr [ %794, %Wlc_ObjHasArray.exit.thread.i.i.i677 ], [ %793, %789 ]
+  %796 = load i32, ptr %795, align 4
   %.val.i678 = load ptr, ptr %43, align 8
-  %791 = sext i32 %790 to i64
-  %792 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i678, i64 %791
-  %793 = getelementptr i8, ptr %792, i64 8
-  %.val491 = load i32, ptr %793, align 8
-  %794 = getelementptr i8, ptr %792, i64 12
-  %.val492 = load i32, ptr %794, align 4
-  %795 = sub nsw i32 %.val491, %.val492
-  %796 = tail call i32 @llvm.abs.i32(i32 %795, i1 true)
-  %797 = mul i32 %796, 6
+  %797 = sext i32 %796 to i64
+  %798 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i678, i64 %797
+  %799 = getelementptr i8, ptr %798, i64 8
+  %.val491 = load i32, ptr %799, align 8
+  %800 = getelementptr i8, ptr %798, i64 12
+  %.val492 = load i32, ptr %800, align 4
+  %801 = sub nsw i32 %.val491, %.val492
+  %802 = tail call i32 @llvm.abs.i32(i32 %801, i1 true)
+  %803 = mul i32 %802, 6
   %.val385 = load ptr, ptr %6, align 8
-  %798 = getelementptr inbounds i8, ptr %.val385, i64 132
-  %799 = load i32, ptr %798, align 4
-  %800 = add nsw i32 %797, %799
-  store i32 %800, ptr %798, align 4
-  br label %1293
+  %804 = getelementptr inbounds i8, ptr %.val385, i64 132
+  %805 = load i32, ptr %804, align 4
+  %806 = add nsw i32 %803, %805
+  store i32 %806, ptr %804, align 4
+  br label %1299
 
-801:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %802 = getelementptr inbounds i8, ptr %53, i64 4
-  %803 = load i32, ptr %802, align 4
-  %804 = icmp ugt i32 %803, 2
-  %805 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %804, label %Wlc_ObjHasArray.exit.thread.i.i.i680, label %Wlc_ObjFanin0.exit682
+807:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %808 = getelementptr inbounds i8, ptr %53, i64 4
+  %809 = load i32, ptr %808, align 4
+  %810 = icmp ugt i32 %809, 2
+  %811 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %810, label %Wlc_ObjHasArray.exit.thread.i.i.i680, label %Wlc_ObjFanin0.exit682
 
-Wlc_ObjHasArray.exit.thread.i.i.i680:             ; preds = %801
-  %806 = load ptr, ptr %805, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i680:             ; preds = %807
+  %812 = load ptr, ptr %811, align 8
   br label %Wlc_ObjFanin0.exit682
 
-Wlc_ObjFanin0.exit682:                            ; preds = %801, %Wlc_ObjHasArray.exit.thread.i.i.i680
-  %807 = phi ptr [ %806, %Wlc_ObjHasArray.exit.thread.i.i.i680 ], [ %805, %801 ]
-  %808 = load i32, ptr %807, align 4
+Wlc_ObjFanin0.exit682:                            ; preds = %807, %Wlc_ObjHasArray.exit.thread.i.i.i680
+  %813 = phi ptr [ %812, %Wlc_ObjHasArray.exit.thread.i.i.i680 ], [ %811, %807 ]
+  %814 = load i32, ptr %813, align 4
   %.val.i681 = load ptr, ptr %43, align 8
-  %809 = sext i32 %808 to i64
-  %810 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i681, i64 %809
-  %811 = getelementptr i8, ptr %810, i64 8
-  %.val493 = load i32, ptr %811, align 8
-  %812 = getelementptr i8, ptr %810, i64 12
-  %.val494 = load i32, ptr %812, align 4
-  %813 = sub nsw i32 %.val493, %.val494
-  %814 = tail call i32 @llvm.abs.i32(i32 %813, i1 true)
-  %815 = mul i32 %814, 6
+  %815 = sext i32 %814 to i64
+  %816 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i681, i64 %815
+  %817 = getelementptr i8, ptr %816, i64 8
+  %.val493 = load i32, ptr %817, align 8
+  %818 = getelementptr i8, ptr %816, i64 12
+  %.val494 = load i32, ptr %818, align 4
+  %819 = sub nsw i32 %.val493, %.val494
+  %820 = tail call i32 @llvm.abs.i32(i32 %819, i1 true)
+  %821 = mul i32 %820, 6
   %.val384 = load ptr, ptr %6, align 8
-  %816 = getelementptr inbounds i8, ptr %.val384, i64 136
-  %817 = load i32, ptr %816, align 4
-  %818 = add nsw i32 %815, %817
-  store i32 %818, ptr %816, align 4
-  br label %1293
+  %822 = getelementptr inbounds i8, ptr %.val384, i64 136
+  %823 = load i32, ptr %822, align 4
+  %824 = add nsw i32 %821, %823
+  store i32 %824, ptr %822, align 4
+  br label %1299
 
-819:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %820 = getelementptr inbounds i8, ptr %53, i64 4
-  %821 = load i32, ptr %820, align 4
-  %822 = icmp ugt i32 %821, 2
-  %823 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %822, label %Wlc_ObjHasArray.exit.thread.i.i.i683, label %Wlc_ObjFanin0.exit685
+825:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %826 = getelementptr inbounds i8, ptr %53, i64 4
+  %827 = load i32, ptr %826, align 4
+  %828 = icmp ugt i32 %827, 2
+  %829 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %828, label %Wlc_ObjHasArray.exit.thread.i.i.i683, label %Wlc_ObjFanin0.exit685
 
-Wlc_ObjHasArray.exit.thread.i.i.i683:             ; preds = %819
-  %824 = load ptr, ptr %823, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i683:             ; preds = %825
+  %830 = load ptr, ptr %829, align 8
   br label %Wlc_ObjFanin0.exit685
 
-Wlc_ObjFanin0.exit685:                            ; preds = %819, %Wlc_ObjHasArray.exit.thread.i.i.i683
-  %825 = phi ptr [ %824, %Wlc_ObjHasArray.exit.thread.i.i.i683 ], [ %823, %819 ]
-  %826 = load i32, ptr %825, align 4
+Wlc_ObjFanin0.exit685:                            ; preds = %825, %Wlc_ObjHasArray.exit.thread.i.i.i683
+  %831 = phi ptr [ %830, %Wlc_ObjHasArray.exit.thread.i.i.i683 ], [ %829, %825 ]
+  %832 = load i32, ptr %831, align 4
   %.val.i684 = load ptr, ptr %43, align 8
-  %827 = sext i32 %826 to i64
-  %828 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i684, i64 %827
-  %829 = getelementptr i8, ptr %828, i64 8
-  %.val495 = load i32, ptr %829, align 8
-  %830 = getelementptr i8, ptr %828, i64 12
-  %.val496 = load i32, ptr %830, align 4
-  %831 = sub nsw i32 %.val495, %.val496
-  %832 = tail call i32 @llvm.abs.i32(i32 %831, i1 true)
-  %833 = mul i32 %832, 6
+  %833 = sext i32 %832 to i64
+  %834 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i684, i64 %833
+  %835 = getelementptr i8, ptr %834, i64 8
+  %.val495 = load i32, ptr %835, align 8
+  %836 = getelementptr i8, ptr %834, i64 12
+  %.val496 = load i32, ptr %836, align 4
+  %837 = sub nsw i32 %.val495, %.val496
+  %838 = tail call i32 @llvm.abs.i32(i32 %837, i1 true)
+  %839 = mul i32 %838, 6
   %.val383 = load ptr, ptr %6, align 8
-  %834 = getelementptr inbounds i8, ptr %.val383, i64 140
-  %835 = load i32, ptr %834, align 4
-  %836 = add nsw i32 %833, %835
-  store i32 %836, ptr %834, align 4
-  br label %1293
+  %840 = getelementptr inbounds i8, ptr %.val383, i64 140
+  %841 = load i32, ptr %840, align 4
+  %842 = add nsw i32 %839, %841
+  store i32 %842, ptr %840, align 4
+  br label %1299
 
-837:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %838 = getelementptr inbounds i8, ptr %53, i64 4
-  %839 = load i32, ptr %838, align 4
-  %840 = icmp ugt i32 %839, 2
-  %841 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %840, label %Wlc_ObjHasArray.exit.thread.i.i.i686, label %Wlc_ObjFanin0.exit688
+843:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %844 = getelementptr inbounds i8, ptr %53, i64 4
+  %845 = load i32, ptr %844, align 4
+  %846 = icmp ugt i32 %845, 2
+  %847 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %846, label %Wlc_ObjHasArray.exit.thread.i.i.i686, label %Wlc_ObjFanin0.exit688
 
-Wlc_ObjHasArray.exit.thread.i.i.i686:             ; preds = %837
-  %842 = load ptr, ptr %841, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i686:             ; preds = %843
+  %848 = load ptr, ptr %847, align 8
   br label %Wlc_ObjFanin0.exit688
 
-Wlc_ObjFanin0.exit688:                            ; preds = %837, %Wlc_ObjHasArray.exit.thread.i.i.i686
-  %843 = phi ptr [ %842, %Wlc_ObjHasArray.exit.thread.i.i.i686 ], [ %841, %837 ]
-  %844 = load i32, ptr %843, align 4
+Wlc_ObjFanin0.exit688:                            ; preds = %843, %Wlc_ObjHasArray.exit.thread.i.i.i686
+  %849 = phi ptr [ %848, %Wlc_ObjHasArray.exit.thread.i.i.i686 ], [ %847, %843 ]
+  %850 = load i32, ptr %849, align 4
   %.val.i687 = load ptr, ptr %43, align 8
-  %845 = sext i32 %844 to i64
-  %846 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i687, i64 %845
-  %847 = getelementptr i8, ptr %846, i64 8
-  %.val497 = load i32, ptr %847, align 8
-  %848 = getelementptr i8, ptr %846, i64 12
-  %.val498 = load i32, ptr %848, align 4
-  %849 = sub nsw i32 %.val497, %.val498
-  %850 = tail call i32 @llvm.abs.i32(i32 %849, i1 true)
-  %851 = mul i32 %850, 6
+  %851 = sext i32 %850 to i64
+  %852 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i687, i64 %851
+  %853 = getelementptr i8, ptr %852, i64 8
+  %.val497 = load i32, ptr %853, align 8
+  %854 = getelementptr i8, ptr %852, i64 12
+  %.val498 = load i32, ptr %854, align 4
+  %855 = sub nsw i32 %.val497, %.val498
+  %856 = tail call i32 @llvm.abs.i32(i32 %855, i1 true)
+  %857 = mul i32 %856, 6
   %.val382 = load ptr, ptr %6, align 8
-  %852 = getelementptr inbounds i8, ptr %.val382, i64 144
-  %853 = load i32, ptr %852, align 4
-  %854 = add nsw i32 %851, %853
-  store i32 %854, ptr %852, align 4
-  br label %1293
+  %858 = getelementptr inbounds i8, ptr %.val382, i64 144
+  %859 = load i32, ptr %858, align 4
+  %860 = add nsw i32 %857, %859
+  store i32 %860, ptr %858, align 4
+  br label %1299
 
-855:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %856 = getelementptr inbounds i8, ptr %53, i64 4
-  %857 = load i32, ptr %856, align 4
-  %858 = icmp ugt i32 %857, 2
-  %859 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %858, label %Wlc_ObjHasArray.exit.thread.i.i.i689, label %Wlc_ObjFanin0.exit691
+861:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %862 = getelementptr inbounds i8, ptr %53, i64 4
+  %863 = load i32, ptr %862, align 4
+  %864 = icmp ugt i32 %863, 2
+  %865 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %864, label %Wlc_ObjHasArray.exit.thread.i.i.i689, label %Wlc_ObjFanin0.exit691
 
-Wlc_ObjHasArray.exit.thread.i.i.i689:             ; preds = %855
-  %860 = load ptr, ptr %859, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i689:             ; preds = %861
+  %866 = load ptr, ptr %865, align 8
   br label %Wlc_ObjFanin0.exit691
 
-Wlc_ObjFanin0.exit691:                            ; preds = %855, %Wlc_ObjHasArray.exit.thread.i.i.i689
-  %861 = phi ptr [ %860, %Wlc_ObjHasArray.exit.thread.i.i.i689 ], [ %859, %855 ]
-  %862 = load i32, ptr %861, align 4
+Wlc_ObjFanin0.exit691:                            ; preds = %861, %Wlc_ObjHasArray.exit.thread.i.i.i689
+  %867 = phi ptr [ %866, %Wlc_ObjHasArray.exit.thread.i.i.i689 ], [ %865, %861 ]
+  %868 = load i32, ptr %867, align 4
   %.val.i690 = load ptr, ptr %43, align 8
-  %863 = sext i32 %862 to i64
-  %864 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i690, i64 %863
-  %865 = getelementptr i8, ptr %864, i64 8
-  %.val499 = load i32, ptr %865, align 8
-  %866 = getelementptr i8, ptr %864, i64 12
-  %.val500 = load i32, ptr %866, align 4
-  %867 = sub nsw i32 %.val499, %.val500
-  %868 = tail call i32 @llvm.abs.i32(i32 %867, i1 true)
+  %869 = sext i32 %868 to i64
+  %870 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i690, i64 %869
+  %871 = getelementptr i8, ptr %870, i64 8
+  %.val499 = load i32, ptr %871, align 8
+  %872 = getelementptr i8, ptr %870, i64 12
+  %.val500 = load i32, ptr %872, align 4
+  %873 = sub nsw i32 %.val499, %.val500
+  %874 = tail call i32 @llvm.abs.i32(i32 %873, i1 true)
   %.val381 = load ptr, ptr %6, align 8
-  %869 = getelementptr inbounds i8, ptr %.val381, i64 148
-  %870 = load i32, ptr %869, align 4
-  %871 = add nsw i32 %870, %868
-  store i32 %871, ptr %869, align 4
-  br label %1293
+  %875 = getelementptr inbounds i8, ptr %.val381, i64 148
+  %876 = load i32, ptr %875, align 4
+  %877 = add nsw i32 %876, %874
+  store i32 %877, ptr %875, align 4
+  br label %1299
 
-872:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %873 = getelementptr inbounds i8, ptr %53, i64 4
-  %874 = load i32, ptr %873, align 4
-  %875 = icmp ugt i32 %874, 2
-  %876 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %875, label %Wlc_ObjHasArray.exit.thread.i.i.i692, label %Wlc_ObjFanin0.exit694
+878:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %879 = getelementptr inbounds i8, ptr %53, i64 4
+  %880 = load i32, ptr %879, align 4
+  %881 = icmp ugt i32 %880, 2
+  %882 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %881, label %Wlc_ObjHasArray.exit.thread.i.i.i692, label %Wlc_ObjFanin0.exit694
 
-Wlc_ObjHasArray.exit.thread.i.i.i692:             ; preds = %872
-  %877 = load ptr, ptr %876, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i692:             ; preds = %878
+  %883 = load ptr, ptr %882, align 8
   br label %Wlc_ObjFanin0.exit694
 
-Wlc_ObjFanin0.exit694:                            ; preds = %872, %Wlc_ObjHasArray.exit.thread.i.i.i692
-  %878 = phi ptr [ %877, %Wlc_ObjHasArray.exit.thread.i.i.i692 ], [ %876, %872 ]
-  %879 = load i32, ptr %878, align 4
+Wlc_ObjFanin0.exit694:                            ; preds = %878, %Wlc_ObjHasArray.exit.thread.i.i.i692
+  %884 = phi ptr [ %883, %Wlc_ObjHasArray.exit.thread.i.i.i692 ], [ %882, %878 ]
+  %885 = load i32, ptr %884, align 4
   %.val.i693 = load ptr, ptr %43, align 8
-  %880 = sext i32 %879 to i64
-  %881 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i693, i64 %880
-  %882 = getelementptr i8, ptr %881, i64 8
-  %.val501 = load i32, ptr %882, align 8
-  %883 = getelementptr i8, ptr %881, i64 12
-  %.val502 = load i32, ptr %883, align 4
-  %884 = sub nsw i32 %.val501, %.val502
-  %885 = tail call i32 @llvm.abs.i32(i32 %884, i1 true)
+  %886 = sext i32 %885 to i64
+  %887 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i693, i64 %886
+  %888 = getelementptr i8, ptr %887, i64 8
+  %.val501 = load i32, ptr %888, align 8
+  %889 = getelementptr i8, ptr %887, i64 12
+  %.val502 = load i32, ptr %889, align 4
+  %890 = sub nsw i32 %.val501, %.val502
+  %891 = tail call i32 @llvm.abs.i32(i32 %890, i1 true)
   %.val380 = load ptr, ptr %6, align 8
-  %886 = getelementptr inbounds i8, ptr %.val380, i64 152
-  %887 = load i32, ptr %886, align 4
-  %888 = add nsw i32 %887, %885
-  store i32 %888, ptr %886, align 4
-  br label %1293
+  %892 = getelementptr inbounds i8, ptr %.val380, i64 152
+  %893 = load i32, ptr %892, align 4
+  %894 = add nsw i32 %893, %891
+  store i32 %894, ptr %892, align 4
+  br label %1299
 
-889:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %890 = getelementptr inbounds i8, ptr %53, i64 4
-  %891 = load i32, ptr %890, align 4
-  %892 = icmp ugt i32 %891, 2
-  %893 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %892, label %Wlc_ObjHasArray.exit.thread.i.i.i695, label %Wlc_ObjFanin0.exit697
+895:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %896 = getelementptr inbounds i8, ptr %53, i64 4
+  %897 = load i32, ptr %896, align 4
+  %898 = icmp ugt i32 %897, 2
+  %899 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %898, label %Wlc_ObjHasArray.exit.thread.i.i.i695, label %Wlc_ObjFanin0.exit697
 
-Wlc_ObjHasArray.exit.thread.i.i.i695:             ; preds = %889
-  %894 = load ptr, ptr %893, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i695:             ; preds = %895
+  %900 = load ptr, ptr %899, align 8
   br label %Wlc_ObjFanin0.exit697
 
-Wlc_ObjFanin0.exit697:                            ; preds = %889, %Wlc_ObjHasArray.exit.thread.i.i.i695
-  %895 = phi ptr [ %894, %Wlc_ObjHasArray.exit.thread.i.i.i695 ], [ %893, %889 ]
-  %896 = load i32, ptr %895, align 4
+Wlc_ObjFanin0.exit697:                            ; preds = %895, %Wlc_ObjHasArray.exit.thread.i.i.i695
+  %901 = phi ptr [ %900, %Wlc_ObjHasArray.exit.thread.i.i.i695 ], [ %899, %895 ]
+  %902 = load i32, ptr %901, align 4
   %.val.i696 = load ptr, ptr %43, align 8
-  %897 = sext i32 %896 to i64
-  %898 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i696, i64 %897
-  %899 = getelementptr i8, ptr %898, i64 8
-  %.val503 = load i32, ptr %899, align 8
-  %900 = getelementptr i8, ptr %898, i64 12
-  %.val504 = load i32, ptr %900, align 4
-  %901 = sub nsw i32 %.val503, %.val504
-  %902 = tail call i32 @llvm.abs.i32(i32 %901, i1 true)
-  %903 = mul i32 %902, 3
+  %903 = sext i32 %902 to i64
+  %904 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i696, i64 %903
+  %905 = getelementptr i8, ptr %904, i64 8
+  %.val503 = load i32, ptr %905, align 8
+  %906 = getelementptr i8, ptr %904, i64 12
+  %.val504 = load i32, ptr %906, align 4
+  %907 = sub nsw i32 %.val503, %.val504
+  %908 = tail call i32 @llvm.abs.i32(i32 %907, i1 true)
+  %909 = mul i32 %908, 3
   %.val379 = load ptr, ptr %6, align 8
-  %904 = getelementptr inbounds i8, ptr %.val379, i64 156
-  %905 = load i32, ptr %904, align 4
-  %906 = add nsw i32 %903, %905
-  store i32 %906, ptr %904, align 4
-  br label %1293
+  %910 = getelementptr inbounds i8, ptr %.val379, i64 156
+  %911 = load i32, ptr %910, align 4
+  %912 = add nsw i32 %909, %911
+  store i32 %912, ptr %910, align 4
+  br label %1299
 
-907:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %908 = getelementptr inbounds i8, ptr %53, i64 4
-  %909 = load i32, ptr %908, align 4
-  %910 = icmp ugt i32 %909, 2
-  %911 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %910, label %Wlc_ObjHasArray.exit.thread.i.i.i698, label %Wlc_ObjFanin0.exit700
+913:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %914 = getelementptr inbounds i8, ptr %53, i64 4
+  %915 = load i32, ptr %914, align 4
+  %916 = icmp ugt i32 %915, 2
+  %917 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %916, label %Wlc_ObjHasArray.exit.thread.i.i.i698, label %Wlc_ObjFanin0.exit700
 
-Wlc_ObjHasArray.exit.thread.i.i.i698:             ; preds = %907
-  %912 = load ptr, ptr %911, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i698:             ; preds = %913
+  %918 = load ptr, ptr %917, align 8
   br label %Wlc_ObjFanin0.exit700
 
-Wlc_ObjFanin0.exit700:                            ; preds = %907, %Wlc_ObjHasArray.exit.thread.i.i.i698
-  %913 = phi ptr [ %912, %Wlc_ObjHasArray.exit.thread.i.i.i698 ], [ %911, %907 ]
-  %914 = load i32, ptr %913, align 4
+Wlc_ObjFanin0.exit700:                            ; preds = %913, %Wlc_ObjHasArray.exit.thread.i.i.i698
+  %919 = phi ptr [ %918, %Wlc_ObjHasArray.exit.thread.i.i.i698 ], [ %917, %913 ]
+  %920 = load i32, ptr %919, align 4
   %.val.i699 = load ptr, ptr %43, align 8
-  %915 = sext i32 %914 to i64
-  %916 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i699, i64 %915
-  %917 = getelementptr i8, ptr %916, i64 8
-  %.val505 = load i32, ptr %917, align 8
-  %918 = getelementptr i8, ptr %916, i64 12
-  %.val506 = load i32, ptr %918, align 4
-  %919 = sub nsw i32 %.val505, %.val506
-  %920 = tail call i32 @llvm.abs.i32(i32 %919, i1 true)
+  %921 = sext i32 %920 to i64
+  %922 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i699, i64 %921
+  %923 = getelementptr i8, ptr %922, i64 8
+  %.val505 = load i32, ptr %923, align 8
+  %924 = getelementptr i8, ptr %922, i64 12
+  %.val506 = load i32, ptr %924, align 4
+  %925 = sub nsw i32 %.val505, %.val506
+  %926 = tail call i32 @llvm.abs.i32(i32 %925, i1 true)
   %.val378 = load ptr, ptr %6, align 8
-  %921 = getelementptr inbounds i8, ptr %.val378, i64 160
-  %922 = load i32, ptr %921, align 4
-  %923 = add nsw i32 %922, %920
-  store i32 %923, ptr %921, align 4
-  br label %1293
+  %927 = getelementptr inbounds i8, ptr %.val378, i64 160
+  %928 = load i32, ptr %927, align 4
+  %929 = add nsw i32 %928, %926
+  store i32 %929, ptr %927, align 4
+  br label %1299
 
-924:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %925 = getelementptr inbounds i8, ptr %53, i64 4
-  %926 = load i32, ptr %925, align 4
-  %927 = icmp ugt i32 %926, 2
-  %928 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %927, label %Wlc_ObjHasArray.exit.thread.i.i.i701, label %Wlc_ObjFanin0.exit703
+930:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %931 = getelementptr inbounds i8, ptr %53, i64 4
+  %932 = load i32, ptr %931, align 4
+  %933 = icmp ugt i32 %932, 2
+  %934 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %933, label %Wlc_ObjHasArray.exit.thread.i.i.i701, label %Wlc_ObjFanin0.exit703
 
-Wlc_ObjHasArray.exit.thread.i.i.i701:             ; preds = %924
-  %929 = load ptr, ptr %928, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i701:             ; preds = %930
+  %935 = load ptr, ptr %934, align 8
   br label %Wlc_ObjFanin0.exit703
 
-Wlc_ObjFanin0.exit703:                            ; preds = %924, %Wlc_ObjHasArray.exit.thread.i.i.i701
-  %930 = phi ptr [ %929, %Wlc_ObjHasArray.exit.thread.i.i.i701 ], [ %928, %924 ]
-  %931 = load i32, ptr %930, align 4
+Wlc_ObjFanin0.exit703:                            ; preds = %930, %Wlc_ObjHasArray.exit.thread.i.i.i701
+  %936 = phi ptr [ %935, %Wlc_ObjHasArray.exit.thread.i.i.i701 ], [ %934, %930 ]
+  %937 = load i32, ptr %936, align 4
   %.val.i702 = load ptr, ptr %43, align 8
-  %932 = sext i32 %931 to i64
-  %933 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i702, i64 %932
-  %934 = getelementptr i8, ptr %933, i64 8
-  %.val507 = load i32, ptr %934, align 8
-  %935 = getelementptr i8, ptr %933, i64 12
-  %.val508 = load i32, ptr %935, align 4
-  %936 = sub nsw i32 %.val507, %.val508
-  %937 = tail call i32 @llvm.abs.i32(i32 %936, i1 true)
+  %938 = sext i32 %937 to i64
+  %939 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i702, i64 %938
+  %940 = getelementptr i8, ptr %939, i64 8
+  %.val507 = load i32, ptr %940, align 8
+  %941 = getelementptr i8, ptr %939, i64 12
+  %.val508 = load i32, ptr %941, align 4
+  %942 = sub nsw i32 %.val507, %.val508
+  %943 = tail call i32 @llvm.abs.i32(i32 %942, i1 true)
   %.val377 = load ptr, ptr %6, align 8
-  %938 = getelementptr inbounds i8, ptr %.val377, i64 164
-  %939 = load i32, ptr %938, align 4
-  %940 = add nsw i32 %939, %937
-  store i32 %940, ptr %938, align 4
-  br label %1293
+  %944 = getelementptr inbounds i8, ptr %.val377, i64 164
+  %945 = load i32, ptr %944, align 4
+  %946 = add nsw i32 %945, %943
+  store i32 %946, ptr %944, align 4
+  br label %1299
 
-941:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %942 = getelementptr inbounds i8, ptr %53, i64 4
-  %943 = load i32, ptr %942, align 4
-  %944 = icmp ugt i32 %943, 2
-  %945 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %944, label %Wlc_ObjHasArray.exit.thread.i.i.i704, label %Wlc_ObjFanin0.exit706
+947:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %948 = getelementptr inbounds i8, ptr %53, i64 4
+  %949 = load i32, ptr %948, align 4
+  %950 = icmp ugt i32 %949, 2
+  %951 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %950, label %Wlc_ObjHasArray.exit.thread.i.i.i704, label %Wlc_ObjFanin0.exit706
 
-Wlc_ObjHasArray.exit.thread.i.i.i704:             ; preds = %941
-  %946 = load ptr, ptr %945, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i704:             ; preds = %947
+  %952 = load ptr, ptr %951, align 8
   br label %Wlc_ObjFanin0.exit706
 
-Wlc_ObjFanin0.exit706:                            ; preds = %941, %Wlc_ObjHasArray.exit.thread.i.i.i704
-  %947 = phi ptr [ %946, %Wlc_ObjHasArray.exit.thread.i.i.i704 ], [ %945, %941 ]
-  %948 = load i32, ptr %947, align 4
+Wlc_ObjFanin0.exit706:                            ; preds = %947, %Wlc_ObjHasArray.exit.thread.i.i.i704
+  %953 = phi ptr [ %952, %Wlc_ObjHasArray.exit.thread.i.i.i704 ], [ %951, %947 ]
+  %954 = load i32, ptr %953, align 4
   %.val.i705 = load ptr, ptr %43, align 8
-  %949 = sext i32 %948 to i64
-  %950 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i705, i64 %949
-  %951 = getelementptr i8, ptr %950, i64 8
-  %.val509 = load i32, ptr %951, align 8
-  %952 = getelementptr i8, ptr %950, i64 12
-  %.val510 = load i32, ptr %952, align 4
-  %953 = sub nsw i32 %.val509, %.val510
-  %954 = tail call i32 @llvm.abs.i32(i32 %953, i1 true)
-  %955 = mul i32 %954, 3
+  %955 = sext i32 %954 to i64
+  %956 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i705, i64 %955
+  %957 = getelementptr i8, ptr %956, i64 8
+  %.val509 = load i32, ptr %957, align 8
+  %958 = getelementptr i8, ptr %956, i64 12
+  %.val510 = load i32, ptr %958, align 4
+  %959 = sub nsw i32 %.val509, %.val510
+  %960 = tail call i32 @llvm.abs.i32(i32 %959, i1 true)
+  %961 = mul i32 %960, 3
   %.val376 = load ptr, ptr %6, align 8
-  %956 = getelementptr inbounds i8, ptr %.val376, i64 168
-  %957 = load i32, ptr %956, align 4
-  %958 = add nsw i32 %955, %957
-  store i32 %958, ptr %956, align 4
-  br label %1293
+  %962 = getelementptr inbounds i8, ptr %.val376, i64 168
+  %963 = load i32, ptr %962, align 4
+  %964 = add nsw i32 %961, %963
+  store i32 %964, ptr %962, align 4
+  br label %1299
 
-959:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %960 = getelementptr inbounds i8, ptr %53, i64 4
-  %961 = load i32, ptr %960, align 4
-  %962 = icmp ugt i32 %961, 2
-  %963 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %962, label %Wlc_ObjHasArray.exit.thread.i.i.i707, label %Wlc_ObjFanin0.exit709
+965:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %966 = getelementptr inbounds i8, ptr %53, i64 4
+  %967 = load i32, ptr %966, align 4
+  %968 = icmp ugt i32 %967, 2
+  %969 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %968, label %Wlc_ObjHasArray.exit.thread.i.i.i707, label %Wlc_ObjFanin0.exit709
 
-Wlc_ObjHasArray.exit.thread.i.i.i707:             ; preds = %959
-  %964 = load ptr, ptr %963, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i707:             ; preds = %965
+  %970 = load ptr, ptr %969, align 8
   br label %Wlc_ObjFanin0.exit709
 
-Wlc_ObjFanin0.exit709:                            ; preds = %959, %Wlc_ObjHasArray.exit.thread.i.i.i707
-  %965 = phi ptr [ %964, %Wlc_ObjHasArray.exit.thread.i.i.i707 ], [ %963, %959 ]
-  %966 = load i32, ptr %965, align 4
+Wlc_ObjFanin0.exit709:                            ; preds = %965, %Wlc_ObjHasArray.exit.thread.i.i.i707
+  %971 = phi ptr [ %970, %Wlc_ObjHasArray.exit.thread.i.i.i707 ], [ %969, %965 ]
+  %972 = load i32, ptr %971, align 4
   %.val.i708 = load ptr, ptr %43, align 8
-  %967 = sext i32 %966 to i64
-  %968 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i708, i64 %967
-  %969 = getelementptr i8, ptr %968, i64 8
-  %.val511 = load i32, ptr %969, align 8
-  %970 = getelementptr i8, ptr %968, i64 12
-  %.val512 = load i32, ptr %970, align 4
-  %971 = sub nsw i32 %.val511, %.val512
-  %972 = tail call i32 @llvm.abs.i32(i32 %971, i1 true)
-  %973 = mul i32 %972, 9
+  %973 = sext i32 %972 to i64
+  %974 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i708, i64 %973
+  %975 = getelementptr i8, ptr %974, i64 8
+  %.val511 = load i32, ptr %975, align 8
+  %976 = getelementptr i8, ptr %974, i64 12
+  %.val512 = load i32, ptr %976, align 4
+  %977 = sub nsw i32 %.val511, %.val512
+  %978 = tail call i32 @llvm.abs.i32(i32 %977, i1 true)
+  %979 = mul i32 %978, 9
   %.val375 = load ptr, ptr %6, align 8
-  %974 = getelementptr inbounds i8, ptr %.val375, i64 172
-  %975 = load i32, ptr %974, align 4
-  %976 = add i32 %975, 9
-  %977 = add i32 %976, %973
-  store i32 %977, ptr %974, align 4
-  br label %1293
+  %980 = getelementptr inbounds i8, ptr %.val375, i64 172
+  %981 = load i32, ptr %980, align 4
+  %982 = add i32 %981, 9
+  %983 = add i32 %982, %979
+  store i32 %983, ptr %980, align 4
+  br label %1299
 
-978:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %979 = getelementptr inbounds i8, ptr %53, i64 4
-  %980 = load i32, ptr %979, align 4
-  %981 = icmp ugt i32 %980, 2
-  %982 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %981, label %Wlc_ObjHasArray.exit.thread.i.i.i710, label %Wlc_ObjFanin0.exit712
+984:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %985 = getelementptr inbounds i8, ptr %53, i64 4
+  %986 = load i32, ptr %985, align 4
+  %987 = icmp ugt i32 %986, 2
+  %988 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %987, label %Wlc_ObjHasArray.exit.thread.i.i.i710, label %Wlc_ObjFanin0.exit712
 
-Wlc_ObjHasArray.exit.thread.i.i.i710:             ; preds = %978
-  %983 = load ptr, ptr %982, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i710:             ; preds = %984
+  %989 = load ptr, ptr %988, align 8
   br label %Wlc_ObjFanin0.exit712
 
-Wlc_ObjFanin0.exit712:                            ; preds = %978, %Wlc_ObjHasArray.exit.thread.i.i.i710
-  %984 = phi ptr [ %983, %Wlc_ObjHasArray.exit.thread.i.i.i710 ], [ %982, %978 ]
-  %985 = load i32, ptr %984, align 4
+Wlc_ObjFanin0.exit712:                            ; preds = %984, %Wlc_ObjHasArray.exit.thread.i.i.i710
+  %990 = phi ptr [ %989, %Wlc_ObjHasArray.exit.thread.i.i.i710 ], [ %988, %984 ]
+  %991 = load i32, ptr %990, align 4
   %.val.i711 = load ptr, ptr %43, align 8
-  %986 = sext i32 %985 to i64
-  %987 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i711, i64 %986
-  %988 = getelementptr i8, ptr %987, i64 8
-  %.val513 = load i32, ptr %988, align 8
-  %989 = getelementptr i8, ptr %987, i64 12
-  %.val514 = load i32, ptr %989, align 4
-  %990 = sub nsw i32 %.val513, %.val514
-  %991 = tail call i32 @llvm.abs.i32(i32 %990, i1 true)
-  %992 = mul i32 %991, 9
+  %992 = sext i32 %991 to i64
+  %993 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i711, i64 %992
+  %994 = getelementptr i8, ptr %993, i64 8
+  %.val513 = load i32, ptr %994, align 8
+  %995 = getelementptr i8, ptr %993, i64 12
+  %.val514 = load i32, ptr %995, align 4
+  %996 = sub nsw i32 %.val513, %.val514
+  %997 = tail call i32 @llvm.abs.i32(i32 %996, i1 true)
+  %998 = mul i32 %997, 9
   %.val374 = load ptr, ptr %6, align 8
-  %993 = getelementptr inbounds i8, ptr %.val374, i64 176
-  %994 = load i32, ptr %993, align 4
-  %995 = add i32 %994, 9
-  %996 = add i32 %995, %992
-  store i32 %996, ptr %993, align 4
-  br label %1293
+  %999 = getelementptr inbounds i8, ptr %.val374, i64 176
+  %1000 = load i32, ptr %999, align 4
+  %1001 = add i32 %1000, 9
+  %1002 = add i32 %1001, %998
+  store i32 %1002, ptr %999, align 4
+  br label %1299
 
-997:                                              ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %998 = getelementptr inbounds i8, ptr %53, i64 4
-  %999 = load i32, ptr %998, align 4
-  %1000 = icmp ugt i32 %999, 2
-  %1001 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1000, label %Wlc_ObjHasArray.exit.thread.i.i.i713, label %Wlc_ObjFanin0.exit715
+1003:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %1004 = getelementptr inbounds i8, ptr %53, i64 4
+  %1005 = load i32, ptr %1004, align 4
+  %1006 = icmp ugt i32 %1005, 2
+  %1007 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1006, label %Wlc_ObjHasArray.exit.thread.i.i.i713, label %Wlc_ObjFanin0.exit715
 
-Wlc_ObjHasArray.exit.thread.i.i.i713:             ; preds = %997
-  %1002 = load ptr, ptr %1001, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i713:             ; preds = %1003
+  %1008 = load ptr, ptr %1007, align 8
   br label %Wlc_ObjFanin0.exit715
 
-Wlc_ObjFanin0.exit715:                            ; preds = %997, %Wlc_ObjHasArray.exit.thread.i.i.i713
-  %1003 = phi ptr [ %1002, %Wlc_ObjHasArray.exit.thread.i.i.i713 ], [ %1001, %997 ]
-  %1004 = load i32, ptr %1003, align 4
+Wlc_ObjFanin0.exit715:                            ; preds = %1003, %Wlc_ObjHasArray.exit.thread.i.i.i713
+  %1009 = phi ptr [ %1008, %Wlc_ObjHasArray.exit.thread.i.i.i713 ], [ %1007, %1003 ]
+  %1010 = load i32, ptr %1009, align 4
   %.val.i714 = load ptr, ptr %43, align 8
-  %1005 = sext i32 %1004 to i64
-  %1006 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i714, i64 %1005
-  %1007 = getelementptr i8, ptr %1006, i64 8
-  %.val515 = load i32, ptr %1007, align 8
-  %1008 = getelementptr i8, ptr %1006, i64 12
-  %.val516 = load i32, ptr %1008, align 4
-  %1009 = sub nsw i32 %.val515, %.val516
-  %1010 = tail call i32 @llvm.abs.i32(i32 %1009, i1 true)
-  %1011 = mul i32 %1010, 9
-  %1012 = add i32 %1011, 9
-  %1013 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1000, label %Wlc_ObjHasArray.exit.thread.i.i.i716, label %Wlc_ObjFanin1.exit718
+  %1011 = sext i32 %1010 to i64
+  %1012 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i714, i64 %1011
+  %1013 = getelementptr i8, ptr %1012, i64 8
+  %.val515 = load i32, ptr %1013, align 8
+  %1014 = getelementptr i8, ptr %1012, i64 12
+  %.val516 = load i32, ptr %1014, align 4
+  %1015 = sub nsw i32 %.val515, %.val516
+  %1016 = tail call i32 @llvm.abs.i32(i32 %1015, i1 true)
+  %1017 = mul i32 %1016, 9
+  %1018 = add i32 %1017, 9
+  %1019 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1006, label %Wlc_ObjHasArray.exit.thread.i.i.i716, label %Wlc_ObjFanin1.exit718
 
 Wlc_ObjHasArray.exit.thread.i.i.i716:             ; preds = %Wlc_ObjFanin0.exit715
-  %1014 = load ptr, ptr %1013, align 8
+  %1020 = load ptr, ptr %1019, align 8
   br label %Wlc_ObjFanin1.exit718
 
 Wlc_ObjFanin1.exit718:                            ; preds = %Wlc_ObjFanin0.exit715, %Wlc_ObjHasArray.exit.thread.i.i.i716
-  %1015 = phi ptr [ %1014, %Wlc_ObjHasArray.exit.thread.i.i.i716 ], [ %1013, %Wlc_ObjFanin0.exit715 ]
-  %1016 = getelementptr inbounds i8, ptr %1015, i64 4
-  %1017 = load i32, ptr %1016, align 4
-  %1018 = sext i32 %1017 to i64
-  %1019 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i714, i64 %1018
-  %1020 = getelementptr i8, ptr %1019, i64 8
-  %.val517 = load i32, ptr %1020, align 8
-  %1021 = getelementptr i8, ptr %1019, i64 12
-  %.val518 = load i32, ptr %1021, align 4
-  %1022 = sub nsw i32 %.val517, %.val518
-  %1023 = tail call i32 @llvm.abs.i32(i32 %1022, i1 true)
-  %1024 = add nuw nsw i32 %1023, 1
-  %1025 = mul nsw i32 %1024, %1012
+  %1021 = phi ptr [ %1020, %Wlc_ObjHasArray.exit.thread.i.i.i716 ], [ %1019, %Wlc_ObjFanin0.exit715 ]
+  %1022 = getelementptr inbounds i8, ptr %1021, i64 4
+  %1023 = load i32, ptr %1022, align 4
+  %1024 = sext i32 %1023 to i64
+  %1025 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i714, i64 %1024
+  %1026 = getelementptr i8, ptr %1025, i64 8
+  %.val517 = load i32, ptr %1026, align 8
+  %1027 = getelementptr i8, ptr %1025, i64 12
+  %.val518 = load i32, ptr %1027, align 4
+  %1028 = sub nsw i32 %.val517, %.val518
+  %1029 = tail call i32 @llvm.abs.i32(i32 %1028, i1 true)
+  %1030 = add nuw nsw i32 %1029, 1
+  %1031 = mul nsw i32 %1030, %1018
   %.val373 = load ptr, ptr %6, align 8
-  %1026 = getelementptr inbounds i8, ptr %.val373, i64 180
-  %1027 = load i32, ptr %1026, align 4
-  %1028 = add nsw i32 %1025, %1027
-  store i32 %1028, ptr %1026, align 4
-  br label %1293
+  %1032 = getelementptr inbounds i8, ptr %.val373, i64 180
+  %1033 = load i32, ptr %1032, align 4
+  %1034 = add nsw i32 %1031, %1033
+  store i32 %1034, ptr %1032, align 4
+  br label %1299
 
-1029:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %1030 = getelementptr inbounds i8, ptr %53, i64 4
-  %1031 = load i32, ptr %1030, align 4
-  %1032 = icmp ugt i32 %1031, 2
-  %1033 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1032, label %Wlc_ObjHasArray.exit.thread.i.i.i719, label %Wlc_ObjFanin0.exit721
+1035:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %1036 = getelementptr inbounds i8, ptr %53, i64 4
+  %1037 = load i32, ptr %1036, align 4
+  %1038 = icmp ugt i32 %1037, 2
+  %1039 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1038, label %Wlc_ObjHasArray.exit.thread.i.i.i719, label %Wlc_ObjFanin0.exit721
 
-Wlc_ObjHasArray.exit.thread.i.i.i719:             ; preds = %1029
-  %1034 = load ptr, ptr %1033, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i719:             ; preds = %1035
+  %1040 = load ptr, ptr %1039, align 8
   br label %Wlc_ObjFanin0.exit721
 
-Wlc_ObjFanin0.exit721:                            ; preds = %1029, %Wlc_ObjHasArray.exit.thread.i.i.i719
-  %1035 = phi ptr [ %1034, %Wlc_ObjHasArray.exit.thread.i.i.i719 ], [ %1033, %1029 ]
-  %1036 = load i32, ptr %1035, align 4
+Wlc_ObjFanin0.exit721:                            ; preds = %1035, %Wlc_ObjHasArray.exit.thread.i.i.i719
+  %1041 = phi ptr [ %1040, %Wlc_ObjHasArray.exit.thread.i.i.i719 ], [ %1039, %1035 ]
+  %1042 = load i32, ptr %1041, align 4
   %.val.i720 = load ptr, ptr %43, align 8
-  %1037 = sext i32 %1036 to i64
-  %1038 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i720, i64 %1037
-  %1039 = getelementptr i8, ptr %1038, i64 8
-  %.val519 = load i32, ptr %1039, align 8
-  %1040 = getelementptr i8, ptr %1038, i64 12
-  %.val520 = load i32, ptr %1040, align 4
-  %1041 = sub nsw i32 %.val519, %.val520
-  %1042 = tail call i32 @llvm.abs.i32(i32 %1041, i1 true)
-  %1043 = mul i32 %1042, 13
-  %1044 = add i32 %1043, 13
-  %1045 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1032, label %Wlc_ObjHasArray.exit.thread.i.i.i722, label %Wlc_ObjFanin0.exit724
+  %1043 = sext i32 %1042 to i64
+  %1044 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i720, i64 %1043
+  %1045 = getelementptr i8, ptr %1044, i64 8
+  %.val519 = load i32, ptr %1045, align 8
+  %1046 = getelementptr i8, ptr %1044, i64 12
+  %.val520 = load i32, ptr %1046, align 4
+  %1047 = sub nsw i32 %.val519, %.val520
+  %1048 = tail call i32 @llvm.abs.i32(i32 %1047, i1 true)
+  %1049 = mul i32 %1048, 13
+  %1050 = add i32 %1049, 13
+  %1051 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1038, label %Wlc_ObjHasArray.exit.thread.i.i.i722, label %Wlc_ObjFanin0.exit724
 
 Wlc_ObjHasArray.exit.thread.i.i.i722:             ; preds = %Wlc_ObjFanin0.exit721
-  %1046 = load ptr, ptr %1045, align 8
+  %1052 = load ptr, ptr %1051, align 8
   br label %Wlc_ObjFanin0.exit724
 
 Wlc_ObjFanin0.exit724:                            ; preds = %Wlc_ObjFanin0.exit721, %Wlc_ObjHasArray.exit.thread.i.i.i722
-  %1047 = phi ptr [ %1046, %Wlc_ObjHasArray.exit.thread.i.i.i722 ], [ %1045, %Wlc_ObjFanin0.exit721 ]
-  %1048 = load i32, ptr %1047, align 4
-  %1049 = sext i32 %1048 to i64
-  %1050 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i720, i64 %1049
-  %1051 = getelementptr i8, ptr %1050, i64 8
-  %.val521 = load i32, ptr %1051, align 8
-  %1052 = getelementptr i8, ptr %1050, i64 12
-  %.val522 = load i32, ptr %1052, align 4
-  %1053 = sub nsw i32 %.val521, %.val522
-  %1054 = tail call i32 @llvm.abs.i32(i32 %1053, i1 true)
-  %1055 = add nuw nsw i32 %1054, 1
-  %1056 = mul nsw i32 %1055, %1044
-  %1057 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1032, label %Wlc_ObjHasArray.exit.thread.i.i.i725, label %Wlc_ObjFanin0.exit727
+  %1053 = phi ptr [ %1052, %Wlc_ObjHasArray.exit.thread.i.i.i722 ], [ %1051, %Wlc_ObjFanin0.exit721 ]
+  %1054 = load i32, ptr %1053, align 4
+  %1055 = sext i32 %1054 to i64
+  %1056 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i720, i64 %1055
+  %1057 = getelementptr i8, ptr %1056, i64 8
+  %.val521 = load i32, ptr %1057, align 8
+  %1058 = getelementptr i8, ptr %1056, i64 12
+  %.val522 = load i32, ptr %1058, align 4
+  %1059 = sub nsw i32 %.val521, %.val522
+  %1060 = tail call i32 @llvm.abs.i32(i32 %1059, i1 true)
+  %1061 = add nuw nsw i32 %1060, 1
+  %1062 = mul nsw i32 %1061, %1050
+  %1063 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1038, label %Wlc_ObjHasArray.exit.thread.i.i.i725, label %Wlc_ObjFanin0.exit727
 
 Wlc_ObjHasArray.exit.thread.i.i.i725:             ; preds = %Wlc_ObjFanin0.exit724
-  %1058 = load ptr, ptr %1057, align 8
+  %1064 = load ptr, ptr %1063, align 8
   br label %Wlc_ObjFanin0.exit727
 
 Wlc_ObjFanin0.exit727:                            ; preds = %Wlc_ObjFanin0.exit724, %Wlc_ObjHasArray.exit.thread.i.i.i725
-  %1059 = phi ptr [ %1058, %Wlc_ObjHasArray.exit.thread.i.i.i725 ], [ %1057, %Wlc_ObjFanin0.exit724 ]
-  %1060 = load i32, ptr %1059, align 4
-  %1061 = sext i32 %1060 to i64
-  %1062 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i720, i64 %1061
-  %1063 = getelementptr i8, ptr %1062, i64 8
-  %.val523 = load i32, ptr %1063, align 8
-  %1064 = getelementptr i8, ptr %1062, i64 12
-  %.val524 = load i32, ptr %1064, align 4
-  %1065 = sub nsw i32 %.val523, %.val524
-  %1066 = tail call i32 @llvm.abs.i32(i32 %1065, i1 true)
-  %1067 = mul i32 %1066, -19
+  %1065 = phi ptr [ %1064, %Wlc_ObjHasArray.exit.thread.i.i.i725 ], [ %1063, %Wlc_ObjFanin0.exit724 ]
+  %1066 = load i32, ptr %1065, align 4
+  %1067 = sext i32 %1066 to i64
+  %1068 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i720, i64 %1067
+  %1069 = getelementptr i8, ptr %1068, i64 8
+  %.val523 = load i32, ptr %1069, align 8
+  %1070 = getelementptr i8, ptr %1068, i64 12
+  %.val524 = load i32, ptr %1070, align 4
+  %1071 = sub nsw i32 %.val523, %.val524
+  %1072 = tail call i32 @llvm.abs.i32(i32 %1071, i1 true)
+  %1073 = mul i32 %1072, -19
   %.val372 = load ptr, ptr %6, align 8
-  %1068 = getelementptr inbounds i8, ptr %.val372, i64 184
-  %1069 = load i32, ptr %1068, align 4
-  %1070 = add i32 %1056, -9
-  %1071 = add i32 %1070, %1069
-  %1072 = add i32 %1071, %1067
-  store i32 %1072, ptr %1068, align 4
-  br label %1293
-
-1073:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %1074 = getelementptr inbounds i8, ptr %53, i64 4
+  %1074 = getelementptr inbounds i8, ptr %.val372, i64 184
   %1075 = load i32, ptr %1074, align 4
-  %1076 = icmp ugt i32 %1075, 2
-  %1077 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1076, label %Wlc_ObjHasArray.exit.thread.i.i.i728, label %Wlc_ObjFanin0.exit730
+  %1076 = add i32 %1062, -9
+  %1077 = add i32 %1076, %1075
+  %1078 = add i32 %1077, %1073
+  store i32 %1078, ptr %1074, align 4
+  br label %1299
 
-Wlc_ObjHasArray.exit.thread.i.i.i728:             ; preds = %1073
-  %1078 = load ptr, ptr %1077, align 8
+1079:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %1080 = getelementptr inbounds i8, ptr %53, i64 4
+  %1081 = load i32, ptr %1080, align 4
+  %1082 = icmp ugt i32 %1081, 2
+  %1083 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1082, label %Wlc_ObjHasArray.exit.thread.i.i.i728, label %Wlc_ObjFanin0.exit730
+
+Wlc_ObjHasArray.exit.thread.i.i.i728:             ; preds = %1079
+  %1084 = load ptr, ptr %1083, align 8
   br label %Wlc_ObjFanin0.exit730
 
-Wlc_ObjFanin0.exit730:                            ; preds = %1073, %Wlc_ObjHasArray.exit.thread.i.i.i728
-  %1079 = phi ptr [ %1078, %Wlc_ObjHasArray.exit.thread.i.i.i728 ], [ %1077, %1073 ]
-  %1080 = load i32, ptr %1079, align 4
+Wlc_ObjFanin0.exit730:                            ; preds = %1079, %Wlc_ObjHasArray.exit.thread.i.i.i728
+  %1085 = phi ptr [ %1084, %Wlc_ObjHasArray.exit.thread.i.i.i728 ], [ %1083, %1079 ]
+  %1086 = load i32, ptr %1085, align 4
   %.val.i729 = load ptr, ptr %43, align 8
-  %1081 = sext i32 %1080 to i64
-  %1082 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i729, i64 %1081
-  %1083 = getelementptr i8, ptr %1082, i64 8
-  %.val525 = load i32, ptr %1083, align 8
-  %1084 = getelementptr i8, ptr %1082, i64 12
-  %.val526 = load i32, ptr %1084, align 4
-  %1085 = sub nsw i32 %.val525, %.val526
-  %1086 = tail call i32 @llvm.abs.i32(i32 %1085, i1 true)
-  %1087 = mul i32 %1086, 13
-  %1088 = add i32 %1087, 13
-  %1089 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1076, label %Wlc_ObjHasArray.exit.thread.i.i.i731, label %Wlc_ObjFanin0.exit733
+  %1087 = sext i32 %1086 to i64
+  %1088 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i729, i64 %1087
+  %1089 = getelementptr i8, ptr %1088, i64 8
+  %.val525 = load i32, ptr %1089, align 8
+  %1090 = getelementptr i8, ptr %1088, i64 12
+  %.val526 = load i32, ptr %1090, align 4
+  %1091 = sub nsw i32 %.val525, %.val526
+  %1092 = tail call i32 @llvm.abs.i32(i32 %1091, i1 true)
+  %1093 = mul i32 %1092, 13
+  %1094 = add i32 %1093, 13
+  %1095 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1082, label %Wlc_ObjHasArray.exit.thread.i.i.i731, label %Wlc_ObjFanin0.exit733
 
 Wlc_ObjHasArray.exit.thread.i.i.i731:             ; preds = %Wlc_ObjFanin0.exit730
-  %1090 = load ptr, ptr %1089, align 8
+  %1096 = load ptr, ptr %1095, align 8
   br label %Wlc_ObjFanin0.exit733
 
 Wlc_ObjFanin0.exit733:                            ; preds = %Wlc_ObjFanin0.exit730, %Wlc_ObjHasArray.exit.thread.i.i.i731
-  %1091 = phi ptr [ %1090, %Wlc_ObjHasArray.exit.thread.i.i.i731 ], [ %1089, %Wlc_ObjFanin0.exit730 ]
-  %1092 = load i32, ptr %1091, align 4
-  %1093 = sext i32 %1092 to i64
-  %1094 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i729, i64 %1093
-  %1095 = getelementptr i8, ptr %1094, i64 8
-  %.val527 = load i32, ptr %1095, align 8
-  %1096 = getelementptr i8, ptr %1094, i64 12
-  %.val528 = load i32, ptr %1096, align 4
-  %1097 = sub nsw i32 %.val527, %.val528
-  %1098 = tail call i32 @llvm.abs.i32(i32 %1097, i1 true)
-  %1099 = add nuw nsw i32 %1098, 1
-  %1100 = mul nsw i32 %1099, %1088
-  %1101 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1076, label %Wlc_ObjHasArray.exit.thread.i.i.i734, label %Wlc_ObjFanin0.exit736
+  %1097 = phi ptr [ %1096, %Wlc_ObjHasArray.exit.thread.i.i.i731 ], [ %1095, %Wlc_ObjFanin0.exit730 ]
+  %1098 = load i32, ptr %1097, align 4
+  %1099 = sext i32 %1098 to i64
+  %1100 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i729, i64 %1099
+  %1101 = getelementptr i8, ptr %1100, i64 8
+  %.val527 = load i32, ptr %1101, align 8
+  %1102 = getelementptr i8, ptr %1100, i64 12
+  %.val528 = load i32, ptr %1102, align 4
+  %1103 = sub nsw i32 %.val527, %.val528
+  %1104 = tail call i32 @llvm.abs.i32(i32 %1103, i1 true)
+  %1105 = add nuw nsw i32 %1104, 1
+  %1106 = mul nsw i32 %1105, %1094
+  %1107 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1082, label %Wlc_ObjHasArray.exit.thread.i.i.i734, label %Wlc_ObjFanin0.exit736
 
 Wlc_ObjHasArray.exit.thread.i.i.i734:             ; preds = %Wlc_ObjFanin0.exit733
-  %1102 = load ptr, ptr %1101, align 8
+  %1108 = load ptr, ptr %1107, align 8
   br label %Wlc_ObjFanin0.exit736
 
 Wlc_ObjFanin0.exit736:                            ; preds = %Wlc_ObjFanin0.exit733, %Wlc_ObjHasArray.exit.thread.i.i.i734
-  %1103 = phi ptr [ %1102, %Wlc_ObjHasArray.exit.thread.i.i.i734 ], [ %1101, %Wlc_ObjFanin0.exit733 ]
-  %1104 = load i32, ptr %1103, align 4
-  %1105 = sext i32 %1104 to i64
-  %1106 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i729, i64 %1105
-  %1107 = getelementptr i8, ptr %1106, i64 8
-  %.val529 = load i32, ptr %1107, align 8
-  %1108 = getelementptr i8, ptr %1106, i64 12
-  %.val530 = load i32, ptr %1108, align 4
-  %1109 = sub nsw i32 %.val529, %.val530
-  %1110 = tail call i32 @llvm.abs.i32(i32 %1109, i1 true)
-  %1111 = mul i32 %1110, -7
+  %1109 = phi ptr [ %1108, %Wlc_ObjHasArray.exit.thread.i.i.i734 ], [ %1107, %Wlc_ObjFanin0.exit733 ]
+  %1110 = load i32, ptr %1109, align 4
+  %1111 = sext i32 %1110 to i64
+  %1112 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i729, i64 %1111
+  %1113 = getelementptr i8, ptr %1112, i64 8
+  %.val529 = load i32, ptr %1113, align 8
+  %1114 = getelementptr i8, ptr %1112, i64 12
+  %.val530 = load i32, ptr %1114, align 4
+  %1115 = sub nsw i32 %.val529, %.val530
+  %1116 = tail call i32 @llvm.abs.i32(i32 %1115, i1 true)
+  %1117 = mul i32 %1116, -7
   %.val371 = load ptr, ptr %6, align 8
-  %1112 = getelementptr inbounds i8, ptr %.val371, i64 188
-  %1113 = load i32, ptr %1112, align 4
-  %1114 = add i32 %1100, -9
-  %1115 = add i32 %1114, %1113
-  %1116 = add i32 %1115, %1111
-  store i32 %1116, ptr %1112, align 4
-  br label %1293
-
-1117:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %1118 = getelementptr inbounds i8, ptr %53, i64 4
+  %1118 = getelementptr inbounds i8, ptr %.val371, i64 188
   %1119 = load i32, ptr %1118, align 4
-  %1120 = icmp ugt i32 %1119, 2
-  %1121 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1120, label %Wlc_ObjHasArray.exit.thread.i.i.i737, label %Wlc_ObjFanin0.exit739
+  %1120 = add i32 %1106, -9
+  %1121 = add i32 %1120, %1119
+  %1122 = add i32 %1121, %1117
+  store i32 %1122, ptr %1118, align 4
+  br label %1299
 
-Wlc_ObjHasArray.exit.thread.i.i.i737:             ; preds = %1117
-  %1122 = load ptr, ptr %1121, align 8
+1123:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %1124 = getelementptr inbounds i8, ptr %53, i64 4
+  %1125 = load i32, ptr %1124, align 4
+  %1126 = icmp ugt i32 %1125, 2
+  %1127 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1126, label %Wlc_ObjHasArray.exit.thread.i.i.i737, label %Wlc_ObjFanin0.exit739
+
+Wlc_ObjHasArray.exit.thread.i.i.i737:             ; preds = %1123
+  %1128 = load ptr, ptr %1127, align 8
   br label %Wlc_ObjFanin0.exit739
 
-Wlc_ObjFanin0.exit739:                            ; preds = %1117, %Wlc_ObjHasArray.exit.thread.i.i.i737
-  %1123 = phi ptr [ %1122, %Wlc_ObjHasArray.exit.thread.i.i.i737 ], [ %1121, %1117 ]
-  %1124 = load i32, ptr %1123, align 4
+Wlc_ObjFanin0.exit739:                            ; preds = %1123, %Wlc_ObjHasArray.exit.thread.i.i.i737
+  %1129 = phi ptr [ %1128, %Wlc_ObjHasArray.exit.thread.i.i.i737 ], [ %1127, %1123 ]
+  %1130 = load i32, ptr %1129, align 4
   %.val.i738 = load ptr, ptr %43, align 8
-  %1125 = sext i32 %1124 to i64
-  %1126 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i738, i64 %1125
-  %1127 = getelementptr i8, ptr %1126, i64 8
-  %.val531 = load i32, ptr %1127, align 8
-  %1128 = getelementptr i8, ptr %1126, i64 12
-  %.val532 = load i32, ptr %1128, align 4
-  %1129 = sub nsw i32 %.val531, %.val532
-  %1130 = tail call i32 @llvm.abs.i32(i32 %1129, i1 true)
-  %1131 = mul i32 %1130, 13
-  %1132 = add i32 %1131, 13
-  %1133 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1120, label %Wlc_ObjHasArray.exit.thread.i.i.i740, label %Wlc_ObjFanin0.exit742
+  %1131 = sext i32 %1130 to i64
+  %1132 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i738, i64 %1131
+  %1133 = getelementptr i8, ptr %1132, i64 8
+  %.val531 = load i32, ptr %1133, align 8
+  %1134 = getelementptr i8, ptr %1132, i64 12
+  %.val532 = load i32, ptr %1134, align 4
+  %1135 = sub nsw i32 %.val531, %.val532
+  %1136 = tail call i32 @llvm.abs.i32(i32 %1135, i1 true)
+  %1137 = mul i32 %1136, 13
+  %1138 = add i32 %1137, 13
+  %1139 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1126, label %Wlc_ObjHasArray.exit.thread.i.i.i740, label %Wlc_ObjFanin0.exit742
 
 Wlc_ObjHasArray.exit.thread.i.i.i740:             ; preds = %Wlc_ObjFanin0.exit739
-  %1134 = load ptr, ptr %1133, align 8
+  %1140 = load ptr, ptr %1139, align 8
   br label %Wlc_ObjFanin0.exit742
 
 Wlc_ObjFanin0.exit742:                            ; preds = %Wlc_ObjFanin0.exit739, %Wlc_ObjHasArray.exit.thread.i.i.i740
-  %1135 = phi ptr [ %1134, %Wlc_ObjHasArray.exit.thread.i.i.i740 ], [ %1133, %Wlc_ObjFanin0.exit739 ]
-  %1136 = load i32, ptr %1135, align 4
-  %1137 = sext i32 %1136 to i64
-  %1138 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i738, i64 %1137
-  %1139 = getelementptr i8, ptr %1138, i64 8
-  %.val533 = load i32, ptr %1139, align 8
-  %1140 = getelementptr i8, ptr %1138, i64 12
-  %.val534 = load i32, ptr %1140, align 4
-  %1141 = sub nsw i32 %.val533, %.val534
-  %1142 = tail call i32 @llvm.abs.i32(i32 %1141, i1 true)
-  %1143 = add nuw nsw i32 %1142, 1
-  %1144 = mul nsw i32 %1143, %1132
-  %1145 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1120, label %Wlc_ObjHasArray.exit.thread.i.i.i743, label %Wlc_ObjFanin0.exit745
+  %1141 = phi ptr [ %1140, %Wlc_ObjHasArray.exit.thread.i.i.i740 ], [ %1139, %Wlc_ObjFanin0.exit739 ]
+  %1142 = load i32, ptr %1141, align 4
+  %1143 = sext i32 %1142 to i64
+  %1144 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i738, i64 %1143
+  %1145 = getelementptr i8, ptr %1144, i64 8
+  %.val533 = load i32, ptr %1145, align 8
+  %1146 = getelementptr i8, ptr %1144, i64 12
+  %.val534 = load i32, ptr %1146, align 4
+  %1147 = sub nsw i32 %.val533, %.val534
+  %1148 = tail call i32 @llvm.abs.i32(i32 %1147, i1 true)
+  %1149 = add nuw nsw i32 %1148, 1
+  %1150 = mul nsw i32 %1149, %1138
+  %1151 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1126, label %Wlc_ObjHasArray.exit.thread.i.i.i743, label %Wlc_ObjFanin0.exit745
 
 Wlc_ObjHasArray.exit.thread.i.i.i743:             ; preds = %Wlc_ObjFanin0.exit742
-  %1146 = load ptr, ptr %1145, align 8
+  %1152 = load ptr, ptr %1151, align 8
   br label %Wlc_ObjFanin0.exit745
 
 Wlc_ObjFanin0.exit745:                            ; preds = %Wlc_ObjFanin0.exit742, %Wlc_ObjHasArray.exit.thread.i.i.i743
-  %1147 = phi ptr [ %1146, %Wlc_ObjHasArray.exit.thread.i.i.i743 ], [ %1145, %Wlc_ObjFanin0.exit742 ]
-  %1148 = load i32, ptr %1147, align 4
-  %1149 = sext i32 %1148 to i64
-  %1150 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i738, i64 %1149
-  %1151 = getelementptr i8, ptr %1150, i64 8
-  %.val535 = load i32, ptr %1151, align 8
-  %1152 = getelementptr i8, ptr %1150, i64 12
-  %.val536 = load i32, ptr %1152, align 4
-  %1153 = sub nsw i32 %.val535, %.val536
-  %1154 = tail call i32 @llvm.abs.i32(i32 %1153, i1 true)
-  %1155 = mul i32 %1154, -7
+  %1153 = phi ptr [ %1152, %Wlc_ObjHasArray.exit.thread.i.i.i743 ], [ %1151, %Wlc_ObjFanin0.exit742 ]
+  %1154 = load i32, ptr %1153, align 4
+  %1155 = sext i32 %1154 to i64
+  %1156 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i738, i64 %1155
+  %1157 = getelementptr i8, ptr %1156, i64 8
+  %.val535 = load i32, ptr %1157, align 8
+  %1158 = getelementptr i8, ptr %1156, i64 12
+  %.val536 = load i32, ptr %1158, align 4
+  %1159 = sub nsw i32 %.val535, %.val536
+  %1160 = tail call i32 @llvm.abs.i32(i32 %1159, i1 true)
+  %1161 = mul i32 %1160, -7
   %.val370 = load ptr, ptr %6, align 8
-  %1156 = getelementptr inbounds i8, ptr %.val370, i64 192
-  %1157 = load i32, ptr %1156, align 4
-  %1158 = add i32 %1144, -9
-  %1159 = add i32 %1158, %1157
-  %1160 = add i32 %1159, %1155
-  store i32 %1160, ptr %1156, align 4
-  br label %1293
-
-1161:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %1162 = getelementptr inbounds i8, ptr %53, i64 4
+  %1162 = getelementptr inbounds i8, ptr %.val370, i64 192
   %1163 = load i32, ptr %1162, align 4
-  %1164 = icmp ugt i32 %1163, 2
-  %1165 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1164, label %Wlc_ObjHasArray.exit.thread.i.i.i746, label %Wlc_ObjFanin0.exit748
+  %1164 = add i32 %1150, -9
+  %1165 = add i32 %1164, %1163
+  %1166 = add i32 %1165, %1161
+  store i32 %1166, ptr %1162, align 4
+  br label %1299
 
-Wlc_ObjHasArray.exit.thread.i.i.i746:             ; preds = %1161
-  %1166 = load ptr, ptr %1165, align 8
+1167:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %1168 = getelementptr inbounds i8, ptr %53, i64 4
+  %1169 = load i32, ptr %1168, align 4
+  %1170 = icmp ugt i32 %1169, 2
+  %1171 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1170, label %Wlc_ObjHasArray.exit.thread.i.i.i746, label %Wlc_ObjFanin0.exit748
+
+Wlc_ObjHasArray.exit.thread.i.i.i746:             ; preds = %1167
+  %1172 = load ptr, ptr %1171, align 8
   br label %Wlc_ObjFanin0.exit748
 
-Wlc_ObjFanin0.exit748:                            ; preds = %1161, %Wlc_ObjHasArray.exit.thread.i.i.i746
-  %1167 = phi ptr [ %1166, %Wlc_ObjHasArray.exit.thread.i.i.i746 ], [ %1165, %1161 ]
-  %1168 = load i32, ptr %1167, align 4
+Wlc_ObjFanin0.exit748:                            ; preds = %1167, %Wlc_ObjHasArray.exit.thread.i.i.i746
+  %1173 = phi ptr [ %1172, %Wlc_ObjHasArray.exit.thread.i.i.i746 ], [ %1171, %1167 ]
+  %1174 = load i32, ptr %1173, align 4
   %.val.i747 = load ptr, ptr %43, align 8
-  %1169 = sext i32 %1168 to i64
-  %1170 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i747, i64 %1169
-  %1171 = getelementptr i8, ptr %1170, i64 8
-  %.val537 = load i32, ptr %1171, align 8
-  %1172 = getelementptr i8, ptr %1170, i64 12
-  %.val538 = load i32, ptr %1172, align 4
-  %1173 = sub nsw i32 %.val537, %.val538
-  %1174 = tail call i32 @llvm.abs.i32(i32 %1173, i1 true)
-  %1175 = add nuw nsw i32 %1174, 1
-  %1176 = uitofp nneg i32 %1175 to double
-  %1177 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1164, label %Wlc_ObjHasArray.exit.thread.i.i.i749, label %Wlc_ObjFanin0.exit751
+  %1175 = sext i32 %1174 to i64
+  %1176 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i747, i64 %1175
+  %1177 = getelementptr i8, ptr %1176, i64 8
+  %.val537 = load i32, ptr %1177, align 8
+  %1178 = getelementptr i8, ptr %1176, i64 12
+  %.val538 = load i32, ptr %1178, align 4
+  %1179 = sub nsw i32 %.val537, %.val538
+  %1180 = tail call i32 @llvm.abs.i32(i32 %1179, i1 true)
+  %1181 = add nuw nsw i32 %1180, 1
+  %1182 = uitofp nneg i32 %1181 to double
+  %1183 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1170, label %Wlc_ObjHasArray.exit.thread.i.i.i749, label %Wlc_ObjFanin0.exit751
 
 Wlc_ObjHasArray.exit.thread.i.i.i749:             ; preds = %Wlc_ObjFanin0.exit748
-  %1178 = load ptr, ptr %1177, align 8
+  %1184 = load ptr, ptr %1183, align 8
   br label %Wlc_ObjFanin0.exit751
 
 Wlc_ObjFanin0.exit751:                            ; preds = %Wlc_ObjFanin0.exit748, %Wlc_ObjHasArray.exit.thread.i.i.i749
-  %1179 = phi ptr [ %1178, %Wlc_ObjHasArray.exit.thread.i.i.i749 ], [ %1177, %Wlc_ObjFanin0.exit748 ]
-  %1180 = load i32, ptr %1179, align 4
-  %1181 = sext i32 %1180 to i64
-  %1182 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i747, i64 %1181
-  %1183 = getelementptr i8, ptr %1182, i64 8
-  %.val539 = load i32, ptr %1183, align 8
-  %1184 = getelementptr i8, ptr %1182, i64 12
-  %.val540 = load i32, ptr %1184, align 4
-  %1185 = sub nsw i32 %.val539, %.val540
-  %1186 = tail call i32 @llvm.abs.i32(i32 %1185, i1 true)
-  %1187 = add nuw nsw i32 %1186, 1
-  %1188 = uitofp nneg i32 %1187 to double
-  %1189 = tail call double @pow(double noundef %1176, double noundef %1188) #25
-  %1190 = fptosi double %1189 to i32
-  %1191 = mul nsw i32 %1190, 10
+  %1185 = phi ptr [ %1184, %Wlc_ObjHasArray.exit.thread.i.i.i749 ], [ %1183, %Wlc_ObjFanin0.exit748 ]
+  %1186 = load i32, ptr %1185, align 4
+  %1187 = sext i32 %1186 to i64
+  %1188 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i747, i64 %1187
+  %1189 = getelementptr i8, ptr %1188, i64 8
+  %.val539 = load i32, ptr %1189, align 8
+  %1190 = getelementptr i8, ptr %1188, i64 12
+  %.val540 = load i32, ptr %1190, align 4
+  %1191 = sub nsw i32 %.val539, %.val540
+  %1192 = tail call i32 @llvm.abs.i32(i32 %1191, i1 true)
+  %1193 = add nuw nsw i32 %1192, 1
+  %1194 = uitofp nneg i32 %1193 to double
+  %1195 = tail call double @pow(double noundef %1182, double noundef %1194) #25
+  %1196 = fptosi double %1195 to i32
+  %1197 = mul nsw i32 %1196, 10
   %.val369 = load ptr, ptr %6, align 8
-  %1192 = getelementptr inbounds i8, ptr %.val369, i64 196
-  %1193 = load i32, ptr %1192, align 4
-  %1194 = add nsw i32 %1193, %1191
-  store i32 %1194, ptr %1192, align 4
-  br label %1293
+  %1198 = getelementptr inbounds i8, ptr %.val369, i64 196
+  %1199 = load i32, ptr %1198, align 4
+  %1200 = add nsw i32 %1199, %1197
+  store i32 %1200, ptr %1198, align 4
+  br label %1299
 
-1195:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %1196 = getelementptr inbounds i8, ptr %53, i64 4
-  %1197 = load i32, ptr %1196, align 4
-  %1198 = icmp ugt i32 %1197, 2
-  %1199 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1198, label %Wlc_ObjHasArray.exit.thread.i.i.i752, label %Wlc_ObjFanin0.exit754
+1201:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %1202 = getelementptr inbounds i8, ptr %53, i64 4
+  %1203 = load i32, ptr %1202, align 4
+  %1204 = icmp ugt i32 %1203, 2
+  %1205 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1204, label %Wlc_ObjHasArray.exit.thread.i.i.i752, label %Wlc_ObjFanin0.exit754
 
-Wlc_ObjHasArray.exit.thread.i.i.i752:             ; preds = %1195
-  %1200 = load ptr, ptr %1199, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i752:             ; preds = %1201
+  %1206 = load ptr, ptr %1205, align 8
   br label %Wlc_ObjFanin0.exit754
 
-Wlc_ObjFanin0.exit754:                            ; preds = %1195, %Wlc_ObjHasArray.exit.thread.i.i.i752
-  %1201 = phi ptr [ %1200, %Wlc_ObjHasArray.exit.thread.i.i.i752 ], [ %1199, %1195 ]
-  %1202 = load i32, ptr %1201, align 4
+Wlc_ObjFanin0.exit754:                            ; preds = %1201, %Wlc_ObjHasArray.exit.thread.i.i.i752
+  %1207 = phi ptr [ %1206, %Wlc_ObjHasArray.exit.thread.i.i.i752 ], [ %1205, %1201 ]
+  %1208 = load i32, ptr %1207, align 4
   %.val.i753 = load ptr, ptr %43, align 8
-  %1203 = sext i32 %1202 to i64
-  %1204 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i753, i64 %1203
-  %1205 = getelementptr i8, ptr %1204, i64 8
-  %.val541 = load i32, ptr %1205, align 8
-  %1206 = getelementptr i8, ptr %1204, i64 12
-  %.val542 = load i32, ptr %1206, align 4
-  %1207 = sub nsw i32 %.val541, %.val542
-  %1208 = tail call i32 @llvm.abs.i32(i32 %1207, i1 true)
-  %1209 = shl i32 %1208, 2
+  %1209 = sext i32 %1208 to i64
+  %1210 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i753, i64 %1209
+  %1211 = getelementptr i8, ptr %1210, i64 8
+  %.val541 = load i32, ptr %1211, align 8
+  %1212 = getelementptr i8, ptr %1210, i64 12
+  %.val542 = load i32, ptr %1212, align 4
+  %1213 = sub nsw i32 %.val541, %.val542
+  %1214 = tail call i32 @llvm.abs.i32(i32 %1213, i1 true)
+  %1215 = shl i32 %1214, 2
   %.val368 = load ptr, ptr %6, align 8
-  %1210 = getelementptr inbounds i8, ptr %.val368, i64 200
-  %1211 = load i32, ptr %1210, align 4
-  %1212 = add i32 %1211, 4
-  %1213 = add i32 %1212, %1209
-  store i32 %1213, ptr %1210, align 4
-  br label %1293
+  %1216 = getelementptr inbounds i8, ptr %.val368, i64 200
+  %1217 = load i32, ptr %1216, align 4
+  %1218 = add i32 %1217, 4
+  %1219 = add i32 %1218, %1215
+  store i32 %1219, ptr %1216, align 4
+  br label %1299
 
-1214:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %1215 = getelementptr inbounds i8, ptr %53, i64 4
-  %1216 = load i32, ptr %1215, align 4
-  %1217 = icmp ugt i32 %1216, 2
-  %1218 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1217, label %Wlc_ObjHasArray.exit.thread.i.i.i755, label %Wlc_ObjFanin0.exit757
+1220:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %1221 = getelementptr inbounds i8, ptr %53, i64 4
+  %1222 = load i32, ptr %1221, align 4
+  %1223 = icmp ugt i32 %1222, 2
+  %1224 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1223, label %Wlc_ObjHasArray.exit.thread.i.i.i755, label %Wlc_ObjFanin0.exit757
 
-Wlc_ObjHasArray.exit.thread.i.i.i755:             ; preds = %1214
-  %1219 = load ptr, ptr %1218, align 8
+Wlc_ObjHasArray.exit.thread.i.i.i755:             ; preds = %1220
+  %1225 = load ptr, ptr %1224, align 8
   br label %Wlc_ObjFanin0.exit757
 
-Wlc_ObjFanin0.exit757:                            ; preds = %1214, %Wlc_ObjHasArray.exit.thread.i.i.i755
-  %1220 = phi ptr [ %1219, %Wlc_ObjHasArray.exit.thread.i.i.i755 ], [ %1218, %1214 ]
-  %1221 = load i32, ptr %1220, align 4
+Wlc_ObjFanin0.exit757:                            ; preds = %1220, %Wlc_ObjHasArray.exit.thread.i.i.i755
+  %1226 = phi ptr [ %1225, %Wlc_ObjHasArray.exit.thread.i.i.i755 ], [ %1224, %1220 ]
+  %1227 = load i32, ptr %1226, align 4
   %.val.i756 = load ptr, ptr %43, align 8
-  %1222 = sext i32 %1221 to i64
-  %1223 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i756, i64 %1222
-  %1224 = getelementptr i8, ptr %1223, i64 8
-  %.val543 = load i32, ptr %1224, align 8
-  %1225 = getelementptr i8, ptr %1223, i64 12
-  %.val544 = load i32, ptr %1225, align 4
-  %1226 = sub nsw i32 %.val543, %.val544
-  %1227 = tail call i32 @llvm.abs.i32(i32 %1226, i1 true)
-  %1228 = mul i32 %1227, 11
-  %1229 = add i32 %1228, 11
-  %1230 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1217, label %Wlc_ObjHasArray.exit.thread.i.i.i758, label %Wlc_ObjFanin0.exit760
+  %1228 = sext i32 %1227 to i64
+  %1229 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i756, i64 %1228
+  %1230 = getelementptr i8, ptr %1229, i64 8
+  %.val543 = load i32, ptr %1230, align 8
+  %1231 = getelementptr i8, ptr %1229, i64 12
+  %.val544 = load i32, ptr %1231, align 4
+  %1232 = sub nsw i32 %.val543, %.val544
+  %1233 = tail call i32 @llvm.abs.i32(i32 %1232, i1 true)
+  %1234 = mul i32 %1233, 11
+  %1235 = add i32 %1234, 11
+  %1236 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1223, label %Wlc_ObjHasArray.exit.thread.i.i.i758, label %Wlc_ObjFanin0.exit760
 
 Wlc_ObjHasArray.exit.thread.i.i.i758:             ; preds = %Wlc_ObjFanin0.exit757
-  %1231 = load ptr, ptr %1230, align 8
+  %1237 = load ptr, ptr %1236, align 8
   br label %Wlc_ObjFanin0.exit760
 
 Wlc_ObjFanin0.exit760:                            ; preds = %Wlc_ObjFanin0.exit757, %Wlc_ObjHasArray.exit.thread.i.i.i758
-  %1232 = phi ptr [ %1231, %Wlc_ObjHasArray.exit.thread.i.i.i758 ], [ %1230, %Wlc_ObjFanin0.exit757 ]
-  %1233 = load i32, ptr %1232, align 4
-  %1234 = sext i32 %1233 to i64
-  %1235 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i756, i64 %1234
-  %1236 = getelementptr i8, ptr %1235, i64 8
-  %.val545 = load i32, ptr %1236, align 8
-  %1237 = getelementptr i8, ptr %1235, i64 12
-  %.val546 = load i32, ptr %1237, align 4
-  %1238 = sub nsw i32 %.val545, %.val546
-  %1239 = tail call i32 @llvm.abs.i32(i32 %1238, i1 true)
-  %1240 = add nuw nsw i32 %1239, 1
-  %1241 = mul nsw i32 %1240, %1229
-  %1242 = lshr i32 %1241, 3
-  %1243 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1217, label %Wlc_ObjHasArray.exit.thread.i.i.i761, label %Wlc_ObjFanin0.exit763
+  %1238 = phi ptr [ %1237, %Wlc_ObjHasArray.exit.thread.i.i.i758 ], [ %1236, %Wlc_ObjFanin0.exit757 ]
+  %1239 = load i32, ptr %1238, align 4
+  %1240 = sext i32 %1239 to i64
+  %1241 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i756, i64 %1240
+  %1242 = getelementptr i8, ptr %1241, i64 8
+  %.val545 = load i32, ptr %1242, align 8
+  %1243 = getelementptr i8, ptr %1241, i64 12
+  %.val546 = load i32, ptr %1243, align 4
+  %1244 = sub nsw i32 %.val545, %.val546
+  %1245 = tail call i32 @llvm.abs.i32(i32 %1244, i1 true)
+  %1246 = add nuw nsw i32 %1245, 1
+  %1247 = mul nsw i32 %1246, %1235
+  %1248 = lshr i32 %1247, 3
+  %1249 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1223, label %Wlc_ObjHasArray.exit.thread.i.i.i761, label %Wlc_ObjFanin0.exit763
 
 Wlc_ObjHasArray.exit.thread.i.i.i761:             ; preds = %Wlc_ObjFanin0.exit760
-  %1244 = load ptr, ptr %1243, align 8
+  %1250 = load ptr, ptr %1249, align 8
   br label %Wlc_ObjFanin0.exit763
 
 Wlc_ObjFanin0.exit763:                            ; preds = %Wlc_ObjFanin0.exit760, %Wlc_ObjHasArray.exit.thread.i.i.i761
-  %1245 = phi ptr [ %1244, %Wlc_ObjHasArray.exit.thread.i.i.i761 ], [ %1243, %Wlc_ObjFanin0.exit760 ]
-  %1246 = load i32, ptr %1245, align 4
-  %1247 = sext i32 %1246 to i64
-  %1248 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i756, i64 %1247
-  %1249 = getelementptr i8, ptr %1248, i64 8
-  %.val547 = load i32, ptr %1249, align 8
-  %1250 = getelementptr i8, ptr %1248, i64 12
-  %.val548 = load i32, ptr %1250, align 4
-  %1251 = sub nsw i32 %.val547, %.val548
-  %1252 = tail call i32 @llvm.abs.i32(i32 %1251, i1 true)
-  %1253 = mul i32 %1252, 5
-  %1254 = add i32 %1253, 5
-  %1255 = lshr i32 %1254, 1
+  %1251 = phi ptr [ %1250, %Wlc_ObjHasArray.exit.thread.i.i.i761 ], [ %1249, %Wlc_ObjFanin0.exit760 ]
+  %1252 = load i32, ptr %1251, align 4
+  %1253 = sext i32 %1252 to i64
+  %1254 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i756, i64 %1253
+  %1255 = getelementptr i8, ptr %1254, i64 8
+  %.val547 = load i32, ptr %1255, align 8
+  %1256 = getelementptr i8, ptr %1254, i64 12
+  %.val548 = load i32, ptr %1256, align 4
+  %1257 = sub nsw i32 %.val547, %.val548
+  %1258 = tail call i32 @llvm.abs.i32(i32 %1257, i1 true)
+  %1259 = mul i32 %1258, 5
+  %1260 = add i32 %1259, 5
+  %1261 = lshr i32 %1260, 1
   %.val367 = load ptr, ptr %6, align 8
-  %1256 = getelementptr inbounds i8, ptr %.val367, i64 204
-  %1257 = load i32, ptr %1256, align 4
-  %1258 = add nsw i32 %1242, -5
-  %1259 = add i32 %1258, %1257
-  %1260 = add i32 %1259, %1255
-  store i32 %1260, ptr %1256, align 4
-  br label %1293
-
-1261:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
-  %1262 = getelementptr inbounds i8, ptr %53, i64 4
+  %1262 = getelementptr inbounds i8, ptr %.val367, i64 204
   %1263 = load i32, ptr %1262, align 4
-  %1264 = icmp ugt i32 %1263, 2
-  %1265 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1264, label %Wlc_ObjHasArray.exit.thread.i.i.i764, label %Wlc_ObjFanin0.exit766
+  %1264 = add nsw i32 %1248, -5
+  %1265 = add i32 %1264, %1263
+  %1266 = add i32 %1265, %1261
+  store i32 %1266, ptr %1262, align 4
+  br label %1299
 
-Wlc_ObjHasArray.exit.thread.i.i.i764:             ; preds = %1261
-  %1266 = load ptr, ptr %1265, align 8
+1267:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit
+  %1268 = getelementptr inbounds i8, ptr %53, i64 4
+  %1269 = load i32, ptr %1268, align 4
+  %1270 = icmp ugt i32 %1269, 2
+  %1271 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1270, label %Wlc_ObjHasArray.exit.thread.i.i.i764, label %Wlc_ObjFanin0.exit766
+
+Wlc_ObjHasArray.exit.thread.i.i.i764:             ; preds = %1267
+  %1272 = load ptr, ptr %1271, align 8
   br label %Wlc_ObjFanin0.exit766
 
-Wlc_ObjFanin0.exit766:                            ; preds = %1261, %Wlc_ObjHasArray.exit.thread.i.i.i764
-  %1267 = phi ptr [ %1266, %Wlc_ObjHasArray.exit.thread.i.i.i764 ], [ %1265, %1261 ]
-  %1268 = load i32, ptr %1267, align 4
+Wlc_ObjFanin0.exit766:                            ; preds = %1267, %Wlc_ObjHasArray.exit.thread.i.i.i764
+  %1273 = phi ptr [ %1272, %Wlc_ObjHasArray.exit.thread.i.i.i764 ], [ %1271, %1267 ]
+  %1274 = load i32, ptr %1273, align 4
   %.val.i765 = load ptr, ptr %43, align 8
-  %1269 = sext i32 %1268 to i64
-  %1270 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i765, i64 %1269
-  %1271 = getelementptr i8, ptr %1270, i64 8
-  %.val549 = load i32, ptr %1271, align 8
-  %1272 = getelementptr i8, ptr %1270, i64 12
-  %.val550 = load i32, ptr %1272, align 4
-  %1273 = sub nsw i32 %.val549, %.val550
-  %1274 = tail call i32 @llvm.abs.i32(i32 %1273, i1 true)
-  %1275 = mul i32 %1274, 5
-  %1276 = add i32 %1275, 5
-  %1277 = getelementptr inbounds i8, ptr %53, i64 16
-  br i1 %1264, label %Wlc_ObjHasArray.exit.thread.i.i.i767, label %Wlc_ObjFanin1.exit769
+  %1275 = sext i32 %1274 to i64
+  %1276 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i765, i64 %1275
+  %1277 = getelementptr i8, ptr %1276, i64 8
+  %.val549 = load i32, ptr %1277, align 8
+  %1278 = getelementptr i8, ptr %1276, i64 12
+  %.val550 = load i32, ptr %1278, align 4
+  %1279 = sub nsw i32 %.val549, %.val550
+  %1280 = tail call i32 @llvm.abs.i32(i32 %1279, i1 true)
+  %1281 = mul i32 %1280, 5
+  %1282 = add i32 %1281, 5
+  %1283 = getelementptr inbounds i8, ptr %53, i64 16
+  br i1 %1270, label %Wlc_ObjHasArray.exit.thread.i.i.i767, label %Wlc_ObjFanin1.exit769
 
 Wlc_ObjHasArray.exit.thread.i.i.i767:             ; preds = %Wlc_ObjFanin0.exit766
-  %1278 = load ptr, ptr %1277, align 8
+  %1284 = load ptr, ptr %1283, align 8
   br label %Wlc_ObjFanin1.exit769
 
 Wlc_ObjFanin1.exit769:                            ; preds = %Wlc_ObjFanin0.exit766, %Wlc_ObjHasArray.exit.thread.i.i.i767
-  %1279 = phi ptr [ %1278, %Wlc_ObjHasArray.exit.thread.i.i.i767 ], [ %1277, %Wlc_ObjFanin0.exit766 ]
-  %1280 = getelementptr inbounds i8, ptr %1279, i64 4
-  %1281 = load i32, ptr %1280, align 4
-  %1282 = sext i32 %1281 to i64
-  %1283 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i765, i64 %1282
-  %1284 = getelementptr i8, ptr %1283, i64 8
-  %.val551 = load i32, ptr %1284, align 8
-  %1285 = getelementptr i8, ptr %1283, i64 12
-  %.val552 = load i32, ptr %1285, align 4
-  %1286 = sub nsw i32 %.val551, %.val552
-  %1287 = tail call i32 @llvm.abs.i32(i32 %1286, i1 true)
-  %1288 = add nuw nsw i32 %1287, 1
-  %1289 = mul nsw i32 %1288, %1276
+  %1285 = phi ptr [ %1284, %Wlc_ObjHasArray.exit.thread.i.i.i767 ], [ %1283, %Wlc_ObjFanin0.exit766 ]
+  %1286 = getelementptr inbounds i8, ptr %1285, i64 4
+  %1287 = load i32, ptr %1286, align 4
+  %1288 = sext i32 %1287 to i64
+  %1289 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i765, i64 %1288
+  %1290 = getelementptr i8, ptr %1289, i64 8
+  %.val551 = load i32, ptr %1290, align 8
+  %1291 = getelementptr i8, ptr %1289, i64 12
+  %.val552 = load i32, ptr %1291, align 4
+  %1292 = sub nsw i32 %.val551, %.val552
+  %1293 = tail call i32 @llvm.abs.i32(i32 %1292, i1 true)
+  %1294 = add nuw nsw i32 %1293, 1
+  %1295 = mul nsw i32 %1294, %1282
   %.val366 = load ptr, ptr %6, align 8
-  %1290 = getelementptr inbounds i8, ptr %.val366, i64 208
-  %1291 = load i32, ptr %1290, align 4
-  %1292 = add nsw i32 %1289, %1291
-  store i32 %1292, ptr %1290, align 4
-  br label %1293
+  %1296 = getelementptr inbounds i8, ptr %.val366, i64 208
+  %1297 = load i32, ptr %1296, align 4
+  %1298 = add nsw i32 %1295, %1297
+  store i32 %1298, ptr %1296, align 4
+  br label %1299
 
-1293:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit, %327, %Wlc_ObjFanin0.exit608, %Wlc_ObjFanin0.exit616, %Wlc_ObjFanin0.exit624, %Wlc_ObjFanin0.exit628, %Wlc_ObjFanin0.exit634, %Wlc_ObjFanin0.exit640, %Wlc_ObjFanin0.exit646, %Wlc_ObjFanin1.exit658, %Wlc_ObjFanin1.exit670, %Wlc_ObjFanin0.exit676, %Wlc_ObjFanin0.exit682, %Wlc_ObjFanin0.exit688, %Wlc_ObjFanin0.exit694, %Wlc_ObjFanin0.exit700, %Wlc_ObjFanin0.exit706, %Wlc_ObjFanin0.exit712, %Wlc_ObjFanin0.exit727, %Wlc_ObjFanin0.exit745, %Wlc_ObjFanin0.exit754, %Wlc_ObjFanin1.exit769, %Wlc_ObjFanin0.exit763, %Wlc_ObjFanin0.exit751, %Wlc_ObjFanin0.exit736, %Wlc_ObjFanin1.exit718, %Wlc_ObjFanin0.exit709, %Wlc_ObjFanin0.exit703, %Wlc_ObjFanin0.exit697, %Wlc_ObjFanin0.exit691, %Wlc_ObjFanin0.exit685, %Wlc_ObjFanin0.exit679, %Wlc_ObjFanin0.exit673, %Wlc_ObjFanin1.exit664, %Wlc_ObjFanin1.exit652, %Wlc_ObjFanin0.exit643, %Wlc_ObjFanin0.exit637, %Wlc_ObjFanin0.exit631, %Wlc_ObjFanin0.exit620, %Wlc_ObjFanin0.exit612, %Wlc_ObjFanin0.exit605
+1299:                                             ; preds = %Wlc_NtkPrintDistribAddOne.exit, %327, %Wlc_ObjFanin0.exit608, %Wlc_ObjFanin0.exit616, %Wlc_ObjFanin0.exit624, %Wlc_ObjFanin0.exit628, %Wlc_ObjFanin0.exit634, %Wlc_ObjFanin0.exit640, %Wlc_ObjFanin0.exit646, %Wlc_ObjFanin1.exit658, %Wlc_ObjFanin1.exit670, %Wlc_ObjFanin0.exit676, %Wlc_ObjFanin0.exit682, %Wlc_ObjFanin0.exit688, %Wlc_ObjFanin0.exit694, %Wlc_ObjFanin0.exit700, %Wlc_ObjFanin0.exit706, %Wlc_ObjFanin0.exit712, %Wlc_ObjFanin0.exit727, %Wlc_ObjFanin0.exit745, %Wlc_ObjFanin0.exit754, %Wlc_ObjFanin1.exit769, %Wlc_ObjFanin0.exit763, %Wlc_ObjFanin0.exit751, %Wlc_ObjFanin0.exit736, %Wlc_ObjFanin1.exit718, %Wlc_ObjFanin0.exit709, %Wlc_ObjFanin0.exit703, %Wlc_ObjFanin0.exit697, %Wlc_ObjFanin0.exit691, %Wlc_ObjFanin0.exit685, %Wlc_ObjFanin0.exit679, %Wlc_ObjFanin0.exit673, %Wlc_ObjFanin1.exit664, %Wlc_ObjFanin1.exit652, %Wlc_ObjFanin0.exit643, %Wlc_ObjFanin0.exit637, %Wlc_ObjFanin0.exit631, %Wlc_ObjFanin0.exit620, %Wlc_ObjFanin0.exit612, %Wlc_ObjFanin0.exit605
   %indvars.iv.next848 = add nuw nsw i64 %indvars.iv847, 1
   %.val362 = load i32, ptr %41, align 8
-  %1294 = sext i32 %.val362 to i64
-  %1295 = icmp slt i64 %indvars.iv.next848, %1294
-  br i1 %1295, label %52, label %.critedge, !llvm.loop !37
+  %1300 = sext i32 %.val362 to i64
+  %1301 = icmp slt i64 %indvars.iv.next848, %1300
+  br i1 %1301, label %52, label %.critedge, !llvm.loop !37
 
-.critedge:                                        ; preds = %1293
+.critedge:                                        ; preds = %1299
   %.not342 = icmp eq i32 %.1329, 0
-  br i1 %.not342, label %.critedge.thread, label %1296
+  br i1 %.not342, label %.critedge.thread, label %1302
 
-1296:                                             ; preds = %.critedge
-  %1297 = getelementptr i8, ptr %0, i64 700
-  %.val = load i32, ptr %1297, align 4
-  %1298 = icmp sgt i32 %.val, 0
-  br i1 %1298, label %1299, label %.critedge.thread
+1302:                                             ; preds = %.critedge
+  %1303 = getelementptr i8, ptr %0, i64 700
+  %.val = load i32, ptr %1303, align 4
+  %1304 = icmp sgt i32 %.val, 0
+  br i1 %1304, label %1305, label %.critedge.thread
 
-1299:                                             ; preds = %1296
-  %1300 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.1329)
-  %1301 = getelementptr i8, ptr %0, i64 640
-  %.val357 = load ptr, ptr %1301, align 8
-  %1302 = ptrtoint ptr %.1 to i64
-  %1303 = ptrtoint ptr %.val357 to i64
-  %1304 = sub i64 %1302, %1303
-  %1305 = sdiv exact i64 %1304, 24
-  %1306 = trunc i64 %1305 to i32
-  %1307 = getelementptr inbounds i8, ptr %0, i64 688
-  %1308 = load ptr, ptr %1307, align 8
-  %1309 = getelementptr i8, ptr %0, i64 704
-  %.val361 = load ptr, ptr %1309, align 8
-  %sext = shl i64 %1305, 32
-  %1310 = ashr exact i64 %sext, 30
-  %1311 = getelementptr inbounds i8, ptr %.val361, i64 %1310
-  %1312 = load i32, ptr %1311, align 4
-  %1313 = tail call ptr @Abc_NamStr(ptr noundef %1308, i32 noundef %1312) #25
-  %1314 = getelementptr i8, ptr %.1, i64 8
-  %.0327.val = load i32, ptr %1314, align 8
-  %1315 = getelementptr i8, ptr %.1, i64 12
-  %.0327.val553 = load i32, ptr %1315, align 4
-  %1316 = sub nsw i32 %.0327.val, %.0327.val553
-  %1317 = tail call i32 @llvm.abs.i32(i32 %1316, i1 true)
-  %1318 = add nuw nsw i32 %1317, 1
-  %1319 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %1306, ptr noundef %1313, i32 noundef %1318, i32 noundef %.0327.val, i32 noundef %.0327.val553)
+1305:                                             ; preds = %1302
+  %1306 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.1329)
+  %1307 = getelementptr i8, ptr %0, i64 640
+  %.val357 = load ptr, ptr %1307, align 8
+  %1308 = ptrtoint ptr %.1 to i64
+  %1309 = ptrtoint ptr %.val357 to i64
+  %1310 = sub i64 %1308, %1309
+  %1311 = sdiv exact i64 %1310, 24
+  %1312 = trunc i64 %1311 to i32
+  %1313 = getelementptr inbounds i8, ptr %0, i64 688
+  %1314 = load ptr, ptr %1313, align 8
+  %1315 = getelementptr i8, ptr %0, i64 704
+  %.val361 = load ptr, ptr %1315, align 8
+  %sext = shl i64 %1311, 32
+  %1316 = ashr exact i64 %sext, 30
+  %1317 = getelementptr inbounds i8, ptr %.val361, i64 %1316
+  %1318 = load i32, ptr %1317, align 4
+  %1319 = tail call ptr @Abc_NamStr(ptr noundef %1314, i32 noundef %1318) #25
+  %1320 = getelementptr i8, ptr %.1, i64 8
+  %.0327.val = load i32, ptr %1320, align 8
+  %1321 = getelementptr i8, ptr %.1, i64 12
+  %.0327.val553 = load i32, ptr %1321, align 4
+  %1322 = sub nsw i32 %.0327.val, %.0327.val553
+  %1323 = tail call i32 @llvm.abs.i32(i32 %1322, i1 true)
+  %1324 = add nuw nsw i32 %1323, 1
+  %1325 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %1312, ptr noundef %1319, i32 noundef %1324, i32 noundef %.0327.val, i32 noundef %.0327.val553)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.preheader, %1299, %1296, %.critedge
-  %1320 = select i1 %.not341, ptr @.str.9, ptr @.str.8
-  %1321 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %1320)
+.critedge.thread:                                 ; preds = %.preheader, %1305, %1302, %.critedge
+  %1326 = select i1 %.not341, ptr @.str.9, ptr @.str.8
+  %1327 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %1326)
   %.val413 = load ptr, ptr %31, align 8
   %.val412 = load ptr, ptr %34, align 8
-  %1322 = getelementptr inbounds i8, ptr %0, i64 136
-  %1323 = getelementptr i8, ptr %0, i64 20
-  %1324 = getelementptr i8, ptr %0, i64 24
-  %1325 = getelementptr i8, ptr %0, i64 640
-  %1326 = getelementptr inbounds i8, ptr %3, i64 240
-  br label %1327
+  %1328 = getelementptr inbounds i8, ptr %0, i64 136
+  %1329 = getelementptr i8, ptr %0, i64 20
+  %1330 = getelementptr i8, ptr %0, i64 24
+  %1331 = getelementptr i8, ptr %0, i64 640
+  %1332 = getelementptr inbounds i8, ptr %3, i64 240
+  br label %1333
 
-1327:                                             ; preds = %.critedge.thread, %1425
-  %indvars.iv853 = phi i64 [ 0, %.critedge.thread ], [ %indvars.iv.next854, %1425 ]
-  %1328 = getelementptr inbounds ptr, ptr %.val413, i64 %indvars.iv853
-  %1329 = load ptr, ptr %1328, align 8
-  %1330 = getelementptr inbounds ptr, ptr %.val412, i64 %indvars.iv853
-  %1331 = load ptr, ptr %1330, align 8
-  %1332 = getelementptr inbounds [60 x i32], ptr %1322, i64 0, i64 %indvars.iv853
-  %1333 = load i32, ptr %1332, align 4
-  %1334 = icmp eq i32 %1333, 0
-  br i1 %1334, label %1425, label %1335
-
-1335:                                             ; preds = %1327
-  %1336 = getelementptr inbounds [61 x ptr], ptr @Wlc_Names, i64 0, i64 %indvars.iv853
+1333:                                             ; preds = %.critedge.thread, %1431
+  %indvars.iv853 = phi i64 [ 0, %.critedge.thread ], [ %indvars.iv.next854, %1431 ]
+  %1334 = getelementptr inbounds ptr, ptr %.val413, i64 %indvars.iv853
+  %1335 = load ptr, ptr %1334, align 8
+  %1336 = getelementptr inbounds ptr, ptr %.val412, i64 %indvars.iv853
   %1337 = load ptr, ptr %1336, align 8
-  %1338 = trunc nuw nsw i64 %indvars.iv853 to i32
-  %1339 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %1338, ptr noundef %1337, i32 noundef %1333)
-  br i1 %.not341, label %1373, label %1340
+  %1338 = getelementptr inbounds [60 x i32], ptr %1328, i64 0, i64 %indvars.iv853
+  %1339 = load i32, ptr %1338, align 4
+  %1340 = icmp eq i32 %1339, 0
+  br i1 %1340, label %1431, label %1341
 
-1340:                                             ; preds = %1335
-  %1341 = icmp eq i64 %indvars.iv853, 1
-  br i1 %1341, label %1342, label %1360
+1341:                                             ; preds = %1333
+  %1342 = getelementptr inbounds [61 x ptr], ptr @Wlc_Names, i64 0, i64 %indvars.iv853
+  %1343 = load ptr, ptr %1342, align 8
+  %1344 = trunc nuw nsw i64 %indvars.iv853 to i32
+  %1345 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %1344, ptr noundef %1343, i32 noundef %1339)
+  br i1 %.not341, label %1379, label %1346
 
-1342:                                             ; preds = %1340
+1346:                                             ; preds = %1341
+  %1347 = icmp eq i64 %indvars.iv853, 1
+  br i1 %1347, label %1348, label %1366
+
+1348:                                             ; preds = %1346
   tail call void @Wlc_NtkMarkCone(ptr noundef nonnull readonly %0, i32 noundef -1, i32 noundef -1, i32 noundef 1, i32 noundef 0)
-  %.val.i770 = load i32, ptr %1323, align 4
-  %1343 = icmp sgt i32 %.val.i770, 0
-  br i1 %1343, label %.lr.ph.i777, label %.critedge.i771
+  %.val.i770 = load i32, ptr %1329, align 4
+  %1349 = icmp sgt i32 %.val.i770, 0
+  br i1 %1349, label %.lr.ph.i777, label %.critedge.i771
 
-.lr.ph.i777:                                      ; preds = %1342
-  %.val10.i = load ptr, ptr %1324, align 8
-  %.val11.i = load ptr, ptr %1325, align 8
+.lr.ph.i777:                                      ; preds = %1348
+  %.val10.i = load ptr, ptr %1330, align 8
+  %.val11.i = load ptr, ptr %1331, align 8
   %wide.trip.count.i778 = zext nneg i32 %.val.i770 to i64
-  br label %1344
+  br label %1350
 
-1344:                                             ; preds = %1344, %.lr.ph.i777
-  %indvars.iv.i779 = phi i64 [ 0, %.lr.ph.i777 ], [ %indvars.iv.next.i780, %1344 ]
-  %.013.i = phi i32 [ 0, %.lr.ph.i777 ], [ %1353, %1344 ]
-  %1345 = getelementptr inbounds i32, ptr %.val10.i, i64 %indvars.iv.i779
-  %1346 = load i32, ptr %1345, align 4
-  %1347 = sext i32 %1346 to i64
-  %1348 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val11.i, i64 %1347
-  %1349 = load i16, ptr %1348, align 8
-  %1350 = lshr i16 %1349, 7
-  %1351 = and i16 %1350, 1
-  %1352 = zext nneg i16 %1351 to i32
-  %1353 = add nuw nsw i32 %.013.i, %1352
+1350:                                             ; preds = %1350, %.lr.ph.i777
+  %indvars.iv.i779 = phi i64 [ 0, %.lr.ph.i777 ], [ %indvars.iv.next.i780, %1350 ]
+  %.013.i = phi i32 [ 0, %.lr.ph.i777 ], [ %1359, %1350 ]
+  %1351 = getelementptr inbounds i32, ptr %.val10.i, i64 %indvars.iv.i779
+  %1352 = load i32, ptr %1351, align 4
+  %1353 = sext i32 %1352 to i64
+  %1354 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val11.i, i64 %1353
+  %1355 = load i16, ptr %1354, align 8
+  %1356 = lshr i16 %1355, 7
+  %1357 = and i16 %1356, 1
+  %1358 = zext nneg i16 %1357 to i32
+  %1359 = add nuw nsw i32 %.013.i, %1358
   %indvars.iv.next.i780 = add nuw nsw i64 %indvars.iv.i779, 1
   %exitcond.not.i781 = icmp eq i64 %indvars.iv.next.i780, %wide.trip.count.i778
-  br i1 %exitcond.not.i781, label %.critedge.i771, label %1344, !llvm.loop !30
+  br i1 %exitcond.not.i781, label %.critedge.i771, label %1350, !llvm.loop !30
 
-.critedge.i771:                                   ; preds = %1344, %1342
-  %.0.lcssa.i = phi i32 [ 0, %1342 ], [ %1353, %1344 ]
+.critedge.i771:                                   ; preds = %1350, %1348
+  %.0.lcssa.i = phi i32 [ 0, %1348 ], [ %1359, %1350 ]
   %.val56.i.i = load i32, ptr %41, align 8
-  %1354 = icmp sgt i32 %.val56.i.i, 1
-  br i1 %1354, label %.lr.ph.i.i772, label %Wlc_NtkCountRealPis.exit
+  %1360 = icmp sgt i32 %.val56.i.i, 1
+  br i1 %1360, label %.lr.ph.i.i772, label %Wlc_NtkCountRealPis.exit
 
 .lr.ph.i.i772:                                    ; preds = %.critedge.i771, %.lr.ph.i.i772
   %indvars.iv.i.i773 = phi i64 [ %indvars.iv.next.i.i775, %.lr.ph.i.i772 ], [ 1, %.critedge.i771 ]
-  %.val.i.i774 = load ptr, ptr %1325, align 8
-  %1355 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i.i774, i64 %indvars.iv.i.i773
-  %1356 = load i16, ptr %1355, align 8
-  %1357 = and i16 %1356, -129
-  store i16 %1357, ptr %1355, align 8
+  %.val.i.i774 = load ptr, ptr %1331, align 8
+  %1361 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val.i.i774, i64 %indvars.iv.i.i773
+  %1362 = load i16, ptr %1361, align 8
+  %1363 = and i16 %1362, -129
+  store i16 %1363, ptr %1361, align 8
   %indvars.iv.next.i.i775 = add nuw nsw i64 %indvars.iv.i.i773, 1
   %.val5.i.i776 = load i32, ptr %41, align 8
-  %1358 = sext i32 %.val5.i.i776 to i64
-  %1359 = icmp slt i64 %indvars.iv.next.i.i775, %1358
-  br i1 %1359, label %.lr.ph.i.i772, label %Wlc_NtkCountRealPis.exit, !llvm.loop !26
+  %1364 = sext i32 %.val5.i.i776 to i64
+  %1365 = icmp slt i64 %indvars.iv.next.i.i775, %1364
+  br i1 %1365, label %.lr.ph.i.i772, label %Wlc_NtkCountRealPis.exit, !llvm.loop !26
 
-1360:                                             ; preds = %1340
-  %1361 = load i32, ptr %1332, align 4
+1366:                                             ; preds = %1346
+  %1367 = load i32, ptr %1338, align 4
   br label %Wlc_NtkCountRealPis.exit
 
-Wlc_NtkCountRealPis.exit:                         ; preds = %.lr.ph.i.i772, %.critedge.i771, %1360
-  %1362 = phi i32 [ %1361, %1360 ], [ %.0.lcssa.i, %.critedge.i771 ], [ %.0.lcssa.i, %.lr.ph.i.i772 ]
-  %1363 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
-  %1364 = getelementptr inbounds [60 x i32], ptr %3, i64 0, i64 %indvars.iv853
-  %1365 = load i32, ptr %1364, align 4
-  %1366 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %1365)
-  %1367 = getelementptr inbounds [60 x i32], ptr %1326, i64 0, i64 %indvars.iv853
-  %1368 = load i32, ptr %1367, align 4
-  %1369 = sub i32 %1365, %1362
-  %1370 = add i32 %1369, %1368
-  %1371 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %1370)
-  %1372 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %1368)
-  br label %1373
+Wlc_NtkCountRealPis.exit:                         ; preds = %.lr.ph.i.i772, %.critedge.i771, %1366
+  %1368 = phi i32 [ %1367, %1366 ], [ %.0.lcssa.i, %.critedge.i771 ], [ %.0.lcssa.i, %.lr.ph.i.i772 ]
+  %1369 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
+  %1370 = getelementptr inbounds [60 x i32], ptr %3, i64 0, i64 %indvars.iv853
+  %1371 = load i32, ptr %1370, align 4
+  %1372 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %1371)
+  %1373 = getelementptr inbounds [60 x i32], ptr %1332, i64 0, i64 %indvars.iv853
+  %1374 = load i32, ptr %1373, align 4
+  %1375 = sub i32 %1371, %1368
+  %1376 = add i32 %1375, %1374
+  %1377 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %1376)
+  %1378 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %1374)
+  br label %1379
 
-1373:                                             ; preds = %Wlc_NtkCountRealPis.exit, %1335
+1379:                                             ; preds = %Wlc_NtkCountRealPis.exit, %1341
   %.val358 = load ptr, ptr %6, align 8
-  %1374 = getelementptr inbounds i32, ptr %.val358, i64 %indvars.iv853
-  %1375 = load i32, ptr %1374, align 4
-  %1376 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %1375)
-  tail call void @Wlc_NtkPrintDistribSortOne(ptr noundef nonnull %29, ptr noundef nonnull %32, i32 noundef %1338)
-  %1377 = getelementptr i8, ptr %1329, i64 4
-  %.val414835 = load i32, ptr %1377, align 4
-  %1378 = icmp sgt i32 %.val414835, 0
-  br i1 %1378, label %.lr.ph837, label %.critedge2
+  %1380 = getelementptr inbounds i32, ptr %.val358, i64 %indvars.iv853
+  %1381 = load i32, ptr %1380, align 4
+  %1382 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %1381)
+  tail call void @Wlc_NtkPrintDistribSortOne(ptr noundef nonnull %29, ptr noundef nonnull %32, i32 noundef %1344)
+  %1383 = getelementptr i8, ptr %1335, i64 4
+  %.val414835 = load i32, ptr %1383, align 4
+  %1384 = icmp sgt i32 %.val414835, 0
+  br i1 %1384, label %.lr.ph837, label %.critedge2
 
-.lr.ph837:                                        ; preds = %1373
-  %1379 = getelementptr i8, ptr %1329, i64 8
-  %1380 = getelementptr i8, ptr %1331, i64 8
-  br label %1381
+.lr.ph837:                                        ; preds = %1379
+  %1385 = getelementptr i8, ptr %1335, i64 8
+  %1386 = getelementptr i8, ptr %1337, i64 8
+  br label %1387
 
-1381:                                             ; preds = %.lr.ph837, %1422
-  %indvars.iv850 = phi i64 [ 0, %.lr.ph837 ], [ %indvars.iv.next851, %1422 ]
-  %.val554 = load ptr, ptr %1379, align 8
-  %1382 = getelementptr inbounds i64, ptr %.val554, i64 %indvars.iv850
-  %1383 = load i64, ptr %1382, align 8
-  %1384 = lshr i64 %1383, 42
-  %1385 = trunc nuw nsw i64 %1384 to i32
-  %1386 = lshr i64 %1383, 21
-  %1387 = trunc i64 %1386 to i32
-  %1388 = and i32 %1387, 2097151
-  %1389 = trunc i64 %1383 to i32
-  %1390 = trunc nuw nsw i64 %indvars.iv850 to i32
-  %1391 = urem i32 %1390, 6
-  %1392 = icmp eq i32 %1391, 5
-  %1393 = icmp ugt i64 %1383, 4398046511103
-  %or.cond = select i1 %1392, i1 %1393, i1 false
-  br i1 %or.cond, label %1397, label %1394
+1387:                                             ; preds = %.lr.ph837, %1428
+  %indvars.iv850 = phi i64 [ 0, %.lr.ph837 ], [ %indvars.iv.next851, %1428 ]
+  %.val554 = load ptr, ptr %1385, align 8
+  %1388 = getelementptr inbounds i64, ptr %.val554, i64 %indvars.iv850
+  %1389 = load i64, ptr %1388, align 8
+  %1390 = lshr i64 %1389, 42
+  %1391 = trunc nuw nsw i64 %1390 to i32
+  %1392 = lshr i64 %1389, 21
+  %1393 = trunc i64 %1392 to i32
+  %1394 = and i32 %1393, 2097151
+  %1395 = trunc i64 %1389 to i32
+  %1396 = trunc nuw nsw i64 %indvars.iv850 to i32
+  %1397 = urem i32 %1396, 6
+  %1398 = icmp eq i32 %1397, 5
+  %1399 = icmp ugt i64 %1389, 4398046511103
+  %or.cond = select i1 %1398, i1 %1399, i1 false
+  br i1 %or.cond, label %1403, label %1400
 
-1394:                                             ; preds = %1381
-  %1395 = and i32 %1390, 7
-  %1396 = icmp ne i32 %1395, 7
-  %or.cond5 = select i1 %1396, i1 true, i1 %1393
-  br i1 %or.cond5, label %1401, label %1397
+1400:                                             ; preds = %1387
+  %1401 = and i32 %1396, 7
+  %1402 = icmp ne i32 %1401, 7
+  %or.cond5 = select i1 %1402, i1 true, i1 %1399
+  br i1 %or.cond5, label %1407, label %1403
 
-1397:                                             ; preds = %1394, %1381
-  %1398 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
-  br i1 %.not341, label %1401, label %1399
+1403:                                             ; preds = %1400, %1387
+  %1404 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
+  br i1 %.not341, label %1407, label %1405
 
-1399:                                             ; preds = %1397
-  %1400 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15)
-  br label %1401
+1405:                                             ; preds = %1403
+  %1406 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15)
+  br label %1407
 
-1401:                                             ; preds = %1397, %1399, %1394
-  %.val555 = load ptr, ptr %1380, align 8
-  %1402 = getelementptr inbounds i64, ptr %.val555, i64 %indvars.iv850
-  %1403 = load i64, ptr %1402, align 8
-  %1404 = trunc i64 %1403 to i32
-  %1405 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %1404)
-  %1406 = and i32 %1389, 1
-  %.not343 = icmp eq i32 %1406, 0
-  %1407 = select i1 %.not343, ptr @.str.9, ptr @.str.18
-  %1408 = lshr i32 %1389, 1
-  %1409 = and i32 %1408, 1048575
-  %1410 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull %1407, i32 noundef %1409)
-  %.not344 = icmp eq i32 %1388, 0
-  br i1 %.not344, label %1416, label %1411
+1407:                                             ; preds = %1403, %1405, %1400
+  %.val555 = load ptr, ptr %1386, align 8
+  %1408 = getelementptr inbounds i64, ptr %.val555, i64 %indvars.iv850
+  %1409 = load i64, ptr %1408, align 8
+  %1410 = trunc i64 %1409 to i32
+  %1411 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %1410)
+  %1412 = and i32 %1395, 1
+  %.not343 = icmp eq i32 %1412, 0
+  %1413 = select i1 %.not343, ptr @.str.9, ptr @.str.18
+  %1414 = lshr i32 %1395, 1
+  %1415 = and i32 %1414, 1048575
+  %1416 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull %1413, i32 noundef %1415)
+  %.not344 = icmp eq i32 %1394, 0
+  br i1 %.not344, label %1422, label %1417
 
-1411:                                             ; preds = %1401
-  %1412 = and i32 %1387, 1
-  %.not345 = icmp eq i32 %1412, 0
-  %1413 = select i1 %.not345, ptr @.str.9, ptr @.str.18
-  %1414 = lshr i32 %1388, 1
-  %1415 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef nonnull %1413, i32 noundef %1414)
-  br label %1416
-
-1416:                                             ; preds = %1411, %1401
-  %.not346 = icmp ult i64 %1383, 4398046511104
-  br i1 %.not346, label %1422, label %1417
-
-1417:                                             ; preds = %1416
-  %1418 = and i32 %1385, 1
-  %.not347 = icmp eq i32 %1418, 0
-  %1419 = select i1 %.not347, ptr @.str.9, ptr @.str.18
-  %1420 = lshr i32 %1385, 1
-  %1421 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull %1419, i32 noundef %1420)
+1417:                                             ; preds = %1407
+  %1418 = and i32 %1393, 1
+  %.not345 = icmp eq i32 %1418, 0
+  %1419 = select i1 %.not345, ptr @.str.9, ptr @.str.18
+  %1420 = lshr i32 %1394, 1
+  %1421 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef nonnull %1419, i32 noundef %1420)
   br label %1422
 
-1422:                                             ; preds = %1417, %1416
+1422:                                             ; preds = %1417, %1407
+  %.not346 = icmp ult i64 %1389, 4398046511104
+  br i1 %.not346, label %1428, label %1423
+
+1423:                                             ; preds = %1422
+  %1424 = and i32 %1391, 1
+  %.not347 = icmp eq i32 %1424, 0
+  %1425 = select i1 %.not347, ptr @.str.9, ptr @.str.18
+  %1426 = lshr i32 %1391, 1
+  %1427 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull %1425, i32 noundef %1426)
+  br label %1428
+
+1428:                                             ; preds = %1423, %1422
   %putchar348 = tail call i32 @putchar(i32 32)
   %indvars.iv.next851 = add nuw nsw i64 %indvars.iv850, 1
-  %.val414 = load i32, ptr %1377, align 4
-  %1423 = sext i32 %.val414 to i64
-  %1424 = icmp slt i64 %indvars.iv.next851, %1423
-  br i1 %1424, label %1381, label %.critedge2, !llvm.loop !38
+  %.val414 = load i32, ptr %1383, align 4
+  %1429 = sext i32 %.val414 to i64
+  %1430 = icmp slt i64 %indvars.iv.next851, %1429
+  br i1 %1430, label %1387, label %.critedge2, !llvm.loop !38
 
-.critedge2:                                       ; preds = %1422, %1373
+.critedge2:                                       ; preds = %1428, %1379
   %putchar = tail call i32 @putchar(i32 10)
-  br label %1425
+  br label %1431
 
-1425:                                             ; preds = %1327, %.critedge2
+1431:                                             ; preds = %1333, %.critedge2
   %indvars.iv.next854 = add nuw nsw i64 %indvars.iv853, 1
   %exitcond856.not = icmp eq i64 %indvars.iv.next854, 60
-  br i1 %exitcond856.not, label %1426, label %1327, !llvm.loop !39
+  br i1 %exitcond856.not, label %1432, label %1333, !llvm.loop !39
 
-1426:                                             ; preds = %1425
+1432:                                             ; preds = %1431
   %.val11.i782 = load i32, ptr %30, align 4
-  %1427 = icmp sgt i32 %.val11.i782, 0
-  br i1 %1427, label %.lr.ph.i784.preheader, label %.critedge.i783
+  %1433 = icmp sgt i32 %.val11.i782, 0
+  br i1 %1433, label %.lr.ph.i784.preheader, label %.critedge.i783
 
-.lr.ph.i784.preheader:                            ; preds = %1426
-  %1428 = zext nneg i32 %.val11.i782 to i64
+.lr.ph.i784.preheader:                            ; preds = %1432
+  %1434 = zext nneg i32 %.val11.i782 to i64
   br label %.lr.ph.i784
 
-.lr.ph.i784:                                      ; preds = %.lr.ph.i784.preheader, %1435
-  %indvars.iv.i785 = phi i64 [ %indvars.iv.next.i789, %1435 ], [ 0, %.lr.ph.i784.preheader ]
-  %1429 = getelementptr inbounds ptr, ptr %.val413, i64 %indvars.iv.i785
-  %1430 = load ptr, ptr %1429, align 8
-  %.not.i787 = icmp eq ptr %1430, null
-  br i1 %.not.i787, label %1435, label %1431
+.lr.ph.i784:                                      ; preds = %.lr.ph.i784.preheader, %1441
+  %indvars.iv.i785 = phi i64 [ %indvars.iv.next.i789, %1441 ], [ 0, %.lr.ph.i784.preheader ]
+  %1435 = getelementptr inbounds ptr, ptr %.val413, i64 %indvars.iv.i785
+  %1436 = load ptr, ptr %1435, align 8
+  %.not.i787 = icmp eq ptr %1436, null
+  br i1 %.not.i787, label %1441, label %1437
 
-1431:                                             ; preds = %.lr.ph.i784
-  %1432 = getelementptr inbounds i8, ptr %1430, i64 8
-  %1433 = load ptr, ptr %1432, align 8
-  %.not.i.i = icmp eq ptr %1433, null
-  br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %1434
+1437:                                             ; preds = %.lr.ph.i784
+  %1438 = getelementptr inbounds i8, ptr %1436, i64 8
+  %1439 = load ptr, ptr %1438, align 8
+  %.not.i.i = icmp eq ptr %1439, null
+  br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %1440
 
-1434:                                             ; preds = %1431
-  tail call void @free(ptr noundef nonnull %1433) #25
+1440:                                             ; preds = %1437
+  tail call void @free(ptr noundef nonnull %1439) #25
   br label %Vec_PtrFree.exit.i
 
-Vec_PtrFree.exit.i:                               ; preds = %1434, %1431
-  tail call void @free(ptr noundef nonnull %1430) #25
-  br label %1435
+Vec_PtrFree.exit.i:                               ; preds = %1440, %1437
+  tail call void @free(ptr noundef nonnull %1436) #25
+  br label %1441
 
-1435:                                             ; preds = %Vec_PtrFree.exit.i, %.lr.ph.i784
+1441:                                             ; preds = %Vec_PtrFree.exit.i, %.lr.ph.i784
   %indvars.iv.next.i789 = add nuw nsw i64 %indvars.iv.i785, 1
-  %exitcond857.not = icmp eq i64 %indvars.iv.next.i789, %1428
+  %exitcond857.not = icmp eq i64 %indvars.iv.next.i789, %1434
   br i1 %exitcond857.not, label %.critedge.i783.thread, label %.lr.ph.i784, !llvm.loop !40
 
-.critedge.i783:                                   ; preds = %1426
+.critedge.i783:                                   ; preds = %1432
   %.not.i9.i = icmp eq ptr %.val413, null
   br i1 %.not.i9.i, label %Vec_VecFree.exit, label %.critedge.i783.thread
 
-.critedge.i783.thread:                            ; preds = %1435, %.critedge.i783
+.critedge.i783.thread:                            ; preds = %1441, %.critedge.i783
   tail call void @free(ptr noundef nonnull %.val413) #25
   br label %Vec_VecFree.exit
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.i783, %.critedge.i783.thread
   tail call void @free(ptr noundef nonnull %29) #25
   %.val11.i790 = load i32, ptr %33, align 4
-  %1436 = icmp sgt i32 %.val11.i790, 0
-  br i1 %1436, label %.lr.ph.i793.preheader, label %.critedge.i791
+  %1442 = icmp sgt i32 %.val11.i790, 0
+  br i1 %1442, label %.lr.ph.i793.preheader, label %.critedge.i791
 
 .lr.ph.i793.preheader:                            ; preds = %Vec_VecFree.exit
-  %1437 = zext nneg i32 %.val11.i790 to i64
+  %1443 = zext nneg i32 %.val11.i790 to i64
   br label %.lr.ph.i793
 
-.lr.ph.i793:                                      ; preds = %.lr.ph.i793.preheader, %1444
-  %indvars.iv.i795 = phi i64 [ %indvars.iv.next.i802, %1444 ], [ 0, %.lr.ph.i793.preheader ]
-  %1438 = getelementptr inbounds ptr, ptr %.val412, i64 %indvars.iv.i795
-  %1439 = load ptr, ptr %1438, align 8
-  %.not.i797 = icmp eq ptr %1439, null
-  br i1 %.not.i797, label %1444, label %1440
+.lr.ph.i793:                                      ; preds = %.lr.ph.i793.preheader, %1450
+  %indvars.iv.i795 = phi i64 [ %indvars.iv.next.i802, %1450 ], [ 0, %.lr.ph.i793.preheader ]
+  %1444 = getelementptr inbounds ptr, ptr %.val412, i64 %indvars.iv.i795
+  %1445 = load ptr, ptr %1444, align 8
+  %.not.i797 = icmp eq ptr %1445, null
+  br i1 %.not.i797, label %1450, label %1446
 
-1440:                                             ; preds = %.lr.ph.i793
-  %1441 = getelementptr inbounds i8, ptr %1439, i64 8
-  %1442 = load ptr, ptr %1441, align 8
-  %.not.i.i798 = icmp eq ptr %1442, null
-  br i1 %.not.i.i798, label %Vec_PtrFree.exit.i799, label %1443
+1446:                                             ; preds = %.lr.ph.i793
+  %1447 = getelementptr inbounds i8, ptr %1445, i64 8
+  %1448 = load ptr, ptr %1447, align 8
+  %.not.i.i798 = icmp eq ptr %1448, null
+  br i1 %.not.i.i798, label %Vec_PtrFree.exit.i799, label %1449
 
-1443:                                             ; preds = %1440
-  tail call void @free(ptr noundef nonnull %1442) #25
+1449:                                             ; preds = %1446
+  tail call void @free(ptr noundef nonnull %1448) #25
   br label %Vec_PtrFree.exit.i799
 
-Vec_PtrFree.exit.i799:                            ; preds = %1443, %1440
-  tail call void @free(ptr noundef nonnull %1439) #25
-  br label %1444
+Vec_PtrFree.exit.i799:                            ; preds = %1449, %1446
+  tail call void @free(ptr noundef nonnull %1445) #25
+  br label %1450
 
-1444:                                             ; preds = %Vec_PtrFree.exit.i799, %.lr.ph.i793
+1450:                                             ; preds = %Vec_PtrFree.exit.i799, %.lr.ph.i793
   %indvars.iv.next.i802 = add nuw nsw i64 %indvars.iv.i795, 1
-  %exitcond858.not = icmp eq i64 %indvars.iv.next.i802, %1437
+  %exitcond858.not = icmp eq i64 %indvars.iv.next.i802, %1443
   br i1 %exitcond858.not, label %.critedge.i791.thread, label %.lr.ph.i793, !llvm.loop !40
 
 .critedge.i791:                                   ; preds = %Vec_VecFree.exit
   %.not.i9.i792 = icmp eq ptr %.val412, null
   br i1 %.not.i9.i792, label %Vec_VecFree.exit803, label %.critedge.i791.thread
 
-.critedge.i791.thread:                            ; preds = %1444, %.critedge.i791
+.critedge.i791.thread:                            ; preds = %1450, %.critedge.i791
   tail call void @free(ptr noundef nonnull %.val412) #25
   br label %Vec_VecFree.exit803
 
 Vec_VecFree.exit803:                              ; preds = %.critedge.i791, %.critedge.i791.thread
   tail call void @free(ptr noundef nonnull %32) #25
-  %1445 = load ptr, ptr %6, align 8
-  %.not.i804 = icmp eq ptr %1445, null
-  br i1 %.not.i804, label %Vec_IntFree.exit, label %1446
+  %1451 = load ptr, ptr %6, align 8
+  %.not.i804 = icmp eq ptr %1451, null
+  br i1 %.not.i804, label %Vec_IntFree.exit, label %1452
 
-1446:                                             ; preds = %Vec_VecFree.exit803
-  tail call void @free(ptr noundef nonnull %1445) #25
+1452:                                             ; preds = %Vec_VecFree.exit803
+  tail call void @free(ptr noundef nonnull %1451) #25
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Vec_VecFree.exit803, %1446
+Vec_IntFree.exit:                                 ; preds = %Vec_VecFree.exit803, %1452
   tail call void @free(ptr noundef nonnull %4) #25
   ret void
 }

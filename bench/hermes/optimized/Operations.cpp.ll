@@ -5154,14 +5154,14 @@ _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.ex
 while.body:                                       ; preds = %while.body.backedge, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit20
   %6 = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %6, -1970324836974592
-  %7 = lshr i64 %6, 43
-  %8 = load i64, ptr %retval.0.i.i.i.i.i.i17, align 8
-  %cmp.i.i21 = icmp ult i64 %8, -1970324836974592
-  %shr.i22 = lshr i64 %8, 47
-  %9 = and i64 %shr.i22, 15
-  %10 = and i64 %7, 240
-  %shl.i = select i1 %cmp.i.i, i64 128, i64 %10
-  %and1.i = select i1 %cmp.i.i21, i64 8, i64 %9
+  %7 = load i64, ptr %retval.0.i.i.i.i.i.i17, align 8
+  %cmp.i.i21 = icmp ult i64 %7, -1970324836974592
+  %shr.i22 = lshr i64 %7, 47
+  %8 = lshr i64 %6, 43
+  %9 = and i64 %8, 240
+  %shl.i = select i1 %cmp.i.i, i64 128, i64 %9
+  %10 = and i64 %shr.i22, 15
+  %and1.i = select i1 %cmp.i.i21, i64 8, i64 %10
   %or.i = or disjoint i64 %and1.i, %shl.i
   %trunc = trunc nuw i64 %or.i to i8
   switch i8 %trunc, label %return [
@@ -5242,7 +5242,7 @@ while.body:                                       ; preds = %while.body.backedge
 
 sw.bb23:                                          ; preds = %while.body
   %11 = bitcast i64 %6 to double
-  %12 = bitcast i64 %8 to double
+  %12 = bitcast i64 %7 to double
   %cmp = fcmp oeq double %11, %12
   %bf.set.i = select i1 %cmp, i32 257, i32 1
   br label %return
@@ -5250,7 +5250,7 @@ sw.bb23:                                          ; preds = %while.body
 sw.bb28:                                          ; preds = %while.body, %while.body, %while.body, %while.body
   %and.i.i = and i64 %6, 281474976710655
   %13 = inttoptr i64 %and.i.i to ptr
-  %and.i.i26 = and i64 %8, 281474976710655
+  %and.i.i26 = and i64 %7, 281474976710655
   %14 = inttoptr i64 %and.i.i26 to ptr
   %call33 = tail call noundef zeroext i1 @_ZNK6hermes2vm15StringPrimitive6equalsEPKS1_(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef %14) #17
   %bf.set.i29 = select i1 %call33, i32 257, i32 1
@@ -5259,7 +5259,7 @@ sw.bb28:                                          ; preds = %while.body, %while.
 sw.bb34:                                          ; preds = %while.body, %while.body, %while.body, %while.body
   %and.i.i31 = and i64 %6, 281474976710655
   %15 = inttoptr i64 %and.i.i31 to ptr
-  %and.i.i32 = and i64 %8, 281474976710655
+  %and.i.i32 = and i64 %7, 281474976710655
   %16 = inttoptr i64 %and.i.i32 to ptr
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %numDigits2.i.i = getelementptr inbounds i8, ptr %15, i64 4
@@ -5273,7 +5273,7 @@ sw.bb34:                                          ; preds = %while.body, %while.
   br label %return
 
 sw.bb41:                                          ; preds = %while.body, %while.body, %while.body, %while.body, %while.body, %while.body
-  %cmp46 = icmp eq i64 %6, %8
+  %cmp46 = icmp eq i64 %6, %7
   %bf.set.i39 = select i1 %cmp46, i32 257, i32 1
   br label %return
 
@@ -5308,12 +5308,12 @@ if.end79:                                         ; preds = %if.end
   br label %while.body.backedge
 
 sw.bb84:                                          ; preds = %while.body, %while.body, %while.body, %while.body
-  store i64 %8, ptr %retval.0.i.i.i.i.i.i, align 8
+  store i64 %7, ptr %retval.0.i.i.i.i.i.i, align 8
   store i64 %6, ptr %retval.0.i.i.i.i.i.i17, align 8
   br label %while.body.backedge
 
 sw.bb85:                                          ; preds = %while.body
-  %23 = bitcast i64 %8 to double
+  %23 = bitcast i64 %7 to double
   %and.i59 = and i64 %6, 1
   %tobool.i = icmp ne i64 %and.i59, 0
   %conv = uitofp i1 %tobool.i to double
@@ -5331,7 +5331,7 @@ sw.bb91:                                          ; preds = %while.body, %while.
   br label %return
 
 sw.bb103:                                         ; preds = %while.body, %while.body
-  %and.i.i70 = and i64 %8, 281474976710655
+  %and.i.i70 = and i64 %7, 281474976710655
   %24 = inttoptr i64 %and.i.i70 to ptr
   %conv108 = and i64 %6, 1
   %add.ptr.i.i.i.i73 = getelementptr inbounds i8, ptr %24, i64 8
@@ -5351,7 +5351,7 @@ sw.bb111:                                         ; preds = %while.body, %while.
 
 sw.bb119:                                         ; preds = %while.body
   %26 = bitcast i64 %6 to double
-  %and.i83 = and i64 %8, 1
+  %and.i83 = and i64 %7, 1
   %tobool.i84 = icmp ne i64 %and.i83, 0
   %conv124 = uitofp i1 %tobool.i84 to double
   %cmp125 = fcmp oeq double %26, %conv124
@@ -5371,7 +5371,7 @@ sw.bb126:                                         ; preds = %while.body, %while.
 sw.bb138:                                         ; preds = %while.body, %while.body
   %and.i.i95 = and i64 %6, 281474976710655
   %28 = inttoptr i64 %and.i.i95 to ptr
-  %conv143 = and i64 %8, 1
+  %conv143 = and i64 %7, 1
   %add.ptr.i.i.i.i98 = getelementptr inbounds i8, ptr %28, i64 8
   %numDigits2.i.i99 = getelementptr inbounds i8, ptr %28, i64 4
   %29 = load i32, ptr %numDigits2.i.i99, align 4
@@ -5381,7 +5381,7 @@ sw.bb138:                                         ; preds = %while.body, %while.
   br label %return
 
 sw.bb146:                                         ; preds = %while.body, %while.body
-  %and.i106 = and i64 %8, 1
+  %and.i106 = and i64 %7, 1
   %tobool.i107 = icmp ne i64 %and.i106, 0
   %conv.i108 = uitofp i1 %tobool.i107 to double
   store double %conv.i108, ptr %retval.0.i.i.i.i.i.i17, align 8
@@ -5413,7 +5413,7 @@ while.body.backedge:                              ; preds = %if.end174, %if.end1
   br label %while.body, !llvm.loop !48
 
 sw.bb179:                                         ; preds = %while.body, %while.body
-  store i64 %8, ptr %retval.0.i.i.i.i.i.i, align 8
+  store i64 %7, ptr %retval.0.i.i.i.i.i.i, align 8
   store i64 %6, ptr %retval.0.i.i.i.i.i.i17, align 8
   %.pre = load double, ptr %retval.0.i.i.i.i.i.i, align 8
   br label %sw.bb180

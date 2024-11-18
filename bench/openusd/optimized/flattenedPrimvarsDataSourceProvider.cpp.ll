@@ -283,8 +283,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDa
   br label %.preheader14.i.i.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %.preheader14.i.i.i.i.i
-  %48 = ptrtoint ptr %.ptr12.i.i.i.i.i to i64
-  %49 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %49 = ptrtoint ptr %.ptr12.i.i.i.i.i to i64
   br label %52
 
 .preheader14.i.i.i.i.i:                           ; preds = %.preheader14.i.i.i.i.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i
@@ -300,8 +300,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDa
 52:                                               ; preds = %52, %.preheader.i.i.i.i.i
   %.01016.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %56, %52 ]
   %53 = icmp eq i64 %.01016.i.i.i.i.i, 0
-  %54 = getelementptr inbounds [64 x %"struct.std::atomic.19"], ptr %49, i64 0, i64 %.01016.i.i.i.i.i
-  %55 = select i1 %53, i64 %48, i64 0
+  %54 = getelementptr inbounds [64 x %"struct.std::atomic.19"], ptr %48, i64 0, i64 %.01016.i.i.i.i.i
+  %55 = select i1 %53, i64 %49, i64 0
   store atomic i64 %55, ptr %54 monotonic, align 8, !noalias !9
   %56 = add nuw nsw i64 %.01016.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %56, 64

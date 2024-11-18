@@ -8,10 +8,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 @cmodule_list.0 = internal unnamed_addr global ptr null, align 8
 @cmodule_list.1 = internal unnamed_addr global i32 0, align 8
-@cmodule_list.2 = internal unnamed_addr global i32 0, align 8
+@cmodule_list.2 = internal unnamed_addr global i32 0, align 4
 @init_module_list.0 = internal unnamed_addr global ptr null, align 8
 @init_module_list.1 = internal unnamed_addr global i32 0, align 8
-@init_module_list.2 = internal unnamed_addr global i32 0, align 8
+@init_module_list.2 = internal unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [4 x i8] c".so\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [56 x i8] c"Warning: binary module '%s' will be dynamically loaded\0A\00", align 1
@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [36 x i8] c"could not load module filename '%s'\00", align 1
 @cname_list.0 = internal unnamed_addr global ptr null, align 8
 @cname_list.1 = internal unnamed_addr global i32 0, align 8
-@cname_list.2 = internal unnamed_addr global i32 0, align 8
+@cname_list.2 = internal unnamed_addr global i32 0, align 4
 @outfile = internal unnamed_addr global ptr null, align 8
 @.str.3 = private unnamed_addr constant [644 x i8] c"QuickJS Compiler version 2024-02-14\0Ausage: qjsc [options] [files]\0A\0Aoptions are:\0A-c          only output bytecode to a C file\0A-e          output main() and bytecode to a C file (default = executable output)\0A-o output   set the output filename\0A-N cname    set the C name of the generated data\0A-m          compile as Javascript module (default=autodetect)\0A-D module_name         compile a dynamically loaded module or worker\0A-M module_name[,cname] add initialization code for an external C module\0A-x          byte swapped output\0A-p prefix   set the prefix of the generated C names\0A-S n        set the maximum stack size to 'n' bytes (default=%d)\0A\00", align 1
 @feature_bitmap = internal unnamed_addr global i64 0, align 8
@@ -256,7 +256,7 @@ namelist_find.exit:                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @init_module_list.1, align 8
-  %18 = load i32, ptr @init_module_list.2, align 8
+  %18 = load i32, ptr @init_module_list.2, align 4
   %19 = icmp eq i32 %17, %18
   %.pre.i = load ptr, ptr @init_module_list.0, align 8
   br i1 %19, label %20, label %27
@@ -269,7 +269,7 @@ namelist_find.exit:                               ; preds = %11
   %25 = mul nsw i64 %24, 24
   %26 = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %25) #16
   store ptr %26, ptr @init_module_list.0, align 8
-  store i32 %23, ptr @init_module_list.2, align 8
+  store i32 %23, ptr @init_module_list.2, align 4
   %.pre20.i = load i32, ptr @init_module_list.1, align 8
   br label %27
 
@@ -532,7 +532,7 @@ define internal fastcc void @output_object_code(ptr noundef %0, ptr nocapture no
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @cname_list.1, align 8
-  %12 = load i32, ptr @cname_list.2, align 8
+  %12 = load i32, ptr @cname_list.2, align 4
   %13 = icmp eq i32 %11, %12
   %.pre.i = load ptr, ptr @cname_list.0, align 8
   br i1 %13, label %14, label %namelist_add.exit
@@ -545,7 +545,7 @@ define internal fastcc void @output_object_code(ptr noundef %0, ptr nocapture no
   %19 = mul nsw i64 %18, 24
   %20 = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %19) #16
   store ptr %20, ptr @cname_list.0, align 8
-  store i32 %17, ptr @cname_list.2, align 8
+  store i32 %17, ptr @cname_list.2, align 4
   %.pre20.i = load i32, ptr @cname_list.1, align 8
   br label %namelist_add.exit
 
@@ -685,7 +685,7 @@ define dso_local range(i32 0, 256) i32 @main(i32 noundef %0, ptr noundef %1) loc
   store i64 -1, ptr @feature_bitmap, align 8
   store i1 false, ptr @byte_swap, align 4
   %16 = load i32, ptr @cmodule_list.1, align 8
-  %17 = load i32, ptr @cmodule_list.2, align 8
+  %17 = load i32, ptr @cmodule_list.2, align 4
   %18 = icmp eq i32 %16, %17
   %.pre.i = load ptr, ptr @cmodule_list.0, align 8
   br i1 %18, label %19, label %namelist_add.exit
@@ -698,7 +698,7 @@ define dso_local range(i32 0, 256) i32 @main(i32 noundef %0, ptr noundef %1) loc
   %24 = mul nsw i64 %23, 24
   %25 = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %24) #16
   store ptr %25, ptr @cmodule_list.0, align 8
-  store i32 %22, ptr @cmodule_list.2, align 8
+  store i32 %22, ptr @cmodule_list.2, align 4
   %.pre20.i = load i32, ptr @cmodule_list.1, align 8
   br label %namelist_add.exit
 
@@ -717,7 +717,7 @@ namelist_add.exit:                                ; preds = %2, %19
   %34 = getelementptr inbounds i8, ptr %30, i64 16
   store i32 0, ptr %34, align 8
   %35 = load i32, ptr @cmodule_list.1, align 8
-  %36 = load i32, ptr @cmodule_list.2, align 8
+  %36 = load i32, ptr @cmodule_list.2, align 4
   %37 = icmp eq i32 %35, %36
   %.pre.i135 = load ptr, ptr @cmodule_list.0, align 8
   br i1 %37, label %38, label %namelist_add.exit137
@@ -730,7 +730,7 @@ namelist_add.exit:                                ; preds = %2, %19
   %43 = mul nsw i64 %42, 24
   %44 = tail call ptr @realloc(ptr noundef %.pre.i135, i64 noundef %43) #16
   store ptr %44, ptr @cmodule_list.0, align 8
-  store i32 %41, ptr @cmodule_list.2, align 8
+  store i32 %41, ptr @cmodule_list.2, align 4
   %.pre20.i136 = load i32, ptr @cmodule_list.1, align 8
   br label %namelist_add.exit137
 
@@ -886,7 +886,7 @@ split:                                            ; preds = %78, %._crit_edge251
 
 91:                                               ; preds = %90, %88
   %92 = load i32, ptr @cmodule_list.1, align 8
-  %93 = load i32, ptr @cmodule_list.2, align 8
+  %93 = load i32, ptr @cmodule_list.2, align 4
   %94 = icmp eq i32 %92, %93
   %.pre.i138 = load ptr, ptr @cmodule_list.0, align 8
   br i1 %94, label %95, label %namelist_add.exit140
@@ -899,7 +899,7 @@ split:                                            ; preds = %78, %._crit_edge251
   %100 = mul nsw i64 %99, 24
   %101 = call ptr @realloc(ptr noundef %.pre.i138, i64 noundef %100) #16
   store ptr %101, ptr @cmodule_list.0, align 8
-  store i32 %98, ptr @cmodule_list.2, align 8
+  store i32 %98, ptr @cmodule_list.2, align 4
   %.pre20.i139 = load i32, ptr @cmodule_list.1, align 8
   br label %namelist_add.exit140
 
@@ -1478,7 +1478,7 @@ namelist_free.exit:                               ; preds = %namelist_free.exit.
   %341 = load ptr, ptr @cname_list.0, align 8
   call void @free(ptr noundef %341) #17
   store ptr null, ptr @cname_list.0, align 8
-  store i32 0, ptr @cname_list.2, align 8
+  store i32 0, ptr @cname_list.2, align 4
   %342 = load i32, ptr @cmodule_list.1, align 8
   %343 = icmp sgt i32 %342, 0
   br i1 %343, label %.lr.ph.i149.preheader, label %namelist_free.exit150
@@ -1508,7 +1508,7 @@ namelist_free.exit150:                            ; preds = %namelist_free.exit1
   %353 = load ptr, ptr @cmodule_list.0, align 8
   call void @free(ptr noundef %353) #17
   store ptr null, ptr @cmodule_list.0, align 8
-  store i32 0, ptr @cmodule_list.2, align 8
+  store i32 0, ptr @cmodule_list.2, align 4
   %354 = load i32, ptr @init_module_list.1, align 8
   %355 = icmp sgt i32 %354, 0
   br i1 %355, label %.lr.ph.i152.preheader, label %namelist_free.exit153
@@ -1538,7 +1538,7 @@ namelist_free.exit153:                            ; preds = %namelist_free.exit1
   %365 = load ptr, ptr @init_module_list.0, align 8
   call void @free(ptr noundef %365) #17
   store ptr null, ptr @init_module_list.0, align 8
-  store i32 0, ptr @init_module_list.2, align 8
+  store i32 0, ptr @init_module_list.2, align 4
   br label %366
 
 366:                                              ; preds = %namelist_free.exit153, %output_executable.exit

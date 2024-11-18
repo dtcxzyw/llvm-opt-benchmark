@@ -3764,63 +3764,63 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit:  ; preds = %18
   %26 = load i64, ptr %7, align 8
   %spec.select41 = call i64 @llvm.umin.i64(i64 %26, i64 4294967296)
   %spec.select = trunc i64 %spec.select41 to i32
-  %27 = shl i32 %spec.select, 14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %27 = load ptr, ptr %10, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %.sroa.0.0.copyload.i2 = load ptr, ptr %29, align 8
-  %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds i8, ptr %28, i64 40
+  %.sroa.0.0.copyload.i2 = load ptr, ptr %28, align 8
+  %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds i8, ptr %27, i64 40
   %.sroa.2.0.copyload.i4 = load i64, ptr %.sroa.2.0..sroa_idx.i3, align 8
-  %30 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.0.0.copyload.i2, i64 %.sroa.2.0.copyload.i4, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %6) #10
-  %31 = load i64, ptr %6, align 8
-  %spec.select3742 = call i64 @llvm.umin.i64(i64 %31, i64 4294967296)
+  %29 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.0.0.copyload.i2, i64 %.sroa.2.0.copyload.i4, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  %30 = load i64, ptr %6, align 8
+  %spec.select3742 = call i64 @llvm.umin.i64(i64 %30, i64 4294967296)
   %spec.select37 = trunc i64 %spec.select3742 to i32
-  %32 = shl i32 %spec.select37, 11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
+  %31 = load ptr, ptr %10, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %.sroa.0.0.copyload.i8 = load ptr, ptr %34, align 8
-  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %33, i64 56
+  %.sroa.0.0.copyload.i8 = load ptr, ptr %32, align 8
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %31, i64 56
   %.sroa.2.0.copyload.i10 = load i64, ptr %.sroa.2.0..sroa_idx.i9, align 8
-  %35 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.0.0.copyload.i8, i64 %.sroa.2.0.copyload.i10, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  %36 = load i64, ptr %5, align 8
-  %spec.select3843 = call i64 @llvm.umin.i64(i64 %36, i64 4294967296)
+  %33 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.0.0.copyload.i8, i64 %.sroa.2.0.copyload.i10, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #10
+  %34 = load i64, ptr %5, align 8
+  %spec.select3843 = call i64 @llvm.umin.i64(i64 %34, i64 4294967296)
   %spec.select38 = trunc i64 %spec.select3843 to i32
-  %37 = shl i32 %spec.select38, 7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 64
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %.sroa.0.0.copyload.i14 = load ptr, ptr %39, align 8
-  %.sroa.2.0..sroa_idx.i15 = getelementptr inbounds i8, ptr %38, i64 72
+  %.sroa.0.0.copyload.i14 = load ptr, ptr %36, align 8
+  %.sroa.2.0..sroa_idx.i15 = getelementptr inbounds i8, ptr %35, i64 72
   %.sroa.2.0.copyload.i16 = load i64, ptr %.sroa.2.0..sroa_idx.i15, align 8
-  %40 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.0.0.copyload.i14, i64 %.sroa.2.0.copyload.i16, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %4) #10
-  %41 = load i64, ptr %4, align 8
-  %spec.select3944 = call i64 @llvm.umin.i64(i64 %41, i64 4294967296)
+  %37 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.0.0.copyload.i14, i64 %.sroa.2.0.copyload.i16, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %4) #10
+  %38 = load i64, ptr %4, align 8
+  %spec.select3944 = call i64 @llvm.umin.i64(i64 %38, i64 4294967296)
   %spec.select39 = trunc i64 %spec.select3944 to i32
-  %42 = shl i32 %spec.select39, 3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 80
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %.sroa.0.0.copyload.i20 = load ptr, ptr %44, align 8
-  %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %43, i64 88
+  %.sroa.0.0.copyload.i20 = load ptr, ptr %40, align 8
+  %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %39, i64 88
   %.sroa.2.0.copyload.i22 = load i64, ptr %.sroa.2.0..sroa_idx.i21, align 8
-  %45 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.0.0.copyload.i20, i64 %.sroa.2.0.copyload.i22, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  %46 = load i64, ptr %3, align 8
-  %spec.select4045 = call i64 @llvm.umin.i64(i64 %46, i64 4294967296)
+  %41 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.0.0.copyload.i20, i64 %.sroa.2.0.copyload.i22, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  %42 = load i64, ptr %3, align 8
+  %spec.select4045 = call i64 @llvm.umin.i64(i64 %42, i64 4294967296)
   %spec.select40 = trunc i64 %spec.select4045 to i32
-  %.032 = select i1 %45, i32 0, i32 %spec.select40
+  %.032 = select i1 %41, i32 0, i32 %spec.select40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %47 = select i1 %25, i32 0, i32 %27
-  %48 = select i1 %30, i32 0, i32 %32
-  %49 = or i32 %48, %47
-  %50 = select i1 %35, i32 0, i32 %37
-  %51 = or i32 %49, %50
-  %52 = select i1 %40, i32 0, i32 %42
-  %53 = or i32 %51, %52
+  %43 = shl i32 %spec.select, 14
+  %44 = select i1 %25, i32 0, i32 %43
+  %45 = shl i32 %spec.select37, 11
+  %46 = select i1 %29, i32 0, i32 %45
+  %47 = or i32 %46, %44
+  %48 = shl i32 %spec.select38, 7
+  %49 = select i1 %33, i32 0, i32 %48
+  %50 = or i32 %47, %49
+  %51 = shl i32 %spec.select39, 3
+  %52 = select i1 %37, i32 0, i32 %51
+  %53 = or i32 %50, %52
   %54 = or i32 %53, %.032
   br label %55
 

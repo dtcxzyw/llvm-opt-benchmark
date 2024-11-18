@@ -8860,11 +8860,11 @@ for.body74.lr.ph:                                 ; preds = %"_ZSt4sortIN9__gnu_
   %add97 = add nuw nsw i32 %axis.0, 2
   %rem98 = urem i32 %add97, 3
   %35 = load float, ptr %emptyBonus, align 4
-  %36 = fsub float 1.000000e+00, %35
-  %37 = load i32, ptr %traversalCost, align 4
-  %conv127 = sitofp i32 %37 to float
-  %38 = load i32, ptr %this, align 8
-  %conv129 = sitofp i32 %38 to float
+  %36 = load i32, ptr %traversalCost, align 4
+  %conv127 = sitofp i32 %36 to float
+  %37 = load i32, ptr %this, align 8
+  %conv129 = sitofp i32 %37 to float
+  %38 = fsub float 1.000000e+00, %35
   br label %for.body74
 
 for.body74:                                       ; preds = %for.body74.lr.ph, %if.end143
@@ -9066,7 +9066,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit230:       ; preds = %_ZN4pbrt6Tuple3INS_
   %cmp124 = icmp eq i32 %spec.select, 0
   %cmp126 = icmp eq i32 %nBelow.0352, 0
   %or.cond1 = select i1 %cmp124, i1 true, i1 %cmp126
-  %sub130 = select i1 %or.cond1, float %36, float 1.000000e+00
+  %sub130 = select i1 %or.cond1, float %38, float 1.000000e+00
   %mul131 = fmul float %sub130, %conv129
   %conv132 = uitofp nneg i32 %nBelow.0352 to float
   %mul133 = fmul float %mul122, %conv132

@@ -2636,13 +2636,13 @@ define hidden void @"_ZN133_$LT$object..read..elf..relocation..ElfSectionRelocat
 _ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.outer: ; preds = %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.sink.split, %2
   %.ph = phi ptr [ %.sink102, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.sink.split ], [ %.promoted99, %2 ]
   %.ph135 = phi ptr [ %.sink, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.sink.split ], [ %.promoted98, %2 ]
-  %.ph136 = phi i64 [ %116, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.sink.split ], [ %.promoted91, %2 ]
+  %.ph136 = phi i64 [ %117, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.sink.split ], [ %.promoted91, %2 ]
   %.ph137 = phi i64 [ %.sink103, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.sink.split ], [ %.promoted, %2 ]
   %16 = icmp eq ptr %.ph, %.ph135
   br label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread
 
 _ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread: ; preds = %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.outer
-  %17 = phi i64 [ %.ph136, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.outer ], [ %116, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge ]
+  %17 = phi i64 [ %.ph136, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.outer ], [ %117, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge ]
   %18 = phi i64 [ %.ph137, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.outer ], [ 2, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge ]
   %.not = icmp eq i64 %18, 2
   br i1 %.not, label %28, label %19
@@ -2653,10 +2653,10 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.ex
   br i1 %trunc.i, label %21, label %20
 
 20:                                               ; preds = %19
-  br i1 %16, label %113, label %26
+  br i1 %16, label %114, label %26
 
 21:                                               ; preds = %19
-  br i1 %16, label %113, label %22
+  br i1 %16, label %114, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %.ph, i64 12
@@ -2670,11 +2670,11 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.ex
   store ptr %27, ptr %9, align 8, !alias.scope !304, !noalias !294
   br label %31
 
-28:                                               ; preds = %113, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread
+28:                                               ; preds = %114, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread
   %29 = tail call { i64, i64 } @_ZN6object4read3elf10relocation18RelocationSections3get17h335d5ec06f96c62cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef %17)
   %30 = extractvalue { i64, i64 } %29, 0
   %switch = icmp eq i64 %30, 0
-  br i1 %switch, label %125, label %115
+  br i1 %switch, label %126, label %116
 
 31:                                               ; preds = %26, %22
   %.sink15.i = phi i32 [ %25, %22 ], [ 0, %26 ]
@@ -2685,452 +2685,452 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.ex
   %33 = load ptr, ptr %32, align 8, !nonnull !4, !align !6, !noundef !4
   %.0 = xor i1 %trunc.i, true
   %34 = lshr i32 %.sink16.i, 24
-  %.0.i.i.i = select i1 %8, i32 %34, i32 %.sink16.i
-  %35 = and i32 %.0.i.i.i, 255
-  %36 = getelementptr inbounds i8, ptr %33, i64 18
-  %.val.i = load i16, ptr %36, align 2, !alias.scope !308, !noalias !311, !noundef !4
-  %37 = tail call i16 @llvm.bswap.i16(i16 %.val.i)
-  %.0.i.i32.i = select i1 %8, i16 %37, i16 %.val.i
-  switch i16 %.0.i.i32.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i16 183, label %38
-    i16 40, label %40
-    i16 83, label %42
-    i16 247, label %43
-    i16 252, label %44
-    i16 3, label %45
-    i16 62, label %47
-    i16 164, label %49
-    i16 258, label %51
-    i16 8, label %52
-    i16 105, label %53
-    i16 20, label %54
-    i16 21, label %56
-    i16 243, label %57
-    i16 22, label %58
-    i16 263, label %60
-    i16 133, label %61
-    i16 2, label %63
-    i16 18, label %63
-    i16 43, label %63
-    i16 94, label %64
+  %35 = and i32 %.sink16.i, 255
+  %36 = select i1 %8, i32 %34, i32 %35
+  %37 = getelementptr inbounds i8, ptr %33, i64 18
+  %.val.i = load i16, ptr %37, align 2, !alias.scope !308, !noalias !311, !noundef !4
+  %38 = tail call i16 @llvm.bswap.i16(i16 %.val.i)
+  %.0.i.i.i = select i1 %8, i16 %38, i16 %.val.i
+  switch i16 %.0.i.i.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
+    i16 183, label %39
+    i16 40, label %41
+    i16 83, label %43
+    i16 247, label %44
+    i16 252, label %45
+    i16 3, label %46
+    i16 62, label %48
+    i16 164, label %50
+    i16 258, label %52
+    i16 8, label %53
+    i16 105, label %54
+    i16 20, label %55
+    i16 21, label %57
+    i16 243, label %58
+    i16 22, label %59
+    i16 263, label %61
+    i16 133, label %62
+    i16 2, label %64
+    i16 18, label %64
+    i16 43, label %64
+    i16 94, label %65
   ]
 
-38:                                               ; preds = %31
-  %39 = icmp eq i32 %35, 1
-  %spec.select.i = zext i1 %39 to i8
-  %spec.select28.i = select i1 %39, i8 32, i8 0
+39:                                               ; preds = %31
+  %40 = icmp eq i32 %36, 1
+  %spec.select.i = zext i1 %40 to i8
+  %spec.select28.i = select i1 %40, i8 32, i8 0
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-40:                                               ; preds = %31
-  %41 = icmp eq i32 %35, 2
-  %..i = zext i1 %41 to i8
-  %.22.i = select i1 %41, i8 32, i8 0
+41:                                               ; preds = %31
+  %42 = icmp eq i32 %36, 2
+  %..i = zext i1 %42 to i8
+  %.22.i = select i1 %42, i8 32, i8 0
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
-
-42:                                               ; preds = %31
-  %trunc21.i = trunc i32 %.0.i.i.i to i8
-  switch i8 %trunc21.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 1, label %65
-    i8 4, label %66
-  ]
 
 43:                                               ; preds = %31
-  %trunc20.i = trunc i32 %.0.i.i.i to i8
-  switch i8 %trunc20.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 1, label %67
-    i8 10, label %68
+  %trunc21.i = trunc nuw i32 %36 to i8
+  switch i8 %trunc21.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
+    i8 1, label %66
+    i8 4, label %67
   ]
 
 44:                                               ; preds = %31
-  %trunc19.i = trunc i32 %.0.i.i.i to i8
-  switch i8 %trunc19.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 1, label %69
-    i8 5, label %70
+  %trunc20.i = trunc nuw i32 %36 to i8
+  switch i8 %trunc20.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
+    i8 1, label %68
+    i8 10, label %69
   ]
 
 45:                                               ; preds = %31
-  %trunc18.i = trunc i32 %.0.i.i.i to i8
-  %switch.tableidx = add i8 %trunc18.i, -1
-  %46 = icmp ult i8 %switch.tableidx, 23
-  br i1 %46, label %switch.lookup, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
-
-47:                                               ; preds = %31
-  %trunc17.i = trunc i32 %.0.i.i.i to i8
-  %switch.tableidx112 = add i8 %trunc17.i, -1
-  %48 = icmp ult i8 %switch.tableidx112, 15
-  br i1 %48, label %switch.lookup111, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
-
-49:                                               ; preds = %31
-  %50 = icmp eq i32 %35, 6
-  %.23.i = zext i1 %50 to i8
-  %.24.i = select i1 %50, i8 32, i8 0
-  br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
-
-51:                                               ; preds = %31
-  %trunc16.i = trunc i32 %.0.i.i.i to i8
-  switch i8 %trunc16.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 1, label %71
-    i8 2, label %72
-    i8 99, label %73
-    i8 109, label %74
-    i8 64, label %75
-    i8 65, label %76
-    i8 66, label %77
+  %trunc19.i = trunc nuw i32 %36 to i8
+  switch i8 %trunc19.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
+    i8 1, label %70
+    i8 5, label %71
   ]
 
+46:                                               ; preds = %31
+  %trunc18.i = trunc nuw i32 %36 to i8
+  %switch.tableidx = add i8 %trunc18.i, -1
+  %47 = icmp ult i8 %switch.tableidx, 23
+  br i1 %47, label %switch.lookup, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
+
+48:                                               ; preds = %31
+  %trunc17.i = trunc nuw i32 %36 to i8
+  %switch.tableidx112 = add i8 %trunc17.i, -1
+  %49 = icmp ult i8 %switch.tableidx112, 15
+  br i1 %49, label %switch.lookup111, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
+
+50:                                               ; preds = %31
+  %51 = icmp eq i32 %36, 6
+  %.23.i = zext i1 %51 to i8
+  %.24.i = select i1 %51, i8 32, i8 0
+  br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
+
 52:                                               ; preds = %31
-  %trunc15.i = trunc i32 %.0.i.i.i to i8
-  switch i8 %trunc15.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 1, label %78
-    i8 2, label %79
-    i8 18, label %80
+  %trunc16.i = trunc nuw i32 %36 to i8
+  switch i8 %trunc16.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
+    i8 1, label %72
+    i8 2, label %73
+    i8 99, label %74
+    i8 109, label %75
+    i8 64, label %76
+    i8 65, label %77
+    i8 66, label %78
   ]
 
 53:                                               ; preds = %31
-  %trunc14.i = trunc i32 %.0.i.i.i to i8
-  switch i8 %trunc14.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 1, label %81
-    i8 5, label %82
+  %trunc15.i = trunc nuw i32 %36 to i8
+  switch i8 %trunc15.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
+    i8 1, label %79
+    i8 2, label %80
+    i8 18, label %81
   ]
 
 54:                                               ; preds = %31
-  %55 = icmp eq i32 %35, 1
-  %.25.i = zext i1 %55 to i8
-  %.26.i = select i1 %55, i8 32, i8 0
-  br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
-
-56:                                               ; preds = %31
-  %trunc13.i = trunc i32 %.0.i.i.i to i8
-  switch i8 %trunc13.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 1, label %83
-    i8 38, label %84
+  %trunc14.i = trunc nuw i32 %36 to i8
+  switch i8 %trunc14.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
+    i8 1, label %82
+    i8 5, label %83
   ]
 
+55:                                               ; preds = %31
+  %56 = icmp eq i32 %36, 1
+  %.25.i = zext i1 %56 to i8
+  %.26.i = select i1 %56, i8 32, i8 0
+  br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
+
 57:                                               ; preds = %31
-  %trunc12.i = trunc i32 %.0.i.i.i to i8
-  switch i8 %trunc12.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 1, label %85
-    i8 2, label %86
+  %trunc13.i = trunc nuw i32 %36 to i8
+  switch i8 %trunc13.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
+    i8 1, label %84
+    i8 38, label %85
   ]
 
 58:                                               ; preds = %31
-  %trunc11.i = trunc i32 %.0.i.i.i to i8
-  %switch.tableidx120 = add i8 %trunc11.i, -1
-  %59 = icmp ult i8 %switch.tableidx120, 28
-  br i1 %59, label %switch.lookup119, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
-
-60:                                               ; preds = %31
-  %trunc10.i = trunc i32 %.0.i.i.i to i8
-  switch i8 %trunc10.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 1, label %87
-    i8 10, label %88
+  %trunc12.i = trunc nuw i32 %36 to i8
+  switch i8 %trunc12.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
+    i8 1, label %86
+    i8 2, label %87
   ]
+
+59:                                               ; preds = %31
+  %trunc11.i = trunc nuw i32 %36 to i8
+  %switch.tableidx120 = add i8 %trunc11.i, -1
+  %60 = icmp ult i8 %switch.tableidx120, 28
+  br i1 %60, label %switch.lookup119, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
 61:                                               ; preds = %31
-  %trunc9.i = trunc i32 %.0.i.i.i to i8
+  %trunc10.i = trunc nuw i32 %36 to i8
+  switch i8 %trunc10.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
+    i8 1, label %88
+    i8 10, label %89
+  ]
+
+62:                                               ; preds = %31
+  %trunc9.i = trunc nuw i32 %36 to i8
   %switch.tableidx128 = add i8 %trunc9.i, -11
-  %62 = icmp ult i8 %switch.tableidx128, 15
-  br i1 %62, label %switch.lookup127, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
+  %63 = icmp ult i8 %switch.tableidx128, 15
+  br i1 %63, label %switch.lookup127, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-63:                                               ; preds = %31, %31, %31
-  %trunc8.i = trunc i32 %.0.i.i.i to i8
+64:                                               ; preds = %31, %31, %31
+  %trunc8.i = trunc nuw i32 %36 to i8
   switch i8 %trunc8.i, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 3, label %89
-    i8 23, label %89
-    i8 32, label %90
-    i8 54, label %90
+    i8 3, label %90
+    i8 23, label %90
+    i8 32, label %91
+    i8 54, label %91
   ]
 
-64:                                               ; preds = %31
-  %trunc.i32 = trunc i32 %.0.i.i.i to i8
+65:                                               ; preds = %31
+  %trunc.i32 = trunc nuw i32 %36 to i8
   switch i8 %trunc.i32, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit [
-    i8 1, label %91
-    i8 14, label %92
+    i8 1, label %92
+    i8 14, label %93
   ]
 
-65:                                               ; preds = %42
-  br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
-
-66:                                               ; preds = %42
+66:                                               ; preds = %43
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
 67:                                               ; preds = %43
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-68:                                               ; preds = %43
+68:                                               ; preds = %44
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
 69:                                               ; preds = %44
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-70:                                               ; preds = %44
+70:                                               ; preds = %45
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-71:                                               ; preds = %51
+71:                                               ; preds = %45
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-72:                                               ; preds = %51
+72:                                               ; preds = %52
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-73:                                               ; preds = %51
+73:                                               ; preds = %52
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-74:                                               ; preds = %51
+74:                                               ; preds = %52
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-75:                                               ; preds = %51
+75:                                               ; preds = %52
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-76:                                               ; preds = %51
+76:                                               ; preds = %52
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-77:                                               ; preds = %51
+77:                                               ; preds = %52
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
 78:                                               ; preds = %52
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-79:                                               ; preds = %52
+79:                                               ; preds = %53
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-80:                                               ; preds = %52
+80:                                               ; preds = %53
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
 81:                                               ; preds = %53
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-82:                                               ; preds = %53
+82:                                               ; preds = %54
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-83:                                               ; preds = %56
+83:                                               ; preds = %54
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-84:                                               ; preds = %56
+84:                                               ; preds = %57
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
 85:                                               ; preds = %57
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-86:                                               ; preds = %57
+86:                                               ; preds = %58
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-87:                                               ; preds = %60
+87:                                               ; preds = %58
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-88:                                               ; preds = %60
+88:                                               ; preds = %61
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-89:                                               ; preds = %63, %63
+89:                                               ; preds = %61
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-90:                                               ; preds = %63, %63
+90:                                               ; preds = %64, %64
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-91:                                               ; preds = %64
+91:                                               ; preds = %64, %64
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-92:                                               ; preds = %64
+92:                                               ; preds = %65
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-switch.lookup:                                    ; preds = %45
-  %93 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [23 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE", i64 0, i64 %93
-  %switch.load = load i8, ptr %switch.gep, align 1
+93:                                               ; preds = %65
+  br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
+
+switch.lookup:                                    ; preds = %46
   %94 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep109 = getelementptr inbounds [23 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.208", i64 0, i64 %94
+  %switch.gep = getelementptr inbounds [23 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE", i64 0, i64 %94
+  %switch.load = load i8, ptr %switch.gep, align 1
+  %95 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep109 = getelementptr inbounds [23 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.208", i64 0, i64 %95
   %switch.load110 = load i8, ptr %switch.gep109, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-switch.lookup111:                                 ; preds = %47
-  %95 = zext nneg i8 %switch.tableidx112 to i64
-  %switch.gep113 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.209", i64 0, i64 %95
-  %switch.load114 = load i8, ptr %switch.gep113, align 1
+switch.lookup111:                                 ; preds = %48
   %96 = zext nneg i8 %switch.tableidx112 to i64
-  %switch.gep115 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.210", i64 0, i64 %96
-  %switch.load116 = load i8, ptr %switch.gep115, align 1
+  %switch.gep113 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.209", i64 0, i64 %96
+  %switch.load114 = load i8, ptr %switch.gep113, align 1
   %97 = zext nneg i8 %switch.tableidx112 to i64
-  %switch.gep117 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.211", i64 0, i64 %97
+  %switch.gep115 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.210", i64 0, i64 %97
+  %switch.load116 = load i8, ptr %switch.gep115, align 1
+  %98 = zext nneg i8 %switch.tableidx112 to i64
+  %switch.gep117 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.211", i64 0, i64 %98
   %switch.load118 = load i8, ptr %switch.gep117, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-switch.lookup119:                                 ; preds = %58
-  %98 = zext nneg i8 %switch.tableidx120 to i64
-  %switch.gep121 = getelementptr inbounds [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.212", i64 0, i64 %98
-  %switch.load122 = load i8, ptr %switch.gep121, align 1
+switch.lookup119:                                 ; preds = %59
   %99 = zext nneg i8 %switch.tableidx120 to i64
-  %switch.gep123 = getelementptr inbounds [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.213", i64 0, i64 %99
-  %switch.load124 = load i8, ptr %switch.gep123, align 1
+  %switch.gep121 = getelementptr inbounds [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.212", i64 0, i64 %99
+  %switch.load122 = load i8, ptr %switch.gep121, align 1
   %100 = zext nneg i8 %switch.tableidx120 to i64
-  %switch.gep125 = getelementptr inbounds [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.214", i64 0, i64 %100
+  %switch.gep123 = getelementptr inbounds [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.213", i64 0, i64 %100
+  %switch.load124 = load i8, ptr %switch.gep123, align 1
+  %101 = zext nneg i8 %switch.tableidx120 to i64
+  %switch.gep125 = getelementptr inbounds [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.214", i64 0, i64 %101
   %switch.load126 = load i8, ptr %switch.gep125, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-switch.lookup127:                                 ; preds = %61
-  %101 = zext nneg i8 %switch.tableidx128 to i64
-  %switch.gep129 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.215", i64 0, i64 %101
-  %switch.load130 = load i8, ptr %switch.gep129, align 1
+switch.lookup127:                                 ; preds = %62
   %102 = zext nneg i8 %switch.tableidx128 to i64
-  %switch.gep131 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.216", i64 0, i64 %102
-  %switch.load132 = load i8, ptr %switch.gep131, align 1
+  %switch.gep129 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.215", i64 0, i64 %102
+  %switch.load130 = load i8, ptr %switch.gep129, align 1
   %103 = zext nneg i8 %switch.tableidx128 to i64
-  %switch.gep133 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.217", i64 0, i64 %103
+  %switch.gep131 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.216", i64 0, i64 %103
+  %switch.load132 = load i8, ptr %switch.gep131, align 1
+  %104 = zext nneg i8 %switch.tableidx128 to i64
+  %switch.gep133 = getelementptr inbounds [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.217", i64 0, i64 %104
   %switch.load134 = load i8, ptr %switch.gep133, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit: ; preds = %switch.lookup127, %61, %switch.lookup119, %58, %switch.lookup111, %47, %switch.lookup, %45, %31, %38, %40, %42, %43, %44, %49, %51, %52, %53, %54, %56, %57, %60, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92
-  %.07.i = phi i8 [ 1, %92 ], [ 1, %91 ], [ 1, %90 ], [ 1, %89 ], [ 1, %88 ], [ 1, %87 ], [ 1, %86 ], [ 1, %85 ], [ 1, %84 ], [ 1, %83 ], [ 1, %82 ], [ 1, %81 ], [ 1, %80 ], [ 1, %79 ], [ 1, %78 ], [ 8, %77 ], [ 8, %76 ], [ 8, %75 ], [ 1, %74 ], [ 1, %73 ], [ 1, %72 ], [ 1, %71 ], [ 1, %70 ], [ 1, %69 ], [ 1, %68 ], [ 1, %67 ], [ 1, %66 ], [ 1, %65 ], [ 1, %31 ], [ 1, %40 ], [ 1, %49 ], [ 1, %54 ], [ 1, %42 ], [ 1, %43 ], [ 1, %44 ], [ 1, %45 ], [ 1, %47 ], [ 1, %51 ], [ 1, %52 ], [ 1, %53 ], [ 1, %56 ], [ 1, %57 ], [ 1, %58 ], [ 1, %60 ], [ 1, %61 ], [ 1, %63 ], [ 1, %64 ], [ 1, %38 ], [ 1, %switch.lookup ], [ %switch.load114, %switch.lookup111 ], [ %switch.load122, %switch.lookup119 ], [ %switch.load130, %switch.lookup127 ]
-  %.06.i = phi i8 [ 2, %92 ], [ 1, %91 ], [ 1, %90 ], [ 1, %89 ], [ 1, %88 ], [ 1, %87 ], [ 1, %86 ], [ 1, %85 ], [ 1, %84 ], [ 1, %83 ], [ 1, %82 ], [ 1, %81 ], [ 1, %80 ], [ 1, %79 ], [ 1, %78 ], [ 2, %77 ], [ 2, %76 ], [ 2, %75 ], [ 2, %74 ], [ 2, %73 ], [ 1, %72 ], [ 1, %71 ], [ 2, %70 ], [ 1, %69 ], [ 1, %68 ], [ 1, %67 ], [ 1, %66 ], [ 1, %65 ], [ 0, %31 ], [ %..i, %40 ], [ %.23.i, %49 ], [ %.25.i, %54 ], [ 0, %42 ], [ 0, %43 ], [ 0, %44 ], [ 0, %45 ], [ 0, %47 ], [ 0, %51 ], [ 0, %52 ], [ 0, %53 ], [ 0, %56 ], [ 0, %57 ], [ 0, %58 ], [ 0, %60 ], [ 0, %61 ], [ 0, %63 ], [ 0, %64 ], [ %spec.select.i, %38 ], [ %switch.load, %switch.lookup ], [ %switch.load116, %switch.lookup111 ], [ %switch.load124, %switch.lookup119 ], [ %switch.load132, %switch.lookup127 ]
-  %.0.i = phi i8 [ 32, %92 ], [ 32, %91 ], [ 64, %90 ], [ 32, %89 ], [ 32, %88 ], [ 64, %87 ], [ 64, %86 ], [ 32, %85 ], [ 64, %84 ], [ 32, %83 ], [ 16, %82 ], [ 32, %81 ], [ 64, %80 ], [ 32, %79 ], [ 16, %78 ], [ 26, %77 ], [ 21, %76 ], [ 16, %75 ], [ 64, %74 ], [ 32, %73 ], [ 64, %72 ], [ 32, %71 ], [ 32, %70 ], [ 32, %69 ], [ 32, %68 ], [ 64, %67 ], [ 16, %66 ], [ 32, %65 ], [ 0, %31 ], [ %.22.i, %40 ], [ %.24.i, %49 ], [ %.26.i, %54 ], [ 0, %42 ], [ 0, %43 ], [ 0, %44 ], [ 0, %45 ], [ 0, %47 ], [ 0, %51 ], [ 0, %52 ], [ 0, %53 ], [ 0, %56 ], [ 0, %57 ], [ 0, %58 ], [ 0, %60 ], [ 0, %61 ], [ 0, %63 ], [ 0, %64 ], [ %spec.select28.i, %38 ], [ %switch.load110, %switch.lookup ], [ %switch.load118, %switch.lookup111 ], [ %switch.load126, %switch.lookup119 ], [ %switch.load134, %switch.lookup127 ]
-  %104 = tail call i32 @llvm.bswap.i32(i32 %.sink16.i)
-  %.0.i.i33.i = select i1 %8, i32 %104, i32 %.sink16.i
-  %105 = lshr i32 %.0.i.i33.i, 8
-  %106 = icmp ult i32 %.0.i.i33.i, 256
-  %.27.i = select i1 %106, i64 2, i64 0
-  %107 = zext nneg i32 %105 to i64
-  %108 = tail call i32 @llvm.bswap.i32(i32 %.sink15.i)
-  %.0.i.i34.i = select i1 %8, i32 %108, i32 %.sink15.i
-  %109 = sext i32 %.0.i.i34.i to i64
-  %110 = zext i1 %.0 to i8
-  %111 = tail call i32 @llvm.bswap.i32(i32 %.sink17.i)
-  %.0.i.i = select i1 %8, i32 %111, i32 %.sink17.i
-  %112 = zext i32 %.0.i.i to i64
-  store i64 %112, ptr %0, align 8
+_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit: ; preds = %switch.lookup127, %62, %switch.lookup119, %59, %switch.lookup111, %48, %switch.lookup, %46, %31, %39, %41, %43, %44, %45, %50, %52, %53, %54, %55, %57, %58, %61, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93
+  %.07.i = phi i8 [ 1, %93 ], [ 1, %92 ], [ 1, %91 ], [ 1, %90 ], [ 1, %89 ], [ 1, %88 ], [ 1, %87 ], [ 1, %86 ], [ 1, %85 ], [ 1, %84 ], [ 1, %83 ], [ 1, %82 ], [ 1, %81 ], [ 1, %80 ], [ 1, %79 ], [ 8, %78 ], [ 8, %77 ], [ 8, %76 ], [ 1, %75 ], [ 1, %74 ], [ 1, %73 ], [ 1, %72 ], [ 1, %71 ], [ 1, %70 ], [ 1, %69 ], [ 1, %68 ], [ 1, %67 ], [ 1, %66 ], [ 1, %31 ], [ 1, %41 ], [ 1, %50 ], [ 1, %55 ], [ 1, %43 ], [ 1, %44 ], [ 1, %45 ], [ 1, %46 ], [ 1, %48 ], [ 1, %52 ], [ 1, %53 ], [ 1, %54 ], [ 1, %57 ], [ 1, %58 ], [ 1, %59 ], [ 1, %61 ], [ 1, %62 ], [ 1, %64 ], [ 1, %65 ], [ 1, %39 ], [ 1, %switch.lookup ], [ %switch.load114, %switch.lookup111 ], [ %switch.load122, %switch.lookup119 ], [ %switch.load130, %switch.lookup127 ]
+  %.06.i = phi i8 [ 2, %93 ], [ 1, %92 ], [ 1, %91 ], [ 1, %90 ], [ 1, %89 ], [ 1, %88 ], [ 1, %87 ], [ 1, %86 ], [ 1, %85 ], [ 1, %84 ], [ 1, %83 ], [ 1, %82 ], [ 1, %81 ], [ 1, %80 ], [ 1, %79 ], [ 2, %78 ], [ 2, %77 ], [ 2, %76 ], [ 2, %75 ], [ 2, %74 ], [ 1, %73 ], [ 1, %72 ], [ 2, %71 ], [ 1, %70 ], [ 1, %69 ], [ 1, %68 ], [ 1, %67 ], [ 1, %66 ], [ 0, %31 ], [ %..i, %41 ], [ %.23.i, %50 ], [ %.25.i, %55 ], [ 0, %43 ], [ 0, %44 ], [ 0, %45 ], [ 0, %46 ], [ 0, %48 ], [ 0, %52 ], [ 0, %53 ], [ 0, %54 ], [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %61 ], [ 0, %62 ], [ 0, %64 ], [ 0, %65 ], [ %spec.select.i, %39 ], [ %switch.load, %switch.lookup ], [ %switch.load116, %switch.lookup111 ], [ %switch.load124, %switch.lookup119 ], [ %switch.load132, %switch.lookup127 ]
+  %.0.i = phi i8 [ 32, %93 ], [ 32, %92 ], [ 64, %91 ], [ 32, %90 ], [ 32, %89 ], [ 64, %88 ], [ 64, %87 ], [ 32, %86 ], [ 64, %85 ], [ 32, %84 ], [ 16, %83 ], [ 32, %82 ], [ 64, %81 ], [ 32, %80 ], [ 16, %79 ], [ 26, %78 ], [ 21, %77 ], [ 16, %76 ], [ 64, %75 ], [ 32, %74 ], [ 64, %73 ], [ 32, %72 ], [ 32, %71 ], [ 32, %70 ], [ 32, %69 ], [ 64, %68 ], [ 16, %67 ], [ 32, %66 ], [ 0, %31 ], [ %.22.i, %41 ], [ %.24.i, %50 ], [ %.26.i, %55 ], [ 0, %43 ], [ 0, %44 ], [ 0, %45 ], [ 0, %46 ], [ 0, %48 ], [ 0, %52 ], [ 0, %53 ], [ 0, %54 ], [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %61 ], [ 0, %62 ], [ 0, %64 ], [ 0, %65 ], [ %spec.select28.i, %39 ], [ %switch.load110, %switch.lookup ], [ %switch.load118, %switch.lookup111 ], [ %switch.load126, %switch.lookup119 ], [ %switch.load134, %switch.lookup127 ]
+  %105 = tail call i32 @llvm.bswap.i32(i32 %.sink16.i)
+  %.0.i.i32.i = select i1 %8, i32 %105, i32 %.sink16.i
+  %106 = lshr i32 %.0.i.i32.i, 8
+  %107 = icmp ult i32 %.0.i.i32.i, 256
+  %.27.i = select i1 %107, i64 2, i64 0
+  %108 = zext nneg i32 %106 to i64
+  %109 = tail call i32 @llvm.bswap.i32(i32 %.sink15.i)
+  %.0.i.i33.i = select i1 %8, i32 %109, i32 %.sink15.i
+  %110 = sext i32 %.0.i.i33.i to i64
+  %111 = zext i1 %.0 to i8
+  %112 = tail call i32 @llvm.bswap.i32(i32 %.sink17.i)
+  %.0.i.i = select i1 %8, i32 %112, i32 %.sink17.i
+  %113 = zext i32 %.0.i.i to i64
+  store i64 %113, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.27.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %107, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store i64 %108, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 %35, ptr %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx, align 4
+  store i32 %36, ptr %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx, align 4
   %.sroa.4.sroa.8.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %109, ptr %.sroa.4.sroa.8.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store i64 %110, ptr %.sroa.4.sroa.8.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.9.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 %110, ptr %.sroa.4.sroa.9.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store i8 %111, ptr %.sroa.4.sroa.9.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 41
   store i8 %.06.i, ptr %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx, align 1
   %.sroa.4.sroa.11.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 42
   store i8 %.07.i, ptr %.sroa.4.sroa.11.0..sroa.4.0..sroa_idx.sroa_idx, align 2
   %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 43
   store i8 %.0.i, ptr %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx, align 1
-  br label %114
+  br label %115
 
-113:                                              ; preds = %21, %20
+114:                                              ; preds = %21, %20
   store i64 2, ptr %1, align 8
   br label %28
 
-114:                                              ; preds = %125, %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
+115:                                              ; preds = %126, %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
   ret void
 
-115:                                              ; preds = %28
-  %116 = extractvalue { i64, i64 } %29, 1
-  store i64 %116, ptr %11, align 8
+116:                                              ; preds = %28
+  %117 = extractvalue { i64, i64 } %29, 1
+  store i64 %117, ptr %11, align 8
   %.val30 = load ptr, ptr %12, align 8
   %.val31 = load i64, ptr %13, align 8, !noundef !4
-  %117 = icmp ult i64 %116, %.val31
-  %118 = icmp ne ptr %.val30, null
-  %.not81 = select i1 %117, i1 %118, i1 false
-  %119 = getelementptr inbounds { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %.val30, i64 %116
-  br i1 %.not81, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa7925d60aa68d87E.exit", label %120
+  %118 = icmp ult i64 %117, %.val31
+  %119 = icmp ne ptr %.val30, null
+  %.not81 = select i1 %118, i1 %119, i1 false
+  %120 = getelementptr inbounds { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %.val30, i64 %117
+  br i1 %.not81, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa7925d60aa68d87E.exit", label %121
 
-120:                                              ; preds = %115
+121:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !313
   store ptr @anon.b28def11bbe935747ffab42946fa965e.130, ptr %3, align 8, !noalias !313
-  %121 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 25, ptr %121, align 8, !noalias !313
+  %122 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 25, ptr %122, align 8, !noalias !313
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.b28def11bbe935747ffab42946fa965e.32.llvm.5281577753466666573, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b28def11bbe935747ffab42946fa965e.34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b28def11bbe935747ffab42946fa965e.14) #38, !noalias !313
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa7925d60aa68d87E.exit": ; preds = %115
-  %122 = getelementptr inbounds i8, ptr %119, i64 4
-  %123 = load i32, ptr %122, align 4, !noundef !4
-  %124 = tail call i32 @llvm.bswap.i32(i32 %123)
-  %.0.i.i34 = select i1 %8, i32 %124, i32 %123
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa7925d60aa68d87E.exit": ; preds = %116
+  %123 = getelementptr inbounds i8, ptr %120, i64 4
+  %124 = load i32, ptr %123, align 4, !noundef !4
+  %125 = tail call i32 @llvm.bswap.i32(i32 %124)
+  %.0.i.i34 = select i1 %8, i32 %125, i32 %124
   switch i32 %.0.i.i34, label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge [
     i32 9, label %_ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i
     i32 4, label %_ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i36
   ]
 
-125:                                              ; preds = %28
-  %126 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 3, ptr %126, align 8
-  br label %114
+126:                                              ; preds = %28
+  %127 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 3, ptr %127, align 8
+  br label %115
 
-_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.sink.split: ; preds = %160, %164
-  %.sink103 = phi i64 [ 1, %164 ], [ 0, %160 ]
-  %.sink102 = phi ptr [ %152, %164 ], [ %138, %160 ]
-  %.sink = phi ptr [ %165, %164 ], [ %163, %160 ]
+_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.sink.split: ; preds = %161, %165
+  %.sink103 = phi i64 [ 1, %165 ], [ 0, %161 ]
+  %.sink102 = phi ptr [ %153, %165 ], [ %139, %161 ]
+  %.sink = phi ptr [ %166, %165 ], [ %164, %161 ]
   store i64 %.sink103, ptr %1, align 8
   store ptr %.sink102, ptr %9, align 8
   store ptr %.sink, ptr %10, align 8
   br label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.outer
 
 _ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa7925d60aa68d87E.exit"
-  %127 = load ptr, ptr %14, align 8, !nonnull !4, !align !5, !noundef !4
-  %128 = load i64, ptr %15, align 8, !noundef !4
+  %128 = load ptr, ptr %14, align 8, !nonnull !4, !align !5, !noundef !4
+  %129 = load i64, ptr %15, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
-  %129 = getelementptr inbounds i8, ptr %119, i64 16
-  %130 = load i32, ptr %129, align 4, !alias.scope !322, !noalias !327, !noundef !4
-  %131 = tail call i32 @llvm.bswap.i32(i32 %130)
-  %.0.i.i1.i.i.i = select i1 %8, i32 %131, i32 %130
-  %132 = zext i32 %.0.i.i1.i.i.i to i64
-  %133 = getelementptr inbounds i8, ptr %119, i64 20
-  %134 = load i32, ptr %133, align 4, !alias.scope !333, !noalias !327, !noundef !4
-  %135 = tail call i32 @llvm.bswap.i32(i32 %134)
-  %.0.i.i2.i.i.i = select i1 %8, i32 %135, i32 %134
-  %136 = zext i32 %.0.i.i2.i.i.i to i64
-  %137 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17h2b58a6c03518c321E"(ptr noalias noundef nonnull readonly align 1 %127, i64 noundef %128, i64 noundef %132, i64 noundef %136), !noalias !336
-  %138 = extractvalue { ptr, i64 } %137, 0
-  %.not.i = icmp ne ptr %138, null
-  %139 = ptrtoint ptr %138 to i64
-  %140 = and i64 %139, 3
-  %.not84 = icmp eq i64 %140, 0
+  %130 = getelementptr inbounds i8, ptr %120, i64 16
+  %131 = load i32, ptr %130, align 4, !alias.scope !322, !noalias !327, !noundef !4
+  %132 = tail call i32 @llvm.bswap.i32(i32 %131)
+  %.0.i.i1.i.i.i = select i1 %8, i32 %132, i32 %131
+  %133 = zext i32 %.0.i.i1.i.i.i to i64
+  %134 = getelementptr inbounds i8, ptr %120, i64 20
+  %135 = load i32, ptr %134, align 4, !alias.scope !333, !noalias !327, !noundef !4
+  %136 = tail call i32 @llvm.bswap.i32(i32 %135)
+  %.0.i.i2.i.i.i = select i1 %8, i32 %136, i32 %135
+  %137 = zext i32 %.0.i.i2.i.i.i to i64
+  %138 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17h2b58a6c03518c321E"(ptr noalias noundef nonnull readonly align 1 %128, i64 noundef %129, i64 noundef %133, i64 noundef %137), !noalias !336
+  %139 = extractvalue { ptr, i64 } %138, 0
+  %.not.i = icmp ne ptr %139, null
+  %140 = ptrtoint ptr %139 to i64
+  %141 = and i64 %140, 3
+  %.not84 = icmp eq i64 %141, 0
   %or.cond = and i1 %.not.i, %.not84
-  br i1 %or.cond, label %160, label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge
+  br i1 %or.cond, label %161, label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge
 
 _ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i36: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa7925d60aa68d87E.exit"
-  %141 = load ptr, ptr %14, align 8, !nonnull !4, !align !5, !noundef !4
-  %142 = load i64, ptr %15, align 8, !noundef !4
+  %142 = load ptr, ptr %14, align 8, !nonnull !4, !align !5, !noundef !4
+  %143 = load i64, ptr %15, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !340)
-  %143 = getelementptr inbounds i8, ptr %119, i64 16
-  %144 = load i32, ptr %143, align 4, !alias.scope !343, !noalias !348, !noundef !4
-  %145 = tail call i32 @llvm.bswap.i32(i32 %144)
-  %.0.i.i1.i.i.i37 = select i1 %8, i32 %145, i32 %144
-  %146 = zext i32 %.0.i.i1.i.i.i37 to i64
-  %147 = getelementptr inbounds i8, ptr %119, i64 20
-  %148 = load i32, ptr %147, align 4, !alias.scope !354, !noalias !348, !noundef !4
-  %149 = tail call i32 @llvm.bswap.i32(i32 %148)
-  %.0.i.i2.i.i.i38 = select i1 %8, i32 %149, i32 %148
-  %150 = zext i32 %.0.i.i2.i.i.i38 to i64
-  %151 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17h2b58a6c03518c321E"(ptr noalias noundef nonnull readonly align 1 %141, i64 noundef %142, i64 noundef %146, i64 noundef %150), !noalias !357
-  %152 = extractvalue { ptr, i64 } %151, 0
-  %.not.i39 = icmp eq ptr %152, null
+  %144 = getelementptr inbounds i8, ptr %120, i64 16
+  %145 = load i32, ptr %144, align 4, !alias.scope !343, !noalias !348, !noundef !4
+  %146 = tail call i32 @llvm.bswap.i32(i32 %145)
+  %.0.i.i1.i.i.i37 = select i1 %8, i32 %146, i32 %145
+  %147 = zext i32 %.0.i.i1.i.i.i37 to i64
+  %148 = getelementptr inbounds i8, ptr %120, i64 20
+  %149 = load i32, ptr %148, align 4, !alias.scope !354, !noalias !348, !noundef !4
+  %150 = tail call i32 @llvm.bswap.i32(i32 %149)
+  %.0.i.i2.i.i.i38 = select i1 %8, i32 %150, i32 %149
+  %151 = zext i32 %.0.i.i2.i.i.i38 to i64
+  %152 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17h2b58a6c03518c321E"(ptr noalias noundef nonnull readonly align 1 %142, i64 noundef %143, i64 noundef %147, i64 noundef %151), !noalias !357
+  %153 = extractvalue { ptr, i64 } %152, 0
+  %.not.i39 = icmp eq ptr %153, null
   br i1 %.not.i39, label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge, label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h3cf14f52141d3742E.exit
 
 _ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge: ; preds = %_ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i36, %_ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i, %_ZN6object4read3elf7section13SectionHeader13data_as_array17h3cf14f52141d3742E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa7925d60aa68d87E.exit"
   br label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread
 
 _ZN6object4read3elf7section13SectionHeader13data_as_array17h3cf14f52141d3742E.exit: ; preds = %_ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i36
-  %153 = extractvalue { ptr, i64 } %151, 1
-  %154 = udiv i64 %153, 12
-  %155 = mul nuw i64 %154, 12
-  %156 = icmp ule i64 %155, %153
-  %157 = ptrtoint ptr %152 to i64
-  %158 = and i64 %157, 3
-  %159 = icmp eq i64 %158, 0
-  %or.cond.not.i.not = and i1 %156, %159
-  br i1 %or.cond.not.i.not, label %164, label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge
+  %154 = extractvalue { ptr, i64 } %152, 1
+  %155 = udiv i64 %154, 12
+  %156 = mul nuw i64 %155, 12
+  %157 = icmp ule i64 %156, %154
+  %158 = ptrtoint ptr %153 to i64
+  %159 = and i64 %158, 3
+  %160 = icmp eq i64 %159, 0
+  %or.cond.not.i.not = and i1 %157, %160
+  br i1 %or.cond.not.i.not, label %165, label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.backedge
 
-160:                                              ; preds = %_ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i
-  %161 = extractvalue { ptr, i64 } %137, 1
-  %162 = lshr i64 %161, 3
-  %163 = getelementptr inbounds { i32, i32 }, ptr %138, i64 %162
+161:                                              ; preds = %_ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i
+  %162 = extractvalue { ptr, i64 } %138, 1
+  %163 = lshr i64 %162, 3
+  %164 = getelementptr inbounds { i32, i32 }, ptr %139, i64 %163
   br label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.sink.split
 
-164:                                              ; preds = %_ZN6object4read3elf7section13SectionHeader13data_as_array17h3cf14f52141d3742E.exit
-  %165 = getelementptr inbounds { i32, i32, i32 }, ptr %152, i64 %154
+165:                                              ; preds = %_ZN6object4read3elf7section13SectionHeader13data_as_array17h3cf14f52141d3742E.exit
+  %166 = getelementptr inbounds { i32, i32, i32 }, ptr %153, i64 %155
   br label %_ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.exit.thread.sink.split
 }
 

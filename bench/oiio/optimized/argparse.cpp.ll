@@ -3327,12 +3327,11 @@ if.end279:                                        ; preds = %cond.true.i178, %if
   %any_option_encountered.1 = phi i1 [ %any_option_encountered.0213, %_ZNKSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEclES3_S8_.exit175 ], [ false, %_ZNKSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEclES3_S8_.exit159 ], [ %any_option_encountered.0213, %if.else225 ], [ true, %cleanup.thread ], [ false, %if.else244 ], [ false, %cond.true.i162 ], [ %any_option_encountered.0213, %if.else265 ], [ %any_option_encountered.0213, %cond.true.i178 ]
   %i.3 = phi i32 [ %i.0214, %_ZNKSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEclES3_S8_.exit175 ], [ %i.0214, %_ZNKSt8functionIFvRN18OpenImageIO_v2_6_08ArgParse3ArgENS0_4spanIKPKcLln1EEEEEclES3_S8_.exit159 ], [ %i.0214, %if.else225 ], [ %i.1.ph, %cleanup.thread ], [ %i.0214, %if.else244 ], [ %i.0214, %cond.true.i162 ], [ %i.0214, %if.else265 ], [ %i.0214, %cond.true.i178 ]
   %92 = load i32, ptr %m_next_arg, align 4
-  %sub = add nsw i32 %92, -1
   %cmp281190 = icmp slt i32 %92, 0
-  %spec.select = select i1 %cmp281190, i32 %i.3, i32 %sub
-  %inc286 = add nsw i32 %spec.select, 1
-  %93 = load i32, ptr %m_argc, align 8
-  %cmp = icmp slt i32 %inc286, %93
+  %93 = add nsw i32 %i.3, 1
+  %inc286 = select i1 %cmp281190, i32 %93, i32 %92
+  %94 = load i32, ptr %m_argc, align 8
+  %cmp = icmp slt i32 %inc286, %94
   br i1 %cmp, label %for.body, label %return, !llvm.loop !42
 
 return:                                           ; preds = %for.body, %if.end279, %if.end59, %cleanup, %if.else272

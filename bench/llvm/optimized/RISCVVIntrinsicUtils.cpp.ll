@@ -4214,12 +4214,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit38.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %58 = load i64, ptr %7, align 8
   %.not.i42 = icmp ult i64 %58, 4294967296
   %59 = trunc nuw i64 %58 to i32
-  %60 = add i32 %59, -8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %61 = xor i1 %57, true
-  call void @llvm.assume(i1 %61)
+  %60 = xor i1 %57, true
+  call void @llvm.assume(i1 %60)
   call void @llvm.assume(i1 %.not.i42)
-  %62 = call i32 @llvm.fshl.i32(i32 %60, i32 %60, i32 29)
+  %61 = add i32 %59, -8
+  %62 = call i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 29)
   %switch.cast = zext i32 %62 to i64
   %switch.shiftamt = shl nuw nsw i64 %switch.cast, 3
   %switch.downshift = lshr i64 867234337690028553, %switch.shiftamt
@@ -4293,11 +4293,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit67.thread174:    ; preds = %_ZN4llvmeqENS_9Stri
   %82 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.15.0, i64 %.sroa.23.0, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %3) #20
   %83 = load i64, ptr %3, align 8
   %.not.i81 = icmp ult i64 %83, 4294967296
-  %84 = trunc i64 %83 to i8
   %not. = xor i1 %82, true
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.assume(i1 %not.)
   call void @llvm.assume(i1 %.not.i81)
+  %84 = trunc i64 %83 to i8
   %85 = add i8 %84, 32
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread154
 

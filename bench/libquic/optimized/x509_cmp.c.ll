@@ -1059,8 +1059,8 @@ if.then33:                                        ; preds = %for.body, %if.end.i
   tail call void @EVP_PKEY_free(ptr noundef nonnull %pk.1159.sink) #8
   %cmp41.not = icmp eq i64 %flags, %tflags.0112130
   %spec.select29 = select i1 %cmp41.not, i32 60, i32 61
-  %14 = add nsw i32 %rv.0114129, -59
   %spec.select215 = select i1 %cmp35, i32 %spec.select29, i32 %rv.0114129
+  %14 = add nsw i32 %rv.0114129, -59
   %15 = icmp ult i32 %14, 2
   %16 = select i1 %cmp35, i1 true, i1 %15
   br label %if.then33.thread

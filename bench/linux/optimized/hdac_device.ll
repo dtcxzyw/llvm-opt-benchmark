@@ -1522,8 +1522,8 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   %45 = or disjoint i32 %11, 983051
   %46 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %45, ptr noundef nonnull %8) #9
   %47 = load i32, ptr %8, align 4
-  %48 = add i32 %47, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
+  %48 = add i32 %47, 1
   %.inv = icmp slt i32 %46, 0
   %49 = icmp ult i32 %48, 2
   %50 = select i1 %.inv, i1 true, i1 %49
@@ -1539,8 +1539,8 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   %56 = or disjoint i32 %55, 983051
   %57 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %56, ptr noundef nonnull %7) #9
   %58 = load i32, ptr %7, align 4
-  %59 = add i32 %58, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  %59 = add i32 %58, 1
   %.inv8 = icmp slt i32 %57, 0
   %60 = icmp ult i32 %59, 2
   %61 = select i1 %.inv8, i1 true, i1 %60
@@ -1665,8 +1665,8 @@ define internal fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext 
   %20 = or disjoint i32 %11, 983050
   %21 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %20, ptr noundef nonnull %4) #9
   %22 = load i32, ptr %4, align 4
-  %23 = add i32 %22, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  %23 = add i32 %22, 1
   %.inv = icmp slt i32 %21, 0
   %24 = icmp ult i32 %23, 2
   %25 = select i1 %.inv, i1 true, i1 %24
@@ -1733,8 +1733,8 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
   %26 = or disjoint i32 %25, 983051
   %27 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %5) #9
   %28 = load i32, ptr %5, align 4
-  %29 = add i32 %28, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  %29 = add i32 %28, 1
   %.inv = icmp slt i32 %27, 0
   %30 = icmp ult i32 %29, 2
   %31 = select i1 %.inv, i1 true, i1 %30
@@ -1750,8 +1750,8 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
   %37 = or disjoint i32 %36, 983051
   %38 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %37, ptr noundef nonnull %4) #9
   %39 = load i32, ptr %4, align 4
-  %40 = add i32 %39, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  %40 = add i32 %39, 1
   %.inv6 = icmp slt i32 %38, 0
   %41 = icmp ult i32 %40, 2
   %42 = select i1 %.inv6, i1 true, i1 %41

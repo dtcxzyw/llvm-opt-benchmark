@@ -1628,17 +1628,17 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %trunc = trunc nuw i8 %14 to i1
   %15 = getelementptr inbounds i8, ptr %2, i64 49
   %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i48
-  %18 = shl nuw nsw i8 %12, 1
-  %19 = shl nuw nsw i8 %10, 2
-  %20 = or disjoint i8 %18, %19
-  %21 = or disjoint i8 %20, %14
+  %17 = shl nuw nsw i8 %12, 1
+  %18 = shl nuw nsw i8 %10, 2
+  %19 = or disjoint i8 %17, %18
+  %20 = or disjoint i8 %19, %14
   %.sroa.64.0.insert.ext = zext i16 %8 to i48
   %.sroa.64.0.insert.shift = shl nuw i48 %.sroa.64.0.insert.ext, 32
-  %22 = shl nuw nsw i48 %17, 16
+  %21 = zext i8 %16 to i48
+  %22 = shl nuw nsw i48 %21, 16
   %.sroa.5.0.insert.shift = select i1 %trunc, i48 %22, i48 0
   %.sroa.5.0.insert.insert = or disjoint i48 %.sroa.5.0.insert.shift, %.sroa.64.0.insert.shift
-  %.sroa.4.0.insert.ext = zext nneg i8 %21 to i48
+  %.sroa.4.0.insert.ext = zext nneg i8 %20 to i48
   %.sroa.4.0.insert.shift = shl nuw nsw i48 %.sroa.4.0.insert.ext, 8
   %.sroa.4.0.insert.insert = or disjoint i48 %.sroa.5.0.insert.insert, %.sroa.4.0.insert.shift
   call void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17hb6c705ef09aa1fa2E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i48 %.sroa.4.0.insert.insert)

@@ -25921,10 +25921,10 @@ _ZN4llvm5APIntD2Ev.exit288:                       ; preds = %_ZNK4llvm10SwitchIn
   %.not.i.i293 = icmp eq i64 %846, 4294967294
   %847 = shl nuw nsw i64 %846, 1
   %848 = add nuw nsw i64 %847, 3
-  %849 = and i64 %848, 4294967295
-  %850 = load ptr, ptr %23, align 8
-  %851 = select i1 %.not.i.i293, i64 1, i64 %849
-  %852 = getelementptr inbounds %"class.llvm::Use", ptr %850, i64 %851
+  %849 = load ptr, ptr %23, align 8
+  %850 = and i64 %848, 4294967295
+  %851 = select i1 %.not.i.i293, i64 1, i64 %850
+  %852 = getelementptr inbounds %"class.llvm::Use", ptr %849, i64 %851
   %853 = load ptr, ptr %852, align 8
   call void @_ZN4llvm16InstCombinerImpl31handlePotentiallyDeadSuccessorsEPNS_10BasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %832, ptr noundef %853)
   br label %854
@@ -26101,13 +26101,13 @@ define internal fastcc noundef ptr @_ZL33simplifySwitchOnSelectUsingRangesRN4llv
   %.not.i.i19 = icmp eq i64 %26, 4294967294
   %27 = shl nuw nsw i64 %26, 1
   %28 = add nuw nsw i64 %27, 3
-  %29 = and i64 %28, 4294967295
-  %30 = getelementptr inbounds i8, ptr %0, i64 -8
-  %31 = load ptr, ptr %30, align 8
-  %32 = select i1 %.not.i.i19, i64 1, i64 %29
-  %33 = getelementptr inbounds %"class.llvm::Use", ptr %31, i64 %32
+  %29 = getelementptr inbounds i8, ptr %0, i64 -8
+  %30 = load ptr, ptr %29, align 8
+  %31 = and i64 %28, 4294967295
+  %32 = select i1 %.not.i.i19, i64 1, i64 %31
+  %33 = getelementptr inbounds %"class.llvm::Use", ptr %30, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 32
+  %35 = getelementptr inbounds i8, ptr %30, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not18 = icmp eq ptr %34, %36
   br i1 %.not18, label %37, label %_ZN4llvm13ConstantRangeD2Ev.exit
@@ -26190,7 +26190,7 @@ define internal fastcc noundef ptr @_ZL33simplifySwitchOnSelectUsingRangesRN4llv
   %.sroa.233.050 = phi i64 [ %80, %79 ], [ 0, %73 ]
   %81 = shl nuw i64 %.sroa.233.050, 1
   %82 = add nuw nsw i64 %81, 2
-  %83 = load ptr, ptr %30, align 8
+  %83 = load ptr, ptr %29, align 8
   %84 = and i64 %82, 4294967294
   %85 = getelementptr inbounds %"class.llvm::Use", ptr %83, i64 %84
   %86 = load ptr, ptr %85, align 8
@@ -28332,14 +28332,14 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_.exit216: ; preds = %378, %
 
 ._crit_edge331:                                   ; preds = %.lr.ph330, %393
   %405 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
-  %406 = and i8 %.1122, 1
-  %407 = zext nneg i8 %406 to i16
-  %408 = getelementptr inbounds nuw i8, ptr %399, i64 2
-  %409 = load i16, ptr %408, align 2
-  %410 = and i16 %409, -2
-  %411 = select i1 %405, i16 1, i16 %407
-  %412 = or disjoint i16 %410, %411
-  store i16 %412, ptr %408, align 2
+  %406 = getelementptr inbounds nuw i8, ptr %399, i64 2
+  %407 = load i16, ptr %406, align 2
+  %408 = and i16 %407, -2
+  %409 = and i8 %.1122, 1
+  %410 = zext nneg i8 %409 to i16
+  %411 = select i1 %405, i16 1, i16 %410
+  %412 = or disjoint i16 %408, %411
+  store i16 %412, ptr %406, align 2
   br label %423
 
 413:                                              ; preds = %._crit_edge325
@@ -34804,10 +34804,10 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %_ZN17AliasScopeTrac
   %.not.i.i118 = icmp eq i64 %611, 4294967294
   %612 = shl nuw nsw i64 %611, 1
   %613 = add nuw nsw i64 %612, 3
-  %614 = and i64 %613, 4294967295
-  %615 = load ptr, ptr %590, align 8
-  %616 = select i1 %.not.i.i118, i64 1, i64 %614
-  %617 = getelementptr inbounds %"class.llvm::Use", ptr %615, i64 %616
+  %614 = load ptr, ptr %590, align 8
+  %615 = and i64 %613, 4294967295
+  %616 = select i1 %.not.i.i118, i64 1, i64 %615
+  %617 = getelementptr inbounds %"class.llvm::Use", ptr %614, i64 %616
   %618 = load ptr, ptr %617, align 8
   br label %.sink.split
 

@@ -10672,9 +10672,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit79:               ; preds = %139, %136, %_ZN4llv
   %.not17.i = icmp eq i64 %203, 0
   %204 = shl i64 %202, 5
   %205 = and i64 %204, 8589934592
-  %206 = xor i64 %205, 56100862820352
-  %207 = and i64 %201, -140732121603582
-  %208 = select i1 %.not17.i, i64 56092272885760, i64 %206
+  %206 = and i64 %201, -140732121603582
+  %207 = xor i64 %205, 56100862820352
+  %208 = select i1 %.not17.i, i64 56092272885760, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %146, i64 88
   %210 = load i64, ptr %209, align 8
   %211 = shl i64 %210, 37
@@ -10682,7 +10682,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit79:               ; preds = %139, %136, %_ZN4llv
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %213, align 8
   %214 = or disjoint i64 %212, %208
-  %215 = or disjoint i64 %214, %207
+  %215 = or disjoint i64 %214, %206
   %216 = or disjoint i64 %215, 1048576
   store i64 %216, ptr %3, align 8
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 40

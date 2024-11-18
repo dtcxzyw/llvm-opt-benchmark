@@ -6261,25 +6261,25 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit624:    ; preds = %_ZN4llvm10BasicBloc
   %indvars.iv = phi i64 [ 0, %_ZN4llvm10BasicBlock13getTerminatorEv.exit624.preheader ], [ %indvars.iv.next, %_ZN4llvm10BasicBlock13getTerminatorEv.exit624 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1712 = icmp eq i64 %indvars.iv.next, %1711
-  %1713 = and i64 %indvars.iv.next, 4294967295
-  %1714 = getelementptr inbounds ptr, ptr %.sroa.0976.0.lcssa, i64 %indvars.iv
-  %1715 = load ptr, ptr %1714, align 8
-  %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 48
-  %1717 = load ptr, ptr %1716, align 8
-  %1718 = icmp ne ptr %1716, %1717
-  call void @llvm.assume(i1 %1718)
-  %1719 = getelementptr inbounds i8, ptr %1717, i64 -24
-  %1720 = load i8, ptr %1719, align 8
-  %1721 = zext i8 %1720 to i32
-  %1722 = add nsw i32 %1721, -30
-  %1723 = icmp ult i32 %1722, 11
-  %spec.select.i.i622 = select i1 %1723, ptr %1719, ptr null
-  %1724 = getelementptr inbounds ptr, ptr %.sroa.0995.0.lcssa, i64 %indvars.iv
-  %1725 = load ptr, ptr %1724, align 8
-  %1726 = select i1 %1712, i64 0, i64 %1713
+  %1713 = getelementptr inbounds ptr, ptr %.sroa.0976.0.lcssa, i64 %indvars.iv
+  %1714 = load ptr, ptr %1713, align 8
+  %1715 = getelementptr inbounds nuw i8, ptr %1714, i64 48
+  %1716 = load ptr, ptr %1715, align 8
+  %1717 = icmp ne ptr %1715, %1716
+  call void @llvm.assume(i1 %1717)
+  %1718 = getelementptr inbounds i8, ptr %1716, i64 -24
+  %1719 = load i8, ptr %1718, align 8
+  %1720 = zext i8 %1719 to i32
+  %1721 = add nsw i32 %1720, -30
+  %1722 = icmp ult i32 %1721, 11
+  %spec.select.i.i622 = select i1 %1722, ptr %1718, ptr null
+  %1723 = getelementptr inbounds ptr, ptr %.sroa.0995.0.lcssa, i64 %indvars.iv
+  %1724 = load ptr, ptr %1723, align 8
+  %1725 = and i64 %indvars.iv.next, 4294967295
+  %1726 = select i1 %1712, i64 0, i64 %1725
   %1727 = getelementptr inbounds ptr, ptr %.sroa.0995.0.lcssa, i64 %1726
   %1728 = load ptr, ptr %1727, align 8
-  call void @_ZN4llvm11Instruction20replaceSuccessorWithEPNS_10BasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i622, ptr noundef %1725, ptr noundef %1728) #18
+  call void @_ZN4llvm11Instruction20replaceSuccessorWithEPNS_10BasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i622, ptr noundef %1724, ptr noundef %1728) #18
   br i1 %1712, label %._crit_edge1356, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit624, !llvm.loop !101
 
 ._crit_edge1356:                                  ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit624, %._crit_edge1351

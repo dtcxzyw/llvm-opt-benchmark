@@ -4228,25 +4228,25 @@ define dso_local void @_ZN5clang18CXXDefaultInitExprC2ERKNS_10ASTContextENS_14So
   %18 = load i8, ptr %17, align 16
   %19 = icmp eq i8 %18, 42
   %20 = icmp eq i8 %18, 43
-  %21 = select i1 %20, i16 2, i16 0
   store i8 111, ptr %0, align 8
-  %22 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
+  %21 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
 
-24:                                               ; preds = %7
+23:                                               ; preds = %7
   call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 111) #16
   br label %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
 
-_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit: ; preds = %7, %24
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %27 = load i16, ptr %26, align 1
-  %28 = select i1 %19, i16 1, i16 %21
-  %29 = and i16 %27, -1024
+_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit: ; preds = %7, %23
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %26 = load i16, ptr %25, align 1
+  %27 = select i1 %20, i16 2, i16 0
+  %28 = select i1 %19, i16 1, i16 %27
+  %29 = and i16 %26, -1024
   %30 = or disjoint i16 %29, %28
-  store i16 %30, ptr %26, align 1
-  store i64 %9, ptr %25, align 8
+  store i16 %30, ptr %25, align 1
+  store i64 %9, ptr %24, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4268,13 +4268,13 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 
 40:                                               ; preds = %38, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
   %41 = call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_18CXXDefaultInitExprE(ptr noundef nonnull %0) #16
-  %42 = load i16, ptr %26, align 1
+  %42 = load i16, ptr %25, align 1
   %43 = and i8 %41, 31
   %44 = zext nneg i8 %43 to i16
   %45 = shl nuw nsw i16 %44, 5
   %46 = and i16 %42, -993
   %47 = or disjoint i16 %45, %46
-  store i16 %47, ptr %26, align 1
+  store i16 %47, ptr %25, align 1
   ret void
 }
 
@@ -6592,25 +6592,25 @@ define dso_local void @_ZN5clang26CXXUnresolvedConstructExprC2ENS_8QualTypeEPNS_
   %17 = load i8, ptr %16, align 16
   %18 = icmp eq i8 %17, 42
   %19 = icmp eq i8 %17, 43
-  %20 = select i1 %19, i16 2, i16 0
   store i8 95, ptr %0, align 8
-  %21 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
+  %20 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
 
-23:                                               ; preds = %8
+22:                                               ; preds = %8
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 95) #16
   br label %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
 
-_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit: ; preds = %8, %23
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %26 = load i16, ptr %25, align 1
-  %27 = select i1 %18, i16 1, i16 %20
-  %28 = and i16 %26, -1024
+_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit: ; preds = %8, %22
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %25 = load i16, ptr %24, align 1
+  %26 = select i1 %19, i16 2, i16 0
+  %27 = select i1 %18, i16 1, i16 %26
+  %28 = and i16 %25, -1024
   %29 = or disjoint i16 %28, %27
-  store i16 %29, ptr %25, align 1
-  store i64 %1, ptr %24, align 8
+  store i16 %29, ptr %24, align 1
+  store i64 %1, ptr %23, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = ptrtoint ptr %2 to i64
   %32 = and i64 %31, -5
@@ -6642,13 +6642,13 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
   %46 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull %0) #16
-  %47 = load i16, ptr %25, align 1
+  %47 = load i16, ptr %24, align 1
   %48 = and i8 %46, 31
   %49 = zext nneg i8 %48 to i16
   %50 = shl nuw nsw i16 %49, 5
   %51 = and i16 %47, -993
   %52 = or disjoint i16 %50, %51
-  store i16 %52, ptr %25, align 1
+  store i16 %52, ptr %24, align 1
   ret void
 }
 

@@ -4539,7 +4539,7 @@ define internal fastcc void @"_ZN3vte15Parser$LT$_$GT$14perform_action17hb0e1401
 default.unreachable109:                           ; preds = %.noexc.i.i79, %.noexc116.i.i, %4
   unreachable
 
-"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$6unhook17h25cdefaa7f309bbcE.exit": ; preds = %904, %901, %2683, %2669, %2658, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0c7b3f31586b9f8aE.exit", %2627, %2610, %925, %927, %2643, %"_ZN3vte15Parser$LT$_$GT$12osc_dispatch17hbcb97d04aced358aE.exit", %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$4hook17he517baee27af7334E.exit", %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$12csi_dispatch17heef057216b1f2718E.exit", %914, %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$3put17hc2b3f97536da3ed6E.exit", %883, %875, %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$7execute17h36c02de00e34445eE.exit", %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$12esc_dispatch17hb39595e1dfc98210E.exit", %221, %4, %4
+"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$6unhook17h25cdefaa7f309bbcE.exit": ; preds = %904, %901, %2684, %2669, %2658, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0c7b3f31586b9f8aE.exit", %2627, %2610, %925, %927, %2643, %"_ZN3vte15Parser$LT$_$GT$12osc_dispatch17hbcb97d04aced358aE.exit", %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$4hook17he517baee27af7334E.exit", %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$12csi_dispatch17heef057216b1f2718E.exit", %914, %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$3put17hc2b3f97536da3ed6E.exit", %883, %875, %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$7execute17h36c02de00e34445eE.exit", %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$12esc_dispatch17hb39595e1dfc98210E.exit", %221, %4, %4
   ret void
 
 221:                                              ; preds = %4
@@ -11100,46 +11100,46 @@ switch.lookup133:                                 ; preds = %2471
   %2666 = zext i8 %2665 to i64
   %2667 = sub i64 %881, %2666
   %2668 = icmp ult i64 %2667, 32
-  br i1 %2668, label %2676, label %2682
+  br i1 %2668, label %2677, label %2683
 
 2669:                                             ; preds = %2640
   %2670 = tail call { i16, i1 } @llvm.umul.with.overflow.i16(i16 %2642, i16 10)
   %2671 = extractvalue { i16, i1 } %2670, 0
   %2672 = extractvalue { i16, i1 } %2670, 1
-  %spec.select = select i1 %2672, i16 -1, i16 %2671
   %2673 = add i8 %3, -48
   %2674 = zext i8 %2673 to i16
-  %2675 = tail call i16 @llvm.uadd.sat.i16(i16 %spec.select, i16 %2674)
-  store i16 %2675, ptr %2641, align 2
+  %2675 = tail call i16 @llvm.uadd.sat.i16(i16 %2671, i16 %2674)
+  %2676 = select i1 %2672, i16 -1, i16 %2675
+  store i16 %2676, ptr %2641, align 2
   br label %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$6unhook17h25cdefaa7f309bbcE.exit"
 
-2676:                                             ; preds = %2663
-  %2677 = getelementptr inbounds i8, ptr %0, i64 104
-  %2678 = getelementptr inbounds [32 x i8], ptr %2677, i64 0, i64 %2667
-  %2679 = add i8 %2665, 1
-  store i8 %2679, ptr %2678, align 1
-  %2680 = load i64, ptr %880, align 8, !noundef !4
-  %2681 = icmp ult i64 %2680, 32
-  br i1 %2681, label %2683, label %2689
+2677:                                             ; preds = %2663
+  %2678 = getelementptr inbounds i8, ptr %0, i64 104
+  %2679 = getelementptr inbounds [32 x i8], ptr %2678, i64 0, i64 %2667
+  %2680 = add i8 %2665, 1
+  store i8 %2680, ptr %2679, align 1
+  %2681 = load i64, ptr %880, align 8, !noundef !4
+  %2682 = icmp ult i64 %2681, 32
+  br i1 %2682, label %2684, label %2690
 
-2682:                                             ; preds = %2663
+2683:                                             ; preds = %2663
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %2667, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6a1679e06f49d11a06e513074f87c0f6.102) #25
   unreachable
 
-2683:                                             ; preds = %2676
-  %2684 = getelementptr inbounds [32 x i16], ptr %879, i64 0, i64 %2680
-  store i16 %2642, ptr %2684, align 2
-  %2685 = load i8, ptr %2664, align 8, !noundef !4
-  %2686 = add i8 %2685, 1
-  store i8 %2686, ptr %2664, align 8
-  %2687 = load i64, ptr %880, align 8, !noundef !4
-  %2688 = add i64 %2687, 1
-  store i64 %2688, ptr %880, align 8
+2684:                                             ; preds = %2677
+  %2685 = getelementptr inbounds [32 x i16], ptr %879, i64 0, i64 %2681
+  store i16 %2642, ptr %2685, align 2
+  %2686 = load i8, ptr %2664, align 8, !noundef !4
+  %2687 = add i8 %2686, 1
+  store i8 %2687, ptr %2664, align 8
+  %2688 = load i64, ptr %880, align 8, !noundef !4
+  %2689 = add i64 %2688, 1
+  store i64 %2689, ptr %880, align 8
   store i16 0, ptr %2641, align 2
   br label %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$6unhook17h25cdefaa7f309bbcE.exit"
 
-2689:                                             ; preds = %2676
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %2680, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6a1679e06f49d11a06e513074f87c0f6.103) #25
+2690:                                             ; preds = %2677
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %2681, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6a1679e06f49d11a06e513074f87c0f6.103) #25
   unreachable
 }
 

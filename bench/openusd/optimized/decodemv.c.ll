@@ -887,10 +887,10 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   %282 = sub nsw i32 %281, %280
   %283 = icmp slt i32 %282, %.val.i121.i
   %284 = mul i32 %280, 65504
-  %285 = and i32 %284, 65504
-  %286 = shl i32 %280, 21
-  %287 = sub i32 -134217728, %286
-  %.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %283, i32 %287, i32 %285
+  %285 = shl i32 %280, 21
+  %286 = sub i32 -134217728, %285
+  %287 = and i32 %284, 65504
+  %.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %283, i32 %286, i32 %287
   br label %288
 
 288:                                              ; preds = %277, %265
@@ -6234,10 +6234,10 @@ define internal fastcc void @read_cdef(ptr nocapture noundef readonly %0, ptr no
   %34 = lshr i32 %20, 3
   %35 = and i32 %34, 2
   %36 = or disjoint i32 %.lobit35, %35
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 10757
-  %39 = select i1 %33, i64 %37, i64 0
-  %40 = getelementptr inbounds [4 x i8], ptr %38, i64 0, i64 %39
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 10757
+  %38 = zext nneg i32 %36 to i64
+  %39 = select i1 %33, i64 %38, i64 0
+  %40 = getelementptr inbounds [4 x i8], ptr %37, i64 0, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = trunc i8 %41 to i1
   %43 = icmp ne i8 %8, 0

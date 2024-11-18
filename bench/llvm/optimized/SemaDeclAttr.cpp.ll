@@ -22747,8 +22747,8 @@ define internal fastcc void @_ZL26handleTransparentUnionAttrRN5clang4SemaEPNS_4D
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #22
   %147 = load i8, ptr %12, align 1
   %148 = trunc i8 %147 to i1
-  %149 = select i1 %148, i64 %107, i64 %111
-  %150 = trunc i64 %149 to i32
+  %149 = trunc i64 %107 to i32
+  %150 = select i1 %148, i32 %149, i32 %.sroa.1.8.extract.trunc.i
   store i32 %150, ptr %16, align 4
   %151 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %.sroa.0.0.copyload.i79 = load i32, ptr %151, align 8

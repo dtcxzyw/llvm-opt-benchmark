@@ -12719,21 +12719,21 @@ define hidden void @ssl_dissect_hnd_hello_retry_request(ptr noundef %0, ptr noun
   %15 = and i32 %14, 65280
   %16 = icmp ne i32 %15, 32512
   %17 = trunc i32 %14 to i8
-  %18 = add i8 %17, -19
-  %19 = add i32 %4, 2
-  %or.cond22 = icmp ult i8 %18, -18
+  %18 = add i32 %4, 2
+  %19 = add i8 %17, -19
+  %or.cond22 = icmp ult i8 %19, -18
   %or.cond = or i1 %16, %or.cond22
   br i1 %or.cond, label %20, label %25
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds i8, ptr %0, i64 512
   %22 = load i32, ptr %21, align 4
-  %23 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %22, ptr noundef %1, i32 noundef %19, i32 noundef 2, i32 noundef 0) #23
+  %23 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %22, ptr noundef %1, i32 noundef %18, i32 noundef 2, i32 noundef 0) #23
   %24 = add i32 %4, 4
   br label %25
 
 25:                                               ; preds = %9, %20
-  %.0 = phi i32 [ %24, %20 ], [ %19, %9 ]
+  %.0 = phi i32 [ %24, %20 ], [ %18, %9 ]
   %26 = call fastcc i32 @ssl_dissect_hnd_extension(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %2, i32 noundef %.0, i32 noundef %5, i8 noundef zeroext 6, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef null, ptr noundef null)
   ret void
 }

@@ -3173,18 +3173,18 @@ sw.bb13.i:                                        ; preds = %entry
 
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
-  %cmp.not = icmp ult i64 %start, %retval.0.i
-  %spec.select = select i1 %cmp.not, i64 %len, i64 0
-  %spec.select16 = select i1 %cmp.not, i64 %start, i64 0
+  %cmp.not = icmp uge i64 %start, %retval.0.i
+  %spec.select16 = select i1 %cmp.not, i64 0, i64 %start
   %sub = sub i64 %retval.0.i, %spec.select16
-  %len.addr.1 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %sub)
-  %tobool.not = icmp eq i64 %len.addr.1, 0
+  %5 = tail call i64 @llvm.umin.i64(i64 %len, i64 %sub)
+  %tobool.not34 = icmp eq i64 %5, 0
+  %tobool.not = or i1 %cmp.not, %tobool.not34
   br i1 %tobool.not, label %if.end4.split, label %if.then5
 
 if.end4.split:                                    ; preds = %sdslen.exit
   store i8 0, ptr %s, align 1
-  %5 = and i8 %0, 7
-  switch i8 %5, label %if.end6 [
+  %6 = and i8 %0, 7
+  switch i8 %6, label %if.end6 [
     i8 0, label %sw.bb.i22
     i8 1, label %sw.bb2.i
     i8 2, label %sw.bb5.i21
@@ -3218,12 +3218,12 @@ sw.bb13.i18:                                      ; preds = %if.end4.split
 
 if.then5:                                         ; preds = %sdslen.exit
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 %spec.select16
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %s, ptr align 1 %add.ptr, i64 %len.addr.1, i1 false)
-  %arrayidx15 = getelementptr inbounds i8, ptr %s, i64 %len.addr.1
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %s, ptr align 1 %add.ptr, i64 %5, i1 false)
+  %arrayidx15 = getelementptr inbounds i8, ptr %s, i64 %5
   store i8 0, ptr %arrayidx15, align 1
-  %6 = load i8, ptr %arrayidx.i, align 1
-  %7 = and i8 %6, 7
-  switch i8 %7, label %if.end6 [
+  %7 = load i8, ptr %arrayidx.i, align 1
+  %8 = and i8 %7, 7
+  switch i8 %8, label %if.end6 [
     i8 0, label %sw.bb.i32
     i8 1, label %sw.bb2.i30
     i8 2, label %sw.bb5.i28
@@ -3232,32 +3232,32 @@ if.then5:                                         ; preds = %sdslen.exit
   ]
 
 sw.bb.i32:                                        ; preds = %if.then5
-  %newlen.tr.i = trunc i64 %len.addr.1 to i8
+  %newlen.tr.i = trunc i64 %5 to i8
   %conv1.i = shl i8 %newlen.tr.i, 3
   store i8 %conv1.i, ptr %arrayidx.i, align 1
   br label %if.end6
 
 sw.bb2.i30:                                       ; preds = %if.then5
-  %conv3.i = trunc i64 %len.addr.1 to i8
+  %conv3.i = trunc i64 %5 to i8
   %add.ptr4.i31 = getelementptr inbounds i8, ptr %s, i64 -3
   store i8 %conv3.i, ptr %add.ptr4.i31, align 1
   br label %if.end6
 
 sw.bb5.i28:                                       ; preds = %if.then5
-  %conv6.i = trunc i64 %len.addr.1 to i16
+  %conv6.i = trunc i64 %5 to i16
   %add.ptr7.i29 = getelementptr inbounds i8, ptr %s, i64 -5
   store i16 %conv6.i, ptr %add.ptr7.i29, align 1
   br label %if.end6
 
 sw.bb9.i26:                                       ; preds = %if.then5
-  %conv10.i = trunc i64 %len.addr.1 to i32
+  %conv10.i = trunc i64 %5 to i32
   %add.ptr11.i27 = getelementptr inbounds i8, ptr %s, i64 -9
   store i32 %conv10.i, ptr %add.ptr11.i27, align 1
   br label %if.end6
 
 sw.bb13.i24:                                      ; preds = %if.then5
   %add.ptr14.i25 = getelementptr inbounds i8, ptr %s, i64 -17
-  store i64 %len.addr.1, ptr %add.ptr14.i25, align 1
+  store i64 %5, ptr %add.ptr14.i25, align 1
   br label %if.end6
 
 if.end6:                                          ; preds = %sw.bb13.i24, %sw.bb9.i26, %sw.bb5.i28, %sw.bb2.i30, %sw.bb.i32, %if.then5, %sw.bb13.i18, %sw.bb9.i20, %sw.bb5.i21, %sw.bb2.i, %sw.bb.i22, %if.end4.split

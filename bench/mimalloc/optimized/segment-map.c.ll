@@ -15,22 +15,22 @@ define hidden void @_mi_segment_map_allocated_at(ptr noundef %segment) local_unn
 entry:
   %cmp.i = icmp ugt ptr %segment, inttoptr (i64 43980465111039 to ptr)
   %0 = ptrtoint ptr %segment to i64
-  %div4.i = lshr i64 %0, 25
-  %rem.i = and i64 %div4.i, 63
   %div15.i = lshr i64 %0, 31
-  %1 = shl nuw i64 1, %rem.i
   %cmp4 = icmp eq i64 %div15.i, 20480
   %cmp = or i1 %cmp.i, %cmp4
   br i1 %cmp, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry
+  %div4.i = lshr i64 %0, 25
+  %rem.i = and i64 %div4.i, 63
   %arrayidx = getelementptr inbounds [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i
-  %2 = load atomic i64, ptr %arrayidx monotonic, align 8
+  %1 = load atomic i64, ptr %arrayidx monotonic, align 8
+  %2 = shl nuw i64 1, %rem.i
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.end
-  %mask.0 = phi i64 [ %2, %if.end ], [ %5, %do.body ]
-  %or = or i64 %mask.0, %1
+  %mask.0 = phi i64 [ %1, %if.end ], [ %5, %do.body ]
+  %or = or i64 %mask.0, %2
   %3 = cmpxchg weak ptr %arrayidx, i64 %mask.0, i64 %or release monotonic, align 8
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
@@ -53,14 +53,14 @@ entry:
 if.end:                                           ; preds = %entry
   %div4.i = lshr i64 %0, 25
   %rem.i = and i64 %div4.i, 63
-  %1 = shl nuw i64 1, %rem.i
   %arrayidx = getelementptr inbounds [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i
-  %2 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %3 = xor i64 %1, -1
+  %1 = load atomic i64, ptr %arrayidx monotonic, align 8
+  %2 = shl nuw i64 1, %rem.i
+  %3 = xor i64 %2, -1
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.end
-  %mask.0 = phi i64 [ %2, %if.end ], [ %6, %do.body ]
+  %mask.0 = phi i64 [ %1, %if.end ], [ %6, %do.body ]
   %and = and i64 %mask.0, %3
   %4 = cmpxchg weak ptr %arrayidx, i64 %mask.0, i64 %and release monotonic, align 8
   %5 = extractvalue { i64, i1 } %4, 1

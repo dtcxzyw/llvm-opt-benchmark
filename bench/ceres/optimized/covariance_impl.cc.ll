@@ -24725,26 +24725,26 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14CwiseNullaryOpINS_8internal18
   %32 = trunc i8 %31 to i1
   %33 = getelementptr inbounds i8, ptr %0, i64 74
   %34 = load i8, ptr %33, align 2
-  %35 = and i8 %34, 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 237
-  %37 = select i1 %32, i8 1, i8 %35
-  store i8 %37, ptr %36, align 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 237
+  %36 = and i8 %34, 1
+  %37 = select i1 %32, i8 1, i8 %36
+  store i8 %37, ptr %35, align 1
   %38 = getelementptr inbounds i8, ptr %0, i64 71
   %39 = load i8, ptr %38, align 1
   %40 = trunc i8 %39 to i1
   %41 = getelementptr inbounds i8, ptr %0, i64 72
   %42 = load i8, ptr %41, align 8
-  %43 = and i8 %42, 1
-  %44 = getelementptr inbounds i8, ptr %0, i64 238
-  %45 = select i1 %40, i8 1, i8 %43
-  store i8 %45, ptr %44, align 2
+  %43 = getelementptr inbounds i8, ptr %0, i64 238
+  %44 = and i8 %42, 1
+  %45 = select i1 %40, i8 1, i8 %44
+  store i8 %45, ptr %43, align 2
   %46 = load i8, ptr %6, align 4
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit
-  store i8 %45, ptr %36, align 1
-  store i8 %37, ptr %44, align 2
+  store i8 %45, ptr %35, align 1
+  store i8 %37, ptr %43, align 2
   br label %49
 
 49:                                               ; preds = %48, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit
@@ -24836,7 +24836,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14CwiseNullaryOpINS_8internal18
   br label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit16
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit16: ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit16.sink.split, %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.i24, %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.i12
-  %86 = load i8, ptr %44, align 2
+  %86 = load i8, ptr %43, align 2
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit40
 

@@ -21706,10 +21706,10 @@ if.end.i:                                         ; preds = %invoke.cont
 if.end6.i:                                        ; preds = %if.end.i
   %cmp19.i.i.i = icmp ult i8 %value, 10
   %cmp3.i.i.i = icmp ult i8 %value, 100
-  %1 = select i1 %cmp3.i.i.i, i64 2, i64 3
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %call1 to i64
   %sub.ptr.rhs.cast.i21.i = ptrtoint ptr %call to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i21.i
+  %1 = select i1 %cmp3.i.i.i, i64 2, i64 3
   %conv.i23.i = select i1 %cmp19.i.i.i, i64 1, i64 %1
   %cmp.i24.i = icmp slt i64 %sub.ptr.sub.i22.i, %conv.i23.i
   br i1 %cmp.i24.i, label %while.body.lr.ph, label %if.end.i25.i

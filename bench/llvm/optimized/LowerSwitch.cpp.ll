@@ -704,12 +704,12 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread.i: ; preds = %162, %_ZN4llvm
   %.not.i.i.i.i = icmp eq i64 %.sroa.2.080.i.i, 4294967294
   %192 = shl nuw i64 %.sroa.2.080.i.i, 1
   %193 = add nuw nsw i64 %192, 3
-  %194 = and i64 %193, 4294967295
-  %195 = load ptr, ptr %141, align 8
-  %196 = select i1 %.not.i.i.i.i, i64 1, i64 %194
-  %197 = getelementptr inbounds %"class.llvm::Use", ptr %195, i64 %196
+  %194 = load ptr, ptr %141, align 8
+  %195 = and i64 %193, 4294967295
+  %196 = select i1 %.not.i.i.i.i, i64 1, i64 %195
+  %197 = getelementptr inbounds %"class.llvm::Use", ptr %194, i64 %196
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %195, i64 32
+  %199 = getelementptr inbounds i8, ptr %194, i64 32
   %200 = load ptr, ptr %199, align 8
   %201 = icmp eq ptr %198, %200
   br i1 %201, label %228, label %202
@@ -717,7 +717,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread.i: ; preds = %162, %_ZN4llvm
 202:                                              ; preds = %.lr.ph.i.i19
   %203 = add nuw nsw i64 %192, 2
   %204 = and i64 %203, 4294967294
-  %205 = getelementptr inbounds %"class.llvm::Use", ptr %195, i64 %204
+  %205 = getelementptr inbounds %"class.llvm::Use", ptr %194, i64 %204
   %206 = load ptr, ptr %205, align 8
   %.not.i.i44.i.i = icmp eq ptr %.sroa.15.1.i, %.sroa.32.0.i
   br i1 %.not.i.i44.i.i, label %208, label %207

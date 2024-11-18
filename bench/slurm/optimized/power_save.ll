@@ -91,15 +91,15 @@ target triple = "x86_64-pc-linux-gnu"
 @resume_rl_config.0 = internal unnamed_addr global i1 false, align 8
 @resume_rl_config.1 = internal unnamed_addr global i64 0, align 8
 @resume_rl_config.2 = internal unnamed_addr global i32 0, align 8
-@resume_rl_config.3 = internal unnamed_addr global i1 false, align 8
+@resume_rl_config.3 = internal unnamed_addr global i1 false, align 4
 @resume_rl_config.4 = internal unnamed_addr global i32 0, align 8
-@resume_rl_config.5 = internal unnamed_addr global i32 0, align 8
+@resume_rl_config.5 = internal unnamed_addr global i32 0, align 4
 @suspend_rl_config.0 = internal unnamed_addr global i1 false, align 8
 @suspend_rl_config.1 = internal unnamed_addr global i64 0, align 8
 @suspend_rl_config.2 = internal unnamed_addr global i32 0, align 8
-@suspend_rl_config.3 = internal unnamed_addr global i1 false, align 8
+@suspend_rl_config.3 = internal unnamed_addr global i1 false, align 4
 @suspend_rl_config.4 = internal unnamed_addr global i32 0, align 8
-@suspend_rl_config.5 = internal unnamed_addr global i32 0, align 8
+@suspend_rl_config.5 = internal unnamed_addr global i32 0, align 4
 @__const._power_save_thread.node_write_lock = private unnamed_addr constant %struct.slurmctld_lock_t { i32 0, i32 2, i32 2, i32 0, i32 0 }, align 8
 @.str.41 = private unnamed_addr constant [10 x i8] c"powersave\00", align 1
 @.str.42 = private unnamed_addr constant [32 x i8] c"%s: cannot set my name to %s %m\00", align 1
@@ -1344,19 +1344,19 @@ thread-pre-split.thread.i:                        ; preds = %99, %89, %86, %thre
   br i1 %.not.i.i, label %._crit_edge.i.i, label %122
 
 ._crit_edge.i.i:                                  ; preds = %113
-  %.pre.i.i = load i32, ptr @resume_rl_config.5, align 8
+  %.pre.i.i = load i32, ptr @resume_rl_config.5, align 4
   br label %_rl_get_tokens.exit.i
 
 122:                                              ; preds = %113
   %123 = sub i64 %120, %121
-  %.b62 = load i1, ptr @resume_rl_config.3, align 8
-  %124 = load i32, ptr @resume_rl_config.5, align 8
+  %.b62 = load i1, ptr @resume_rl_config.3, align 4
+  %124 = load i32, ptr @resume_rl_config.5, align 4
   %125 = trunc i64 %123 to i32
   %126 = select i1 %.b62, i32 %125, i32 0
   %127 = add i32 %126, %124
   %128 = load i32, ptr @resume_rl_config.2, align 8
   %..i.i = call i32 @llvm.umin.i32(i32 %127, i32 %128)
-  store i32 %..i.i, ptr @resume_rl_config.5, align 8
+  store i32 %..i.i, ptr @resume_rl_config.5, align 4
   br label %_rl_get_tokens.exit.i
 
 _rl_get_tokens.exit.i:                            ; preds = %122, %._crit_edge.i.i
@@ -1502,19 +1502,19 @@ _rl_get_tokens.exit.i:                            ; preds = %122, %._crit_edge.i
   br i1 %.not.i220.i, label %._crit_edge.i222.i, label %197
 
 ._crit_edge.i222.i:                               ; preds = %188
-  %.pre.i223.i = load i32, ptr @resume_rl_config.5, align 8
+  %.pre.i223.i = load i32, ptr @resume_rl_config.5, align 4
   br label %_rl_get_tokens.exit224.i
 
 197:                                              ; preds = %188
   %198 = sub i64 %195, %196
-  %.b64 = load i1, ptr @resume_rl_config.3, align 8
-  %199 = load i32, ptr @resume_rl_config.5, align 8
+  %.b64 = load i1, ptr @resume_rl_config.3, align 4
+  %199 = load i32, ptr @resume_rl_config.5, align 4
   %200 = trunc i64 %198 to i32
   %201 = select i1 %.b64, i32 %200, i32 0
   %202 = add i32 %201, %199
   %203 = load i32, ptr @resume_rl_config.2, align 8
   %..i221.i = call i32 @llvm.umin.i32(i32 %202, i32 %203)
-  store i32 %..i221.i, ptr @resume_rl_config.5, align 8
+  store i32 %..i221.i, ptr @resume_rl_config.5, align 4
   br label %_rl_get_tokens.exit224.i
 
 _rl_get_tokens.exit224.i:                         ; preds = %197, %._crit_edge.i222.i
@@ -1528,13 +1528,13 @@ _rl_get_tokens.exit224.i:                         ; preds = %197, %._crit_edge.i
   br i1 %.b6174, label %206, label %_rl_spend_token.exit.i
 
 206:                                              ; preds = %205
-  %207 = load i32, ptr @resume_rl_config.5, align 8
+  %207 = load i32, ptr @resume_rl_config.5, align 4
   %.not.i225.i = icmp eq i32 %207, 0
   br i1 %.not.i225.i, label %210, label %208
 
 208:                                              ; preds = %206
   %209 = add i32 %207, -1
-  store i32 %209, ptr @resume_rl_config.5, align 8
+  store i32 %209, ptr @resume_rl_config.5, align 4
   br label %_rl_spend_token.exit.i
 
 210:                                              ; preds = %206
@@ -1738,19 +1738,19 @@ _rl_spend_token.exit.i:                           ; preds = %210, %208, %205
   br i1 %.not.i228.i, label %._crit_edge.i230.i, label %322
 
 ._crit_edge.i230.i:                               ; preds = %313
-  %.pre.i231.i = load i32, ptr @resume_rl_config.5, align 8
+  %.pre.i231.i = load i32, ptr @resume_rl_config.5, align 4
   br label %_rl_get_tokens.exit232.i
 
 322:                                              ; preds = %313
   %323 = sub i64 %320, %321
-  %.b63 = load i1, ptr @resume_rl_config.3, align 8
-  %324 = load i32, ptr @resume_rl_config.5, align 8
+  %.b63 = load i1, ptr @resume_rl_config.3, align 4
+  %324 = load i32, ptr @resume_rl_config.5, align 4
   %325 = trunc i64 %323 to i32
   %326 = select i1 %.b63, i32 %325, i32 0
   %327 = add i32 %326, %324
   %328 = load i32, ptr @resume_rl_config.2, align 8
   %..i229.i = call i32 @llvm.umin.i32(i32 %327, i32 %328)
-  store i32 %..i229.i, ptr @resume_rl_config.5, align 8
+  store i32 %..i229.i, ptr @resume_rl_config.5, align 4
   br label %_rl_get_tokens.exit232.i
 
 _rl_get_tokens.exit232.i:                         ; preds = %322, %._crit_edge.i230.i
@@ -1789,13 +1789,13 @@ _rl_get_tokens.exit232.i:                         ; preds = %322, %._crit_edge.i
   br i1 %.b75, label %345, label %_rl_spend_token.exit234.i
 
 345:                                              ; preds = %344
-  %346 = load i32, ptr @resume_rl_config.5, align 8
+  %346 = load i32, ptr @resume_rl_config.5, align 4
   %.not.i233.i = icmp eq i32 %346, 0
   br i1 %.not.i233.i, label %349, label %347
 
 347:                                              ; preds = %345
   %348 = add i32 %346, -1
-  store i32 %348, ptr @resume_rl_config.5, align 8
+  store i32 %348, ptr @resume_rl_config.5, align 4
   br label %_rl_spend_token.exit234.i
 
 349:                                              ; preds = %345
@@ -1881,19 +1881,19 @@ _rl_spend_token.exit234.i:                        ; preds = %349, %347, %344, %3
   br i1 %.not.i237.i, label %._crit_edge.i239.i, label %396
 
 ._crit_edge.i239.i:                               ; preds = %387
-  %.pre.i240.i = load i32, ptr @suspend_rl_config.5, align 8
+  %.pre.i240.i = load i32, ptr @suspend_rl_config.5, align 4
   br label %_rl_get_tokens.exit241.i
 
 396:                                              ; preds = %387
   %397 = sub i64 %394, %395
-  %.b66 = load i1, ptr @suspend_rl_config.3, align 8
-  %398 = load i32, ptr @suspend_rl_config.5, align 8
+  %.b66 = load i1, ptr @suspend_rl_config.3, align 4
+  %398 = load i32, ptr @suspend_rl_config.5, align 4
   %399 = trunc i64 %397 to i32
   %400 = select i1 %.b66, i32 %399, i32 0
   %401 = add i32 %400, %398
   %402 = load i32, ptr @suspend_rl_config.2, align 8
   %..i238.i = call i32 @llvm.umin.i32(i32 %401, i32 %402)
-  store i32 %..i238.i, ptr @suspend_rl_config.5, align 8
+  store i32 %..i238.i, ptr @suspend_rl_config.5, align 4
   br label %_rl_get_tokens.exit241.i
 
 _rl_get_tokens.exit241.i:                         ; preds = %396, %._crit_edge.i239.i
@@ -1983,13 +1983,13 @@ _node_state_should_suspend.exit.i:                ; preds = %420
   br i1 %.b6576, label %448, label %_rl_spend_token.exit246.i
 
 448:                                              ; preds = %446
-  %449 = load i32, ptr @suspend_rl_config.5, align 8
+  %449 = load i32, ptr @suspend_rl_config.5, align 4
   %.not.i245.i = icmp eq i32 %449, 0
   br i1 %.not.i245.i, label %452, label %450
 
 450:                                              ; preds = %448
   %451 = add i32 %449, -1
-  store i32 %451, ptr @suspend_rl_config.5, align 8
+  store i32 %451, ptr @suspend_rl_config.5, align 4
   br label %_rl_spend_token.exit246.i
 
 452:                                              ; preds = %448
@@ -2907,9 +2907,9 @@ define internal fastcc void @power_save_rl_setup() unnamed_addr #7 {
   store i1 true, ptr @resume_rl_config.0, align 8
   store i64 0, ptr @resume_rl_config.1, align 8
   store i32 %.0, ptr @resume_rl_config.2, align 8
-  store i1 true, ptr @resume_rl_config.3, align 8
+  store i1 true, ptr @resume_rl_config.3, align 4
   store i32 %9, ptr @resume_rl_config.4, align 8
-  store i32 0, ptr @resume_rl_config.5, align 8
+  store i32 0, ptr @resume_rl_config.5, align 4
   br label %10
 
 10:                                               ; preds = %5, %0
@@ -2926,9 +2926,9 @@ define internal fastcc void @power_save_rl_setup() unnamed_addr #7 {
   store i1 true, ptr @suspend_rl_config.0, align 8
   store i64 0, ptr @suspend_rl_config.1, align 8
   store i32 %.1, ptr @suspend_rl_config.2, align 8
-  store i1 true, ptr @suspend_rl_config.3, align 8
+  store i1 true, ptr @suspend_rl_config.3, align 4
   store i32 %16, ptr @suspend_rl_config.4, align 8
-  store i32 0, ptr @suspend_rl_config.5, align 8
+  store i32 0, ptr @suspend_rl_config.5, align 4
   br label %17
 
 17:                                               ; preds = %12, %10

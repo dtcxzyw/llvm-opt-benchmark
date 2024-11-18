@@ -2038,10 +2038,10 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEjLj16ENS_12DenseMapIn
   %.not.i.i30 = icmp eq i64 %.sroa.2.073, 4294967294
   %83 = shl nuw i64 %.sroa.2.073, 1
   %84 = add nuw nsw i64 %83, 3
-  %85 = and i64 %84, 4294967295
-  %86 = load ptr, ptr %10, align 8
-  %87 = select i1 %.not.i.i30, i64 1, i64 %85
-  %88 = getelementptr inbounds %"class.llvm::Use", ptr %86, i64 %87
+  %85 = load ptr, ptr %10, align 8
+  %86 = and i64 %84, 4294967295
+  %87 = select i1 %.not.i.i30, i64 1, i64 %86
+  %88 = getelementptr inbounds %"class.llvm::Use", ptr %85, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = load i32, ptr %7, align 8
   %91 = and i32 %90, 1
@@ -2096,9 +2096,9 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEjLj16ENS_12DenseMapI
   %123 = load ptr, ptr %79, align 8
   %124 = add nuw nsw i64 %83, 2
   %125 = and i64 %124, 4294967294
-  %126 = getelementptr inbounds %"class.llvm::Use", ptr %86, i64 %125
+  %126 = getelementptr inbounds %"class.llvm::Use", ptr %85, i64 %125
   %127 = load ptr, ptr %126, align 8
-  %128 = load ptr, ptr %86, align 8
+  %128 = load ptr, ptr %85, align 8
   %129 = getelementptr inbounds i8, ptr %122, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, i8 0, i64 16, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %122, i64 24

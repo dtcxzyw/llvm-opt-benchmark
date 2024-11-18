@@ -4517,22 +4517,22 @@ _ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE
   %157 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(160) %151, ptr noundef %.020, ptr noundef %153, i16 %.sroa.02.0.insert.insert.i, i1 noundef zeroext false)
   %158 = icmp eq i32 %3, 4
   %159 = icmp eq i32 %3, 6
-  %160 = trunc i32 %3 to i16
-  %161 = shl i16 %160, 7
-  %162 = getelementptr inbounds nuw i8, ptr %157, i64 2
-  %163 = load i16, ptr %162, align 2
-  %164 = and i16 %163, -897
-  %165 = select i1 %159, i16 640, i16 %161
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 2
+  %161 = load i16, ptr %160, align 2
+  %162 = and i16 %161, -897
+  %163 = trunc i32 %3 to i16
+  %164 = shl i16 %163, 7
+  %165 = select i1 %159, i16 640, i16 %164
   %166 = select i1 %158, i16 256, i16 %165
-  %167 = or i16 %164, %166
-  store i16 %167, ptr %162, align 2
+  %167 = or i16 %162, %166
+  store i16 %167, ptr %160, align 2
   %168 = getelementptr inbounds nuw i8, ptr %157, i64 72
   store i8 1, ptr %168, align 8
   br i1 %4, label %169, label %171
 
 169:                                              ; preds = %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread
   %170 = or i16 %167, 1
-  store i16 %170, ptr %162, align 2
+  store i16 %170, ptr %160, align 2
   br label %171
 
 171:                                              ; preds = %169, %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread

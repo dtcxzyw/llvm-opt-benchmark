@@ -159,7 +159,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.92 = private unnamed_addr constant [14 x i8] c"lapd.gsm.sapi\00", align 1
 @.str.93 = private unnamed_addr constant [14 x i8] c"gsm_rlcmac_ul\00", align 1
 @sub_handles.0 = internal unnamed_addr global ptr null, align 16
-@sub_handles.1 = internal unnamed_addr global ptr null, align 16
+@sub_handles.1 = internal unnamed_addr global ptr null, align 8
 @.str.94 = private unnamed_addr constant [14 x i8] c"gsm_rlcmac_dl\00", align 1
 @.str.95 = private unnamed_addr constant [16 x i8] c"PGSL-DLDATA-REQ\00", align 1
 @.str.96 = private unnamed_addr constant [16 x i8] c"PGSL-DLDATA-IND\00", align 1
@@ -430,7 +430,7 @@ define hidden void @proto_reg_handoff_abis_pgsl() local_unnamed_addr #0 {
   %2 = tail call ptr @find_dissector(ptr noundef nonnull @.str.93) #6
   store ptr %2, ptr @sub_handles.0, align 16
   %3 = tail call ptr @find_dissector(ptr noundef nonnull @.str.94) #6
-  store ptr %3, ptr @sub_handles.1, align 16
+  store ptr %3, ptr @sub_handles.1, align 8
   ret void
 }
 
@@ -460,7 +460,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
-  %sub_handles.1.val = load ptr, ptr @sub_handles.1, align 16
+  %sub_handles.1.val = load ptr, ptr @sub_handles.1, align 8
   %sub_handles.0.val = load ptr, ptr @sub_handles.0, align 16
   %.0 = select i1 %.not, ptr %sub_handles.1.val, ptr %sub_handles.0.val
   %6 = getelementptr inbounds i8, ptr %4, i64 4

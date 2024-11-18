@@ -26745,9 +26745,9 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-common.resume:                                    ; preds = %lpad, %lpad.i.i66, %lpad.i.i52, %lpad.i.i38, %lpad.i.i28, %lpad.i.i
-  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i65, %lpad.i.i66 ], [ %exception.i.i51, %lpad.i.i52 ], [ %exception.i.i37, %lpad.i.i38 ], [ %exception.i.i27, %lpad.i.i28 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %30, %lpad ], [ %27, %lpad.i.i66 ], [ %21, %lpad.i.i52 ], [ %16, %lpad.i.i38 ], [ %10, %lpad.i.i28 ], [ %3, %lpad.i.i ]
+common.resume:                                    ; preds = %lpad, %lpad.i.i66, %lpad.i.i52, %lpad.i.i39, %lpad.i.i29, %lpad.i.i
+  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i65, %lpad.i.i66 ], [ %exception.i.i51, %lpad.i.i52 ], [ %exception.i.i38, %lpad.i.i39 ], [ %exception.i.i28, %lpad.i.i29 ], [ %exception.i.i, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %lpad ], [ %28, %lpad.i.i66 ], [ %22, %lpad.i.i52 ], [ %17, %lpad.i.i39 ], [ %10, %lpad.i.i29 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.sink) #20
   resume { ptr, i32 } %common.resume.op
 
@@ -26801,18 +26801,18 @@ if.then6:                                         ; preds = %if.else
   %mLimit.i.i18 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %mLimit.i.i18, align 8
   %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %9
-  br i1 %cmp.i.i19, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
+  br i1 %cmp.i.i19, label %if.then.i.i27, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
 
-if.then.i.i26:                                    ; preds = %if.then6
-  %exception.i.i27 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i27, ptr noundef nonnull @.str.319)
-          to label %invoke.cont.i.i29 unwind label %lpad.i.i28
+if.then.i.i27:                                    ; preds = %if.then6
+  %exception.i.i28 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i28, ptr noundef nonnull @.str.319)
+          to label %invoke.cont.i.i30 unwind label %lpad.i.i29
 
-invoke.cont.i.i29:                                ; preds = %if.then.i.i26
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i27, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+invoke.cont.i.i30:                                ; preds = %if.then.i.i27
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i28, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-lpad.i.i28:                                       ; preds = %if.then.i.i26
+lpad.i.i29:                                       ; preds = %if.then.i.i27
   %10 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -26823,66 +26823,66 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit:  ; preds = %if.then6
   %mLe.i.i21 = getelementptr inbounds i8, ptr %7, i64 48
   %12 = load i8, ptr %mLe.i.i21, align 8
   %tobool.i.i22 = trunc i8 %12 to i1
-  %spec.select.i.i = select i1 %tobool.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %11
-  %spec.select2.v.i.i = select i1 %tobool.i.i22, i16 %11, i16 %f.sroa.4.0.extract.shift.i.i20
   store ptr %add.ptr.i.i17, ptr %mCurrent.i.i16, align 8
-  %f.sroa.4.0.insert.ext.i.i23 = shl i16 %spec.select.i.i, 8
-  %f.sroa.0.0.insert.ext.i.i24 = and i16 %spec.select2.v.i.i, 255
-  %f.sroa.0.0.insert.insert.i.i25 = or disjoint i16 %f.sroa.4.0.insert.ext.i.i23, %f.sroa.0.0.insert.ext.i.i24
-  %conv.i = zext i16 %f.sroa.0.0.insert.insert.i.i25 to i32
+  %13 = and i16 %11, 255
+  %f.sroa.4.0.insert.ext.i.i23 = select i1 %tobool.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %13
+  %f.sroa.4.0.insert.shift.i.i24 = shl nuw i16 %f.sroa.4.0.insert.ext.i.i23, 8
+  %f.sroa.0.0.insert.ext.i.i25 = select i1 %tobool.i.i22, i16 %13, i16 %f.sroa.4.0.extract.shift.i.i20
+  %f.sroa.0.0.insert.insert.i.i26 = or disjoint i16 %f.sroa.4.0.insert.shift.i.i24, %f.sroa.0.0.insert.ext.i.i25
+  %conv.i = zext i16 %f.sroa.0.0.insert.insert.i.i26 to i32
   br label %if.end41
 
 if.else12:                                        ; preds = %if.else
-  %call.i30 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.315) #20
-  %cmp.i31 = icmp eq i32 %call.i30, 0
-  br i1 %cmp.i31, label %if.then15, label %if.else21
+  %call.i31 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.315) #20
+  %cmp.i32 = icmp eq i32 %call.i31, 0
+  br i1 %cmp.i32, label %if.then15, label %if.else21
 
 if.then15:                                        ; preds = %if.else12
   %reader17 = getelementptr inbounds i8, ptr %db, i64 128
-  %13 = load ptr, ptr %reader17, align 8
-  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %13, i64 24
-  %14 = load ptr, ptr %mCurrent.i.i32, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %14, i64 1
-  %mLimit.i.i34 = getelementptr inbounds i8, ptr %13, i64 40
-  %15 = load ptr, ptr %mLimit.i.i34, align 8
-  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %15
-  br i1 %cmp.i.i35, label %if.then.i.i36, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
+  %14 = load ptr, ptr %reader17, align 8
+  %mCurrent.i.i33 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = load ptr, ptr %mCurrent.i.i33, align 8
+  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %15, i64 1
+  %mLimit.i.i35 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = load ptr, ptr %mLimit.i.i35, align 8
+  %cmp.i.i36 = icmp ugt ptr %add.ptr.i.i34, %16
+  br i1 %cmp.i.i36, label %if.then.i.i37, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
 
-if.then.i.i36:                                    ; preds = %if.then15
-  %exception.i.i37 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i37, ptr noundef nonnull @.str.319)
-          to label %invoke.cont.i.i39 unwind label %lpad.i.i38
+if.then.i.i37:                                    ; preds = %if.then15
+  %exception.i.i38 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i38, ptr noundef nonnull @.str.319)
+          to label %invoke.cont.i.i40 unwind label %lpad.i.i39
 
-invoke.cont.i.i39:                                ; preds = %if.then.i.i36
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i37, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+invoke.cont.i.i40:                                ; preds = %if.then.i.i37
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i38, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-lpad.i.i38:                                       ; preds = %if.then.i.i36
-  %16 = landingpad { ptr, i32 }
+lpad.i.i39:                                       ; preds = %if.then.i.i37
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit:  ; preds = %if.then15
-  %17 = load i8, ptr %14, align 1
-  store ptr %add.ptr.i.i33, ptr %mCurrent.i.i32, align 8
-  %conv.i40 = zext i8 %17 to i32
+  %18 = load i8, ptr %15, align 1
+  store ptr %add.ptr.i.i34, ptr %mCurrent.i.i33, align 8
+  %conv.i41 = zext i8 %18 to i32
   br label %if.end41
 
 if.else21:                                        ; preds = %if.else12
-  %call.i41 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.316) #20
-  %cmp.i42 = icmp eq i32 %call.i41, 0
-  br i1 %cmp.i42, label %if.then24, label %if.else28
+  %call.i42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.316) #20
+  %cmp.i43 = icmp eq i32 %call.i42, 0
+  br i1 %cmp.i43, label %if.then24, label %if.else28
 
 if.then24:                                        ; preds = %if.else21
   %reader25 = getelementptr inbounds i8, ptr %db, i64 128
-  %18 = load ptr, ptr %reader25, align 8
-  %mCurrent.i.i43 = getelementptr inbounds i8, ptr %18, i64 24
-  %19 = load ptr, ptr %mCurrent.i.i43, align 8
-  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %19, i64 4
-  %mLimit.i.i45 = getelementptr inbounds i8, ptr %18, i64 40
-  %20 = load ptr, ptr %mLimit.i.i45, align 8
-  %cmp.i.i46 = icmp ugt ptr %add.ptr.i.i44, %20
-  br i1 %cmp.i.i46, label %if.then.i.i50, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
+  %19 = load ptr, ptr %reader25, align 8
+  %mCurrent.i.i44 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = load ptr, ptr %mCurrent.i.i44, align 8
+  %add.ptr.i.i45 = getelementptr inbounds i8, ptr %20, i64 4
+  %mLimit.i.i46 = getelementptr inbounds i8, ptr %19, i64 40
+  %21 = load ptr, ptr %mLimit.i.i46, align 8
+  %cmp.i.i47 = icmp ugt ptr %add.ptr.i.i45, %21
+  br i1 %cmp.i.i47, label %if.then.i.i50, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
 
 if.then.i.i50:                                    ; preds = %if.then24
   %exception.i.i51 = tail call ptr @__cxa_allocate_exception(i64 16) #20
@@ -26894,19 +26894,19 @@ invoke.cont.i.i53:                                ; preds = %if.then.i.i50
   unreachable
 
 lpad.i.i52:                                       ; preds = %if.then.i.i50
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then24
-  %22 = load i32, ptr %19, align 1
-  %mLe.i.i47 = getelementptr inbounds i8, ptr %18, i64 48
-  %23 = load i8, ptr %mLe.i.i47, align 8
-  %tobool.i.i48 = trunc i8 %23 to i1
-  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %22)
-  %spec.select.i.i49 = select i1 %tobool.i.i48, i32 %22, i32 %f.2.insert.insert.i.i
-  %f.0.i.i = bitcast i32 %spec.select.i.i49 to float
-  store ptr %add.ptr.i.i44, ptr %mCurrent.i.i43, align 8
+  %23 = load i32, ptr %20, align 1
+  %mLe.i.i48 = getelementptr inbounds i8, ptr %19, i64 48
+  %24 = load i8, ptr %mLe.i.i48, align 8
+  %tobool.i.i49 = trunc i8 %24 to i1
+  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %23)
+  %spec.select.i.i = select i1 %tobool.i.i49, i32 %23, i32 %f.2.insert.insert.i.i
+  %f.0.i.i = bitcast i32 %spec.select.i.i to float
+  store ptr %add.ptr.i.i45, ptr %mCurrent.i.i44, align 8
   %conv = fptosi float %f.0.i.i to i32
   br label %if.end41
 
@@ -26917,13 +26917,13 @@ if.else28:                                        ; preds = %if.else21
 
 if.then31:                                        ; preds = %if.else28
   %reader32 = getelementptr inbounds i8, ptr %db, i64 128
-  %24 = load ptr, ptr %reader32, align 8
-  %mCurrent.i.i56 = getelementptr inbounds i8, ptr %24, i64 24
-  %25 = load ptr, ptr %mCurrent.i.i56, align 8
-  %add.ptr.i.i57 = getelementptr inbounds i8, ptr %25, i64 8
-  %mLimit.i.i58 = getelementptr inbounds i8, ptr %24, i64 40
-  %26 = load ptr, ptr %mLimit.i.i58, align 8
-  %cmp.i.i59 = icmp ugt ptr %add.ptr.i.i57, %26
+  %25 = load ptr, ptr %reader32, align 8
+  %mCurrent.i.i56 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = load ptr, ptr %mCurrent.i.i56, align 8
+  %add.ptr.i.i57 = getelementptr inbounds i8, ptr %26, i64 8
+  %mLimit.i.i58 = getelementptr inbounds i8, ptr %25, i64 40
+  %27 = load ptr, ptr %mLimit.i.i58, align 8
+  %cmp.i.i59 = icmp ugt ptr %add.ptr.i.i57, %27
   br i1 %cmp.i.i59, label %if.then.i.i64, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i64:                                    ; preds = %if.then31
@@ -26936,17 +26936,17 @@ invoke.cont.i.i67:                                ; preds = %if.then.i.i64
   unreachable
 
 lpad.i.i66:                                       ; preds = %if.then.i.i64
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then31
-  %28 = load i64, ptr %25, align 1
-  %mLe.i.i60 = getelementptr inbounds i8, ptr %24, i64 48
-  %29 = load i8, ptr %mLe.i.i60, align 8
-  %tobool.i.i61 = trunc i8 %29 to i1
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %28)
-  %spec.select.i.i62 = select i1 %tobool.i.i61, i64 %28, i64 %f.4.insert.insert.i.i
+  %29 = load i64, ptr %26, align 1
+  %mLe.i.i60 = getelementptr inbounds i8, ptr %25, i64 48
+  %30 = load i8, ptr %mLe.i.i60, align 8
+  %tobool.i.i61 = trunc i8 %30 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %29)
+  %spec.select.i.i62 = select i1 %tobool.i.i61, i64 %29, i64 %f.4.insert.insert.i.i
   %f.0.i.i63 = bitcast i64 %spec.select.i.i62 to double
   store ptr %add.ptr.i.i57, ptr %mCurrent.i.i56, align 8
   %conv35 = fptosi double %f.0.i.i63 to i32
@@ -26962,12 +26962,12 @@ invoke.cont:                                      ; preds = %if.else36
   unreachable
 
 lpad:                                             ; preds = %if.else36
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end41:                                         ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
-  %conv.i.sink = phi i32 [ %conv.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %conv, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %conv35, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %conv.i40, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %f.sroa.0.0.insert.insert.i.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
+  %conv.i.sink = phi i32 [ %conv.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %conv, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %conv35, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %conv.i41, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %f.sroa.0.0.insert.insert.i.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
   store i32 %conv.i.sink, ptr %out, align 4
   ret void
 }
@@ -27193,12 +27193,12 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetI2Ev.exit:  ; preds = %if.then7
   %mLe.i.i = getelementptr inbounds i8, ptr %5, i64 48
   %10 = load i8, ptr %mLe.i.i, align 8
   %tobool.i.i = trunc i8 %10 to i1
-  %spec.select.i.i = select i1 %tobool.i.i, i16 %f.sroa.4.0.extract.shift.i.i, i16 %9
-  %spec.select2.v.i.i = select i1 %tobool.i.i, i16 %9, i16 %f.sroa.4.0.extract.shift.i.i
   store ptr %add.ptr.i.i8, ptr %mCurrent.i.i7, align 8
-  %f.sroa.4.0.insert.ext.i.i = shl i16 %spec.select.i.i, 8
-  %f.sroa.0.0.insert.ext.i.i = and i16 %spec.select2.v.i.i, 255
-  %f.sroa.0.0.insert.insert.i.i = or disjoint i16 %f.sroa.4.0.insert.ext.i.i, %f.sroa.0.0.insert.ext.i.i
+  %11 = and i16 %9, 255
+  %f.sroa.4.0.insert.ext.i.i = select i1 %tobool.i.i, i16 %f.sroa.4.0.extract.shift.i.i, i16 %11
+  %f.sroa.4.0.insert.shift.i.i = shl nuw i16 %f.sroa.4.0.insert.ext.i.i, 8
+  %f.sroa.0.0.insert.ext.i.i = select i1 %tobool.i.i, i16 %11, i16 %f.sroa.4.0.extract.shift.i.i
+  %f.sroa.0.0.insert.insert.i.i = or disjoint i16 %f.sroa.4.0.insert.shift.i.i, %f.sroa.0.0.insert.ext.i.i
   %conv12 = sitofp i16 %f.sroa.0.0.insert.insert.i.i to float
   %div13 = fdiv float %conv12, 3.276700e+04
   store float %div13, ptr %dest, align 4
@@ -27620,9 +27620,9 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-common.resume:                                    ; preds = %lpad, %lpad.i.i67, %lpad.i.i53, %lpad.i.i39, %lpad.i.i28, %lpad.i.i
-  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i66, %lpad.i.i67 ], [ %exception.i.i52, %lpad.i.i53 ], [ %exception.i.i38, %lpad.i.i39 ], [ %exception.i.i27, %lpad.i.i28 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %30, %lpad ], [ %27, %lpad.i.i67 ], [ %21, %lpad.i.i53 ], [ %16, %lpad.i.i39 ], [ %10, %lpad.i.i28 ], [ %3, %lpad.i.i ]
+common.resume:                                    ; preds = %lpad, %lpad.i.i67, %lpad.i.i53, %lpad.i.i40, %lpad.i.i29, %lpad.i.i
+  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i66, %lpad.i.i67 ], [ %exception.i.i52, %lpad.i.i53 ], [ %exception.i.i39, %lpad.i.i40 ], [ %exception.i.i28, %lpad.i.i29 ], [ %exception.i.i, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %lpad ], [ %28, %lpad.i.i67 ], [ %22, %lpad.i.i53 ], [ %17, %lpad.i.i40 ], [ %10, %lpad.i.i29 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.sink) #20
   resume { ptr, i32 } %common.resume.op
 
@@ -27678,18 +27678,18 @@ if.then6:                                         ; preds = %if.else
   %mLimit.i.i18 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %mLimit.i.i18, align 8
   %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %9
-  br i1 %cmp.i.i19, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
+  br i1 %cmp.i.i19, label %if.then.i.i27, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
 
-if.then.i.i26:                                    ; preds = %if.then6
-  %exception.i.i27 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i27, ptr noundef nonnull @.str.319)
-          to label %invoke.cont.i.i29 unwind label %lpad.i.i28
+if.then.i.i27:                                    ; preds = %if.then6
+  %exception.i.i28 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i28, ptr noundef nonnull @.str.319)
+          to label %invoke.cont.i.i30 unwind label %lpad.i.i29
 
-invoke.cont.i.i29:                                ; preds = %if.then.i.i26
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i27, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+invoke.cont.i.i30:                                ; preds = %if.then.i.i27
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i28, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-lpad.i.i28:                                       ; preds = %if.then.i.i26
+lpad.i.i29:                                       ; preds = %if.then.i.i27
   %10 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -27700,68 +27700,68 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit:  ; preds = %if.then6
   %mLe.i.i21 = getelementptr inbounds i8, ptr %7, i64 48
   %12 = load i8, ptr %mLe.i.i21, align 8
   %tobool.i.i22 = trunc i8 %12 to i1
-  %spec.select.i.i = select i1 %tobool.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %11
-  %spec.select2.v.i.i = select i1 %tobool.i.i22, i16 %11, i16 %f.sroa.4.0.extract.shift.i.i20
   store ptr %add.ptr.i.i17, ptr %mCurrent.i.i16, align 8
-  %f.sroa.4.0.insert.ext.i.i23 = shl i16 %spec.select.i.i, 8
-  %f.sroa.0.0.insert.ext.i.i24 = and i16 %spec.select2.v.i.i, 255
-  %f.sroa.0.0.insert.insert.i.i25 = or disjoint i16 %f.sroa.4.0.insert.ext.i.i23, %f.sroa.0.0.insert.ext.i.i24
-  %conv.i30 = uitofp i16 %f.sroa.0.0.insert.insert.i.i25 to float
-  store float %conv.i30, ptr %out, align 4
+  %13 = and i16 %11, 255
+  %f.sroa.4.0.insert.ext.i.i23 = select i1 %tobool.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %13
+  %f.sroa.4.0.insert.shift.i.i24 = shl nuw i16 %f.sroa.4.0.insert.ext.i.i23, 8
+  %f.sroa.0.0.insert.ext.i.i25 = select i1 %tobool.i.i22, i16 %13, i16 %f.sroa.4.0.extract.shift.i.i20
+  %f.sroa.0.0.insert.insert.i.i26 = or disjoint i16 %f.sroa.4.0.insert.shift.i.i24, %f.sroa.0.0.insert.ext.i.i25
+  %conv.i31 = uitofp i16 %f.sroa.0.0.insert.insert.i.i26 to float
+  store float %conv.i31, ptr %out, align 4
   br label %if.end40
 
 if.else12:                                        ; preds = %if.else
-  %call.i31 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.315) #20
-  %cmp.i32 = icmp eq i32 %call.i31, 0
-  br i1 %cmp.i32, label %if.then15, label %if.else21
+  %call.i32 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.315) #20
+  %cmp.i33 = icmp eq i32 %call.i32, 0
+  br i1 %cmp.i33, label %if.then15, label %if.else21
 
 if.then15:                                        ; preds = %if.else12
   %reader17 = getelementptr inbounds i8, ptr %db, i64 128
-  %13 = load ptr, ptr %reader17, align 8
-  %mCurrent.i.i33 = getelementptr inbounds i8, ptr %13, i64 24
-  %14 = load ptr, ptr %mCurrent.i.i33, align 8
-  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %14, i64 1
-  %mLimit.i.i35 = getelementptr inbounds i8, ptr %13, i64 40
-  %15 = load ptr, ptr %mLimit.i.i35, align 8
-  %cmp.i.i36 = icmp ugt ptr %add.ptr.i.i34, %15
-  br i1 %cmp.i.i36, label %if.then.i.i37, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
+  %14 = load ptr, ptr %reader17, align 8
+  %mCurrent.i.i34 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = load ptr, ptr %mCurrent.i.i34, align 8
+  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %15, i64 1
+  %mLimit.i.i36 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = load ptr, ptr %mLimit.i.i36, align 8
+  %cmp.i.i37 = icmp ugt ptr %add.ptr.i.i35, %16
+  br i1 %cmp.i.i37, label %if.then.i.i38, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
 
-if.then.i.i37:                                    ; preds = %if.then15
-  %exception.i.i38 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i38, ptr noundef nonnull @.str.319)
-          to label %invoke.cont.i.i40 unwind label %lpad.i.i39
+if.then.i.i38:                                    ; preds = %if.then15
+  %exception.i.i39 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i39, ptr noundef nonnull @.str.319)
+          to label %invoke.cont.i.i41 unwind label %lpad.i.i40
 
-invoke.cont.i.i40:                                ; preds = %if.then.i.i37
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i38, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+invoke.cont.i.i41:                                ; preds = %if.then.i.i38
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i39, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-lpad.i.i39:                                       ; preds = %if.then.i.i37
-  %16 = landingpad { ptr, i32 }
+lpad.i.i40:                                       ; preds = %if.then.i.i38
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit:  ; preds = %if.then15
-  %17 = load i8, ptr %14, align 1
-  store ptr %add.ptr.i.i34, ptr %mCurrent.i.i33, align 8
-  %conv.i41 = uitofp i8 %17 to float
-  store float %conv.i41, ptr %out, align 4
+  %18 = load i8, ptr %15, align 1
+  store ptr %add.ptr.i.i35, ptr %mCurrent.i.i34, align 8
+  %conv.i42 = uitofp i8 %18 to float
+  store float %conv.i42, ptr %out, align 4
   br label %if.end40
 
 if.else21:                                        ; preds = %if.else12
-  %call.i42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.316) #20
-  %cmp.i43 = icmp eq i32 %call.i42, 0
-  br i1 %cmp.i43, label %if.then24, label %if.else28
+  %call.i43 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.316) #20
+  %cmp.i44 = icmp eq i32 %call.i43, 0
+  br i1 %cmp.i44, label %if.then24, label %if.else28
 
 if.then24:                                        ; preds = %if.else21
   %reader25 = getelementptr inbounds i8, ptr %db, i64 128
-  %18 = load ptr, ptr %reader25, align 8
-  %mCurrent.i.i44 = getelementptr inbounds i8, ptr %18, i64 24
-  %19 = load ptr, ptr %mCurrent.i.i44, align 8
-  %add.ptr.i.i45 = getelementptr inbounds i8, ptr %19, i64 4
-  %mLimit.i.i46 = getelementptr inbounds i8, ptr %18, i64 40
-  %20 = load ptr, ptr %mLimit.i.i46, align 8
-  %cmp.i.i47 = icmp ugt ptr %add.ptr.i.i45, %20
-  br i1 %cmp.i.i47, label %if.then.i.i51, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
+  %19 = load ptr, ptr %reader25, align 8
+  %mCurrent.i.i45 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = load ptr, ptr %mCurrent.i.i45, align 8
+  %add.ptr.i.i46 = getelementptr inbounds i8, ptr %20, i64 4
+  %mLimit.i.i47 = getelementptr inbounds i8, ptr %19, i64 40
+  %21 = load ptr, ptr %mLimit.i.i47, align 8
+  %cmp.i.i48 = icmp ugt ptr %add.ptr.i.i46, %21
+  br i1 %cmp.i.i48, label %if.then.i.i51, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
 
 if.then.i.i51:                                    ; preds = %if.then24
   %exception.i.i52 = tail call ptr @__cxa_allocate_exception(i64 16) #20
@@ -27773,19 +27773,19 @@ invoke.cont.i.i54:                                ; preds = %if.then.i.i51
   unreachable
 
 lpad.i.i53:                                       ; preds = %if.then.i.i51
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then24
-  %22 = load i32, ptr %19, align 1
-  %mLe.i.i48 = getelementptr inbounds i8, ptr %18, i64 48
-  %23 = load i8, ptr %mLe.i.i48, align 8
-  %tobool.i.i49 = trunc i8 %23 to i1
-  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %22)
-  %spec.select.i.i50 = select i1 %tobool.i.i49, i32 %22, i32 %f.2.insert.insert.i.i
-  store ptr %add.ptr.i.i45, ptr %mCurrent.i.i44, align 8
-  store i32 %spec.select.i.i50, ptr %out, align 4
+  %23 = load i32, ptr %20, align 1
+  %mLe.i.i49 = getelementptr inbounds i8, ptr %19, i64 48
+  %24 = load i8, ptr %mLe.i.i49, align 8
+  %tobool.i.i50 = trunc i8 %24 to i1
+  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %23)
+  %spec.select.i.i = select i1 %tobool.i.i50, i32 %23, i32 %f.2.insert.insert.i.i
+  store ptr %add.ptr.i.i46, ptr %mCurrent.i.i45, align 8
+  store i32 %spec.select.i.i, ptr %out, align 4
   br label %if.end40
 
 if.else28:                                        ; preds = %if.else21
@@ -27795,13 +27795,13 @@ if.else28:                                        ; preds = %if.else21
 
 if.then31:                                        ; preds = %if.else28
   %reader32 = getelementptr inbounds i8, ptr %db, i64 128
-  %24 = load ptr, ptr %reader32, align 8
-  %mCurrent.i.i57 = getelementptr inbounds i8, ptr %24, i64 24
-  %25 = load ptr, ptr %mCurrent.i.i57, align 8
-  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %25, i64 8
-  %mLimit.i.i59 = getelementptr inbounds i8, ptr %24, i64 40
-  %26 = load ptr, ptr %mLimit.i.i59, align 8
-  %cmp.i.i60 = icmp ugt ptr %add.ptr.i.i58, %26
+  %25 = load ptr, ptr %reader32, align 8
+  %mCurrent.i.i57 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = load ptr, ptr %mCurrent.i.i57, align 8
+  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %26, i64 8
+  %mLimit.i.i59 = getelementptr inbounds i8, ptr %25, i64 40
+  %27 = load ptr, ptr %mLimit.i.i59, align 8
+  %cmp.i.i60 = icmp ugt ptr %add.ptr.i.i58, %27
   br i1 %cmp.i.i60, label %if.then.i.i65, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i65:                                    ; preds = %if.then31
@@ -27814,17 +27814,17 @@ invoke.cont.i.i68:                                ; preds = %if.then.i.i65
   unreachable
 
 lpad.i.i67:                                       ; preds = %if.then.i.i65
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then31
-  %28 = load i64, ptr %25, align 1
-  %mLe.i.i61 = getelementptr inbounds i8, ptr %24, i64 48
-  %29 = load i8, ptr %mLe.i.i61, align 8
-  %tobool.i.i62 = trunc i8 %29 to i1
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %28)
-  %spec.select.i.i63 = select i1 %tobool.i.i62, i64 %28, i64 %f.4.insert.insert.i.i
+  %29 = load i64, ptr %26, align 1
+  %mLe.i.i61 = getelementptr inbounds i8, ptr %25, i64 48
+  %30 = load i8, ptr %mLe.i.i61, align 8
+  %tobool.i.i62 = trunc i8 %30 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %29)
+  %spec.select.i.i63 = select i1 %tobool.i.i62, i64 %29, i64 %f.4.insert.insert.i.i
   %f.0.i.i64 = bitcast i64 %spec.select.i.i63 to double
   store ptr %add.ptr.i.i58, ptr %mCurrent.i.i57, align 8
   %conv = fptrunc double %f.0.i.i64 to float
@@ -27841,7 +27841,7 @@ invoke.cont:                                      ; preds = %if.else35
   unreachable
 
 lpad:                                             ; preds = %if.else35
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -28242,9 +28242,9 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-common.resume:                                    ; preds = %lpad, %lpad.i.i65, %lpad.i.i51, %lpad.i.i38, %lpad.i.i28, %lpad.i.i
-  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i64, %lpad.i.i65 ], [ %exception.i.i50, %lpad.i.i51 ], [ %exception.i.i37, %lpad.i.i38 ], [ %exception.i.i27, %lpad.i.i28 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %29, %lpad ], [ %26, %lpad.i.i65 ], [ %20, %lpad.i.i51 ], [ %15, %lpad.i.i38 ], [ %9, %lpad.i.i28 ], [ %3, %lpad.i.i ]
+common.resume:                                    ; preds = %lpad, %lpad.i.i65, %lpad.i.i51, %lpad.i.i39, %lpad.i.i29, %lpad.i.i
+  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i64, %lpad.i.i65 ], [ %exception.i.i50, %lpad.i.i51 ], [ %exception.i.i38, %lpad.i.i39 ], [ %exception.i.i28, %lpad.i.i29 ], [ %exception.i.i, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad ], [ %26, %lpad.i.i65 ], [ %20, %lpad.i.i51 ], [ %15, %lpad.i.i39 ], [ %9, %lpad.i.i29 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.sink) #20
   resume { ptr, i32 } %common.resume.op
 
@@ -28278,18 +28278,18 @@ if.then6:                                         ; preds = %if.else
   %mLimit.i.i18 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %mLimit.i.i18, align 8
   %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %8
-  br i1 %cmp.i.i19, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
+  br i1 %cmp.i.i19, label %if.then.i.i27, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
 
-if.then.i.i26:                                    ; preds = %if.then6
-  %exception.i.i27 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i27, ptr noundef nonnull @.str.319)
-          to label %invoke.cont.i.i29 unwind label %lpad.i.i28
+if.then.i.i27:                                    ; preds = %if.then6
+  %exception.i.i28 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i28, ptr noundef nonnull @.str.319)
+          to label %invoke.cont.i.i30 unwind label %lpad.i.i29
 
-invoke.cont.i.i29:                                ; preds = %if.then.i.i26
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i27, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+invoke.cont.i.i30:                                ; preds = %if.then.i.i27
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i28, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-lpad.i.i28:                                       ; preds = %if.then.i.i26
+lpad.i.i29:                                       ; preds = %if.then.i.i27
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -28300,61 +28300,61 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit:  ; preds = %if.then6
   %mLe.i.i21 = getelementptr inbounds i8, ptr %6, i64 48
   %11 = load i8, ptr %mLe.i.i21, align 8
   %tobool.i.i22 = trunc i8 %11 to i1
-  %spec.select2.v.i.i = select i1 %tobool.i.i22, i16 %10, i16 %f.sroa.4.0.extract.shift.i.i20
   store ptr %add.ptr.i.i17, ptr %mCurrent.i.i16, align 8
-  %conv2.i = trunc i16 %spec.select2.v.i.i to i8
+  %f.sroa.0.0.insert.insert.i.i26 = select i1 %tobool.i.i22, i16 %10, i16 %f.sroa.4.0.extract.shift.i.i20
+  %conv2.i = trunc i16 %f.sroa.0.0.insert.insert.i.i26 to i8
   br label %if.end41
 
 if.else12:                                        ; preds = %if.else
-  %call.i30 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.315) #20
-  %cmp.i31 = icmp eq i32 %call.i30, 0
-  br i1 %cmp.i31, label %if.then15, label %if.else21
+  %call.i31 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.315) #20
+  %cmp.i32 = icmp eq i32 %call.i31, 0
+  br i1 %cmp.i32, label %if.then15, label %if.else21
 
 if.then15:                                        ; preds = %if.else12
   %reader17 = getelementptr inbounds i8, ptr %db, i64 128
   %12 = load ptr, ptr %reader17, align 8
-  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %12, i64 24
-  %13 = load ptr, ptr %mCurrent.i.i32, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %13, i64 1
-  %mLimit.i.i34 = getelementptr inbounds i8, ptr %12, i64 40
-  %14 = load ptr, ptr %mLimit.i.i34, align 8
-  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %14
-  br i1 %cmp.i.i35, label %if.then.i.i36, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
+  %mCurrent.i.i33 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = load ptr, ptr %mCurrent.i.i33, align 8
+  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %13, i64 1
+  %mLimit.i.i35 = getelementptr inbounds i8, ptr %12, i64 40
+  %14 = load ptr, ptr %mLimit.i.i35, align 8
+  %cmp.i.i36 = icmp ugt ptr %add.ptr.i.i34, %14
+  br i1 %cmp.i.i36, label %if.then.i.i37, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
 
-if.then.i.i36:                                    ; preds = %if.then15
-  %exception.i.i37 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i37, ptr noundef nonnull @.str.319)
-          to label %invoke.cont.i.i39 unwind label %lpad.i.i38
+if.then.i.i37:                                    ; preds = %if.then15
+  %exception.i.i38 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i38, ptr noundef nonnull @.str.319)
+          to label %invoke.cont.i.i40 unwind label %lpad.i.i39
 
-invoke.cont.i.i39:                                ; preds = %if.then.i.i36
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i37, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+invoke.cont.i.i40:                                ; preds = %if.then.i.i37
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i38, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-lpad.i.i38:                                       ; preds = %if.then.i.i36
+lpad.i.i39:                                       ; preds = %if.then.i.i37
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit:  ; preds = %if.then15
   %16 = load i8, ptr %13, align 1
-  store ptr %add.ptr.i.i33, ptr %mCurrent.i.i32, align 8
+  store ptr %add.ptr.i.i34, ptr %mCurrent.i.i33, align 8
   br label %if.end41
 
 if.else21:                                        ; preds = %if.else12
-  %call.i40 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.316) #20
-  %cmp.i41 = icmp eq i32 %call.i40, 0
-  br i1 %cmp.i41, label %if.then24, label %if.else28
+  %call.i41 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.316) #20
+  %cmp.i42 = icmp eq i32 %call.i41, 0
+  br i1 %cmp.i42, label %if.then24, label %if.else28
 
 if.then24:                                        ; preds = %if.else21
   %reader25 = getelementptr inbounds i8, ptr %db, i64 128
   %17 = load ptr, ptr %reader25, align 8
-  %mCurrent.i.i42 = getelementptr inbounds i8, ptr %17, i64 24
-  %18 = load ptr, ptr %mCurrent.i.i42, align 8
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %18, i64 4
-  %mLimit.i.i44 = getelementptr inbounds i8, ptr %17, i64 40
-  %19 = load ptr, ptr %mLimit.i.i44, align 8
-  %cmp.i.i45 = icmp ugt ptr %add.ptr.i.i43, %19
-  br i1 %cmp.i.i45, label %if.then.i.i49, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
+  %mCurrent.i.i43 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load ptr, ptr %mCurrent.i.i43, align 8
+  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %18, i64 4
+  %mLimit.i.i45 = getelementptr inbounds i8, ptr %17, i64 40
+  %19 = load ptr, ptr %mLimit.i.i45, align 8
+  %cmp.i.i46 = icmp ugt ptr %add.ptr.i.i44, %19
+  br i1 %cmp.i.i46, label %if.then.i.i49, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
 
 if.then.i.i49:                                    ; preds = %if.then24
   %exception.i.i50 = tail call ptr @__cxa_allocate_exception(i64 16) #20
@@ -28372,13 +28372,13 @@ lpad.i.i51:                                       ; preds = %if.then.i.i49
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then24
   %21 = load i32, ptr %18, align 1
-  %mLe.i.i46 = getelementptr inbounds i8, ptr %17, i64 48
-  %22 = load i8, ptr %mLe.i.i46, align 8
-  %tobool.i.i47 = trunc i8 %22 to i1
+  %mLe.i.i47 = getelementptr inbounds i8, ptr %17, i64 48
+  %22 = load i8, ptr %mLe.i.i47, align 8
+  %tobool.i.i48 = trunc i8 %22 to i1
   %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %21)
-  %spec.select.i.i48 = select i1 %tobool.i.i47, i32 %21, i32 %f.2.insert.insert.i.i
-  %f.0.i.i = bitcast i32 %spec.select.i.i48 to float
-  store ptr %add.ptr.i.i43, ptr %mCurrent.i.i42, align 8
+  %spec.select.i.i = select i1 %tobool.i.i48, i32 %21, i32 %f.2.insert.insert.i.i
+  %f.0.i.i = bitcast i32 %spec.select.i.i to float
+  store ptr %add.ptr.i.i44, ptr %mCurrent.i.i43, align 8
   %conv = fptosi float %f.0.i.i to i8
   br label %if.end41
 
@@ -42606,9 +42606,9 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-common.resume:                                    ; preds = %lpad, %lpad.i.i65, %lpad.i.i51, %lpad.i.i38, %lpad.i.i28, %lpad.i.i
-  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i64, %lpad.i.i65 ], [ %exception.i.i50, %lpad.i.i51 ], [ %exception.i.i37, %lpad.i.i38 ], [ %exception.i.i27, %lpad.i.i28 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %29, %lpad ], [ %26, %lpad.i.i65 ], [ %20, %lpad.i.i51 ], [ %15, %lpad.i.i38 ], [ %9, %lpad.i.i28 ], [ %3, %lpad.i.i ]
+common.resume:                                    ; preds = %lpad, %lpad.i.i65, %lpad.i.i51, %lpad.i.i39, %lpad.i.i29, %lpad.i.i
+  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i64, %lpad.i.i65 ], [ %exception.i.i50, %lpad.i.i51 ], [ %exception.i.i38, %lpad.i.i39 ], [ %exception.i.i28, %lpad.i.i29 ], [ %exception.i.i, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %lpad ], [ %28, %lpad.i.i65 ], [ %22, %lpad.i.i51 ], [ %17, %lpad.i.i39 ], [ %10, %lpad.i.i29 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.sink) #20
   resume { ptr, i32 } %common.resume.op
 
@@ -42625,10 +42625,10 @@ if.end.i.i:                                       ; preds = %if.then
   %f.sroa.8.0.extract.shift.i.i = lshr i32 %4, 24
   %f.sroa.4.0.in.i.i.v = select i1 %tobool.i.i, i32 8, i32 16
   %f.sroa.4.0.in.i.i = lshr i32 %4, %f.sroa.4.0.in.i.i.v
-  %f.sroa.0.0.in.i.i = select i1 %tobool.i.i, i32 %4, i32 %f.sroa.8.0.extract.shift.i.i
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
   %f.sroa.4.0.insert.ext.i.i = shl nuw i32 %f.sroa.4.0.in.i.i, 8
-  %f.sroa.0.0.insert.ext.i.i = and i32 %f.sroa.0.0.in.i.i, 255
+  %6 = and i32 %4, 255
+  %f.sroa.0.0.insert.ext.i.i = select i1 %tobool.i.i, i32 %6, i32 %f.sroa.8.0.extract.shift.i.i
   %f.sroa.0.0.insert.insert.i.i = or disjoint i32 %f.sroa.4.0.insert.ext.i.i, %f.sroa.0.0.insert.ext.i.i
   %conv.i = trunc i32 %f.sroa.0.0.insert.insert.i.i to i16
   br label %if.end41
@@ -42640,94 +42640,94 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %reader8 = getelementptr inbounds i8, ptr %db, i64 128
-  %6 = load ptr, ptr %reader8, align 8
-  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %6, i64 24
-  %7 = load ptr, ptr %mCurrent.i.i16, align 8
-  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %7, i64 2
-  %mLimit.i.i18 = getelementptr inbounds i8, ptr %6, i64 40
-  %8 = load ptr, ptr %mLimit.i.i18, align 8
-  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %8
-  br i1 %cmp.i.i19, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
+  %7 = load ptr, ptr %reader8, align 8
+  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = load ptr, ptr %mCurrent.i.i16, align 8
+  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %8, i64 2
+  %mLimit.i.i18 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = load ptr, ptr %mLimit.i.i18, align 8
+  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %9
+  br i1 %cmp.i.i19, label %if.then.i.i27, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
 
-if.then.i.i26:                                    ; preds = %if.then6
-  %exception.i.i27 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i27, ptr noundef nonnull @.str.319)
-          to label %invoke.cont.i.i29 unwind label %lpad.i.i28
+if.then.i.i27:                                    ; preds = %if.then6
+  %exception.i.i28 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i28, ptr noundef nonnull @.str.319)
+          to label %invoke.cont.i.i30 unwind label %lpad.i.i29
 
-invoke.cont.i.i29:                                ; preds = %if.then.i.i26
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i27, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+invoke.cont.i.i30:                                ; preds = %if.then.i.i27
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i28, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-lpad.i.i28:                                       ; preds = %if.then.i.i26
-  %9 = landingpad { ptr, i32 }
+lpad.i.i29:                                       ; preds = %if.then.i.i27
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit:  ; preds = %if.then6
-  %10 = load i16, ptr %7, align 1
-  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %10, 8
-  %mLe.i.i21 = getelementptr inbounds i8, ptr %6, i64 48
-  %11 = load i8, ptr %mLe.i.i21, align 8
-  %tobool.i.i22 = trunc i8 %11 to i1
-  %spec.select.i.i = select i1 %tobool.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %10
-  %spec.select2.v.i.i = select i1 %tobool.i.i22, i16 %10, i16 %f.sroa.4.0.extract.shift.i.i20
+  %11 = load i16, ptr %8, align 1
+  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %11, 8
+  %mLe.i.i21 = getelementptr inbounds i8, ptr %7, i64 48
+  %12 = load i8, ptr %mLe.i.i21, align 8
+  %tobool.i.i22 = trunc i8 %12 to i1
   store ptr %add.ptr.i.i17, ptr %mCurrent.i.i16, align 8
-  %f.sroa.4.0.insert.ext.i.i23 = shl i16 %spec.select.i.i, 8
-  %f.sroa.0.0.insert.ext.i.i24 = and i16 %spec.select2.v.i.i, 255
-  %f.sroa.0.0.insert.insert.i.i25 = or disjoint i16 %f.sroa.4.0.insert.ext.i.i23, %f.sroa.0.0.insert.ext.i.i24
+  %13 = and i16 %11, 255
+  %f.sroa.4.0.insert.ext.i.i23 = select i1 %tobool.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %13
+  %f.sroa.4.0.insert.shift.i.i24 = shl nuw i16 %f.sroa.4.0.insert.ext.i.i23, 8
+  %f.sroa.0.0.insert.ext.i.i25 = select i1 %tobool.i.i22, i16 %13, i16 %f.sroa.4.0.extract.shift.i.i20
+  %f.sroa.0.0.insert.insert.i.i26 = or disjoint i16 %f.sroa.4.0.insert.shift.i.i24, %f.sroa.0.0.insert.ext.i.i25
   br label %if.end41
 
 if.else12:                                        ; preds = %if.else
-  %call.i30 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.315) #20
-  %cmp.i31 = icmp eq i32 %call.i30, 0
-  br i1 %cmp.i31, label %if.then15, label %if.else21
+  %call.i31 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.315) #20
+  %cmp.i32 = icmp eq i32 %call.i31, 0
+  br i1 %cmp.i32, label %if.then15, label %if.else21
 
 if.then15:                                        ; preds = %if.else12
   %reader17 = getelementptr inbounds i8, ptr %db, i64 128
-  %12 = load ptr, ptr %reader17, align 8
-  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %12, i64 24
-  %13 = load ptr, ptr %mCurrent.i.i32, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %13, i64 1
-  %mLimit.i.i34 = getelementptr inbounds i8, ptr %12, i64 40
-  %14 = load ptr, ptr %mLimit.i.i34, align 8
-  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %14
-  br i1 %cmp.i.i35, label %if.then.i.i36, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
+  %14 = load ptr, ptr %reader17, align 8
+  %mCurrent.i.i33 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = load ptr, ptr %mCurrent.i.i33, align 8
+  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %15, i64 1
+  %mLimit.i.i35 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = load ptr, ptr %mLimit.i.i35, align 8
+  %cmp.i.i36 = icmp ugt ptr %add.ptr.i.i34, %16
+  br i1 %cmp.i.i36, label %if.then.i.i37, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
 
-if.then.i.i36:                                    ; preds = %if.then15
-  %exception.i.i37 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i37, ptr noundef nonnull @.str.319)
-          to label %invoke.cont.i.i39 unwind label %lpad.i.i38
+if.then.i.i37:                                    ; preds = %if.then15
+  %exception.i.i38 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i38, ptr noundef nonnull @.str.319)
+          to label %invoke.cont.i.i40 unwind label %lpad.i.i39
 
-invoke.cont.i.i39:                                ; preds = %if.then.i.i36
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i37, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+invoke.cont.i.i40:                                ; preds = %if.then.i.i37
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i38, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-lpad.i.i38:                                       ; preds = %if.then.i.i36
-  %15 = landingpad { ptr, i32 }
+lpad.i.i39:                                       ; preds = %if.then.i.i37
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit:  ; preds = %if.then15
-  %16 = load i8, ptr %13, align 1
-  store ptr %add.ptr.i.i33, ptr %mCurrent.i.i32, align 8
-  %conv2.i = zext i8 %16 to i16
+  %18 = load i8, ptr %15, align 1
+  store ptr %add.ptr.i.i34, ptr %mCurrent.i.i33, align 8
+  %conv2.i = zext i8 %18 to i16
   br label %if.end41
 
 if.else21:                                        ; preds = %if.else12
-  %call.i40 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.316) #20
-  %cmp.i41 = icmp eq i32 %call.i40, 0
-  br i1 %cmp.i41, label %if.then24, label %if.else28
+  %call.i41 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.316) #20
+  %cmp.i42 = icmp eq i32 %call.i41, 0
+  br i1 %cmp.i42, label %if.then24, label %if.else28
 
 if.then24:                                        ; preds = %if.else21
   %reader25 = getelementptr inbounds i8, ptr %db, i64 128
-  %17 = load ptr, ptr %reader25, align 8
-  %mCurrent.i.i42 = getelementptr inbounds i8, ptr %17, i64 24
-  %18 = load ptr, ptr %mCurrent.i.i42, align 8
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %18, i64 4
-  %mLimit.i.i44 = getelementptr inbounds i8, ptr %17, i64 40
-  %19 = load ptr, ptr %mLimit.i.i44, align 8
-  %cmp.i.i45 = icmp ugt ptr %add.ptr.i.i43, %19
-  br i1 %cmp.i.i45, label %if.then.i.i49, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
+  %19 = load ptr, ptr %reader25, align 8
+  %mCurrent.i.i43 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = load ptr, ptr %mCurrent.i.i43, align 8
+  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %20, i64 4
+  %mLimit.i.i45 = getelementptr inbounds i8, ptr %19, i64 40
+  %21 = load ptr, ptr %mLimit.i.i45, align 8
+  %cmp.i.i46 = icmp ugt ptr %add.ptr.i.i44, %21
+  br i1 %cmp.i.i46, label %if.then.i.i49, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
 
 if.then.i.i49:                                    ; preds = %if.then24
   %exception.i.i50 = tail call ptr @__cxa_allocate_exception(i64 16) #20
@@ -42739,19 +42739,19 @@ invoke.cont.i.i52:                                ; preds = %if.then.i.i49
   unreachable
 
 lpad.i.i51:                                       ; preds = %if.then.i.i49
-  %20 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then24
-  %21 = load i32, ptr %18, align 1
-  %mLe.i.i46 = getelementptr inbounds i8, ptr %17, i64 48
-  %22 = load i8, ptr %mLe.i.i46, align 8
-  %tobool.i.i47 = trunc i8 %22 to i1
-  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %21)
-  %spec.select.i.i48 = select i1 %tobool.i.i47, i32 %21, i32 %f.2.insert.insert.i.i
-  %f.0.i.i = bitcast i32 %spec.select.i.i48 to float
-  store ptr %add.ptr.i.i43, ptr %mCurrent.i.i42, align 8
+  %23 = load i32, ptr %20, align 1
+  %mLe.i.i47 = getelementptr inbounds i8, ptr %19, i64 48
+  %24 = load i8, ptr %mLe.i.i47, align 8
+  %tobool.i.i48 = trunc i8 %24 to i1
+  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %23)
+  %spec.select.i.i = select i1 %tobool.i.i48, i32 %23, i32 %f.2.insert.insert.i.i
+  %f.0.i.i = bitcast i32 %spec.select.i.i to float
+  store ptr %add.ptr.i.i44, ptr %mCurrent.i.i43, align 8
   %conv = fptosi float %f.0.i.i to i16
   br label %if.end41
 
@@ -42762,13 +42762,13 @@ if.else28:                                        ; preds = %if.else21
 
 if.then31:                                        ; preds = %if.else28
   %reader32 = getelementptr inbounds i8, ptr %db, i64 128
-  %23 = load ptr, ptr %reader32, align 8
-  %mCurrent.i.i55 = getelementptr inbounds i8, ptr %23, i64 24
-  %24 = load ptr, ptr %mCurrent.i.i55, align 8
-  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %24, i64 8
-  %mLimit.i.i57 = getelementptr inbounds i8, ptr %23, i64 40
-  %25 = load ptr, ptr %mLimit.i.i57, align 8
-  %cmp.i.i58 = icmp ugt ptr %add.ptr.i.i56, %25
+  %25 = load ptr, ptr %reader32, align 8
+  %mCurrent.i.i55 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = load ptr, ptr %mCurrent.i.i55, align 8
+  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %26, i64 8
+  %mLimit.i.i57 = getelementptr inbounds i8, ptr %25, i64 40
+  %27 = load ptr, ptr %mLimit.i.i57, align 8
+  %cmp.i.i58 = icmp ugt ptr %add.ptr.i.i56, %27
   br i1 %cmp.i.i58, label %if.then.i.i63, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i63:                                    ; preds = %if.then31
@@ -42781,17 +42781,17 @@ invoke.cont.i.i66:                                ; preds = %if.then.i.i63
   unreachable
 
 lpad.i.i65:                                       ; preds = %if.then.i.i63
-  %26 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then31
-  %27 = load i64, ptr %24, align 1
-  %mLe.i.i59 = getelementptr inbounds i8, ptr %23, i64 48
-  %28 = load i8, ptr %mLe.i.i59, align 8
-  %tobool.i.i60 = trunc i8 %28 to i1
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %27)
-  %spec.select.i.i61 = select i1 %tobool.i.i60, i64 %27, i64 %f.4.insert.insert.i.i
+  %29 = load i64, ptr %26, align 1
+  %mLe.i.i59 = getelementptr inbounds i8, ptr %25, i64 48
+  %30 = load i8, ptr %mLe.i.i59, align 8
+  %tobool.i.i60 = trunc i8 %30 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %29)
+  %spec.select.i.i61 = select i1 %tobool.i.i60, i64 %29, i64 %f.4.insert.insert.i.i
   %f.0.i.i62 = bitcast i64 %spec.select.i.i61 to double
   store ptr %add.ptr.i.i56, ptr %mCurrent.i.i55, align 8
   %conv35 = fptosi double %f.0.i.i62 to i16
@@ -42807,13 +42807,13 @@ invoke.cont:                                      ; preds = %if.else36
   unreachable
 
 lpad:                                             ; preds = %if.else36
-  %29 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end41:                                         ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit, %if.end.i.i
-  %f.sroa.0.0.insert.insert.i.i25.sink = phi i16 [ %f.sroa.0.0.insert.insert.i.i25, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %conv, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %conv35, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %conv2.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %conv.i, %if.end.i.i ]
-  store i16 %f.sroa.0.0.insert.insert.i.i25.sink, ptr %out, align 2
+  %f.sroa.0.0.insert.insert.i.i26.sink = phi i16 [ %f.sroa.0.0.insert.insert.i.i26, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %conv, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %conv35, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %conv2.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %conv.i, %if.end.i.i ]
+  store i16 %f.sroa.0.0.insert.insert.i.i26.sink, ptr %out, align 2
   ret void
 }
 
@@ -54995,9 +54995,9 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-common.resume:                                    ; preds = %lpad, %lpad.i.i65, %lpad.i.i51, %lpad.i.i38, %lpad.i.i28, %lpad.i.i
-  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i64, %lpad.i.i65 ], [ %exception.i.i50, %lpad.i.i51 ], [ %exception.i.i37, %lpad.i.i38 ], [ %exception.i.i27, %lpad.i.i28 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %29, %lpad ], [ %26, %lpad.i.i65 ], [ %20, %lpad.i.i51 ], [ %15, %lpad.i.i38 ], [ %9, %lpad.i.i28 ], [ %3, %lpad.i.i ]
+common.resume:                                    ; preds = %lpad, %lpad.i.i65, %lpad.i.i51, %lpad.i.i39, %lpad.i.i29, %lpad.i.i
+  %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i64, %lpad.i.i65 ], [ %exception.i.i50, %lpad.i.i51 ], [ %exception.i.i38, %lpad.i.i39 ], [ %exception.i.i28, %lpad.i.i29 ], [ %exception.i.i, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad ], [ %26, %lpad.i.i65 ], [ %20, %lpad.i.i51 ], [ %15, %lpad.i.i39 ], [ %9, %lpad.i.i29 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.sink) #20
   resume { ptr, i32 } %common.resume.op
 
@@ -55031,18 +55031,18 @@ if.then6:                                         ; preds = %if.else
   %mLimit.i.i18 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %mLimit.i.i18, align 8
   %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %8
-  br i1 %cmp.i.i19, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
+  br i1 %cmp.i.i19, label %if.then.i.i27, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
 
-if.then.i.i26:                                    ; preds = %if.then6
-  %exception.i.i27 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i27, ptr noundef nonnull @.str.319)
-          to label %invoke.cont.i.i29 unwind label %lpad.i.i28
+if.then.i.i27:                                    ; preds = %if.then6
+  %exception.i.i28 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i28, ptr noundef nonnull @.str.319)
+          to label %invoke.cont.i.i30 unwind label %lpad.i.i29
 
-invoke.cont.i.i29:                                ; preds = %if.then.i.i26
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i27, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+invoke.cont.i.i30:                                ; preds = %if.then.i.i27
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i28, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-lpad.i.i28:                                       ; preds = %if.then.i.i26
+lpad.i.i29:                                       ; preds = %if.then.i.i27
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -55053,61 +55053,61 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit:  ; preds = %if.then6
   %mLe.i.i21 = getelementptr inbounds i8, ptr %6, i64 48
   %11 = load i8, ptr %mLe.i.i21, align 8
   %tobool.i.i22 = trunc i8 %11 to i1
-  %spec.select2.v.i.i = select i1 %tobool.i.i22, i16 %10, i16 %f.sroa.4.0.extract.shift.i.i20
   store ptr %add.ptr.i.i17, ptr %mCurrent.i.i16, align 8
-  %conv2.i = trunc i16 %spec.select2.v.i.i to i8
+  %f.sroa.0.0.insert.insert.i.i26 = select i1 %tobool.i.i22, i16 %10, i16 %f.sroa.4.0.extract.shift.i.i20
+  %conv2.i = trunc i16 %f.sroa.0.0.insert.insert.i.i26 to i8
   br label %if.end41
 
 if.else12:                                        ; preds = %if.else
-  %call.i30 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.315) #20
-  %cmp.i31 = icmp eq i32 %call.i30, 0
-  br i1 %cmp.i31, label %if.then15, label %if.else21
+  %call.i31 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.315) #20
+  %cmp.i32 = icmp eq i32 %call.i31, 0
+  br i1 %cmp.i32, label %if.then15, label %if.else21
 
 if.then15:                                        ; preds = %if.else12
   %reader17 = getelementptr inbounds i8, ptr %db, i64 128
   %12 = load ptr, ptr %reader17, align 8
-  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %12, i64 24
-  %13 = load ptr, ptr %mCurrent.i.i32, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %13, i64 1
-  %mLimit.i.i34 = getelementptr inbounds i8, ptr %12, i64 40
-  %14 = load ptr, ptr %mLimit.i.i34, align 8
-  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %14
-  br i1 %cmp.i.i35, label %if.then.i.i36, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
+  %mCurrent.i.i33 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = load ptr, ptr %mCurrent.i.i33, align 8
+  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %13, i64 1
+  %mLimit.i.i35 = getelementptr inbounds i8, ptr %12, i64 40
+  %14 = load ptr, ptr %mLimit.i.i35, align 8
+  %cmp.i.i36 = icmp ugt ptr %add.ptr.i.i34, %14
+  br i1 %cmp.i.i36, label %if.then.i.i37, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
 
-if.then.i.i36:                                    ; preds = %if.then15
-  %exception.i.i37 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i37, ptr noundef nonnull @.str.319)
-          to label %invoke.cont.i.i39 unwind label %lpad.i.i38
+if.then.i.i37:                                    ; preds = %if.then15
+  %exception.i.i38 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i38, ptr noundef nonnull @.str.319)
+          to label %invoke.cont.i.i40 unwind label %lpad.i.i39
 
-invoke.cont.i.i39:                                ; preds = %if.then.i.i36
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i37, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+invoke.cont.i.i40:                                ; preds = %if.then.i.i37
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i38, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
   unreachable
 
-lpad.i.i38:                                       ; preds = %if.then.i.i36
+lpad.i.i39:                                       ; preds = %if.then.i.i37
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit:  ; preds = %if.then15
   %16 = load i8, ptr %13, align 1
-  store ptr %add.ptr.i.i33, ptr %mCurrent.i.i32, align 8
+  store ptr %add.ptr.i.i34, ptr %mCurrent.i.i33, align 8
   br label %if.end41
 
 if.else21:                                        ; preds = %if.else12
-  %call.i40 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.316) #20
-  %cmp.i41 = icmp eq i32 %call.i40, 0
-  br i1 %cmp.i41, label %if.then24, label %if.else28
+  %call.i41 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull @.str.316) #20
+  %cmp.i42 = icmp eq i32 %call.i41, 0
+  br i1 %cmp.i42, label %if.then24, label %if.else28
 
 if.then24:                                        ; preds = %if.else21
   %reader25 = getelementptr inbounds i8, ptr %db, i64 128
   %17 = load ptr, ptr %reader25, align 8
-  %mCurrent.i.i42 = getelementptr inbounds i8, ptr %17, i64 24
-  %18 = load ptr, ptr %mCurrent.i.i42, align 8
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %18, i64 4
-  %mLimit.i.i44 = getelementptr inbounds i8, ptr %17, i64 40
-  %19 = load ptr, ptr %mLimit.i.i44, align 8
-  %cmp.i.i45 = icmp ugt ptr %add.ptr.i.i43, %19
-  br i1 %cmp.i.i45, label %if.then.i.i49, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
+  %mCurrent.i.i43 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load ptr, ptr %mCurrent.i.i43, align 8
+  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %18, i64 4
+  %mLimit.i.i45 = getelementptr inbounds i8, ptr %17, i64 40
+  %19 = load ptr, ptr %mLimit.i.i45, align 8
+  %cmp.i.i46 = icmp ugt ptr %add.ptr.i.i44, %19
+  br i1 %cmp.i.i46, label %if.then.i.i49, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
 
 if.then.i.i49:                                    ; preds = %if.then24
   %exception.i.i50 = tail call ptr @__cxa_allocate_exception(i64 16) #20
@@ -55125,13 +55125,13 @@ lpad.i.i51:                                       ; preds = %if.then.i.i49
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then24
   %21 = load i32, ptr %18, align 1
-  %mLe.i.i46 = getelementptr inbounds i8, ptr %17, i64 48
-  %22 = load i8, ptr %mLe.i.i46, align 8
-  %tobool.i.i47 = trunc i8 %22 to i1
+  %mLe.i.i47 = getelementptr inbounds i8, ptr %17, i64 48
+  %22 = load i8, ptr %mLe.i.i47, align 8
+  %tobool.i.i48 = trunc i8 %22 to i1
   %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %21)
-  %spec.select.i.i48 = select i1 %tobool.i.i47, i32 %21, i32 %f.2.insert.insert.i.i
-  %f.0.i.i = bitcast i32 %spec.select.i.i48 to float
-  store ptr %add.ptr.i.i43, ptr %mCurrent.i.i42, align 8
+  %spec.select.i.i = select i1 %tobool.i.i48, i32 %21, i32 %f.2.insert.insert.i.i
+  %f.0.i.i = bitcast i32 %spec.select.i.i to float
+  store ptr %add.ptr.i.i44, ptr %mCurrent.i.i43, align 8
   %conv = fptoui float %f.0.i.i to i8
   br label %if.end41
 

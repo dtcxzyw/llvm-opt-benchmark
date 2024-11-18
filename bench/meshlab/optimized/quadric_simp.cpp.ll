@@ -34878,7 +34878,7 @@ _ZNK5Eigen9FullPivLUINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE4rankEv.exit.thread: ; p
   br label %.preheader.i.i.i.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i:                        ; preds = %45, %42
-  %36 = icmp slt i64 %.155.i.i.i.i.i.i.i.i, 2
+  %36 = icmp samesign ult i64 %.155.i.i.i.i.i.i.i.i, 2
   br i1 %36, label %.preheader.i.i.i.i.i.i.i.i.backedge, label %_ZNK5Eigen18TriangularViewImplIKNS_5BlockIKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELin1ELb0EEELj2ENS_5DenseEE12solveInPlaceINS1_INS2_IdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEEEvRKNS_10MatrixBaseIT_EE.exit
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i.backedge, %35
@@ -34889,7 +34889,7 @@ _ZNK5Eigen9FullPivLUINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE4rankEv.exit.thread: ; p
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.preheader.i.i.i.i.i.i.i.i
-  %41 = icmp slt i64 %.155.i.i.i.i.i.i.i.i, 2
+  %41 = icmp samesign ult i64 %.155.i.i.i.i.i.i.i.i, 2
   br i1 %41, label %.preheader.i.i.i.i.i.i.i.i.backedge, label %_ZNK5Eigen18TriangularViewImplIKNS_5BlockIKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELin1ELb0EEELj2ENS_5DenseEE12solveInPlaceINS1_INS2_IdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEEEvRKNS_10MatrixBaseIT_EE.exit
 
 .preheader.i.i.i.i.i.i.i.i.backedge:              ; preds = %40, %.loopexit.i.i.i.i.i.i.i.i

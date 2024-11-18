@@ -6231,10 +6231,9 @@ _ZNK4llvm8CallBase17getParamByValTypeEj.exit.i89: ; preds = %_ZNK4llvm8CallBase1
   %689 = call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %654, i32 noundef %672) #16
   %690 = and i16 %689, 256
   %.not.i91 = icmp eq i16 %690, 0
-  %691 = and i16 %689, 255
-  %692 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #16
+  %691 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull %659, i64 noundef 2) #16
-  store ptr %692, ptr %660, align 8
+  store ptr %691, ptr %660, align 8
   store ptr %657, ptr %661, align 8
   store ptr %658, ptr %662, align 8
   store ptr null, ptr %663, align 8
@@ -6247,50 +6246,51 @@ _ZNK4llvm8CallBase17getParamByValTypeEj.exit.i89: ; preds = %_ZNK4llvm8CallBase1
   store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %657, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %658, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull %1)
-  %693 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %688, ptr noundef %.0.i.i90)
-  %.fca.0.extract.i13.i.i92 = extractvalue { i64, i8 } %693, 0
-  %.fca.1.extract.i14.i.i93 = extractvalue { i64, i8 } %693, 1
-  %694 = add i64 %.fca.0.extract.i13.i.i92, 7
-  %695 = and i8 %.fca.1.extract.i14.i.i93, 1
-  %696 = lshr i64 %694, 3
-  %697 = call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %688, ptr noundef %.0.i.i90) #16
-  %698 = zext nneg i8 %697 to i64
-  %699 = shl nuw i64 1, %698
-  %700 = add nsw i64 %696, -1
-  %701 = add i64 %700, %699
-  %.not.i15.i = sub i64 0, %699
-  %702 = and i64 %701, %.not.i15.i
-  store i64 %702, ptr %8, align 8
-  store i8 %695, ptr %.sroa.2.0..sroa_idx.i94, align 8
-  %703 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #16
-  %704 = load ptr, ptr %660, align 8
-  %705 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %704) #16
-  %706 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %705, i64 noundef %703, i1 noundef zeroext false) #16
-  %707 = load ptr, ptr %0, align 8
-  %708 = getelementptr inbounds nuw i8, ptr %707, i64 2
-  %709 = load i16, ptr %708, align 2
-  %710 = and i16 %709, 1
-  %.not.i.i.i95 = icmp eq i16 %710, 0
-  br i1 %.not.i.i.i95, label %_ZNK4llvm8Function6getArgEj.exit.i, label %711
+  %692 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %688, ptr noundef %.0.i.i90)
+  %.fca.0.extract.i13.i.i92 = extractvalue { i64, i8 } %692, 0
+  %.fca.1.extract.i14.i.i93 = extractvalue { i64, i8 } %692, 1
+  %693 = add i64 %.fca.0.extract.i13.i.i92, 7
+  %694 = and i8 %.fca.1.extract.i14.i.i93, 1
+  %695 = lshr i64 %693, 3
+  %696 = call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %688, ptr noundef %.0.i.i90) #16
+  %697 = zext nneg i8 %696 to i64
+  %698 = shl nuw i64 1, %697
+  %699 = add nsw i64 %695, -1
+  %700 = add i64 %699, %698
+  %.not.i15.i = sub i64 0, %698
+  %701 = and i64 %700, %.not.i15.i
+  store i64 %701, ptr %8, align 8
+  store i8 %694, ptr %.sroa.2.0..sroa_idx.i94, align 8
+  %702 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #16
+  %703 = load ptr, ptr %660, align 8
+  %704 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %703) #16
+  %705 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %704, i64 noundef %702, i1 noundef zeroext false) #16
+  %706 = load ptr, ptr %0, align 8
+  %707 = getelementptr inbounds nuw i8, ptr %706, i64 2
+  %708 = load i16, ptr %707, align 2
+  %709 = and i16 %708, 1
+  %.not.i.i.i95 = icmp eq i16 %709, 0
+  br i1 %.not.i.i.i95, label %_ZNK4llvm8Function6getArgEj.exit.i, label %710
 
-711:                                              ; preds = %_ZNK4llvm8CallBase17getParamByValTypeEj.exit.i89
-  call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %707) #16
+710:                                              ; preds = %_ZNK4llvm8CallBase17getParamByValTypeEj.exit.i89
+  call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %706) #16
   br label %_ZNK4llvm8Function6getArgEj.exit.i
 
-_ZNK4llvm8Function6getArgEj.exit.i:               ; preds = %711, %_ZNK4llvm8CallBase17getParamByValTypeEj.exit.i89
-  %712 = getelementptr inbounds nuw i8, ptr %707, i64 96
-  %713 = load ptr, ptr %712, align 8
-  %714 = getelementptr inbounds %"class.llvm::Argument", ptr %713, i64 %indvars.iv264
-  %715 = load i32, ptr %520, align 4
-  %716 = and i32 %715, 134217727
-  %717 = zext nneg i32 %716 to i64
-  %718 = sub nsw i64 0, %717
-  %719 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %718
-  %720 = getelementptr inbounds %"class.llvm::Use", ptr %719, i64 %indvars.iv264
-  %721 = load ptr, ptr %720, align 8
-  %722 = or disjoint i16 %691, 256
+_ZNK4llvm8Function6getArgEj.exit.i:               ; preds = %710, %_ZNK4llvm8CallBase17getParamByValTypeEj.exit.i89
+  %711 = getelementptr inbounds nuw i8, ptr %706, i64 96
+  %712 = load ptr, ptr %711, align 8
+  %713 = getelementptr inbounds %"class.llvm::Argument", ptr %712, i64 %indvars.iv264
+  %714 = load i32, ptr %520, align 4
+  %715 = and i32 %714, 134217727
+  %716 = zext nneg i32 %715 to i64
+  %717 = sub nsw i64 0, %716
+  %718 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %717
+  %719 = getelementptr inbounds %"class.llvm::Use", ptr %718, i64 %indvars.iv264
+  %720 = load ptr, ptr %719, align 8
+  %721 = and i16 %689, 255
+  %722 = or disjoint i16 %721, 256
   %.sroa.016.0.insert.insert.i = select i1 %.not.i91, i16 256, i16 %722
-  %723 = call noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueENS_10MaybeAlignES2_S3_S2_bPNS_6MDNodeES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef 232, ptr noundef %714, i16 %.sroa.016.0.insert.insert.i, ptr noundef %721, i16 %.sroa.016.0.insert.insert.i, ptr noundef %706, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #16
+  %723 = call noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueENS_10MaybeAlignES2_S3_S2_bPNS_6MDNodeES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef 232, ptr noundef %713, i16 %.sroa.016.0.insert.insert.i, ptr noundef %720, i16 %.sroa.016.0.insert.insert.i, ptr noundef %705, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #16
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %658) #16
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %657) #16
   %724 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %7) #16

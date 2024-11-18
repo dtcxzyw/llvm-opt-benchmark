@@ -564,10 +564,10 @@ Sat_MmFixedStart.exit:                            ; preds = %Sat_MmFixedStart.ex
   store i32 %9, ptr %calloc.i, align 8
   %10 = icmp slt i32 %9, 64
   %11 = lshr i32 8192, %8
-  %12 = tail call i32 @llvm.umax.i32(i32 %11, i32 8)
-  %13 = getelementptr inbounds i8, ptr %calloc.i, i64 24
-  %14 = select i1 %10, i32 1024, i32 %12
-  store i32 %14, ptr %13, align 8
+  %12 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  %13 = tail call i32 @llvm.umax.i32(i32 %11, i32 8)
+  %14 = select i1 %10, i32 1024, i32 %13
+  store i32 %14, ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %calloc.i, i64 28
   store i32 64, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %calloc.i, i64 32

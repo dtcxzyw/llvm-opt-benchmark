@@ -84180,13 +84180,13 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit66:     ; preds = %230, %_ZN5clang9AST
   %303 = getelementptr inbounds i64, ptr %297, i64 %302
   %304 = load i64, ptr %303, align 8
   %.not91 = icmp eq i64 %304, 0
-  %305 = trunc i64 %299 to i32
-  %306 = select i1 %.not91, i32 7, i32 -2147483641
-  store i32 %306, ptr %0, align 8
-  %307 = inttoptr i64 %293 to ptr
-  %308 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %307, ptr %308, align 8
-  %.sink.i = select i1 %.not.not.i.i.not, i32 0, i32 %305
+  %305 = select i1 %.not91, i32 7, i32 -2147483641
+  store i32 %305, ptr %0, align 8
+  %306 = inttoptr i64 %293 to ptr
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %306, ptr %307, align 8
+  %308 = trunc i64 %299 to i32
+  %.sink.i = select i1 %.not.not.i.i.not, i32 0, i32 %308
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink.i, ptr %309, align 4
   br label %_ZN4llvm6APSIntD2Ev.exit

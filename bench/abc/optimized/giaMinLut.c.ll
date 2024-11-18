@@ -330,18 +330,18 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 define range(i32 0, 2) i32 @Vec_WrdReadTruthTextOne(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %1, 7
   %6 = add nsw i32 %1, -6
-  %7 = shl i32 16, %6
-  %8 = tail call ptr @Extra_FileReadContents(ptr noundef %0) #26
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %13, label %.preheader
+  %7 = tail call ptr @Extra_FileReadContents(ptr noundef %0) #26
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %13, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %10 = icmp sgt i32 %2, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  %9 = icmp sgt i32 %2, 0
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = select i1 %5, i32 0, i32 %6
-  %12 = select i1 %5, i32 16, i32 %7
+  %10 = select i1 %5, i32 0, i32 %6
+  %11 = shl i32 16, %6
+  %12 = select i1 %5, i32 16, i32 %11
   br label %15
 
 13:                                               ; preds = %4
@@ -349,11 +349,11 @@ define range(i32 0, 2) i32 @Vec_WrdReadTruthTextOne(ptr noundef %0, i32 noundef 
   br label %27
 
 15:                                               ; preds = %.lr.ph, %25
-  %.027 = phi ptr [ %8, %.lr.ph ], [ %17, %25 ]
+  %.027 = phi ptr [ %7, %.lr.ph ], [ %17, %25 ]
   %.02226 = phi i32 [ 0, %.lr.ph ], [ %26, %25 ]
   %16 = getelementptr inbounds i8, ptr %.027, i64 1
   %17 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.5) #24
-  %18 = shl i32 %.02226, %11
+  %18 = shl i32 %.02226, %10
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i64, ptr %3, i64 %19
   %21 = getelementptr inbounds i8, ptr %17, i64 2
@@ -363,7 +363,7 @@ define range(i32 0, 2) i32 @Vec_WrdReadTruthTextOne(ptr noundef %0, i32 noundef 
 
 23:                                               ; preds = %15
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.02226, i32 noundef %2, ptr noundef %0)
-  tail call void @free(ptr noundef %8) #26
+  tail call void @free(ptr noundef %7) #26
   br label %27
 
 25:                                               ; preds = %15
@@ -372,7 +372,7 @@ define range(i32 0, 2) i32 @Vec_WrdReadTruthTextOne(ptr noundef %0, i32 noundef 
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %25, %.preheader
-  tail call void @free(ptr noundef %8) #26
+  tail call void @free(ptr noundef %7) #26
   br label %27
 
 27:                                               ; preds = %._crit_edge, %23, %13
@@ -2632,7 +2632,7 @@ Gia_ManSimEvalMaxValue.exit:                      ; preds = %Gia_ManSimEvalMaxVa
 .critedge:                                        ; preds = %Gia_ManSimEvalMaxValue.exit, %.preheader.lr.ph.i.us, %Gia_ManSimEvalMaxValue.exit.loopexit.us.us, %4
   %.024.lcssa = phi i32 [ -1, %4 ], [ %.125.us.us, %Gia_ManSimEvalMaxValue.exit.loopexit.us.us ], [ %.125.us, %.preheader.lr.ph.i.us ], [ %.125, %Gia_ManSimEvalMaxValue.exit ]
   %.023.lcssa = phi i32 [ 0, %4 ], [ %.1.us.us, %Gia_ManSimEvalMaxValue.exit.loopexit.us.us ], [ %.1.us, %.preheader.lr.ph.i.us ], [ %.1, %Gia_ManSimEvalMaxValue.exit ]
-  %54 = sitofp i32 %.023.lcssa to double
+  %54 = uitofp nneg i32 %.023.lcssa to double
   %55 = fmul double %54, 1.000000e+02
   %56 = sitofp i32 %.val27 to double
   %57 = fdiv double %55, %56
@@ -3526,31 +3526,31 @@ define noalias noundef ptr @Gia_ManCountFraction(ptr nocapture noundef readonly 
   %84 = icmp eq i32 %.val78, 0
   %85 = trunc i64 %83 to i1
   %86 = select i1 %85, i64 3, i64 0
-  %.025.i = select i1 %84, i64 %86, i64 %83
   %87 = icmp ult i32 %.val78, 2
-  %88 = and i64 %.025.i, 3
-  %89 = mul nuw nsw i64 %88, 5
-  %.126.i = select i1 %87, i64 %89, i64 %83
+  %88 = and i64 %83, 3
+  %89 = select i1 %84, i64 %86, i64 %88
+  %90 = mul nuw nsw i64 %89, 5
+  %.126.i = select i1 %87, i64 %90, i64 %83
   %.1.i = tail call i32 @llvm.umax.i32(i32 %.val78, i32 2)
-  %90 = icmp ult i32 %.val78, 3
-  %91 = and i64 %.126.i, 15
-  %92 = mul nuw nsw i64 %91, 17
-  %.227.i = select i1 %90, i64 %92, i64 %83
-  %.2.i = select i1 %90, i32 3, i32 %.1.i
-  %93 = icmp eq i32 %.2.i, 3
-  %94 = and i64 %.227.i, 255
-  %95 = mul nuw nsw i64 %94, 257
-  %.328.i = select i1 %93, i64 %95, i64 %.227.i
-  %.3.i = select i1 %93, i32 4, i32 %.2.i
-  %96 = icmp eq i32 %.3.i, 4
-  %97 = and i64 %.328.i, 65535
-  %98 = mul nuw nsw i64 %97, 65537
-  %.429.i = select i1 %96, i64 %98, i64 %.328.i
-  %99 = and i32 %.3.i, -2
-  %100 = icmp eq i32 %99, 4
-  %101 = and i64 %.429.i, 4294967295
-  %102 = mul nuw i64 %101, 4294967297
-  %.5.i = select i1 %100, i64 %102, i64 %.429.i
+  %91 = icmp ult i32 %.val78, 3
+  %92 = and i64 %.126.i, 15
+  %93 = mul nuw nsw i64 %92, 17
+  %.227.i = select i1 %91, i64 %93, i64 %83
+  %.2.i = select i1 %91, i32 3, i32 %.1.i
+  %94 = icmp eq i32 %.2.i, 3
+  %95 = and i64 %.227.i, 255
+  %96 = mul nuw nsw i64 %95, 257
+  %.328.i = select i1 %94, i64 %96, i64 %.227.i
+  %.3.i = select i1 %94, i32 4, i32 %.2.i
+  %97 = icmp eq i32 %.3.i, 4
+  %98 = and i64 %.328.i, 65535
+  %99 = mul nuw nsw i64 %98, 65537
+  %.429.i = select i1 %97, i64 %99, i64 %.328.i
+  %100 = and i32 %.3.i, -2
+  %101 = icmp eq i32 %100, 4
+  %102 = and i64 %.429.i, 4294967295
+  %103 = mul nuw i64 %102, 4294967297
+  %.5.i = select i1 %101, i64 %103, i64 %.429.i
   store i64 %.5.i, ptr %21, align 8
   br label %._crit_edge.thread
 
@@ -3558,29 +3558,29 @@ define noalias noundef ptr @Gia_ManCountFraction(ptr nocapture noundef readonly 
   %.063.lcssa120 = phi i32 [ %68, %82 ], [ %68, %._crit_edge ], [ 0, %.preheader ]
   %.064.lcssa119 = phi i32 [ %71, %82 ], [ %71, %._crit_edge ], [ 0, %.preheader ]
   %.not69 = icmp eq i32 %4, 0
-  br i1 %.not69, label %105, label %103
+  br i1 %.not69, label %106, label %104
 
-103:                                              ; preds = %._crit_edge.thread
-  %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %.063.lcssa120, i32 noundef %.064.lcssa119, i32 noundef %12)
-  br label %105
+104:                                              ; preds = %._crit_edge.thread
+  %105 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %.063.lcssa120, i32 noundef %.064.lcssa119, i32 noundef %12)
+  br label %106
 
-105:                                              ; preds = %103, %._crit_edge.thread
+106:                                              ; preds = %104, %._crit_edge.thread
   %.not70 = icmp eq ptr %15, null
-  br i1 %.not70, label %107, label %106
+  br i1 %.not70, label %108, label %107
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   tail call void @free(ptr noundef nonnull %15) #26
-  br label %107
+  br label %108
 
-107:                                              ; preds = %105, %106
+108:                                              ; preds = %106, %107
   %.not71 = icmp eq ptr %23, null
-  br i1 %.not71, label %109, label %108
+  br i1 %.not71, label %110, label %109
 
-108:                                              ; preds = %107
+109:                                              ; preds = %108
   tail call void @free(ptr noundef nonnull %23) #26
-  br label %109
+  br label %110
 
-109:                                              ; preds = %107, %108
+110:                                              ; preds = %108, %109
   store i32 %.064.lcssa119, ptr %5, align 4
   ret ptr %21
 }

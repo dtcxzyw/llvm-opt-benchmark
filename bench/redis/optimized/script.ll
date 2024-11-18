@@ -220,12 +220,11 @@ entry:
   %and = and i64 %cmd_flags, -66566
   %and1 = and i64 %script_flags, 3
   %tobool.not = icmp eq i64 %and1, 0
-  %or = or i64 %cmd_flags, 4
-  %spec.select = select i1 %tobool.not, i64 %or, i64 %and
   %and2 = and i64 %script_flags, 1
   %and7 = shl i64 %script_flags, 8
   %0 = and i64 %and7, 1024
-  %spec.select.masked = and i64 %spec.select, -66562
+  %1 = or disjoint i64 %and, 4
+  %spec.select.masked = select i1 %tobool.not, i64 %1, i64 %and
   %.masked = or disjoint i64 %0, %and2
   %cmd_flags.addr.2 = or disjoint i64 %.masked, %spec.select.masked
   %and12 = xor i64 %cmd_flags.addr.2, 1

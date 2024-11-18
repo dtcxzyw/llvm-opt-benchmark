@@ -17976,11 +17976,11 @@ define internal fastcc noundef zeroext i1 @_ZL10matchTypesRN5clang10ASTContextEN
   %55 = tail call noundef i32 @_ZNK5clang4Type17getScalarTypeKindEv(ptr noundef nonnull align 16 dereferenceable(24) %15) #21
   %56 = tail call noundef i32 @_ZNK5clang4Type17getScalarTypeKindEv(ptr noundef nonnull align 16 dereferenceable(24) %26) #21
   %57 = icmp eq i32 %55, 4
-  %58 = tail call i32 @llvm.umax.i32(i32 %55, i32 2)
-  %59 = icmp eq i32 %56, 4
+  %58 = icmp eq i32 %56, 4
+  %59 = tail call i32 @llvm.umax.i32(i32 %55, i32 2)
+  %spec.store.select6 = select i1 %57, i32 5, i32 %59
   %60 = tail call i32 @llvm.umax.i32(i32 %56, i32 2)
-  %spec.store.select6 = select i1 %57, i32 5, i32 %58
-  %spec.store.select5 = select i1 %59, i32 5, i32 %60
+  %spec.store.select5 = select i1 %58, i32 5, i32 %60
   %61 = icmp eq i32 %spec.store.select6, %spec.store.select5
   br label %62
 

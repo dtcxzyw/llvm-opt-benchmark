@@ -15894,8 +15894,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr
   %30 = add i32 %2, %29
   %31 = icmp slt i32 %30, 0
   %32 = tail call i32 @llvm.umin.i32(i32 %30, i32 65535)
-  %33 = trunc nuw i32 %32 to i16
   %.sroa.06.0.add.i.i = add nuw nsw i64 %.sroa.06.0.idx9.i.i, 2
+  %33 = trunc nuw i32 %32 to i16
   %34 = select i1 %31, i16 0, i16 %33
   store i16 %34, ptr %.sroa.06.0.ptr10.i.i, align 2, !alias.scope !1505, !noalias !1508
   %35 = icmp eq i64 %.sroa.06.0.add.i.i, 6
@@ -16075,8 +16075,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr
   %30 = add i32 %2, %29
   %31 = icmp slt i32 %30, 0
   %32 = tail call i32 @llvm.umin.i32(i32 %30, i32 65535)
-  %33 = trunc nuw i32 %32 to i16
   %.sroa.08.0.add.i.i = add nuw nsw i64 %.sroa.08.0.idx11.i.i, 2
+  %33 = trunc nuw i32 %32 to i16
   %34 = select i1 %31, i16 0, i16 %33
   store i16 %34, ptr %.sroa.08.0.ptr12.i.i, align 2, !alias.scope !1534, !noalias !1537
   %35 = icmp eq i64 %.sroa.08.0.add.i.i, 6
@@ -16261,8 +16261,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h71fa866f45d0547dE(ptr
   %29 = add i32 %2, %28
   %30 = icmp slt i32 %29, 0
   %31 = tail call i32 @llvm.umin.i32(i32 %29, i32 255)
-  %32 = trunc nuw i32 %31 to i8
   %.sroa.06.0.add.i.i = add nuw nsw i64 %.sroa.06.0.idx9.i.i, 1
+  %32 = trunc nuw i32 %31 to i8
   %33 = select i1 %30, i8 0, i8 %32
   store i8 %33, ptr %.sroa.06.0.ptr10.i.i, align 1, !alias.scope !1567, !noalias !1570
   %34 = icmp eq i64 %.sroa.06.0.add.i.i, 3
@@ -16780,8 +16780,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hffa7bf9e38c1b685E(ptr
   %29 = add i32 %2, %28
   %30 = icmp slt i32 %29, 0
   %31 = tail call i32 @llvm.umin.i32(i32 %29, i32 255)
-  %32 = trunc nuw i32 %31 to i8
   %.sroa.08.0.add.i.i = add nuw nsw i64 %.sroa.08.0.idx11.i.i, 1
+  %32 = trunc nuw i32 %31 to i8
   %33 = select i1 %30, i8 0, i8 %32
   store i8 %33, ptr %.sroa.08.0.ptr12.i.i, align 1, !alias.scope !1638, !noalias !1641
   %34 = icmp eq i64 %.sroa.08.0.add.i.i, 3
@@ -17503,12 +17503,12 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(pt
   %63 = zext i1 %.not.i109 to i32
   br label %.noexc.us
 
-.noexc.us:                                        ; preds = %.noexc.us.preheader, %107
-  %64 = phi i32 [ %113, %107 ], [ 1, %.noexc.us.preheader ]
-  %spec.select108113.us = phi i32 [ %spec.select108.us, %107 ], [ 0, %.noexc.us.preheader ]
-  %spec.select112.us = phi i32 [ %spec.select.us, %107 ], [ %63, %.noexc.us.preheader ]
-  %.sroa.3.0111.us = phi ptr [ %65, %107 ], [ %.sroa.4.0.copyload, %.noexc.us.preheader ]
-  %.sroa.5.0110.us = phi i64 [ %66, %107 ], [ %.sroa.590.0.copyload, %.noexc.us.preheader ]
+.noexc.us:                                        ; preds = %.noexc.us.preheader, %105
+  %64 = phi i32 [ %113, %105 ], [ 1, %.noexc.us.preheader ]
+  %spec.select108113.us = phi i32 [ %spec.select108.us, %105 ], [ 0, %.noexc.us.preheader ]
+  %spec.select112.us = phi i32 [ %spec.select.us, %105 ], [ %63, %.noexc.us.preheader ]
+  %.sroa.3.0111.us = phi ptr [ %65, %105 ], [ %.sroa.4.0.copyload, %.noexc.us.preheader ]
+  %.sroa.5.0110.us = phi i64 [ %66, %105 ], [ %.sroa.590.0.copyload, %.noexc.us.preheader ]
   %65 = getelementptr inbounds i8, ptr %.sroa.3.0111.us, i64 6
   %66 = add i64 %.sroa.5.0110.us, -3
   %67 = icmp eq ptr %.sroa.3.0111.us, null
@@ -17547,42 +17547,42 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(pt
   %87 = fcmp olt double %.0.in.sroa.speculated.i.us, 6.553600e+04
   %or.cond.i.i.us = and i1 %86, %87
   %88 = fptoui double %.0.in.sroa.speculated.i.us to i16
-  %89 = zext i16 %88 to i48
-  br i1 %or.cond.i.i.us, label %90, label %.split.us.invoke
+  br i1 %or.cond.i.i.us, label %89, label %.split.us.invoke
 
-90:                                               ; preds = %70
-  %91 = fmul double %38, %71
-  %92 = fmul double %42, %72
-  %93 = fadd double %91, %92
-  %94 = fmul double %44, %73
-  %95 = fadd double %94, %93
-  %96 = fcmp olt double %95, 0.000000e+00
-  %97 = fcmp ogt double %95, 2.550000e+02
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i67.us = select i1 %97, double 2.550000e+02, double %95
-  %.0.in.sroa.speculated.i68.us = select i1 %96, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i67.us
-  %98 = fcmp ogt double %.0.in.sroa.speculated.i68.us, -1.000000e+00
-  %99 = fcmp olt double %.0.in.sroa.speculated.i68.us, 6.553600e+04
-  %or.cond.i.i69.us = and i1 %98, %99
-  %100 = fptoui double %.0.in.sroa.speculated.i68.us to i16
-  %101 = zext i16 %100 to i48
-  br i1 %or.cond.i.i69.us, label %102, label %.split.us.invoke
+89:                                               ; preds = %70
+  %90 = fmul double %38, %71
+  %91 = fmul double %42, %72
+  %92 = fadd double %90, %91
+  %93 = fmul double %44, %73
+  %94 = fadd double %93, %92
+  %95 = fcmp olt double %94, 0.000000e+00
+  %96 = fcmp ogt double %94, 2.550000e+02
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i67.us = select i1 %96, double 2.550000e+02, double %94
+  %.0.in.sroa.speculated.i68.us = select i1 %95, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i67.us
+  %97 = fcmp ogt double %.0.in.sroa.speculated.i68.us, -1.000000e+00
+  %98 = fcmp olt double %.0.in.sroa.speculated.i68.us, 6.553600e+04
+  %or.cond.i.i69.us = and i1 %97, %98
+  %99 = fptoui double %.0.in.sroa.speculated.i68.us to i16
+  br i1 %or.cond.i.i69.us, label %100, label %.split.us.invoke
 
-102:                                              ; preds = %90
-  %103 = fcmp olt double %83, 0.000000e+00
-  %104 = fcmp ogt double %83, 2.550000e+02
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i72.us = select i1 %104, double 2.550000e+02, double %83
-  %.0.in.sroa.speculated.i73.us = select i1 %103, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i72.us
-  %105 = fcmp ogt double %.0.in.sroa.speculated.i73.us, -1.000000e+00
-  %106 = fcmp olt double %.0.in.sroa.speculated.i73.us, 6.553600e+04
-  %or.cond.i.i74.us = and i1 %105, %106
-  br i1 %or.cond.i.i74.us, label %107, label %.split.us.invoke
+100:                                              ; preds = %89
+  %101 = fcmp olt double %83, 0.000000e+00
+  %102 = fcmp ogt double %83, 2.550000e+02
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i72.us = select i1 %102, double 2.550000e+02, double %83
+  %.0.in.sroa.speculated.i73.us = select i1 %101, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i72.us
+  %103 = fcmp ogt double %.0.in.sroa.speculated.i73.us, -1.000000e+00
+  %104 = fcmp olt double %.0.in.sroa.speculated.i73.us, 6.553600e+04
+  %or.cond.i.i74.us = and i1 %103, %104
+  br i1 %or.cond.i.i74.us, label %105, label %.split.us.invoke
 
-107:                                              ; preds = %102
-  %108 = fptoui double %.0.in.sroa.speculated.i73.us to i16
-  %109 = zext i16 %108 to i48
-  %110 = shl nuw nsw i48 %101, 16
-  %.sroa.0.2.insert.insert.i.us = or disjoint i48 %110, %89
-  %111 = shl nuw i48 %109, 32
+105:                                              ; preds = %100
+  %106 = fptoui double %.0.in.sroa.speculated.i73.us to i16
+  %107 = zext i16 %88 to i48
+  %108 = zext i16 %99 to i48
+  %109 = shl nuw nsw i48 %108, 16
+  %.sroa.0.2.insert.insert.i.us = or disjoint i48 %109, %107
+  %110 = zext i16 %106 to i48
+  %111 = shl nuw i48 %110, 32
   %.sroa.0.4.insert.insert.i.us = or disjoint i48 %.sroa.0.2.insert.insert.i.us, %111
   store i48 %.sroa.0.4.insert.insert.i.us, ptr %.sroa.3.0111.us, align 2
   %.not.i.us = icmp uge i32 %64, %9
@@ -17613,14 +17613,14 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(pt
 .noexc64:                                         ; preds = %116
   unreachable
 
-.noexc.thread:                                    ; preds = %.noexc.us, %107, %.noexc, %60
+.noexc.thread:                                    ; preds = %.noexc.us, %105, %.noexc, %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
 
-.split.us.invoke:                                 ; preds = %102, %90, %70, %.noexc60
-  %117 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %70 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %90 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %102 ]
-  %118 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.111.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.37, %102 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.36, %90 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.35, %70 ]
+.split.us.invoke:                                 ; preds = %100, %89, %70, %.noexc60
+  %117 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %70 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %89 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %100 ]
+  %118 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.111.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.37, %100 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.36, %89 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.35, %70 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 %117, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %118) #18
           to label %.split.us.cont unwind label %.loopexit.split-lp
 
@@ -18015,12 +18015,12 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
   %63 = zext i1 %.not.i107 to i32
   br label %.noexc.us
 
-.noexc.us:                                        ; preds = %.noexc.us.preheader, %114
-  %64 = phi i32 [ %119, %114 ], [ 1, %.noexc.us.preheader ]
-  %spec.select106111.us = phi i32 [ %spec.select106.us, %114 ], [ 0, %.noexc.us.preheader ]
-  %spec.select110.us = phi i32 [ %spec.select.us, %114 ], [ %63, %.noexc.us.preheader ]
-  %.sroa.3.0109.us = phi ptr [ %65, %114 ], [ %.sroa.4.0.copyload, %.noexc.us.preheader ]
-  %.sroa.5.0108.us = phi i64 [ %66, %114 ], [ %.sroa.588.0.copyload, %.noexc.us.preheader ]
+.noexc.us:                                        ; preds = %.noexc.us.preheader, %111
+  %64 = phi i32 [ %119, %111 ], [ 1, %.noexc.us.preheader ]
+  %spec.select106111.us = phi i32 [ %spec.select106.us, %111 ], [ 0, %.noexc.us.preheader ]
+  %spec.select110.us = phi i32 [ %spec.select.us, %111 ], [ %63, %.noexc.us.preheader ]
+  %.sroa.3.0109.us = phi ptr [ %65, %111 ], [ %.sroa.4.0.copyload, %.noexc.us.preheader ]
+  %.sroa.5.0108.us = phi i64 [ %66, %111 ], [ %.sroa.588.0.copyload, %.noexc.us.preheader ]
   %65 = getelementptr inbounds i8, ptr %.sroa.3.0109.us, i64 8
   %66 = add i64 %.sroa.5.0108.us, -4
   %67 = icmp eq ptr %.sroa.3.0109.us, null
@@ -18061,55 +18061,55 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
   %88 = fcmp olt double %.0.in.sroa.speculated.i.us, 6.553600e+04
   %or.cond.i.i.us = and i1 %87, %88
   %89 = fptoui double %.0.in.sroa.speculated.i.us to i16
-  %90 = zext i16 %89 to i64
-  br i1 %or.cond.i.i.us, label %91, label %.split.us.invoke
+  br i1 %or.cond.i.i.us, label %90, label %.split.us.invoke
 
-91:                                               ; preds = %70
-  %92 = fmul double %38, %71
-  %93 = fmul double %42, %72
-  %94 = fadd double %92, %93
-  %95 = fmul double %44, %73
-  %96 = fadd double %95, %94
-  %97 = fcmp olt double %96, 0.000000e+00
-  %98 = fcmp ogt double %96, 2.550000e+02
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i66.us = select i1 %98, double 2.550000e+02, double %96
-  %.0.in.sroa.speculated.i67.us = select i1 %97, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i66.us
-  %99 = fcmp ogt double %.0.in.sroa.speculated.i67.us, -1.000000e+00
-  %100 = fcmp olt double %.0.in.sroa.speculated.i67.us, 6.553600e+04
-  %or.cond.i.i68.us = and i1 %99, %100
-  %101 = fptoui double %.0.in.sroa.speculated.i67.us to i16
-  %102 = zext i16 %101 to i64
-  br i1 %or.cond.i.i68.us, label %103, label %.split.us.invoke
+90:                                               ; preds = %70
+  %91 = fmul double %38, %71
+  %92 = fmul double %42, %72
+  %93 = fadd double %91, %92
+  %94 = fmul double %44, %73
+  %95 = fadd double %94, %93
+  %96 = fcmp olt double %95, 0.000000e+00
+  %97 = fcmp ogt double %95, 2.550000e+02
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i66.us = select i1 %97, double 2.550000e+02, double %95
+  %.0.in.sroa.speculated.i67.us = select i1 %96, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i66.us
+  %98 = fcmp ogt double %.0.in.sroa.speculated.i67.us, -1.000000e+00
+  %99 = fcmp olt double %.0.in.sroa.speculated.i67.us, 6.553600e+04
+  %or.cond.i.i68.us = and i1 %98, %99
+  %100 = fptoui double %.0.in.sroa.speculated.i67.us to i16
+  br i1 %or.cond.i.i68.us, label %101, label %.split.us.invoke
 
-103:                                              ; preds = %91
-  %104 = fcmp olt double %84, 0.000000e+00
-  %105 = fcmp ogt double %84, 2.550000e+02
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i71.us = select i1 %105, double 2.550000e+02, double %84
-  %.0.in.sroa.speculated.i72.us = select i1 %104, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i71.us
-  %106 = fcmp ogt double %.0.in.sroa.speculated.i72.us, -1.000000e+00
-  %107 = fcmp olt double %.0.in.sroa.speculated.i72.us, 6.553600e+04
-  %or.cond.i.i73.us = and i1 %106, %107
-  %108 = fptoui double %.0.in.sroa.speculated.i72.us to i16
-  %109 = zext i16 %108 to i64
-  br i1 %or.cond.i.i73.us, label %110, label %.split.us.invoke
+101:                                              ; preds = %90
+  %102 = fcmp olt double %84, 0.000000e+00
+  %103 = fcmp ogt double %84, 2.550000e+02
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i71.us = select i1 %103, double 2.550000e+02, double %84
+  %.0.in.sroa.speculated.i72.us = select i1 %102, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i71.us
+  %104 = fcmp ogt double %.0.in.sroa.speculated.i72.us, -1.000000e+00
+  %105 = fcmp olt double %.0.in.sroa.speculated.i72.us, 6.553600e+04
+  %or.cond.i.i73.us = and i1 %104, %105
+  %106 = fptoui double %.0.in.sroa.speculated.i72.us to i16
+  br i1 %or.cond.i.i73.us, label %107, label %.split.us.invoke
 
-110:                                              ; preds = %103
-  %111 = fcmp ogt double %74, 2.550000e+02
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i76.us = select i1 %111, double 2.550000e+02, double %74
-  %112 = fcmp ogt double %.0.in.sroa.speculate.load.3.sroa.speculated.i76.us, -1.000000e+00
-  %113 = fcmp olt double %.0.in.sroa.speculate.load.3.sroa.speculated.i76.us, 6.553600e+04
-  %or.cond.i.i78.us = and i1 %112, %113
-  br i1 %or.cond.i.i78.us, label %114, label %.split.us.invoke
+107:                                              ; preds = %101
+  %108 = fcmp ogt double %74, 2.550000e+02
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i76.us = select i1 %108, double 2.550000e+02, double %74
+  %109 = fcmp ogt double %.0.in.sroa.speculate.load.3.sroa.speculated.i76.us, -1.000000e+00
+  %110 = fcmp olt double %.0.in.sroa.speculate.load.3.sroa.speculated.i76.us, 6.553600e+04
+  %or.cond.i.i78.us = and i1 %109, %110
+  br i1 %or.cond.i.i78.us, label %111, label %.split.us.invoke
 
-114:                                              ; preds = %110
-  %115 = fptoui double %.0.in.sroa.speculate.load.3.sroa.speculated.i76.us to i16
-  %.sroa.6.0.insert.ext.i.us = zext i16 %115 to i64
+111:                                              ; preds = %107
+  %112 = fptoui double %.0.in.sroa.speculate.load.3.sroa.speculated.i76.us to i16
+  %.sroa.6.0.insert.ext.i.us = zext i16 %112 to i64
   %.sroa.6.0.insert.shift.i.us = shl nuw i64 %.sroa.6.0.insert.ext.i.us, 48
-  %116 = shl nuw nsw i64 %109, 32
-  %.sroa.5.0.insert.insert.i.us = or disjoint i64 %116, %.sroa.6.0.insert.shift.i.us
-  %117 = shl nuw nsw i64 %102, 16
-  %.sroa.4.0.insert.insert.i.us = or disjoint i64 %.sroa.5.0.insert.insert.i.us, %117
-  %.sroa.0.0.insert.insert.i.us = or disjoint i64 %.sroa.4.0.insert.insert.i.us, %90
+  %113 = zext i16 %106 to i64
+  %114 = shl nuw nsw i64 %113, 32
+  %.sroa.5.0.insert.insert.i.us = or disjoint i64 %114, %.sroa.6.0.insert.shift.i.us
+  %115 = zext i16 %100 to i64
+  %116 = shl nuw nsw i64 %115, 16
+  %.sroa.4.0.insert.insert.i.us = or disjoint i64 %.sroa.5.0.insert.insert.i.us, %116
+  %117 = zext i16 %89 to i64
+  %.sroa.0.0.insert.insert.i.us = or disjoint i64 %.sroa.4.0.insert.insert.i.us, %117
   store i64 %.sroa.0.0.insert.insert.i.us, ptr %.sroa.3.0109.us, align 2
   %.not.i.us = icmp uge i32 %64, %9
   %118 = zext i1 %.not.i.us to i32
@@ -18139,14 +18139,14 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
 .noexc64:                                         ; preds = %122
   unreachable
 
-.noexc.thread:                                    ; preds = %.noexc.us, %114, %.noexc, %60
+.noexc.thread:                                    ; preds = %.noexc.us, %111, %.noexc, %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
 
-.split.us.invoke:                                 ; preds = %110, %103, %91, %70, %.noexc60
-  %123 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %70 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %91 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %103 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %110 ]
-  %124 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.111.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.38, %110 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.37, %103 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.36, %91 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.35, %70 ]
+.split.us.invoke:                                 ; preds = %107, %101, %90, %70, %.noexc60
+  %123 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %70 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %90 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %101 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %107 ]
+  %124 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.111.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.38, %107 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.37, %101 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.36, %90 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.35, %70 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 %123, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %124) #18
           to label %.split.us.cont unwind label %.loopexit.split-lp
 
@@ -18529,12 +18529,12 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(pt
   %66 = zext i1 %.not.i108 to i32
   br label %.noexc.us
 
-.noexc.us:                                        ; preds = %.noexc.us.preheader, %106
-  %67 = phi i32 [ %109, %106 ], [ 1, %.noexc.us.preheader ]
-  %spec.select107112.us = phi i32 [ %spec.select107.us, %106 ], [ 0, %.noexc.us.preheader ]
-  %spec.select111.us = phi i32 [ %spec.select.us, %106 ], [ %66, %.noexc.us.preheader ]
-  %.sroa.3.0110.us = phi ptr [ %68, %106 ], [ %.sroa.4.0.copyload, %.noexc.us.preheader ]
-  %.sroa.5.0109.us = phi i64 [ %69, %106 ], [ %.sroa.589.0.copyload, %.noexc.us.preheader ]
+.noexc.us:                                        ; preds = %.noexc.us.preheader, %104
+  %67 = phi i32 [ %109, %104 ], [ 1, %.noexc.us.preheader ]
+  %spec.select107112.us = phi i32 [ %spec.select107.us, %104 ], [ 0, %.noexc.us.preheader ]
+  %spec.select111.us = phi i32 [ %spec.select.us, %104 ], [ %66, %.noexc.us.preheader ]
+  %.sroa.3.0110.us = phi ptr [ %68, %104 ], [ %.sroa.4.0.copyload, %.noexc.us.preheader ]
+  %.sroa.5.0109.us = phi i64 [ %69, %104 ], [ %.sroa.589.0.copyload, %.noexc.us.preheader ]
   %68 = getelementptr inbounds i8, ptr %.sroa.3.0110.us, i64 4
   %69 = add i64 %.sroa.5.0109.us, -2
   %70 = icmp eq ptr %.sroa.3.0110.us, null
@@ -18567,38 +18567,38 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(pt
   %87 = fcmp olt double %.0.in.sroa.speculated.i.us, 6.553600e+04
   %or.cond.i.i.us = and i1 %86, %87
   %88 = fptoui double %.0.in.sroa.speculated.i.us to i16
-  %89 = zext i16 %88 to i32
-  br i1 %or.cond.i.i.us, label %90, label %.split.us.invoke
+  br i1 %or.cond.i.i.us, label %89, label %.split.us.invoke
 
-90:                                               ; preds = %73
-  %91 = fmul double %38, %74
-  %92 = fmul double %42, %75
-  %93 = fadd double %91, %92
-  %94 = fadd double %65, %93
-  %95 = fcmp olt double %94, 0.000000e+00
-  %96 = fcmp ogt double %94, 2.550000e+02
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i66.us = select i1 %96, double 2.550000e+02, double %94
-  %.0.in.sroa.speculated.i67.us = select i1 %95, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i66.us
-  %97 = fcmp ogt double %.0.in.sroa.speculated.i67.us, -1.000000e+00
-  %98 = fcmp olt double %.0.in.sroa.speculated.i67.us, 6.553600e+04
-  %or.cond.i.i68.us = and i1 %97, %98
-  %99 = fptoui double %.0.in.sroa.speculated.i67.us to i16
-  %100 = zext i16 %99 to i32
-  br i1 %or.cond.i.i68.us, label %101, label %.split.us.invoke
+89:                                               ; preds = %73
+  %90 = fmul double %38, %74
+  %91 = fmul double %42, %75
+  %92 = fadd double %90, %91
+  %93 = fadd double %65, %92
+  %94 = fcmp olt double %93, 0.000000e+00
+  %95 = fcmp ogt double %93, 2.550000e+02
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i66.us = select i1 %95, double 2.550000e+02, double %93
+  %.0.in.sroa.speculated.i67.us = select i1 %94, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i66.us
+  %96 = fcmp ogt double %.0.in.sroa.speculated.i67.us, -1.000000e+00
+  %97 = fcmp olt double %.0.in.sroa.speculated.i67.us, 6.553600e+04
+  %or.cond.i.i68.us = and i1 %96, %97
+  %98 = fptoui double %.0.in.sroa.speculated.i67.us to i16
+  br i1 %or.cond.i.i68.us, label %99, label %.split.us.invoke
 
-101:                                              ; preds = %90
-  %102 = fcmp olt double %83, 0.000000e+00
-  %103 = fcmp ogt double %83, 2.550000e+02
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i71.us = select i1 %103, double 2.550000e+02, double %83
-  %.0.in.sroa.speculated.i72.us = select i1 %102, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i71.us
-  %104 = fcmp ogt double %.0.in.sroa.speculated.i72.us, -1.000000e+00
-  %105 = fcmp olt double %.0.in.sroa.speculated.i72.us, 6.553600e+04
-  %or.cond.i.i73.us = and i1 %104, %105
-  br i1 %or.cond.i.i73.us, label %106, label %.split.us.invoke
+99:                                               ; preds = %89
+  %100 = fcmp olt double %83, 0.000000e+00
+  %101 = fcmp ogt double %83, 2.550000e+02
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i71.us = select i1 %101, double 2.550000e+02, double %83
+  %.0.in.sroa.speculated.i72.us = select i1 %100, double 0.000000e+00, double %.0.in.sroa.speculate.load.3.sroa.speculated.i71.us
+  %102 = fcmp ogt double %.0.in.sroa.speculated.i72.us, -1.000000e+00
+  %103 = fcmp olt double %.0.in.sroa.speculated.i72.us, 6.553600e+04
+  %or.cond.i.i73.us = and i1 %102, %103
+  br i1 %or.cond.i.i73.us, label %104, label %.split.us.invoke
 
-106:                                              ; preds = %101
-  %107 = shl nuw i32 %100, 16
-  %.sroa.0.2.insert.insert.i.us = or disjoint i32 %107, %89
+104:                                              ; preds = %99
+  %105 = zext i16 %88 to i32
+  %106 = zext i16 %98 to i32
+  %107 = shl nuw i32 %106, 16
+  %.sroa.0.2.insert.insert.i.us = or disjoint i32 %107, %105
   store i32 %.sroa.0.2.insert.insert.i.us, ptr %.sroa.3.0110.us, align 2
   %.not.i.us = icmp uge i32 %67, %9
   %108 = zext i1 %.not.i.us to i32
@@ -18628,14 +18628,14 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(pt
 .noexc64:                                         ; preds = %112
   unreachable
 
-.noexc.thread:                                    ; preds = %.noexc.us, %106, %.noexc, %60
+.noexc.thread:                                    ; preds = %.noexc.us, %104, %.noexc, %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
 
-.split.us.invoke:                                 ; preds = %101, %90, %73, %.noexc60
-  %113 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %73 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %90 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %101 ]
-  %114 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.111.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.37, %101 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.36, %90 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.35, %73 ]
+.split.us.invoke:                                 ; preds = %99, %89, %73, %.noexc60
+  %113 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %73 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %89 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %99 ]
+  %114 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.111.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.37, %99 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.36, %89 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.35, %73 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 %113, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %114) #18
           to label %.split.us.cont unwind label %.loopexit.split-lp
 

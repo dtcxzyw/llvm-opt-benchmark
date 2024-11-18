@@ -8436,31 +8436,29 @@ _ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE18set_new_child_flagEP4exprS4_.ex
 
 if.end71:                                         ; preds = %sw.bb
   %cmp72.not = icmp eq i32 %max_depth, 3
-  %dec = shl i32 %max_depth, 4
-  %81 = add i32 %dec, 48
   %m_frame_stack.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %m_nodes.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %82 = load ptr, ptr %m_nodes.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %82, null
+  %81 = load ptr, ptr %m_nodes.i.i.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %81, null
   br i1 %cmp.i.i.i.i, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end71
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %82, i64 -4
-  %83 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %81, i64 -4
+  %82 = load i32, ptr %arrayidx.i.i.i.i, align 4
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i: ; preds = %if.end.i.i.i.i, %if.end71
-  %retval.0.i.i.i.i = phi i32 [ %83, %if.end.i.i.i.i ], [ 0, %if.end71 ]
-  %84 = load ptr, ptr %m_frame_stack.i.i, align 8
-  %cmp.i.i.i205 = icmp eq ptr %84, null
+  %retval.0.i.i.i.i = phi i32 [ %82, %if.end.i.i.i.i ], [ 0, %if.end71 ]
+  %83 = load ptr, ptr %m_frame_stack.i.i, align 8
+  %cmp.i.i.i205 = icmp eq ptr %83, null
   br i1 %cmp.i.i.i205, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
-  %arrayidx.i.i.i206 = getelementptr inbounds i8, ptr %84, i64 -4
-  %85 = load i32, ptr %arrayidx.i.i.i206, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %84, i64 -8
-  %86 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %cmp5.i.i.i = icmp eq i32 %85, %86
+  %arrayidx.i.i.i206 = getelementptr inbounds i8, ptr %83, i64 -4
+  %84 = load i32, ptr %arrayidx.i.i.i206, align 4
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %83, i64 -8
+  %85 = load i32, ptr %arrayidx4.i.i.i, align 4
+  %cmp5.i.i.i = icmp eq i32 %84, %85
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %_ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
@@ -8471,13 +8469,15 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br label %_ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit
 
 _ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit: ; preds = %lor.lhs.false.i.i.i, %if.then.i.i.i
-  %87 = phi i32 [ %.pre1.i.i.i, %if.then.i.i.i ], [ %85, %lor.lhs.false.i.i.i ]
-  %88 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %84, %lor.lhs.false.i.i.i ]
-  %89 = and i32 %81, 48
+  %86 = phi i32 [ %.pre1.i.i.i, %if.then.i.i.i ], [ %84, %lor.lhs.false.i.i.i ]
+  %87 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %83, %lor.lhs.false.i.i.i ]
+  %dec = shl i32 %max_depth, 4
+  %88 = add i32 %dec, 48
+  %89 = and i32 %88, 48
   %bf.value10.masked.i.i.i = select i1 %cmp72.not, i32 48, i32 %89
   %bf.clear15.i.i.i = or disjoint i32 %conv.i.i.i, %bf.value10.masked.i.i.i
-  %idx.ext.i.i.i = zext i32 %87 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.rewriter_core::frame", ptr %88, i64 %idx.ext.i.i.i
+  %idx.ext.i.i.i = zext i32 %86 to i64
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.rewriter_core::frame", ptr %87, i64 %idx.ext.i.i.i
   store ptr %t, ptr %add.ptr.i.i.i, align 8
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store i32 %bf.clear15.i.i.i, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i, align 8
@@ -8496,31 +8496,29 @@ sw.bb76:                                          ; preds = %if.end30
 
 sw.bb78:                                          ; preds = %if.end30
   %cmp79.not = icmp eq i32 %max_depth, 3
-  %dec81 = shl i32 %max_depth, 4
-  %92 = add i32 %dec81, 48
   %m_frame_stack.i.i207 = getelementptr inbounds i8, ptr %this, i64 40
   %m_nodes.i.i.i208 = getelementptr inbounds i8, ptr %this, i64 56
-  %93 = load ptr, ptr %m_nodes.i.i.i208, align 8
-  %cmp.i.i.i.i209 = icmp eq ptr %93, null
+  %92 = load ptr, ptr %m_nodes.i.i.i208, align 8
+  %cmp.i.i.i.i209 = icmp eq ptr %92, null
   br i1 %cmp.i.i.i.i209, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i212, label %if.end.i.i.i.i210
 
 if.end.i.i.i.i210:                                ; preds = %sw.bb78
-  %arrayidx.i.i.i.i211 = getelementptr inbounds i8, ptr %93, i64 -4
-  %94 = load i32, ptr %arrayidx.i.i.i.i211, align 4
+  %arrayidx.i.i.i.i211 = getelementptr inbounds i8, ptr %92, i64 -4
+  %93 = load i32, ptr %arrayidx.i.i.i.i211, align 4
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i212
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i212: ; preds = %if.end.i.i.i.i210, %sw.bb78
-  %retval.0.i.i.i.i213 = phi i32 [ %94, %if.end.i.i.i.i210 ], [ 0, %sw.bb78 ]
-  %95 = load ptr, ptr %m_frame_stack.i.i207, align 8
-  %cmp.i.i.i214 = icmp eq ptr %95, null
+  %retval.0.i.i.i.i213 = phi i32 [ %93, %if.end.i.i.i.i210 ], [ 0, %sw.bb78 ]
+  %94 = load ptr, ptr %m_frame_stack.i.i207, align 8
+  %cmp.i.i.i214 = icmp eq ptr %94, null
   br i1 %cmp.i.i.i214, label %if.then.i.i.i229, label %lor.lhs.false.i.i.i215
 
 lor.lhs.false.i.i.i215:                           ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i212
-  %arrayidx.i.i.i216 = getelementptr inbounds i8, ptr %95, i64 -4
-  %96 = load i32, ptr %arrayidx.i.i.i216, align 4
-  %arrayidx4.i.i.i217 = getelementptr inbounds i8, ptr %95, i64 -8
-  %97 = load i32, ptr %arrayidx4.i.i.i217, align 4
-  %cmp5.i.i.i218 = icmp eq i32 %96, %97
+  %arrayidx.i.i.i216 = getelementptr inbounds i8, ptr %94, i64 -4
+  %95 = load i32, ptr %arrayidx.i.i.i216, align 4
+  %arrayidx4.i.i.i217 = getelementptr inbounds i8, ptr %94, i64 -8
+  %96 = load i32, ptr %arrayidx4.i.i.i217, align 4
+  %cmp5.i.i.i218 = icmp eq i32 %95, %96
   br i1 %cmp5.i.i.i218, label %if.then.i.i.i229, label %_ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit233
 
 if.then.i.i.i229:                                 ; preds = %lor.lhs.false.i.i.i215, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i212
@@ -8531,13 +8529,15 @@ if.then.i.i.i229:                                 ; preds = %lor.lhs.false.i.i.i
   br label %_ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit233
 
 _ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit233: ; preds = %lor.lhs.false.i.i.i215, %if.then.i.i.i229
-  %98 = phi i32 [ %.pre1.i.i.i232, %if.then.i.i.i229 ], [ %96, %lor.lhs.false.i.i.i215 ]
-  %99 = phi ptr [ %.pre.i.i.i230, %if.then.i.i.i229 ], [ %95, %lor.lhs.false.i.i.i215 ]
-  %100 = and i32 %92, 48
+  %97 = phi i32 [ %.pre1.i.i.i232, %if.then.i.i.i229 ], [ %95, %lor.lhs.false.i.i.i215 ]
+  %98 = phi ptr [ %.pre.i.i.i230, %if.then.i.i.i229 ], [ %94, %lor.lhs.false.i.i.i215 ]
+  %dec81 = shl i32 %max_depth, 4
+  %99 = add i32 %dec81, 48
+  %100 = and i32 %99, 48
   %bf.value10.masked.i.i.i221 = select i1 %cmp79.not, i32 48, i32 %100
   %bf.clear15.i.i.i222 = or disjoint i32 %conv.i.i.i, %bf.value10.masked.i.i.i221
-  %idx.ext.i.i.i223 = zext i32 %98 to i64
-  %add.ptr.i.i.i224 = getelementptr inbounds %"struct.rewriter_core::frame", ptr %99, i64 %idx.ext.i.i.i223
+  %idx.ext.i.i.i223 = zext i32 %97 to i64
+  %add.ptr.i.i.i224 = getelementptr inbounds %"struct.rewriter_core::frame", ptr %98, i64 %idx.ext.i.i.i223
   store ptr %t, ptr %add.ptr.i.i.i224, align 8
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i225 = getelementptr inbounds i8, ptr %add.ptr.i.i.i224, i64 8
   store i32 %bf.clear15.i.i.i222, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i225, align 8
@@ -25809,31 +25809,29 @@ _ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE18set_new_child_flagEP4exprS4_.ex
 
 if.end59:                                         ; preds = %sw.bb
   %cmp60.not = icmp eq i32 %max_depth, 3
-  %dec = shl i32 %max_depth, 4
-  %56 = add i32 %dec, 48
   %m_frame_stack.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %m_nodes.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %57 = load ptr, ptr %m_nodes.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %57, null
+  %56 = load ptr, ptr %m_nodes.i.i.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %56, null
   br i1 %cmp.i.i.i.i, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end59
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 -4
-  %58 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 -4
+  %57 = load i32, ptr %arrayidx.i.i.i.i, align 4
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i: ; preds = %if.end.i.i.i.i, %if.end59
-  %retval.0.i.i.i.i = phi i32 [ %58, %if.end.i.i.i.i ], [ 0, %if.end59 ]
-  %59 = load ptr, ptr %m_frame_stack.i.i, align 8
-  %cmp.i.i.i130 = icmp eq ptr %59, null
+  %retval.0.i.i.i.i = phi i32 [ %57, %if.end.i.i.i.i ], [ 0, %if.end59 ]
+  %58 = load ptr, ptr %m_frame_stack.i.i, align 8
+  %cmp.i.i.i130 = icmp eq ptr %58, null
   br i1 %cmp.i.i.i130, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
-  %arrayidx.i.i.i131 = getelementptr inbounds i8, ptr %59, i64 -4
-  %60 = load i32, ptr %arrayidx.i.i.i131, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %59, i64 -8
-  %61 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %cmp5.i.i.i = icmp eq i32 %60, %61
+  %arrayidx.i.i.i131 = getelementptr inbounds i8, ptr %58, i64 -4
+  %59 = load i32, ptr %arrayidx.i.i.i131, align 4
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %58, i64 -8
+  %60 = load i32, ptr %arrayidx4.i.i.i, align 4
+  %cmp5.i.i.i = icmp eq i32 %59, %60
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %_ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
@@ -25844,13 +25842,15 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br label %_ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit
 
 _ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit: ; preds = %lor.lhs.false.i.i.i, %if.then.i.i.i
-  %62 = phi i32 [ %.pre1.i.i.i, %if.then.i.i.i ], [ %60, %lor.lhs.false.i.i.i ]
-  %63 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %59, %lor.lhs.false.i.i.i ]
-  %64 = and i32 %56, 48
+  %61 = phi i32 [ %.pre1.i.i.i, %if.then.i.i.i ], [ %59, %lor.lhs.false.i.i.i ]
+  %62 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %58, %lor.lhs.false.i.i.i ]
+  %dec = shl i32 %max_depth, 4
+  %63 = add i32 %dec, 48
+  %64 = and i32 %63, 48
   %bf.value10.masked.i.i.i = select i1 %cmp60.not, i32 48, i32 %64
   %bf.clear15.i.i.i = or disjoint i32 %conv.i.i.i, %bf.value10.masked.i.i.i
-  %idx.ext.i.i.i = zext i32 %62 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.rewriter_core::frame", ptr %63, i64 %idx.ext.i.i.i
+  %idx.ext.i.i.i = zext i32 %61 to i64
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.rewriter_core::frame", ptr %62, i64 %idx.ext.i.i.i
   store ptr %t, ptr %add.ptr.i.i.i, align 8
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store i32 %bf.clear15.i.i.i, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i, align 8
@@ -25869,31 +25869,29 @@ sw.bb64:                                          ; preds = %if.end21
 
 sw.bb66:                                          ; preds = %if.end21
   %cmp67.not = icmp eq i32 %max_depth, 3
-  %dec69 = shl i32 %max_depth, 4
-  %67 = add i32 %dec69, 48
   %m_frame_stack.i.i132 = getelementptr inbounds i8, ptr %this, i64 40
   %m_nodes.i.i.i133 = getelementptr inbounds i8, ptr %this, i64 56
-  %68 = load ptr, ptr %m_nodes.i.i.i133, align 8
-  %cmp.i.i.i.i134 = icmp eq ptr %68, null
+  %67 = load ptr, ptr %m_nodes.i.i.i133, align 8
+  %cmp.i.i.i.i134 = icmp eq ptr %67, null
   br i1 %cmp.i.i.i.i134, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i137, label %if.end.i.i.i.i135
 
 if.end.i.i.i.i135:                                ; preds = %sw.bb66
-  %arrayidx.i.i.i.i136 = getelementptr inbounds i8, ptr %68, i64 -4
-  %69 = load i32, ptr %arrayidx.i.i.i.i136, align 4
+  %arrayidx.i.i.i.i136 = getelementptr inbounds i8, ptr %67, i64 -4
+  %68 = load i32, ptr %arrayidx.i.i.i.i136, align 4
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i137
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i137: ; preds = %if.end.i.i.i.i135, %sw.bb66
-  %retval.0.i.i.i.i138 = phi i32 [ %69, %if.end.i.i.i.i135 ], [ 0, %sw.bb66 ]
-  %70 = load ptr, ptr %m_frame_stack.i.i132, align 8
-  %cmp.i.i.i139 = icmp eq ptr %70, null
+  %retval.0.i.i.i.i138 = phi i32 [ %68, %if.end.i.i.i.i135 ], [ 0, %sw.bb66 ]
+  %69 = load ptr, ptr %m_frame_stack.i.i132, align 8
+  %cmp.i.i.i139 = icmp eq ptr %69, null
   br i1 %cmp.i.i.i139, label %if.then.i.i.i154, label %lor.lhs.false.i.i.i140
 
 lor.lhs.false.i.i.i140:                           ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i137
-  %arrayidx.i.i.i141 = getelementptr inbounds i8, ptr %70, i64 -4
-  %71 = load i32, ptr %arrayidx.i.i.i141, align 4
-  %arrayidx4.i.i.i142 = getelementptr inbounds i8, ptr %70, i64 -8
-  %72 = load i32, ptr %arrayidx4.i.i.i142, align 4
-  %cmp5.i.i.i143 = icmp eq i32 %71, %72
+  %arrayidx.i.i.i141 = getelementptr inbounds i8, ptr %69, i64 -4
+  %70 = load i32, ptr %arrayidx.i.i.i141, align 4
+  %arrayidx4.i.i.i142 = getelementptr inbounds i8, ptr %69, i64 -8
+  %71 = load i32, ptr %arrayidx4.i.i.i142, align 4
+  %cmp5.i.i.i143 = icmp eq i32 %70, %71
   br i1 %cmp5.i.i.i143, label %if.then.i.i.i154, label %_ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit158
 
 if.then.i.i.i154:                                 ; preds = %lor.lhs.false.i.i.i140, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i137
@@ -25904,13 +25902,15 @@ if.then.i.i.i154:                                 ; preds = %lor.lhs.false.i.i.i
   br label %_ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit158
 
 _ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE10push_frameEP4exprbj.exit158: ; preds = %lor.lhs.false.i.i.i140, %if.then.i.i.i154
-  %73 = phi i32 [ %.pre1.i.i.i157, %if.then.i.i.i154 ], [ %71, %lor.lhs.false.i.i.i140 ]
-  %74 = phi ptr [ %.pre.i.i.i155, %if.then.i.i.i154 ], [ %70, %lor.lhs.false.i.i.i140 ]
-  %75 = and i32 %67, 48
+  %72 = phi i32 [ %.pre1.i.i.i157, %if.then.i.i.i154 ], [ %70, %lor.lhs.false.i.i.i140 ]
+  %73 = phi ptr [ %.pre.i.i.i155, %if.then.i.i.i154 ], [ %69, %lor.lhs.false.i.i.i140 ]
+  %dec69 = shl i32 %max_depth, 4
+  %74 = add i32 %dec69, 48
+  %75 = and i32 %74, 48
   %bf.value10.masked.i.i.i146 = select i1 %cmp67.not, i32 48, i32 %75
   %bf.clear15.i.i.i147 = or disjoint i32 %conv.i.i.i, %bf.value10.masked.i.i.i146
-  %idx.ext.i.i.i148 = zext i32 %73 to i64
-  %add.ptr.i.i.i149 = getelementptr inbounds %"struct.rewriter_core::frame", ptr %74, i64 %idx.ext.i.i.i148
+  %idx.ext.i.i.i148 = zext i32 %72 to i64
+  %add.ptr.i.i.i149 = getelementptr inbounds %"struct.rewriter_core::frame", ptr %73, i64 %idx.ext.i.i.i148
   store ptr %t, ptr %add.ptr.i.i.i149, align 8
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i150 = getelementptr inbounds i8, ptr %add.ptr.i.i.i149, i64 8
   store i32 %bf.clear15.i.i.i147, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i150, align 8

@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [16 x i8] c"abstracted node\00", align 1
 @.str.11 = private unnamed_addr constant [14 x i8] c"free variable\00", align 1
 @Rnm_ManFilterSelectedNew.Counter = internal unnamed_addr global i32 0, align 4
-@Ga2_ObjLeaves.v.0 = internal unnamed_addr global i32 0, align 8
+@Ga2_ObjLeaves.v.0 = internal unnamed_addr global i32 0, align 4
 @Ga2_ObjLeaves.v.1 = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nofree nounwind uwtable
@@ -290,7 +290,7 @@ define void @Ga2_StructAnalize(ptr nocapture noundef readonly %0, ptr nocapture 
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i32, ptr %.val4.val.i, i64 %79
   %81 = load i32, ptr %80, align 4
-  store i32 %81, ptr @Ga2_ObjLeaves.v.0, align 8
+  store i32 %81, ptr @Ga2_ObjLeaves.v.0, align 4
   %.val5.i = load ptr, ptr %5, align 8
   %.val6.i = load ptr, ptr %57, align 8
   %82 = getelementptr i8, ptr %.val6.i, i64 8
@@ -352,7 +352,7 @@ define void @Ga2_StructAnalize(ptr nocapture noundef readonly %0, ptr nocapture 
   %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.9.sink)
   %putchar87 = tail call i32 @putchar(i32 10)
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %Ga2_ObjLeaves.v.val = load i32, ptr @Ga2_ObjLeaves.v.0, align 8
+  %Ga2_ObjLeaves.v.val = load i32, ptr @Ga2_ObjLeaves.v.0, align 4
   %111 = sext i32 %Ga2_ObjLeaves.v.val to i64
   %112 = icmp slt i64 %indvars.iv.next140, %111
   br i1 %112, label %.lr.ph123, label %.critedge10, !llvm.loop !11
@@ -418,7 +418,7 @@ define noalias noundef ptr @Rnm_ManFilterSelected(ptr nocapture noundef readonly
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i32, ptr %.val4.val.i, i64 %27
   %29 = load i32, ptr %28, align 4
-  store i32 %29, ptr @Ga2_ObjLeaves.v.0, align 8
+  store i32 %29, ptr @Ga2_ObjLeaves.v.0, align 4
   %.val5.i = load ptr, ptr %15, align 8
   %.val6.i = load ptr, ptr %21, align 8
   %30 = getelementptr i8, ptr %.val6.i, i64 8
@@ -545,7 +545,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 Rnm_ObjAddToCount.exit.thread:                    ; preds = %43, %Rnm_ObjAddToCount.exit, %Vec_IntPush.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %Ga2_ObjLeaves.v.val94 = load i32, ptr @Ga2_ObjLeaves.v.0, align 8
+  %Ga2_ObjLeaves.v.val94 = load i32, ptr @Ga2_ObjLeaves.v.0, align 4
   %94 = sext i32 %Ga2_ObjLeaves.v.val94 to i64
   %95 = icmp slt i64 %indvars.iv.next, %94
   br i1 %95, label %.lr.ph, label %.critedge2, !llvm.loop !14
@@ -678,7 +678,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %113, %Gia_ObjIsRo.e
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds i32, ptr %.val4.val.i127, i64 %152
   %154 = load i32, ptr %153, align 4
-  store i32 %154, ptr @Ga2_ObjLeaves.v.0, align 8
+  store i32 %154, ptr @Ga2_ObjLeaves.v.0, align 4
   %.val5.i129 = load ptr, ptr %110, align 8
   %.val6.i130 = load ptr, ptr %146, align 8
   %155 = getelementptr i8, ptr %.val6.i130, i64 8

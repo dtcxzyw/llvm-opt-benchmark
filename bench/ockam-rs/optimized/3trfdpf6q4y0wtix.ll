@@ -103310,11 +103310,11 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %.not8.i = icmp eq ptr %279, null
   %280 = load i32, ptr %198, align 8
   %281 = sext i32 %280 to i64
-  %282 = sub nsw i64 -62135683200, %281
-  %283 = getelementptr inbounds i8, ptr %81, i64 4
-  %284 = getelementptr inbounds i8, ptr %81, i64 8
-  %285 = getelementptr inbounds i8, ptr %82, i64 4
-  %286 = select i1 %.not8.i, i64 -62135683200, i64 %282
+  %282 = getelementptr inbounds i8, ptr %81, i64 4
+  %283 = getelementptr inbounds i8, ptr %81, i64 8
+  %284 = getelementptr inbounds i8, ptr %82, i64 4
+  %285 = sub nsw i64 -62135683200, %281
+  %286 = select i1 %.not8.i, i64 -62135683200, i64 %285
   %287 = urem i32 %.sroa.12.0.copyload.i, 1000000000
   %288 = zext nneg i32 %287 to i64
   %289 = getelementptr inbounds i8, ptr %83, i64 4
@@ -104351,8 +104351,8 @@ _ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.4172597797139691951.exit.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %82), !noalias !15312
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %81), !noalias !15312
   store i32 %276, ptr %81, align 4, !noalias !15312
-  store i32 %.sroa.7.0.copyload.i, ptr %283, align 4, !noalias !15312
-  store i32 %.sroa.12.0.copyload.i, ptr %284, align 4, !noalias !15312
+  store i32 %.sroa.7.0.copyload.i, ptr %282, align 4, !noalias !15312
+  store i32 %.sroa.12.0.copyload.i, ptr %283, align 4, !noalias !15312
   invoke void @_ZN6chrono5naive8datetime13NaiveDateTime7and_utc17hd0162af38254f788E(ptr noalias nocapture noundef nonnull sret({ { i32, { i32, i32 } }, {} }) align 4 dereferenceable(12) %82, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %81)
           to label %.noexc75 unwind label %.loopexit.split-lp.loopexit
 
@@ -104366,7 +104366,7 @@ _ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.4172597797139691951.exit.i
 .noexc76:                                         ; preds = %.noexc75
   %690 = sext i32 %689 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %76), !noalias !15312
-  %691 = load i32, ptr %285, align 4, !noalias !15312, !noundef !4
+  %691 = load i32, ptr %284, align 4, !noalias !15312, !noundef !4
   %692 = zext i32 %691 to i64
   %693 = mul nsw i64 %690, 86400
   %694 = add nsw i64 %693, %286

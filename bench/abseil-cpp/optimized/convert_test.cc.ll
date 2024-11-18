@@ -67458,8 +67458,8 @@ ehcleanup66:                                      ; preds = %_ZN7testing7Message
 
 if.end67:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %invoke.cont42
   %.b129 = load i1, ptr @_ZZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_4CharIjE8TestBodyEvE10kMaxWCharT, align 4
-  %28 = select i1 %.b129, i32 1114111, i32 0
-  %29 = call i32 @llvm.umin.i32(i32 %28, i32 %9)
+  %28 = call i32 @llvm.umin.i32(i32 %9, i32 1114111)
+  %29 = select i1 %.b129, i32 %28, i32 0
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %oss.i33)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i33)
           to label %.noexc37 unwind label %lpad44
@@ -73193,8 +73193,8 @@ ehcleanup66:                                      ; preds = %_ZN7testing7Message
 
 if.end67:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %invoke.cont42
   %.b126 = load i1, ptr @_ZZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_4CharImE8TestBodyEvE10kMaxWCharT, align 8
-  %28 = select i1 %.b126, i64 1114111, i64 0
-  %29 = call i64 @llvm.umin.i64(i64 %28, i64 %9)
+  %28 = call i64 @llvm.umin.i64(i64 %9, i64 1114111)
+  %29 = select i1 %.b126, i64 %28, i64 0
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %oss.i33)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i33)
           to label %.noexc37 unwind label %lpad44
@@ -74770,8 +74770,8 @@ ehcleanup66:                                      ; preds = %_ZN7testing7Message
 
 if.end67:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %invoke.cont42
   %.b126 = load i1, ptr @_ZZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_4CharIyE8TestBodyEvE10kMaxWCharT, align 8
-  %28 = select i1 %.b126, i64 1114111, i64 0
-  %29 = call i64 @llvm.umin.i64(i64 %28, i64 %9)
+  %28 = call i64 @llvm.umin.i64(i64 %9, i64 1114111)
+  %29 = select i1 %.b126, i64 %28, i64 0
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %oss.i33)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i33)
           to label %.noexc37 unwind label %lpad44

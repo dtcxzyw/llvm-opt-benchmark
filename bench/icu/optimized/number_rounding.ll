@@ -1470,12 +1470,12 @@ cond.true:                                        ; preds = %if.end
 
 cond.false:                                       ; preds = %if.end
   %or.cond.i = icmp ult i32 %call4, 1000
-  %3 = and i32 %call4, 65535
   %.sink.i = select i1 %or.cond.i, i32 2, i32 9
   store i32 %.sink.i, ptr %agg.result, align 8
   %ref.tmp6.sroa.24.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %4 = shl i32 %call4, 16
-  %5 = or disjoint i32 %4, %3
+  %3 = shl i32 %call4, 16
+  %4 = and i32 %call4, 65535
+  %5 = or disjoint i32 %3, %4
   %ref.tmp6.sroa.24.sroa.0.0.insert.insert = select i1 %or.cond.i, i32 %5, i32 65810
   store i32 %ref.tmp6.sroa.24.sroa.0.0.insert.insert, ptr %ref.tmp6.sroa.24.0.agg.result.sroa_idx, align 8
   %ref.tmp6.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
@@ -1554,10 +1554,10 @@ cond.true.i:                                      ; preds = %if.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
   %or.cond.i.i = icmp ult i32 %call4.i, 1000
-  %3 = and i32 %call4.i, 65535
   %.sink.i.i = select i1 %or.cond.i.i, i32 2, i32 9
-  %4 = shl i32 %call4.i, 16
-  %5 = or disjoint i32 %4, %3
+  %3 = shl i32 %call4.i, 16
+  %4 = and i32 %call4.i, 65535
+  %5 = or disjoint i32 %3, %4
   %ref.tmp6.sroa.24.sroa.0.0.insert.insert.i = select i1 %or.cond.i.i, i32 %5, i32 65810
   br label %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
 
@@ -1679,10 +1679,10 @@ cond.true.i:                                      ; preds = %if.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
   %or.cond.i.i = icmp ult i32 %call4.i, 1000
-  %3 = and i32 %call4.i, 65535
   %.sink.i.i = select i1 %or.cond.i.i, i32 2, i32 9
-  %4 = shl i32 %call4.i, 16
-  %5 = or disjoint i32 %4, %3
+  %3 = shl i32 %call4.i, 16
+  %4 = and i32 %call4.i, 65535
+  %5 = or disjoint i32 %3, %4
   %ref.tmp6.sroa.24.sroa.0.0.insert.insert.i = select i1 %or.cond.i.i, i32 %5, i32 65810
   br label %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
 

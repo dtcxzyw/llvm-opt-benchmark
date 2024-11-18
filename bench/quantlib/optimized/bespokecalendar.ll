@@ -207,11 +207,11 @@ entry:
   %rem.i = srem i64 %0, 7
   %conv.i = trunc nsw i64 %rem.i to i32
   %cmp.i = icmp eq i64 %rem.i, 0
-  %1 = shl nuw nsw i32 1, %conv.i
   %weekend_mask_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %2 = load i32, ptr %weekend_mask_.i, align 8, !tbaa !23
-  %shl.i = select i1 %cmp.i, i32 128, i32 %1
-  %and.i = and i32 %shl.i, %2
+  %1 = load i32, ptr %weekend_mask_.i, align 8, !tbaa !23
+  %2 = shl nuw nsw i32 1, %conv.i
+  %shl.i = select i1 %cmp.i, i32 128, i32 %2
+  %and.i = and i32 %shl.i, %1
   %cmp.i1.not = icmp eq i32 %and.i, 0
   ret i1 %cmp.i1.not
 }

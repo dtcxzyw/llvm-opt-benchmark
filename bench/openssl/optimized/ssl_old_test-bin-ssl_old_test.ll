@@ -4354,25 +4354,22 @@ do.end:                                           ; preds = %do.cond
 
 if.then215:                                       ; preds = %do.end
   %spec.store.select1 = call i64 @llvm.umin.i64(i64 %spec.select117, i64 2147483647)
-  %dec = add nsw i64 %spec.store.select1, -1
+  %27 = trunc nuw nsw i64 %spec.store.select1 to i32
+  %28 = add nsw i32 %27, -1
   br label %if.end216
 
 if.end216:                                        ; preds = %do.end, %if.then215
-  %num198.1 = phi i64 [ %dec, %if.then215 ], [ %spec.select117, %do.end ]
+  %num198.1 = phi i32 [ %28, %if.then215 ], [ 1, %do.end ]
   %call217 = call i32 @BIO_nwrite0(ptr noundef %20, ptr noundef nonnull %dataptr208) #22
-  %conv218 = trunc nsw i64 %num198.1 to i32
-  %cmp219 = icmp slt i32 %call217, %conv218
-  %conv222 = zext i32 %call217 to i64
-  %spec.select118 = select i1 %cmp219, i64 %conv222, i64 %num198.1
-  %27 = load ptr, ptr %dataptr208, align 8
-  %conv224 = trunc i64 %spec.select118 to i32
-  %call225 = call i32 @BIO_read(ptr noundef %21, ptr noundef %27, i32 noundef %conv224) #22
+  %29 = load ptr, ptr %dataptr208, align 8
+  %conv224 = call i32 @llvm.smin.i32(i32 %call217, i32 %num198.1)
+  %call225 = call i32 @BIO_read(ptr noundef %21, ptr noundef %29, i32 noundef %conv224) #22
   %cmp227.not = icmp eq i32 %call225, %conv224
   br i1 %cmp227.not, label %if.end231, label %if.then229
 
 if.then229:                                       ; preds = %if.end216
-  %28 = load ptr, ptr @stderr, align 8
-  %29 = call i64 @fwrite(ptr nonnull @.str.138, i64 55, i64 1, ptr %28) #23
+  %30 = load ptr, ptr @stderr, align 8
+  %31 = call i64 @fwrite(ptr nonnull @.str.138, i64 55, i64 1, ptr %30) #23
   br label %err
 
 if.end231:                                        ; preds = %if.end216
@@ -4381,8 +4378,8 @@ if.end231:                                        ; preds = %if.end216
   br i1 %cmp235.not, label %if.end239, label %if.then237
 
 if.then237:                                       ; preds = %if.end231
-  %30 = load ptr, ptr @stderr, align 8
-  %31 = call i64 @fwrite(ptr nonnull @.str.139, i64 54, i64 1, ptr %30) #23
+  %32 = load ptr, ptr @stderr, align 8
+  %33 = call i64 @fwrite(ptr nonnull @.str.139, i64 54, i64 1, ptr %32) #23
   br label %err
 
 if.end239:                                        ; preds = %if.end231
@@ -4390,16 +4387,16 @@ if.end239:                                        ; preds = %if.end231
   br i1 %.b108, label %if.then241, label %if.end266
 
 if.then241:                                       ; preds = %if.end239
-  %32 = load ptr, ptr %client_io, align 8
-  %cmp242 = icmp eq ptr %21, %32
+  %34 = load ptr, ptr %client_io, align 8
+  %cmp242 = icmp eq ptr %21, %34
   %cond244 = select i1 %cmp242, ptr @.str.136, ptr @.str.137
   %call246 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %cond244, i32 noundef %conv224)
   br label %if.end266
 
 if.end248:                                        ; preds = %do.end
   %tobool249 = icmp ne i32 %progress.1, 0
-  %33 = load i32, ptr @doit_biopair.prev_progress, align 4
-  %tobool250 = icmp ne i32 %33, 0
+  %35 = load i32, ptr @doit_biopair.prev_progress, align 4
+  %tobool250 = icmp ne i32 %35, 0
   %or.cond = select i1 %tobool249, i1 true, i1 %tobool250
   br i1 %or.cond, label %if.end266, label %if.then251
 
@@ -4414,10 +4411,10 @@ if.then251:                                       ; preds = %if.end248
   br i1 %or.cond4, label %if.then262, label %if.end266
 
 if.then262:                                       ; preds = %if.then251
-  %34 = load ptr, ptr @stderr, align 8
-  %35 = call i64 @fwrite(ptr nonnull @.str.140, i64 17, i64 1, ptr %34) #23
   %36 = load ptr, ptr @stderr, align 8
-  %37 = call i64 @fwrite(ptr nonnull @.str.141, i64 8, i64 1, ptr %36) #23
+  %37 = call i64 @fwrite(ptr nonnull @.str.140, i64 17, i64 1, ptr %36) #23
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = call i64 @fwrite(ptr nonnull @.str.141, i64 8, i64 1, ptr %38) #23
   br label %err
 
 if.end266:                                        ; preds = %if.end239, %if.then241, %if.then251, %if.end248
@@ -4447,24 +4444,24 @@ if.end281:                                        ; preds = %if.then280, %do.end
 
 if.end286:                                        ; preds = %if.end281
   %.b.i = load i1, ptr @serverinfo_sct, align 4
-  %38 = zext i1 %.b.i to i32
-  %39 = load i32, ptr @serverinfo_sct_seen, align 4
-  %cmp.not.i = icmp eq i32 %39, %38
+  %40 = zext i1 %.b.i to i32
+  %41 = load i32, ptr @serverinfo_sct_seen, align 4
+  %cmp.not.i = icmp eq i32 %41, %40
   br i1 %cmp.not.i, label %if.end.i, label %if.then290
 
 if.end.i:                                         ; preds = %if.end286
   %.b1.i = load i1, ptr @serverinfo_tack, align 4
-  %40 = zext i1 %.b1.i to i32
-  %41 = load i32, ptr @serverinfo_tack_seen, align 4
-  %cmp1.not.i = icmp eq i32 %41, %40
-  %42 = load i32, ptr @serverinfo_other_seen, align 4
-  %tobool.not.i.not = icmp eq i32 %42, 0
+  %42 = zext i1 %.b1.i to i32
+  %43 = load i32, ptr @serverinfo_tack_seen, align 4
+  %cmp1.not.i = icmp eq i32 %43, %42
+  %44 = load i32, ptr @serverinfo_other_seen, align 4
+  %tobool.not.i.not = icmp eq i32 %44, 0
   %or.cond129 = select i1 %cmp1.not.i, i1 %tobool.not.i.not, i1 false
   br i1 %or.cond129, label %if.end292, label %if.then290
 
 if.then290:                                       ; preds = %if.end.i, %if.end286
-  %43 = load ptr, ptr @stderr, align 8
-  %44 = call i64 @fwrite(ptr nonnull @.str.131, i64 25, i64 1, ptr %43) #23
+  %45 = load ptr, ptr @stderr, align 8
+  %46 = call i64 @fwrite(ptr nonnull @.str.131, i64 25, i64 1, ptr %45) #23
   br label %err
 
 if.end292:                                        ; preds = %if.end.i
@@ -4482,8 +4479,8 @@ if.end301:                                        ; preds = %lor.lhs.false296
   br i1 %.b116, label %if.then303, label %err
 
 if.then303:                                       ; preds = %if.end301
-  %45 = load ptr, ptr @stderr, align 8
-  %46 = call i64 @fwrite(ptr nonnull @.str.132, i64 23, i64 1, ptr %45) #23
+  %47 = load ptr, ptr @stderr, align 8
+  %48 = call i64 @fwrite(ptr nonnull @.str.132, i64 23, i64 1, ptr %47) #23
   br label %err
 
 err:                                              ; preds = %if.end281, %if.end301, %if.end292, %lor.lhs.false296, %if.end9, %if.end4, %if.end, %entry, %if.then303, %if.then290, %if.then262, %if.then237, %if.then229, %if.then185, %if.then148, %if.then142, %if.then120, %if.then114, %if.then71, %if.then65, %if.then44, %if.then38
@@ -4492,29 +4489,29 @@ err:                                              ; preds = %if.end281, %if.end3
   %cmp330.not = phi i32 [ 1, %if.then185 ], [ 1, %if.then229 ], [ 1, %if.then237 ], [ 1, %if.then290 ], [ 1, %if.end292 ], [ 1, %lor.lhs.false296 ], [ 1, %if.then303 ], [ 1, %if.then262 ], [ 0, %if.then142 ], [ 1, %if.then148 ], [ 0, %if.then114 ], [ 1, %if.then120 ], [ 1, %if.then65 ], [ 1, %if.then71 ], [ 1, %if.then38 ], [ 1, %if.then44 ], [ 1, %if.end9 ], [ 1, %if.end4 ], [ 1, %if.end ], [ 1, %entry ], [ 1, %if.end301 ], [ 1, %if.end281 ]
   %c_ssl_bio.0 = phi ptr [ %call11, %if.then185 ], [ %call11, %if.then229 ], [ %call11, %if.then237 ], [ %call11, %if.then290 ], [ %call11, %if.end292 ], [ %call11, %lor.lhs.false296 ], [ %call11, %if.then303 ], [ %call11, %if.then262 ], [ %call11, %if.then142 ], [ %call11, %if.then148 ], [ %call11, %if.then114 ], [ %call11, %if.then120 ], [ %call11, %if.then65 ], [ %call11, %if.then71 ], [ %call11, %if.then38 ], [ %call11, %if.then44 ], [ null, %if.end9 ], [ null, %if.end4 ], [ null, %if.end ], [ null, %entry ], [ %call11, %if.end301 ], [ %call11, %if.end281 ]
   %s_ssl_bio.0 = phi ptr [ %call6, %if.then185 ], [ %call6, %if.then229 ], [ %call6, %if.then237 ], [ %call6, %if.then290 ], [ %call6, %if.end292 ], [ %call6, %lor.lhs.false296 ], [ %call6, %if.then303 ], [ %call6, %if.then262 ], [ %call6, %if.then142 ], [ %call6, %if.then148 ], [ %call6, %if.then114 ], [ %call6, %if.then120 ], [ %call6, %if.then65 ], [ %call6, %if.then71 ], [ %call6, %if.then38 ], [ %call6, %if.then44 ], [ %call6, %if.end9 ], [ null, %if.end4 ], [ null, %if.end ], [ null, %entry ], [ %call6, %if.end301 ], [ %call6, %if.end281 ]
-  %47 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %47) #22
-  %48 = load ptr, ptr %server, align 8
-  %call306 = call i32 @BIO_free(ptr noundef %48) #22
-  %49 = load ptr, ptr %server_io, align 8
-  %call307 = call i32 @BIO_free(ptr noundef %49) #22
-  %50 = load ptr, ptr %client, align 8
-  %call308 = call i32 @BIO_free(ptr noundef %50) #22
-  %51 = load ptr, ptr %client_io, align 8
-  %call309 = call i32 @BIO_free(ptr noundef %51) #22
+  %49 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %49) #22
+  %50 = load ptr, ptr %server, align 8
+  %call306 = call i32 @BIO_free(ptr noundef %50) #22
+  %51 = load ptr, ptr %server_io, align 8
+  %call307 = call i32 @BIO_free(ptr noundef %51) #22
+  %52 = load ptr, ptr %client, align 8
+  %call308 = call i32 @BIO_free(ptr noundef %52) #22
+  %53 = load ptr, ptr %client_io, align 8
+  %call309 = call i32 @BIO_free(ptr noundef %53) #22
   %call310 = call i32 @BIO_free(ptr noundef %s_ssl_bio.0) #22
   %call311 = call i32 @BIO_free(ptr noundef %c_ssl_bio.0) #22
-  %52 = load ptr, ptr @should_negotiate, align 8
-  %cmp312.not = icmp eq ptr %52, null
+  %54 = load ptr, ptr @should_negotiate, align 8
+  %cmp312.not = icmp eq ptr %54, null
   br i1 %cmp312.not, label %if.end334, label %land.lhs.true314
 
 land.lhs.true314:                                 ; preds = %err
-  %call315 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(12) @.str.110) #25
+  %call315 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(12) @.str.110) #25
   %cmp316 = icmp eq i32 %call315, 0
   br i1 %cmp316, label %if.end334, label %land.lhs.true325
 
 land.lhs.true325:                                 ; preds = %land.lhs.true314
-  %call326 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(12) @.str.109) #25
+  %call326 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(12) @.str.109) #25
   %cmp327 = icmp eq i32 %call326, 0
   %spec.select119 = select i1 %cmp327, i32 %cmp330.not, i32 %ret.0
   br label %if.end334
@@ -5597,6 +5594,9 @@ declare i64 @llvm.smin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20

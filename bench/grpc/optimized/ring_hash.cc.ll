@@ -6680,10 +6680,10 @@ entry:
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !98
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
-  %3 = shl i64 %2, 1
   %shr.i.sink.i = lshr i64 %0, 1
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %allocation_tx, ptr noundef nonnull align 1 dereferenceable(1) %this) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %allocation_tx, i8 0, i64 16, i1 false)
+  %3 = shl i64 %2, 1
   %mul.i = select i1 %tobool.i.not.i, i64 392, i64 %3
   %cmp.i.i.i.i = icmp slt i64 %mul.i, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i

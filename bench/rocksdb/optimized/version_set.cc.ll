@@ -26446,8 +26446,8 @@ entry:
 for.body:                                         ; preds = %entry, %if.end
   %len.023 = phi i32 [ %add, %if.end ], [ 11, %entry ]
   %__begin1.sroa.0.022 = phi ptr [ %incdec.ptr.i, %if.end ], [ %1, %entry ]
-  %conv = sext i32 %len.023 to i64
-  %sub = sub i32 3000, %len.023
+  %conv = zext nneg i32 %len.023 to i64
+  %sub = sub nsw i32 3000, %len.023
   %3 = load ptr, ptr %__begin1.sroa.0.022, align 8
   %file_size.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i64, ptr %file_size.i, align 8

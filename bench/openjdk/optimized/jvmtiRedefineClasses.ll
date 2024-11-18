@@ -4607,7 +4607,7 @@ _ZN15FieldStreamBase4nextEv.exit213:              ; preds = %_ZN15FieldStreamBas
   %.0170.ph = phi i32 [ 0, %316 ], [ %.0170.ph.be, %.outer.backedge ]
   %.0168.ph = phi i32 [ 0, %316 ], [ %.0168.ph.be, %.outer.backedge ]
   %.not196 = icmp slt i32 %.0170.ph, %322
-  %331 = sext i32 %.0170.ph to i64
+  %331 = zext nneg i32 %.0170.ph to i64
   %332 = getelementptr inbounds ptr, ptr %324, i64 %331
   br label %333
 
@@ -4620,7 +4620,7 @@ _ZN15FieldStreamBase4nextEv.exit213:              ; preds = %_ZN15FieldStreamBas
   br i1 %.not196, label %335, label %.loopexit
 
 335:                                              ; preds = %334
-  %336 = sext i32 %.0170.ph to i64
+  %336 = zext nneg i32 %.0170.ph to i64
   %337 = getelementptr inbounds ptr, ptr %324, i64 %336
   %338 = load ptr, ptr %337, align 8
   br label %.thread264

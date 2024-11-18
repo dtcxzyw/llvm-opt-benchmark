@@ -4594,17 +4594,17 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %14 = icmp ugt i64 %11, %13
   %reass.sub4 = sub i64 %13, %11
   %15 = add i64 %reass.sub4, 1
-  %.sink2.i.i2 = select i1 %14, i64 0, i64 %15
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink2.i.i, i64 %.sink2.i.i2)
+  %16 = tail call i64 @llvm.umin.i64(i64 %.sink2.i.i, i64 %15)
+  %.0.sroa.speculated.i = select i1 %14, i64 0, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %.0.sroa.speculated.i, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %.sink2.i.i, ptr %19, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 0, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %.0.sroa.speculated.i, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %.sink2.i.i, ptr %20, align 8
   ret void
 }
 
@@ -71804,29 +71804,29 @@ _ZN5typst4math8fragment17is_extended_shape17h9da39b814a17f0faE.exit.thread: ; pr
   %112 = fmul double %106, 5.000000e-01
   %113 = select i1 %switch17, double %112, double %.sroa.5.1.i25
   %trunc = trunc nuw i16 %59 to i1
-  %114 = sitofp i16 %63 to double
-  %115 = sitofp i16 %61 to double
-  %116 = getelementptr inbounds i8, ptr %0, i64 168
-  store i16 %2, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 72
-  store double %.056, ptr %117, align 8
-  %118 = load ptr, ptr %57, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %119 = getelementptr inbounds i8, ptr %118, i64 5376
-  %120 = load double, ptr %119, align 8, !noalias !4, !noundef !4
-  %121 = select i1 %trunc, double %114, double 0.000000e+00
-  %122 = fdiv double %121, %120
-  %.0.i.inv.i.i.i.i42 = fcmp ord double %122, 0.000000e+00
-  %.0.i.i.i.i43 = select i1 %.0.i.inv.i.i.i.i42, double %122, double 0.000000e+00
-  %123 = fmul double %17, %.0.i.i.i.i43
-  %.0.i.inv.i.i.i.i.i44 = fcmp uno double %123, 0.000000e+00
-  %124 = call double @llvm.fabs.f64(double %123)
-  %125 = fcmp one double %124, 0x7FF0000000000000
-  %.0.i.i.i.i.i45 = select i1 %125, double %123, double 0.000000e+00
+  %114 = getelementptr inbounds i8, ptr %0, i64 168
+  store i16 %2, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %0, i64 72
+  store double %.056, ptr %115, align 8
+  %116 = load ptr, ptr %57, align 8, !noalias !4, !nonnull !4, !noundef !4
+  %117 = getelementptr inbounds i8, ptr %116, i64 5376
+  %118 = load double, ptr %117, align 8, !noalias !4, !noundef !4
+  %119 = sitofp i16 %63 to double
+  %120 = select i1 %trunc, double %119, double 0.000000e+00
+  %121 = fdiv double %120, %118
+  %.0.i.inv.i.i.i.i42 = fcmp ord double %121, 0.000000e+00
+  %.0.i.i.i.i43 = select i1 %.0.i.inv.i.i.i.i42, double %121, double 0.000000e+00
+  %122 = fmul double %17, %.0.i.i.i.i43
+  %.0.i.inv.i.i.i.i.i44 = fcmp uno double %122, 0.000000e+00
+  %123 = call double @llvm.fabs.f64(double %122)
+  %124 = fcmp one double %123, 0x7FF0000000000000
+  %.0.i.i.i.i.i45 = select i1 %124, double %122, double 0.000000e+00
   %.0.i.i46 = select i1 %.0.i.inv.i.i.i.i.i44, double 0.000000e+00, double %.0.i.i.i.i.i45
-  %126 = getelementptr inbounds i8, ptr %0, i64 80
-  store double %.0.i.i46, ptr %126, align 16
-  %127 = select i1 %trunc, double %115, double 0.000000e+00
-  %128 = fdiv double %127, %120
+  %125 = getelementptr inbounds i8, ptr %0, i64 80
+  store double %.0.i.i46, ptr %125, align 16
+  %126 = sitofp i16 %61 to double
+  %127 = select i1 %trunc, double %126, double 0.000000e+00
+  %128 = fdiv double %127, %118
   %.0.i.inv.i.i.i.i47 = fcmp ord double %128, 0.000000e+00
   %.0.i.i.i.i48 = select i1 %.0.i.inv.i.i.i.i47, double %128, double 0.000000e+00
   %129 = fmul double %17, %.0.i.i.i.i48

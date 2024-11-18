@@ -24386,11 +24386,11 @@ if.else36:                                        ; preds = %if.else17
 _ZN8nlohmann16json_abi_v3_11_36detail22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEEE13get_characterEv.exit47: ; preds = %if.else36
   %4 = load i16, ptr %incdec.ptr.i.i.i.i, align 2
   %cmp.i1.i43 = icmp eq i16 %4, -1
-  %5 = and i16 %4, 1023
   %incdec.ptr.i.i.i.i45 = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %incdec.ptr.i.i.i.i45, ptr %input, align 8
   %and46 = shl nuw nsw i32 %conv, 10
   %shl = and i32 %and46, 1047552
+  %5 = and i16 %4, 1023
   %6 = select i1 %cmp.i1.i43, i16 1021, i16 %5
   %and47 = zext nneg i16 %6 to i32
   %or48 = or disjoint i32 %shl, %and47

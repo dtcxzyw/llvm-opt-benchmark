@@ -2353,11 +2353,11 @@ if.end34.i:                                       ; preds = %if.else15.i
 
 if.else36.i:                                      ; preds = %if.else15.i
   %199 = load i64, ptr %add.ptr.i1.i.i.i, align 8
-  %and.i.i.i2585 = shl i64 %199, 1
   %reass.sub2980 = sub i64 %cond.i.i12.i, %cond.i4.i.i
-  %add.i2587 = add i64 %reass.sub2980, 8
-  %mul.i.i2588 = select i1 %tobool.i.i.i8.i, i64 %and.i.i.i2585, i64 46
-  %cond.i.i54.i = call noundef i64 @llvm.umax.i64(i64 %add.i2587, i64 %mul.i.i2588)
+  %add.i2586 = add i64 %reass.sub2980, 8
+  %and.i.i.i2587 = shl i64 %199, 1
+  %mul.i.i2588 = select i1 %tobool.i.i.i8.i, i64 %and.i.i.i2587, i64 46
+  %cond.i.i54.i = call noundef i64 @llvm.umax.i64(i64 %add.i2586, i64 %mul.i.i2588)
   %add42.i = add i64 %cond.i.i54.i, 1
   %call.i.i.i2602 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %add42.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.noexc2601 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2405,7 +2405,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit.i2596: ; preds =
   store ptr %call.i.i.i2602, ptr %es8, align 8
   %or.i.i2597 = or i64 %cond.i.i54.i, -9223372036854775808
   store i64 %or.i.i2597, ptr %add.ptr.i1.i.i.i, align 8
-  store i64 %add.i2587, ptr %mnSize.i.i6.i.i, align 8
+  store i64 %add.i2586, ptr %mnSize.i.i6.i.i, align 8
   br label %call11.i.i.noexc
 
 call11.i.i.noexc:                                 ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit.i2596, %cond.false.i.i.i, %cond.true.i.i.i, %if.end.i2559, %if.end34.i
@@ -2855,11 +2855,11 @@ if.end39.i:                                       ; preds = %if.else18.i
 
 if.else41.i:                                      ; preds = %if.else18.i
   %244 = load i64, ptr %mnCapacity.i.i.i.i, align 8
-  %and.i.i.i2719 = shl i64 %244, 1
   %reass.sub2983 = sub i64 %cond.i.i12.i556, %cond.i4.i.i558
-  %add.i2721 = add i64 %reass.sub2983, 8
-  %mul.i53.i = select i1 %tobool.i.i.i8.i553, i64 %and.i.i.i2719, i64 22
-  %cond.i.i54.i2722 = call noundef i64 @llvm.umax.i64(i64 %add.i2721, i64 %mul.i53.i)
+  %add.i2720 = add i64 %reass.sub2983, 8
+  %and.i.i.i2721 = shl i64 %244, 1
+  %mul.i53.i = select i1 %tobool.i.i.i8.i553, i64 %and.i.i.i2721, i64 22
+  %cond.i.i54.i2722 = call noundef i64 @llvm.umax.i64(i64 %add.i2720, i64 %mul.i53.i)
   %add47.i = shl i64 %cond.i.i54.i2722, 1
   %mul.i55.i = add i64 %add47.i, 2
   %call.i.i.i2734 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i55.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -2907,7 +2907,7 @@ _ZN5eastl12basic_stringIDsNS_9allocatorEE14DeallocateSelfEv.exit.i2728: ; preds 
   store ptr %call.i.i.i2734, ptr %es16, align 8
   %or.i.i2729 = or i64 %cond.i.i54.i2722, -9223372036854775808
   store i64 %or.i.i2729, ptr %mnCapacity.i.i.i.i, align 8
-  store i64 %add.i2721, ptr %mnSize.i.i.i.i, align 8
+  store i64 %add.i2720, ptr %mnSize.i.i.i.i, align 8
   br label %call11.i.i.noexc568
 
 call11.i.i.noexc568:                              ; preds = %_ZN5eastl12basic_stringIDsNS_9allocatorEE14DeallocateSelfEv.exit.i2728, %cond.false.i.i.i2707, %cond.true.i.i.i2709, %if.end.i2686, %if.end39.i
@@ -2992,14 +2992,13 @@ invoke.cont115:                                   ; preds = %for.end.i592
   %tobool.i.i.i599 = icmp slt i8 %257, 0
   %258 = load i64, ptr %add.ptr.i1.i.i.i, align 8
   %and.i.i.i = and i64 %258, 9223372036854775807
-  %259 = add nsw i64 %and.i.i.i, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
-  %260 = load i32, ptr %mnUnits.i.i.i59, align 8
-  %cmp.i.i.i601 = icmp eq i32 %260, 1
+  %259 = load i32, ptr %mnUnits.i.i.i59, align 8
+  %cmp.i.i.i601 = icmp eq i32 %259, 1
   br i1 %cmp.i.i.i601, label %if.then2.i.i.i628, label %if.else.i.i.i602
 
 if.then2.i.i.i628:                                ; preds = %invoke.cont115
-  %261 = call noundef i64 @llvm.x86.rdtsc()
+  %260 = call noundef i64 @llvm.x86.rdtsc()
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i609
 
 if.else.i.i.i602:                                 ; preds = %invoke.cont115
@@ -3013,17 +3012,18 @@ if.then.i.i.i.i626:                               ; preds = %if.else.i.i.i602
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i605
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i605: ; preds = %if.then.i.i.i.i626, %if.else.i.i.i602
-  %262 = load i64, ptr %tv_nsec.i.i.i.i606, align 8
-  %263 = load i64, ptr %ts.i.i.i.i598, align 8
-  %mul.i.i.i.i607 = mul i64 %263, 1000000000
-  %add.i.i.i.i608 = add i64 %mul.i.i.i.i607, %262
+  %261 = load i64, ptr %tv_nsec.i.i.i.i606, align 8
+  %262 = load i64, ptr %ts.i.i.i.i598, align 8
+  %mul.i.i.i.i607 = mul i64 %262, 1000000000
+  %add.i.i.i.i608 = add i64 %mul.i.i.i.i607, %261
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i598)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i609
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i609:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i605, %if.then2.i.i.i628
-  %.sink.i.i.i610 = phi i64 [ %261, %if.then2.i.i.i628 ], [ %add.i.i.i.i608, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i605 ]
+  %.sink.i.i.i610 = phi i64 [ %260, %if.then2.i.i.i628 ], [ %add.i.i.i.i608, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i605 ]
   store i64 %.sink.i.i.i610, ptr %stopwatch2, align 8
-  %sub.i611 = select i1 %tobool.i.i.i599, i64 %259, i64 21
+  %263 = add nsw i64 %and.i.i.i, -2
+  %sub.i611 = select i1 %tobool.i.i.i599, i64 %263, i64 21
   br label %for.body.i613
 
 for.body.i613:                                    ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE7reserveEm.exit.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i609
@@ -3176,14 +3176,13 @@ if.then.i.i.i663:                                 ; preds = %if.end126
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i: ; preds = %if.then.i.i.i663, %if.end126
   %278 = load i64, ptr %0, align 8
-  %279 = add i64 %278, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
-  %280 = load i32, ptr %mnUnits.i.i.i, align 8
-  %cmp.i.i6.i = icmp eq i32 %280, 1
+  %279 = load i32, ptr %mnUnits.i.i.i, align 8
+  %cmp.i.i6.i = icmp eq i32 %279, 1
   br i1 %cmp.i.i6.i, label %if.then2.i.i.i662, label %if.else.i.i.i635
 
 if.then2.i.i.i662:                                ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i
-  %281 = call noundef i64 @llvm.x86.rdtsc()
+  %280 = call noundef i64 @llvm.x86.rdtsc()
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i642
 
 if.else.i.i.i635:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i
@@ -3197,17 +3196,18 @@ if.then.i.i.i.i660:                               ; preds = %if.else.i.i.i635
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i638
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i638: ; preds = %if.then.i.i.i.i660, %if.else.i.i.i635
-  %282 = load i64, ptr %tv_nsec.i.i.i.i639, align 8
-  %283 = load i64, ptr %ts.i.i.i.i632, align 8
-  %mul.i.i.i.i640 = mul i64 %283, 1000000000
-  %add.i.i.i.i641 = add i64 %mul.i.i.i.i640, %282
+  %281 = load i64, ptr %tv_nsec.i.i.i.i639, align 8
+  %282 = load i64, ptr %ts.i.i.i.i632, align 8
+  %mul.i.i.i.i640 = mul i64 %282, 1000000000
+  %add.i.i.i.i641 = add i64 %mul.i.i.i.i640, %281
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i632)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i642
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i642:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i638, %if.then2.i.i.i662
-  %.sink.i.i.i643 = phi i64 [ %281, %if.then2.i.i.i662 ], [ %add.i.i.i.i641, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i638 ]
+  %.sink.i.i.i643 = phi i64 [ %280, %if.then2.i.i.i662 ], [ %add.i.i.i.i641, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i638 ]
   store i64 %.sink.i.i.i643, ptr %stopwatch1, align 8
-  %sub.i644 = select i1 %cmp.i.i.i633, i64 5, i64 %279
+  %283 = add i64 %278, -2
+  %sub.i644 = select i1 %cmp.i.i.i633, i64 5, i64 %283
   %.pre.i646 = load ptr, ptr %ss16, align 8
   br label %for.body.i647
 
@@ -3296,14 +3296,13 @@ invoke.cont127:                                   ; preds = %for.end.i655
   %tobool.i.i.i669 = icmp slt i8 %290, 0
   %291 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i671 = and i64 %291, 9223372036854775807
-  %292 = add nsw i64 %and.i.i.i671, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
-  %293 = load i32, ptr %mnUnits.i.i.i59, align 8
-  %cmp.i.i.i673 = icmp eq i32 %293, 1
+  %292 = load i32, ptr %mnUnits.i.i.i59, align 8
+  %cmp.i.i.i673 = icmp eq i32 %292, 1
   br i1 %cmp.i.i.i673, label %if.then2.i.i.i704, label %if.else.i.i.i674
 
 if.then2.i.i.i704:                                ; preds = %invoke.cont127
-  %294 = call noundef i64 @llvm.x86.rdtsc()
+  %293 = call noundef i64 @llvm.x86.rdtsc()
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i681
 
 if.else.i.i.i674:                                 ; preds = %invoke.cont127
@@ -3317,17 +3316,18 @@ if.then.i.i.i.i702:                               ; preds = %if.else.i.i.i674
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i677
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i677: ; preds = %if.then.i.i.i.i702, %if.else.i.i.i674
-  %295 = load i64, ptr %tv_nsec.i.i.i.i678, align 8
-  %296 = load i64, ptr %ts.i.i.i.i668, align 8
-  %mul.i.i.i.i679 = mul i64 %296, 1000000000
-  %add.i.i.i.i680 = add i64 %mul.i.i.i.i679, %295
+  %294 = load i64, ptr %tv_nsec.i.i.i.i678, align 8
+  %295 = load i64, ptr %ts.i.i.i.i668, align 8
+  %mul.i.i.i.i679 = mul i64 %295, 1000000000
+  %add.i.i.i.i680 = add i64 %mul.i.i.i.i679, %294
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i668)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i681
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i681:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i677, %if.then2.i.i.i704
-  %.sink.i.i.i682 = phi i64 [ %294, %if.then2.i.i.i704 ], [ %add.i.i.i.i680, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i677 ]
+  %.sink.i.i.i682 = phi i64 [ %293, %if.then2.i.i.i704 ], [ %add.i.i.i.i680, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i677 ]
   store i64 %.sink.i.i.i682, ptr %stopwatch2, align 8
-  %sub.i683 = select i1 %tobool.i.i.i669, i64 %292, i64 9
+  %296 = add nsw i64 %and.i.i.i671, -2
+  %sub.i683 = select i1 %tobool.i.i.i669, i64 %296, i64 9
   br label %for.body.i685
 
 for.body.i685:                                    ; preds = %_ZN5eastl12basic_stringIDsNS_9allocatorEE7reserveEm.exit.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i681
@@ -8056,8 +8056,8 @@ if.then81:                                        ; preds = %if.else76
 
 if.else83:                                        ; preds = %if.else76.thread, %if.else76
   %cond.i183235 = phi i64 [ %cond.i183234, %if.else76.thread ], [ %3, %if.else76 ]
-  %31 = shl nuw i64 %and.i.i.i.i, 1
   %add84 = add i64 %cond.i183235, %sub.ptr.sub5
+  %31 = shl nuw i64 %and.i.i.i.i, 1
   %mul.i = select i1 %tobool.i.i, i64 %31, i64 46
   %cond.i.i186 = tail call noundef i64 @llvm.umax.i64(i64 %add84, i64 %mul.i)
   br label %if.end87
@@ -8374,8 +8374,8 @@ if.then83:                                        ; preds = %if.else78
 
 if.else85:                                        ; preds = %if.else78.thread, %if.else78
   %cond.i183236 = phi i64 [ %cond.i183235, %if.else78.thread ], [ %3, %if.else78 ]
-  %31 = shl nuw i64 %and.i.i.i.i, 1
   %add86 = add i64 %cond.i183236, %sub.ptr.div6
+  %31 = shl nuw i64 %and.i.i.i.i, 1
   %mul.i = select i1 %tobool.i.i, i64 %31, i64 22
   %cond.i.i186 = tail call noundef i64 @llvm.umax.i64(i64 %add86, i64 %mul.i)
   br label %if.end89

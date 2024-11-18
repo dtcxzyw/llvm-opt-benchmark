@@ -688,8 +688,8 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_E
   br label %.preheader14.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader14.i.i.i.i.i.i.i.i
-  %98 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i to i64
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 56
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 56
+  %99 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i to i64
   br label %102
 
 .preheader14.i.i.i.i.i.i.i.i:                     ; preds = %.preheader14.i.i.i.i.i.i.i.i, %.noexc
@@ -705,8 +705,8 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_E
 102:                                              ; preds = %102, %.preheader.i.i.i.i.i.i.i.i
   %.01016.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i ], [ %106, %102 ]
   %103 = icmp eq i64 %.01016.i.i.i.i.i.i.i.i, 0
-  %104 = getelementptr inbounds [64 x %"struct.std::atomic.13"], ptr %99, i64 0, i64 %.01016.i.i.i.i.i.i.i.i
-  %105 = select i1 %103, i64 %98, i64 0
+  %104 = getelementptr inbounds [64 x %"struct.std::atomic.13"], ptr %98, i64 0, i64 %.01016.i.i.i.i.i.i.i.i
+  %105 = select i1 %103, i64 %99, i64 0
   store atomic i64 %105, ptr %104 monotonic, align 8
   %106 = add nuw nsw i64 %.01016.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %106, 64
@@ -3212,8 +3212,8 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit11: ; preds = %
   br label %.preheader14.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader14.i.i.i.i.i.i.i.i
-  %56 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i to i64
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 56
+  %57 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i to i64
   br label %60
 
 .preheader14.i.i.i.i.i.i.i.i:                     ; preds = %.preheader14.i.i.i.i.i.i.i.i, %.noexc
@@ -3229,8 +3229,8 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit11: ; preds = %
 60:                                               ; preds = %60, %.preheader.i.i.i.i.i.i.i.i
   %.01016.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i ], [ %64, %60 ]
   %61 = icmp eq i64 %.01016.i.i.i.i.i.i.i.i, 0
-  %62 = getelementptr inbounds [64 x %"struct.std::atomic.13"], ptr %57, i64 0, i64 %.01016.i.i.i.i.i.i.i.i
-  %63 = select i1 %61, i64 %56, i64 0
+  %62 = getelementptr inbounds [64 x %"struct.std::atomic.13"], ptr %56, i64 0, i64 %.01016.i.i.i.i.i.i.i.i
+  %63 = select i1 %61, i64 %57, i64 0
   store atomic i64 %63, ptr %62 monotonic, align 8
   %64 = add nuw nsw i64 %.01016.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %64, 64
@@ -3528,8 +3528,8 @@ default.unreachable:                              ; preds = %_ZN3tbb6detail2d219
   br label %.preheader14.i.i.i.i.i.i.i.i18
 
 .preheader.i.i.i.i.i.i.i.i23:                     ; preds = %.preheader14.i.i.i.i.i.i.i.i18
-  %185 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i17 to i64
-  %186 = getelementptr inbounds nuw i8, ptr %182, i64 56
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 56
+  %186 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i17 to i64
   br label %189
 
 .preheader14.i.i.i.i.i.i.i.i18:                   ; preds = %.preheader14.i.i.i.i.i.i.i.i18, %.noexc27
@@ -3545,8 +3545,8 @@ default.unreachable:                              ; preds = %_ZN3tbb6detail2d219
 189:                                              ; preds = %189, %.preheader.i.i.i.i.i.i.i.i23
   %.01016.i.i.i.i.i.i.i.i24 = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i23 ], [ %193, %189 ]
   %190 = icmp eq i64 %.01016.i.i.i.i.i.i.i.i24, 0
-  %191 = getelementptr inbounds [64 x %"struct.std::atomic.13"], ptr %186, i64 0, i64 %.01016.i.i.i.i.i.i.i.i24
-  %192 = select i1 %190, i64 %185, i64 0
+  %191 = getelementptr inbounds [64 x %"struct.std::atomic.13"], ptr %185, i64 0, i64 %.01016.i.i.i.i.i.i.i.i24
+  %192 = select i1 %190, i64 %186, i64 0
   store atomic i64 %192, ptr %191 monotonic, align 8
   %193 = add nuw nsw i64 %.01016.i.i.i.i.i.i.i.i24, 1
   %exitcond.not.i.i.i.i.i.i.i.i25 = icmp eq i64 %193, 64

@@ -30579,12 +30579,12 @@ do.body.i.i.i:                                    ; preds = %for.cond.preheader.
   %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %position.136.i.i.i
   %23 = load i8, ptr %arrayidx.i.i5.i.i, align 1, !noalias !512
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i.i.i.i.i.i), !noalias !517
-  %cond.i.i.i.i.i.i.i = call noundef i8 @llvm.abs.i8(i8 %23, i1 false)
-  %cmp14.i.i.i.i.i.i.i = icmp ugt i8 %cond.i.i.i.i.i.i.i, 99
+  %conv3.i.i.i.i.i.i.i = call noundef i8 @llvm.abs.i8(i8 %23, i1 false)
+  %cmp14.i.i.i.i.i.i.i = icmp ugt i8 %conv3.i.i.i.i.i.i.i, 99
   br i1 %cmp14.i.i.i.i.i.i.i, label %while.end.thread.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i
 
 while.end.thread.i.i.i.i.i.i.i:                   ; preds = %do.body.i.i.i
-  %24 = shl i8 %cond.i.i.i.i.i.i.i, 1
+  %24 = shl i8 %conv3.i.i.i.i.i.i.i, 1
   %25 = add i8 %24, 56
   %idxprom.i.i.i.i.i.i.i.i = zext nneg i8 %25 to i64
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i
@@ -30596,11 +30596,11 @@ while.end.thread.i.i.i.i.i.i.i:                   ; preds = %do.body.i.i.i
   br label %if.else.i.i.i.i.i.i.i12
 
 while.end.i.i.i.i.i.i.i:                          ; preds = %do.body.i.i.i
-  %cmp5.i.i.i.i.i.i.i = icmp samesign ugt i8 %cond.i.i.i.i.i.i.i, 9
+  %cmp5.i.i.i.i.i.i.i = icmp samesign ugt i8 %conv3.i.i.i.i.i.i.i, 9
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i14, label %if.else.i.i.i.i.i.i.i12
 
 if.then.i.i.i.i.i.i.i14:                          ; preds = %while.end.i.i.i.i.i.i.i
-  %28 = shl nuw i8 %cond.i.i.i.i.i.i.i, 1
+  %28 = shl nuw i8 %conv3.i.i.i.i.i.i.i, 1
   %mul.i8.i.i.i.i.i.i.i = zext i8 %28 to i64
   %arrayidx.i9.i.i.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i8.i.i.i.i.i.i.i
   %arrayidx1.i10.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i9.i.i.i.i.i.i.i, i64 1
@@ -30611,7 +30611,7 @@ if.then.i.i.i.i.i.i.i14:                          ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i12:                          ; preds = %while.end.i.i.i.i.i.i.i, %while.end.thread.i.i.i.i.i.i.i
   %cursor.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i3.i.i.i.i.i.i.i.i, %while.end.thread.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i ]
-  %value.addr.0.lcssa18.i.i.i.i.i.i.i = phi i8 [ 1, %while.end.thread.i.i.i.i.i.i.i ], [ %cond.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i ]
+  %value.addr.0.lcssa18.i.i.i.i.i.i.i = phi i8 [ 1, %while.end.thread.i.i.i.i.i.i.i ], [ %conv3.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i ]
   %add.i.i.i.i.i.i.i.i = or disjoint i8 %value.addr.0.lcssa18.i.i.i.i.i.i.i, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIhEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -30766,12 +30766,12 @@ do.body55.i.i.i:                                  ; preds = %for.body52.i.i.i
   %arrayidx.i142.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %position.429.i.i.i
   %54 = load i8, ptr %arrayidx.i142.i.i.i, align 1, !noalias !543
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i.i.i141.i.i.i), !noalias !546
-  %cond.i.i.i.i144.i.i.i = call noundef i8 @llvm.abs.i8(i8 %54, i1 false)
-  %cmp14.i.i.i.i145.i.i.i = icmp ugt i8 %cond.i.i.i.i144.i.i.i, 99
+  %conv3.i.i.i.i144.i.i.i = call noundef i8 @llvm.abs.i8(i8 %54, i1 false)
+  %cmp14.i.i.i.i145.i.i.i = icmp ugt i8 %conv3.i.i.i.i144.i.i.i, 99
   br i1 %cmp14.i.i.i.i145.i.i.i, label %while.end.thread.i.i.i.i169.i.i.i, label %while.end.i.i.i.i146.i.i.i
 
 while.end.thread.i.i.i.i169.i.i.i:                ; preds = %do.body55.i.i.i
-  %55 = shl i8 %cond.i.i.i.i144.i.i.i, 1
+  %55 = shl i8 %conv3.i.i.i.i144.i.i.i, 1
   %56 = add i8 %55, 56
   %idxprom.i.i.i.i.i170.i.i.i = zext nneg i8 %56 to i64
   %arrayidx.i.i.i.i.i171.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %idxprom.i.i.i.i.i170.i.i.i
@@ -30783,11 +30783,11 @@ while.end.thread.i.i.i.i169.i.i.i:                ; preds = %do.body55.i.i.i
   br label %if.else.i.i.i.i148.i.i.i
 
 while.end.i.i.i.i146.i.i.i:                       ; preds = %do.body55.i.i.i
-  %cmp5.i.i.i.i147.i.i.i = icmp samesign ugt i8 %cond.i.i.i.i144.i.i.i, 9
+  %cmp5.i.i.i.i147.i.i.i = icmp samesign ugt i8 %conv3.i.i.i.i144.i.i.i, 9
   br i1 %cmp5.i.i.i.i147.i.i.i, label %if.then.i.i.i.i164.i.i.i, label %if.else.i.i.i.i148.i.i.i
 
 if.then.i.i.i.i164.i.i.i:                         ; preds = %while.end.i.i.i.i146.i.i.i
-  %59 = shl nuw i8 %cond.i.i.i.i144.i.i.i, 1
+  %59 = shl nuw i8 %conv3.i.i.i.i144.i.i.i, 1
   %mul.i8.i.i.i.i165.i.i.i = zext i8 %59 to i64
   %arrayidx.i9.i.i.i.i166.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i8.i.i.i.i165.i.i.i
   %arrayidx1.i10.i.i.i.i167.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i9.i.i.i.i166.i.i.i, i64 1
@@ -30798,7 +30798,7 @@ if.then.i.i.i.i164.i.i.i:                         ; preds = %while.end.i.i.i.i14
 
 if.else.i.i.i.i148.i.i.i:                         ; preds = %while.end.i.i.i.i146.i.i.i, %while.end.thread.i.i.i.i169.i.i.i
   %cursor.0.i.i.i149.i.i.i = phi ptr [ %incdec.ptr.i3.i.i.i.i.i174.i.i.i, %while.end.thread.i.i.i.i169.i.i.i ], [ %add.ptr.i.i.i143.i.i.i, %while.end.i.i.i.i146.i.i.i ]
-  %value.addr.0.lcssa18.i.i.i.i150.i.i.i = phi i8 [ 1, %while.end.thread.i.i.i.i169.i.i.i ], [ %cond.i.i.i.i144.i.i.i, %while.end.i.i.i.i146.i.i.i ]
+  %value.addr.0.lcssa18.i.i.i.i150.i.i.i = phi i8 [ 1, %while.end.thread.i.i.i.i169.i.i.i ], [ %conv3.i.i.i.i144.i.i.i, %while.end.i.i.i.i146.i.i.i ]
   %add.i.i.i.i.i151.i.i.i = or disjoint i8 %value.addr.0.lcssa18.i.i.i.i150.i.i.i, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIhEEvT_PPc.exit.i.i.i152.i.i.i
 
@@ -31933,13 +31933,13 @@ do.body.i.i.i:                                    ; preds = %for.cond.preheader.
   %arrayidx.i.i5.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i, i64 %position.136.i.i.i
   %23 = load i16, ptr %arrayidx.i.i5.i.i, align 2, !noalias !672
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %buffer.i.i.i.i.i.i), !noalias !677
-  %cond.i.i.i.i.i.i.i = call noundef i16 @llvm.abs.i16(i16 %23, i1 false)
-  %cmp15.i.i.i.i.i.i.i = icmp ugt i16 %cond.i.i.i.i.i.i.i, 99
+  %conv3.i.i.i.i.i.i.i = call noundef i16 @llvm.abs.i16(i16 %23, i1 false)
+  %cmp15.i.i.i.i.i.i.i = icmp ugt i16 %conv3.i.i.i.i.i.i.i, 99
   br i1 %cmp15.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %do.body.i.i.i, %while.body.i.i.i.i.i.i.i
   %cursor.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i3.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %do.body.i.i.i ]
-  %value.addr.016.i.i.i.i.i.i.i = phi i16 [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %cond.i.i.i.i.i.i.i, %do.body.i.i.i ]
+  %value.addr.016.i.i.i.i.i.i.i = phi i16 [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %conv3.i.i.i.i.i.i.i, %do.body.i.i.i ]
   %24 = urem i16 %value.addr.016.i.i.i.i.i.i.i, 100
   %25 = shl nuw nsw i16 %24, 1
   %idxprom.i.i.i.i.i.i.i.i = zext nneg i16 %25 to i64
@@ -31957,7 +31957,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %do.body.i.i.i, %whi
 
 while.end.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i.i.i.i, %do.body.i.i.i
   %cursor.1.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %do.body.i.i.i ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %value.addr.0.lcssa.i.i.i.i.i.i.i = phi i16 [ %cond.i.i.i.i.i.i.i, %do.body.i.i.i ], [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %value.addr.0.lcssa.i.i.i.i.i.i.i = phi i16 [ %conv3.i.i.i.i.i.i.i, %do.body.i.i.i ], [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %cmp5.i.i.i.i.i.i.i = icmp samesign ugt i16 %value.addr.0.lcssa.i.i.i.i.i.i.i, 9
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i14, label %if.else.i.i.i.i.i.i.i12
 
@@ -32128,13 +32128,13 @@ do.body55.i.i.i:                                  ; preds = %for.body52.i.i.i
   %arrayidx.i142.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i, i64 %position.429.i.i.i
   %54 = load i16, ptr %arrayidx.i142.i.i.i, align 2, !noalias !704
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %buffer.i.i.i141.i.i.i), !noalias !707
-  %cond.i.i.i.i144.i.i.i = call noundef i16 @llvm.abs.i16(i16 %54, i1 false)
-  %cmp15.i.i.i.i145.i.i.i = icmp ugt i16 %cond.i.i.i.i144.i.i.i, 99
+  %conv3.i.i.i.i144.i.i.i = call noundef i16 @llvm.abs.i16(i16 %54, i1 false)
+  %cmp15.i.i.i.i145.i.i.i = icmp ugt i16 %conv3.i.i.i.i144.i.i.i, 99
   br i1 %cmp15.i.i.i.i145.i.i.i, label %while.body.i.i.i.i170.i.i.i, label %while.end.i.i.i.i146.i.i.i
 
 while.body.i.i.i.i170.i.i.i:                      ; preds = %do.body55.i.i.i, %while.body.i.i.i.i170.i.i.i
   %cursor.0.i.i.i171.i.i.i = phi ptr [ %incdec.ptr.i3.i.i.i.i.i177.i.i.i, %while.body.i.i.i.i170.i.i.i ], [ %add.ptr.i.i.i143.i.i.i, %do.body55.i.i.i ]
-  %value.addr.016.i.i.i.i172.i.i.i = phi i16 [ %div.i.i.i.i178.i.i.i, %while.body.i.i.i.i170.i.i.i ], [ %cond.i.i.i.i144.i.i.i, %do.body55.i.i.i ]
+  %value.addr.016.i.i.i.i172.i.i.i = phi i16 [ %div.i.i.i.i178.i.i.i, %while.body.i.i.i.i170.i.i.i ], [ %conv3.i.i.i.i144.i.i.i, %do.body55.i.i.i ]
   %55 = urem i16 %value.addr.016.i.i.i.i172.i.i.i, 100
   %56 = shl nuw nsw i16 %55, 1
   %idxprom.i.i.i.i.i173.i.i.i = zext nneg i16 %56 to i64
@@ -32152,7 +32152,7 @@ while.body.i.i.i.i170.i.i.i:                      ; preds = %do.body55.i.i.i, %w
 
 while.end.i.i.i.i146.i.i.i:                       ; preds = %while.body.i.i.i.i170.i.i.i, %do.body55.i.i.i
   %cursor.1.i.i.i147.i.i.i = phi ptr [ %add.ptr.i.i.i143.i.i.i, %do.body55.i.i.i ], [ %incdec.ptr.i3.i.i.i.i.i177.i.i.i, %while.body.i.i.i.i170.i.i.i ]
-  %value.addr.0.lcssa.i.i.i.i148.i.i.i = phi i16 [ %cond.i.i.i.i144.i.i.i, %do.body55.i.i.i ], [ %div.i.i.i.i178.i.i.i, %while.body.i.i.i.i170.i.i.i ]
+  %value.addr.0.lcssa.i.i.i.i148.i.i.i = phi i16 [ %conv3.i.i.i.i144.i.i.i, %do.body55.i.i.i ], [ %div.i.i.i.i178.i.i.i, %while.body.i.i.i.i170.i.i.i ]
   %cmp5.i.i.i.i149.i.i.i = icmp samesign ugt i16 %value.addr.0.lcssa.i.i.i.i148.i.i.i, 9
   br i1 %cmp5.i.i.i.i149.i.i.i, label %if.then.i.i.i.i165.i.i.i, label %if.else.i.i.i.i150.i.i.i
 
@@ -73610,12 +73610,12 @@ do.body.i.i.i:                                    ; preds = %for.cond.preheader.
   %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %position.136.i.i.i
   %23 = load i8, ptr %arrayidx.i.i5.i.i, align 1, !noalias !2525
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i.i.i.i.i.i), !noalias !2530
-  %cond.i.i.i.i.i.i.i = call noundef i8 @llvm.abs.i8(i8 %23, i1 false)
-  %cmp14.i.i.i.i.i.i.i = icmp ugt i8 %cond.i.i.i.i.i.i.i, 99
+  %conv3.i.i.i.i.i.i.i = call noundef i8 @llvm.abs.i8(i8 %23, i1 false)
+  %cmp14.i.i.i.i.i.i.i = icmp ugt i8 %conv3.i.i.i.i.i.i.i, 99
   br i1 %cmp14.i.i.i.i.i.i.i, label %while.end.thread.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i
 
 while.end.thread.i.i.i.i.i.i.i:                   ; preds = %do.body.i.i.i
-  %24 = shl i8 %cond.i.i.i.i.i.i.i, 1
+  %24 = shl i8 %conv3.i.i.i.i.i.i.i, 1
   %25 = add i8 %24, 56
   %idxprom.i.i.i.i.i.i.i.i = zext nneg i8 %25 to i64
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i
@@ -73627,11 +73627,11 @@ while.end.thread.i.i.i.i.i.i.i:                   ; preds = %do.body.i.i.i
   br label %if.else.i.i.i.i.i.i.i12
 
 while.end.i.i.i.i.i.i.i:                          ; preds = %do.body.i.i.i
-  %cmp5.i.i.i.i.i.i.i = icmp samesign ugt i8 %cond.i.i.i.i.i.i.i, 9
+  %cmp5.i.i.i.i.i.i.i = icmp samesign ugt i8 %conv3.i.i.i.i.i.i.i, 9
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i14, label %if.else.i.i.i.i.i.i.i12
 
 if.then.i.i.i.i.i.i.i14:                          ; preds = %while.end.i.i.i.i.i.i.i
-  %28 = shl nuw i8 %cond.i.i.i.i.i.i.i, 1
+  %28 = shl nuw i8 %conv3.i.i.i.i.i.i.i, 1
   %mul.i8.i.i.i.i.i.i.i = zext i8 %28 to i64
   %arrayidx.i9.i.i.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i8.i.i.i.i.i.i.i
   %arrayidx1.i10.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i9.i.i.i.i.i.i.i, i64 1
@@ -73642,7 +73642,7 @@ if.then.i.i.i.i.i.i.i14:                          ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i12:                          ; preds = %while.end.i.i.i.i.i.i.i, %while.end.thread.i.i.i.i.i.i.i
   %cursor.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i3.i.i.i.i.i.i.i.i, %while.end.thread.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i ]
-  %value.addr.0.lcssa18.i.i.i.i.i.i.i = phi i8 [ 1, %while.end.thread.i.i.i.i.i.i.i ], [ %cond.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i ]
+  %value.addr.0.lcssa18.i.i.i.i.i.i.i = phi i8 [ 1, %while.end.thread.i.i.i.i.i.i.i ], [ %conv3.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i ]
   %add.i.i.i.i.i.i.i.i = or disjoint i8 %value.addr.0.lcssa18.i.i.i.i.i.i.i, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIhEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -73795,12 +73795,12 @@ do.body55.i.i.i:                                  ; preds = %for.body52.i.i.i
   %arrayidx.i142.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %position.429.i.i.i
   %54 = load i8, ptr %arrayidx.i142.i.i.i, align 1, !noalias !2556
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i.i.i141.i.i.i), !noalias !2559
-  %cond.i.i.i.i144.i.i.i = call noundef i8 @llvm.abs.i8(i8 %54, i1 false)
-  %cmp14.i.i.i.i145.i.i.i = icmp ugt i8 %cond.i.i.i.i144.i.i.i, 99
+  %conv3.i.i.i.i144.i.i.i = call noundef i8 @llvm.abs.i8(i8 %54, i1 false)
+  %cmp14.i.i.i.i145.i.i.i = icmp ugt i8 %conv3.i.i.i.i144.i.i.i, 99
   br i1 %cmp14.i.i.i.i145.i.i.i, label %while.end.thread.i.i.i.i168.i.i.i, label %while.end.i.i.i.i146.i.i.i
 
 while.end.thread.i.i.i.i168.i.i.i:                ; preds = %do.body55.i.i.i
-  %55 = shl i8 %cond.i.i.i.i144.i.i.i, 1
+  %55 = shl i8 %conv3.i.i.i.i144.i.i.i, 1
   %56 = add i8 %55, 56
   %idxprom.i.i.i.i.i169.i.i.i = zext nneg i8 %56 to i64
   %arrayidx.i.i.i.i.i170.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %idxprom.i.i.i.i.i169.i.i.i
@@ -73812,11 +73812,11 @@ while.end.thread.i.i.i.i168.i.i.i:                ; preds = %do.body55.i.i.i
   br label %if.else.i.i.i.i148.i.i.i
 
 while.end.i.i.i.i146.i.i.i:                       ; preds = %do.body55.i.i.i
-  %cmp5.i.i.i.i147.i.i.i = icmp samesign ugt i8 %cond.i.i.i.i144.i.i.i, 9
+  %cmp5.i.i.i.i147.i.i.i = icmp samesign ugt i8 %conv3.i.i.i.i144.i.i.i, 9
   br i1 %cmp5.i.i.i.i147.i.i.i, label %if.then.i.i.i.i163.i.i.i, label %if.else.i.i.i.i148.i.i.i
 
 if.then.i.i.i.i163.i.i.i:                         ; preds = %while.end.i.i.i.i146.i.i.i
-  %59 = shl nuw i8 %cond.i.i.i.i144.i.i.i, 1
+  %59 = shl nuw i8 %conv3.i.i.i.i144.i.i.i, 1
   %mul.i8.i.i.i.i164.i.i.i = zext i8 %59 to i64
   %arrayidx.i9.i.i.i.i165.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i8.i.i.i.i164.i.i.i
   %arrayidx1.i10.i.i.i.i166.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i9.i.i.i.i165.i.i.i, i64 1
@@ -73827,7 +73827,7 @@ if.then.i.i.i.i163.i.i.i:                         ; preds = %while.end.i.i.i.i14
 
 if.else.i.i.i.i148.i.i.i:                         ; preds = %while.end.i.i.i.i146.i.i.i, %while.end.thread.i.i.i.i168.i.i.i
   %cursor.0.i.i.i149.i.i.i = phi ptr [ %incdec.ptr.i3.i.i.i.i.i173.i.i.i, %while.end.thread.i.i.i.i168.i.i.i ], [ %add.ptr.i.i.i143.i.i.i, %while.end.i.i.i.i146.i.i.i ]
-  %value.addr.0.lcssa18.i.i.i.i150.i.i.i = phi i8 [ 1, %while.end.thread.i.i.i.i168.i.i.i ], [ %cond.i.i.i.i144.i.i.i, %while.end.i.i.i.i146.i.i.i ]
+  %value.addr.0.lcssa18.i.i.i.i150.i.i.i = phi i8 [ 1, %while.end.thread.i.i.i.i168.i.i.i ], [ %conv3.i.i.i.i144.i.i.i, %while.end.i.i.i.i146.i.i.i ]
   %add.i.i.i.i.i151.i.i.i = or disjoint i8 %value.addr.0.lcssa18.i.i.i.i150.i.i.i, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIhEEvT_PPc.exit.i.i.i152.i.i.i
 
@@ -74956,13 +74956,13 @@ do.body.i.i.i:                                    ; preds = %for.cond.preheader.
   %arrayidx.i.i5.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i, i64 %position.136.i.i.i
   %23 = load i16, ptr %arrayidx.i.i5.i.i, align 2, !noalias !2685
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %buffer.i.i.i.i.i.i), !noalias !2690
-  %cond.i.i.i.i.i.i.i = call noundef i16 @llvm.abs.i16(i16 %23, i1 false)
-  %cmp15.i.i.i.i.i.i.i = icmp ugt i16 %cond.i.i.i.i.i.i.i, 99
+  %conv3.i.i.i.i.i.i.i = call noundef i16 @llvm.abs.i16(i16 %23, i1 false)
+  %cmp15.i.i.i.i.i.i.i = icmp ugt i16 %conv3.i.i.i.i.i.i.i, 99
   br i1 %cmp15.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %do.body.i.i.i, %while.body.i.i.i.i.i.i.i
   %cursor.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i3.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %do.body.i.i.i ]
-  %value.addr.016.i.i.i.i.i.i.i = phi i16 [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %cond.i.i.i.i.i.i.i, %do.body.i.i.i ]
+  %value.addr.016.i.i.i.i.i.i.i = phi i16 [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %conv3.i.i.i.i.i.i.i, %do.body.i.i.i ]
   %24 = urem i16 %value.addr.016.i.i.i.i.i.i.i, 100
   %25 = shl nuw nsw i16 %24, 1
   %idxprom.i.i.i.i.i.i.i.i = zext nneg i16 %25 to i64
@@ -74980,7 +74980,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %do.body.i.i.i, %whi
 
 while.end.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i.i.i.i, %do.body.i.i.i
   %cursor.1.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %do.body.i.i.i ], [ %incdec.ptr.i3.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %value.addr.0.lcssa.i.i.i.i.i.i.i = phi i16 [ %cond.i.i.i.i.i.i.i, %do.body.i.i.i ], [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %value.addr.0.lcssa.i.i.i.i.i.i.i = phi i16 [ %conv3.i.i.i.i.i.i.i, %do.body.i.i.i ], [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %cmp5.i.i.i.i.i.i.i = icmp samesign ugt i16 %value.addr.0.lcssa.i.i.i.i.i.i.i, 9
   br i1 %cmp5.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i14, label %if.else.i.i.i.i.i.i.i12
 
@@ -75149,13 +75149,13 @@ do.body55.i.i.i:                                  ; preds = %for.body52.i.i.i
   %arrayidx.i142.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i, i64 %position.429.i.i.i
   %54 = load i16, ptr %arrayidx.i142.i.i.i, align 2, !noalias !2716
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %buffer.i.i.i141.i.i.i), !noalias !2719
-  %cond.i.i.i.i144.i.i.i = call noundef i16 @llvm.abs.i16(i16 %54, i1 false)
-  %cmp15.i.i.i.i145.i.i.i = icmp ugt i16 %cond.i.i.i.i144.i.i.i, 99
+  %conv3.i.i.i.i144.i.i.i = call noundef i16 @llvm.abs.i16(i16 %54, i1 false)
+  %cmp15.i.i.i.i145.i.i.i = icmp ugt i16 %conv3.i.i.i.i144.i.i.i, 99
   br i1 %cmp15.i.i.i.i145.i.i.i, label %while.body.i.i.i.i169.i.i.i, label %while.end.i.i.i.i146.i.i.i
 
 while.body.i.i.i.i169.i.i.i:                      ; preds = %do.body55.i.i.i, %while.body.i.i.i.i169.i.i.i
   %cursor.0.i.i.i170.i.i.i = phi ptr [ %incdec.ptr.i3.i.i.i.i.i176.i.i.i, %while.body.i.i.i.i169.i.i.i ], [ %add.ptr.i.i.i143.i.i.i, %do.body55.i.i.i ]
-  %value.addr.016.i.i.i.i171.i.i.i = phi i16 [ %div.i.i.i.i177.i.i.i, %while.body.i.i.i.i169.i.i.i ], [ %cond.i.i.i.i144.i.i.i, %do.body55.i.i.i ]
+  %value.addr.016.i.i.i.i171.i.i.i = phi i16 [ %div.i.i.i.i177.i.i.i, %while.body.i.i.i.i169.i.i.i ], [ %conv3.i.i.i.i144.i.i.i, %do.body55.i.i.i ]
   %55 = urem i16 %value.addr.016.i.i.i.i171.i.i.i, 100
   %56 = shl nuw nsw i16 %55, 1
   %idxprom.i.i.i.i.i172.i.i.i = zext nneg i16 %56 to i64
@@ -75173,7 +75173,7 @@ while.body.i.i.i.i169.i.i.i:                      ; preds = %do.body55.i.i.i, %w
 
 while.end.i.i.i.i146.i.i.i:                       ; preds = %while.body.i.i.i.i169.i.i.i, %do.body55.i.i.i
   %cursor.1.i.i.i147.i.i.i = phi ptr [ %add.ptr.i.i.i143.i.i.i, %do.body55.i.i.i ], [ %incdec.ptr.i3.i.i.i.i.i176.i.i.i, %while.body.i.i.i.i169.i.i.i ]
-  %value.addr.0.lcssa.i.i.i.i148.i.i.i = phi i16 [ %cond.i.i.i.i144.i.i.i, %do.body55.i.i.i ], [ %div.i.i.i.i177.i.i.i, %while.body.i.i.i.i169.i.i.i ]
+  %value.addr.0.lcssa.i.i.i.i148.i.i.i = phi i16 [ %conv3.i.i.i.i144.i.i.i, %do.body55.i.i.i ], [ %div.i.i.i.i177.i.i.i, %while.body.i.i.i.i169.i.i.i ]
   %cmp5.i.i.i.i149.i.i.i = icmp samesign ugt i16 %value.addr.0.lcssa.i.i.i.i148.i.i.i, 9
   br i1 %cmp5.i.i.i.i149.i.i.i, label %if.then.i.i.i.i164.i.i.i, label %if.else.i.i.i.i150.i.i.i
 

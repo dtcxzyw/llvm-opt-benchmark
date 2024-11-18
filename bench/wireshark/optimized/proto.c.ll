@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_reserved_filter_names = internal unnamed_addr global ptr null, align 8
 @reserved_filter_names = internal unnamed_addr constant [26 x ptr] [ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214, ptr @.str.215, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219, ptr @.str.220, ptr @.str.221, ptr @.str.222, ptr @.str.223, ptr @.str.156, ptr @.str.224, ptr @.str.225, ptr null], align 16
 @gpa_hfinfo.0 = internal unnamed_addr global i32 0, align 8
-@gpa_hfinfo.1 = internal unnamed_addr global i32 0, align 8
+@gpa_hfinfo.1 = internal unnamed_addr global i32 0, align 4
 @gpa_hfinfo.2 = internal unnamed_addr global ptr null, align 8
 @gpa_name_map = internal unnamed_addr global ptr null, align 8
 @gpa_protocol_aliases = internal unnamed_addr global ptr null, align 8
@@ -621,7 +621,7 @@ define hidden void @proto_init(ptr noundef readonly %0, ptr noundef readonly %1,
 
 15:                                               ; preds = %9
   store i32 0, ptr @gpa_hfinfo.0, align 8
-  store i32 0, ptr @gpa_hfinfo.1, align 8
+  store i32 0, ptr @gpa_hfinfo.1, align 4
   store ptr null, ptr @gpa_hfinfo.2, align 8
   %16 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @save_same_name_hfinfo) #33
   store ptr %16, ptr @gpa_name_map, align 8
@@ -907,13 +907,13 @@ define internal fastcc void @proto_cleanup_base() unnamed_addr #0 {
   br label %67
 
 67:                                               ; preds = %66, %64
-  %68 = load i32, ptr @gpa_hfinfo.1, align 8
+  %68 = load i32, ptr @gpa_hfinfo.1, align 4
   %.not39 = icmp eq i32 %68, 0
   br i1 %.not39, label %71, label %69
 
 69:                                               ; preds = %67
   store i32 0, ptr @gpa_hfinfo.0, align 8
-  store i32 0, ptr @gpa_hfinfo.1, align 8
+  store i32 0, ptr @gpa_hfinfo.1, align 4
   %70 = load ptr, ptr @gpa_hfinfo.2, align 8
   tail call void @g_free(ptr noundef %70) #33
   store ptr null, ptr @gpa_hfinfo.2, align 8
@@ -1556,7 +1556,7 @@ tmp_fld_check_assert.exit:                        ; preds = %37, %52, %108, %108
   %233 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 -1, ptr %233, align 4
   %234 = load i32, ptr @gpa_hfinfo.0, align 8
-  %235 = load i32, ptr @gpa_hfinfo.1, align 8
+  %235 = load i32, ptr @gpa_hfinfo.1, align 4
   %.not = icmp ult i32 %234, %235
   %.pre = load ptr, ptr @gpa_hfinfo.2, align 8
   br i1 %.not, label %244, label %236
@@ -1566,7 +1566,7 @@ tmp_fld_check_assert.exit:                        ; preds = %37, %52, %108, %108
   br i1 %.not31, label %237, label %239
 
 237:                                              ; preds = %236
-  store i32 275000, ptr @gpa_hfinfo.1, align 8
+  store i32 275000, ptr @gpa_hfinfo.1, align 4
   %238 = tail call noalias dereferenceable_or_null(2200000) ptr @g_malloc(i64 noundef 2200000) #37
   store ptr %238, ptr @gpa_hfinfo.2, align 8
   store ptr null, ptr %238, align 8
@@ -1574,7 +1574,7 @@ tmp_fld_check_assert.exit:                        ; preds = %37, %52, %108, %108
 
 239:                                              ; preds = %236
   %240 = add i32 %235, 1000
-  store i32 %240, ptr @gpa_hfinfo.1, align 8
+  store i32 %240, ptr @gpa_hfinfo.1, align 4
   %241 = zext i32 %240 to i64
   %242 = shl nuw nsw i64 %241, 3
   %243 = tail call ptr @g_realloc(ptr noundef nonnull %.pre, i64 noundef %242) #33
@@ -28437,11 +28437,11 @@ define range(i32 0, 2) i32 @proto_registrar_dump_fieldcount() local_unnamed_addr
   %.0.lcssa = phi i32 [ 0, %0 ], [ %.1, %20 ]
   %.lcssa = phi i32 [ 0, %0 ], [ %21, %20 ]
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.148, i32 noundef %.lcssa, i32 noundef %.020.lcssa, i32 noundef %.0.lcssa, i32 noundef %.018.lcssa)
-  %26 = load i32, ptr @gpa_hfinfo.1, align 8
+  %26 = load i32, ptr @gpa_hfinfo.1, align 4
   %27 = icmp ugt i32 %26, 275000
   %28 = select i1 %27, ptr @.str.150, ptr @.str.14
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.149, i32 noundef 275000, ptr noundef nonnull %28)
-  %30 = load i32, ptr @gpa_hfinfo.1, align 8
+  %30 = load i32, ptr @gpa_hfinfo.1, align 4
   %31 = lshr i32 %30, 7
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.151, i32 noundef %31)
   %33 = load i32, ptr @gpa_hfinfo.0, align 8
@@ -28450,7 +28450,7 @@ define range(i32 0, 2) i32 @proto_registrar_dump_fieldcount() local_unnamed_addr
   %36 = lshr i64 %35, 10
   %37 = trunc nuw nsw i64 %36 to i32
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.152, i32 noundef %37)
-  %39 = load i32, ptr @gpa_hfinfo.1, align 8
+  %39 = load i32, ptr @gpa_hfinfo.1, align 4
   %40 = icmp ugt i32 %39, 275000
   %41 = zext i1 %40 to i32
   ret i32 %41

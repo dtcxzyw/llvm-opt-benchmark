@@ -266,8 +266,8 @@ countComponents.exit.i:                           ; preds = %.lr.ph53.i.i, %._cr
   %84 = icmp sgt i32 %.033.lcssa.i.i, 0
   %85 = uitofp nneg i32 %.033.lcssa.i.i to float
   %86 = fdiv float %.035.lcssa.i.i, %85
-  %87 = fpext float %86 to double
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  %87 = fpext float %86 to double
   %88 = select i1 %84, double %87, double 0.000000e+00
   br label %89
 

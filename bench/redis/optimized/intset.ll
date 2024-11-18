@@ -27,7 +27,6 @@ entry:
   %or.cond.i = icmp ult i64 %0, -4294967296
   %1 = add i64 %value, -32768
   %or.cond1.i = icmp ult i64 %1, -65536
-  %2 = select i1 %or.cond1.i, i32 4, i32 2
   %tobool.not = icmp eq ptr %success, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -36,6 +35,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
+  %2 = select i1 %or.cond1.i, i32 4, i32 2
   %conv = select i1 %or.cond.i, i32 8, i32 %2
   %3 = load i32, ptr %is, align 4
   %cmp = icmp ult i32 %3, %conv
@@ -507,7 +507,6 @@ entry:
   %or.cond.i = icmp ult i64 %0, -4294967296
   %1 = add i64 %value, -32768
   %or.cond1.i = icmp ult i64 %1, -65536
-  %2 = select i1 %or.cond1.i, i32 4, i32 2
   %tobool.not = icmp eq ptr %success, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -516,6 +515,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
+  %2 = select i1 %or.cond1.i, i32 4, i32 2
   %conv = select i1 %or.cond.i, i32 8, i32 %2
   %3 = load i32, ptr %is, align 4
   %cmp.not = icmp ult i32 %3, %conv

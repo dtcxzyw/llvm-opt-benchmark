@@ -11957,15 +11957,15 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit:    ; preds = %_ZN4llvm3EVT11getVe
   %162 = trunc i8 %161 to i1
   %163 = sdiv i32 %.0, %44
   %164 = add nsw i32 %163, -1
-  %165 = sext i32 %164 to i64
-  %166 = sext i32 %163 to i64
-  %167 = select i1 %162, i64 %165, i64 0
+  %165 = sext i32 %163 to i64
+  %166 = sext i32 %164 to i64
+  %167 = select i1 %162, i64 %166, i64 0
   %wide.trip.count = zext nneg i32 %44 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %168 = mul nsw i64 %indvars.iv, %166
+  %168 = mul nsw i64 %indvars.iv, %165
   %169 = load ptr, ptr %14, align 8
   %170 = getelementptr i32, ptr %169, i64 %168
   %171 = getelementptr i32, ptr %170, i64 %167
@@ -12687,15 +12687,15 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit:    ; preds = %_ZN4llvm3EVT11getVe
   %164 = trunc i8 %163 to i1
   %165 = sdiv i32 %.0, %43
   %166 = add nsw i32 %165, -1
-  %167 = sext i32 %166 to i64
-  %168 = sext i32 %165 to i64
-  %169 = select i1 %164, i64 %167, i64 0
+  %167 = sext i32 %165 to i64
+  %168 = sext i32 %166 to i64
+  %169 = select i1 %164, i64 %168, i64 0
   %wide.trip.count = zext nneg i32 %43 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %170 = mul nsw i64 %indvars.iv, %168
+  %170 = mul nsw i64 %indvars.iv, %167
   %171 = load ptr, ptr %13, align 8
   %172 = getelementptr i32, ptr %171, i64 %170
   %173 = getelementptr i32, ptr %172, i64 %169

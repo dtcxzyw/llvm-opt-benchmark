@@ -589,16 +589,16 @@ _ZN4llvm11SmallVectorIN5clang9CharUnitsELj8EED2Ev.exit.i87: ; preds = %140, %_ZN
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %232 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %213, i64 %.sroa.speculated.i.i123, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %8) #10
   %233 = load i64, ptr %8, align 8
-  %234 = shl i64 %233, 3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %235 = load i64, ptr %43, align 8
-  %.sroa.speculated5.i.i125 = call i64 @llvm.umin.i64(i64 %235, i64 %.lcssa.i122)
-  %236 = load ptr, ptr %19, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 %.sroa.speculated5.i.i125
-  %238 = sub i64 %235, %.sroa.speculated5.i.i125
-  store ptr %237, ptr %19, align 8
-  store i64 %238, ptr %43, align 8
-  %239 = select i1 %232, i64 0, i64 %234
+  %234 = load i64, ptr %43, align 8
+  %.sroa.speculated5.i.i125 = call i64 @llvm.umin.i64(i64 %234, i64 %.lcssa.i122)
+  %235 = load ptr, ptr %19, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 %.sroa.speculated5.i.i125
+  %237 = sub i64 %234, %.sroa.speculated5.i.i125
+  store ptr %236, ptr %19, align 8
+  store i64 %237, ptr %43, align 8
+  %238 = shl i64 %233, 3
+  %239 = select i1 %232, i64 0, i64 %238
   store i64 %239, ptr %17, align 8
   br label %_ZL13parseUnsignedRN4llvm9StringRefERy.exit127.thread
 
@@ -656,16 +656,16 @@ _ZL13parseUnsignedRN4llvm9StringRefERy.exit127.thread: ; preds = %209, %215, %.c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %264 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %245, i64 %.sroa.speculated.i.i139, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %7) #10
   %265 = load i64, ptr %7, align 8
-  %266 = shl i64 %265, 3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %267 = load i64, ptr %43, align 8
-  %.sroa.speculated5.i.i141 = call i64 @llvm.umin.i64(i64 %267, i64 %.lcssa.i138)
-  %268 = load ptr, ptr %19, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 %.sroa.speculated5.i.i141
-  %270 = sub i64 %267, %.sroa.speculated5.i.i141
-  store ptr %269, ptr %19, align 8
-  store i64 %270, ptr %43, align 8
-  %271 = select i1 %264, i64 0, i64 %266
+  %266 = load i64, ptr %43, align 8
+  %.sroa.speculated5.i.i141 = call i64 @llvm.umin.i64(i64 %266, i64 %.lcssa.i138)
+  %267 = load ptr, ptr %19, align 8
+  %268 = getelementptr inbounds i8, ptr %267, i64 %.sroa.speculated5.i.i141
+  %269 = sub i64 %266, %.sroa.speculated5.i.i141
+  store ptr %268, ptr %19, align 8
+  store i64 %269, ptr %43, align 8
+  %270 = shl i64 %265, 3
+  %271 = select i1 %264, i64 0, i64 %270
   store i64 %271, ptr %50, align 8
   br label %.critedge2, !llvm.loop !7
 

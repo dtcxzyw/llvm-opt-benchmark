@@ -1013,8 +1013,8 @@ if.else30.i:                                      ; preds = %if.then27.i
 
 if.end37.i:                                       ; preds = %lor.lhs.false18.i, %land.lhs.true.i, %if.else30.i
   %u.1.i = phi ptr [ %spec.select.i, %if.else30.i ], [ %incdec.ptr.i, %land.lhs.true.i ], [ %incdec.ptr.i, %lor.lhs.false18.i ]
-  %103 = ptrtoint ptr %spec.select to i64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %u.1.i to i64
+  %103 = ptrtoint ptr %spec.select to i64
   %sub.ptr.rhs.cast.i = select i1 %tobool.not.i.i, i64 %103, i64 0
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 1

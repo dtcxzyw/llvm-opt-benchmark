@@ -713,10 +713,9 @@ define hidden noundef ptr @_ZNK5frame27interpreter_frame_sender_spEv(ptr nocaptu
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i64, ptr %6, i64 %8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = select i1 %4, i64 %10, i64 %8
-  %12 = inttoptr i64 %11 to ptr
-  ret ptr %12
+  %10 = inttoptr i64 %8 to ptr
+  %11 = select i1 %4, ptr %9, ptr %10
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1099,55 +1098,54 @@ define hidden void @_ZNK5frame28sender_for_interpreter_frameEP11RegisterMap(ptr 
   %10 = getelementptr inbounds i8, ptr %5, i64 -8
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i64, ptr %5, i64 %11
-  %13 = ptrtoint ptr %12 to i64
-  %14 = select i1 %9, i64 %13, i64 %11
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 4980
-  %18 = load i8, ptr %17, align 4
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %26
+  %13 = inttoptr i64 %11 to ptr
+  %14 = select i1 %9, ptr %12, ptr %13
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds i8, ptr %2, i64 4980
+  %17 = load i8, ptr %16, align 4
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %25
 
-20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %2, i64 80
-  store ptr %5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 4872
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 88
-  store ptr %5, ptr %24, align 8
-  %25 = or i64 %23, 3072
-  store i64 %25, ptr %22, align 8
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr %5, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %2, i64 4872
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %2, i64 88
+  store ptr %5, ptr %23, align 8
+  %24 = or i64 %22, 3072
+  store i64 %24, ptr %21, align 8
   %.pre = load ptr, ptr %4, align 8
-  br label %26
+  br label %25
 
-26:                                               ; preds = %20, %3
-  %27 = phi ptr [ %.pre, %20 ], [ %5, %3 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef zeroext i1 @_ZN12Continuation23is_return_barrier_entryEPh(ptr noundef %29) #8
-  br i1 %30, label %31, label %39
+25:                                               ; preds = %19, %3
+  %26 = phi ptr [ %.pre, %19 ], [ %5, %3 ]
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef zeroext i1 @_ZN12Continuation23is_return_barrier_entryEPh(ptr noundef %28) #8
+  br i1 %29, label %30, label %38
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %2, i64 4982
-  %33 = load i8, ptr %32, align 2
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %36
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds i8, ptr %2, i64 4982
+  %32 = load i8, ptr %31, align 2
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %35
 
-35:                                               ; preds = %31
+34:                                               ; preds = %30
   tail call void @_ZN12Continuation9top_frameERK5frameP11RegisterMap(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %2) #8
-  br label %40
+  br label %39
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %2, i64 4960
-  %38 = load ptr, ptr %37, align 8
-  tail call void @_ZN12Continuation26continuation_bottom_senderEP10JavaThreadRK5framePl(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %6) #8
-  br label %40
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds i8, ptr %2, i64 4960
+  %37 = load ptr, ptr %36, align 8
+  tail call void @_ZN12Continuation26continuation_bottom_senderEP10JavaThreadRK5framePl(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %6) #8
+  br label %39
 
-39:                                               ; preds = %26
-  tail call void @_ZN5frameC2EPlS0_S0_Ph(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %6, ptr noundef %15, ptr noundef %16, ptr noundef %29)
-  br label %40
+38:                                               ; preds = %25
+  tail call void @_ZN5frameC2EPlS0_S0_Ph(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %6, ptr noundef %14, ptr noundef %15, ptr noundef %28)
+  br label %39
 
-40:                                               ; preds = %39, %36, %35
+39:                                               ; preds = %38, %35, %34
   ret void
 }
 
@@ -1199,22 +1197,22 @@ define hidden noundef zeroext range(i8 4, 15) i8 @_ZN5frame24interpreter_frame_r
 
 23:                                               ; preds = %11, %14
   %.0 = phi ptr [ %spec.select.i, %14 ], [ %spec.select, %11 ]
-  switch i8 %8, label %58 [
+  switch i8 %8, label %57 [
     i8 12, label %24
     i8 13, label %24
-    i8 4, label %42
-    i8 8, label %44
-    i8 5, label %46
-    i8 9, label %48
-    i8 10, label %50
-    i8 11, label %52
-    i8 6, label %54
-    i8 7, label %56
-    i8 14, label %60
+    i8 4, label %41
+    i8 8, label %43
+    i8 5, label %45
+    i8 9, label %47
+    i8 10, label %49
+    i8 11, label %51
+    i8 6, label %53
+    i8 7, label %55
+    i8 14, label %59
   ]
 
 24:                                               ; preds = %23, %23
-  br i1 %.not, label %37, label %25
+  br i1 %.not, label %36, label %25
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds i8, ptr %0, i64 36
@@ -1225,71 +1223,70 @@ define hidden noundef zeroext range(i8 4, 15) i8 @_ZN5frame24interpreter_frame_r
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i64, ptr %30, i64 %32
-  %34 = ptrtoint ptr %33 to i64
-  %35 = select i1 %28, i64 %34, i64 %32
-  %36 = inttoptr i64 %35 to ptr
-  br label %41
+  %34 = inttoptr i64 %32 to ptr
+  %35 = select i1 %28, ptr %33, ptr %34
+  br label %40
 
-37:                                               ; preds = %24
-  %38 = icmp eq ptr %.0, null
-  br i1 %38, label %41, label %39
+36:                                               ; preds = %24
+  %37 = icmp eq ptr %.0, null
+  br i1 %37, label %40, label %38
 
-39:                                               ; preds = %37
-  %40 = load ptr, ptr %.0, align 8
-  br label %41
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %.0, align 8
+  br label %40
 
-41:                                               ; preds = %39, %37, %25
-  %.031 = phi ptr [ %36, %25 ], [ %40, %39 ], [ null, %37 ]
+40:                                               ; preds = %38, %36, %25
+  %.031 = phi ptr [ %35, %25 ], [ %39, %38 ], [ null, %36 ]
   store ptr %.031, ptr %1, align 8
-  br label %60
+  br label %59
 
-42:                                               ; preds = %23
-  %43 = load i8, ptr %.0, align 1
-  store i8 %43, ptr %2, align 8
-  br label %60
+41:                                               ; preds = %23
+  %42 = load i8, ptr %.0, align 1
+  store i8 %42, ptr %2, align 8
+  br label %59
 
-44:                                               ; preds = %23
-  %45 = load i8, ptr %.0, align 1
-  store i8 %45, ptr %2, align 8
-  br label %60
+43:                                               ; preds = %23
+  %44 = load i8, ptr %.0, align 1
+  store i8 %44, ptr %2, align 8
+  br label %59
 
-46:                                               ; preds = %23
-  %47 = load i16, ptr %.0, align 2
-  store i16 %47, ptr %2, align 8
-  br label %60
+45:                                               ; preds = %23
+  %46 = load i16, ptr %.0, align 2
+  store i16 %46, ptr %2, align 8
+  br label %59
 
-48:                                               ; preds = %23
-  %49 = load i16, ptr %.0, align 2
-  store i16 %49, ptr %2, align 8
-  br label %60
+47:                                               ; preds = %23
+  %48 = load i16, ptr %.0, align 2
+  store i16 %48, ptr %2, align 8
+  br label %59
 
-50:                                               ; preds = %23
-  %51 = load i32, ptr %.0, align 4
-  store i32 %51, ptr %2, align 8
-  br label %60
+49:                                               ; preds = %23
+  %50 = load i32, ptr %.0, align 4
+  store i32 %50, ptr %2, align 8
+  br label %59
 
-52:                                               ; preds = %23
-  %53 = load i64, ptr %.0, align 8
-  store i64 %53, ptr %2, align 8
-  br label %60
+51:                                               ; preds = %23
+  %52 = load i64, ptr %.0, align 8
+  store i64 %52, ptr %2, align 8
+  br label %59
 
-54:                                               ; preds = %23
-  %55 = load float, ptr %.0, align 4
-  store float %55, ptr %2, align 8
-  br label %60
+53:                                               ; preds = %23
+  %54 = load float, ptr %.0, align 4
+  store float %54, ptr %2, align 8
+  br label %59
 
-56:                                               ; preds = %23
-  %57 = load double, ptr %.0, align 8
-  store double %57, ptr %2, align 8
-  br label %60
+55:                                               ; preds = %23
+  %56 = load double, ptr %.0, align 8
+  store double %56, ptr %2, align 8
+  br label %59
 
-58:                                               ; preds = %23
-  %59 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %59, align 1
+57:                                               ; preds = %23
+  %58 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %58, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 595) #9
   unreachable
 
-60:                                               ; preds = %23, %56, %54, %52, %50, %48, %46, %44, %42, %41
+59:                                               ; preds = %23, %55, %53, %51, %49, %47, %45, %43, %41, %40
   ret i8 %8
 }
 

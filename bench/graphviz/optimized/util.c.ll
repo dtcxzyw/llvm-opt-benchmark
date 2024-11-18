@@ -100,14 +100,14 @@ gv_calloc.exit.preheader:                         ; preds = %._crit_edge.thread
   %indvars.iv46 = phi i64 [ %26, %.lr.ph38.preheader ], [ %indvars.iv.next47, %.lr.ph38 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %.not = icmp samesign ult i64 %indvars.iv.next49, %27
-  %28 = and i64 %indvars.iv.next49, 4294967295
-  %29 = getelementptr inbounds %struct.Pedge_t, ptr %17, i64 %indvars.iv46
-  %30 = getelementptr inbounds %struct.Pxy_t, ptr %.sroa.0.0.copyload, i64 %indvars.iv48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
-  %31 = getelementptr inbounds i8, ptr %29, i64 16
-  %32 = select i1 %.not, i64 %28, i64 0
+  %28 = getelementptr inbounds %struct.Pedge_t, ptr %17, i64 %indvars.iv46
+  %29 = getelementptr inbounds %struct.Pxy_t, ptr %.sroa.0.0.copyload, i64 %indvars.iv48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
+  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = and i64 %indvars.iv.next49, 4294967295
+  %32 = select i1 %.not, i64 %31, i64 0
   %33 = getelementptr inbounds %struct.Pxy_t, ptr %.sroa.0.0.copyload, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count53
   br i1 %exitcond54.not, label %gv_calloc.exit.loopexit, label %.lr.ph38

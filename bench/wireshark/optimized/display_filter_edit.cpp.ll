@@ -4000,40 +4000,40 @@ define void @_ZN17DisplayFilterEdit18alignActionButtonsEv(ptr noundef nonnull al
   %86 = getelementptr inbounds i8, ptr %0, i64 264
   %87 = load i8, ptr %86, align 8
   %88 = trunc i8 %87 to i1
-  %89 = sext i32 %85 to i64
-  %90 = getelementptr inbounds i8, ptr %0, i64 328
+  %89 = getelementptr inbounds i8, ptr %0, i64 328
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, i64 79, ptr nonnull @.str.11)
-  %91 = load ptr, ptr %6, align 8
-  store ptr %91, ptr %11, align 8
-  %92 = getelementptr inbounds i8, ptr %11, i64 8
-  %93 = getelementptr inbounds i8, ptr %6, i64 8
-  %94 = load ptr, ptr %93, align 8
-  store ptr %94, ptr %92, align 8
-  %95 = getelementptr inbounds i8, ptr %11, i64 16
-  %96 = getelementptr inbounds i8, ptr %6, i64 16
-  %97 = load i64, ptr %96, align 8
-  store i64 %97, ptr %95, align 8
+  %90 = load ptr, ptr %6, align 8
+  store ptr %90, ptr %11, align 8
+  %91 = getelementptr inbounds i8, ptr %11, i64 8
+  %92 = getelementptr inbounds i8, ptr %6, i64 8
+  %93 = load ptr, ptr %92, align 8
+  store ptr %93, ptr %91, align 8
+  %94 = getelementptr inbounds i8, ptr %11, i64 16
+  %95 = getelementptr inbounds i8, ptr %6, i64 16
+  %96 = load i64, ptr %95, align 8
+  store i64 %96, ptr %94, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %98 = sext i32 %82 to i64
-  invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %98, i32 noundef 0, i32 noundef 10, i16 32)
+  %97 = sext i32 %82 to i64
+  invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %97, i32 noundef 0, i32 noundef 10, i16 32)
           to label %_ZNK7QString3argEiii5QChar.exit unwind label %149
 
 _ZNK7QString3argEiii5QChar.exit:                  ; preds = %81
-  %99 = select i1 %88, i32 %84, i32 0
-  %spec.select136 = add i32 %99, %.sroa.0130.0
-  %100 = sext i32 %spec.select136 to i64
-  invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %100, i32 noundef 0, i32 noundef 10, i16 32)
+  %98 = select i1 %88, i32 %84, i32 0
+  %spec.select136 = add i32 %98, %.sroa.0130.0
+  %99 = sext i32 %spec.select136 to i64
+  invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %99, i32 noundef 0, i32 noundef 10, i16 32)
           to label %_ZNK7QString3argEiii5QChar.exit27 unwind label %151
 
 _ZNK7QString3argEiii5QChar.exit27:                ; preds = %_ZNK7QString3argEiii5QChar.exit
-  %101 = select i1 %88, i64 0, i64 %89
+  %100 = sext i32 %85 to i64
+  %101 = select i1 %88, i64 0, i64 %100
   invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %101, i32 noundef 0, i32 noundef 10, i16 32)
           to label %_ZNK7QString3argEiii5QChar.exit28 unwind label %153
 
 _ZNK7QString3argEiii5QChar.exit28:                ; preds = %_ZNK7QString3argEiii5QChar.exit27
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %102 = load ptr, ptr %90, align 8, !noalias !79
+  %102 = load ptr, ptr %89, align 8, !noalias !79
   store ptr %102, ptr %7, align 8, !alias.scope !79
   %103 = getelementptr inbounds i8, ptr %7, i64 8
   %104 = getelementptr inbounds i8, ptr %0, i64 336

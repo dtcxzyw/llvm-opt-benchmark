@@ -4120,19 +4120,19 @@ _ZN5clang6Parser10ParseScopeC2EPS0_jbb.exit79:    ; preds = %169, %170, %177, %1
 
 _ZN12_GLOBAL__N_128MisleadingIndentationCheckerC2ERN5clang6ParserENS_23MisleadingStatementKindENS1_14SourceLocationE.exit: ; preds = %_ZN5clang6Parser10ParseScopeC2EPS0_jbb.exit79, %199
   store i32 0, ptr %14, align 4
-  %200 = trunc i8 %.sroa.0160.0 to i1
-  %201 = xor i1 %200, true
   %spec.select = select i1 %.048184, i32 5, i32 2
-  %202 = and i1 %.048184, %.sroa.0166.0182
-  %203 = select i1 %.sroa.3.0, i1 %201, i1 false
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %205 = load ptr, ptr %204, align 8
-  %206 = select i1 %202, i1 true, i1 %203
+  %200 = and i1 %.048184, %.sroa.0166.0182
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %202 = load ptr, ptr %201, align 8
+  %203 = trunc i8 %.sroa.0160.0 to i1
+  %204 = xor i1 %203, true
+  %205 = select i1 %.sroa.3.0, i1 %204, i1 false
+  %206 = select i1 %200, i1 true, i1 %205
   br i1 %206, label %207, label %_ZN5clang32EnterExpressionEvaluationContextC2ERNS_4SemaENS1_27ExpressionEvaluationContextEPNS_4DeclENS1_33ExpressionEvaluationContextRecord14ExpressionKindEb.exit
 
 207:                                              ; preds = %_ZN12_GLOBAL__N_128MisleadingIndentationCheckerC2ERN5clang6ParserENS_23MisleadingStatementKindENS1_14SourceLocationE.exit
   %.051 = select i1 %.sroa.0166.0182, i32 %spec.select, i32 2
-  call void @_ZN5clang4Sema31PushExpressionEvaluationContextENS0_27ExpressionEvaluationContextEPNS_4DeclENS0_33ExpressionEvaluationContextRecord14ExpressionKindE(ptr noundef nonnull align 8 dereferenceable(17560) %205, i32 noundef %.051, ptr noundef null, i32 noundef 3) #14
+  call void @_ZN5clang4Sema31PushExpressionEvaluationContextENS0_27ExpressionEvaluationContextEPNS_4DeclENS0_33ExpressionEvaluationContextRecord14ExpressionKindE(ptr noundef nonnull align 8 dereferenceable(17560) %202, i32 noundef %.051, ptr noundef null, i32 noundef 3) #14
   br label %_ZN5clang32EnterExpressionEvaluationContextC2ERNS_4SemaENS1_27ExpressionEvaluationContextEPNS_4DeclENS1_33ExpressionEvaluationContextRecord14ExpressionKindEb.exit
 
 _ZN5clang32EnterExpressionEvaluationContextC2ERNS_4SemaENS1_27ExpressionEvaluationContextEPNS_4DeclENS1_33ExpressionEvaluationContextRecord14ExpressionKindEb.exit: ; preds = %_ZN12_GLOBAL__N_128MisleadingIndentationCheckerC2ERN5clang6ParserENS_23MisleadingStatementKindENS1_14SourceLocationE.exit, %207
@@ -4162,7 +4162,7 @@ _ZN5clang6Parser14ParseStatementEPNS_14SourceLocationENS0_17ParsedStmtContextE.e
   br i1 %206, label %215, label %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit
 
 215:                                              ; preds = %_ZN5clang6Parser14ParseStatementEPNS_14SourceLocationENS0_17ParsedStmtContextE.exit
-  call void @_ZN5clang4Sema30PopExpressionEvaluationContextEv(ptr noundef nonnull align 8 dereferenceable(17560) %205) #14
+  call void @_ZN5clang4Sema30PopExpressionEvaluationContextEv(ptr noundef nonnull align 8 dereferenceable(17560) %202) #14
   br label %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit
 
 _ZN5clang32EnterExpressionEvaluationContextD2Ev.exit: ; preds = %_ZN5clang6Parser14ParseStatementEPNS_14SourceLocationENS0_17ParsedStmtContextE.exit, %215
@@ -4217,7 +4217,7 @@ _ZN5clang6Parser10ParseScope4ExitEv.exit:         ; preds = %218, %219
   br i1 %227, label %230, label %_ZN5clang6Parser10ParseScopeC2EPS0_jbb.exit87
 
 230:                                              ; preds = %229
-  %231 = load ptr, ptr %204, align 8
+  %231 = load ptr, ptr %201, align 8
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 608
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 32
@@ -4276,7 +4276,7 @@ _ZN12_GLOBAL__N_128MisleadingIndentationCheckerC2ERN5clang6ParserENS_23Misleadin
   %spec.select211 = select i1 %.sroa.3.0, i8 %.sroa.0160.0, i8 0
   %spec.select60 = select i1 %.048184, i8 1, i8 %spec.select211
   %.052 = select i1 %.sroa.0166.0182, i8 %spec.select211, i8 %spec.select60
-  %260 = load ptr, ptr %204, align 8
+  %260 = load ptr, ptr %201, align 8
   %261 = trunc i8 %.052 to i1
   br i1 %261, label %262, label %_ZN5clang32EnterExpressionEvaluationContextC2ERNS_4SemaENS1_27ExpressionEvaluationContextEPNS_4DeclENS1_33ExpressionEvaluationContextRecord14ExpressionKindEb.exit90
 
@@ -4348,7 +4348,7 @@ _ZN5clang6Parser10ParseScope4ExitEv.exit95:       ; preds = %271, %272
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit118.thread:  ; preds = %278, %274
   store i16 1, ptr %24, align 8
-  %283 = load ptr, ptr %204, align 8
+  %283 = load ptr, ptr %201, align 8
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 656
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 608
@@ -4666,7 +4666,7 @@ _ZNK5clang17DiagnosticBuilderlsIA2_cEERKS0_RKT_.exit131: ; preds = %_ZNK5clang17
   br label %_ZN5clang6Parser10ParseScopeD2Ev.exit135
 
 429:                                              ; preds = %.thread194
-  %430 = load ptr, ptr %204, align 8
+  %430 = load ptr, ptr %201, align 8
   %431 = call i64 @_ZN5clang4Sema13ActOnNullStmtENS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(17560) %430, i32 %186, i1 noundef zeroext false) #14
   br label %.thread235
 
@@ -4675,7 +4675,7 @@ _ZNK5clang17DiagnosticBuilderlsIA2_cEERKS0_RKT_.exit131: ; preds = %_ZNK5clang17
   br i1 %433, label %434, label %.thread235
 
 434:                                              ; preds = %432
-  %435 = load ptr, ptr %204, align 8
+  %435 = load ptr, ptr %201, align 8
   %436 = call i64 @_ZN5clang4Sema13ActOnNullStmtENS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(17560) %435, i32 %.sroa.0146.0, i1 noundef zeroext false) #14
   br label %.thread235
 
@@ -4687,7 +4687,7 @@ _ZNK5clang17DiagnosticBuilderlsIA2_cEERKS0_RKT_.exit131: ; preds = %_ZNK5clang17
   %.mux = zext i1 %26 to i32
   %437 = select i1 %.sroa.0166.0182, i32 2, i32 3
   %.049 = select i1 %brmerge, i32 %.mux, i32 %437
-  %438 = load ptr, ptr %204, align 8
+  %438 = load ptr, ptr %201, align 8
   %.sroa.02.0.copyload = load i32, ptr %11, align 4
   %439 = load i64, ptr %9, align 8
   %440 = and i64 %439, -2

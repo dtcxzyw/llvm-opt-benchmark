@@ -35973,9 +35973,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = shl nuw i64 1, %sh_prom.i13
   %8 = and i64 %6, %7
   %tobool.not = icmp eq i64 %8, 0
-  %cond = select i1 %tobool.not, i8 %4, i8 %conv7
+  %conv9 = select i1 %tobool.not, i8 %4, i8 %conv7
   %add.ptr11 = getelementptr i8, ptr %vd, i64 %indvars.iv
-  store i8 %cond, ptr %add.ptr11, align 1
+  store i8 %conv9, ptr %add.ptr11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !232
@@ -36033,9 +36033,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = shl nuw i64 1, %sh_prom.i14
   %8 = and i64 %6, %7
   %tobool.not = icmp eq i64 %8, 0
-  %cond = select i1 %tobool.not, i16 %4, i16 %conv7
+  %conv9 = select i1 %tobool.not, i16 %4, i16 %conv7
   %add.ptr11 = getelementptr i16, ptr %vd, i64 %indvars.iv
-  store i16 %cond, ptr %add.ptr11, align 2
+  store i16 %conv9, ptr %add.ptr11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !233

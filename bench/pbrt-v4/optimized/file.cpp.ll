@@ -3342,7 +3342,7 @@ if.end7:                                          ; preds = %while.cond, %if.the
   br i1 %inNumber.0, label %if.then8, label %if.else42
 
 if.then8:                                         ; preds = %if.end7
-  %cmp9 = icmp sgt i32 %curNumberPos.0.ph, 31
+  %cmp9 = icmp samesign ugt i32 %curNumberPos.0.ph, 31
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.then8
@@ -3369,7 +3369,7 @@ switch.early.test:                                ; preds = %if.end12
 do.body:                                          ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %if.end12
   store i32 %curNumberPos.0.ph, ptr %va, align 4
   store i64 32, ptr %vb, align 8
-  %cmp25 = icmp ult i32 %curNumberPos.0.ph, 32
+  %cmp25 = icmp samesign ult i32 %curNumberPos.0.ph, 32
   br i1 %cmp25, label %do.end, label %if.then26
 
 if.then26:                                        ; preds = %do.body
@@ -3391,7 +3391,7 @@ while.cond.outer129.backedge:                     ; preds = %do.end, %if.then51
   br label %while.cond.outer129, !llvm.loop !18
 
 if.else:                                          ; preds = %switch.early.test
-  %idxprom32 = sext i32 %curNumberPos.0.ph to i64
+  %idxprom32 = zext nneg i32 %curNumberPos.0.ph to i64
   %arrayidx33 = getelementptr inbounds [32 x i8], ptr %curNumber, i64 0, i64 %idxprom32
   store i8 0, ptr %arrayidx33, align 1
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %curNumber) #23
@@ -3488,7 +3488,7 @@ switch.early.test18:                              ; preds = %if.else42
 
 if.then51:                                        ; preds = %switch.early.test18, %switch.early.test18, %switch.early.test18, %if.else42
   %conv52 = trunc nuw i32 %call3 to i8
-  %idxprom54 = sext i32 %curNumberPos.0.ph to i64
+  %idxprom54 = zext nneg i32 %curNumberPos.0.ph to i64
   %arrayidx55 = getelementptr inbounds [32 x i8], ptr %curNumber, i64 0, i64 %idxprom54
   store i8 %conv52, ptr %arrayidx55, align 1
   br label %while.cond.outer129.backedge

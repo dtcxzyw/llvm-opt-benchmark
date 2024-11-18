@@ -1173,10 +1173,10 @@ entry:
   %call.i.i = call i32 @EVP_RAND_CTX_get_params(ptr noundef %drbg, ptr noundef nonnull %params.i.i) #14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   %1 = load i32, ptr %n.i.i, align 4
-  %2 = add i32 %1, 1
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i)
+  %2 = add i32 %1, 1
   %add = select i1 %tobool.not.i.i, i32 1, i32 %2
   %3 = getelementptr i8, ptr %drbg, i64 8
   %drbg.val.i = load ptr, ptr %3, align 8

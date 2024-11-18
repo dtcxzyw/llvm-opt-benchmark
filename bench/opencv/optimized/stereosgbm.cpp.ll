@@ -3148,9 +3148,9 @@ define { i64, i64 } @_ZN2cv20getValidDisparityROIENS_5Rect_IiEES1_iii(i64 %0, i6
   %.sroa.442.12.insert.insert = or disjoint i64 %.sroa.442.12.insert.shift, %.sroa.442.8.insert.ext
   %.sroa.442.0 = select i1 %or.cond, i64 %.sroa.442.12.insert.insert, i64 0
   %24 = zext i32 %15 to i64
-  %25 = zext i32 %12 to i64
-  %26 = shl nuw i64 %24, 32
-  %27 = or disjoint i64 %26, %25
+  %25 = shl nuw i64 %24, 32
+  %26 = zext i32 %12 to i64
+  %27 = or disjoint i64 %25, %26
   %.sroa.041.sroa.0.0.insert.insert = select i1 %or.cond, i64 %27, i64 0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.041.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.442.0, 1

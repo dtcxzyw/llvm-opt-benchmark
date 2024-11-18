@@ -5879,8 +5879,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .thread:                                          ; preds = %37, %50
-  %.sroa.0101.0.i.i.i.i22 = phi i64 [ %51, %50 ], [ 0, %37 ]
-  %53 = shl nuw i64 %.sroa.0101.0.i.i.i.i22, 2
+  %.sroa.0101.0.i.i.i.i21 = phi i64 [ %51, %50 ], [ 0, %37 ]
+  %53 = shl nuw i64 %.sroa.0101.0.i.i.i.i21, 2
   %54 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %33, i64 %53)
   %55 = extractvalue { i64, i1 } %54, 1
   %56 = extractvalue { i64, i1 } %54, 0
@@ -6336,8 +6336,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .thread:                                          ; preds = %37, %50
-  %.sroa.0101.0.i.i.i.i22 = phi i64 [ %51, %50 ], [ 0, %37 ]
-  %53 = shl nuw i64 %.sroa.0101.0.i.i.i.i22, 2
+  %.sroa.0101.0.i.i.i.i21 = phi i64 [ %51, %50 ], [ 0, %37 ]
+  %53 = shl nuw i64 %.sroa.0101.0.i.i.i.i21, 2
   %54 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %33, i64 %53)
   %55 = extractvalue { i64, i1 } %54, 1
   %56 = extractvalue { i64, i1 } %54, 0

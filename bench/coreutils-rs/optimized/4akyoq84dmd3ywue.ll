@@ -2277,8 +2277,8 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
 
 .loopexit376:                                     ; preds = %_ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thread.i.i.i.i, %181
   %.ph = phi i64 [ %156, %181 ], [ %73, %_ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thread.i.i.i.i ]
-  %202 = add i64 %.ph, 3
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %28), !noalias !353
+  %202 = add i64 %.ph, 3
   %203 = icmp eq i64 %202, 0
   br i1 %203, label %210, label %.thread304
 

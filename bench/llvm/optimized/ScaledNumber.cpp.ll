@@ -395,12 +395,12 @@ define dso_local void @_ZN4llvm16ScaledNumberBase8toStringB5cxx11Emsij(ptr dead_
   %64 = zext nneg i32 %63 to i64
   %65 = shl i64 %.0, %64
   %66 = add nsw i32 %.sroa.speculated.i, 16383
-  %67 = zext i32 %66 to i64
   store i64 %65, ptr %6, align 16, !noalias !6
-  %68 = getelementptr inbounds i8, ptr %6, i64 8
+  %67 = getelementptr inbounds i8, ptr %6, i64 8
+  %68 = zext i32 %66 to i64
   %.not.inv.i = icmp slt i64 %65, 0
-  %69 = select i1 %.not.inv.i, i64 %67, i64 0
-  store i64 %69, ptr %68, align 8, !noalias !6
+  %69 = select i1 %.not.inv.i, i64 %68, i64 0
+  store i64 %69, ptr %67, align 8, !noalias !6
   %70 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase17x87DoubleExtendedEv() #13
   call void @_ZN4llvm5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef 80, ptr nonnull %6, i64 2) #12, !noalias !6
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 8

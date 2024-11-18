@@ -318,9 +318,9 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 nounde
   %57 = and i64 %56, 256
   %58 = icmp eq i64 %57, 0
   %59 = load i64, ptr @stack_guard_gap, align 8
-  %60 = select i1 %58, i64 0, i64 %59
-  %61 = load i64, ptr %48, align 8
-  %62 = tail call i64 @llvm.usub.sat.i64(i64 %61, i64 %60)
+  %60 = load i64, ptr %48, align 8
+  %61 = tail call i64 @llvm.usub.sat.i64(i64 %60, i64 %59)
+  %62 = select i1 %58, i64 %60, i64 %61
   %63 = icmp ugt i64 %54, %62
   br i1 %63, label %64, label %115
 
@@ -484,9 +484,9 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
   %48 = and i64 %47, 256
   %49 = icmp eq i64 %48, 0
   %50 = load i64, ptr @stack_guard_gap, align 8
-  %51 = select i1 %49, i64 0, i64 %50
-  %52 = load i64, ptr %42, align 8
-  %53 = tail call i64 @llvm.usub.sat.i64(i64 %52, i64 %51)
+  %51 = load i64, ptr %42, align 8
+  %52 = tail call i64 @llvm.usub.sat.i64(i64 %51, i64 %50)
+  %53 = select i1 %49, i64 %51, i64 %52
   %54 = icmp ugt i64 %45, %53
   br i1 %54, label %55, label %129
 

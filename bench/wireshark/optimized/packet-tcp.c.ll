@@ -9487,11 +9487,11 @@ proto_item_set_generated.exit1099:                ; preds = %proto_item_set_gene
   %1927 = load i32, ptr @tcp_default_window_scaling, align 4
   %.not978 = icmp eq i32 %1927, -1
   %1928 = select i1 %.not978, ptr @.str.908, ptr @.str.907
+  %1929 = load i32, ptr @hf_tcp_window_size_scalefactor, align 4
   %sext = shl i32 65536, %1927
-  %1929 = ashr exact i32 %sext, 16
-  %1930 = load i32, ptr @hf_tcp_window_size_scalefactor, align 4
-  %1931 = select i1 %.not978, i32 -1, i32 %1929
-  %1932 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.0857, i32 noundef %1930, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef %1931, ptr noundef nonnull @.str.906, i32 noundef %1931, ptr noundef nonnull %1928) #20
+  %1930 = ashr exact i32 %sext, 16
+  %1931 = select i1 %.not978, i32 -1, i32 %1930
+  %1932 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.0857, i32 noundef %1929, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef %1931, ptr noundef nonnull @.str.906, i32 noundef %1931, ptr noundef nonnull %1928) #20
   %.not.i1100 = icmp eq ptr %1932, null
   br i1 %.not.i1100, label %proto_item_set_generated.exit1102, label %1933
 

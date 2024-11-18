@@ -658,7 +658,7 @@ rb_vm_lock_enter.exit:                            ; preds = %16, %18
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, -15
   %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %24, label %58
+  br i1 %.not, label %24, label %59
 
 24:                                               ; preds = %rb_vm_lock_enter.exit
   %25 = getelementptr inbounds i8, ptr %20, i64 24
@@ -675,78 +675,78 @@ next_id_base_with_lock.exit:                      ; preds = %24
   %31 = shl nuw nsw i64 %30, 4
   %32 = or disjoint i64 %31, %22
   %33 = icmp ugt i32 %28, 10
-  %spec.select = select i1 %33, i64 %30, i64 %31
-  %34 = trunc i64 %spec.select to i32
+  %34 = trunc i64 %31 to i32
+  %35 = select i1 %33, i32 %28, i32 %34
   br label %next_id_base_with_lock.exit.thread
 
 next_id_base_with_lock.exit.thread:               ; preds = %24, %next_id_base_with_lock.exit
   %.sink = phi i64 [ %32, %next_id_base_with_lock.exit ], [ -1, %24 ]
-  %.0.i20 = phi i32 [ %34, %next_id_base_with_lock.exit ], [ -1, %24 ]
+  %.0.i20 = phi i32 [ %35, %next_id_base_with_lock.exit ], [ -1, %24 ]
   store i64 %.sink, ptr %21, align 8
-  %35 = lshr i32 %.0.i20, 9
-  %36 = zext nneg i32 %35 to i64
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
-  %38 = inttoptr i64 %37 to ptr
-  %39 = load i64, ptr %38, align 8
-  %40 = and i64 %39, 8192
-  %.not.i.i21 = icmp eq i64 %40, 0
-  br i1 %.not.i.i21, label %44, label %41
+  %36 = lshr i32 %.0.i20, 9
+  %37 = zext nneg i32 %36 to i64
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
+  %39 = inttoptr i64 %38 to ptr
+  %40 = load i64, ptr %39, align 8
+  %41 = and i64 %40, 8192
+  %.not.i.i21 = icmp eq i64 %41, 0
+  br i1 %.not.i.i21, label %45, label %42
 
-41:                                               ; preds = %next_id_base_with_lock.exit.thread
-  %42 = lshr i64 %39, 15
-  %43 = and i64 %42, 127
+42:                                               ; preds = %next_id_base_with_lock.exit.thread
+  %43 = lshr i64 %40, 15
+  %44 = and i64 %43, 127
   br label %rb_array_len.exit.i
 
-44:                                               ; preds = %next_id_base_with_lock.exit.thread
-  %45 = getelementptr inbounds i8, ptr %38, i64 16
-  %46 = load i64, ptr %45, align 8
+45:                                               ; preds = %next_id_base_with_lock.exit.thread
+  %46 = getelementptr inbounds i8, ptr %39, i64 16
+  %47 = load i64, ptr %46, align 8
   br label %rb_array_len.exit.i
 
-rb_array_len.exit.i:                              ; preds = %44, %41
-  %.0.i.i = phi i64 [ %43, %41 ], [ %46, %44 ]
-  %.not.i = icmp ugt i64 %.0.i.i, %36
-  br i1 %.not.i, label %47, label %50
+rb_array_len.exit.i:                              ; preds = %45, %42
+  %.0.i.i = phi i64 [ %44, %42 ], [ %47, %45 ]
+  %.not.i = icmp ugt i64 %.0.i.i, %37
+  br i1 %.not.i, label %48, label %51
 
-47:                                               ; preds = %rb_array_len.exit.i
-  %48 = call i64 @rb_ary_entry(i64 noundef %37, i64 noundef %36) #20
-  %49 = icmp eq i64 %48, 4
-  br i1 %49, label %50, label %set_id_entry.exit
+48:                                               ; preds = %rb_array_len.exit.i
+  %49 = call i64 @rb_ary_entry(i64 noundef %38, i64 noundef %37) #20
+  %50 = icmp eq i64 %49, 4
+  br i1 %50, label %51, label %set_id_entry.exit
 
-50:                                               ; preds = %47, %rb_array_len.exit.i
-  %51 = call i64 @rb_ary_hidden_new(i64 noundef 1024) #18
-  call void @rb_ary_store(i64 noundef %37, i64 noundef %36, i64 noundef %51) #18
+51:                                               ; preds = %48, %rb_array_len.exit.i
+  %52 = call i64 @rb_ary_hidden_new(i64 noundef 1024) #18
+  call void @rb_ary_store(i64 noundef %38, i64 noundef %37, i64 noundef %52) #18
   br label %set_id_entry.exit
 
-set_id_entry.exit:                                ; preds = %47, %50
-  %.0.i22 = phi i64 [ %51, %50 ], [ %48, %47 ]
-  %52 = shl i32 %.0.i20, 1
-  %53 = and i32 %52, 1022
-  %54 = zext nneg i32 %53 to i64
-  call void @rb_ary_store(i64 noundef %.0.i22, i64 noundef %54, i64 noundef %26) #18
-  %55 = or disjoint i64 %54, 1
-  call void @rb_ary_store(i64 noundef %.0.i22, i64 noundef %55, i64 noundef %19) #18
-  %56 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 24), align 8
-  %57 = call i64 @rb_hash_delete_entry(i64 noundef %56, i64 noundef %26) #18
-  br label %58
+set_id_entry.exit:                                ; preds = %48, %51
+  %.0.i22 = phi i64 [ %52, %51 ], [ %49, %48 ]
+  %53 = shl i32 %.0.i20, 1
+  %54 = and i32 %53, 1022
+  %55 = zext nneg i32 %54 to i64
+  call void @rb_ary_store(i64 noundef %.0.i22, i64 noundef %55, i64 noundef %26) #18
+  %56 = or disjoint i64 %55, 1
+  call void @rb_ary_store(i64 noundef %.0.i22, i64 noundef %56, i64 noundef %19) #18
+  %57 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 24), align 8
+  %58 = call i64 @rb_hash_delete_entry(i64 noundef %57, i64 noundef %26) #18
+  br label %59
 
-58:                                               ; preds = %set_id_entry.exit, %rb_vm_lock_enter.exit
+59:                                               ; preds = %set_id_entry.exit, %rb_vm_lock_enter.exit
   %.1 = phi i64 [ %.sink, %set_id_entry.exit ], [ %22, %rb_vm_lock_enter.exit ]
-  %59 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i23 = icmp eq ptr %59, null
-  br i1 %.not.i.i23, label %60, label %rb_vm_lock_leave.exit
+  %60 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i23 = icmp eq ptr %60, null
+  br i1 %.not.i.i23, label %61, label %rb_vm_lock_leave.exit
 
-60:                                               ; preds = %58
+61:                                               ; preds = %59
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #18
   br label %rb_vm_lock_leave.exit
 
 RB_DYNAMIC_SYM_P.exit.thread:                     ; preds = %7, %RB_DYNAMIC_SYM_P.exit
-  %61 = load i64, ptr @rb_eTypeError, align 8
-  %62 = tail call ptr @rb_builtin_class_name(i64 noundef %0) #18
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %61, ptr noundef nonnull @.str.6, ptr noundef %62) #19
+  %62 = load i64, ptr @rb_eTypeError, align 8
+  %63 = tail call ptr @rb_builtin_class_name(i64 noundef %0) #18
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %62, ptr noundef nonnull @.str.6, ptr noundef %63) #19
   unreachable
 
-rb_vm_lock_leave.exit:                            ; preds = %60, %58, %5
-  %.0 = phi i64 [ %6, %5 ], [ %.1, %58 ], [ %.1, %60 ]
+rb_vm_lock_leave.exit:                            ; preds = %61, %59, %5
+  %.0 = phi i64 [ %6, %5 ], [ %.1, %59 ], [ %.1, %61 ]
   ret i64 %.0
 }
 

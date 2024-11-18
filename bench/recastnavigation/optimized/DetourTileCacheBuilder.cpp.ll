@@ -2057,12 +2057,12 @@ define noundef range(i32 1073741824, -2147483631) i32 @_Z24dtBuildTileCachePolyM
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %26)
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %575, label %33
+  br i1 %.not, label %576, label %33
 
 31:                                               ; preds = %67, %60, %53, %43, %33
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %582
+  br label %583
 
 33:                                               ; preds = %._crit_edge
   %34 = zext nneg i32 %.0183.lcssa to i64
@@ -2079,7 +2079,7 @@ define noundef range(i32 1073741824, -2147483631) i32 @_Z24dtBuildTileCachePolyM
   %42 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %40, ptr %42, align 8
   %.not238 = icmp eq ptr %40, null
-  br i1 %.not238, label %575, label %43
+  br i1 %.not238, label %576, label %43
 
 43:                                               ; preds = %41
   %44 = zext nneg i32 %.0185.lcssa to i64
@@ -2095,7 +2095,7 @@ define noundef range(i32 1073741824, -2147483631) i32 @_Z24dtBuildTileCachePolyM
   %52 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %50, ptr %52, align 8
   %.not239 = icmp eq ptr %50, null
-  br i1 %.not239, label %575, label %53
+  br i1 %.not239, label %576, label %53
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %0, align 8
@@ -2108,7 +2108,7 @@ define noundef range(i32 1073741824, -2147483631) i32 @_Z24dtBuildTileCachePolyM
   %59 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %57, ptr %59, align 8
   %.not240 = icmp eq ptr %57, null
-  br i1 %.not240, label %575, label %60
+  br i1 %.not240, label %576, label %60
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %0, align 8
@@ -2121,7 +2121,7 @@ define noundef range(i32 1073741824, -2147483631) i32 @_Z24dtBuildTileCachePolyM
   %66 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %64, ptr %66, align 8
   %.not241 = icmp eq ptr %64, null
-  br i1 %.not241, label %575, label %67
+  br i1 %.not241, label %576, label %67
 
 67:                                               ; preds = %65
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %64, i8 0, i64 %45, i1 false)
@@ -2145,12 +2145,12 @@ define noundef range(i32 1073741824, -2147483631) i32 @_Z24dtBuildTileCachePolyM
 
 _ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit: ; preds = %67
   %.not242 = icmp eq ptr %77, null
-  br i1 %.not242, label %561, label %80
+  br i1 %.not242, label %562, label %80
 
 78:                                               ; preds = %80
   %79 = landingpad { ptr, i32 }
           cleanup
-  br label %568
+  br label %569
 
 80:                                               ; preds = %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %77, i8 0, i64 %35, i1 false)
@@ -2164,12 +2164,12 @@ _ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit: ; preds = %67
 
 _ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit259: ; preds = %80
   %.not243 = icmp eq ptr %86, null
-  br i1 %.not243, label %547, label %89
+  br i1 %.not243, label %548, label %89
 
 87:                                               ; preds = %89
   %88 = landingpad { ptr, i32 }
           cleanup
-  br label %554
+  br label %555
 
 89:                                               ; preds = %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit259
   %90 = mul nsw i32 %.0188.lcssa, 3
@@ -2183,12 +2183,12 @@ _ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit259: ; preds = %80
 
 _ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit260: ; preds = %89
   %.not244 = icmp eq ptr %96, null
-  br i1 %.not244, label %533, label %99
+  br i1 %.not244, label %534, label %99
 
 97:                                               ; preds = %99
   %98 = landingpad { ptr, i32 }
           cleanup
-  br label %540
+  br label %541
 
 99:                                               ; preds = %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit260
   %100 = mul nsw i32 %.0188.lcssa, 6
@@ -2225,7 +2225,7 @@ _ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit261: ; preds = %99
   %115 = getelementptr inbounds i8, ptr %114, i64 32
   %116 = load ptr, ptr %115, align 8
   invoke void %116(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %106)
-          to label %540 unwind label %117
+          to label %541 unwind label %117
 
 117:                                              ; preds = %113
   %118 = landingpad { ptr, i32 }
@@ -2902,14 +2902,14 @@ _ZL10mergePolysPtS_ii.exit:                       ; preds = %407, %.preheader.i
   %439 = icmp slt i64 %indvars.iv.next572, %438
   br i1 %439, label %122, label %.preheader415, !llvm.loop !53
 
-.lr.ph508:                                        ; preds = %.preheader415, %518
-  %440 = phi i32 [ %519, %518 ], [ %120, %.preheader415 ]
-  %.0180507 = phi i32 [ %520, %518 ], [ 0, %.preheader415 ]
+.lr.ph508:                                        ; preds = %.preheader415, %519
+  %440 = phi i32 [ %520, %519 ], [ %120, %.preheader415 ]
+  %.0180507 = phi i32 [ %521, %519 ], [ 0, %.preheader415 ]
   %441 = sext i32 %.0180507 to i64
   %442 = getelementptr inbounds i8, ptr %30, i64 %441
   %443 = load i8, ptr %442, align 1
   %.not246 = icmp eq i8 %443, 0
-  br i1 %.not246, label %518, label %444
+  br i1 %.not246, label %519, label %444
 
 444:                                              ; preds = %.lr.ph508
   %445 = trunc i32 %.0180507 to i16
@@ -2996,7 +2996,7 @@ _ZL14countPolyVertsPKt.exit.i292:                 ; preds = %449
 
 .thread376:                                       ; preds = %.preheader.i290
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
-  br label %505
+  br label %506
 
 .lr.ph44.preheader.i:                             ; preds = %.preheader.i290
   %wide.trip.count74.i = zext nneg i32 %.175.lcssa.i to i64
@@ -3035,7 +3035,7 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %466
 
 .lr.ph35.i:                                       ; preds = %._crit_edge30.thread.i, %.lr.ph35.preheader.i
   %indvars.iv61.i = phi i64 [ 0, %.lr.ph35.preheader.i ], [ %indvars.iv.next62.i, %._crit_edge30.thread.i ]
-  %.06834.i = phi i32 [ %472, %.lr.ph35.preheader.i ], [ %496, %._crit_edge30.thread.i ]
+  %.06834.i = phi i32 [ %472, %.lr.ph35.preheader.i ], [ %497, %._crit_edge30.thread.i ]
   %.17532.i = phi i32 [ %.07438.i, %.lr.ph35.preheader.i ], [ %.276.i, %._crit_edge30.thread.i ]
   %473 = getelementptr inbounds i16, ptr %465, i64 %indvars.iv61.i
   %474 = load i16, ptr %473, align 2
@@ -3052,7 +3052,6 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %466
 .lr.ph35._crit_edge.i:                            ; preds = %476, %.lr.ph35.i
   %478 = phi i16 [ %445, %476 ], [ %.pre.i, %.lr.ph35.i ]
   %479 = icmp eq i16 %478, %445
-  %spec.select7.i = select i1 %479, i16 %478, i16 %474
   %spec.select8.v.i = select i1 %479, i16 %474, i16 %478
   %480 = icmp sgt i32 %.17532.i, 0
   br i1 %480, label %.lr.ph29.preheader.i, label %.critedge.i
@@ -3096,18 +3095,19 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %466
   %490 = mul nsw i32 %.17532.i, 3
   %491 = sext i32 %490 to i64
   %492 = getelementptr inbounds [48 x i16], ptr %4, i64 0, i64 %491
-  store i16 %spec.select7.i, ptr %492, align 2
-  %493 = getelementptr inbounds i8, ptr %492, i64 2
-  store i16 %spec.select8.v.i, ptr %493, align 2
-  %494 = getelementptr inbounds i8, ptr %492, i64 4
-  store i16 1, ptr %494, align 2
-  %495 = add nsw i32 %.17532.i, 1
+  %493 = select i1 %479, i16 %478, i16 %474
+  store i16 %493, ptr %492, align 2
+  %494 = getelementptr inbounds i8, ptr %492, i64 2
+  store i16 %spec.select8.v.i, ptr %494, align 2
+  %495 = getelementptr inbounds i8, ptr %492, i64 4
+  store i16 1, ptr %495, align 2
+  %496 = add nsw i32 %.17532.i, 1
   br label %._crit_edge30.thread.i
 
 ._crit_edge30.thread.i:                           ; preds = %.thread.i, %.critedge.i, %._crit_edge30.i, %476
-  %.276.i = phi i32 [ %.17532.i, %._crit_edge30.i ], [ %495, %.critedge.i ], [ %.17532.i, %476 ], [ %.17532.i, %.thread.i ]
+  %.276.i = phi i32 [ %.17532.i, %._crit_edge30.i ], [ %496, %.critedge.i ], [ %.17532.i, %476 ], [ %.17532.i, %.thread.i ]
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %496 = trunc nuw nsw i64 %indvars.iv61.i to i32
+  %497 = trunc nuw nsw i64 %indvars.iv61.i to i32
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count64.i
   br i1 %exitcond65.not.i, label %._crit_edge36.i, label %.lr.ph35.i, !llvm.loop !57
 
@@ -3120,218 +3120,218 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %466
 .lr.ph44.i:                                       ; preds = %.lr.ph44.i, %.lr.ph44.preheader.i
   %indvars.iv71.i = phi i64 [ 0, %.lr.ph44.preheader.i ], [ %indvars.iv.next72.i, %.lr.ph44.i ]
   %.06142.i = phi i32 [ 0, %.lr.ph44.preheader.i ], [ %spec.select.i291, %.lr.ph44.i ]
-  %497 = mul nuw nsw i64 %indvars.iv71.i, 3
-  %498 = add nuw nsw i64 %497, 2
-  %499 = getelementptr inbounds [48 x i16], ptr %4, i64 0, i64 %498
-  %500 = load i16, ptr %499, align 2
-  %501 = icmp ult i16 %500, 2
-  %502 = zext i1 %501 to i32
-  %spec.select.i291 = add nuw nsw i32 %.06142.i, %502
+  %498 = mul nuw nsw i64 %indvars.iv71.i, 3
+  %499 = add nuw nsw i64 %498, 2
+  %500 = getelementptr inbounds [48 x i16], ptr %4, i64 0, i64 %499
+  %501 = load i16, ptr %500, align 2
+  %502 = icmp ult i16 %501, 2
+  %503 = zext i1 %502 to i32
+  %spec.select.i291 = add nuw nsw i32 %.06142.i, %503
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count74.i
-  br i1 %exitcond75.not.i, label %503, label %.lr.ph44.i, !llvm.loop !59
+  br i1 %exitcond75.not.i, label %504, label %.lr.ph44.i, !llvm.loop !59
 
 .thread:                                          ; preds = %._crit_edge23.i, %444
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
-  br label %518
+  br label %519
 
-503:                                              ; preds = %.lr.ph44.i
-  %504 = icmp samesign ult i32 %spec.select.i291, 3
+504:                                              ; preds = %.lr.ph44.i
+  %505 = icmp samesign ult i32 %spec.select.i291, 3
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
-  br i1 %504, label %505, label %518
+  br i1 %505, label %506, label %519
 
-505:                                              ; preds = %.thread376, %503
-  %506 = tail call fastcc noundef i32 @_ZL12removeVertexR19dtTileCachePolyMeshti(ptr noundef nonnull align 8 dereferenceable(48) %2, i16 noundef zeroext %445, i32 noundef %.0185.lcssa)
-  %507 = icmp slt i32 %506, 0
-  br i1 %507, label %.loopexit, label %.preheader
+506:                                              ; preds = %.thread376, %504
+  %507 = tail call fastcc noundef i32 @_ZL12removeVertexR19dtTileCachePolyMeshti(ptr noundef nonnull align 8 dereferenceable(48) %2, i16 noundef zeroext %445, i32 noundef %.0185.lcssa)
+  %508 = icmp slt i32 %507, 0
+  br i1 %508, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %505
-  %508 = load i32, ptr %68, align 4
-  %509 = icmp slt i32 %.0180507, %508
-  br i1 %509, label %.lr.ph505, label %._crit_edge506
+.preheader:                                       ; preds = %506
+  %509 = load i32, ptr %68, align 4
+  %510 = icmp slt i32 %.0180507, %509
+  br i1 %510, label %.lr.ph505, label %._crit_edge506
 
 .lr.ph505:                                        ; preds = %.preheader, %.lr.ph505
   %indvars.iv574 = phi i64 [ %indvars.iv.next575, %.lr.ph505 ], [ %441, %.preheader ]
   %indvars.iv.next575 = add nsw i64 %indvars.iv574, 1
-  %510 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv.next575
-  %511 = load i8, ptr %510, align 1
-  %512 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv574
-  store i8 %511, ptr %512, align 1
-  %513 = load i32, ptr %68, align 4
-  %514 = sext i32 %513 to i64
-  %515 = icmp slt i64 %indvars.iv.next575, %514
-  br i1 %515, label %.lr.ph505, label %._crit_edge506, !llvm.loop !60
+  %511 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv.next575
+  %512 = load i8, ptr %511, align 1
+  %513 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv574
+  store i8 %512, ptr %513, align 1
+  %514 = load i32, ptr %68, align 4
+  %515 = sext i32 %514 to i64
+  %516 = icmp slt i64 %indvars.iv.next575, %515
+  br i1 %516, label %.lr.ph505, label %._crit_edge506, !llvm.loop !60
 
 ._crit_edge506:                                   ; preds = %.lr.ph505, %.preheader
-  %516 = phi i32 [ %508, %.preheader ], [ %513, %.lr.ph505 ]
-  %517 = add nsw i32 %.0180507, -1
-  br label %518
+  %517 = phi i32 [ %509, %.preheader ], [ %514, %.lr.ph505 ]
+  %518 = add nsw i32 %.0180507, -1
+  br label %519
 
-518:                                              ; preds = %.thread, %.lr.ph508, %._crit_edge506, %503
-  %519 = phi i32 [ %516, %._crit_edge506 ], [ %440, %503 ], [ %440, %.lr.ph508 ], [ %440, %.thread ]
-  %.1181 = phi i32 [ %517, %._crit_edge506 ], [ %.0180507, %503 ], [ %.0180507, %.lr.ph508 ], [ %.0180507, %.thread ]
-  %520 = add nsw i32 %.1181, 1
-  %521 = icmp slt i32 %520, %519
-  br i1 %521, label %.lr.ph508, label %._crit_edge509, !llvm.loop !61
+519:                                              ; preds = %.thread, %.lr.ph508, %._crit_edge506, %504
+  %520 = phi i32 [ %517, %._crit_edge506 ], [ %440, %504 ], [ %440, %.lr.ph508 ], [ %440, %.thread ]
+  %.1181 = phi i32 [ %518, %._crit_edge506 ], [ %.0180507, %504 ], [ %.0180507, %.lr.ph508 ], [ %.0180507, %.thread ]
+  %521 = add nsw i32 %.1181, 1
+  %522 = icmp slt i32 %521, %520
+  br i1 %522, label %.lr.ph508, label %._crit_edge509, !llvm.loop !61
 
-._crit_edge509:                                   ; preds = %518, %.preheader415
-  %.lcssa428 = phi i32 [ %120, %.preheader415 ], [ %519, %518 ]
-  %522 = load ptr, ptr %52, align 8
-  %523 = load i32, ptr %69, align 8
-  %524 = load ptr, ptr %42, align 8
-  %525 = invoke fastcc noundef zeroext i1 @_ZL18buildMeshAdjacencyP16dtTileCacheAllocPtiPKtiRK21dtTileCacheContourSet(ptr noundef nonnull %0, ptr noundef %522, i32 noundef %523, ptr noundef %524, i32 noundef %.lcssa428, ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %526 unwind label %111
+._crit_edge509:                                   ; preds = %519, %.preheader415
+  %.lcssa428 = phi i32 [ %120, %.preheader415 ], [ %520, %519 ]
+  %523 = load ptr, ptr %52, align 8
+  %524 = load i32, ptr %69, align 8
+  %525 = load ptr, ptr %42, align 8
+  %526 = invoke fastcc noundef zeroext i1 @_ZL18buildMeshAdjacencyP16dtTileCacheAllocPtiPKtiRK21dtTileCacheContourSet(ptr noundef nonnull %0, ptr noundef %523, i32 noundef %524, ptr noundef %525, i32 noundef %.lcssa428, ptr noundef nonnull align 8 dereferenceable(16) %1)
+          to label %527 unwind label %111
 
-526:                                              ; preds = %._crit_edge509
-  %. = select i1 %525, i32 1073741824, i32 -2147483644
+527:                                              ; preds = %._crit_edge509
+  %. = select i1 %526, i32 1073741824, i32 -2147483644
   br label %.loopexit
 
-.loopexit:                                        ; preds = %429, %505, %526
-  %.4 = phi i32 [ %., %526 ], [ %506, %505 ], [ -2147483632, %429 ]
+.loopexit:                                        ; preds = %429, %506, %527
+  %.4 = phi i32 [ %., %527 ], [ %507, %506 ], [ -2147483632, %429 ]
   %.not.i293 = icmp eq ptr %0, null
   br i1 %.not.i293, label %_ZN12dtFixedArrayIhED2Ev.exit, label %.thread378
 
 .thread378:                                       ; preds = %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit261, %.loopexit
   %.4381 = phi i32 [ %.4, %.loopexit ], [ -2147483644, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit261 ]
-  %527 = load ptr, ptr %0, align 8
-  %528 = getelementptr inbounds i8, ptr %527, i64 32
-  %529 = load ptr, ptr %528, align 8
-  invoke void %529(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %106)
-          to label %533 unwind label %530
+  %528 = load ptr, ptr %0, align 8
+  %529 = getelementptr inbounds i8, ptr %528, i64 32
+  %530 = load ptr, ptr %529, align 8
+  invoke void %530(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %106)
+          to label %534 unwind label %531
 
-530:                                              ; preds = %.thread378
-  %531 = landingpad { ptr, i32 }
+531:                                              ; preds = %.thread378
+  %532 = landingpad { ptr, i32 }
           catch ptr null
-  %532 = extractvalue { ptr, i32 } %531, 0
-  tail call void @__clang_call_terminate(ptr %532) #21
+  %533 = extractvalue { ptr, i32 } %532, 0
+  tail call void @__clang_call_terminate(ptr %533) #21
   unreachable
 
-533:                                              ; preds = %.thread378, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit260
+534:                                              ; preds = %.thread378, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit260
   %.3.ph = phi i32 [ %.4381, %.thread378 ], [ -2147483644, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit260 ]
-  %534 = load ptr, ptr %0, align 8
-  %535 = getelementptr inbounds i8, ptr %534, i64 32
-  %536 = load ptr, ptr %535, align 8
-  invoke void %536(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %96)
-          to label %547 unwind label %537
+  %535 = load ptr, ptr %0, align 8
+  %536 = getelementptr inbounds i8, ptr %535, i64 32
+  %537 = load ptr, ptr %536, align 8
+  invoke void %537(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %96)
+          to label %548 unwind label %538
 
-537:                                              ; preds = %533
-  %538 = landingpad { ptr, i32 }
+538:                                              ; preds = %534
+  %539 = landingpad { ptr, i32 }
           catch ptr null
-  %539 = extractvalue { ptr, i32 } %538, 0
-  tail call void @__clang_call_terminate(ptr %539) #21
+  %540 = extractvalue { ptr, i32 } %539, 0
+  tail call void @__clang_call_terminate(ptr %540) #21
   unreachable
 
-540:                                              ; preds = %113, %97
+541:                                              ; preds = %113, %97
   %.pn.ph = phi { ptr, i32 } [ %112, %113 ], [ %98, %97 ]
-  %541 = load ptr, ptr %0, align 8
-  %542 = getelementptr inbounds i8, ptr %541, i64 32
-  %543 = load ptr, ptr %542, align 8
-  invoke void %543(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %96)
-          to label %554 unwind label %544
+  %542 = load ptr, ptr %0, align 8
+  %543 = getelementptr inbounds i8, ptr %542, i64 32
+  %544 = load ptr, ptr %543, align 8
+  invoke void %544(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %96)
+          to label %555 unwind label %545
 
-544:                                              ; preds = %540
-  %545 = landingpad { ptr, i32 }
+545:                                              ; preds = %541
+  %546 = landingpad { ptr, i32 }
           catch ptr null
-  %546 = extractvalue { ptr, i32 } %545, 0
-  tail call void @__clang_call_terminate(ptr %546) #21
+  %547 = extractvalue { ptr, i32 } %546, 0
+  tail call void @__clang_call_terminate(ptr %547) #21
   unreachable
 
-547:                                              ; preds = %533, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit259
-  %.2.ph = phi i32 [ %.3.ph, %533 ], [ -2147483644, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit259 ]
-  %548 = load ptr, ptr %0, align 8
-  %549 = getelementptr inbounds i8, ptr %548, i64 32
-  %550 = load ptr, ptr %549, align 8
-  invoke void %550(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %86)
-          to label %561 unwind label %551
+548:                                              ; preds = %534, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit259
+  %.2.ph = phi i32 [ %.3.ph, %534 ], [ -2147483644, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit259 ]
+  %549 = load ptr, ptr %0, align 8
+  %550 = getelementptr inbounds i8, ptr %549, i64 32
+  %551 = load ptr, ptr %550, align 8
+  invoke void %551(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %86)
+          to label %562 unwind label %552
 
-551:                                              ; preds = %547
-  %552 = landingpad { ptr, i32 }
+552:                                              ; preds = %548
+  %553 = landingpad { ptr, i32 }
           catch ptr null
-  %553 = extractvalue { ptr, i32 } %552, 0
-  tail call void @__clang_call_terminate(ptr %553) #21
+  %554 = extractvalue { ptr, i32 } %553, 0
+  tail call void @__clang_call_terminate(ptr %554) #21
   unreachable
 
-554:                                              ; preds = %540, %87
-  %.pn.pn.ph = phi { ptr, i32 } [ %.pn.ph, %540 ], [ %88, %87 ]
-  %555 = load ptr, ptr %0, align 8
-  %556 = getelementptr inbounds i8, ptr %555, i64 32
-  %557 = load ptr, ptr %556, align 8
-  invoke void %557(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %86)
-          to label %568 unwind label %558
+555:                                              ; preds = %541, %87
+  %.pn.pn.ph = phi { ptr, i32 } [ %.pn.ph, %541 ], [ %88, %87 ]
+  %556 = load ptr, ptr %0, align 8
+  %557 = getelementptr inbounds i8, ptr %556, i64 32
+  %558 = load ptr, ptr %557, align 8
+  invoke void %558(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %86)
+          to label %569 unwind label %559
 
-558:                                              ; preds = %554
-  %559 = landingpad { ptr, i32 }
+559:                                              ; preds = %555
+  %560 = landingpad { ptr, i32 }
           catch ptr null
-  %560 = extractvalue { ptr, i32 } %559, 0
-  tail call void @__clang_call_terminate(ptr %560) #21
+  %561 = extractvalue { ptr, i32 } %560, 0
+  tail call void @__clang_call_terminate(ptr %561) #21
   unreachable
 
-561:                                              ; preds = %547, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit
-  %.1.ph = phi i32 [ %.2.ph, %547 ], [ -2147483644, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit ]
-  %562 = load ptr, ptr %0, align 8
-  %563 = getelementptr inbounds i8, ptr %562, i64 32
-  %564 = load ptr, ptr %563, align 8
-  invoke void %564(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %77)
-          to label %575 unwind label %565
+562:                                              ; preds = %548, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit
+  %.1.ph = phi i32 [ %.2.ph, %548 ], [ -2147483644, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit ]
+  %563 = load ptr, ptr %0, align 8
+  %564 = getelementptr inbounds i8, ptr %563, i64 32
+  %565 = load ptr, ptr %564, align 8
+  invoke void %565(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %77)
+          to label %576 unwind label %566
 
-565:                                              ; preds = %561
-  %566 = landingpad { ptr, i32 }
+566:                                              ; preds = %562
+  %567 = landingpad { ptr, i32 }
           catch ptr null
-  %567 = extractvalue { ptr, i32 } %566, 0
-  tail call void @__clang_call_terminate(ptr %567) #21
+  %568 = extractvalue { ptr, i32 } %567, 0
+  tail call void @__clang_call_terminate(ptr %568) #21
   unreachable
 
-568:                                              ; preds = %554, %78
-  %.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn.ph, %554 ], [ %79, %78 ]
-  %569 = load ptr, ptr %0, align 8
-  %570 = getelementptr inbounds i8, ptr %569, i64 32
-  %571 = load ptr, ptr %570, align 8
-  invoke void %571(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %77)
-          to label %582 unwind label %572
+569:                                              ; preds = %555, %78
+  %.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn.ph, %555 ], [ %79, %78 ]
+  %570 = load ptr, ptr %0, align 8
+  %571 = getelementptr inbounds i8, ptr %570, i64 32
+  %572 = load ptr, ptr %571, align 8
+  invoke void %572(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %77)
+          to label %583 unwind label %573
 
-572:                                              ; preds = %568
-  %573 = landingpad { ptr, i32 }
+573:                                              ; preds = %569
+  %574 = landingpad { ptr, i32 }
           catch ptr null
-  %574 = extractvalue { ptr, i32 } %573, 0
-  tail call void @__clang_call_terminate(ptr %574) #21
+  %575 = extractvalue { ptr, i32 } %574, 0
+  tail call void @__clang_call_terminate(ptr %575) #21
   unreachable
 
-575:                                              ; preds = %561, %65, %58, %51, %41, %._crit_edge
-  %.0179.ph = phi i32 [ %.1.ph, %561 ], [ -2147483644, %65 ], [ -2147483644, %58 ], [ -2147483644, %51 ], [ -2147483644, %41 ], [ -2147483644, %._crit_edge ]
-  %576 = load ptr, ptr %0, align 8
-  %577 = getelementptr inbounds i8, ptr %576, i64 32
-  %578 = load ptr, ptr %577, align 8
-  invoke void %578(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %30)
-          to label %_ZN12dtFixedArrayIhED2Ev.exit unwind label %579
+576:                                              ; preds = %562, %65, %58, %51, %41, %._crit_edge
+  %.0179.ph = phi i32 [ %.1.ph, %562 ], [ -2147483644, %65 ], [ -2147483644, %58 ], [ -2147483644, %51 ], [ -2147483644, %41 ], [ -2147483644, %._crit_edge ]
+  %577 = load ptr, ptr %0, align 8
+  %578 = getelementptr inbounds i8, ptr %577, i64 32
+  %579 = load ptr, ptr %578, align 8
+  invoke void %579(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %30)
+          to label %_ZN12dtFixedArrayIhED2Ev.exit unwind label %580
 
-579:                                              ; preds = %575
-  %580 = landingpad { ptr, i32 }
+580:                                              ; preds = %576
+  %581 = landingpad { ptr, i32 }
           catch ptr null
-  %581 = extractvalue { ptr, i32 } %580, 0
-  tail call void @__clang_call_terminate(ptr %581) #21
+  %582 = extractvalue { ptr, i32 } %581, 0
+  tail call void @__clang_call_terminate(ptr %582) #21
   unreachable
 
-_ZN12dtFixedArrayIhED2Ev.exit:                    ; preds = %.loopexit, %575
-  %.0179410 = phi i32 [ %.0179.ph, %575 ], [ %.4, %.loopexit ]
+_ZN12dtFixedArrayIhED2Ev.exit:                    ; preds = %.loopexit, %576
+  %.0179410 = phi i32 [ %.0179.ph, %576 ], [ %.4, %.loopexit ]
   ret i32 %.0179410
 
-582:                                              ; preds = %568, %31
-  %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn.pn.ph, %568 ], [ %32, %31 ]
-  %583 = load ptr, ptr %0, align 8
-  %584 = getelementptr inbounds i8, ptr %583, i64 32
-  %585 = load ptr, ptr %584, align 8
-  invoke void %585(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %30)
-          to label %_ZN12dtFixedArrayIhED2Ev.exit309 unwind label %586
+583:                                              ; preds = %569, %31
+  %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn.pn.ph, %569 ], [ %32, %31 ]
+  %584 = load ptr, ptr %0, align 8
+  %585 = getelementptr inbounds i8, ptr %584, i64 32
+  %586 = load ptr, ptr %585, align 8
+  invoke void %586(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %30)
+          to label %_ZN12dtFixedArrayIhED2Ev.exit309 unwind label %587
 
-586:                                              ; preds = %582
-  %587 = landingpad { ptr, i32 }
+587:                                              ; preds = %583
+  %588 = landingpad { ptr, i32 }
           catch ptr null
-  %588 = extractvalue { ptr, i32 } %587, 0
-  tail call void @__clang_call_terminate(ptr %588) #21
+  %589 = extractvalue { ptr, i32 } %588, 0
+  tail call void @__clang_call_terminate(ptr %589) #21
   unreachable
 
-_ZN12dtFixedArrayIhED2Ev.exit309:                 ; preds = %111, %582
-  %.pn.pn.pn.pn414 = phi { ptr, i32 } [ %.pn.pn.pn.pn.ph, %582 ], [ %112, %111 ]
+_ZN12dtFixedArrayIhED2Ev.exit309:                 ; preds = %111, %583
+  %.pn.pn.pn.pn414 = phi { ptr, i32 } [ %.pn.pn.pn.pn.ph, %583 ], [ %112, %111 ]
   resume { ptr, i32 } %.pn.pn.pn.pn414
 }
 
@@ -3458,28 +3458,28 @@ define internal fastcc noundef i32 @_ZL11triangulateiPKhPtS1_(i32 noundef %0, pt
   %76 = add nsw i32 %75, 1
   %77 = sext i32 %76 to i64
   %78 = icmp sgt i64 %indvars.iv145, %77
-  %79 = sext i32 %76 to i64
-  %80 = sext i32 %.1108 to i64
-  %81 = getelementptr inbounds i16, ptr %2, i64 %80
-  %82 = load i16, ptr %81, align 2
-  %83 = and i16 %82, 32767
-  %84 = getelementptr inbounds i8, ptr %.0104125, i64 2
-  store i16 %83, ptr %.0104125, align 2
-  %85 = sext i32 %75 to i64
-  %86 = getelementptr inbounds i16, ptr %2, i64 %85
-  %87 = load i16, ptr %86, align 2
-  %88 = and i16 %87, 32767
-  %89 = getelementptr inbounds i8, ptr %.0104125, i64 4
-  store i16 %88, ptr %84, align 2
-  %90 = select i1 %78, i64 %79, i64 0
+  %79 = sext i32 %.1108 to i64
+  %80 = getelementptr inbounds i16, ptr %2, i64 %79
+  %81 = load i16, ptr %80, align 2
+  %82 = and i16 %81, 32767
+  %83 = getelementptr inbounds i8, ptr %.0104125, i64 2
+  store i16 %82, ptr %.0104125, align 2
+  %84 = sext i32 %75 to i64
+  %85 = getelementptr inbounds i16, ptr %2, i64 %84
+  %86 = load i16, ptr %85, align 2
+  %87 = and i16 %86, 32767
+  %88 = getelementptr inbounds i8, ptr %.0104125, i64 4
+  store i16 %87, ptr %83, align 2
+  %89 = sext i32 %76 to i64
+  %90 = select i1 %78, i64 %89, i64 0
   %91 = getelementptr inbounds i16, ptr %2, i64 %90
   %92 = load i16, ptr %91, align 2
   %93 = and i16 %92, 32767
   %94 = getelementptr inbounds i8, ptr %.0104125, i64 6
-  store i16 %93, ptr %89, align 2
+  store i16 %93, ptr %88, align 2
   %95 = add nuw nsw i32 %.0103126, 1
   %indvars.iv.next146 = add nsw i64 %indvars.iv145, -1
-  %96 = icmp sgt i64 %indvars.iv.next146, %85
+  %96 = icmp sgt i64 %indvars.iv.next146, %84
   br i1 %96, label %.lr.ph124, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %71
@@ -3487,7 +3487,7 @@ define internal fastcc noundef i32 @_ZL11triangulateiPKhPtS1_(i32 noundef %0, pt
   br label %103
 
 .lr.ph124:                                        ; preds = %71, %.lr.ph124
-  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph124 ], [ %85, %71 ]
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph124 ], [ %84, %71 ]
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, 1
   %98 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.next137
   %99 = load i16, ptr %98, align 2

@@ -436,10 +436,10 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   %64 = getelementptr inbounds i8, ptr %6, i64 10
   %65 = load i8, ptr %64, align 1
   %66 = trunc i8 %65 to i1
-  %67 = xor i8 %26, 1
-  %68 = getelementptr inbounds i8, ptr %0, i64 11
-  %69 = select i1 %66, i8 %67, i8 0
-  store i8 %69, ptr %68, align 1
+  %67 = getelementptr inbounds i8, ptr %0, i64 11
+  %68 = xor i8 %26, 1
+  %69 = select i1 %66, i8 %68, i8 0
+  store i8 %69, ptr %67, align 1
   %70 = getelementptr inbounds i8, ptr %6, i64 11
   %71 = load i8, ptr %70, align 1
   %72 = trunc i8 %71 to i1
@@ -479,7 +479,7 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   %93 = load i8, ptr %92, align 1
   %94 = trunc i8 %93 to i1
   %95 = getelementptr inbounds i8, ptr %0, i64 14
-  %96 = select i1 %94, i8 %67, i8 0
+  %96 = select i1 %94, i8 %68, i8 0
   store i8 %96, ptr %95, align 1
   %97 = getelementptr inbounds i8, ptr %0, i64 15
   %98 = select i1 %94, i8 %77, i8 0
@@ -524,7 +524,7 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   %122 = getelementptr inbounds i8, ptr %5, i64 4
   %123 = load i8, ptr %122, align 1
   %124 = trunc i8 %123 to i1
-  %spec.select39 = select i1 %124, i8 0, i8 %67
+  %spec.select39 = select i1 %124, i8 0, i8 %68
   %125 = select i1 %121, i8 %spec.select39, i8 0
   %126 = getelementptr inbounds i8, ptr %0, i64 19
   store i8 %125, ptr %126, align 1

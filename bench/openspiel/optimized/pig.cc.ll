@@ -2236,13 +2236,13 @@ define void @_ZN10open_spiel3pig8PigState13DoApplyActionEl(ptr noundef nonnull a
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
-  %52 = trunc i64 %1 to i32
-  %53 = add i32 %52, 1
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %55 = load i32, ptr %54, align 8
-  %56 = select i1 %51, i32 1, i32 %53
-  %57 = add i32 %56, %55
-  store i32 %57, ptr %54, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %53 = load i32, ptr %52, align 8
+  %54 = trunc i64 %1 to i32
+  %55 = add i32 %54, 1
+  %56 = select i1 %51, i32 1, i32 %55
+  %57 = add i32 %56, %53
+  store i32 %57, ptr %52, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %59 = load i32, ptr %58, align 8
   store i32 %59, ptr %7, align 4

@@ -4453,15 +4453,15 @@ _ZL24DiagnoseMutualExclusionsRN5clang4SemaERKN4llvm15SmallVectorImplIPKNS_4AttrE
   %.not17.i.i = icmp eq i64 %1195, 0
   %1196 = shl i64 %1194, 5
   %1197 = and i64 %1196, 8589934592
-  %1198 = xor i64 %1197, 56100862820352
-  %1199 = and i64 %1193, -140732121603582
-  %1200 = select i1 %.not17.i.i, i64 56092272885760, i64 %1198
+  %1198 = and i64 %1193, -140732121603582
+  %1199 = xor i64 %1197, 56100862820352
+  %1200 = select i1 %.not17.i.i, i64 56092272885760, i64 %1199
   %1201 = getelementptr inbounds nuw i8, ptr %1135, i64 88
   %1202 = load i64, ptr %1201, align 8
   %1203 = shl i64 %1202, 37
   %1204 = and i64 %1203, 70368744177664
   %1205 = or disjoint i64 %1200, %1204
-  %1206 = or disjoint i64 %1205, %1199
+  %1206 = or disjoint i64 %1205, %1198
   store i64 %1206, ptr %58, align 8
   store ptr null, ptr %1105, align 8
   %1207 = getelementptr inbounds nuw i8, ptr %1108, i64 16

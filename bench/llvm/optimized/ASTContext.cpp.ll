@@ -6095,10 +6095,10 @@ define linkonce_odr hidden void @_ZN5clang14PrintingPolicyC2ERKNS_11LangOptionsE
   %.not17 = icmp eq i64 %62, 0
   %63 = shl i64 %61, 5
   %64 = and i64 %63, 8589934592
-  %65 = xor i64 %64, 56100862820352
-  %66 = and i64 %60, -70363377425918
-  %67 = select i1 %.not17, i64 56092272885760, i64 %65
-  %68 = or disjoint i64 %67, %66
+  %65 = and i64 %60, -70363377425918
+  %66 = xor i64 %64, 56100862820352
+  %67 = select i1 %.not17, i64 56092272885760, i64 %66
+  %68 = or disjoint i64 %67, %65
   store i64 %68, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %70 = load i64, ptr %69, align 8
@@ -84998,11 +84998,11 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %27, %.critedge.i.i.
   %.sroa.0.0.extract.trunc.i = trunc i64 %4 to i32
   %36 = and i64 %4, 4294967296
   %.not.i = icmp eq i64 %36, 0
-  %37 = shl i32 %.sroa.0.0.extract.trunc.i, 17
-  %38 = add i32 %37, 131072
-  %39 = shl i32 %3, 2
-  %40 = select i1 %.not.i, i32 0, i32 %38
-  %.masked.i.i = and i32 %39, 131068
+  %37 = shl i32 %3, 2
+  %38 = shl i32 %.sroa.0.0.extract.trunc.i, 17
+  %39 = add i32 %38, 131072
+  %40 = select i1 %.not.i, i32 0, i32 %39
+  %.masked.i.i = and i32 %37, 131068
   %41 = or disjoint i32 %.masked.i.i, %40
   %42 = or disjoint i32 %41, 2
   store i32 %42, ptr %.0.i.i.i.i, align 8

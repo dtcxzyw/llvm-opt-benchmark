@@ -1101,10 +1101,10 @@ CopyXLogRecordToWAL.exit:                         ; preds = %.loopexit88.i
 
 376:                                              ; preds = %CopyXLogRecordToWAL.exit
   %377 = load i32, ptr @MyLockNo, align 4
-  %378 = sext i32 %377 to i64
-  %379 = load ptr, ptr @WALInsertLocks, align 8
-  %380 = select i1 %.b4.i65.pre102, i64 0, i64 %378
-  %381 = getelementptr %union.WALInsertLockPadded, ptr %379, i64 %380, i32 0, i32 2
+  %378 = load ptr, ptr @WALInsertLocks, align 8
+  %379 = sext i32 %377 to i64
+  %380 = select i1 %.b4.i65.pre102, i64 0, i64 %379
+  %381 = getelementptr %union.WALInsertLockPadded, ptr %378, i64 %380, i32 0, i32 2
   store i64 %232, ptr %381, align 8
   br i1 %.b4.i65.pre102, label %.preheader.i66.preheader, label %389
 

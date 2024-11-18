@@ -850,19 +850,19 @@ define dso_local void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRK
   %5 = alloca %"class.llvm::SmallString", align 8
   %6 = and i16 %3, 256
   %.not29 = icmp eq i16 %6, 0
-  %7 = and i16 %3, 255
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %8, i64 noundef 256) #24
-  %9 = call { ptr, i64 } @_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %10 = extractvalue { ptr, i64 } %9, 0
-  %11 = extractvalue { ptr, i64 } %9, 1
-  %12 = add i64 %11, 33
-  %narrow = select i1 %.not29, i16 4, i16 %7
+  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %7, i64 noundef 256) #24
+  %8 = call { ptr, i64 } @_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %9 = extractvalue { ptr, i64 } %8, 0
+  %10 = extractvalue { ptr, i64 } %8, 1
+  %11 = add i64 %10, 33
+  %12 = and i16 %3, 255
+  %narrow = select i1 %.not29, i16 4, i16 %12
   %13 = zext nneg i16 %narrow to i64
   %14 = shl nuw i64 1, %13
   %15 = add i64 %1, 1
   %16 = add i64 %15, %14
-  %17 = add i64 %16, %12
+  %17 = add i64 %16, %11
   %.not = icmp ugt i64 %17, %1
   br i1 %.not, label %18, label %36
 
@@ -873,19 +873,19 @@ define dso_local void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRK
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %19, i64 24
-  store i64 %11, ptr %21, align 8
+  store i64 %10, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 32
-  %23 = icmp eq i64 %11, 0
+  %23 = icmp eq i64 %10, 0
   br i1 %23, label %_ZL13CopyStringRefPcN4llvm9StringRefE.exit, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr readonly align 1 %10, i64 %11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr readonly align 1 %9, i64 %10, i1 false)
   br label %_ZL13CopyStringRefPcN4llvm9StringRefE.exit
 
 _ZL13CopyStringRefPcN4llvm9StringRefE.exit:       ; preds = %20, %24
-  %25 = getelementptr inbounds i8, ptr %22, i64 %11
+  %25 = getelementptr inbounds i8, ptr %22, i64 %10
   store i8 0, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %19, i64 %12
+  %26 = getelementptr inbounds i8, ptr %19, i64 %11
   %27 = ptrtoint ptr %26 to i64
   %28 = add i64 %14, -1
   %29 = add i64 %28, %27
@@ -906,7 +906,7 @@ _ZL13CopyStringRefPcN4llvm9StringRefE.exit:       ; preds = %20, %24
   store ptr %.sink, ptr %0, align 8
   %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %5) #24
   %38 = load ptr, ptr %5, align 8
-  %39 = icmp eq ptr %38, %8
+  %39 = icmp eq ptr %38, %7
   br i1 %39, label %_ZN4llvm11SmallStringILj256EED2Ev.exit, label %40
 
 40:                                               ; preds = %36

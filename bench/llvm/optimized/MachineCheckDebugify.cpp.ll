@@ -626,9 +626,9 @@ _ZNK4llvm10DIVariable7getNameEv.exit:             ; preds = %_ZNK4llvm6DINode12g
   %233 = load i64, ptr %3, align 8
   %.not.i.i75 = icmp ult i64 %233, 4294967296
   %234 = trunc nuw i64 %233 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %235 = add i32 %234, -1
   %236 = select i1 %.not.i.i75, i32 %235, i32 -2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %237 = select i1 %232, i32 -2, i32 %236
   %238 = and i32 %237, 63
   %239 = zext nneg i32 %238 to i64

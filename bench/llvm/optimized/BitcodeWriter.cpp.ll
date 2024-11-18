@@ -54087,10 +54087,10 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit621: ; preds = %542, %5
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %558) #27
   %.not.i.i622 = icmp eq i64 %.sroa.2978.01067, 4294967294
   %559 = add nuw nsw i64 %543, 3
-  %560 = and i64 %559, 4294967295
-  %561 = load ptr, ptr %474, align 8
-  %562 = select i1 %.not.i.i622, i64 1, i64 %560
-  %563 = getelementptr inbounds %"class.llvm::Use", ptr %561, i64 %562
+  %560 = load ptr, ptr %474, align 8
+  %561 = and i64 %559, 4294967295
+  %562 = select i1 %.not.i.i622, i64 1, i64 %561
+  %563 = getelementptr inbounds %"class.llvm::Use", ptr %560, i64 %562
   %564 = load ptr, ptr %563, align 8
   %565 = tail call noundef i32 @_ZNK4llvm15ValueEnumerator10getValueIDEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(492) %6, ptr noundef %564) #27
   %566 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27

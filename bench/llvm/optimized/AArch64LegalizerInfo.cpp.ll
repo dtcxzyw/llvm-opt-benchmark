@@ -18979,8 +18979,8 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %43, %45
   %149 = and i64 %146, 7
   %150 = icmp eq i64 %149, 0
   %151 = and i1 %148, %150
-  %152 = trunc i64 %146 to i16
   %spec.select176 = select i1 %151, i32 %139, i32 %120
+  %152 = trunc i64 %146 to i16
   %153 = sdiv i16 %152, 8
   %154 = sext i16 %153 to i64
   %155 = select i1 %151, i64 %154, i64 0
@@ -28784,19 +28784,23 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit18.thread3.i.i.i: ; preds = %39
   %43 = and i64 %18, 2
   %.not2.i16.i.i.i = icmp eq i64 %43, 0
   %44 = lshr i64 %18, 19
-  %45 = and i64 %44, 65535
-  %spec.select.i17.i.i.i = select i1 %.not2.i16.i.i.i, i64 %44, i64 %45
-  %46 = and i64 %spec.select.i17.i.i.i, 4294967295
-  %47 = icmp eq i64 %46, 8
-  br i1 %47, label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_24JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit25.i.i.i
+  %.v.i.i.i = select i1 %.not2.i16.i.i.i, i64 4294967295, i64 65535
+  %45 = and i64 %.v.i.i.i, %44
+  %46 = icmp eq i64 %45, 8
+  br i1 %46, label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_24JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %.thread5.i.i.i
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit18.thread.i.i.i: ; preds = %38
-  %48 = and i64 %18, 34359738360
-  %49 = icmp eq i64 %48, 64
-  br i1 %49, label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_24JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %.thread.i.i.i
+  %47 = and i64 %18, 34359738360
+  %48 = icmp eq i64 %47, 64
+  br i1 %48, label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_24JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit18.thread.i.i.i
-  %50 = lshr i64 %18, 3
+  %49 = lshr i64 %18, 3
+  br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit25.i.i.i
+
+.thread5.i.i.i:                                   ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit18.thread3.i.i.i
+  %50 = and i64 %44, 65535
+  %spec.select.i24.i.i.i = select i1 %.not2.i16.i.i.i, i64 %44, i64 %50
   br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit25.i.i.i
 
 51:                                               ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit18.i.i.i
@@ -28804,8 +28808,8 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit18.thread.i.i.i: ; preds = %38
   %53 = and i64 %52, 65535
   br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit25.i.i.i
 
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit25.i.i.i: ; preds = %51, %.thread.i.i.i, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit18.thread3.i.i.i
-  %.0.in.i20.i.i.i = phi i64 [ %50, %.thread.i.i.i ], [ %53, %51 ], [ %spec.select.i17.i.i.i, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit18.thread3.i.i.i ]
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit25.i.i.i: ; preds = %51, %.thread5.i.i.i, %.thread.i.i.i
+  %.0.in.i20.i.i.i = phi i64 [ %49, %.thread.i.i.i ], [ %53, %51 ], [ %spec.select.i24.i.i.i, %.thread5.i.i.i ]
   %54 = and i64 %.0.in.i20.i.i.i, 4294967295
   %55 = icmp eq i64 %54, 16
   br label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_24JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"

@@ -1556,8 +1556,8 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i:
   %31 = icmp eq ptr %30, null
   %32 = getelementptr inbounds i8, ptr %9, i64 652
   %.val = load i32, ptr %32, align 4
-  %33 = zext i32 %.val to i64
   call void @_ZN12_GLOBAL__N_122InlineCostCallAnalyzerD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %9) #28
+  %33 = zext i32 %.val to i64
   %34 = or disjoint i64 %33, 4294967296
   %.sroa.013.0.insert.insert = select i1 %31, i64 %34, i64 0
   ret i64 %.sroa.013.0.insert.insert
@@ -2680,10 +2680,10 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit142: ; pre
   %.not.i.i144 = icmp eq i64 %528, 4294967294
   %529 = shl nuw nsw i64 %528, 1
   %530 = add nuw nsw i64 %529, 3
-  %531 = and i64 %530, 4294967295
-  %532 = load ptr, ptr %482, align 8
-  %533 = select i1 %.not.i.i144, i64 1, i64 %531
-  %534 = getelementptr inbounds %"class.llvm::Use", ptr %532, i64 %533
+  %531 = load ptr, ptr %482, align 8
+  %532 = and i64 %530, 4294967295
+  %533 = select i1 %.not.i.i144, i64 1, i64 %532
+  %534 = getelementptr inbounds %"class.llvm::Use", ptr %531, i64 %533
   %535 = load ptr, ptr %534, align 8
   store ptr %535, ptr %16, align 8
   %536 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE6insertERKS2_(ptr noundef nonnull align 8 dereferenceable(168) %12, ptr noundef nonnull align 8 dereferenceable(8) %16)

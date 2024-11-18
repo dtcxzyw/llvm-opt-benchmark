@@ -57270,13 +57270,13 @@ define linkonce_odr dso_local noundef i32 @_ZN4crow10HTTPParserINS_10ConnectionI
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load i64, ptr %54, align 8, !tbaa !1279
   %56 = icmp eq i64 %55, 0
-  %57 = select i1 %56, i64 -1, i64 %55
   call void @llvm.experimental.noalias.scope.decl(metadata !1327)
-  %58 = load i64, ptr %10, align 8, !tbaa !15, !noalias !1327
-  %59 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %59, ptr %8, align 8, !tbaa !5, !alias.scope !1327
-  %60 = load ptr, ptr %9, align 8, !tbaa !12, !noalias !1327
-  %61 = call noundef i64 @llvm.umin.i64(i64 %58, i64 %57)
+  %57 = load i64, ptr %10, align 8, !tbaa !15, !noalias !1327
+  %58 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %58, ptr %8, align 8, !tbaa !5, !alias.scope !1327
+  %59 = load ptr, ptr %9, align 8, !tbaa !12, !noalias !1327
+  %60 = call i64 @llvm.umin.i64(i64 %57, i64 %55)
+  %61 = select i1 %56, i64 %57, i64 %60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #36, !noalias !1327
   store i64 %61, ptr %4, align 8, !tbaa !10, !noalias !1327
   %62 = icmp ugt i64 %61, 15
@@ -57286,23 +57286,23 @@ define linkonce_odr dso_local noundef i32 @_ZN4crow10HTTPParserINS_10ConnectionI
   %64 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %64, ptr %8, align 8, !tbaa !12, !alias.scope !1327
   %65 = load i64, ptr %4, align 8, !tbaa !10, !noalias !1327
-  store i64 %65, ptr %59, align 8, !tbaa !14, !alias.scope !1327
+  store i64 %65, ptr %58, align 8, !tbaa !14, !alias.scope !1327
   br label %66
 
 66:                                               ; preds = %63, %53
-  %67 = phi ptr [ %64, %63 ], [ %59, %53 ]
+  %67 = phi ptr [ %64, %63 ], [ %58, %53 ]
   switch i64 %61, label %70 [
     i64 1, label %68
     i64 0, label %71
   ]
 
 68:                                               ; preds = %66
-  %69 = load i8, ptr %60, align 1, !tbaa !14
+  %69 = load i8, ptr %59, align 1, !tbaa !14
   store i8 %69, ptr %67, align 1, !tbaa !14
   br label %71
 
 70:                                               ; preds = %66
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %60, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %59, i64 %61, i1 false)
   br label %71
 
 71:                                               ; preds = %70, %68, %66
@@ -57325,12 +57325,12 @@ define linkonce_odr dso_local noundef i32 @_ZN4crow10HTTPParserINS_10ConnectionI
   %83 = icmp ult i64 %82, 16
   call void @llvm.assume(i1 %83)
   %84 = load ptr, ptr %8, align 8, !tbaa !12
-  %85 = icmp eq ptr %84, %59
+  %85 = icmp eq ptr %84, %58
   br i1 %85, label %89, label %103
 
 86:                                               ; preds = %71
   %87 = load ptr, ptr %8, align 8, !tbaa !12
-  %88 = icmp eq ptr %87, %59
+  %88 = icmp eq ptr %87, %58
   br i1 %88, label %89, label %106
 
 89:                                               ; preds = %86, %80
@@ -57347,12 +57347,12 @@ define linkonce_odr dso_local noundef i32 @_ZN4crow10HTTPParserINS_10ConnectionI
   ]
 
 94:                                               ; preds = %93
-  %95 = load i8, ptr %59, align 8, !tbaa !14
+  %95 = load i8, ptr %58, align 8, !tbaa !14
   store i8 %95, ptr %77, align 1, !tbaa !14
   br label %97
 
 96:                                               ; preds = %93
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 8 %59, i64 %90, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 8 %58, i64 %90, i1 false)
   br label %97
 
 97:                                               ; preds = %96, %94, %93
@@ -57369,7 +57369,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4crow10HTTPParserINS_10ConnectionI
   store ptr %84, ptr %76, align 8, !tbaa !12
   %104 = load i64, ptr %73, align 8, !tbaa !15
   store i64 %104, ptr %81, align 8, !tbaa !15
-  %105 = load i64, ptr %59, align 8, !tbaa !14
+  %105 = load i64, ptr %58, align 8, !tbaa !14
   store i64 %105, ptr %77, align 8, !tbaa !14
   br label %112
 
@@ -57384,19 +57384,19 @@ define linkonce_odr dso_local noundef i32 @_ZN4crow10HTTPParserINS_10ConnectionI
 
 111:                                              ; preds = %106
   store ptr %77, ptr %8, align 8, !tbaa !12
-  store i64 %107, ptr %59, align 8, !tbaa !14
+  store i64 %107, ptr %58, align 8, !tbaa !14
   br label %113
 
 112:                                              ; preds = %106, %103
-  store ptr %59, ptr %8, align 8, !tbaa !12
+  store ptr %58, ptr %8, align 8, !tbaa !12
   br label %113
 
 113:                                              ; preds = %112, %111, %97, %89
-  %114 = phi ptr [ %102, %97 ], [ %77, %111 ], [ %59, %112 ], [ %59, %89 ]
+  %114 = phi ptr [ %102, %97 ], [ %77, %111 ], [ %58, %112 ], [ %58, %89 ]
   store i64 0, ptr %73, align 8, !tbaa !15
   store i8 0, ptr %114, align 1, !tbaa !14
   %115 = load ptr, ptr %8, align 8, !tbaa !12
-  %116 = icmp eq ptr %115, %59
+  %116 = icmp eq ptr %115, %58
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %113
@@ -57799,8 +57799,8 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   %105 = icmp eq i32 %104, 360448
   %106 = and i32 %100, -4194177
   %107 = or disjoint i32 %106, 393216
-  %108 = select i1 %105, i32 %107, i32 %100
-  %109 = and i32 %108, -32641
+  %108 = and i32 %100, -32641
+  %109 = select i1 %105, i32 %107, i32 %108
   %110 = or disjoint i32 %109, 3968
   store i32 %110, ptr %0, align 8
   br label %.split.us

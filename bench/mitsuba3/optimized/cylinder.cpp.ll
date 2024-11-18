@@ -4564,20 +4564,20 @@ define weak_odr void @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %20 = select i1 %17, float %16, float %.val433
   %.sroa.gep441 = getelementptr inbounds i8, ptr %6, i64 76
   %.sroa.speculate.load.false444 = load float, ptr %.sroa.gep441, align 4
-  %21 = fcmp contract ogt float %.sroa.speculate.load.false444, 5.000000e-01
-  %22 = getelementptr inbounds i8, ptr %0, i64 124
-  %23 = getelementptr inbounds i8, ptr %0, i64 120
-  %24 = getelementptr inbounds i8, ptr %0, i64 108
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
-  %32 = getelementptr inbounds i8, ptr %1, i64 176
-  %33 = load <4 x float>, ptr %32, align 16, !noalias !289
-  %34 = select i1 %17, i1 true, i1 %21
+  %21 = getelementptr inbounds i8, ptr %0, i64 124
+  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = getelementptr inbounds i8, ptr %0, i64 108
+  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  %31 = getelementptr inbounds i8, ptr %1, i64 176
+  %32 = load <4 x float>, ptr %31, align 16, !noalias !289
+  %33 = fcmp contract ogt float %.sroa.speculate.load.false444, 5.000000e-01
+  %34 = select i1 %17, i1 true, i1 %33
   %35 = fmul contract float %20, 0x401921FB60000000
   %36 = tail call contract noundef float @llvm.fabs.f32(float %35)
   %37 = fmul contract float %36, 0x3FF45F3060000000
@@ -4636,7 +4636,7 @@ define weak_odr void @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %86 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> zeroinitializer
   %87 = fmul contract <4 x float> %85, %86
   %88 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %82, <4 x float> %83, <4 x float> %87)
-  %89 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %33, <4 x float> %80, <4 x float> %88)
+  %89 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %32, <4 x float> %80, <4 x float> %88)
   %90 = shufflevector <4 x float> %.sroa.01188.0.i, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %91 = shufflevector <4 x float> %.sroa.01188.0.i, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %92 = shufflevector <4 x float> %.sroa.01188.0.i, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4644,7 +4644,7 @@ define weak_odr void @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %.sroa.01067.0.copyload.i = load <4 x float>, ptr %93, align 16, !noalias !289
   %94 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %85, <4 x float> %92, <4 x float> %.sroa.01067.0.copyload.i)
   %95 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %82, <4 x float> %91, <4 x float> %94)
-  %96 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %33, <4 x float> %90, <4 x float> %95)
+  %96 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %32, <4 x float> %90, <4 x float> %95)
   %97 = load <4 x float>, ptr %2, align 16, !noalias !289
   %98 = fsub contract <4 x float> %96, %97
   %99 = fmul contract <4 x float> %98, %98
@@ -4666,7 +4666,7 @@ define weak_odr void @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %113 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> zeroinitializer
   %114 = fmul contract <4 x float> %85, %113
   %115 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %82, <4 x float> %111, <4 x float> %114)
-  %116 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %33, <4 x float> zeroinitializer, <4 x float> %115)
+  %116 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %32, <4 x float> zeroinitializer, <4 x float> %115)
   %117 = fmul contract <4 x float> %116, %116
   %shift429 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %118 = fadd contract <4 x float> %117, %shift429
@@ -4705,20 +4705,20 @@ define weak_odr void @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %148 = select contract <4 x i1> %146, <4 x float> %147, <4 x float> %140
   %.sroa.01188.8.vec.extract1191.i = extractelement <4 x float> %.sroa.01188.0.i, i64 2
   store <4 x float> %96, ptr %0, align 16
-  store <4 x float> %148, ptr %30, align 16
-  store float %20, ptr %29, align 16
+  store <4 x float> %148, ptr %29, align 16
+  store float %20, ptr %28, align 16
   %.sroa.5.0..sroa.0384.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 36
   store float %.sroa.01188.8.vec.extract1191.i, ptr %.sroa.5.0..sroa.0384.0..sroa_idx, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %28, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %27, i8 0, i64 9, i1 false)
   store i32 1, ptr %13, align 4
   store <4 x float> %107, ptr %14, align 16
-  store <4 x float> %125, ptr %27, align 16
-  store i64 0, ptr %26, align 16
-  store i32 1, ptr %25, align 8
-  store i32 0, ptr %24, align 4
-  store ptr %1, ptr %31, align 16
-  store float 0.000000e+00, ptr %23, align 8
-  store float 0x3F50624DE0000000, ptr %22, align 4
+  store <4 x float> %125, ptr %26, align 16
+  store i64 0, ptr %25, align 16
+  store i32 1, ptr %24, align 8
+  store i32 0, ptr %23, align 4
+  store ptr %1, ptr %30, align 16
+  store float 0.000000e+00, ptr %22, align 8
+  store float 0x3F50624DE0000000, ptr %21, align 4
   %149 = getelementptr inbounds i8, ptr %1, i64 404
   %150 = load float, ptr %149, align 4
   %151 = fmul contract float %150, 0x402921FB60000000

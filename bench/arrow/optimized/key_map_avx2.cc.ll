@@ -13,11 +13,11 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %div203204 = lshr i32 %num_hashes, 3
   %0 = load i32, ptr %log_blocks_, align 4
-  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp4.i = icmp slt i32 %0, 30
+  %cmp1.i = icmp samesign ult i32 %0, 14
+  %cmp.i198 = icmp slt i32 %0, 6
   %1 = select i1 %cmp4.i, i32 40, i32 72
   %2 = select i1 %cmp1.i, i32 24, i32 %1
-  %cmp.i198 = icmp slt i32 %0, 6
   %add = select i1 %cmp.i198, i32 16, i32 %2
   %vecinit.i307 = insertelement <8 x i32> poison, i32 %add, i64 0
   %vecinit7.i314 = shufflevector <8 x i32> %vecinit.i307, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -149,20 +149,20 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shl = shl nuw nsw i32 1, %0
-  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp4.i = icmp slt i32 %0, 30
-  %1 = select i1 %cmp4.i, i64 40, i64 72
-  %2 = select i1 %cmp1.i, i64 24, i64 %1
+  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp.i1034 = icmp slt i32 %0, 6
   %blocks_ = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load ptr, ptr %blocks_, align 8
-  %is_cpu_.i = getelementptr inbounds i8, ptr %3, i64 9
-  %4 = load i8, ptr %is_cpu_.i, align 1
-  %tobool.i = trunc i8 %4 to i1
-  %data_.i = getelementptr inbounds i8, ptr %3, i64 16
-  %5 = load ptr, ptr %data_.i, align 8
-  %cond.i1035 = select i1 %tobool.i, ptr %5, ptr null
-  %add = select i1 %cmp.i1034, i64 16, i64 %2
+  %1 = load ptr, ptr %blocks_, align 8
+  %is_cpu_.i = getelementptr inbounds i8, ptr %1, i64 9
+  %2 = load i8, ptr %is_cpu_.i, align 1
+  %tobool.i = trunc i8 %2 to i1
+  %data_.i = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = load ptr, ptr %data_.i, align 8
+  %cond.i1035 = select i1 %tobool.i, ptr %3, ptr null
+  %4 = select i1 %cmp4.i, i64 40, i64 72
+  %5 = select i1 %cmp1.i, i64 24, i64 %4
+  %add = select i1 %cmp.i1034, i64 16, i64 %5
   %wide.trip.count = zext nneg i32 %shl to i64
   br label %for.body
 

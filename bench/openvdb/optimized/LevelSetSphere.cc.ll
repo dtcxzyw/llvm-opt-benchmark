@@ -6970,8 +6970,8 @@ invoke.cont:                                      ; preds = %_ZN7openvdb5v11_08G
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   %my_table11.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 136
+  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont
@@ -7005,8 +7005,8 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i
   br label %for.body.i.i.i6.i
 
 for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i6.i
-  %6 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
   %my_table11.i.i.i14.i = getelementptr inbounds i8, ptr %call, i64 712
+  %6 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
   br label %for.body6.i.i.i15.i
 
 for.body.i.i.i6.i:                                ; preds = %for.body.i.i.i6.i, %invoke.cont3.i
@@ -8067,8 +8067,8 @@ entry:
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   %my_table11.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 136
+  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
@@ -8102,8 +8102,8 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i
   br label %for.body.i.i.i6.i
 
 for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i6.i
-  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
   %my_table11.i.i.i14.i = getelementptr inbounds i8, ptr %call, i64 712
+  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
   br label %for.body6.i.i.i15.i
 
 for.body.i.i.i6.i:                                ; preds = %for.body.i.i.i6.i, %invoke.cont3.i
@@ -9132,8 +9132,8 @@ invoke.cont.i:                                    ; preds = %entry
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   %my_table11.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 136
+  %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont.i
@@ -9167,8 +9167,8 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   br label %for.body.i.i.i7.i
 
 for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
-  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
   %my_table11.i.i.i15.i = getelementptr inbounds i8, ptr %call, i64 712
+  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
@@ -81968,8 +81968,8 @@ invoke.cont.i.i.i:                                ; preds = %entry
   br label %for.body.i.i.i.i.i.i
 
 for.cond4.preheader.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.i
-  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i.i to i64
   %my_table11.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 144
+  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i.i to i64
   br label %for.body6.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -82003,8 +82003,8 @@ invoke.cont4.i.i.i:                               ; preds = %for.body6.i.i.i.i.i
   br label %for.body.i.i.i7.i.i.i
 
 for.cond4.preheader.i.i.i14.i.i.i:                ; preds = %for.body.i.i.i7.i.i.i
-  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i.i to i64
   %my_table11.i.i.i15.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 720
+  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i.i to i64
   br label %for.body6.i.i.i16.i.i.i
 
 for.body.i.i.i7.i.i.i:                            ; preds = %for.body.i.i.i7.i.i.i, %invoke.cont4.i.i.i
@@ -82186,8 +82186,8 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %for.body.i.i.i.i.i
 
 for.cond4.preheader.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i
-  %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i to i64
   %my_table11.i.i.i.i.i = getelementptr inbounds i8, ptr %where, i64 136
+  %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i to i64
   br label %for.body6.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
@@ -82221,8 +82221,8 @@ invoke.cont4.i.i:                                 ; preds = %for.body6.i.i.i.i.i
   br label %for.body.i.i.i7.i.i
 
 for.cond4.preheader.i.i.i14.i.i:                  ; preds = %for.body.i.i.i7.i.i
-  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i to i64
   %my_table11.i.i.i15.i.i = getelementptr inbounds i8, ptr %where, i64 712
+  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i to i64
   br label %for.body6.i.i.i16.i.i
 
 for.body.i.i.i7.i.i:                              ; preds = %for.body.i.i.i7.i.i, %invoke.cont4.i.i
@@ -82303,8 +82303,8 @@ invoke.cont.i.i.i:                                ; preds = %entry
   br label %for.body.i.i.i.i.i.i
 
 for.cond4.preheader.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.i
-  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i.i to i64
   %my_table11.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 144
+  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i.i to i64
   br label %for.body6.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -82338,8 +82338,8 @@ invoke.cont4.i.i.i:                               ; preds = %for.body6.i.i.i.i.i
   br label %for.body.i.i.i7.i.i.i
 
 for.cond4.preheader.i.i.i14.i.i.i:                ; preds = %for.body.i.i.i7.i.i.i
-  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i.i to i64
   %my_table11.i.i.i15.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 720
+  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i.i to i64
   br label %for.body6.i.i.i16.i.i.i
 
 for.body.i.i.i7.i.i.i:                            ; preds = %for.body.i.i.i7.i.i.i, %invoke.cont4.i.i.i
@@ -84089,8 +84089,8 @@ if.then6:                                         ; preds = %land.lhs.true
   br label %for.body.i.i.i.i.i
 
 for.cond4.preheader.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i
-  %15 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i to i64
   %my_table11.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
+  %15 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i to i64
   br label %for.body6.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then6
@@ -84124,8 +84124,8 @@ invoke.cont3.i.i:                                 ; preds = %for.body6.i.i.i.i.i
   br label %for.body.i.i.i6.i.i
 
 for.cond4.preheader.i.i.i13.i.i:                  ; preds = %for.body.i.i.i6.i.i
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i.i to i64
   %my_table11.i.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 712
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i.i to i64
   br label %for.body6.i.i.i15.i.i
 
 for.body.i.i.i6.i.i:                              ; preds = %for.body.i.i.i6.i.i, %invoke.cont3.i.i
@@ -88114,8 +88114,8 @@ invoke.cont:                                      ; preds = %_ZN7openvdb5v11_08G
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   %my_table11.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 136
+  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont
@@ -88149,8 +88149,8 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i
   br label %for.body.i.i.i6.i
 
 for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i6.i
-  %6 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
   %my_table11.i.i.i14.i = getelementptr inbounds i8, ptr %call, i64 712
+  %6 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
   br label %for.body6.i.i.i15.i
 
 for.body.i.i.i6.i:                                ; preds = %for.body.i.i.i6.i, %invoke.cont3.i
@@ -89211,8 +89211,8 @@ entry:
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   %my_table11.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 136
+  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
@@ -89246,8 +89246,8 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i
   br label %for.body.i.i.i6.i
 
 for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i6.i
-  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
   %my_table11.i.i.i14.i = getelementptr inbounds i8, ptr %call, i64 712
+  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
   br label %for.body6.i.i.i15.i
 
 for.body.i.i.i6.i:                                ; preds = %for.body.i.i.i6.i, %invoke.cont3.i
@@ -89954,8 +89954,8 @@ invoke.cont.i:                                    ; preds = %entry
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   %my_table11.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 136
+  %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont.i
@@ -89989,8 +89989,8 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   br label %for.body.i.i.i7.i
 
 for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
-  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
   %my_table11.i.i.i15.i = getelementptr inbounds i8, ptr %call, i64 712
+  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
@@ -160630,8 +160630,8 @@ invoke.cont.i.i.i:                                ; preds = %entry
   br label %for.body.i.i.i.i.i.i
 
 for.cond4.preheader.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.i
-  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i.i to i64
   %my_table11.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 144
+  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i.i to i64
   br label %for.body6.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -160665,8 +160665,8 @@ invoke.cont4.i.i.i:                               ; preds = %for.body6.i.i.i.i.i
   br label %for.body.i.i.i7.i.i.i
 
 for.cond4.preheader.i.i.i14.i.i.i:                ; preds = %for.body.i.i.i7.i.i.i
-  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i.i to i64
   %my_table11.i.i.i15.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 720
+  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i.i to i64
   br label %for.body6.i.i.i16.i.i.i
 
 for.body.i.i.i7.i.i.i:                            ; preds = %for.body.i.i.i7.i.i.i, %invoke.cont4.i.i.i
@@ -160834,8 +160834,8 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %for.body.i.i.i.i.i
 
 for.cond4.preheader.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i
-  %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i to i64
   %my_table11.i.i.i.i.i = getelementptr inbounds i8, ptr %where, i64 136
+  %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i to i64
   br label %for.body6.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
@@ -160869,8 +160869,8 @@ invoke.cont4.i.i:                                 ; preds = %for.body6.i.i.i.i.i
   br label %for.body.i.i.i7.i.i
 
 for.cond4.preheader.i.i.i14.i.i:                  ; preds = %for.body.i.i.i7.i.i
-  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i to i64
   %my_table11.i.i.i15.i.i = getelementptr inbounds i8, ptr %where, i64 712
+  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i to i64
   br label %for.body6.i.i.i16.i.i
 
 for.body.i.i.i7.i.i:                              ; preds = %for.body.i.i.i7.i.i, %invoke.cont4.i.i
@@ -160938,8 +160938,8 @@ invoke.cont.i.i.i:                                ; preds = %entry
   br label %for.body.i.i.i.i.i.i
 
 for.cond4.preheader.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.i
-  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i.i to i64
   %my_table11.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 144
+  %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i.i to i64
   br label %for.body6.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -160973,8 +160973,8 @@ invoke.cont4.i.i.i:                               ; preds = %for.body6.i.i.i.i.i
   br label %for.body.i.i.i7.i.i.i
 
 for.cond4.preheader.i.i.i14.i.i.i:                ; preds = %for.body.i.i.i7.i.i.i
-  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i.i to i64
   %my_table11.i.i.i15.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 720
+  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i.i.i to i64
   br label %for.body6.i.i.i16.i.i.i
 
 for.body.i.i.i7.i.i.i:                            ; preds = %for.body.i.i.i7.i.i.i, %invoke.cont4.i.i.i
@@ -162718,8 +162718,8 @@ if.then6:                                         ; preds = %land.lhs.true
   br label %for.body.i.i.i.i.i
 
 for.cond4.preheader.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i
-  %15 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i to i64
   %my_table11.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
+  %15 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i.i to i64
   br label %for.body6.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then6
@@ -162753,8 +162753,8 @@ invoke.cont3.i.i:                                 ; preds = %for.body6.i.i.i.i.i
   br label %for.body.i.i.i6.i.i
 
 for.cond4.preheader.i.i.i13.i.i:                  ; preds = %for.body.i.i.i6.i.i
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i.i to i64
   %my_table11.i.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 712
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i.i to i64
   br label %for.body6.i.i.i15.i.i
 
 for.body.i.i.i6.i.i:                              ; preds = %for.body.i.i.i6.i.i, %invoke.cont3.i.i

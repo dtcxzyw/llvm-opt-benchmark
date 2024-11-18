@@ -872,8 +872,8 @@ dissect_version_4_primary_header.exit:            ; preds = %133, %219, %222
   %226 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef 1, i32 noundef 10, ptr noundef nonnull %64, i32 noundef 16) #6
   %227 = icmp eq i32 %226, 0
   %228 = load i64, ptr %64, align 8
-  %229 = trunc i64 %228 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
+  %229 = trunc i64 %228 to i8
   %230 = and i8 %229, 127
   %231 = select i1 %227, i8 127, i8 %230
   %232 = add i32 %226, -9

@@ -956,18 +956,18 @@ define dso_local void @file_add_wildcard_files(ptr nocapture noundef %0, ptr nou
   %6 = alloca %struct.stat, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %8 = icmp eq i64 %7, 0
-  %9 = add i64 %7, -1
   %spec.select54 = select i1 %8, ptr @.str.33, ptr %1
-  %10 = tail call ptr @opendir(ptr noundef %spec.select54)
-  %11 = select i1 %8, i64 1, i64 %9
+  %9 = tail call ptr @opendir(ptr noundef %spec.select54)
+  %10 = add i64 %7, -1
+  %11 = select i1 %8, i64 1, i64 %10
   %12 = getelementptr inbounds i8, ptr %spec.select54, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 47
-  %.not = icmp eq ptr %10, null
+  %.not = icmp eq ptr %9, null
   br i1 %.not, label %98, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %15 = tail call ptr @readdir(ptr noundef nonnull %10) #17
+  %15 = tail call ptr @readdir(ptr noundef nonnull %9) #17
   %.not5058 = icmp eq ptr %15, null
   br i1 %.not5058, label %._crit_edge, label %.lr.ph
 
@@ -1126,7 +1126,7 @@ file_has_suffix_in_list.exit.thread.us:           ; preds = %40, %26
   br label %.backedge.us
 
 .backedge.us:                                     ; preds = %.lr.ph.split.us, %23, %85, %89, %91, %file_has_suffix_in_list.exit.thread.us, %81
-  %92 = tail call ptr @readdir(ptr noundef nonnull %10) #17
+  %92 = tail call ptr @readdir(ptr noundef nonnull %9) #17
   %.not50.us = icmp eq ptr %92, null
   br i1 %.not50.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
 
@@ -1148,7 +1148,7 @@ file_has_suffix_in_list.exit.thread.us59:         ; preds = %.lr.ph.split.split.
   br label %.backedge.us63
 
 .backedge.us63:                                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us, %file_has_suffix_in_list.exit.thread.us59
-  %97 = tail call ptr @readdir(ptr noundef nonnull %10) #17
+  %97 = tail call ptr @readdir(ptr noundef nonnull %9) #17
   %.not50.us64 = icmp eq ptr %97, null
   br i1 %.not50.us64, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !17
 
@@ -1169,7 +1169,7 @@ file_has_suffix_in_list.exit.thread.us59:         ; preds = %.lr.ph.split.split.
   ]
 
 .backedge:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split, %107, %113, %111, %file_has_suffix_in_list.exit.thread
-  %104 = tail call ptr @readdir(ptr noundef nonnull %10) #17
+  %104 = tail call ptr @readdir(ptr noundef nonnull %9) #17
   %.not50 = icmp eq ptr %104, null
   br i1 %.not50, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !17
 
@@ -1195,7 +1195,7 @@ file_has_suffix_in_list.exit.thread:              ; preds = %.lr.ph.split.split
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge.us63, %.backedge, %.backedge.us, %.preheader
-  %114 = tail call i32 @closedir(ptr noundef nonnull %10)
+  %114 = tail call i32 @closedir(ptr noundef nonnull %9)
   ret void
 }
 

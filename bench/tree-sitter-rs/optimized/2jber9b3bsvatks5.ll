@@ -26542,12 +26542,12 @@ _ZN15tree_sitter_cli8generate10node_types13ChildQuantity5union17h2bdfecdd0baef79
   %.sroa.499.0.copyload = load i16, ptr %.sroa.499.0..0.60.sroa_idx, align 1
   %536 = icmp eq i8 %.sroa.098.0.copyload, 2
   %537 = trunc i8 %.sroa.098.0.copyload to i1
-  %538 = zext i16 %.sroa.499.0.copyload to i24
-  %539 = xor i1 %537, true
-  %.sroa.3101.0.insert.ext = select i1 %536, i24 0, i24 %538
+  %538 = xor i1 %537, true
+  %539 = zext i16 %.sroa.499.0.copyload to i24
+  %.sroa.3101.0.insert.ext = select i1 %536, i24 0, i24 %539
   %540 = load i8, ptr %477, align 1, !range !559, !alias.scope !6637, !noundef !17
   %541 = trunc nuw i8 %540 to i1
-  %brmerge = select i1 %541, i1 true, i1 %539
+  %brmerge = select i1 %541, i1 true, i1 %538
   br i1 %brmerge, label %.thread583.thread, label %546
 
 .thread583.thread:                                ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdb1c63e31f8b0721E.exit._crit_edge.i.i.i", %.loopexit687, %.thread583, %546

@@ -3454,7 +3454,7 @@ define void @_Z17choose_watermodelPKcRKNSt10filesystem7__cxx114pathEPPcRKN3gmx8M
 
 15:                                               ; preds = %4
   store ptr null, ptr %2, align 8
-  br label %138
+  br label %137
 
 16:                                               ; preds = %4
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.21) #30
@@ -3464,7 +3464,7 @@ define void @_Z17choose_watermodelPKcRKNSt10filesystem7__cxx114pathEPPcRKN3gmx8M
 18:                                               ; preds = %16
   %19 = tail call noundef ptr @_Z10gmx_strdupPKc(ptr noundef %0)
   store ptr %19, ptr %2, align 8
-  br label %138
+  br label %137
 
 20:                                               ; preds = %16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %1)
@@ -3628,7 +3628,7 @@ _ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer:     ; preds = %_ZL14gmx_sfree_impl
   %.036.ph = phi i32 [ 0, %62 ], [ %64, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer.backedge ]
   %64 = add nuw nsw i32 %.036.ph, 1
   %65 = zext nneg i32 %64 to i64
-  %66 = sext i32 %.036.ph to i64
+  %66 = zext nneg i32 %.036.ph to i64
   br label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
 
 _ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit:           ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer, %94
@@ -3715,7 +3715,7 @@ _ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.outer.backedge: ; preds = %_ZN3gmx14LogWr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #27
   %102 = getelementptr inbounds i8, ptr %12, i64 32
   store i8 1, ptr %102, align 8
-  %103 = add nsw i32 %.036.ph, 1
+  %103 = add nuw nsw i32 %.036.ph, 1
   %104 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull @.str.13, i32 noundef %103, ptr noundef nonnull @.str.27)
           to label %105 unwind label %109
 
@@ -3775,43 +3775,43 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit57: ; preds = %105
   %storemerge = phi ptr [ null, %121 ], [ %127, %123 ]
   store ptr %storemerge, ptr %2, align 8
   store i32 0, ptr %6, align 4
-  %129 = icmp sgt i32 %.036.ph, 0
-  br i1 %129, label %.lr.ph, label %._crit_edge
+  %.not106 = icmp eq i32 %.036.ph, 0
+  br i1 %.not106, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %128, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59
-  %storemerge4385 = phi i32 [ %134, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59 ], [ 0, %128 ]
-  %130 = sext i32 %storemerge4385 to i64
-  %131 = getelementptr inbounds ptr, ptr %.0, i64 %130
-  %132 = load ptr, ptr %131, align 8
-  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.7, i32 noundef 439, ptr noundef %132)
+  %storemerge4385 = phi i32 [ %133, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59 ], [ 0, %128 ]
+  %129 = sext i32 %storemerge4385 to i64
+  %130 = getelementptr inbounds ptr, ptr %.0, i64 %129
+  %131 = load ptr, ptr %130, align 8
+  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.7, i32 noundef 439, ptr noundef %131)
           to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59 unwind label %.loopexit
 
 _ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59:         ; preds = %.lr.ph
-  %133 = load i32, ptr %6, align 4
-  %134 = add nsw i32 %133, 1
-  store i32 %134, ptr %6, align 4
-  %135 = icmp slt i32 %134, %.036.ph
-  br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !62
+  %132 = load i32, ptr %6, align 4
+  %133 = add nsw i32 %132, 1
+  store i32 %133, ptr %6, align 4
+  %134 = icmp slt i32 %133, %.036.ph
+  br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit59, %128
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.7, i32 noundef 441, ptr noundef %.0)
           to label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit:          ; preds = %._crit_edge, %46
-  %136 = load ptr, ptr %25, align 8
-  %.not.i.i.i61 = icmp eq ptr %136, null
-  br i1 %.not.i.i.i61, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit62, label %137
+  %135 = load ptr, ptr %25, align 8
+  %.not.i.i.i61 = icmp eq ptr %135, null
+  br i1 %.not.i.i.i61, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit62, label %136
 
-137:                                              ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %136) #27
+136:                                              ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %135) #27
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit62
 
-_ZNSt10filesystem7__cxx114pathD2Ev.exit62:        ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit, %137
+_ZNSt10filesystem7__cxx114pathD2Ev.exit62:        ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit, %136
   store ptr null, ptr %25, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #27
-  br label %138
+  br label %137
 
-138:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit62, %18, %15
+137:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit62, %18, %15
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %109, %92, %60, %44

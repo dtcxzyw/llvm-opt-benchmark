@@ -149,7 +149,6 @@ if.else.i:                                        ; preds = %for.cond.i
   %13 = and i8 %12, 4
   %cmp.not.i.i = icmp eq i8 %13, 0
   %and3.i.i = and i8 %11, -33
-  %spec.select.i.i = select i1 %cmp.not.i.i, i8 %11, i8 %and3.i.i
   %14 = load i64, ptr @git_default_name, align 8
   %tobool.not.i.i10.i = icmp eq i64 %14, 0
   br i1 %tobool.not.i.i10.i, label %if.then.i18.i, label %strbuf_avail.exit.i11.i
@@ -169,10 +168,11 @@ if.then.i18.i:                                    ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit21.i:                            ; preds = %if.then.i18.i, %strbuf_avail.exit.i11.i
   %inc.pre-phi.i14.i = phi i64 [ %.pre8.i20.i, %if.then.i18.i ], [ %.neg.i12.i, %strbuf_avail.exit.i11.i ]
   %16 = phi i64 [ %.pre.i19.i, %if.then.i18.i ], [ %15, %strbuf_avail.exit.i11.i ]
+  %conv.i15.i = select i1 %cmp.not.i.i, i8 %11, i8 %and3.i.i
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
   store i64 %inc.pre-phi.i14.i, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %17, i64 %16
-  store i8 %spec.select.i.i, ptr %arrayidx.i16.i, align 1
+  store i8 %conv.i15.i, ptr %arrayidx.i16.i, align 1
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
   %19 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %arrayidx3.i17.i = getelementptr inbounds i8, ptr %18, i64 %19

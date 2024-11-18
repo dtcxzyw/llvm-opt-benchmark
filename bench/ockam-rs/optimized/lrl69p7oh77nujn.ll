@@ -72,22 +72,20 @@ define internal { i64, ptr } @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT
   %7 = getelementptr inbounds i8, ptr %0, i64 2328
   %8 = tail call { i64, ptr } @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(12) %7, i128 noundef %1)
   %.fca.0.extract6.i.i = extractvalue { i64, ptr } %8, 0
-  %switch.i.i = icmp eq i64 %.fca.0.extract6.i.i, 0
+  %switch.i.i = icmp ne i64 %.fca.0.extract6.i.i, 0
   %9 = icmp eq i128 %1, 377731369611698580506231877142650986
-  %..i.i.i = zext i1 %9 to i64
-  %10 = insertvalue { i64, ptr } poison, i64 %..i.i.i, 0
-  %11 = insertvalue { i64, ptr } %10, ptr %4, 1
-  %.sroa.0.1.i.i = select i1 %switch.i.i, i64 %..i.i.i, i64 1
-  %.pn.i.i = select i1 %switch.i.i, { i64, ptr } %11, { i64, ptr } %8
-  %.sroa.4.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
+  %narrow.i.i = or i1 %9, %switch.i.i
+  %.sroa.0.1.i.i = zext i1 %narrow.i.i to i64
+  %10 = extractvalue { i64, ptr } %8, 1
+  %.sroa.4.1.i.i = select i1 %switch.i.i, ptr %10, ptr %4
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit": ; preds = %6, %3, %2, %2, %2
   %.sroa.3.0 = phi ptr [ %0, %2 ], [ %.sroa.4.1.i.i, %6 ], [ %4, %3 ], [ %0, %2 ], [ %0, %2 ]
   %.sroa.0.0 = phi i64 [ 1, %2 ], [ %.sroa.0.1.i.i, %6 ], [ 1, %3 ], [ 1, %2 ], [ 1, %2 ]
-  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %13
+  %11 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %12 = insertvalue { i64, ptr } %11, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -717,12 +715,10 @@ define hidden void @"_ZN18tracing_subscriber3fmt38SubscriberBuilder$LT$N$C$E$C$F
 
 16:                                               ; preds = %13
   %.fca.0.extract6.i.i = extractvalue { i64, ptr } %15, 0
-  %switch.i3.i = icmp ne i64 %.fca.0.extract6.i.i, 0
-  %17 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %7, 1
-  %.pn.i.i = select i1 %switch.i3.i, { i64, ptr } %15, { i64, ptr } %17
-  %.sroa.4.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
-  %18 = icmp ne ptr %.sroa.4.1.i.i, null
-  %19 = select i1 %switch.i3.i, i1 %18, i1 false
+  %switch.i3.not.i = icmp ne i64 %.fca.0.extract6.i.i, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = icmp ne ptr %17, null
+  %19 = select i1 %switch.i3.not.i, i1 %18, i1 false
   call void @llvm.lifetime.start.p0(i64 1784, ptr nonnull %4), !noalias !88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1784) %4, ptr noundef nonnull align 8 dereferenceable(1784) %1, i64 1784, i1 false)
   call void @llvm.lifetime.start.p0(i64 560, ptr nonnull %3), !noalias !88

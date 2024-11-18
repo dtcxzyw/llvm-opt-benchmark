@@ -3754,14 +3754,14 @@ define linkonce_odr dso_local void @_ZN17InlineMarkVisitor5visitEP13AstNodeAssig
   %8 = icmp eq i32 %6, %7
   %9 = getelementptr inbounds i8, ptr %4, i64 144
   %10 = load i64, ptr %9, align 8
-  %11 = and i64 %10, 4294967295
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %12 = load ptr, ptr %3, align 8
-  %.sroa.0.0.insert.ext.i = select i1 %8, i64 %11, i64 0
-  %13 = getelementptr inbounds i8, ptr %12, i64 144
+  %11 = load ptr, ptr %3, align 8
+  %12 = and i64 %10, 4294967295
+  %.sroa.0.0.insert.ext.i = select i1 %8, i64 %12, i64 0
+  %13 = getelementptr inbounds i8, ptr %11, i64 144
   store i64 %.sroa.0.0.insert.ext.i, ptr %13, align 8
   %14 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 140
+  %15 = getelementptr inbounds i8, ptr %11, i64 140
   store i32 %14, ptr %15, align 4
   ret void
 }

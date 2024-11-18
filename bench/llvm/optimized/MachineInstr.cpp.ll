@@ -7480,9 +7480,9 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %36, %40
   %.019.lcssa = phi i8 [ %.120.us, %.critedge.us ], [ %.120, %.critedge ]
   %.0.lcssa = phi i1 [ %.1.us, %.critedge.us ], [ %.1, %.critedge ]
   %cond.fr65 = freeze i1 %.022.lcssa
-  %cond.fr48 = freeze i1 %.0.lcssa
+  %cond.fr49 = freeze i1 %.0.lcssa
   %56 = and i8 %.019.lcssa, 1
-  br i1 %cond.fr48, label %57, label %60
+  br i1 %cond.fr49, label %57, label %60
 
 57:                                               ; preds = %._crit_edge
   %58 = xor i8 %56, 1

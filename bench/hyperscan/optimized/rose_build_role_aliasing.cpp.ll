@@ -4733,12 +4733,12 @@ if.then.i.i381.cont.i:                            ; preds = %if.then.i.i381.invo
 
 if.end.i.i365.i:                                  ; preds = %if.then.i76.i
   %cmp.i.i.i366.i = icmp ult i64 %524, 2305843009213693952
+  %add.i.i.i368537.i = add i64 %524, 1
   br i1 %cmp.i.i.i366.i, label %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread.i, label %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.i
 
 _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread.i: ; preds = %if.end.i.i365.i
   %mul.i.i.i380.i = shl nuw i64 %524, 3
   %div.i.i.i.i = udiv i64 %mul.i.i.i380.i, 5
-  %add.i.i.i368537.i = add nuw nsw i64 %524, 1
   %535 = call noundef i64 @llvm.umax.i64(i64 %add.i.i.i368537.i, i64 %div.i.i.i.i)
   br label %if.end.i14.i.i
 
@@ -4746,10 +4746,9 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEE
   %cmp3.i.i.i.i = icmp ugt i64 %524, -6917529027641081857
   %mul6.i.i.i.i = shl i64 %524, 3
   %536 = call i64 @llvm.umin.i64(i64 %mul6.i.i.i.i, i64 4611686018427387903)
-  %add.i.i.i368.i = add i64 %524, 1
   %537 = select i1 %cmp3.i.i.i.i, i64 4611686018427387903, i64 %536
-  %538 = call noundef i64 @llvm.umax.i64(i64 %add.i.i.i368.i, i64 %537)
-  %cmp3.i.i.i = icmp ugt i64 %add.i.i.i368.i, 4611686018427387903
+  %538 = call noundef i64 @llvm.umax.i64(i64 %add.i.i.i368537.i, i64 %537)
+  %cmp3.i.i.i = icmp ugt i64 %add.i.i.i368537.i, 4611686018427387903
   br i1 %cmp3.i.i.i, label %if.then.i.i381.invoke.i, label %if.end.i14.i.i
 
 if.end.i14.i.i:                                   ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.i, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread.i
@@ -11136,12 +11135,12 @@ if.then.i.i168.cont:                              ; preds = %if.then.i.i168.invo
 
 if.end.i.i:                                       ; preds = %if.then.i150
   %cmp.i.i.i157 = icmp ult i64 %190, 2305843009213693952
+  %add.i.i.i158202 = add i64 %190, 1
   br i1 %cmp.i.i.i157, label %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread, label %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i
 
 _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread: ; preds = %if.end.i.i
   %mul.i.i.i = shl nuw i64 %190, 3
   %div.i.i.i = udiv i64 %mul.i.i.i, 5
-  %add.i.i.i158202 = add nuw nsw i64 %190, 1
   %201 = call noundef i64 @llvm.umax.i64(i64 %add.i.i.i158202, i64 %div.i.i.i)
   br label %if.end.i14.i
 
@@ -11149,10 +11148,9 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEE
   %cmp3.i.i.i = icmp ugt i64 %190, -6917529027641081857
   %mul6.i.i.i = shl i64 %190, 3
   %202 = call i64 @llvm.umin.i64(i64 %mul6.i.i.i, i64 4611686018427387903)
-  %add.i.i.i158 = add i64 %190, 1
   %203 = select i1 %cmp3.i.i.i, i64 4611686018427387903, i64 %202
-  %204 = call noundef i64 @llvm.umax.i64(i64 %add.i.i.i158, i64 %203)
-  %cmp3.i.i = icmp ugt i64 %add.i.i.i158, 4611686018427387903
+  %204 = call noundef i64 @llvm.umax.i64(i64 %add.i.i.i158202, i64 %203)
+  %cmp3.i.i = icmp ugt i64 %add.i.i.i158202, 4611686018427387903
   br i1 %cmp3.i.i, label %if.then.i.i168.invoke, label %if.end.i14.i
 
 if.end.i14.i:                                     ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i

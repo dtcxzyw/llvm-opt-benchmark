@@ -61830,17 +61830,17 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema35CheckInheritingConstructorU
   %switch.not.i = icmp eq i64 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  %19 = getelementptr inbounds i8, ptr %17, i64 -64
-  %20 = select i1 %18, ptr null, ptr %19
-  store ptr %20, ptr %3, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  %18 = getelementptr inbounds i8, ptr %16, i64 -64
+  %19 = select i1 %17, ptr null, ptr %18
+  store ptr %19, ptr %3, align 8
   store i8 0, ptr %4, align 1
-  %21 = and i64 %15, -16
+  %20 = ptrtoint ptr %14 to i64
+  %21 = and i64 %20, -16
   %22 = select i1 %switch.not.i, i64 0, i64 %21
-  %23 = call fastcc noundef ptr @_ZL22findDirectBaseWithTypePN5clang13CXXRecordDeclENS_8QualTypeERb(ptr noundef %20, i64 %22, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %23 = call fastcc noundef ptr @_ZL22findDirectBaseWithTypePN5clang13CXXRecordDeclENS_8QualTypeERb(ptr noundef %19, i64 %22, ptr noundef nonnull align 1 dereferenceable(1) %4)
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %24, label %.critedge
 

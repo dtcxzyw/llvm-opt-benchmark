@@ -14563,19 +14563,17 @@ if.end53:                                         ; preds = %zip_strrpl.exit
   %sub.i = add i64 %13, -1
   %and.i = and i64 %sub.i, %12
   %sub4.i = sub i64 %13, %and.i
-  %and7.i = and i64 %sub.i, 4294967295
-  %14 = and i64 %and7.i, %sub4.i
   %m_pState = getelementptr inbounds i8, ptr %zip, i64 104
-  %15 = load ptr, ptr %m_pState, align 8
-  %tobool76.not = icmp ne ptr %15, null
+  %14 = load ptr, ptr %m_pState, align 8
+  %tobool76.not = icmp ne ptr %14, null
   %cmp78.not = icmp eq i32 %2, 2
   %or.cond = and i1 %cmp78.not, %tobool76.not
   br i1 %or.cond, label %if.end81, label %do.body157
 
 if.end81:                                         ; preds = %if.end53
   %level82 = getelementptr inbounds i8, ptr %zip, i64 112
-  %16 = load i32, ptr %level82, align 8
-  %and = and i32 %16, 1024
+  %15 = load i32, ptr %level82, align 8
+  %and = and i32 %15, 1024
   %tobool83.not = icmp eq i32 %and, 0
   br i1 %tobool83.not, label %if.end85, label %do.body157
 
@@ -14584,7 +14582,9 @@ if.end85:                                         ; preds = %if.end81
   br i1 %cmp87, label %do.body157, label %lor.lhs.false89
 
 lor.lhs.false89:                                  ; preds = %if.end85
-  %conv91 = select i1 %tobool.not.i74, i64 0, i64 %14
+  %and7.i = and i64 %sub.i, 4294967295
+  %16 = and i64 %and7.i, %sub4.i
+  %conv91 = select i1 %tobool.not.i74, i64 0, i64 %16
   %add = add i64 %call, 76
   %add93 = add i64 %add, %12
   %add94 = add i64 %add93, %conv91

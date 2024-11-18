@@ -744,11 +744,9 @@ define linkonce_odr hidden void @_ZN27ShenandoahUpdateRefsClosure6do_oopEP9narro
   %28 = and i64 %27, 3
   %29 = icmp eq i64 %28, 3
   %30 = and i64 %27, -4
-  %31 = inttoptr i64 %30 to ptr
   %.not.i.i.i.i.i = icmp eq i64 %30, 0
-  %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr %26, ptr %31
-  %.0.i.i.i.i.i = select i1 %29, ptr %spec.select.i.i.i.i.i, ptr %26
-  %32 = ptrtoint ptr %.0.i.i.i.i.i to i64
+  %31 = select i1 %.not.i.i.i.i.i, i64 %14, i64 %30
+  %32 = select i1 %29, i64 %31, i64 %14
   %33 = sub i64 %32, %9
   %34 = lshr i64 %33, %12
   %35 = trunc i64 %34 to i32

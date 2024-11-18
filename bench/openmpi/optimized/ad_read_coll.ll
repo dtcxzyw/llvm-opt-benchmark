@@ -933,13 +933,13 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
 
 ._crit_edge:                                      ; preds = %153, %.loopexit
   %.0201.lcssa = phi i32 [ 0, %.loopexit ], [ %spec.select, %153 ]
-  %165 = add nsw i32 %.0201.lcssa, 1
-  %166 = shl nsw i32 %165, 1
-  %167 = sext i32 %166 to i64
-  %168 = shl nsw i64 %167, 3
+  %165 = add nuw nsw i32 %.0201.lcssa, 1
+  %166 = shl nuw nsw i32 %165, 1
+  %167 = zext nneg i32 %166 to i64
+  %168 = shl nuw nsw i64 %167, 3
   %169 = call ptr @ADIOI_Malloc_fn(i64 noundef %168, i32 noundef 424, ptr noundef nonnull @.str) #5
   store ptr %169, ptr %5, align 8
-  %170 = sext i32 %165 to i64
+  %170 = zext nneg i32 %165 to i64
   %171 = getelementptr inbounds i64, ptr %169, i64 %170
   store ptr %171, ptr %6, align 8
   %172 = load ptr, ptr %5, align 8
@@ -1664,10 +1664,10 @@ define internal fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %
   %.0150.lcssa = phi i32 [ 0, %23 ], [ %spec.select, %.lr.ph ]
   %.0148.lcssa = phi i32 [ 0, %23 ], [ %.1149, %.lr.ph ]
   %.0146.lcssa = phi i64 [ 0, %23 ], [ %32, %.lr.ph ]
-  %37 = add nsw i32 %.0150.lcssa, 1
-  %38 = add nsw i32 %37, %.0148.lcssa
-  %39 = sext i32 %38 to i64
-  %40 = shl nsw i64 %39, 3
+  %37 = add nuw nsw i32 %.0150.lcssa, 1
+  %38 = add nuw nsw i32 %37, %.0148.lcssa
+  %39 = zext nneg i32 %38 to i64
+  %40 = shl nuw nsw i64 %39, 3
   %41 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %40, i32 noundef 790, ptr noundef nonnull @.str) #5
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %63, label %.preheader170
@@ -1782,7 +1782,7 @@ define internal fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %
 .lr.ph192:                                        ; preds = %.loopexit
   %90 = mul nsw i32 %20, 100
   %91 = add i32 %90, %12
-  %92 = sext i32 %.0150.lcssa to i64
+  %92 = zext nneg i32 %.0150.lcssa to i64
   %93 = getelementptr inbounds ptr, ptr %41, i64 %92
   %wide.trip.count214 = zext nneg i32 %11 to i64
   br label %94
@@ -1892,7 +1892,7 @@ define internal fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %
 
 150:                                              ; preds = %._crit_edge193.thread, %149, %._crit_edge193
   %.0147217221 = phi ptr [ null, %._crit_edge193.thread ], [ %.0147217, %149 ], [ %.0147217, %._crit_edge193 ]
-  %151 = sext i32 %.0150.lcssa to i64
+  %151 = zext nneg i32 %.0150.lcssa to i64
   %152 = getelementptr inbounds ptr, ptr %41, i64 %151
   %153 = call i32 @PMPI_Waitall(i32 noundef %.0148.lcssa, ptr noundef %152, ptr noundef null) #5
   call void @ADIOI_Free_fn(ptr noundef %41, i32 noundef 891, ptr noundef nonnull @.str) #5
@@ -1905,7 +1905,7 @@ define internal fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %
   br label %159
 
 .critedge:                                        ; preds = %.thread, %147
-  %156 = sext i32 %.0150.lcssa to i64
+  %156 = zext nneg i32 %.0150.lcssa to i64
   %157 = getelementptr inbounds ptr, ptr %41, i64 %156
   %158 = call i32 @PMPI_Waitall(i32 noundef %.0148.lcssa, ptr noundef nonnull %157, ptr noundef null) #5
   call void @ADIOI_Free_fn(ptr noundef %41, i32 noundef 891, ptr noundef nonnull @.str) #5

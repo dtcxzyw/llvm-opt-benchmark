@@ -160,10 +160,10 @@ land.end.i:                                       ; preds = %for.body.i
 
 if.then.i:                                        ; preds = %land.end.i
   %cmp.i.not.i = icmp eq i32 %cur_range.sroa.4.022.i, -1
-  %3 = add nsw i32 %cur_range.sroa.4.022.i, 2
-  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %spec.select20.i = select i1 %cmp.i.not.i, i32 %4, i32 %cur_range.sroa.0.023.i
-  %add7.i = select i1 %cmp.i.not.i, i32 2, i32 %3
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %spec.select20.i = select i1 %cmp.i.not.i, i32 %3, i32 %cur_range.sroa.0.023.i
+  %4 = add nsw i32 %cur_range.sroa.4.022.i, 2
+  %add7.i = select i1 %cmp.i.not.i, i32 2, i32 %4
   %cmp10.not.i = icmp eq i64 %indvars.iv.i, 14
   br i1 %cmp10.not.i, label %if.then11.i, label %for.inc.i
 

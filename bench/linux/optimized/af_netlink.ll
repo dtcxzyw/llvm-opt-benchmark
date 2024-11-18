@@ -6612,7 +6612,7 @@ define internal i32 @netlink_recvmsg(ptr noundef %0, ptr noundef %1, i64 noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #23
   %13 = and i32 %3, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %182
+  br i1 %14, label %15, label %181
 
 15:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !annotation !11
@@ -6887,16 +6887,15 @@ define internal i32 @netlink_recvmsg(ptr noundef %0, ptr noundef %1, i64 noundef
 176:                                              ; preds = %173, %168
   %177 = load i32, ptr %10, align 4
   %178 = icmp eq i32 %177, 0
-  %179 = zext i32 %177 to i64
-  %180 = select i1 %178, i64 %162, i64 %179
-  %181 = trunc nuw i64 %180 to i32
-  br label %182
+  %179 = trunc nuw i64 %162 to i32
+  %180 = select i1 %178, i32 %179, i32 %177
+  br label %181
 
-182:                                              ; preds = %176, %4
-  %183 = phi i32 [ %181, %176 ], [ -95, %4 ]
+181:                                              ; preds = %176, %4
+  %182 = phi i32 [ %180, %176 ], [ -95, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
-  ret i32 %183
+  ret i32 %182
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -66,7 +66,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_kobj_ns_drop
 @__UNIQUE_ID___addressable_kset_find_obj202 = internal global ptr @kset_find_obj, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_kset_create_and_add203 = internal global ptr @kset_create_and_add, section ".discard.addressable", align 8
 @kobj_ns_type_lock = internal global %struct.spinlock zeroinitializer, align 4
-@kobj_ns_ops_tbl.0 = internal unnamed_addr global ptr null, align 16
+@kobj_ns_ops_tbl.0 = internal unnamed_addr global ptr null, align 8
 @__UNIQUE_ID___addressable_kobj_ns_grab_current204 = internal global ptr @kobj_ns_grab_current, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_kobj_ns_drop205 = internal global ptr @kobj_ns_drop, section ".discard.addressable", align 8
 @.str.13 = private unnamed_addr constant [39 x i8] c"\013kobject: can not set name properly!\0A\00", align 1
@@ -1574,7 +1574,7 @@ thread-pre-split:                                 ; preds = %kobject_get.exit.th
 
 142:                                              ; preds = %138
   tail call void @_raw_spin_lock(ptr noundef nonnull @kobj_ns_type_lock) #13
-  %143 = load ptr, ptr @kobj_ns_ops_tbl.0, align 16
+  %143 = load ptr, ptr @kobj_ns_ops_tbl.0, align 8
   %144 = icmp eq ptr %143, null
   tail call void @_raw_spin_unlock(ptr noundef nonnull @kobj_ns_type_lock) #13
   br i1 %144, label %145, label %146, !prof !17
@@ -1821,12 +1821,12 @@ define dso_local noundef range(i32 -22, 1) i32 @kobj_ns_type_register(ptr nounde
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr @kobj_ns_ops_tbl.0, align 16
+  %5 = load ptr, ptr @kobj_ns_ops_tbl.0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  store ptr %0, ptr @kobj_ns_ops_tbl.0, align 16
+  store ptr %0, ptr @kobj_ns_ops_tbl.0, align 8
   br label %8
 
 8:                                                ; preds = %7, %4, %1
@@ -1839,7 +1839,7 @@ define dso_local noundef range(i32 -22, 1) i32 @kobj_ns_type_register(ptr nounde
 define dso_local range(i32 0, 2) i32 @kobj_ns_type_registered(i32 noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @kobj_ns_type_lock) #13
   %2 = icmp eq i32 %0, 1
-  %3 = load ptr, ptr @kobj_ns_ops_tbl.0, align 16
+  %3 = load ptr, ptr @kobj_ns_ops_tbl.0, align 8
   %4 = icmp ne ptr %3, null
   %narrow = select i1 %2, i1 %4, i1 false
   %5 = zext i1 %narrow to i32
@@ -1880,7 +1880,7 @@ define dso_local zeroext i1 @kobj_ns_current_may_mount(i32 noundef %0) local_unn
   br i1 %2, label %3, label %10
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr @kobj_ns_ops_tbl.0, align 16
+  %4 = load ptr, ptr @kobj_ns_ops_tbl.0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
@@ -1903,7 +1903,7 @@ define dso_local ptr @kobj_ns_grab_current(i32 noundef %0) #0 align 16 {
   br i1 %2, label %3, label %10
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr @kobj_ns_ops_tbl.0, align 16
+  %4 = load ptr, ptr @kobj_ns_ops_tbl.0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
@@ -1926,7 +1926,7 @@ define dso_local ptr @kobj_ns_netlink(i32 noundef %0, ptr noundef %1) local_unna
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr @kobj_ns_ops_tbl.0, align 16
+  %5 = load ptr, ptr @kobj_ns_ops_tbl.0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
@@ -1949,7 +1949,7 @@ define dso_local ptr @kobj_ns_initial(i32 noundef %0) local_unnamed_addr #0 alig
   br i1 %2, label %3, label %10
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr @kobj_ns_ops_tbl.0, align 16
+  %4 = load ptr, ptr @kobj_ns_ops_tbl.0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
@@ -1972,7 +1972,7 @@ define dso_local void @kobj_ns_drop(i32 noundef %0, ptr noundef %1) #0 align 16 
   br i1 %3, label %4, label %12
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr @kobj_ns_ops_tbl.0, align 16
+  %5 = load ptr, ptr @kobj_ns_ops_tbl.0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
 

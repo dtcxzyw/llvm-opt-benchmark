@@ -127,9 +127,9 @@ define dso_local i64 @hugetlb_get_unmapped_area(ptr nocapture noundef readonly %
   %71 = and i64 %70, 256
   %72 = icmp eq i64 %71, 0
   %73 = load i64, ptr @stack_guard_gap, align 8
-  %74 = select i1 %72, i64 0, i64 %73
-  %75 = load i64, ptr %65, align 8
-  %76 = tail call i64 @llvm.usub.sat.i64(i64 %75, i64 %74)
+  %74 = load i64, ptr %65, align 8
+  %75 = tail call i64 @llvm.usub.sat.i64(i64 %74, i64 %73)
+  %76 = select i1 %72, i64 %74, i64 %75
   %77 = icmp ugt i64 %68, %76
   br i1 %77, label %78, label %165
 

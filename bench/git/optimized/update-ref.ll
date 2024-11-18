@@ -343,13 +343,13 @@ if.end26.i:                                       ; preds = %for.body.i
   %15 = load i32, ptr %args.i, align 8
   %tobool29.not.i = icmp eq i32 %15, 0
   %.b28.i = load i1, ptr @line_termination, align 1
-  %16 = select i1 %.b28.i, i32 0, i32 10
-  %17 = load ptr, ptr %buf3.i, align 8
+  %16 = load ptr, ptr %buf3.i, align 8
   %call33.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #13
-  %arrayidx34.i = getelementptr inbounds i8, ptr %17, i64 %call33.i
-  %18 = load i8, ptr %arrayidx34.i, align 1
-  %conv35.i = sext i8 %18 to i32
-  %conv36.i = select i1 %tobool29.not.i, i32 %16, i32 32
+  %arrayidx34.i = getelementptr inbounds i8, ptr %16, i64 %call33.i
+  %17 = load i8, ptr %arrayidx34.i, align 1
+  %conv35.i = sext i8 %17 to i32
+  %18 = select i1 %.b28.i, i32 0, i32 10
+  %conv36.i = select i1 %tobool29.not.i, i32 %18, i32 32
   %cmp37.not.i = icmp eq i32 %conv36.i, %conv35.i
   br i1 %cmp37.not.i, label %for.cond47.preheader.i, label %for.inc.i
 

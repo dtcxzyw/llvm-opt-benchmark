@@ -1293,10 +1293,10 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   store ptr @H5AC_PREFETCHED_ENTRY, ptr %361, align 8
   %362 = getelementptr inbounds i8, ptr %179, i64 204
   store i8 1, ptr %362, align 4
-  %363 = xor i8 %194, 1
-  %364 = getelementptr inbounds i8, ptr %179, i64 216
-  %365 = select i1 %.not.not.i.i, i8 0, i8 %363
-  store i8 %365, ptr %364, align 8
+  %363 = getelementptr inbounds i8, ptr %179, i64 216
+  %364 = xor i8 %194, 1
+  %365 = select i1 %.not.not.i.i, i8 0, i8 %364
+  store i8 %365, ptr %363, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %366 = load i64, ptr %236, align 8
   %367 = lshr i64 %366, 3

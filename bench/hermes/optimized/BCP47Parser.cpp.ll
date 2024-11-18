@@ -3760,7 +3760,7 @@ if.then:                                          ; preds = %_ZNSt7__cxx1112basi
   %8 = add i16 %7, -97
   %or.cond.i = icmp ult i16 %8, 26
   %add.i = add nsw i16 %7, -32
-  %cond.i = select i1 %or.cond.i, i16 %add.i, i16 %7
+  %conv6.i = select i1 %or.cond.i, i16 %add.i, i16 %7
   %9 = load i64, ptr %_M_string_length.i.i.i, align 8
   %10 = and i64 %9, -2
   %cmp.i.i.i20 = icmp eq i64 %10, 2305843009213693950
@@ -3789,7 +3789,7 @@ if.then.i3.i.i27:                                 ; preds = %_ZNKSt7__cxx1112bas
   %add.ptr.i.i.i29 = getelementptr inbounds i16, ptr %11, i64 %9
   store i16 45, ptr %add.ptr.i.i.i29, align 2
   %ref.tmp.sroa.3.0.add.ptr.i.i.i29.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i29, i64 2
-  store i16 %cond.i, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.i29.sroa_idx, align 2
+  store i16 %conv6.i, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.i29.sroa_idx, align 2
   %.pre1161 = load ptr, ptr %agg.result, align 8
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendESt16initializer_listIDsE.exit
 
@@ -3829,7 +3829,7 @@ if.end19.i:                                       ; preds = %land.lhs.true.i.i, 
   %add.ptr.i1002 = getelementptr inbounds i16, ptr %call5.i.i.i.i, i64 %9
   store i16 45, ptr %add.ptr.i1002, align 2
   %ref.tmp.sroa.3.0.add.ptr.i1002.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i1002, i64 2
-  store i16 %cond.i, ptr %ref.tmp.sroa.3.0.add.ptr.i1002.sroa_idx, align 2
+  store i16 %conv6.i, ptr %ref.tmp.sroa.3.0.add.ptr.i1002.sroa_idx, align 2
   br i1 %cmp.i.i.i.i.i23, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i1001, label %if.then.i30.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i1001: ; preds = %if.end19.i
@@ -4029,7 +4029,7 @@ for.body22:                                       ; preds = %_ZNSt7__cxx1112basi
   %35 = add i16 %34, -97
   %or.cond.i74 = icmp ult i16 %35, 26
   %add.i75 = add nsw i16 %34, -32
-  %cond.i76 = select i1 %or.cond.i74, i16 %add.i75, i16 %34
+  %conv6.i76 = select i1 %or.cond.i74, i16 %add.i75, i16 %34
   %36 = load i64, ptr %_M_string_length.i.i.i, align 8
   %add.i.i78 = add i64 %36, 1
   %37 = load ptr, ptr %agg.result, align 8
@@ -4097,7 +4097,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit106: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i104, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i80, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i98
   %40 = phi ptr [ %37, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i80 ], [ %call5.i.i.i.i.i.i94, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i98 ], [ %37, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i104 ]
   %arrayidx.i.i82 = getelementptr inbounds i16, ptr %40, i64 %36
-  store i16 %cond.i76, ptr %arrayidx.i.i82, align 2
+  store i16 %conv6.i76, ptr %arrayidx.i.i82, align 2
   store i64 %add.i.i78, ptr %_M_string_length.i.i.i, align 8
   %41 = load ptr, ptr %agg.result, align 8
   %arrayidx.i.i.i83 = getelementptr inbounds i16, ptr %41, i64 %add.i.i78

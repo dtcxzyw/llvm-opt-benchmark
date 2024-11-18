@@ -43174,334 +43174,334 @@ DwaCompressor_classifyChannels.exit:              ; preds = %125, %175, %49, %.p
   %brmerge = select i1 %197, i1 true, i1 %194
   %.reass = add i64 %spec.select, %invariant.op
   %.0.i149 = tail call i64 @llvm.umax.i64(i64 %195, i64 %.reass)
-  %.013.i = select i1 %brmerge, i64 -1, i64 %.0.i149
-  %198 = tail call range(i64 9, 0) i64 @llvm.umax.i64(i64 %188, i64 range(i64 9, 0) %.013.i)
-  br label %199
+  %198 = tail call range(i64 9, 0) i64 @llvm.umax.i64(i64 %188, i64 range(i64 9, 0) %.0.i149)
+  %199 = select i1 %brmerge, i64 -1, i64 %198
+  br label %200
 
-199:                                              ; preds = %.lr.ph193, %223
-  %indvars.iv = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next, %223 ]
-  %200 = phi i64 [ 0, %.lr.ph193 ], [ %224, %223 ]
-  %.1191 = phi i64 [ %.0120.lcssa, %.lr.ph193 ], [ %.2, %223 ]
-  %.0121190 = phi i64 [ 0, %.lr.ph193 ], [ %.1122, %223 ]
-  %.0123189 = phi i64 [ 0, %.lr.ph193 ], [ %.1124, %223 ]
-  %.0125188 = phi i64 [ 0, %.lr.ph193 ], [ %.1126, %223 ]
-  %201 = phi i64 [ 0, %.lr.ph193 ], [ %225, %223 ]
-  %202 = getelementptr inbounds %struct._ChannelData, ptr %184, i64 %indvars.iv
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 448
-  %204 = load ptr, ptr %203, align 32
-  %205 = getelementptr inbounds nuw i8, ptr %202, i64 548
-  %206 = load i32, ptr %205, align 4
-  switch i32 %206, label %DwaCompressor_classifyChannels.exit.thread [
+200:                                              ; preds = %.lr.ph193, %224
+  %indvars.iv = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next, %224 ]
+  %201 = phi i64 [ 0, %.lr.ph193 ], [ %225, %224 ]
+  %.1191 = phi i64 [ %.0120.lcssa, %.lr.ph193 ], [ %.2, %224 ]
+  %.0121190 = phi i64 [ 0, %.lr.ph193 ], [ %.1122, %224 ]
+  %.0123189 = phi i64 [ 0, %.lr.ph193 ], [ %.1124, %224 ]
+  %.0125188 = phi i64 [ 0, %.lr.ph193 ], [ %.1126, %224 ]
+  %202 = phi i64 [ 0, %.lr.ph193 ], [ %226, %224 ]
+  %203 = getelementptr inbounds %struct._ChannelData, ptr %184, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 448
+  %205 = load ptr, ptr %204, align 32
+  %206 = getelementptr inbounds nuw i8, ptr %203, i64 548
+  %207 = load i32, ptr %206, align 4
+  switch i32 %207, label %DwaCompressor_classifyChannels.exit.thread [
     i32 1, label %libdeflate_zlib_compress_bound.exit.i
-    i32 2, label %209
-    i32 0, label %216
+    i32 2, label %210
+    i32 0, label %217
   ]
 
-libdeflate_zlib_compress_bound.exit.i:            ; preds = %199
-  %207 = add i64 %198, %.1191
-  %208 = add i64 %.0121190, 1
-  br label %223
+libdeflate_zlib_compress_bound.exit.i:            ; preds = %200
+  %208 = add i64 %199, %.1191
+  %209 = add i64 %.0121190, 1
+  br label %224
 
-209:                                              ; preds = %199
-  %210 = getelementptr inbounds nuw i8, ptr %204, i64 25
-  %211 = load i8, ptr %210, align 1
-  %212 = sext i8 %211 to i64
-  %213 = mul i64 %185, %212
-  %214 = add i64 %213, %.0123189
-  %215 = add i64 %213, %200
-  br label %223
+210:                                              ; preds = %200
+  %211 = getelementptr inbounds nuw i8, ptr %205, i64 25
+  %212 = load i8, ptr %211, align 1
+  %213 = sext i8 %212 to i64
+  %214 = mul i64 %185, %213
+  %215 = add i64 %214, %.0123189
+  %216 = add i64 %214, %201
+  br label %224
 
-216:                                              ; preds = %199
-  %217 = getelementptr inbounds nuw i8, ptr %204, i64 25
-  %218 = load i8, ptr %217, align 1
-  %219 = sext i8 %218 to i64
-  %220 = mul i64 %24, %219
-  %221 = add i64 %220, %.0125188
-  %222 = add i64 %220, %201
-  br label %223
+217:                                              ; preds = %200
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 25
+  %219 = load i8, ptr %218, align 1
+  %220 = sext i8 %219 to i64
+  %221 = mul i64 %24, %220
+  %222 = add i64 %221, %.0125188
+  %223 = add i64 %221, %202
+  br label %224
 
-223:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i, %209, %216
-  %224 = phi i64 [ %200, %216 ], [ %215, %209 ], [ %200, %libdeflate_zlib_compress_bound.exit.i ]
-  %225 = phi i64 [ %222, %216 ], [ %201, %209 ], [ %201, %libdeflate_zlib_compress_bound.exit.i ]
-  %.1126 = phi i64 [ %221, %216 ], [ %.0125188, %209 ], [ %.0125188, %libdeflate_zlib_compress_bound.exit.i ]
-  %.1124 = phi i64 [ %.0123189, %216 ], [ %214, %209 ], [ %.0123189, %libdeflate_zlib_compress_bound.exit.i ]
-  %.1122 = phi i64 [ %.0121190, %216 ], [ %.0121190, %209 ], [ %208, %libdeflate_zlib_compress_bound.exit.i ]
-  %.2 = phi i64 [ %.1191, %216 ], [ %.1191, %209 ], [ %207, %libdeflate_zlib_compress_bound.exit.i ]
+224:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i, %210, %217
+  %225 = phi i64 [ %201, %217 ], [ %216, %210 ], [ %201, %libdeflate_zlib_compress_bound.exit.i ]
+  %226 = phi i64 [ %223, %217 ], [ %202, %210 ], [ %202, %libdeflate_zlib_compress_bound.exit.i ]
+  %.1126 = phi i64 [ %222, %217 ], [ %.0125188, %210 ], [ %.0125188, %libdeflate_zlib_compress_bound.exit.i ]
+  %.1124 = phi i64 [ %.0123189, %217 ], [ %215, %210 ], [ %.0123189, %libdeflate_zlib_compress_bound.exit.i ]
+  %.1122 = phi i64 [ %.0121190, %217 ], [ %.0121190, %210 ], [ %209, %libdeflate_zlib_compress_bound.exit.i ]
+  %.2 = phi i64 [ %.1191, %217 ], [ %.1191, %210 ], [ %208, %libdeflate_zlib_compress_bound.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond218.not, label %226, label %199, !llvm.loop !304
+  br i1 %exitcond218.not, label %227, label %200, !llvm.loop !304
 
-226:                                              ; preds = %223
-  store i64 %224, ptr %186, align 16
-  store i64 %225, ptr %2, align 16
-  %227 = add i64 %.1124, 4999
-  %.not.i.i.i150 = icmp ult i64 %227, 5000
-  br i1 %.not.i.i.i150, label %libdeflate_zlib_compress_bound.exit.i151, label %228
+227:                                              ; preds = %224
+  store i64 %225, ptr %186, align 16
+  store i64 %226, ptr %2, align 16
+  %228 = add i64 %.1124, 4999
+  %.not.i.i.i150 = icmp ult i64 %228, 5000
+  br i1 %.not.i.i.i150, label %libdeflate_zlib_compress_bound.exit.i151, label %229
 
-228:                                              ; preds = %226
-  %229 = udiv i64 %227, 5000
-  %230 = mul nuw nsw i64 %229, 5
+229:                                              ; preds = %227
+  %230 = udiv i64 %228, 5000
+  %231 = mul nuw nsw i64 %230, 5
   br label %libdeflate_zlib_compress_bound.exit.i151
 
-libdeflate_zlib_compress_bound.exit.i151:         ; preds = %.thread, %228, %226
-  %.1.lcssa232 = phi i64 [ %.2, %228 ], [ %.2, %226 ], [ %.0120.lcssa, %.thread ]
-  %.0121.lcssa231 = phi i64 [ %.1122, %228 ], [ %.1122, %226 ], [ 0, %.thread ]
-  %.0123.lcssa230 = phi i64 [ %.1124, %228 ], [ %.1124, %226 ], [ 0, %.thread ]
-  %.0125.lcssa229 = phi i64 [ %.1126, %228 ], [ %.1126, %226 ], [ 0, %.thread ]
-  %231 = phi i64 [ %225, %228 ], [ %225, %226 ], [ 0, %.thread ]
-  %232 = phi i64 [ %230, %228 ], [ 5, %226 ], [ 5, %.thread ]
-  %233 = add i64 %.0123.lcssa230, 15
-  %234 = add i64 %233, %232
-  %235 = icmp ugt i64 %234, -10
-  br i1 %235, label %exr_compress_max_buffer_size.exit154, label %236
+libdeflate_zlib_compress_bound.exit.i151:         ; preds = %.thread, %229, %227
+  %.1.lcssa232 = phi i64 [ %.2, %229 ], [ %.2, %227 ], [ %.0120.lcssa, %.thread ]
+  %.0121.lcssa231 = phi i64 [ %.1122, %229 ], [ %.1122, %227 ], [ 0, %.thread ]
+  %.0123.lcssa230 = phi i64 [ %.1124, %229 ], [ %.1124, %227 ], [ 0, %.thread ]
+  %.0125.lcssa229 = phi i64 [ %.1126, %229 ], [ %.1126, %227 ], [ 0, %.thread ]
+  %232 = phi i64 [ %226, %229 ], [ %226, %227 ], [ 0, %.thread ]
+  %233 = phi i64 [ %231, %229 ], [ 5, %227 ], [ 5, %.thread ]
+  %234 = add i64 %.0123.lcssa230, 15
+  %235 = add i64 %234, %233
+  %236 = icmp ugt i64 %235, -10
+  br i1 %236, label %exr_compress_max_buffer_size.exit154, label %237
 
-236:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i151
-  %237 = mul i64 %.0123.lcssa230, 130
-  %238 = icmp ult i64 %237, %.0123.lcssa230
-  br i1 %238, label %exr_compress_max_buffer_size.exit154, label %239
+237:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i151
+  %238 = mul i64 %.0123.lcssa230, 130
+  %239 = icmp ult i64 %238, %.0123.lcssa230
+  br i1 %239, label %exr_compress_max_buffer_size.exit154, label %240
 
-239:                                              ; preds = %236
-  %240 = add nuw i64 %234, 9
-  %241 = lshr i64 %237, 7
-  %.0.i152 = tail call i64 @llvm.umax.i64(i64 %241, i64 %240)
+240:                                              ; preds = %237
+  %241 = add nuw i64 %235, 9
+  %242 = lshr i64 %238, 7
+  %.0.i152 = tail call i64 @llvm.umax.i64(i64 %242, i64 %241)
   br label %exr_compress_max_buffer_size.exit154
 
-exr_compress_max_buffer_size.exit154:             ; preds = %libdeflate_zlib_compress_bound.exit.i151, %236, %239
-  %.013.i153 = phi i64 [ %.0.i152, %239 ], [ -1, %libdeflate_zlib_compress_bound.exit.i151 ], [ -1, %236 ]
-  %242 = add i64 %.0125.lcssa229, 4999
-  %.not.i.i.i155 = icmp ult i64 %242, 5000
-  br i1 %.not.i.i.i155, label %libdeflate_zlib_compress_bound.exit.i156, label %243
+exr_compress_max_buffer_size.exit154:             ; preds = %libdeflate_zlib_compress_bound.exit.i151, %237, %240
+  %.013.i153 = phi i64 [ %.0.i152, %240 ], [ -1, %libdeflate_zlib_compress_bound.exit.i151 ], [ -1, %237 ]
+  %243 = add i64 %.0125.lcssa229, 4999
+  %.not.i.i.i155 = icmp ult i64 %243, 5000
+  br i1 %.not.i.i.i155, label %libdeflate_zlib_compress_bound.exit.i156, label %244
 
-243:                                              ; preds = %exr_compress_max_buffer_size.exit154
-  %244 = udiv i64 %242, 5000
-  %245 = mul nuw nsw i64 %244, 5
+244:                                              ; preds = %exr_compress_max_buffer_size.exit154
+  %245 = udiv i64 %243, 5000
+  %246 = mul nuw nsw i64 %245, 5
   br label %libdeflate_zlib_compress_bound.exit.i156
 
-libdeflate_zlib_compress_bound.exit.i156:         ; preds = %243, %exr_compress_max_buffer_size.exit154
-  %246 = phi i64 [ %245, %243 ], [ 5, %exr_compress_max_buffer_size.exit154 ]
-  %247 = add i64 %.0125.lcssa229, 15
-  %248 = add i64 %247, %246
-  %249 = icmp ugt i64 %248, -10
-  br i1 %249, label %exr_compress_max_buffer_size.exit159, label %250
+libdeflate_zlib_compress_bound.exit.i156:         ; preds = %244, %exr_compress_max_buffer_size.exit154
+  %247 = phi i64 [ %246, %244 ], [ 5, %exr_compress_max_buffer_size.exit154 ]
+  %248 = add i64 %.0125.lcssa229, 15
+  %249 = add i64 %248, %247
+  %250 = icmp ugt i64 %249, -10
+  br i1 %250, label %exr_compress_max_buffer_size.exit159, label %251
 
-250:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i156
-  %251 = mul i64 %.0125.lcssa229, 130
-  %252 = icmp ult i64 %251, %.0125.lcssa229
-  br i1 %252, label %exr_compress_max_buffer_size.exit159, label %253
+251:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i156
+  %252 = mul i64 %.0125.lcssa229, 130
+  %253 = icmp ult i64 %252, %.0125.lcssa229
+  br i1 %253, label %exr_compress_max_buffer_size.exit159, label %254
 
-253:                                              ; preds = %250
-  %254 = add nuw i64 %248, 9
-  %255 = lshr i64 %251, 7
-  %.0.i157 = tail call i64 @llvm.umax.i64(i64 %255, i64 %254)
+254:                                              ; preds = %251
+  %255 = add nuw i64 %249, 9
+  %256 = lshr i64 %252, 7
+  %.0.i157 = tail call i64 @llvm.umax.i64(i64 %256, i64 %255)
   br label %exr_compress_max_buffer_size.exit159
 
-exr_compress_max_buffer_size.exit159:             ; preds = %libdeflate_zlib_compress_bound.exit.i156, %250, %253
-  %.013.i158 = phi i64 [ %.0.i157, %253 ], [ -1, %libdeflate_zlib_compress_bound.exit.i156 ], [ -1, %250 ]
-  %256 = mul i64 %.0121.lcssa231, %20
-  %257 = add i64 %256, 4999
-  %.not.i.i.i160 = icmp ult i64 %257, 5000
-  br i1 %.not.i.i.i160, label %libdeflate_zlib_compress_bound.exit.i161, label %258
+exr_compress_max_buffer_size.exit159:             ; preds = %libdeflate_zlib_compress_bound.exit.i156, %251, %254
+  %.013.i158 = phi i64 [ %.0.i157, %254 ], [ -1, %libdeflate_zlib_compress_bound.exit.i156 ], [ -1, %251 ]
+  %257 = mul i64 %.0121.lcssa231, %20
+  %258 = add i64 %257, 4999
+  %.not.i.i.i160 = icmp ult i64 %258, 5000
+  br i1 %.not.i.i.i160, label %libdeflate_zlib_compress_bound.exit.i161, label %259
 
-258:                                              ; preds = %exr_compress_max_buffer_size.exit159
-  %259 = udiv i64 %257, 5000
-  %260 = mul nuw nsw i64 %259, 5
+259:                                              ; preds = %exr_compress_max_buffer_size.exit159
+  %260 = udiv i64 %258, 5000
+  %261 = mul nuw nsw i64 %260, 5
   br label %libdeflate_zlib_compress_bound.exit.i161
 
-libdeflate_zlib_compress_bound.exit.i161:         ; preds = %258, %exr_compress_max_buffer_size.exit159
-  %261 = phi i64 [ %260, %258 ], [ 5, %exr_compress_max_buffer_size.exit159 ]
-  %262 = add i64 %256, 15
-  %263 = add i64 %262, %261
-  %264 = icmp ugt i64 %263, -10
-  br i1 %264, label %exr_compress_max_buffer_size.exit164, label %265
+libdeflate_zlib_compress_bound.exit.i161:         ; preds = %259, %exr_compress_max_buffer_size.exit159
+  %262 = phi i64 [ %261, %259 ], [ 5, %exr_compress_max_buffer_size.exit159 ]
+  %263 = add i64 %257, 15
+  %264 = add i64 %263, %262
+  %265 = icmp ugt i64 %264, -10
+  br i1 %265, label %exr_compress_max_buffer_size.exit164, label %266
 
-265:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i161
-  %266 = mul i64 %256, 130
-  %267 = icmp ult i64 %266, %256
-  br i1 %267, label %exr_compress_max_buffer_size.exit164, label %268
+266:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i161
+  %267 = mul i64 %257, 130
+  %268 = icmp ult i64 %267, %257
+  br i1 %268, label %exr_compress_max_buffer_size.exit164, label %269
 
-268:                                              ; preds = %265
-  %269 = add nuw i64 %263, 9
-  %270 = lshr i64 %266, 7
-  %.0.i162 = tail call i64 @llvm.umax.i64(i64 %270, i64 %269)
+269:                                              ; preds = %266
+  %270 = add nuw i64 %264, 9
+  %271 = lshr i64 %267, 7
+  %.0.i162 = tail call i64 @llvm.umax.i64(i64 %271, i64 %270)
   br label %exr_compress_max_buffer_size.exit164
 
-exr_compress_max_buffer_size.exit164:             ; preds = %libdeflate_zlib_compress_bound.exit.i161, %265, %268
-  %.013.i163 = phi i64 [ %.0.i162, %268 ], [ -1, %libdeflate_zlib_compress_bound.exit.i161 ], [ -1, %265 ]
-  %271 = add i64 %.1.lcssa232, 88
-  %272 = add i64 %271, %.013.i153
-  %273 = add i64 %272, %.013.i158
-  %274 = add i64 %273, %.013.i163
-  store i64 %274, ptr %1, align 8
-  %275 = mul i64 %.0121.lcssa231, %22
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %277 = load i64, ptr %276, align 8
-  %278 = icmp ugt i64 %275, %277
-  br i1 %278, label %279, label %290
+exr_compress_max_buffer_size.exit164:             ; preds = %libdeflate_zlib_compress_bound.exit.i161, %266, %269
+  %.013.i163 = phi i64 [ %.0.i162, %269 ], [ -1, %libdeflate_zlib_compress_bound.exit.i161 ], [ -1, %266 ]
+  %272 = add i64 %.1.lcssa232, 88
+  %273 = add i64 %272, %.013.i153
+  %274 = add i64 %273, %.013.i158
+  %275 = add i64 %274, %.013.i163
+  store i64 %275, ptr %1, align 8
+  %276 = mul i64 %.0121.lcssa231, %22
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %278 = load i64, ptr %277, align 8
+  %279 = icmp ugt i64 %276, %278
+  br i1 %279, label %280, label %291
 
-279:                                              ; preds = %exr_compress_max_buffer_size.exit164
-  store i64 %275, ptr %276, align 8
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %281 = load ptr, ptr %280, align 8
-  %.not140 = icmp eq ptr %281, null
-  br i1 %.not140, label %284, label %282
+280:                                              ; preds = %exr_compress_max_buffer_size.exit164
+  store i64 %276, ptr %277, align 8
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %282 = load ptr, ptr %281, align 8
+  %.not140 = icmp eq ptr %282, null
+  br i1 %.not140, label %285, label %283
 
-282:                                              ; preds = %279
-  %283 = load ptr, ptr %179, align 8
-  tail call void %283(ptr noundef nonnull %281) #50
-  %.pre = load i64, ptr %276, align 8
-  br label %284
+283:                                              ; preds = %280
+  %284 = load ptr, ptr %179, align 8
+  tail call void %284(ptr noundef nonnull %282) #50
+  %.pre = load i64, ptr %277, align 8
+  br label %285
 
-284:                                              ; preds = %282, %279
-  %285 = phi i64 [ %.pre, %282 ], [ %275, %279 ]
-  %286 = load ptr, ptr %35, align 8
-  %287 = tail call ptr %286(i64 noundef %285) #50
-  store ptr %287, ptr %280, align 8
-  %.not141 = icmp eq ptr %287, null
-  br i1 %.not141, label %DwaCompressor_classifyChannels.exit.thread, label %288
+285:                                              ; preds = %283, %280
+  %286 = phi i64 [ %.pre, %283 ], [ %276, %280 ]
+  %287 = load ptr, ptr %35, align 8
+  %288 = tail call ptr %287(i64 noundef %286) #50
+  store ptr %288, ptr %281, align 8
+  %.not141 = icmp eq ptr %288, null
+  br i1 %.not141, label %DwaCompressor_classifyChannels.exit.thread, label %289
 
-288:                                              ; preds = %284
-  %289 = load i64, ptr %276, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %287, i8 0, i64 %289, i1 false)
-  br label %290
+289:                                              ; preds = %285
+  %290 = load i64, ptr %277, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %288, i8 0, i64 %290, i1 false)
+  br label %291
 
-290:                                              ; preds = %288, %exr_compress_max_buffer_size.exit164
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %292 = load i64, ptr %291, align 8
-  %293 = icmp ugt i64 %256, %292
-  br i1 %293, label %294, label %305
+291:                                              ; preds = %289, %exr_compress_max_buffer_size.exit164
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %293 = load i64, ptr %292, align 8
+  %294 = icmp ugt i64 %257, %293
+  br i1 %294, label %295, label %306
 
-294:                                              ; preds = %290
-  store i64 %256, ptr %291, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %296 = load ptr, ptr %295, align 8
-  %.not142 = icmp eq ptr %296, null
-  br i1 %.not142, label %299, label %297
+295:                                              ; preds = %291
+  store i64 %257, ptr %292, align 8
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %297 = load ptr, ptr %296, align 8
+  %.not142 = icmp eq ptr %297, null
+  br i1 %.not142, label %300, label %298
 
-297:                                              ; preds = %294
-  %298 = load ptr, ptr %179, align 8
-  tail call void %298(ptr noundef nonnull %296) #50
-  %.pre223 = load i64, ptr %291, align 8
-  br label %299
+298:                                              ; preds = %295
+  %299 = load ptr, ptr %179, align 8
+  tail call void %299(ptr noundef nonnull %297) #50
+  %.pre223 = load i64, ptr %292, align 8
+  br label %300
 
-299:                                              ; preds = %297, %294
-  %300 = phi i64 [ %.pre223, %297 ], [ %256, %294 ]
-  %301 = load ptr, ptr %35, align 8
-  %302 = tail call ptr %301(i64 noundef %300) #50
-  store ptr %302, ptr %295, align 8
-  %.not143 = icmp eq ptr %302, null
-  br i1 %.not143, label %DwaCompressor_classifyChannels.exit.thread, label %303
+300:                                              ; preds = %298, %295
+  %301 = phi i64 [ %.pre223, %298 ], [ %257, %295 ]
+  %302 = load ptr, ptr %35, align 8
+  %303 = tail call ptr %302(i64 noundef %301) #50
+  store ptr %303, ptr %296, align 8
+  %.not143 = icmp eq ptr %303, null
+  br i1 %.not143, label %DwaCompressor_classifyChannels.exit.thread, label %304
 
-303:                                              ; preds = %299
-  %304 = load i64, ptr %291, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %302, i8 0, i64 %304, i1 false)
-  br label %305
+304:                                              ; preds = %300
+  %305 = load i64, ptr %292, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %303, i8 0, i64 %305, i1 false)
+  br label %306
 
-305:                                              ; preds = %303, %290
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %307 = load i64, ptr %306, align 8
-  %308 = icmp ugt i64 %.0123.lcssa230, %307
-  br i1 %308, label %309, label %318
+306:                                              ; preds = %304, %291
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %308 = load i64, ptr %307, align 8
+  %309 = icmp ugt i64 %.0123.lcssa230, %308
+  br i1 %309, label %310, label %319
 
-309:                                              ; preds = %305
-  store i64 %.0123.lcssa230, ptr %306, align 8
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %311 = load ptr, ptr %310, align 8
-  %.not144 = icmp eq ptr %311, null
-  br i1 %.not144, label %314, label %312
+310:                                              ; preds = %306
+  store i64 %.0123.lcssa230, ptr %307, align 8
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %312 = load ptr, ptr %311, align 8
+  %.not144 = icmp eq ptr %312, null
+  br i1 %.not144, label %315, label %313
 
-312:                                              ; preds = %309
-  %313 = load ptr, ptr %179, align 8
-  tail call void %313(ptr noundef nonnull %311) #50
-  br label %314
+313:                                              ; preds = %310
+  %314 = load ptr, ptr %179, align 8
+  tail call void %314(ptr noundef nonnull %312) #50
+  br label %315
 
-314:                                              ; preds = %312, %309
-  %315 = load ptr, ptr %35, align 8
-  %316 = tail call ptr %315(i64 noundef %.0123.lcssa230) #50
-  store ptr %316, ptr %310, align 8
-  %.not145 = icmp eq ptr %316, null
-  br i1 %.not145, label %DwaCompressor_classifyChannels.exit.thread, label %317
+315:                                              ; preds = %313, %310
+  %316 = load ptr, ptr %35, align 8
+  %317 = tail call ptr %316(i64 noundef %.0123.lcssa230) #50
+  store ptr %317, ptr %311, align 8
+  %.not145 = icmp eq ptr %317, null
+  br i1 %.not145, label %DwaCompressor_classifyChannels.exit.thread, label %318
 
-317:                                              ; preds = %314
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %316, i8 0, i64 %.0123.lcssa230, i1 false)
-  br label %318
+318:                                              ; preds = %315
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %317, i8 0, i64 %.0123.lcssa230, i1 false)
+  br label %319
 
-318:                                              ; preds = %317, %305
-  %.not146 = icmp eq i64 %231, 0
-  br i1 %.not146, label %334, label %319
+319:                                              ; preds = %318, %306
+  %.not146 = icmp eq i64 %232, 0
+  br i1 %.not146, label %335, label %320
 
-319:                                              ; preds = %318
-  %320 = add i64 %231, 4999
-  %.not.i.i.i165 = icmp ult i64 %320, 5000
-  br i1 %.not.i.i.i165, label %libdeflate_zlib_compress_bound.exit.i166, label %321
+320:                                              ; preds = %319
+  %321 = add i64 %232, 4999
+  %.not.i.i.i165 = icmp ult i64 %321, 5000
+  br i1 %.not.i.i.i165, label %libdeflate_zlib_compress_bound.exit.i166, label %322
 
-321:                                              ; preds = %319
-  %322 = udiv i64 %320, 5000
-  %323 = mul nuw nsw i64 %322, 5
+322:                                              ; preds = %320
+  %323 = udiv i64 %321, 5000
+  %324 = mul nuw nsw i64 %323, 5
   br label %libdeflate_zlib_compress_bound.exit.i166
 
-libdeflate_zlib_compress_bound.exit.i166:         ; preds = %321, %319
-  %324 = phi i64 [ %323, %321 ], [ 5, %319 ]
-  %325 = add i64 %231, 15
-  %326 = add i64 %325, %324
-  %327 = icmp ugt i64 %326, -10
-  br i1 %327, label %exr_compress_max_buffer_size.exit169, label %328
+libdeflate_zlib_compress_bound.exit.i166:         ; preds = %322, %320
+  %325 = phi i64 [ %324, %322 ], [ 5, %320 ]
+  %326 = add i64 %232, 15
+  %327 = add i64 %326, %325
+  %328 = icmp ugt i64 %327, -10
+  br i1 %328, label %exr_compress_max_buffer_size.exit169, label %329
 
-328:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i166
-  %329 = mul i64 %231, 130
-  %330 = icmp ult i64 %329, %231
-  br i1 %330, label %exr_compress_max_buffer_size.exit169, label %331
+329:                                              ; preds = %libdeflate_zlib_compress_bound.exit.i166
+  %330 = mul i64 %232, 130
+  %331 = icmp ult i64 %330, %232
+  br i1 %331, label %exr_compress_max_buffer_size.exit169, label %332
 
-331:                                              ; preds = %328
-  %332 = add nuw i64 %326, 9
-  %333 = lshr i64 %329, 7
-  %.0.i167 = tail call i64 @llvm.umax.i64(i64 %333, i64 %332)
+332:                                              ; preds = %329
+  %333 = add nuw i64 %327, 9
+  %334 = lshr i64 %330, 7
+  %.0.i167 = tail call i64 @llvm.umax.i64(i64 %334, i64 %333)
   br label %exr_compress_max_buffer_size.exit169
 
-exr_compress_max_buffer_size.exit169:             ; preds = %libdeflate_zlib_compress_bound.exit.i166, %328, %331
-  %.013.i168 = phi i64 [ %.0.i167, %331 ], [ -1, %libdeflate_zlib_compress_bound.exit.i166 ], [ -1, %328 ]
+exr_compress_max_buffer_size.exit169:             ; preds = %libdeflate_zlib_compress_bound.exit.i166, %329, %332
+  %.013.i168 = phi i64 [ %.0.i167, %332 ], [ -1, %libdeflate_zlib_compress_bound.exit.i166 ], [ -1, %329 ]
   store i64 %.013.i168, ptr %2, align 16
-  br label %334
+  br label %335
 
-334:                                              ; preds = %exr_compress_max_buffer_size.exit169, %318
-  %335 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %336 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br label %337
+335:                                              ; preds = %exr_compress_max_buffer_size.exit169, %319
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  br label %338
 
-337:                                              ; preds = %334, %351
-  %indvars.iv219 = phi i64 [ 0, %334 ], [ %indvars.iv.next220, %351 ]
-  %338 = getelementptr inbounds [3 x i64], ptr %2, i64 0, i64 %indvars.iv219
-  %339 = load i64, ptr %338, align 8
-  %340 = getelementptr inbounds [3 x i64], ptr %335, i64 0, i64 %indvars.iv219
-  %341 = load i64, ptr %340, align 8
-  %342 = icmp ugt i64 %339, %341
-  br i1 %342, label %343, label %351
+338:                                              ; preds = %335, %352
+  %indvars.iv219 = phi i64 [ 0, %335 ], [ %indvars.iv.next220, %352 ]
+  %339 = getelementptr inbounds [3 x i64], ptr %2, i64 0, i64 %indvars.iv219
+  %340 = load i64, ptr %339, align 8
+  %341 = getelementptr inbounds [3 x i64], ptr %336, i64 0, i64 %indvars.iv219
+  %342 = load i64, ptr %341, align 8
+  %343 = icmp ugt i64 %340, %342
+  br i1 %343, label %344, label %352
 
-343:                                              ; preds = %337
-  store i64 %339, ptr %340, align 8
-  %344 = getelementptr inbounds [3 x ptr], ptr %336, i64 0, i64 %indvars.iv219
-  %345 = load ptr, ptr %344, align 8
-  %.not147 = icmp eq ptr %345, null
-  br i1 %.not147, label %348, label %346
+344:                                              ; preds = %338
+  store i64 %340, ptr %341, align 8
+  %345 = getelementptr inbounds [3 x ptr], ptr %337, i64 0, i64 %indvars.iv219
+  %346 = load ptr, ptr %345, align 8
+  %.not147 = icmp eq ptr %346, null
+  br i1 %.not147, label %349, label %347
 
-346:                                              ; preds = %343
-  %347 = load ptr, ptr %179, align 8
-  tail call void %347(ptr noundef nonnull %345) #50
-  br label %348
+347:                                              ; preds = %344
+  %348 = load ptr, ptr %179, align 8
+  tail call void %348(ptr noundef nonnull %346) #50
+  br label %349
 
-348:                                              ; preds = %343, %346
-  %349 = load ptr, ptr %35, align 8
-  %350 = tail call ptr %349(i64 noundef %339) #50
-  store ptr %350, ptr %344, align 8
-  %.not148 = icmp eq ptr %350, null
-  br i1 %.not148, label %DwaCompressor_classifyChannels.exit.thread, label %351
+349:                                              ; preds = %344, %347
+  %350 = load ptr, ptr %35, align 8
+  %351 = tail call ptr %350(i64 noundef %340) #50
+  store ptr %351, ptr %345, align 8
+  %.not148 = icmp eq ptr %351, null
+  br i1 %.not148, label %DwaCompressor_classifyChannels.exit.thread, label %352
 
-351:                                              ; preds = %337, %348
+352:                                              ; preds = %338, %349
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next220, 3
-  br i1 %exitcond222.not, label %DwaCompressor_classifyChannels.exit.thread, label %337, !llvm.loop !305
+  br i1 %exitcond222.not, label %DwaCompressor_classifyChannels.exit.thread, label %338, !llvm.loop !305
 
-DwaCompressor_classifyChannels.exit.thread:       ; preds = %199, %351, %348, %43, %._crit_edge, %314, %299, %284
-  %.0116 = phi i32 [ 1, %284 ], [ 1, %299 ], [ 1, %314 ], [ 1, %._crit_edge ], [ 1, %43 ], [ 0, %351 ], [ 1, %348 ], [ 3, %199 ]
+DwaCompressor_classifyChannels.exit.thread:       ; preds = %200, %352, %349, %43, %._crit_edge, %315, %300, %285
+  %.0116 = phi i32 [ 1, %285 ], [ 1, %300 ], [ 1, %315 ], [ 1, %._crit_edge ], [ 1, %43 ], [ 0, %352 ], [ 1, %349 ], [ 3, %200 ]
   ret i32 %.0116
 }
 

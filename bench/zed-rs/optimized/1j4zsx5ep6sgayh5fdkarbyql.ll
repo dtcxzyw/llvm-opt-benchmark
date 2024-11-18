@@ -132253,8 +132253,7 @@ define hidden void @"_ZN4gpui8geometry15Bounds$LT$T$GT$9intersect17h6975a55622ff
   %50 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %46, i32 %49)
   %51 = add nsw i8 %50, -3
   %switch.i.i = icmp ult i8 %51, -2
-  %.sroa.0.0.v.i4 = select i1 %switch.i.i, i32 %32, i32 %42
-  %.sroa.0.0.i5 = bitcast i32 %.sroa.0.0.v.i4 to float
+  %.sroa.0.0.i5 = select i1 %switch.i.i, float %27, float %37
   %52 = ashr i32 %33, 31
   %53 = lshr i32 %52, 1
   %54 = xor i32 %53, %33
@@ -132264,8 +132263,7 @@ define hidden void @"_ZN4gpui8geometry15Bounds$LT$T$GT$9intersect17h6975a55622ff
   %58 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %54, i32 %57)
   %59 = add nsw i8 %58, -3
   %switch.i3.i = icmp ult i8 %59, -2
-  %.sroa.01.0.v.i6 = select i1 %switch.i3.i, i32 %33, i32 %43
-  %.sroa.01.0.i7 = bitcast i32 %.sroa.01.0.v.i6 to float
+  %.sroa.01.0.i7 = select i1 %switch.i3.i, float %31, float %41
   %60 = fsub float %.sroa.0.0.i5, %.sroa.0.0.i
   %61 = fsub float %.sroa.01.0.i7, %.sroa.01.0.i
   store i32 %.sroa.0.0.v.i, ptr %0, align 4, !alias.scope !29684

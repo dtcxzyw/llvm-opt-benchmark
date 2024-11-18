@@ -280,17 +280,17 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %78 = ptrtoint ptr %.val.i49.i.i.i.i to i64
   %79 = sub nuw i64 %77, %78
   %80 = lshr exact i64 %79, 3
-  %81 = add nuw nsw i64 %80, 1
-  %82 = load ptr, ptr %53, align 8, !alias.scope !85, !noalias !90, !noundef !13
-  %83 = icmp eq ptr %82, null
+  %81 = load ptr, ptr %53, align 8, !alias.scope !85, !noalias !90, !noundef !13
+  %82 = icmp eq ptr %81, null
   %.val4.i.i.i.i.i = load ptr, ptr %54, align 8, !alias.scope !85, !noalias !90, !nonnull !13
-  %84 = ptrtoint ptr %.val4.i.i.i.i.i to i64
+  %83 = ptrtoint ptr %.val4.i.i.i.i.i to i64
   %.val.i.i.i.i.i = load ptr, ptr %55, align 8, !alias.scope !85, !noalias !90, !nonnull !13
-  %85 = ptrtoint ptr %.val.i.i.i.i.i to i64
-  %86 = sub nuw i64 %84, %85
-  %87 = lshr exact i64 %86, 3
-  %.sroa.7.0.i.i.i.i = select i1 %83, i64 0, i64 %87
-  %88 = select i1 %76, i64 1, i64 %81
+  %84 = ptrtoint ptr %.val.i.i.i.i.i to i64
+  %85 = sub nuw i64 %83, %84
+  %86 = lshr exact i64 %85, 3
+  %.sroa.7.0.i.i.i.i = select i1 %82, i64 0, i64 %86
+  %87 = add nuw nsw i64 %80, 1
+  %88 = select i1 %76, i64 1, i64 %87
   %89 = add nuw nsw i64 %.sroa.7.0.i.i.i.i, %88
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6516eb04f1029f93E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %63, i64 noundef %89)
           to label %66 unwind label %70
@@ -512,17 +512,17 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %78 = ptrtoint ptr %.val.i49.i.i.i.i to i64
   %79 = sub nuw i64 %77, %78
   %80 = lshr exact i64 %79, 3
-  %81 = add nuw nsw i64 %80, 1
-  %82 = load ptr, ptr %53, align 8, !alias.scope !124, !noalias !129, !noundef !13
-  %83 = icmp eq ptr %82, null
+  %81 = load ptr, ptr %53, align 8, !alias.scope !124, !noalias !129, !noundef !13
+  %82 = icmp eq ptr %81, null
   %.val4.i.i.i.i.i = load ptr, ptr %54, align 8, !alias.scope !124, !noalias !129, !nonnull !13
-  %84 = ptrtoint ptr %.val4.i.i.i.i.i to i64
+  %83 = ptrtoint ptr %.val4.i.i.i.i.i to i64
   %.val.i.i.i.i.i = load ptr, ptr %55, align 8, !alias.scope !124, !noalias !129, !nonnull !13
-  %85 = ptrtoint ptr %.val.i.i.i.i.i to i64
-  %86 = sub nuw i64 %84, %85
-  %87 = lshr exact i64 %86, 3
-  %.sroa.7.0.i.i.i.i = select i1 %83, i64 0, i64 %87
-  %88 = select i1 %76, i64 1, i64 %81
+  %84 = ptrtoint ptr %.val.i.i.i.i.i to i64
+  %85 = sub nuw i64 %83, %84
+  %86 = lshr exact i64 %85, 3
+  %.sroa.7.0.i.i.i.i = select i1 %82, i64 0, i64 %86
+  %87 = add nuw nsw i64 %80, 1
+  %88 = select i1 %76, i64 1, i64 %87
   %89 = add nuw nsw i64 %.sroa.7.0.i.i.i.i, %88
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6516eb04f1029f93E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %63, i64 noundef %89)
           to label %66 unwind label %70

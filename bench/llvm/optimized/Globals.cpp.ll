@@ -1353,16 +1353,16 @@ define dso_local void @_ZN4llvm12GlobalObject18copyAttributesFromEPKS0_(ptr noun
   %5 = lshr i32 %4, 17
   %6 = and i32 %5, 63
   %.not.i.i = icmp eq i32 %6, 0
-  %7 = shl nuw nsw i32 %6, 17
-  %8 = add nuw nsw i32 %7, 33423360
-  %9 = and i32 %8, 33423360
-  %10 = add nuw nsw i32 %9, 131072
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i32, ptr %11, align 8
-  %13 = select i1 %.not.i.i, i32 0, i32 %10
-  %14 = and i32 %12, -8257537
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load i32, ptr %7, align 8
+  %9 = shl nuw nsw i32 %6, 17
+  %10 = add nuw nsw i32 %9, 33423360
+  %11 = and i32 %10, 33423360
+  %12 = add nuw nsw i32 %11, 131072
+  %13 = select i1 %.not.i.i, i32 0, i32 %12
+  %14 = and i32 %8, -8257537
   %15 = or i32 %13, %14
-  store i32 %15, ptr %11, align 8
+  store i32 %15, ptr %7, align 8
   %16 = tail call { ptr, i64 } @_ZNK4llvm12GlobalObject10getSectionEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %17 = extractvalue { ptr, i64 } %16, 0
   %18 = extractvalue { ptr, i64 } %16, 1
@@ -2697,16 +2697,16 @@ define dso_local void @_ZN4llvm14GlobalVariable18copyAttributesFromEPKS0_(ptr no
   %5 = lshr i32 %4, 17
   %6 = and i32 %5, 63
   %.not.i.i.i = icmp eq i32 %6, 0
-  %7 = shl nuw nsw i32 %6, 17
-  %8 = add nuw nsw i32 %7, 33423360
-  %9 = and i32 %8, 33423360
-  %10 = add nuw nsw i32 %9, 131072
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i32, ptr %11, align 8
-  %13 = select i1 %.not.i.i.i, i32 0, i32 %10
-  %14 = and i32 %12, -8257537
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load i32, ptr %7, align 8
+  %9 = shl nuw nsw i32 %6, 17
+  %10 = add nuw nsw i32 %9, 33423360
+  %11 = and i32 %10, 33423360
+  %12 = add nuw nsw i32 %11, 131072
+  %13 = select i1 %.not.i.i.i, i32 0, i32 %12
+  %14 = and i32 %8, -8257537
   %15 = or i32 %13, %14
-  store i32 %15, ptr %11, align 8
+  store i32 %15, ptr %7, align 8
   %16 = tail call { ptr, i64 } @_ZNK4llvm12GlobalObject10getSectionEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %17 = extractvalue { ptr, i64 } %16, 0
   %18 = extractvalue { ptr, i64 } %16, 1
@@ -2730,11 +2730,11 @@ define dso_local void @_ZN4llvm14GlobalVariable18copyAttributesFromEPKS0_(ptr no
   br i1 %.not.not.i.not, label %36, label %31
 
 31:                                               ; preds = %2
-  %32 = load i32, ptr %11, align 8
+  %32 = load i32, ptr %7, align 8
   %33 = shl nuw nsw i32 %30, 23
   %34 = and i32 %32, -58720257
   %35 = or disjoint i32 %34, %33
-  store i32 %35, ptr %11, align 8
+  store i32 %35, ptr %7, align 8
   br label %36
 
 36:                                               ; preds = %31, %2

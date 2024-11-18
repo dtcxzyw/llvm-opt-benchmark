@@ -443,11 +443,11 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, 64
   %.not318 = icmp eq i16 %101, 0
-  %102 = zext i8 %97 to i32
-  %103 = icmp ne ptr %.0290327, null
-  %104 = icmp ne i32 %.0302324, 0
-  %or.cond = select i1 %103, i1 %104, i1 false
-  %105 = select i1 %.not318, i32 46, i32 %102
+  %102 = icmp ne ptr %.0290327, null
+  %103 = icmp ne i32 %.0302324, 0
+  %or.cond = select i1 %102, i1 %103, i1 false
+  %104 = zext i8 %97 to i32
+  %105 = select i1 %.not318, i32 46, i32 %104
   br i1 %or.cond, label %106, label %108
 
 106:                                              ; preds = %95

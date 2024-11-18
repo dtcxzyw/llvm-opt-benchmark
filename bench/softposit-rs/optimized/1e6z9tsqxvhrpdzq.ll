@@ -461,11 +461,11 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   %219 = zext nneg i32 %218 to i64
   %220 = shl i64 %.11285, %219
   %221 = icmp eq i64 %220, 0
-  %222 = and i8 %.8200284, 1
-  %223 = and i32 %217, 1
-  %224 = zext nneg i8 %222 to i32
+  %222 = and i32 %217, 1
+  %223 = and i8 %.8200284, 1
+  %224 = zext nneg i8 %223 to i32
   %225 = select i1 %221, i32 %224, i32 1
-  %226 = or i32 %225, %223
+  %226 = or i32 %225, %222
   %227 = add i32 %226, %217
   br label %194
 }

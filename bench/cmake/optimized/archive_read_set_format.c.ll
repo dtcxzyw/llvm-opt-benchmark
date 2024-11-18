@@ -18,13 +18,12 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_set_format(ptr noun
   %3 = alloca [10 x i8], align 8
   %4 = tail call i32 @archive_read_support_format_by_code(ptr noundef %0, i32 noundef %1) #5
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %42, label %6
+  br i1 %5, label %43, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 2072
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  %spec.select = select i1 %.not, i32 0, i32 -20
   %9 = and i32 %1, 16711680
   %10 = add nsw i32 %9, -65536
   %11 = lshr exact i32 %10, 16
@@ -109,7 +108,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_set_format(ptr noun
 
 27:                                               ; preds = %6
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.15) #5
-  br label %42
+  br label %43
 
 28:                                               ; preds = %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
   %29 = getelementptr inbounds i8, ptr %0, i64 664
@@ -154,11 +153,12 @@ split.thread:                                     ; preds = %30, %split.thread35
 
 40:                                               ; preds = %split.thread, %split.thread35
   %.023 = phi i32 [ -30, %split.thread ], [ 0, %split.thread35 ]
-  %41 = tail call i32 @llvm.smin.i32(i32 %.023, i32 %spec.select)
-  br label %42
+  %41 = tail call i32 @llvm.smin.i32(i32 %.023, i32 -20)
+  %42 = select i1 %.not, i32 %.023, i32 %41
+  br label %43
 
-42:                                               ; preds = %2, %40, %27
-  %.0 = phi i32 [ -30, %27 ], [ %41, %40 ], [ %4, %2 ]
+43:                                               ; preds = %2, %40, %27
+  %.0 = phi i32 [ -30, %27 ], [ %42, %40 ], [ %4, %2 ]
   ret i32 %.0
 }
 

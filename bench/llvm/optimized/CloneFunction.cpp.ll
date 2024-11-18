@@ -7471,11 +7471,11 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit255: ; preds 
   %.not.i.i259 = icmp eq i64 %702, 4294967294
   %703 = shl i64 %spec.select9.i, 1
   %704 = add i64 %703, 3
-  %705 = and i64 %704, 4294967295
-  %706 = getelementptr inbounds i8, ptr %spec.select.i257, i64 -8
-  %707 = load ptr, ptr %706, align 8
-  %708 = select i1 %.not.i.i259, i64 1, i64 %705
-  %709 = getelementptr inbounds %"class.llvm::Use", ptr %707, i64 %708
+  %705 = getelementptr inbounds i8, ptr %spec.select.i257, i64 -8
+  %706 = load ptr, ptr %705, align 8
+  %707 = and i64 %704, 4294967295
+  %708 = select i1 %.not.i.i259, i64 1, i64 %707
+  %709 = getelementptr inbounds %"class.llvm::Use", ptr %706, i64 %708
   %710 = load ptr, ptr %709, align 8
   call void @_ZN4llvm14InsertPositionC1EPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %63) #14
   %711 = load ptr, ptr %26, align 8

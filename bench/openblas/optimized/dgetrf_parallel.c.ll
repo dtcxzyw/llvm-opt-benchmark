@@ -237,8 +237,8 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %161 = zext i32 %160 to i64
   %162 = icmp eq i32 %160, 0
-  %163 = select i1 %162, i64 %140, i64 %161
-  %164 = call i64 @llvm.umin.i64(i64 %140, i64 %163)
+  %163 = call i64 @llvm.umin.i64(i64 %140, i64 %161)
+  %164 = select i1 %162, i64 %140, i64 %163
   %165 = sub nsw i64 %140, %164
   %166 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %138
   %167 = load i64, ptr %166, align 8, !tbaa !13
@@ -267,10 +267,10 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %182 = zext i32 %181 to i64
   %183 = icmp eq i32 %181, 0
-  %184 = select i1 %183, i64 %139, i64 %182
-  %185 = call i64 @llvm.umin.i64(i64 %139, i64 %184)
-  %186 = icmp slt i64 %165, 1
-  %187 = select i1 %186, i64 %139, i64 %185
+  %184 = call i64 @llvm.umin.i64(i64 %139, i64 %182)
+  %185 = icmp slt i64 %165, 1
+  %186 = select i1 %185, i1 true, i1 %183
+  %187 = select i1 %186, i64 %139, i64 %184
   %188 = sub nsw i64 %139, %187
   %189 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %138
   %190 = load i64, ptr %189, align 8, !tbaa !13
@@ -308,8 +308,8 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %207 = zext i32 %206 to i64
   %208 = icmp eq i32 %206, 0
-  %209 = select i1 %208, i64 %139, i64 %207
-  %210 = call i64 @llvm.smin.i64(i64 %139, i64 %209)
+  %209 = call i64 @llvm.smin.i64(i64 %139, i64 %207)
+  %210 = select i1 %208, i64 %139, i64 %209
   %211 = sub nsw i64 %139, %210
   %212 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %138
   %213 = load i64, ptr %212, align 8, !tbaa !13
@@ -338,10 +338,10 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %228 = zext i32 %227 to i64
   %229 = icmp eq i32 %227, 0
-  %230 = select i1 %229, i64 %140, i64 %228
-  %231 = call i64 @llvm.umin.i64(i64 %140, i64 %230)
-  %232 = icmp slt i64 %211, 1
-  %233 = select i1 %232, i64 %140, i64 %231
+  %230 = call i64 @llvm.umin.i64(i64 %140, i64 %228)
+  %231 = icmp slt i64 %211, 1
+  %232 = select i1 %231, i1 true, i1 %229
+  %233 = select i1 %232, i64 %140, i64 %230
   %234 = sub nsw i64 %140, %233
   %235 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %138
   %236 = load i64, ptr %235, align 8, !tbaa !13

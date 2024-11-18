@@ -7563,13 +7563,13 @@ define internal fastcc noundef zeroext i1 @_compute_psr2_wake_times(ptr nocaptur
   %18 = getelementptr inbounds i8, ptr %4, i64 6808
   %19 = load i8, ptr %18, align 8, !range !5, !noundef !6
   %20 = icmp eq i8 %19, 0
-  %21 = select i1 %20, i32 %13, i32 %8
-  %22 = select i1 %20, i32 %12, i32 %8
-  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 7)
-  %24 = trunc nuw nsw i32 %23 to i8
-  %25 = getelementptr inbounds i8, ptr %0, i64 3308
-  store i8 %24, ptr %25, align 4
-  %26 = tail call i32 @llvm.smax.i32(i32 %21, i32 7)
+  %21 = tail call i32 @llvm.smax.i32(i32 %12, i32 7)
+  %22 = select i1 %20, i32 %21, i32 %8
+  %23 = trunc nuw nsw i32 %22 to i8
+  %24 = getelementptr inbounds i8, ptr %0, i64 3308
+  store i8 %23, ptr %24, align 4
+  %25 = tail call i32 @llvm.smax.i32(i32 %13, i32 7)
+  %26 = select i1 %20, i32 %25, i32 %8
   %27 = trunc nuw nsw i32 %26 to i8
   %28 = getelementptr inbounds i8, ptr %0, i64 3309
   store i8 %27, ptr %28, align 1

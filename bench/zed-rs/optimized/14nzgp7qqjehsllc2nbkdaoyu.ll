@@ -55314,8 +55314,8 @@ default.unreachable41:                            ; preds = %22, %2
   %42 = extractvalue { i64, ptr } %36, 0
   %43 = icmp eq i64 %42, 2
   %..i = select i1 %43, i8 3, i8 1
-  %44 = extractvalue { i64, ptr } %36, 1
   store i8 %..i, ptr %33, align 8, !noalias !15512
+  %44 = extractvalue { i64, ptr } %36, 1
   br i1 %43, label %45, label %46
 
 common.ret:                                       ; preds = %89, %71, %45

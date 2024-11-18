@@ -7179,11 +7179,11 @@ define hidden void @_ZN2os5Linux15large_page_initEv() local_unnamed_addr #0 alig
   %5 = alloca %"class.os::PageSizes", align 8
   %6 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 456) #26
   %7 = load i8, ptr @UseLargePages, align 1
-  %8 = and i8 %7, 1
-  %9 = load i8, ptr @UseTransparentHugePages, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = select i1 %6, i8 1, i8 %8
-  %12 = select i1 %10, i8 %11, i8 0
+  %8 = load i8, ptr @UseTransparentHugePages, align 1
+  %9 = trunc i8 %8 to i1
+  %10 = and i8 %7, 1
+  %11 = select i1 %6, i8 1, i8 %10
+  %12 = select i1 %9, i8 %11, i8 0
   store i8 %12, ptr @_ZN2os5Linux14_thp_requestedE, align 1
   tail call void @_ZN9HugePages10initializeEv() #26
   %13 = tail call noundef i32 @_ZNK10THPSupport4modeEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZN9HugePages12_thp_supportE) #26

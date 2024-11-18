@@ -54,9 +54,8 @@ define hidden noundef i64 @_ZN12sharded_slab3tid12Registration8register17h01062c
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load i8, ptr %8, align 8, !range !7
-  %10 = trunc nuw i8 %9 to i1
-  %11 = icmp eq i64 %5, 0
-  br i1 %11, label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread", label %12
+  %10 = icmp eq i64 %5, 0
+  br i1 %10, label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread", label %11
 
 "_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread": ; preds = %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -66,10 +65,11 @@ define hidden noundef i64 @_ZN12sharded_slab3tid12Registration8register17h01062c
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br i1 %trunc, label %.thread, label %22
 
-12:                                               ; preds = %1
-  br i1 %10, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i, label %13
+11:                                               ; preds = %1
+  %12 = trunc nuw i8 %9 to i1
+  br i1 %12, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i, label %13
 
-13:                                               ; preds = %12
+13:                                               ; preds = %11
   %14 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h133eb4a7cc8ea4ceE.llvm.1799741712541865863(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h0c0cb700fd497c9fE, i8 noundef 0), !noalias !8
   %15 = and i64 %14, 9223372036854775807
   %16 = icmp eq i64 %15, 0
@@ -79,7 +79,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.
   %17 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h4671fa193704fdaeE(), !noalias !8
   br i1 %17, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i, label %20
 
-_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i: ; preds = %20, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i.i.i, %13, %12
+_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i: ; preds = %20, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i.i.i, %13, %11
   %18 = atomicrmw xchg ptr %7, i32 0 release, align 4, !noalias !8
   %19 = icmp eq i32 %18, 2
   br i1 %19, label %"_ZN4core3ptr109drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$17hfb11d6be91f3c6a8E.llvm.1214941078669613289.exit.sink.split.i", label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit"
@@ -94,70 +94,71 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.th
   br label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit"
 
 22:                                               ; preds = %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread", %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit"
-  %23 = getelementptr inbounds i8, ptr %7, i64 32
-  %24 = load i64, ptr %23, align 8, !noundef !5
-  %25 = icmp ult i64 %24, 2
-  br i1 %25, label %38, label %26
+  %23 = trunc nuw i8 %9 to i1
+  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %25 = load i64, ptr %24, align 8, !noundef !5
+  %26 = icmp ult i64 %25, 2
+  br i1 %26, label %39, label %27
 
-26:                                               ; preds = %22
+27:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 24
-  %29 = load i64, ptr %28, align 8, !alias.scope !18, !noundef !5
-  %30 = add i64 %29, 1
-  %31 = getelementptr inbounds i8, ptr %7, i64 16
-  %32 = load i64, ptr %31, align 8, !alias.scope !18, !noundef !5
-  %.not.i.i = icmp ult i64 %30, %32
-  %33 = select i1 %.not.i.i, i64 0, i64 %32
-  %.0.i.i = sub nuw i64 %30, %33
-  store i64 %.0.i.i, ptr %28, align 8, !alias.scope !18
-  %34 = add i64 %24, -1
-  store i64 %34, ptr %23, align 8, !alias.scope !18
-  %35 = load ptr, ptr %27, align 8, !alias.scope !18, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds i64, ptr %35, i64 %29
-  %37 = load i64, ptr %36, align 8, !noalias !18, !noundef !5
-  br label %38
+  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds i8, ptr %7, i64 24
+  %30 = load i64, ptr %29, align 8, !alias.scope !18, !noundef !5
+  %31 = add i64 %30, 1
+  %32 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = load i64, ptr %32, align 8, !alias.scope !18, !noundef !5
+  %.not.i.i = icmp ult i64 %31, %33
+  %34 = select i1 %.not.i.i, i64 0, i64 %33
+  %.0.i.i = sub nuw i64 %31, %34
+  store i64 %.0.i.i, ptr %29, align 8, !alias.scope !18
+  %35 = add i64 %25, -1
+  store i64 %35, ptr %24, align 8, !alias.scope !18
+  %36 = load ptr, ptr %28, align 8, !alias.scope !18, !nonnull !5, !noundef !5
+  %37 = getelementptr inbounds i64, ptr %36, i64 %30
+  %38 = load i64, ptr %37, align 8, !noalias !18, !noundef !5
+  br label %39
 
-38:                                               ; preds = %26, %22
-  %.sroa.3.0.i = phi i64 [ undef, %22 ], [ %37, %26 ]
-  br i1 %10, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12, label %39
+39:                                               ; preds = %27, %22
+  %.sroa.3.0.i = phi i64 [ undef, %22 ], [ %38, %27 ]
+  br i1 %23, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12, label %40
 
-39:                                               ; preds = %38
-  %40 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h0c0cb700fd497c9fE monotonic, align 8, !noalias !21
-  %41 = and i64 %40, 9223372036854775807
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.i.i11
+40:                                               ; preds = %39
+  %41 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h0c0cb700fd497c9fE monotonic, align 8, !noalias !21
+  %42 = and i64 %41, 9223372036854775807
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.i.i11
 
-_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.i.i11: ; preds = %39
-  %43 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h4671fa193704fdaeE(), !noalias !21
-  br i1 %43, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12, label %46
+_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.i.i11: ; preds = %40
+  %44 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h4671fa193704fdaeE(), !noalias !21
+  br i1 %44, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12, label %47
 
-_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12: ; preds = %46, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.i.i11, %39, %38
-  %44 = atomicrmw xchg ptr %7, i32 0 release, align 4, !noalias !21
-  %45 = icmp eq i32 %44, 2
-  br i1 %45, label %48, label %49
+_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12: ; preds = %47, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.i.i11, %40, %39
+  %45 = atomicrmw xchg ptr %7, i32 0 release, align 4, !noalias !21
+  %46 = icmp eq i32 %45, 2
+  br i1 %46, label %49, label %50
 
-46:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.i.i11
-  %47 = getelementptr inbounds i8, ptr %7, i64 4
-  store atomic i8 1, ptr %47 monotonic, align 4, !noalias !21
+47:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.i.i11
+  %48 = getelementptr inbounds i8, ptr %7, i64 4
+  store atomic i8 1, ptr %48 monotonic, align 4, !noalias !21
   br label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12
 
-48:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12
+49:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12
   tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17h05e1bfcdf63536d8E(ptr noundef nonnull align 8 %7), !noalias !21
-  br label %49
+  br label %50
 
-49:                                               ; preds = %48, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12
-  br i1 %25, label %.thread, label %51
+50:                                               ; preds = %49, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12
+  br i1 %26, label %.thread, label %52
 
-.thread:                                          ; preds = %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit", %49
-  %50 = tail call noundef i64 @"_ZN12sharded_slab3tid12Registration8register28_$u7b$$u7b$closure$u7d$$u7d$17h6258ec6b953a8ce7E.llvm.1214941078669613289"()
-  br label %51
+.thread:                                          ; preds = %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit", %50
+  %51 = tail call noundef i64 @"_ZN12sharded_slab3tid12Registration8register28_$u7b$$u7b$closure$u7d$$u7d$17h6258ec6b953a8ce7E.llvm.1214941078669613289"()
+  br label %52
 
-51:                                               ; preds = %49, %.thread
-  %.0 = phi i64 [ %50, %.thread ], [ %.sroa.3.0.i, %49 ]
+52:                                               ; preds = %50, %.thread
+  %.0 = phi i64 [ %51, %.thread ], [ %.sroa.3.0.i, %50 ]
   store i64 1, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.0, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.0, ptr %53, align 8
   ret i64 %.0
 }
 

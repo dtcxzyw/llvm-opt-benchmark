@@ -3515,19 +3515,19 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %94 = fpext float %71 to double
   %95 = fmul double %94, %93
   %96 = fptrunc double %95 to float
-  %97 = bitcast float %96 to i32
-  %98 = bitcast float %71 to i32
-  %99 = load i64, ptr %58, align 8
-  %100 = mul i64 %99, %.048133
-  %101 = load i64, ptr %59, align 8
-  %102 = mul i64 %101, %.04.i.i
-  %103 = load ptr, ptr %60, align 8
-  %104 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %103, i64 %100
-  %105 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %104, i64 %102
-  %106 = select i1 %92, i32 %97, i32 0
-  %107 = select i1 %92, i32 %98, i32 8388608
-  store i32 %106, ptr %105, align 4
-  %.sroa_idx9.i.i.i = getelementptr inbounds i8, ptr %105, i64 4
+  %97 = load i64, ptr %58, align 8
+  %98 = mul i64 %97, %.048133
+  %99 = load i64, ptr %59, align 8
+  %100 = mul i64 %99, %.04.i.i
+  %101 = load ptr, ptr %60, align 8
+  %102 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %101, i64 %98
+  %103 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %102, i64 %100
+  %104 = bitcast float %96 to i32
+  %105 = select i1 %92, i32 %104, i32 0
+  %106 = bitcast float %71 to i32
+  %107 = select i1 %92, i32 %106, i32 8388608
+  store i32 %105, ptr %103, align 4
+  %.sroa_idx9.i.i.i = getelementptr inbounds i8, ptr %103, i64 4
   store i32 %107, ptr %.sroa_idx9.i.i.i, align 4
   %108 = add nuw i64 %.04.i.i, 1
   %109 = load i64, ptr %4, align 8
@@ -3636,19 +3636,19 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %172 = fpext float %149 to double
   %173 = fmul double %172, %171
   %174 = fptrunc double %173 to float
-  %175 = bitcast float %174 to i32
-  %176 = bitcast float %149 to i32
-  %177 = load i64, ptr %136, align 8
-  %178 = mul i64 %177, %.049131
-  %179 = load i64, ptr %137, align 8
-  %180 = mul i64 %179, %.04.i.i63
-  %181 = load ptr, ptr %138, align 8
-  %182 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %181, i64 %178
-  %183 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %182, i64 %180
-  %184 = select i1 %170, i32 %175, i32 0
-  %185 = select i1 %170, i32 %176, i32 8388608
-  store i32 %184, ptr %183, align 4
-  %.sroa_idx9.i.i.i67 = getelementptr inbounds i8, ptr %183, i64 4
+  %175 = load i64, ptr %136, align 8
+  %176 = mul i64 %175, %.049131
+  %177 = load i64, ptr %137, align 8
+  %178 = mul i64 %177, %.04.i.i63
+  %179 = load ptr, ptr %138, align 8
+  %180 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %179, i64 %176
+  %181 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %180, i64 %178
+  %182 = bitcast float %174 to i32
+  %183 = select i1 %170, i32 %182, i32 0
+  %184 = bitcast float %149 to i32
+  %185 = select i1 %170, i32 %184, i32 8388608
+  store i32 %183, ptr %181, align 4
+  %.sroa_idx9.i.i.i67 = getelementptr inbounds i8, ptr %181, i64 4
   store i32 %185, ptr %.sroa_idx9.i.i.i67, align 4
   %186 = add nuw i64 %.04.i.i63, 1
   %187 = load i64, ptr %4, align 8
@@ -3714,19 +3714,19 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %222 = fpext float %199 to double
   %223 = fmul double %222, %221
   %224 = fptrunc double %223 to float
-  %225 = bitcast float %224 to i32
-  %226 = bitcast float %199 to i32
-  %227 = load i64, ptr %123, align 8
-  %228 = mul i64 %227, %.051129
-  %229 = load i64, ptr %124, align 8
-  %230 = mul i64 %229, %.04.i.i72
-  %231 = load ptr, ptr %125, align 8
-  %232 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %231, i64 %228
-  %233 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %232, i64 %230
-  %234 = select i1 %220, i32 %225, i32 0
-  %235 = select i1 %220, i32 %226, i32 8388608
-  store i32 %234, ptr %233, align 4
-  %.sroa_idx9.i.i.i76 = getelementptr inbounds i8, ptr %233, i64 4
+  %225 = load i64, ptr %123, align 8
+  %226 = mul i64 %225, %.051129
+  %227 = load i64, ptr %124, align 8
+  %228 = mul i64 %227, %.04.i.i72
+  %229 = load ptr, ptr %125, align 8
+  %230 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %229, i64 %226
+  %231 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %230, i64 %228
+  %232 = bitcast float %224 to i32
+  %233 = select i1 %220, i32 %232, i32 0
+  %234 = bitcast float %199 to i32
+  %235 = select i1 %220, i32 %234, i32 8388608
+  store i32 %233, ptr %231, align 4
+  %.sroa_idx9.i.i.i76 = getelementptr inbounds i8, ptr %231, i64 4
   store i32 %235, ptr %.sroa_idx9.i.i.i76, align 4
   %236 = add nuw i64 %.04.i.i72, 1
   %237 = load i64, ptr %4, align 8
@@ -3835,19 +3835,19 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %300 = fpext float %277 to double
   %301 = fmul double %300, %299
   %302 = fptrunc double %301 to float
-  %303 = bitcast float %302 to i32
-  %304 = bitcast float %277 to i32
-  %305 = load i64, ptr %264, align 8
-  %306 = mul i64 %305, %.052127
-  %307 = load i64, ptr %265, align 8
-  %308 = mul i64 %307, %.04.i.i81
-  %309 = load ptr, ptr %266, align 8
-  %310 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %309, i64 %306
-  %311 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %310, i64 %308
-  %312 = select i1 %298, i32 %303, i32 0
-  %313 = select i1 %298, i32 %304, i32 8388608
-  store i32 %312, ptr %311, align 4
-  %.sroa_idx9.i.i.i85 = getelementptr inbounds i8, ptr %311, i64 4
+  %303 = load i64, ptr %264, align 8
+  %304 = mul i64 %303, %.052127
+  %305 = load i64, ptr %265, align 8
+  %306 = mul i64 %305, %.04.i.i81
+  %307 = load ptr, ptr %266, align 8
+  %308 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %307, i64 %304
+  %309 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %308, i64 %306
+  %310 = bitcast float %302 to i32
+  %311 = select i1 %298, i32 %310, i32 0
+  %312 = bitcast float %277 to i32
+  %313 = select i1 %298, i32 %312, i32 8388608
+  store i32 %311, ptr %309, align 4
+  %.sroa_idx9.i.i.i85 = getelementptr inbounds i8, ptr %309, i64 4
   store i32 %313, ptr %.sroa_idx9.i.i.i85, align 4
   %314 = add nuw i64 %.04.i.i81, 1
   %315 = load i64, ptr %4, align 8
@@ -3913,19 +3913,19 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %350 = fpext float %327 to double
   %351 = fmul double %350, %349
   %352 = fptrunc double %351 to float
-  %353 = bitcast float %352 to i32
-  %354 = bitcast float %327 to i32
-  %355 = load i64, ptr %251, align 8
-  %356 = mul i64 %355, %.050125
-  %357 = load i64, ptr %252, align 8
-  %358 = mul i64 %357, %.04.i.i90
-  %359 = load ptr, ptr %253, align 8
-  %360 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %359, i64 %356
-  %361 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %360, i64 %358
-  %362 = select i1 %348, i32 %353, i32 0
-  %363 = select i1 %348, i32 %354, i32 8388608
-  store i32 %362, ptr %361, align 4
-  %.sroa_idx9.i.i.i94 = getelementptr inbounds i8, ptr %361, i64 4
+  %353 = load i64, ptr %251, align 8
+  %354 = mul i64 %353, %.050125
+  %355 = load i64, ptr %252, align 8
+  %356 = mul i64 %355, %.04.i.i90
+  %357 = load ptr, ptr %253, align 8
+  %358 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %357, i64 %354
+  %359 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %358, i64 %356
+  %360 = bitcast float %352 to i32
+  %361 = select i1 %348, i32 %360, i32 0
+  %362 = bitcast float %327 to i32
+  %363 = select i1 %348, i32 %362, i32 8388608
+  store i32 %361, ptr %359, align 4
+  %.sroa_idx9.i.i.i94 = getelementptr inbounds i8, ptr %359, i64 4
   store i32 %363, ptr %.sroa_idx9.i.i.i94, align 4
   %364 = add nuw i64 %.04.i.i90, 1
   %365 = load i64, ptr %4, align 8
@@ -3991,19 +3991,19 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %400 = fpext float %377 to double
   %401 = fmul double %400, %399
   %402 = fptrunc double %401 to float
-  %403 = bitcast float %402 to i32
-  %404 = bitcast float %377 to i32
-  %405 = load i64, ptr %45, align 8
-  %406 = mul i64 %405, %.047124
-  %407 = load i64, ptr %46, align 8
-  %408 = mul i64 %407, %.04.i.i99
-  %409 = load ptr, ptr %47, align 8
-  %410 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %409, i64 %406
-  %411 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %410, i64 %408
-  %412 = select i1 %398, i32 %403, i32 0
-  %413 = select i1 %398, i32 %404, i32 8388608
-  store i32 %412, ptr %411, align 4
-  %.sroa_idx9.i.i.i103 = getelementptr inbounds i8, ptr %411, i64 4
+  %403 = load i64, ptr %45, align 8
+  %404 = mul i64 %403, %.047124
+  %405 = load i64, ptr %46, align 8
+  %406 = mul i64 %405, %.04.i.i99
+  %407 = load ptr, ptr %47, align 8
+  %408 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %407, i64 %404
+  %409 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %408, i64 %406
+  %410 = bitcast float %402 to i32
+  %411 = select i1 %398, i32 %410, i32 0
+  %412 = bitcast float %377 to i32
+  %413 = select i1 %398, i32 %412, i32 8388608
+  store i32 %411, ptr %409, align 4
+  %.sroa_idx9.i.i.i103 = getelementptr inbounds i8, ptr %409, i64 4
   store i32 %413, ptr %.sroa_idx9.i.i.i103, align 4
   %414 = add nuw i64 %.04.i.i99, 1
   %415 = load i64, ptr %4, align 8
@@ -4661,22 +4661,22 @@ _ZSt5applyIRZN7xgboost3obj8HingeObj11GetGradientERKNS0_16HostDeviceVectorIfEERKN
   %70 = fpext float %41 to double
   %71 = fmul double %70, %69
   %72 = fptrunc double %71 to float
-  %73 = bitcast float %72 to i32
-  %74 = bitcast float %41 to i32
-  %75 = getelementptr inbounds i8, ptr %30, i64 168
-  %76 = load i64, ptr %75, align 8
-  %77 = mul i64 %76, %.sink.i
-  %78 = getelementptr inbounds i8, ptr %30, i64 176
-  %79 = load i64, ptr %78, align 8
-  %80 = mul i64 %79, %.sroa.3.1.le.i.sink.i
-  %81 = getelementptr inbounds i8, ptr %30, i64 216
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %82, i64 %77
-  %84 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %83, i64 %80
-  %85 = select i1 %68, i32 %73, i32 0
-  %86 = select i1 %68, i32 %74, i32 8388608
-  store i32 %85, ptr %84, align 4
-  %.sroa_idx9.i.i.i.i.i = getelementptr inbounds i8, ptr %84, i64 4
+  %73 = getelementptr inbounds i8, ptr %30, i64 168
+  %74 = load i64, ptr %73, align 8
+  %75 = mul i64 %74, %.sink.i
+  %76 = getelementptr inbounds i8, ptr %30, i64 176
+  %77 = load i64, ptr %76, align 8
+  %78 = mul i64 %77, %.sroa.3.1.le.i.sink.i
+  %79 = getelementptr inbounds i8, ptr %30, i64 216
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %80, i64 %75
+  %82 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %81, i64 %78
+  %83 = bitcast float %72 to i32
+  %84 = select i1 %68, i32 %83, i32 0
+  %85 = bitcast float %41 to i32
+  %86 = select i1 %68, i32 %85, i32 8388608
+  store i32 %84, ptr %82, align 4
+  %.sroa_idx9.i.i.i.i.i = getelementptr inbounds i8, ptr %82, i64 4
   store i32 %86, ptr %.sroa_idx9.i.i.i.i.i, align 4
   ret void
 }

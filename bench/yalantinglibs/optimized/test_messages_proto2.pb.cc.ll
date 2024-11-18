@@ -40582,10 +40582,10 @@ sw.bb2303:                                        ; preds = %for.end2283
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit5546.thread: ; preds = %sw.bb2303
   %oneof_field_.i55497977 = getelementptr inbounds i8, ptr %this, i64 3136
   %1000 = load i8, ptr %oneof_field_.i55497977, align 8
-  %1001 = and i8 %1000, 1
   store i8 -104, ptr %target.addr.127.lcssa, align 1
   %arrayidx6.i.i55547978 = getelementptr inbounds i8, ptr %target.addr.127.lcssa, i64 1
   store i8 7, ptr %arrayidx6.i.i55547978, align 1
+  %1001 = and i8 %1000, 1
   br label %1005
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit5546: ; preds = %sw.bb2303
@@ -40595,10 +40595,10 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit5546: ; preds = 
   %1002 = icmp eq i32 %.pre7958.fr, 115
   %oneof_field_.i5549 = getelementptr inbounds i8, ptr %this, i64 3136
   %1003 = load i8, ptr %oneof_field_.i5549, align 8
-  %1004 = and i8 %1003, 1
   store i8 -104, ptr %call.i5544, align 1
   %arrayidx6.i.i5554 = getelementptr inbounds i8, ptr %call.i5544, i64 1
   store i8 7, ptr %arrayidx6.i.i5554, align 1
+  %1004 = and i8 %1003, 1
   %spec.select = select i1 %1002, i8 %1004, i8 0
   br label %1005
 

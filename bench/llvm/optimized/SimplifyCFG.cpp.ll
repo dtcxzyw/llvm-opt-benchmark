@@ -4073,10 +4073,10 @@ _ZN4llvm13IRBuilderBase17CreateUnreachableEv.exit96.i.i: ; preds = %.lr.ph.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.sroa.3.0143.i.i, 4294967294
   %483 = shl nuw i64 %.sroa.3.0143.i.i, 1
   %484 = add nuw nsw i64 %483, 3
-  %485 = and i64 %484, 4294967295
-  %486 = load ptr, ptr %480, align 8
-  %487 = select i1 %.not.i.i.i.i, i64 1, i64 %485
-  %488 = getelementptr inbounds %"class.llvm::Use", ptr %486, i64 %487
+  %485 = load ptr, ptr %480, align 8
+  %486 = and i64 %484, 4294967295
+  %487 = select i1 %.not.i.i.i.i, i64 1, i64 %486
+  %488 = getelementptr inbounds %"class.llvm::Use", ptr %485, i64 %487
   %489 = load ptr, ptr %488, align 8
   %490 = icmp eq ptr %489, %1
   br i1 %490, label %491, label %508
@@ -20154,10 +20154,10 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114SimplifyCFGOpt14si
   %.not.i.i30.i = icmp eq i64 %118, 4294967294
   %119 = shl nuw nsw i64 %118, 1
   %120 = add nuw nsw i64 %119, 3
-  %121 = and i64 %120, 4294967295
-  %122 = load ptr, ptr %88, align 8
-  %123 = select i1 %.not.i.i30.i, i64 1, i64 %121
-  %124 = getelementptr inbounds %"class.llvm::Use", ptr %122, i64 %123
+  %121 = load ptr, ptr %88, align 8
+  %122 = and i64 %120, 4294967295
+  %123 = select i1 %.not.i.i30.i, i64 1, i64 %122
+  %124 = getelementptr inbounds %"class.llvm::Use", ptr %121, i64 %123
   %125 = load ptr, ptr %124, align 8
   %126 = tail call { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16CaseIteratorImplINS1_14CaseHandleImplIKS1_KNS0_11ConstantIntEKNS0_10BasicBlockEEEEEN9__gnu_cxx5__ops10_Iter_predIZNKS1_13findCaseValueEPS6_EUlRKS9_E_EEET_SJ_SJ_T0_St26random_access_iterator_tag(ptr nonnull align 8 dereferenceable(76) %1, i64 0, ptr nonnull align 8 dereferenceable(76) %1, i64 %116, ptr nonnull %98)
   %127 = extractvalue { ptr, i64 } %126, 1
@@ -20172,10 +20172,10 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114SimplifyCFGOpt14si
   %.not.i.i34.i = icmp eq i64 %134, 4294967294
   %135 = shl nuw nsw i64 %134, 1
   %136 = add nuw nsw i64 %135, 3
-  %137 = and i64 %136, 4294967295
-  %138 = load ptr, ptr %88, align 8
-  %139 = select i1 %.not.i.i34.i, i64 1, i64 %137
-  %140 = getelementptr inbounds %"class.llvm::Use", ptr %138, i64 %139
+  %137 = load ptr, ptr %88, align 8
+  %138 = and i64 %136, 4294967295
+  %139 = select i1 %.not.i.i34.i, i64 1, i64 %138
+  %140 = getelementptr inbounds %"class.llvm::Use", ptr %137, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds i8, ptr %76, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %76, ptr noundef nonnull %142, i64 noundef 8) #23
@@ -20415,10 +20415,10 @@ _ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS
   %.not.i.i.i39 = icmp eq i64 %.sroa.2175.0187.i, 4294967294
   %275 = shl nuw i64 %.sroa.2175.0187.i, 1
   %276 = add nuw nsw i64 %275, 3
-  %277 = and i64 %276, 4294967295
-  %278 = load ptr, ptr %253, align 8
-  %279 = select i1 %.not.i.i.i39, i64 1, i64 %277
-  %280 = getelementptr inbounds %"class.llvm::Use", ptr %278, i64 %279
+  %277 = load ptr, ptr %253, align 8
+  %278 = and i64 %276, 4294967295
+  %279 = select i1 %.not.i.i.i39, i64 1, i64 %278
+  %280 = getelementptr inbounds %"class.llvm::Use", ptr %277, i64 %279
   %281 = load ptr, ptr %280, align 8
   %.not118.i = icmp eq ptr %.093189.i, null
   %spec.select.i = select i1 %.not118.i, ptr %281, ptr %.093189.i
@@ -20428,7 +20428,7 @@ _ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS
 283:                                              ; preds = %.lr.ph.i
   %284 = add nuw nsw i64 %275, 2
   %285 = and i64 %284, 4294967294
-  %286 = getelementptr inbounds %"class.llvm::Use", ptr %278, i64 %285
+  %286 = getelementptr inbounds %"class.llvm::Use", ptr %277, i64 %285
   %287 = load ptr, ptr %286, align 8
   %288 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #23
   %289 = add i64 %288, 1
@@ -20449,7 +20449,7 @@ _ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS
 294:                                              ; preds = %292
   %295 = add nuw nsw i64 %275, 2
   %296 = and i64 %295, 4294967294
-  %297 = getelementptr inbounds %"class.llvm::Use", ptr %278, i64 %296
+  %297 = getelementptr inbounds %"class.llvm::Use", ptr %277, i64 %296
   %298 = load ptr, ptr %297, align 8
   %299 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #23
   %300 = add i64 %299, 1
@@ -21042,10 +21042,10 @@ _ZN4llvm13SmallDenseMapIPNS_10BasicBlockEiLj8ENS_12DenseMapInfoIS2_vEENS_6detail
   %.not.i.i.i48 = icmp eq i64 %.sroa.4162.0195.i, 4294967294
   %574 = shl nuw i64 %.sroa.4162.0195.i, 1
   %575 = add nuw nsw i64 %574, 3
-  %576 = and i64 %575, 4294967295
-  %577 = load ptr, ptr %557, align 8
-  %578 = select i1 %.not.i.i.i48, i64 1, i64 %576
-  %579 = getelementptr inbounds %"class.llvm::Use", ptr %577, i64 %578
+  %576 = load ptr, ptr %557, align 8
+  %577 = and i64 %575, 4294967295
+  %578 = select i1 %.not.i.i.i48, i64 1, i64 %577
+  %579 = getelementptr inbounds %"class.llvm::Use", ptr %576, i64 %578
   %580 = load ptr, ptr %579, align 8
   store ptr %580, ptr %60, align 8
   br i1 %.not77.i, label %655, label %581
@@ -21190,7 +21190,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEiLj8ENS_12DenseMapInf
   br label %655
 
 655:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEiLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit.i, %573
-  %656 = phi ptr [ %.pre232.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEiLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit.i ], [ %577, %573 ]
+  %656 = phi ptr [ %.pre232.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEiLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_EixERKS3_.exit.i ], [ %576, %573 ]
   %657 = add nuw nsw i64 %574, 2
   %658 = and i64 %657, 4294967294
   %659 = getelementptr inbounds %"class.llvm::Use", ptr %656, i64 %658
@@ -21638,10 +21638,10 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit.i:        ; preds = %_ZNK4llvm5APInt3ugt
   %.not.i.i121.i = icmp eq i64 %892, 4294967294
   %893 = shl nuw nsw i64 %892, 1
   %894 = add nuw nsw i64 %893, 3
-  %895 = and i64 %894, 4294967295
-  %896 = load ptr, ptr %557, align 8
-  %897 = select i1 %.not.i.i121.i, i64 1, i64 %895
-  %898 = getelementptr inbounds %"class.llvm::Use", ptr %896, i64 %897
+  %895 = load ptr, ptr %557, align 8
+  %896 = and i64 %894, 4294967295
+  %897 = select i1 %.not.i.i121.i, i64 1, i64 %896
+  %898 = getelementptr inbounds %"class.llvm::Use", ptr %895, i64 %897
   %899 = load ptr, ptr %898, align 8
   %900 = load ptr, ptr %80, align 8
   call void @_ZN4llvm10BasicBlock17removePredecessorEPS0_b(ptr noundef nonnull align 8 dereferenceable(80) %899, ptr noundef %900, i1 noundef zeroext false) #23
@@ -22631,10 +22631,10 @@ _ZL28simplifySwitchOfCmpIntrinsicPN4llvm10SwitchInstERNS_13IRBuilderBaseEPNS_14D
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %40, ptr noundef nonnull %1337, i64 noundef 4) #23
   %.not.i.i.i.i76 = icmp eq i64 %.sroa.3.047.i.i, 4294967294
   %1350 = add nuw nsw i64 %1344, 3
-  %1351 = and i64 %1350, 4294967295
-  %1352 = load ptr, ptr %557, align 8
-  %1353 = select i1 %.not.i.i.i.i76, i64 1, i64 %1351
-  %1354 = getelementptr inbounds %"class.llvm::Use", ptr %1352, i64 %1353
+  %1351 = load ptr, ptr %557, align 8
+  %1352 = and i64 %1350, 4294967295
+  %1353 = select i1 %.not.i.i.i.i76, i64 1, i64 %1352
+  %1354 = getelementptr inbounds %"class.llvm::Use", ptr %1351, i64 %1353
   %1355 = load ptr, ptr %1354, align 8
   %1356 = call fastcc noundef zeroext i1 @_ZL14getCaseResultsPN4llvm10SwitchInstEPNS_11ConstantIntEPNS_10BasicBlockEPS5_RNS_15SmallVectorImplISt4pairIPNS_7PHINodeEPNS_8ConstantEEEERKNS_10DataLayoutERKNS_19TargetTransformInfoE(ptr noundef nonnull readonly %1, ptr noundef %1349, ptr noundef %1355, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(512) %1327, ptr noundef nonnull align 8 dereferenceable(8) %1328)
   br i1 %1356, label %1357, label %1405
@@ -35777,10 +35777,10 @@ _ZN4llvm13SmallDenseMapIPNS_10BasicBlockEiLj8ENS_12DenseMapInfoIS2_vEENS_6detail
   %.not.i.i166 = icmp eq i64 %263, 4294967294
   %264 = shl i64 %262, 1
   %265 = add nsw i64 %264, 3
-  %266 = and i64 %265, 4294967295
-  %267 = load ptr, ptr %259, align 8
-  %268 = select i1 %.not.i.i166, i64 1, i64 %266
-  %269 = getelementptr inbounds %"class.llvm::Use", ptr %267, i64 %268
+  %266 = load ptr, ptr %259, align 8
+  %267 = and i64 %265, 4294967295
+  %268 = select i1 %.not.i.i166, i64 1, i64 %267
+  %269 = getelementptr inbounds %"class.llvm::Use", ptr %266, i64 %268
   %270 = load ptr, ptr %269, align 8
   store ptr %270, ptr %13, align 8
   %271 = load ptr, ptr %260, align 8
@@ -52444,10 +52444,10 @@ _ZN4llvm13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12DenseMapInfoIS2_vEENS_6d
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %40, ptr noundef nonnull %104, i64 noundef 4) #23
   %.not.i.i = icmp eq i64 %.sroa.5.0486576, 4294967294
   %119 = add nuw nsw i64 %106, 3
-  %120 = and i64 %119, 4294967295
-  %121 = load ptr, ptr %91, align 8
-  %122 = select i1 %.not.i.i, i64 1, i64 %120
-  %123 = getelementptr inbounds %"class.llvm::Use", ptr %121, i64 %122
+  %120 = load ptr, ptr %91, align 8
+  %121 = and i64 %119, 4294967295
+  %122 = select i1 %.not.i.i, i64 1, i64 %121
+  %123 = getelementptr inbounds %"class.llvm::Use", ptr %120, i64 %122
   %124 = load ptr, ptr %123, align 8
   %125 = call fastcc noundef zeroext i1 @_ZL14getCaseResultsPN4llvm10SwitchInstEPNS_11ConstantIntEPNS_10BasicBlockEPS5_RNS_15SmallVectorImplISt4pairIPNS_7PHINodeEPNS_8ConstantEEEERKNS_10DataLayoutERKNS_19TargetTransformInfoE(ptr noundef nonnull %0, ptr noundef %111, ptr noundef %124, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(512) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %125, label %126, label %.critedge234

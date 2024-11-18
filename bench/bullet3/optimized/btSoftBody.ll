@@ -23238,13 +23238,13 @@ if.then342:                                       ; preds = %invoke.cont339
 invoke.cont343:                                   ; preds = %if.then342
   %add345 = add nuw i64 %indvars.iv716, 1
   %rem.cmp.not = icmp eq i64 %indvars.iv716, 2
-  %107 = and i64 %add345, 4294967295
-  %108 = load ptr, ptr %m_data.i351, align 8
-  %arrayidx.i365 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %108, i64 %idxprom.i352
-  %109 = load i32, ptr %m_size.i221, align 4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr %"struct.btSoftBody::Face", ptr %108, i64 %110
-  %idxprom360 = select i1 %rem.cmp.not, i64 0, i64 %107
+  %107 = load ptr, ptr %m_data.i351, align 8
+  %arrayidx.i365 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %107, i64 %idxprom.i352
+  %108 = load i32, ptr %m_size.i221, align 4
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr %"struct.btSoftBody::Face", ptr %107, i64 %109
+  %111 = and i64 %add345, 4294967295
+  %idxprom360 = select i1 %rem.cmp.not, i64 0, i64 %111
   %arrayidx361 = getelementptr inbounds [3 x i32], ptr %idx299, i64 0, i64 %idxprom360
   %112 = load i32, ptr %arrayidx361, align 4
   %113 = load ptr, ptr %m_data.i, align 8
@@ -23264,16 +23264,16 @@ invoke.cont343:                                   ; preds = %if.then342
   store ptr %arrayidx.i378, ptr %arrayidx380, align 8
   %116 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i381 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %116, i64 %idxprom.i377
-  %m_n385 = getelementptr i8, ptr %111, i64 -128
+  %m_n385 = getelementptr i8, ptr %110, i64 -128
   store ptr %arrayidx.i381, ptr %m_n385, align 8
   %117 = load ptr, ptr %m_data.i, align 8
   %idxprom.i383 = sext i32 %105 to i64
   %arrayidx.i384 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %117, i64 %idxprom.i383
-  %arrayidx394 = getelementptr i8, ptr %111, i64 -120
+  %arrayidx394 = getelementptr i8, ptr %110, i64 -120
   store ptr %arrayidx.i384, ptr %arrayidx394, align 8
   %118 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i387 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %118, i64 %idxprom.i371
-  %arrayidx402 = getelementptr i8, ptr %111, i64 -112
+  %arrayidx402 = getelementptr i8, ptr %110, i64 -112
   store ptr %arrayidx.i387, ptr %arrayidx402, align 8
   %m_material = getelementptr inbounds i8, ptr %arrayidx.i365, i64 8
   %119 = load ptr, ptr %m_material, align 8

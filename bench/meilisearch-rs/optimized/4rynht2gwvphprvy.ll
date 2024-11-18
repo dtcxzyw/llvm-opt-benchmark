@@ -33292,12 +33292,12 @@ define hidden void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$12in
   %.sroa.15.sroa.9.0 = phi i64 [ undef, %19 ], [ undef, %22 ], [ undef, %25 ], [ 0, %40 ], [ %.sroa.0.sroa.0.0.i51, %52 ], [ %.sroa.0.sroa.0.0.i, %35 ]
   %.sroa.15.sroa.8.0 = phi i64 [ undef, %19 ], [ undef, %22 ], [ undef, %25 ], [ %.sroa.0.sroa.0.0.i29, %40 ], [ %.sroa.0.sroa.5.sroa.6.0.i52, %52 ], [ %.sroa.0.sroa.5.sroa.6.0.i, %35 ]
   %.sroa.15.sroa.13.0 = phi i64 [ undef, %19 ], [ undef, %22 ], [ undef, %25 ], [ %.sroa.0.sroa.0.0.i40, %40 ], [ %.sroa.5.0.i53, %52 ], [ %.sroa.5.0.i, %35 ]
-  %.sroa.15.sroa.15.sroa.4.0 = phi ptr [ undef, %19 ], [ undef, %22 ], [ undef, %25 ], [ %46, %40 ], [ undef, %52 ], [ undef, %35 ]
+  %.sroa.15.sroa.15.sroa.4.0 = phi ptr [ undef, %19 ], [ undef, %22 ], [ undef, %25 ], [ %45, %40 ], [ undef, %52 ], [ undef, %35 ]
   %.sroa.15.sroa.15.sroa.5.0 = phi i64 [ undef, %19 ], [ undef, %22 ], [ undef, %25 ], [ %.sroa.0.sroa.5.sroa.6.0.i41, %40 ], [ undef, %52 ], [ undef, %35 ]
   %.sroa.15.sroa.15.sroa.6.0 = phi i64 [ undef, %19 ], [ undef, %22 ], [ undef, %25 ], [ %.sroa.0.sroa.0.0.i40, %40 ], [ undef, %52 ], [ undef, %35 ]
   %.sroa.15.sroa.15.sroa.10.0 = phi i64 [ undef, %19 ], [ undef, %22 ], [ undef, %25 ], [ %.sroa.5.0.i42, %40 ], [ undef, %52 ], [ undef, %35 ]
   %.sroa.017.0 = phi i64 [ 2, %19 ], [ 2, %22 ], [ 2, %25 ], [ 0, %40 ], [ 1, %52 ], [ 1, %35 ]
-  %.sroa.9.0 = phi ptr [ null, %19 ], [ %5, %22 ], [ %7, %25 ], [ %50, %40 ], [ %1, %52 ], [ %2, %35 ]
+  %.sroa.9.0 = phi ptr [ null, %19 ], [ %5, %22 ], [ %7, %25 ], [ %49, %40 ], [ %1, %52 ], [ %2, %35 ]
   store i64 %.sroa.017.0, ptr %0, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8
@@ -33371,17 +33371,17 @@ define hidden void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$12in
   %43 = getelementptr inbounds i8, ptr %1, i64 8
   %44 = load i64, ptr %43, align 8, !alias.scope !6893, !noalias !6896
   %.sroa.0.sroa.0.0.i29 = zext i1 %42 to i64
-  %45 = inttoptr i64 %44 to ptr
   %.sroa.5.0.i31 = select i1 %42, i64 %29, i64 0
-  %46 = load ptr, ptr %2, align 8, !alias.scope !6898, !noalias !6901, !noundef !12
-  %47 = icmp ne ptr %46, null
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
-  %49 = load i64, ptr %48, align 8, !alias.scope !6898, !noalias !6901
-  %.sroa.0.sroa.0.0.i40 = zext i1 %47 to i64
-  %.sroa.0.sroa.5.sroa.6.0.i41 = select i1 %47, i64 %49, i64 undef
-  %.sroa.5.0.i42 = select i1 %47, i64 %31, i64 0
-  %50 = inttoptr i64 %.sroa.0.sroa.0.0.i29 to ptr
-  %51 = select i1 %42, ptr %45, ptr undef
+  %45 = load ptr, ptr %2, align 8, !alias.scope !6898, !noalias !6901, !noundef !12
+  %46 = icmp ne ptr %45, null
+  %47 = getelementptr inbounds i8, ptr %2, i64 8
+  %48 = load i64, ptr %47, align 8, !alias.scope !6898, !noalias !6901
+  %.sroa.0.sroa.0.0.i40 = zext i1 %46 to i64
+  %.sroa.0.sroa.5.sroa.6.0.i41 = select i1 %46, i64 %48, i64 undef
+  %.sroa.5.0.i42 = select i1 %46, i64 %31, i64 0
+  %49 = inttoptr i64 %.sroa.0.sroa.0.0.i29 to ptr
+  %50 = inttoptr i64 %44 to ptr
+  %51 = select i1 %42, ptr %50, ptr undef
   br label %24
 
 52:                                               ; preds = %33

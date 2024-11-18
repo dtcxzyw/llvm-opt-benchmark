@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [8 x i8] c".inouts\00", align 1
 @.str.17 = private unnamed_addr constant [7 x i8] c".latch\00", align 1
 @.str.18 = private unnamed_addr constant [5 x i8] c" %c\0A\00", align 1
-@Prs_BoxSignals.V.1 = internal unnamed_addr global i32 0, align 8
+@Prs_BoxSignals.V.1 = internal unnamed_addr global i32 0, align 4
 @Prs_BoxSignals.V.2 = internal unnamed_addr global ptr null, align 8
 @str = private unnamed_addr constant [74 x i8] c"Genlib library used in the mapped design is not longer a current library.\00", align 1
 
@@ -183,7 +183,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %72 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = add nsw i32 %73, -2
-  store i32 %74, ptr @Prs_BoxSignals.V.1, align 8
+  store i32 %74, ptr @Prs_BoxSignals.V.1, align 4
   %.val4.i.i.i = load ptr, ptr %65, align 8
   %.val5.i.i.i = load ptr, ptr %66, align 8
   %75 = getelementptr inbounds i32, ptr %.val5.i.i.i, i64 %indvars.iv91.i.i
@@ -237,7 +237,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
 
 108:                                              ; preds = %105
   %109 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr nonnull %9)
-  %Prs_BoxSignals.V.val6481.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val6481.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %110 = icmp sgt i32 %Prs_BoxSignals.V.val6481.i.i, 1
   br i1 %110, label %.lr.ph83.i.i, label %.critedge2.i.i
 
@@ -251,7 +251,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %114 = tail call ptr @Abc_NamStr(ptr noundef %.val61.i.i, i32 noundef %113) #6
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %114) #6
   %indvars.iv.next89.i.i = add nuw nsw i64 %indvars.iv88.i.i, 2
-  %Prs_BoxSignals.V.val64.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val64.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %116 = trunc i64 %indvars.iv.next89.i.i to i32
   %117 = or disjoint i32 %116, 1
   %118 = icmp slt i32 %117, %Prs_BoxSignals.V.val64.i.i
@@ -268,7 +268,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %.val60.i.i = load ptr, ptr %25, align 8
   %123 = tail call ptr @Abc_NamStr(ptr noundef %.val60.i.i, i32 noundef %85) #6
   %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %123) #6
-  %Prs_BoxSignals.V.val79.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val79.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %125 = icmp sgt i32 %Prs_BoxSignals.V.val79.i.i, 1
   br i1 %125, label %.lr.ph.i42.i, label %.critedge4.i.i
 
@@ -286,7 +286,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %132 = tail call ptr @Abc_NamStr(ptr noundef %.val.i44.i, i32 noundef %130) #6
   %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.5, ptr noundef %131, ptr noundef %132) #6
   %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i43.i, 2
-  %Prs_BoxSignals.V.val.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
+  %Prs_BoxSignals.V.val.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 4
   %134 = trunc i64 %indvars.iv.next.i45.i to i32
   %135 = or disjoint i32 %134, 1
   %136 = icmp slt i32 %135, %Prs_BoxSignals.V.val.i.i

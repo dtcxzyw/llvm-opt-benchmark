@@ -1899,34 +1899,34 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ER
 
 868:                                              ; preds = %867
   %869 = icmp eq i32 %.1255927132732, 0
-  %870 = trunc i8 %.12526 to i1
-  %871 = load float, ptr %139, align 16
-  %872 = fcmp contract une float %871, 0x7FF0000000000000
-  br i1 %872, label %873, label %876
+  %870 = load float, ptr %139, align 16
+  %871 = fcmp contract une float %870, 0x7FF0000000000000
+  br i1 %871, label %872, label %875
 
-873:                                              ; preds = %868
-  %874 = load ptr, ptr %231, align 16
-  %875 = call noundef ptr @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emitterEb(ptr noundef nonnull align 16 dereferenceable(403) %874, i1 noundef zeroext true)
+872:                                              ; preds = %868
+  %873 = load ptr, ptr %231, align 16
+  %874 = call noundef ptr @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emitterEb(ptr noundef nonnull align 16 dereferenceable(403) %873, i1 noundef zeroext true)
   br label %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emitterEPKNS_5SceneIfS5_EEb.exit
 
-876:                                              ; preds = %868
-  %877 = call noundef ptr @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11environmentEv(ptr noundef nonnull align 16 dereferenceable(345) %2)
+875:                                              ; preds = %868
+  %876 = call noundef ptr @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11environmentEv(ptr noundef nonnull align 16 dereferenceable(345) %2)
   br label %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emitterEPKNS_5SceneIfS5_EEb.exit
 
-_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emitterEPKNS_5SceneIfS5_EEb.exit: ; preds = %873, %876
-  %878 = phi ptr [ %875, %873 ], [ %877, %876 ]
-  %.not1914 = icmp eq ptr %878, null
-  %879 = load i8, ptr %180, align 8
-  %880 = trunc i8 %879 to i1
-  %.not2627 = select i1 %869, i1 %880, i1 false
+_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emitterEPKNS_5SceneIfS5_EEb.exit: ; preds = %872, %875
+  %877 = phi ptr [ %874, %872 ], [ %876, %875 ]
+  %.not1914 = icmp eq ptr %877, null
+  %878 = load i8, ptr %180, align 8
+  %879 = trunc i8 %878 to i1
+  %.not2627 = select i1 %869, i1 %879, i1 false
   %or.cond2634 = select i1 %.not1914, i1 true, i1 %.not2627
-  br i1 %or.cond2634, label %.thread2581, label %881
+  br i1 %or.cond2634, label %.thread2581, label %880
 
-881:                                              ; preds = %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emitterEPKNS_5SceneIfS5_EEb.exit
-  %882 = select i1 %869, i1 true, i1 %870
+880:                                              ; preds = %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emitterEPKNS_5SceneIfS5_EEb.exit
+  %881 = trunc i8 %.12526 to i1
+  %882 = select i1 %869, i1 true, i1 %881
   br i1 %882, label %915, label %883
 
-883:                                              ; preds = %881
+883:                                              ; preds = %880
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %160, ptr noundef nonnull align 16 dereferenceable(16) %235, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %265, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %884 = load i64, ptr %237, align 8
@@ -1978,12 +1978,12 @@ _ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emi
   %914 = call noundef float @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE21pdf_emitter_directionERKNS_11InteractionIfS5_EERKNS_15DirectionSampleIfS5_EEb(ptr noundef nonnull align 16 dereferenceable(345) %2, ptr noundef nonnull align 16 dereferenceable(64) %140, ptr noundef nonnull align 16 dereferenceable(96) %160, i1 noundef zeroext true)
   br label %915
 
-915:                                              ; preds = %912, %881
-  %.01810 = phi float [ 1.000000e+00, %881 ], [ %914, %912 ]
-  %916 = load ptr, ptr %878, align 16
+915:                                              ; preds = %912, %880
+  %.01810 = phi float [ 1.000000e+00, %880 ], [ %914, %912 ]
+  %916 = load ptr, ptr %877, align 16
   %917 = getelementptr inbounds i8, ptr %916, i64 136
   %918 = load ptr, ptr %917, align 8
-  call void %918(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::Matrix") align 16 %161, ptr noundef nonnull align 16 dereferenceable(192) %878, ptr noundef nonnull align 16 dereferenceable(240) %139, i1 noundef zeroext true)
+  call void %918(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::Matrix") align 16 %161, ptr noundef nonnull align 16 dereferenceable(192) %877, ptr noundef nonnull align 16 dereferenceable(240) %139, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %49)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %50)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %51)

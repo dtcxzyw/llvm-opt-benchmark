@@ -2957,10 +2957,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueES3_NS_12DenseMapInfoIS3_vEENS_6d
   %.not.i.i201.i = icmp eq i64 %653, 4294967294
   %654 = shl nuw nsw i64 %653, 1
   %655 = add nuw nsw i64 %654, 3
-  %656 = and i64 %655, 4294967295
-  %657 = load ptr, ptr %597, align 8
-  %658 = select i1 %.not.i.i201.i, i64 1, i64 %656
-  %659 = getelementptr inbounds %"class.llvm::Use", ptr %657, i64 %658
+  %656 = load ptr, ptr %597, align 8
+  %657 = and i64 %655, 4294967295
+  %658 = select i1 %.not.i.i201.i, i64 1, i64 %657
+  %659 = getelementptr inbounds %"class.llvm::Use", ptr %656, i64 %658
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %638, %635, %_ZNK4llvm11ConstantInt6isZeroEv.exit.i, %580

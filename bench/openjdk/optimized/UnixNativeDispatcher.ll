@@ -2501,8 +2501,8 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getgrgid(ptr noundef %0, ptr no
   %6 = tail call i64 @sysconf(i32 noundef 69) #11
   %7 = and i64 %6, 4294967295
   %8 = icmp eq i64 %7, 4294967295
-  %9 = shl i64 %6, 32
   store ptr null, ptr %5, align 8
+  %9 = shl i64 %6, 32
   %10 = ashr exact i64 %9, 32
   %11 = select i1 %8, i64 1024, i64 %10
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #14
@@ -2720,10 +2720,10 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_getgrnam0(ptr noundef %0, ptr n
   %6 = tail call i64 @sysconf(i32 noundef 69) #11
   %7 = and i64 %6, 4294967295
   %8 = icmp eq i64 %7, 4294967295
-  %9 = shl i64 %6, 32
-  %10 = inttoptr i64 %2 to ptr
+  %9 = inttoptr i64 %2 to ptr
   store ptr null, ptr %5, align 8
-  %11 = ashr exact i64 %9, 32
+  %10 = shl i64 %6, 32
+  %11 = ashr exact i64 %10, 32
   %12 = select i1 %8, i64 1024, i64 %11
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #14
   %14 = icmp eq ptr %13, null
@@ -2744,7 +2744,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_getgrnam0(ptr noundef %0, ptr n
   br label %18
 
 18:                                               ; preds = %21, %16
-  %19 = call i32 @getgrnam_r(ptr noundef %10, ptr noundef nonnull %4, ptr noundef nonnull %17, i64 noundef %indvars.iv, ptr noundef nonnull %5) #11
+  %19 = call i32 @getgrnam_r(ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %17, i64 noundef %indvars.iv, ptr noundef nonnull %5) #11
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %21, label %.critedge
 

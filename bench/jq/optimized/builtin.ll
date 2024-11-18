@@ -5908,26 +5908,26 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
 .lr.ph467.us:                                     ; preds = %.preheader432.us, %.lr.ph467.us
   %.3398466.us = phi i64 [ %spec.select427.us, %.lr.ph467.us ], [ 0, %.preheader432.us ]
   %.2401465.us = phi i64 [ %291, %.lr.ph467.us ], [ 0, %.preheader432.us ]
-  %.2405464.us = phi ptr [ %290, %.lr.ph467.us ], [ %150, %.preheader432.us ]
+  %.2405464.us = phi ptr [ %289, %.lr.ph467.us ], [ %150, %.preheader432.us ]
   %280 = load ptr, ptr %160, align 8
   %281 = getelementptr inbounds i32, ptr %280, i64 %indvars.iv
   %282 = load i32, ptr %281, align 4
   %283 = sext i32 %282 to i64
   %284 = getelementptr inbounds i8, ptr %150, i64 %283
   %285 = icmp eq ptr %.2405464.us, %284
-  %286 = add i64 %.2401465.us, 1
   %spec.select427.us = select i1 %285, i64 %.2401465.us, i64 %.3398466.us
-  %287 = load i8, ptr %.2405464.us, align 1
-  %288 = call i32 @jvp_utf8_decode_length(i8 noundef signext %287) #14
-  %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds i8, ptr %.2405464.us, i64 %289
-  %291 = select i1 %285, i64 1, i64 %286
+  %286 = load i8, ptr %.2405464.us, align 1
+  %287 = call i32 @jvp_utf8_decode_length(i8 noundef signext %286) #14
+  %288 = sext i32 %287 to i64
+  %289 = getelementptr inbounds i8, ptr %.2405464.us, i64 %288
+  %290 = add i64 %.2401465.us, 1
+  %291 = select i1 %285, i64 1, i64 %290
   %292 = load ptr, ptr %159, align 8
   %293 = getelementptr inbounds i32, ptr %292, i64 %indvars.iv
   %294 = load i32, ptr %293, align 4
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds i8, ptr %150, i64 %295
-  %297 = icmp ult ptr %290, %296
+  %297 = icmp ult ptr %289, %296
   br i1 %297, label %.lr.ph467.us, label %._crit_edge468.us.loopexit, !llvm.loop !20
 
 298:                                              ; preds = %.lr.ph479.us
@@ -6041,24 +6041,24 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
 .lr.ph461.us:                                     ; preds = %.preheader434.us, %.lr.ph461.us
   %.0395460.us = phi i64 [ %spec.select425.us, %.lr.ph461.us ], [ 0, %.preheader434.us ]
   %.0399459.us = phi i64 [ %387, %.lr.ph461.us ], [ 0, %.preheader434.us ]
-  %.0403458.us = phi ptr [ %386, %.lr.ph461.us ], [ %150, %.preheader434.us ]
+  %.0403458.us = phi ptr [ %385, %.lr.ph461.us ], [ %150, %.preheader434.us ]
   %377 = load ptr, ptr %160, align 8
   %378 = load i32, ptr %377, align 4
   %379 = sext i32 %378 to i64
   %380 = getelementptr inbounds i8, ptr %150, i64 %379
   %381 = icmp eq ptr %.0403458.us, %380
-  %382 = add i64 %.0399459.us, 1
   %spec.select425.us = select i1 %381, i64 %.0399459.us, i64 %.0395460.us
-  %383 = load i8, ptr %.0403458.us, align 1
-  %384 = call i32 @jvp_utf8_decode_length(i8 noundef signext %383) #14
-  %385 = sext i32 %384 to i64
-  %386 = getelementptr inbounds i8, ptr %.0403458.us, i64 %385
-  %387 = select i1 %381, i64 1, i64 %382
+  %382 = load i8, ptr %.0403458.us, align 1
+  %383 = call i32 @jvp_utf8_decode_length(i8 noundef signext %382) #14
+  %384 = sext i32 %383 to i64
+  %385 = getelementptr inbounds i8, ptr %.0403458.us, i64 %384
+  %386 = add i64 %.0399459.us, 1
+  %387 = select i1 %381, i64 1, i64 %386
   %388 = load ptr, ptr %159, align 8
   %389 = load i32, ptr %388, align 4
   %390 = sext i32 %389 to i64
   %391 = getelementptr inbounds i8, ptr %150, i64 %390
-  %392 = icmp ult ptr %386, %391
+  %392 = icmp ult ptr %385, %391
   br i1 %392, label %.lr.ph461.us, label %._crit_edge.us.loopexit, !llvm.loop !23
 
 ._crit_edge484.us.loopexit:                       ; preds = %.lr.ph483.us

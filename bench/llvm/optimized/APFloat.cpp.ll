@@ -9781,60 +9781,60 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat34convertF80LongDoubleAPFloatTo
   %8 = and i8 %5, 7
   %9 = icmp ne i8 %8, 3
   %10 = and i1 %7, %9
-  br i1 %10, label %11, label %26
+  br i1 %10, label %11, label %27
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, 16383
-  %15 = zext i32 %14 to i64
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i32, ptr %17, align 4
-  %19 = add i32 %18, -64
-  %20 = icmp ult i32 %19, -128
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %.0.i.i = select i1 %20, ptr %22, ptr %21
-  %23 = load i64, ptr %.0.i.i, align 8
-  %24 = icmp eq i32 %14, 1
-  %.lobit = lshr i64 %23, 63
-  %spec.select = select i1 %24, i64 %.lobit, i64 %15
-  %25 = and i64 %spec.select, 32767
-  br label %37
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i32, ptr %16, align 4
+  %18 = add i32 %17, -64
+  %19 = icmp ult i32 %18, -128
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %.0.i.i = select i1 %19, ptr %21, ptr %20
+  %22 = load i64, ptr %.0.i.i, align 8
+  %23 = icmp eq i32 %14, 1
+  %.lobit = lshr i64 %22, 63
+  %24 = and i32 %14, 32767
+  %25 = zext nneg i32 %24 to i64
+  %26 = select i1 %23, i64 %.lobit, i64 %25
+  br label %38
 
-26:                                               ; preds = %2
-  switch i8 %8, label %28 [
-    i8 3, label %37
-    i8 0, label %27
+27:                                               ; preds = %2
+  switch i8 %8, label %29 [
+    i8 3, label %38
+    i8 0, label %28
   ]
 
-27:                                               ; preds = %26
-  br label %37
+28:                                               ; preds = %27
+  br label %38
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i32, ptr %30, align 4
-  %32 = add i32 %31, -64
-  %33 = icmp ult i32 %32, -128
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %.0.i.i7 = select i1 %33, ptr %35, ptr %34
-  %36 = load i64, ptr %.0.i.i7, align 8
-  br label %37
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %1, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load i32, ptr %31, align 4
+  %33 = add i32 %32, -64
+  %34 = icmp ult i32 %33, -128
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %.0.i.i7 = select i1 %34, ptr %36, ptr %35
+  %37 = load i64, ptr %.0.i.i7, align 8
+  br label %38
 
-37:                                               ; preds = %11, %26, %28, %27
-  %.04 = phi i64 [ 32767, %27 ], [ 32767, %28 ], [ 0, %26 ], [ %25, %11 ]
-  %.0 = phi i64 [ -9223372036854775808, %27 ], [ %36, %28 ], [ 0, %26 ], [ %23, %11 ]
+38:                                               ; preds = %11, %27, %29, %28
+  %.04 = phi i64 [ 32767, %28 ], [ 32767, %29 ], [ 0, %27 ], [ %26, %11 ]
+  %.0 = phi i64 [ -9223372036854775808, %28 ], [ %37, %29 ], [ 0, %27 ], [ %22, %11 ]
   store i64 %.0, ptr %3, align 16
-  %38 = lshr i8 %5, 3
-  %39 = and i8 %38, 1
-  %40 = zext nneg i8 %39 to i64
-  %41 = shl nuw nsw i64 %40, 15
-  %42 = or disjoint i64 %.04, %41
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %42, ptr %43, align 8
+  %39 = lshr i8 %5, 3
+  %40 = and i8 %39, 1
+  %41 = zext nneg i8 %40 to i64
+  %42 = shl nuw nsw i64 %41, 15
+  %43 = add nuw nsw i64 %.04, %42
+  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %43, ptr %44, align 8
   call void @_ZN4llvm5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef 80, ptr nonnull %3, i64 2) #26
   ret void
 }

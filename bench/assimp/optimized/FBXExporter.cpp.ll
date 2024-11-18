@@ -29139,9 +29139,6 @@ call.i3004.noexc:                                 ; preds = %if.end1168
   %745 = load float, ptr %c.i3003, align 4
   %746 = load float, ptr %g.i3008, align 4
   %747 = load float, ptr %b.i3009, align 4
-  %748 = fpext float %745 to double
-  %749 = fpext float %746 to double
-  %750 = fpext float %747 to double
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %c.i3003)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1175) #31
   %call.i30143019 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1174)
@@ -29156,15 +29153,18 @@ call.i3014.noexc:                                 ; preds = %call.i3004.noexc
           to label %invoke.cont1177 unwind label %lpad.i3018
 
 lpad.i3018:                                       ; preds = %.noexc3020
-  %751 = landingpad { ptr, i32 }
+  %748 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1174) #31
   br label %ehcleanup1187
 
 invoke.cont1177:                                  ; preds = %.noexc3020
-  %conv1179 = select i1 %cmp.i3005, double %748, double 0.000000e+00
-  %conv1181 = select i1 %cmp.i3005, double %749, double 0.000000e+00
-  %conv1183 = select i1 %cmp.i3005, double %750, double 0.000000e+00
+  %749 = fpext float %745 to double
+  %conv1179 = select i1 %cmp.i3005, double %749, double 0.000000e+00
+  %750 = fpext float %746 to double
+  %conv1181 = select i1 %cmp.i3005, double %750, double 0.000000e+00
+  %751 = fpext float %747 to double
+  %conv1183 = select i1 %cmp.i3005, double %751, double 0.000000e+00
   invoke void @_ZN6Assimp3FBX4Node12AddP70vectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(112) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1174, double noundef %conv1179, double noundef %conv1181, double noundef %conv1183)
           to label %invoke.cont1185 unwind label %lpad1184
 
@@ -29181,9 +29181,6 @@ call.i3024.noexc:                                 ; preds = %invoke.cont1185
   %752 = load float, ptr %c.i3023, align 4
   %753 = load float, ptr %g.i3028, align 4
   %754 = load float, ptr %b.i3029, align 4
-  %755 = fpext float %752 to double
-  %756 = fpext float %753 to double
-  %757 = fpext float %754 to double
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %c.i3023)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1194) #31
   %call.i30343039 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1193)
@@ -29198,15 +29195,18 @@ call.i3034.noexc:                                 ; preds = %call.i3024.noexc
           to label %invoke.cont1196 unwind label %lpad.i3038
 
 lpad.i3038:                                       ; preds = %.noexc3040
-  %758 = landingpad { ptr, i32 }
+  %755 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1193) #31
   br label %ehcleanup1206
 
 invoke.cont1196:                                  ; preds = %.noexc3040
-  %conv1198 = select i1 %cmp.i3025, double %755, double 0x3FC99999A0000000
-  %conv1200 = select i1 %cmp.i3025, double %756, double 0x3FC99999A0000000
-  %conv1202 = select i1 %cmp.i3025, double %757, double 0x3FC99999A0000000
+  %756 = fpext float %752 to double
+  %conv1198 = select i1 %cmp.i3025, double %756, double 0x3FC99999A0000000
+  %757 = fpext float %753 to double
+  %conv1200 = select i1 %cmp.i3025, double %757, double 0x3FC99999A0000000
+  %758 = fpext float %754 to double
+  %conv1202 = select i1 %cmp.i3025, double %758, double 0x3FC99999A0000000
   invoke void @_ZN6Assimp3FBX4Node12AddP70vectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(112) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1193, double noundef %conv1198, double noundef %conv1200, double noundef %conv1202)
           to label %invoke.cont1204 unwind label %lpad1203
 
@@ -29223,9 +29223,6 @@ call.i3044.noexc:                                 ; preds = %invoke.cont1204
   %759 = load float, ptr %c.i3043, align 4
   %760 = load float, ptr %g.i3048, align 4
   %761 = load float, ptr %b.i3049, align 4
-  %762 = fpext float %759 to double
-  %763 = fpext float %760 to double
-  %764 = fpext float %761 to double
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %c.i3043)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1213) #31
   %call.i30543059 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1212)
@@ -29240,15 +29237,18 @@ call.i3054.noexc:                                 ; preds = %call.i3044.noexc
           to label %invoke.cont1215 unwind label %lpad.i3058
 
 lpad.i3058:                                       ; preds = %.noexc3060
-  %765 = landingpad { ptr, i32 }
+  %762 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1212) #31
   br label %ehcleanup1225
 
 invoke.cont1215:                                  ; preds = %.noexc3060
-  %conv1217 = select i1 %cmp.i3045, double %762, double 0x3FE99999A0000000
-  %conv1219 = select i1 %cmp.i3045, double %763, double 0x3FE99999A0000000
-  %conv1221 = select i1 %cmp.i3045, double %764, double 0x3FE99999A0000000
+  %763 = fpext float %759 to double
+  %conv1217 = select i1 %cmp.i3045, double %763, double 0x3FE99999A0000000
+  %764 = fpext float %760 to double
+  %conv1219 = select i1 %cmp.i3045, double %764, double 0x3FE99999A0000000
+  %765 = fpext float %761 to double
+  %conv1221 = select i1 %cmp.i3045, double %765, double 0x3FE99999A0000000
   invoke void @_ZN6Assimp3FBX4Node12AddP70vectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(112) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1212, double noundef %conv1217, double noundef %conv1219, double noundef %conv1221)
           to label %invoke.cont1223 unwind label %lpad1222
 
@@ -29293,7 +29293,7 @@ lpad1184:                                         ; preds = %invoke.cont1177
   br label %ehcleanup1187
 
 ehcleanup1187:                                    ; preds = %lpad1176, %lpad.i3018, %lpad1184
-  %.pn618 = phi { ptr, i32 } [ %770, %lpad1184 ], [ %769, %lpad1176 ], [ %751, %lpad.i3018 ]
+  %.pn618 = phi { ptr, i32 } [ %770, %lpad1184 ], [ %769, %lpad1176 ], [ %748, %lpad.i3018 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1175) #31
   br label %ehcleanup1314
 
@@ -29309,7 +29309,7 @@ lpad1203:                                         ; preds = %invoke.cont1196
   br label %ehcleanup1206
 
 ehcleanup1206:                                    ; preds = %lpad1195, %lpad.i3038, %lpad1203
-  %.pn620 = phi { ptr, i32 } [ %772, %lpad1203 ], [ %771, %lpad1195 ], [ %758, %lpad.i3038 ]
+  %.pn620 = phi { ptr, i32 } [ %772, %lpad1203 ], [ %771, %lpad1195 ], [ %755, %lpad.i3038 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1194) #31
   br label %ehcleanup1314
 
@@ -29325,7 +29325,7 @@ lpad1222:                                         ; preds = %invoke.cont1215
   br label %ehcleanup1225
 
 ehcleanup1225:                                    ; preds = %lpad1214, %lpad.i3058, %lpad1222
-  %.pn622 = phi { ptr, i32 } [ %774, %lpad1222 ], [ %773, %lpad1214 ], [ %765, %lpad.i3058 ]
+  %.pn622 = phi { ptr, i32 } [ %774, %lpad1222 ], [ %773, %lpad1214 ], [ %762, %lpad.i3058 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1213) #31
   br label %ehcleanup1314
 

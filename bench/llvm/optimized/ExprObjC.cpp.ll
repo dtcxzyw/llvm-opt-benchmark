@@ -316,10 +316,10 @@ declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_21ObjCDictionaryLit
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang21ObjCDictionaryLiteral6CreateERKNS_10ASTContextEN4llvm8ArrayRefINS_21ObjCDictionaryElementEEEbNS_8QualTypeEPNS_14ObjCMethodDeclENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr %1, i64 %2, i1 noundef zeroext %3, i64 %4, ptr noundef %5, i64 %6) local_unnamed_addr #0 align 2 {
-  %8 = shl i64 %2, 3
-  %9 = shl i64 %2, 4
-  %10 = select i1 %3, i64 %8, i64 0
-  %11 = add i64 %9, 40
+  %8 = shl i64 %2, 4
+  %9 = shl i64 %2, 3
+  %10 = select i1 %3, i64 %9, i64 0
+  %11 = add i64 %8, 40
   %12 = add i64 %11, %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
@@ -363,10 +363,10 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %7
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang21ObjCDictionaryLiteral11CreateEmptyERKNS_10ASTContextEjb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = shl nuw nsw i64 %4, 3
-  %6 = shl nuw nsw i64 %4, 4
-  %7 = select i1 %2, i64 %5, i64 0
-  %8 = add nuw nsw i64 %6, 40
+  %5 = shl nuw nsw i64 %4, 4
+  %6 = shl nuw nsw i64 %4, 3
+  %7 = select i1 %2, i64 %6, i64 0
+  %8 = add nuw nsw i64 %5, 40
   %9 = add nuw nsw i64 %8, %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2224
@@ -867,13 +867,13 @@ define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContex
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %37 = tail call noundef i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %7, ptr %.sroa.07.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, i32 %11) #13
   %38 = icmp eq i32 %37, 0
-  %39 = shl i64 %.sroa.2.0.copyload, 2
-  %40 = and i64 %39, 17179869180
-  %41 = shl i64 %.sroa.210.0.copyload, 3
-  %42 = add i64 %41, 8
-  %43 = and i64 %42, 34359738360
-  %44 = select i1 %38, i64 %40, i64 0
-  %45 = add nuw nsw i64 %43, 40
+  %39 = shl i64 %.sroa.210.0.copyload, 3
+  %40 = add i64 %39, 8
+  %41 = and i64 %40, 34359738360
+  %42 = shl i64 %.sroa.2.0.copyload, 2
+  %43 = and i64 %42, 17179869180
+  %44 = select i1 %38, i64 %43, i64 0
+  %45 = add nuw nsw i64 %41, 40
   %46 = add nuw nsw i64 %45, %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2224
@@ -967,13 +967,13 @@ define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContext
   %9 = tail call noundef i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %6, ptr %4, i64 %5, ptr %1, i64 %2, i32 %3) #13
   store i32 %9, ptr %7, align 4
   %10 = icmp eq i32 %9, 0
-  %11 = shl i64 %5, 2
-  %12 = and i64 %11, 17179869180
-  %13 = shl i64 %2, 3
-  %14 = add i64 %13, 8
-  %15 = and i64 %14, 34359738360
-  %16 = select i1 %10, i64 %12, i64 0
-  %17 = add nuw nsw i64 %15, 40
+  %11 = shl i64 %2, 3
+  %12 = add i64 %11, 8
+  %13 = and i64 %12, 34359738360
+  %14 = shl i64 %5, 2
+  %15 = and i64 %14, 17179869180
+  %16 = select i1 %10, i64 %15, i64 0
+  %17 = add nuw nsw i64 %13, 40
   %18 = add nuw nsw i64 %17, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2224
@@ -1055,13 +1055,13 @@ define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContex
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %35 = tail call noundef i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %5, ptr %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i32 %9) #13
   %36 = icmp eq i32 %35, 0
-  %37 = shl i64 %.sroa.2.0.copyload, 2
-  %38 = and i64 %37, 17179869180
-  %39 = shl i64 %.sroa.28.0.copyload, 3
-  %40 = add i64 %39, 8
-  %41 = and i64 %40, 34359738360
-  %42 = select i1 %36, i64 %38, i64 0
-  %43 = add nuw nsw i64 %41, 40
+  %37 = shl i64 %.sroa.28.0.copyload, 3
+  %38 = add i64 %37, 8
+  %39 = and i64 %38, 34359738360
+  %40 = shl i64 %.sroa.2.0.copyload, 2
+  %41 = and i64 %40, 17179869180
+  %42 = select i1 %36, i64 %41, i64 0
+  %43 = add nuw nsw i64 %39, 40
   %44 = add nuw nsw i64 %43, %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2224
@@ -1155,13 +1155,13 @@ define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContex
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %35 = tail call noundef i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %5, ptr %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i32 %9) #13
   %36 = icmp eq i32 %35, 0
-  %37 = shl i64 %.sroa.2.0.copyload, 2
-  %38 = and i64 %37, 17179869180
-  %39 = shl i64 %.sroa.28.0.copyload, 3
-  %40 = add i64 %39, 8
-  %41 = and i64 %40, 34359738360
-  %42 = select i1 %36, i64 %38, i64 0
-  %43 = add nuw nsw i64 %41, 40
+  %37 = shl i64 %.sroa.28.0.copyload, 3
+  %38 = add i64 %37, 8
+  %39 = and i64 %38, 34359738360
+  %40 = shl i64 %.sroa.2.0.copyload, 2
+  %41 = and i64 %40, 17179869180
+  %42 = select i1 %36, i64 %41, i64 0
+  %43 = add nuw nsw i64 %39, 40
   %44 = add nuw nsw i64 %43, %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2224

@@ -3580,16 +3580,16 @@ _ZN4core3ops8function6FnOnce9call_once17h055ce893d3ecc0d5E.exit.i5.i.i.i.i.i: ; 
   %147 = ptrtoint ptr %144 to i64
   %148 = sub nuw i64 %146, %147
   %149 = lshr exact i64 %148, 4
-  %150 = add nuw nsw i64 %149, 1
-  %151 = load ptr, ptr %85, align 8, !alias.scope !728, !noalias !735, !noundef !4
-  %152 = icmp eq ptr %151, null
+  %150 = load ptr, ptr %85, align 8, !alias.scope !728, !noalias !735, !noundef !4
+  %151 = icmp eq ptr %150, null
   %.val3.i.i.i.i.i.i = load ptr, ptr %86, align 8, !alias.scope !728, !noalias !735, !nonnull !4
-  %153 = ptrtoint ptr %.val3.i.i.i.i.i.i to i64
-  %154 = ptrtoint ptr %151 to i64
-  %155 = sub nuw i64 %153, %154
-  %156 = lshr exact i64 %155, 4
-  %.sroa.7.0.i.i.i.i.i = select i1 %152, i64 0, i64 %156
-  %157 = select i1 %145, i64 1, i64 %150
+  %152 = ptrtoint ptr %.val3.i.i.i.i.i.i to i64
+  %153 = ptrtoint ptr %150 to i64
+  %154 = sub nuw i64 %152, %153
+  %155 = lshr exact i64 %154, 4
+  %.sroa.7.0.i.i.i.i.i = select i1 %151, i64 0, i64 %155
+  %156 = add nuw nsw i64 %149, 1
+  %157 = select i1 %145, i64 1, i64 %156
   %158 = add nuw nsw i64 %.sroa.7.0.i.i.i.i.i, %157
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h60e88fd65a211411E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %136, i64 noundef range(i64 1, 0) %158)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h569549ac44a229e2E.exit.i.i" unwind label %142

@@ -327,7 +327,6 @@ entry:
   %buf1 = alloca [4096 x i64], align 16
   %buf2 = alloca [4096 x i64], align 16
   %cmp = icmp eq i32 %dir, 0
-  %0 = zext i64 %rows to i128
   %sub = add i64 %cols, -1
   %div50 = lshr i64 %rows, 3
   %add = add nuw nsw i64 %div50, 1
@@ -342,6 +341,7 @@ for.cond.preheader:                               ; preds = %entry
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %div1552 = lshr i64 %cols, 1
   %cmp1681.not = icmp ult i64 %cols, 2
+  %0 = zext i64 %rows to i128
   %conv1.i.i = select i1 %cmp, i128 %0, i128 2
   %conv2.i3.i = zext i64 %sub to i128
   br i1 %cmp1681.not, label %for.end53, label %for.body.us

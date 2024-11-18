@@ -117,8 +117,8 @@ for.body.i.i:                                     ; preds = %for.body, %for.body
   %2 = add i8 %1, -65
   %or.cond.i.i.i = icmp ult i8 %2, 26
   %add.i.i.i = add nuw nsw i8 %1, 32
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %1
-  store i8 %cond.i.i.i, ptr %__result.sroa.0.07.i.i, align 1
+  %conv6.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %1
+  store i8 %conv6.i.i.i, ptr %__result.sroa.0.07.i.i, align 1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 1
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i

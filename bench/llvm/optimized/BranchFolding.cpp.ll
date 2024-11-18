@@ -10104,146 +10104,146 @@ _ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit: ; preds = %.lr.ph
   %.not = icmp eq i8 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 130
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %.not11.i.i.i8 = icmp ne ptr %33, %35
+  %31 = load ptr, ptr %8, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %.not11.i.i.i8 = icmp ne ptr %32, %34
   tail call void @llvm.assume(i1 %.not11.i.i.i8)
-  %36 = load ptr, ptr %33, align 8
-  %37 = icmp eq ptr %36, @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE
-  br i1 %37, label %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i9
+  %35 = load ptr, ptr %32, align 8
+  %36 = icmp eq ptr %35, @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE
+  br i1 %36, label %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i9
 
 .lr.ph.i.i.i9:                                    ; preds = %_ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit, %.lr.ph.i.i.i9
-  %.sroa.07.012.i4.i.i10 = phi ptr [ %38, %.lr.ph.i.i.i9 ], [ %33, %_ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit ]
-  %38 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i10, i64 16
-  %.not.i.i.i11 = icmp ne ptr %38, %35
+  %.sroa.07.012.i4.i.i10 = phi ptr [ %37, %.lr.ph.i.i.i9 ], [ %32, %_ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit ]
+  %37 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i10, i64 16
+  %.not.i.i.i11 = icmp ne ptr %37, %34
   tail call void @llvm.assume(i1 %.not.i.i.i11)
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE
-  br i1 %40, label %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i9
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE
+  br i1 %39, label %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i9
 
 _ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit: ; preds = %.lr.ph.i.i.i9, %_ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit
-  %.sroa.07.012.i.lcssa.i.i12 = phi ptr [ %33, %_ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit ], [ %38, %.lr.ph.i.i.i9 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i12, i64 8
+  %.sroa.07.012.i.lcssa.i.i12 = phi ptr [ %32, %_ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit ], [ %37, %.lr.ph.i.i.i9 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i12, i64 8
+  %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef nonnull align 8 dereferenceable(64) ptr %45(ptr noundef nonnull align 8 dereferenceable(28) %42, ptr noundef nonnull @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE) #22
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  store ptr %47, ptr %3, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %48, i8 0, i64 20, i1 false)
-  %49 = load ptr, ptr %8, align 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %.not11.i.i.i13 = icmp ne ptr %50, %52
+  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call noundef nonnull align 8 dereferenceable(64) ptr %44(ptr noundef nonnull align 8 dereferenceable(28) %41, ptr noundef nonnull @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE) #22
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
+  store ptr %46, ptr %3, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %47, i8 0, i64 20, i1 false)
+  %48 = load ptr, ptr %8, align 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %.not11.i.i.i13 = icmp ne ptr %49, %51
   tail call void @llvm.assume(i1 %.not11.i.i.i13)
-  %53 = load ptr, ptr %50, align 8
-  %54 = icmp eq ptr %53, @_ZN4llvm39MachineBranchProbabilityInfoWrapperPass2IDE
-  br i1 %54, label %_ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i14
+  %52 = load ptr, ptr %49, align 8
+  %53 = icmp eq ptr %52, @_ZN4llvm39MachineBranchProbabilityInfoWrapperPass2IDE
+  br i1 %53, label %_ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i14
 
 .lr.ph.i.i.i14:                                   ; preds = %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit, %.lr.ph.i.i.i14
-  %.sroa.07.012.i4.i.i15 = phi ptr [ %55, %.lr.ph.i.i.i14 ], [ %50, %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i15, i64 16
-  %.not.i.i.i16 = icmp ne ptr %55, %52
+  %.sroa.07.012.i4.i.i15 = phi ptr [ %54, %.lr.ph.i.i.i14 ], [ %49, %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit ]
+  %54 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i15, i64 16
+  %.not.i.i.i16 = icmp ne ptr %54, %51
   tail call void @llvm.assume(i1 %.not.i.i.i16)
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, @_ZN4llvm39MachineBranchProbabilityInfoWrapperPass2IDE
-  br i1 %57, label %_ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i14
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, @_ZN4llvm39MachineBranchProbabilityInfoWrapperPass2IDE
+  br i1 %56, label %_ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i14
 
 _ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit: ; preds = %.lr.ph.i.i.i14, %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit
-  %.sroa.07.012.i.lcssa.i.i17 = phi ptr [ %50, %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit ], [ %55, %.lr.ph.i.i.i14 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i17, i64 8
+  %.sroa.07.012.i.lcssa.i.i17 = phi ptr [ %49, %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit ], [ %54, %.lr.ph.i.i.i14 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i17, i64 8
+  %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 96
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef nonnull align 8 dereferenceable(29) ptr %62(ptr noundef nonnull align 8 dereferenceable(28) %59, ptr noundef nonnull @_ZN4llvm39MachineBranchProbabilityInfoWrapperPass2IDE) #22
-  %64 = getelementptr inbounds i8, ptr %63, i64 28
-  %65 = load ptr, ptr %8, align 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %.not11.i.i.i18 = icmp ne ptr %66, %68
+  %60 = getelementptr inbounds i8, ptr %59, i64 96
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call noundef nonnull align 8 dereferenceable(29) ptr %61(ptr noundef nonnull align 8 dereferenceable(28) %58, ptr noundef nonnull @_ZN4llvm39MachineBranchProbabilityInfoWrapperPass2IDE) #22
+  %63 = getelementptr inbounds i8, ptr %62, i64 28
+  %64 = load ptr, ptr %8, align 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %.not11.i.i.i18 = icmp ne ptr %65, %67
   tail call void @llvm.assume(i1 %.not11.i.i.i18)
-  %69 = load ptr, ptr %66, align 8
-  %70 = icmp eq ptr %69, @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE
-  br i1 %70, label %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i19
+  %68 = load ptr, ptr %65, align 8
+  %69 = icmp eq ptr %68, @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE
+  br i1 %69, label %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i19
 
 .lr.ph.i.i.i19:                                   ; preds = %_ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit, %.lr.ph.i.i.i19
-  %.sroa.07.012.i4.i.i20 = phi ptr [ %71, %.lr.ph.i.i.i19 ], [ %66, %_ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit ]
-  %71 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i20, i64 16
-  %.not.i.i.i21 = icmp ne ptr %71, %68
+  %.sroa.07.012.i4.i.i20 = phi ptr [ %70, %.lr.ph.i.i.i19 ], [ %65, %_ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit ]
+  %70 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i20, i64 16
+  %.not.i.i.i21 = icmp ne ptr %70, %67
   tail call void @llvm.assume(i1 %.not.i.i.i21)
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE
-  br i1 %73, label %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i19
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE
+  br i1 %72, label %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i19
 
 _ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit: ; preds = %.lr.ph.i.i.i19, %_ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit
-  %.sroa.07.012.i.lcssa.i.i22 = phi ptr [ %66, %_ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit ], [ %71, %.lr.ph.i.i.i19 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i22, i64 8
+  %.sroa.07.012.i.lcssa.i.i22 = phi ptr [ %65, %_ZNK4llvm4Pass11getAnalysisINS_39MachineBranchProbabilityInfoWrapperPassEEERT_v.exit ], [ %70, %.lr.ph.i.i.i19 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i22, i64 8
+  %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 96
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call noundef nonnull align 8 dereferenceable(40) ptr %78(ptr noundef nonnull align 8 dereferenceable(28) %75, ptr noundef nonnull @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE) #22
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %81 = load ptr, ptr %80, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 96
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call noundef nonnull align 8 dereferenceable(40) ptr %77(ptr noundef nonnull align 8 dereferenceable(28) %74, ptr noundef nonnull @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE) #22
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %80 = load ptr, ptr %79, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %4, i8 0, i64 24, i1 false)
-  %82 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr %83, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %83, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 2, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 0, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i32 0, ptr %87, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %88, i8 0, i64 20, i1 false)
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %90 = getelementptr inbounds nuw i8, ptr %4, i64 121
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 122
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %89, i8 0, i64 26, i1 false)
-  store i8 1, ptr %91, align 2
-  %92 = getelementptr inbounds nuw i8, ptr %4, i64 123
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %94 = getelementptr inbounds i8, ptr %4, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %92, i8 0, i64 45, i1 false)
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(54) %93, ptr noundef nonnull %94, i64 noundef 8) #22
-  %95 = getelementptr inbounds nuw i8, ptr %4, i64 208
-  store ptr null, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 216
-  store i32 0, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store ptr %3, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  store ptr %64, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  store ptr %81, ptr %99, align 8
-  %100 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19FlagEnableTailMerge, i64 128), align 8
-  switch i32 %100, label %_ZN4llvm12BranchFolderC2EbbRNS_11MBFIWrapperERKNS_28MachineBranchProbabilityInfoEPNS_18ProfileSummaryInfoEj.exit [
-    i32 0, label %101
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store ptr %82, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %82, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 2, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  store i32 0, ptr %85, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store i32 0, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %87, i8 0, i64 20, i1 false)
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 121
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 122
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %88, i8 0, i64 26, i1 false)
+  store i8 1, ptr %90, align 2
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 123
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %93 = getelementptr inbounds i8, ptr %4, i64 192
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %91, i8 0, i64 45, i1 false)
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(54) %92, ptr noundef nonnull %93, i64 noundef 8) #22
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 208
+  store ptr null, ptr %94, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 216
+  store i32 0, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 224
+  store ptr %3, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 232
+  store ptr %63, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 240
+  store ptr %80, ptr %98, align 8
+  %99 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19FlagEnableTailMerge, i64 128), align 8
+  switch i32 %99, label %_ZN4llvm12BranchFolderC2EbbRNS_11MBFIWrapperERKNS_28MachineBranchProbabilityInfoEPNS_18ProfileSummaryInfoEj.exit [
+    i32 0, label %100
     i32 1, label %.sink.split.i
     i32 2, label %103
   ]
 
-101:                                              ; preds = %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit
-  %102 = select i1 %.not, i8 %31, i8 0
+100:                                              ; preds = %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit
+  %101 = and i8 %30, 1
+  %102 = select i1 %.not, i8 %101, i8 0
   br label %.sink.split.i
 
 103:                                              ; preds = %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %103, %101, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit
-  %.sink.i = phi i8 [ 0, %103 ], [ %102, %101 ], [ 1, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit ]
-  store i8 %.sink.i, ptr %90, align 1
+.sink.split.i:                                    ; preds = %103, %100, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit
+  %.sink.i = phi i8 [ 0, %103 ], [ %102, %100 ], [ 1, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit ]
+  store i8 %.sink.i, ptr %89, align 1
   br label %_ZN4llvm12BranchFolderC2EbbRNS_11MBFIWrapperERKNS_28MachineBranchProbabilityInfoEPNS_18ProfileSummaryInfoEj.exit
 
 _ZN4llvm12BranchFolderC2EbbRNS_11MBFIWrapperERKNS_28MachineBranchProbabilityInfoEPNS_18ProfileSummaryInfoEj.exit: ; preds = %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit, %.sink.split.i
@@ -10260,7 +10260,7 @@ _ZN4llvm12BranchFolderC2EbbRNS_11MBFIWrapperERKNS_28MachineBranchProbabilityInfo
   %114 = call noundef ptr %113(ptr noundef nonnull align 8 dereferenceable(288) %110) #22
   %115 = call noundef zeroext i1 @_ZN4llvm12BranchFolder16OptimizeFunctionERNS_15MachineFunctionEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoEPNS_15MachineLoopInfoEb(ptr noundef nonnull align 8 dereferenceable(248) %4, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %109, ptr noundef %114, ptr noundef null, i1 noundef zeroext false)
   call void @_ZN4llvm12BranchFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %4) #22
-  %116 = load ptr, ptr %48, align 8
+  %116 = load ptr, ptr %47, align 8
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %118 = load i32, ptr %117, align 8
   %119 = zext i32 %118 to i64

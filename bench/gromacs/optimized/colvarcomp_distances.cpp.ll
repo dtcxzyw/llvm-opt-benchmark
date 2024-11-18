@@ -3356,20 +3356,20 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
   %sqrt.i.i30 = call double @llvm.sqrt.f64(double %163)
   %165 = fneg double %158
   %166 = fdiv double %165, %sqrt.i.i30
-  %167 = fneg double %159
-  %168 = fdiv double %167, %sqrt.i.i30
-  %169 = fneg double %162
-  %170 = fdiv double %169, %sqrt.i.i30
-  %171 = select i1 %164, double %166, double -1.000000e+00
-  %172 = select i1 %164, double %168, double -0.000000e+00
-  %173 = select i1 %164, double %170, double -0.000000e+00
+  %167 = select i1 %164, double %166, double -1.000000e+00
+  %168 = fneg double %159
+  %169 = fdiv double %168, %sqrt.i.i30
+  %170 = select i1 %164, double %169, double -0.000000e+00
+  %171 = fneg double %162
+  %172 = fdiv double %171, %sqrt.i.i30
+  %173 = select i1 %164, double %172, double -0.000000e+00
   %174 = load ptr, ptr %4, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 504
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds %"class.colvarmodule::atom", ptr %176, i64 %.02369, i32 7
-  store double %171, ptr %177, align 8
+  store double %167, ptr %177, align 8
   %.sroa.241.0..sroa_idx = getelementptr inbounds i8, ptr %177, i64 8
-  store double %172, ptr %.sroa.241.0..sroa_idx, align 8
+  store double %170, ptr %.sroa.241.0..sroa_idx, align 8
   %.sroa.342.0..sroa_idx = getelementptr inbounds i8, ptr %177, i64 16
   store double %173, ptr %.sroa.342.0..sroa_idx, align 8
   %178 = load double, ptr %2, align 8, !noalias !127

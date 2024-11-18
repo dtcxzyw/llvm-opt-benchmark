@@ -2657,14 +2657,14 @@ Mio_CollectCopy.exit:                             ; preds = %83, %144, %115, %17
   %208 = getelementptr inbounds %struct.Mio_Cell_t_, ptr %8, i64 %indvars.iv192
   %209 = load ptr, ptr %208, align 8
   %.not106 = icmp eq ptr %209, null
-  %210 = trunc nuw nsw i64 %indvars.iv192 to i32
-  %211 = and i32 %210, 268435455
-  %212 = getelementptr inbounds i8, ptr %208, i64 8
-  %213 = load i32, ptr %212, align 8
-  %214 = select i1 %.not106, i32 268435455, i32 %211
-  %215 = and i32 %213, -268435456
+  %210 = getelementptr inbounds i8, ptr %208, i64 8
+  %211 = load i32, ptr %210, align 8
+  %212 = trunc nuw nsw i64 %indvars.iv192 to i32
+  %213 = and i32 %212, 268435455
+  %214 = select i1 %.not106, i32 268435455, i32 %213
+  %215 = and i32 %211, -268435456
   %216 = or disjoint i32 %215, %214
-  store i32 %216, ptr %212, align 8
+  store i32 %216, ptr %210, align 8
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
   br i1 %exitcond196.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !32
@@ -3133,17 +3133,17 @@ Mio_CompareTwo2.exit.thread:                      ; preds = %Mio_CompareTwo2.exi
   %143 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %8, i64 %indvars.iv186
   %144 = load ptr, ptr %143, align 8
   %.not131 = icmp eq ptr %144, null
-  %145 = trunc nuw nsw i64 %indvars.iv186 to i32
-  %146 = and i32 %145, 67108863
-  %147 = getelementptr inbounds i8, ptr %143, i64 16
-  %148 = load i32, ptr %147, align 8
-  %149 = select i1 %.not131, i32 67108863, i32 %146
-  %150 = and i32 %148, -67108864
+  %145 = getelementptr inbounds i8, ptr %143, i64 16
+  %146 = load i32, ptr %145, align 8
+  %147 = trunc nuw nsw i64 %indvars.iv186 to i32
+  %148 = and i32 %147, 67108863
+  %149 = select i1 %.not131, i32 67108863, i32 %148
+  %150 = and i32 %146, -67108864
   %151 = or disjoint i32 %150, %149
-  store i32 %151, ptr %147, align 8
+  store i32 %151, ptr %145, align 8
   %152 = getelementptr inbounds i8, ptr %143, i64 72
   %153 = load ptr, ptr %152, align 8
-  tail call void @Mio_GateSetCell(ptr noundef %153, i32 noundef %145) #30
+  tail call void @Mio_GateSetCell(ptr noundef %153, i32 noundef %147) #30
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
   br i1 %exitcond190.not, label %._crit_edge167, label %.lr.ph166, !llvm.loop !41

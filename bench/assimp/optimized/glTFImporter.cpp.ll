@@ -27076,9 +27076,9 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %out.i)
   %call.i11 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIbEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call.i, ptr noundef nonnull @.str.170, ptr noundef nonnull align 1 dereferenceable(1) %out.i)
   %0 = load i8, ptr %out.i, align 1
-  %1 = and i8 %0, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %out.i)
   %premultipliedAlpha = getelementptr inbounds i8, ptr %this, i64 64
+  %1 = and i8 %0, 1
   %frombool = select i1 %call.i11, i8 %1, i8 0
   store i8 %frombool, ptr %premultipliedAlpha, align 8
   %call5 = tail call noundef ptr @_ZN10glTFCommon10FindStringERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull @.str.171)

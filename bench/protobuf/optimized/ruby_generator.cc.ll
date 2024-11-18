@@ -402,8 +402,8 @@ entry:
   %0 = add i8 %ch, -97
   %1 = icmp ult i8 %0, 26
   %add = add nsw i8 %ch, -32
-  %cond = select i1 %1, i8 %add, i8 %ch
-  ret i8 %cond
+  %conv2 = select i1 %1, i8 %add, i8 %ch
+  ret i8 %conv2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -514,8 +514,8 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   %9 = add i8 %8, -97
   %10 = icmp ult i8 %9, 26
   %add.i = add nsw i8 %8, -32
-  %cond.i = select i1 %10, i8 %add.i, i8 %8
-  store i8 %cond.i, ptr %call10, align 1
+  %conv2.i = select i1 %10, i8 %add.i, i8 %8
+  store i8 %conv2.i, ptr %call10, align 1
   br label %if.end21
 
 lpad:                                             ; preds = %entry

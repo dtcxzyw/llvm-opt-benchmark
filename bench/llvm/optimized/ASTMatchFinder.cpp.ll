@@ -6906,12 +6906,12 @@ define internal fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GL
   %14 = trunc i8 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %16 = load i8, ptr %15, align 2
-  %17 = and i8 %16, 1
-  %18 = tail call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal14ASTMatchFinder32isTraversalIgnoringImplicitNodesEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
-  %19 = select i1 %14, i8 1, i8 %17
+  %17 = tail call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal14ASTMatchFinder32isTraversalIgnoringImplicitNodesEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  %18 = and i8 %16, 1
+  %19 = select i1 %14, i8 1, i8 %18
   %20 = load i8, ptr %12, align 8
   store i8 %19, ptr %12, align 8
-  %21 = zext i1 %18 to i8
+  %21 = zext i1 %17 to i8
   store ptr %2, ptr %11, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %0, ptr %22, align 8

@@ -19782,7 +19782,7 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpres
           cleanup
   br label %188
 
-40:                                               ; preds = %122, %108, %99, %89, %79, %52, %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread
+40:                                               ; preds = %121, %108, %99, %89, %79, %52, %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %157
@@ -19960,25 +19960,25 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit33: ;
   %114 = load i8, ptr %.0.i.i27, align 1
   %115 = trunc i8 %114 to i1
   %116 = load i8, ptr %.0.i.i31, align 1
-  %117 = and i8 %116, 1
-  %118 = load ptr, ptr %10, align 8
-  %119 = ptrtoint ptr %118 to i64
-  %.not.i.i34 = icmp eq ptr %118, null
-  %120 = and i64 %119, 3
-  %121 = icmp eq i64 %120, 3
-  %or.cond.i.i35 = or i1 %.not.i.i34, %121
-  br i1 %or.cond.i.i35, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInfoForIT_E4TypeE7IsLocalsr12_TypeInfoForIS3_E4TypeE14HasTrivialCopyERS0_E4typeES3_.exit37, label %122
+  %117 = load ptr, ptr %10, align 8
+  %118 = ptrtoint ptr %117 to i64
+  %.not.i.i34 = icmp eq ptr %117, null
+  %119 = and i64 %118, 3
+  %120 = icmp eq i64 %119, 3
+  %or.cond.i.i35 = or i1 %.not.i.i34, %120
+  br i1 %or.cond.i.i35, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInfoForIT_E4TypeE7IsLocalsr12_TypeInfoForIS3_E4TypeE14HasTrivialCopyERS0_E4typeES3_.exit37, label %121
 
-122:                                              ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit33
-  %123 = and i64 %119, -8
-  %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %126 = load ptr, ptr %125, align 8
-  invoke void %126(ptr noundef nonnull align 8 dereferenceable(16) %4)
+121:                                              ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit33
+  %122 = and i64 %118, -8
+  %123 = inttoptr i64 %122 to ptr
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
+  %125 = load ptr, ptr %124, align 8
+  invoke void %125(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInfoForIT_E4TypeE7IsLocalsr12_TypeInfoForIS3_E4TypeE14HasTrivialCopyERS0_E4typeES3_.exit37 unwind label %40
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInfoForIT_E4TypeE7IsLocalsr12_TypeInfoForIS3_E4TypeE14HasTrivialCopyERS0_E4typeES3_.exit37: ; preds = %122, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit33
-  %127 = select i1 %115, i8 %117, i8 0
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInfoForIT_E4TypeE7IsLocalsr12_TypeInfoForIS3_E4TypeE14HasTrivialCopyERS0_E4typeES3_.exit37: ; preds = %121, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit33
+  %126 = and i8 %116, 1
+  %127 = select i1 %115, i8 %126, i8 0
   store ptr %20, ptr %10, align 8
   store i8 %127, ptr %4, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImplL14_CollectErrorsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPNS0_10EvalResultE.exit.thread
@@ -20256,7 +20256,7 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpres
           cleanup
   br label %188
 
-40:                                               ; preds = %122, %108, %99, %89, %79, %52, %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread
+40:                                               ; preds = %121, %108, %99, %89, %79, %52, %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %157
@@ -20434,25 +20434,25 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit33: ;
   %114 = load i8, ptr %.0.i.i27, align 1
   %115 = trunc i8 %114 to i1
   %116 = load i8, ptr %.0.i.i31, align 1
-  %117 = and i8 %116, 1
-  %118 = load ptr, ptr %10, align 8
-  %119 = ptrtoint ptr %118 to i64
-  %.not.i.i34 = icmp eq ptr %118, null
-  %120 = and i64 %119, 3
-  %121 = icmp eq i64 %120, 3
-  %or.cond.i.i35 = or i1 %.not.i.i34, %121
-  br i1 %or.cond.i.i35, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInfoForIT_E4TypeE7IsLocalsr12_TypeInfoForIS3_E4TypeE14HasTrivialCopyERS0_E4typeES3_.exit37, label %122
+  %117 = load ptr, ptr %10, align 8
+  %118 = ptrtoint ptr %117 to i64
+  %.not.i.i34 = icmp eq ptr %117, null
+  %119 = and i64 %118, 3
+  %120 = icmp eq i64 %119, 3
+  %or.cond.i.i35 = or i1 %.not.i.i34, %120
+  br i1 %or.cond.i.i35, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInfoForIT_E4TypeE7IsLocalsr12_TypeInfoForIS3_E4TypeE14HasTrivialCopyERS0_E4typeES3_.exit37, label %121
 
-122:                                              ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit33
-  %123 = and i64 %119, -8
-  %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %126 = load ptr, ptr %125, align 8
-  invoke void %126(ptr noundef nonnull align 8 dereferenceable(16) %4)
+121:                                              ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit33
+  %122 = and i64 %118, -8
+  %123 = inttoptr i64 %122 to ptr
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
+  %125 = load ptr, ptr %124, align 8
+  invoke void %125(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInfoForIT_E4TypeE7IsLocalsr12_TypeInfoForIS3_E4TypeE14HasTrivialCopyERS0_E4typeES3_.exit37 unwind label %40
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInfoForIT_E4TypeE7IsLocalsr12_TypeInfoForIS3_E4TypeE14HasTrivialCopyERS0_E4typeES3_.exit37: ; preds = %122, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit33
-  %127 = select i1 %115, i8 1, i8 %117
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSIbEENSt9enable_ifIXaasr12_TypeInfoForIT_E4TypeE7IsLocalsr12_TypeInfoForIS3_E4TypeE14HasTrivialCopyERS0_E4typeES3_.exit37: ; preds = %121, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit33
+  %126 = and i8 %116, 1
+  %127 = select i1 %115, i8 1, i8 %126
   store ptr %20, ptr %10, align 8
   store i8 %127, ptr %4, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImplL14_CollectErrorsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPNS0_10EvalResultE.exit.thread
@@ -100534,22 +100534,19 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_
   br i1 %.not.i.i2, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit
-  %16 = inttoptr i64 %14 to ptr
-  %17 = and i64 %14, -8
-  %18 = inttoptr i64 %17 to ptr
-  %19 = atomicrmw add ptr %18, i32 2 monotonic, align 4
-  %20 = and i32 %19, 1
-  %.not1.i.i = icmp eq i32 %20, 0
-  %spec.select = select i1 %.not1.i.i, ptr %18, ptr %16
-  %21 = ptrtoint ptr %spec.select to i64
-  %.pre = and i64 %21, 7
-  %22 = icmp eq i64 %.pre, 0
+  %16 = and i64 %14, -8
+  %17 = inttoptr i64 %16 to ptr
+  %18 = atomicrmw add ptr %17, i32 2 monotonic, align 4
+  %19 = and i32 %18, 1
+  %.not1.i.i = icmp eq i32 %19, 0
+  %20 = and i64 %14, 7
+  %21 = icmp eq i64 %20, 0
+  %22 = or i1 %.not1.i.i, %21
   br i1 %22, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %23
 
 23:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
-  %24 = and i64 %21, -8
-  %25 = inttoptr i64 %24 to ptr
-  %26 = atomicrmw sub ptr %25, i32 2 release, align 4
+  %24 = inttoptr i64 %16 to ptr
+  %25 = atomicrmw sub ptr %24, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, %23

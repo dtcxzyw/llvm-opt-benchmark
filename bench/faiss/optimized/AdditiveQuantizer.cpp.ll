@@ -289,8 +289,8 @@ define void @_ZNK5faiss17AdditiveQuantizer11compute_LUTEmPKfPffl(ptr nocapture n
   %19 = trunc i64 %1 to i32
   store i32 %19, ptr %10, align 4
   %20 = icmp sgt i64 %5, 0
-  %21 = select i1 %20, i64 %5, i64 %14
-  %22 = trunc i64 %21 to i32
+  %21 = trunc i64 %5 to i32
+  %22 = select i1 %20, i32 %21, i32 %15
   store i32 %22, ptr %11, align 4
   store float 0.000000e+00, ptr %12, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 56

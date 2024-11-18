@@ -76553,8 +76553,8 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %441
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %165)
   %571 = icmp eq i8 %.sroa.0584.0.copyload, 2
   %..sroa.0584.0.copyload = select i1 %571, i8 0, i8 %.sroa.0584.0.copyload
-  %572 = zext i16 %.sroa.5585.0.copyload to i24
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %164)
+  %572 = zext i16 %.sroa.5585.0.copyload to i24
   %573 = shl nuw i24 %572, 8
   %.sroa.4863.0.insert.shift = select i1 %571, i24 0, i24 %573
   %.sroa.0862.0.insert.ext = zext i8 %..sroa.0584.0.copyload to i24

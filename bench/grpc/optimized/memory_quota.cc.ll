@@ -3097,7 +3097,7 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
-  %free.0 = phi i64 [ %0, %entry ], [ %3, %while.body ]
+  %free.0 = phi i64 [ %0, %entry ], [ %4, %while.body ]
   %cmp.not = icmp eq i64 %free.0, 0
   br i1 %cmp.not, label %while.end, label %while.body
 
@@ -3106,20 +3106,20 @@ while.body:                                       ; preds = %while.cond
   %cmp3 = icmp ult i64 %free.0, 524289
   %or.cond.not = or i1 %cmp3, %call.i
   %sub = add i64 %free.0, -524288
-  %spec.select = select i1 %or.cond.not, i64 0, i64 %sub
   %cmp6 = icmp ugt i64 %free.0, 8192
   %div41 = zext i1 %cmp6 to i64
   %cond = lshr i64 %free.0, %div41
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 %cond)
+  %1 = tail call i64 @llvm.umax.i64(i64 %sub, i64 %cond)
+  %.sroa.speculated = select i1 %or.cond.not, i64 %cond, i64 %1
   %sub8 = sub i64 %free.0, %.sroa.speculated
-  %1 = cmpxchg weak ptr %free_bytes_, i64 %free.0, i64 %sub8 acq_rel acquire, align 8
-  %2 = extractvalue { i64, i1 } %1, 1
-  %3 = extractvalue { i64, i1 } %1, 0
-  br i1 %2, label %if.then11, label %while.cond, !llvm.loop !41
+  %2 = cmpxchg weak ptr %free_bytes_, i64 %free.0, i64 %sub8 acq_rel acquire, align 8
+  %3 = extractvalue { i64, i1 } %2, 1
+  %4 = extractvalue { i64, i1 } %2, 0
+  br i1 %3, label %if.then11, label %while.cond, !llvm.loop !41
 
 if.then11:                                        ; preds = %while.body
-  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_resource_quota_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i = trunc i8 %4 to i1
+  %5 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_resource_quota_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i, label %if.then13, label %monotonic.i35
 
 if.then13:                                        ; preds = %if.then11
@@ -3128,8 +3128,8 @@ if.then13:                                        ; preds = %if.then11
 
 monotonic.i35:                                    ; preds = %if.then13, %if.then11
   %taken_bytes_ = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = atomicrmw sub ptr %taken_bytes_, i64 %.sroa.speculated monotonic, align 8
-  %cmp16.not = icmp ult i64 %5, %.sroa.speculated
+  %6 = atomicrmw sub ptr %taken_bytes_, i64 %.sroa.speculated monotonic, align 8
+  %cmp16.not = icmp ult i64 %6, %.sroa.speculated
   br i1 %cmp16.not, label %if.then17, label %do.end
 
 if.then17:                                        ; preds = %monotonic.i35
@@ -3138,9 +3138,9 @@ if.then17:                                        ; preds = %monotonic.i35
 
 do.end:                                           ; preds = %monotonic.i35
   %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load ptr, ptr %memory_quota_, align 8
-  %free_bytes_.i = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = atomicrmw add ptr %free_bytes_.i, i64 %.sroa.speculated monotonic, align 8
+  %7 = load ptr, ptr %memory_quota_, align 8
+  %free_bytes_.i = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = atomicrmw add ptr %free_bytes_.i, i64 %.sroa.speculated monotonic, align 8
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %do.end
@@ -6733,7 +6733,7 @@ if.then:                                          ; preds = %entry, %_ZN9grpc_co
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then
-  %free.0.i = phi i64 [ %2, %if.then ], [ %5, %while.body.i ]
+  %free.0.i = phi i64 [ %2, %if.then ], [ %6, %while.body.i ]
   %cmp.not.i = icmp eq i64 %free.0.i, 0
   br i1 %cmp.not.i, label %if.end, label %while.body.i
 
@@ -6742,20 +6742,20 @@ while.body.i:                                     ; preds = %while.cond.i
   %cmp3.i = icmp ult i64 %free.0.i, 524289
   %or.cond.not.i = or i1 %cmp3.i, %call.i.i
   %sub.i = add i64 %free.0.i, -524288
-  %spec.select.i = select i1 %or.cond.not.i, i64 0, i64 %sub.i
   %cmp6.i = icmp ugt i64 %free.0.i, 8192
   %div41.i = zext i1 %cmp6.i to i64
   %cond.i = lshr i64 %free.0.i, %div41.i
-  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %spec.select.i, i64 %cond.i)
+  %3 = call i64 @llvm.umax.i64(i64 %sub.i, i64 %cond.i)
+  %.sroa.speculated.i = select i1 %or.cond.not.i, i64 %cond.i, i64 %3
   %sub8.i = sub i64 %free.0.i, %.sroa.speculated.i
-  %3 = cmpxchg weak ptr %free_bytes_, i64 %free.0.i, i64 %sub8.i acq_rel acquire, align 8
-  %4 = extractvalue { i64, i1 } %3, 1
-  %5 = extractvalue { i64, i1 } %3, 0
-  br i1 %4, label %if.then11.i, label %while.cond.i, !llvm.loop !41
+  %4 = cmpxchg weak ptr %free_bytes_, i64 %free.0.i, i64 %sub8.i acq_rel acquire, align 8
+  %5 = extractvalue { i64, i1 } %4, 1
+  %6 = extractvalue { i64, i1 } %4, 0
+  br i1 %5, label %if.then11.i, label %while.cond.i, !llvm.loop !41
 
 if.then11.i:                                      ; preds = %while.body.i
-  %6 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_resource_quota_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i.i = trunc i8 %6 to i1
+  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_resource_quota_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i, label %if.then13.i, label %monotonic.i35.i
 
 if.then13.i:                                      ; preds = %if.then11.i
@@ -6764,8 +6764,8 @@ if.then13.i:                                      ; preds = %if.then11.i
 
 monotonic.i35.i:                                  ; preds = %if.then13.i, %if.then11.i
   %taken_bytes_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %7 = atomicrmw sub ptr %taken_bytes_.i, i64 %.sroa.speculated.i monotonic, align 8
-  %cmp16.not.i = icmp ult i64 %7, %.sroa.speculated.i
+  %8 = atomicrmw sub ptr %taken_bytes_.i, i64 %.sroa.speculated.i monotonic, align 8
+  %cmp16.not.i = icmp ult i64 %8, %.sroa.speculated.i
   br i1 %cmp16.not.i, label %if.then17.i, label %do.end.i
 
 if.then17.i:                                      ; preds = %monotonic.i35.i
@@ -6774,20 +6774,20 @@ if.then17.i:                                      ; preds = %monotonic.i35.i
 
 do.end.i:                                         ; preds = %monotonic.i35.i
   %memory_quota_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load ptr, ptr %memory_quota_.i, align 8
-  %free_bytes_.i.i = getelementptr inbounds i8, ptr %8, i64 16
-  %9 = atomicrmw add ptr %free_bytes_.i.i, i64 %.sroa.speculated.i monotonic, align 8
+  %9 = load ptr, ptr %memory_quota_.i, align 8
+  %free_bytes_.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = atomicrmw add ptr %free_bytes_.i.i, i64 %.sroa.speculated.i monotonic, align 8
   br label %if.end
 
 if.end:                                           ; preds = %while.cond.i, %lor.rhs, %do.end.i, %_ZN9grpc_core14PeriodicUpdate4TickEN4absl12lts_2023080211FunctionRefIFvNS_8DurationEEEE.exit
-  %10 = load atomic i64, ptr %free_bytes_ monotonic, align 8
+  %11 = load atomic i64, ptr %free_bytes_ monotonic, align 8
   %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 24
-  %11 = load ptr, ptr %memory_quota_, align 8
+  %12 = load ptr, ptr %memory_quota_, align 8
   br label %while.body.i10
 
 while.body.i10:                                   ; preds = %if.end11.i, %if.end
   %old_free_bytes.addr.0.i = phi i64 [ %0, %if.end ], [ %new_free_bytes.addr.0.i, %if.end11.i ]
-  %new_free_bytes.addr.0.i = phi i64 [ %10, %if.end ], [ %12, %if.end11.i ]
+  %new_free_bytes.addr.0.i = phi i64 [ %11, %if.end ], [ %13, %if.end11.i ]
   %cmp.i11 = icmp ult i64 %new_free_bytes.addr.0.i, 104857
   br i1 %cmp.i11, label %if.then.i13, label %if.else.i
 
@@ -6796,7 +6796,7 @@ if.then.i13:                                      ; preds = %while.body.i10
   br i1 %cmp2.i, label %_ZN9grpc_core16BasicMemoryQuota18MaybeMoveAllocatorEPNS_23GrpcMemoryAllocatorImplEmm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i13
-  call void @_ZN9grpc_core16BasicMemoryQuota28MaybeMoveAllocatorBigToSmallEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %11, ptr noundef nonnull %this)
+  call void @_ZN9grpc_core16BasicMemoryQuota28MaybeMoveAllocatorBigToSmallEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %12, ptr noundef nonnull %this)
   br label %if.end11.i
 
 if.else.i:                                        ; preds = %while.body.i10
@@ -6806,11 +6806,11 @@ if.else.i:                                        ; preds = %while.body.i10
   br i1 %or.cond.i, label %_ZN9grpc_core16BasicMemoryQuota18MaybeMoveAllocatorEPNS_23GrpcMemoryAllocatorImplEmm.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else.i
-  call void @_ZN9grpc_core16BasicMemoryQuota28MaybeMoveAllocatorSmallToBigEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %11, ptr noundef nonnull %this)
+  call void @_ZN9grpc_core16BasicMemoryQuota28MaybeMoveAllocatorSmallToBigEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %12, ptr noundef nonnull %this)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end8.i, %if.end.i
-  %12 = load atomic i64, ptr %free_bytes_ monotonic, align 8
+  %13 = load atomic i64, ptr %free_bytes_ monotonic, align 8
   br label %while.body.i10, !llvm.loop !13
 
 _ZN9grpc_core16BasicMemoryQuota18MaybeMoveAllocatorEPNS_23GrpcMemoryAllocatorImplEmm.exit: ; preds = %if.then.i13, %if.else.i

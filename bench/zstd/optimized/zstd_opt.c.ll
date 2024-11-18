@@ -3194,12 +3194,7 @@ ZSTD_hashPtr.exit:                                ; preds = %sw.bb7.i, %sw.bb5.i
   %12 = load i32, ptr %searchLog, align 4
   store i32 %conv, ptr %arrayidx, align 4
   %cmp21114.not = icmp ult i32 %4, %cond6.i
-  br i1 %cmp21114.not, label %for.end.thread, label %for.body.lr.ph
-
-for.end.thread:                                   ; preds = %ZSTD_hashPtr.exit
-  store i32 0, ptr %add.ptr16, align 4
-  store i32 0, ptr %add.ptr15, align 4
-  br label %21
+  br i1 %cmp21114.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %ZSTD_hashPtr.exit
   %shl19 = shl nuw i32 1, %12
@@ -3211,7 +3206,7 @@ for.body.lr.ph:                                   ; preds = %ZSTD_hashPtr.exit
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %nbCompares.0122 = phi i32 [ %shl19, %for.body.lr.ph ], [ %dec, %for.inc ]
-  %bestLength.0121 = phi i64 [ 8, %for.body.lr.ph ], [ %bestLength.2.fr, %for.inc ]
+  %bestLength.0121 = phi i64 [ 8, %for.body.lr.ph ], [ %17, %for.inc ]
   %matchEndIdx.0120 = phi i32 [ %add18, %for.body.lr.ph ], [ %matchEndIdx.2, %for.inc ]
   %matchIndex.0119 = phi i32 [ %4, %for.body.lr.ph ], [ %matchIndex.1, %for.inc ]
   %largerPtr.0118 = phi ptr [ %add.ptr16, %for.body.lr.ph ], [ %largerPtr.2, %for.inc ]
@@ -3363,16 +3358,16 @@ if.then67:                                        ; preds = %if.then62
 if.end71:                                         ; preds = %if.then62, %if.then67, %if.end59
   %matchEndIdx.2 = phi i32 [ %add69, %if.then67 ], [ %matchEndIdx.0120, %if.then62 ], [ %matchEndIdx.0120, %if.end59 ]
   %bestLength.2 = phi i64 [ %matchLength.0, %if.then67 ], [ %matchLength.0, %if.then62 ], [ %bestLength.0121, %if.end59 ]
-  %bestLength.2.fr = freeze i64 %bestLength.2
+  %17 = freeze i64 %bestLength.2
   %add.ptr72 = getelementptr inbounds i8, ptr %ip, i64 %matchLength.0
   %cmp73 = icmp eq ptr %add.ptr72, %iend
   br i1 %cmp73, label %for.end, label %if.end76
 
 if.end76:                                         ; preds = %if.end71
   %arrayidx77 = getelementptr inbounds i8, ptr %match.0, i64 %matchLength.0
-  %17 = load i8, ptr %arrayidx77, align 1
-  %18 = load i8, ptr %add.ptr72, align 1
-  %cmp81 = icmp ult i8 %17, %18
+  %18 = load i8, ptr %arrayidx77, align 1
+  %19 = load i8, ptr %add.ptr72, align 1
+  %cmp81 = icmp ult i8 %18, %19
   %cmp84.not = icmp ugt i32 %matchIndex.0119, %cond
   br i1 %cmp81, label %if.then83, label %if.else90
 
@@ -3398,28 +3393,25 @@ for.inc:                                          ; preds = %if.else90, %if.end8
   %dec = add i32 %nbCompares.0122, -1
   %tobool = icmp ne i32 %dec, 0
   %cmp21 = icmp uge i32 %matchIndex.1, %cond6.i
-  %19 = select i1 %tobool, i1 %cmp21, i1 false
-  br i1 %19, label %for.body, label %for.end, !llvm.loop !22
+  %20 = select i1 %tobool, i1 %cmp21, i1 false
+  br i1 %20, label %for.body, label %for.end, !llvm.loop !22
 
-for.end:                                          ; preds = %for.inc, %if.end71, %if.then83, %if.else90
-  %smallerPtr.1 = phi ptr [ %smallerPtr.2, %for.inc ], [ %smallerPtr.0117, %if.end71 ], [ %dummy32, %if.then83 ], [ %smallerPtr.0117, %if.else90 ]
-  %largerPtr.1 = phi ptr [ %largerPtr.2, %for.inc ], [ %largerPtr.0118, %if.end71 ], [ %largerPtr.0118, %if.then83 ], [ %dummy32, %if.else90 ]
+for.end:                                          ; preds = %for.inc, %if.end71, %if.then83, %if.else90, %ZSTD_hashPtr.exit
+  %smallerPtr.1 = phi ptr [ %add.ptr15, %ZSTD_hashPtr.exit ], [ %smallerPtr.0117, %if.else90 ], [ %dummy32, %if.then83 ], [ %smallerPtr.0117, %if.end71 ], [ %smallerPtr.2, %for.inc ]
+  %largerPtr.1 = phi ptr [ %add.ptr16, %ZSTD_hashPtr.exit ], [ %dummy32, %if.else90 ], [ %largerPtr.0118, %if.then83 ], [ %largerPtr.0118, %if.end71 ], [ %largerPtr.2, %for.inc ]
+  %matchEndIdx.1 = phi i32 [ %add18, %ZSTD_hashPtr.exit ], [ %matchEndIdx.2, %if.else90 ], [ %matchEndIdx.2, %if.then83 ], [ %matchEndIdx.2, %if.end71 ], [ %matchEndIdx.2, %for.inc ]
+  %bestLength.1 = phi i64 [ 8, %ZSTD_hashPtr.exit ], [ %17, %if.else90 ], [ %17, %if.then83 ], [ %17, %if.end71 ], [ %17, %for.inc ]
   store i32 0, ptr %largerPtr.1, align 4
   store i32 0, ptr %smallerPtr.1, align 4
-  %cmp97 = icmp ugt i64 %bestLength.2.fr, 384
-  %20 = trunc i64 %bestLength.2.fr to i32
-  %conv101 = add i32 %20, -384
+  %cmp97 = icmp ugt i64 %bestLength.1, 384
+  %21 = trunc i64 %bestLength.1 to i32
+  %conv101 = add i32 %21, -384
   %cond109 = tail call i32 @llvm.umin.i32(i32 %conv101, i32 192)
-  %spec.select151 = select i1 %cmp97, i32 %cond109, i32 0
-  br label %21
-
-21:                                               ; preds = %for.end, %for.end.thread
-  %matchEndIdx.1148 = phi i32 [ %add18, %for.end.thread ], [ %matchEndIdx.2, %for.end ]
-  %22 = phi i32 [ 0, %for.end.thread ], [ %spec.select151, %for.end ]
-  %reass.sub = sub i32 %matchEndIdx.1148, %conv
+  %reass.sub = sub i32 %matchEndIdx.1, %conv
   %sub112 = add i32 %reass.sub, -8
-  %cond120 = tail call i32 @llvm.umax.i32(i32 %22, i32 %sub112)
-  ret i32 %cond120
+  %22 = tail call i32 @llvm.umax.i32(i32 %cond109, i32 %sub112)
+  %spec.select142 = select i1 %cmp97, i32 %22, i32 %sub112
+  ret i32 %spec.select142
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

@@ -5639,8 +5639,8 @@ default.unreachable1.i160.i.i:                    ; preds = %360
   %trunc.i.i158.i.i = trunc nuw i8 %365 to i1
   %366 = getelementptr inbounds i8, ptr %67, i64 8
   %367 = load ptr, ptr %366, align 8, !alias.scope !865, !noalias !862, !nonnull !5
-  %368 = ptrtoint ptr %367 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67), !noalias !862
+  %368 = ptrtoint ptr %367 to i64
   %369 = select i1 %trunc.i.i158.i.i, i64 0, i64 %368
   %.121.i.i = select i1 %trunc.i.i158.i.i, i64 -9223372036854775807, i64 -9223372036854775806
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88), !noalias !778
@@ -7101,8 +7101,8 @@ default.unreachable1.i157.i.i:                    ; preds = %764
   %trunc.i.i155.i.i = trunc nuw i8 %769 to i1
   %770 = getelementptr inbounds i8, ptr %16, i64 8
   %771 = load ptr, ptr %770, align 8, !alias.scope !1101, !noalias !1098, !nonnull !5
-  %772 = ptrtoint ptr %771 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !1098
+  %772 = ptrtoint ptr %771 to i64
   %773 = select i1 %trunc.i.i155.i.i, i64 0, i64 %772
   %.119.i.i = select i1 %trunc.i.i155.i.i, i64 -9223372036854775807, i64 -9223372036854775806
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35), !noalias !1007

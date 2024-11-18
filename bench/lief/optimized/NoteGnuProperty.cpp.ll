@@ -1040,10 +1040,10 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF14parse_propertyENS0_4ARCHERNS_10Sp
 
 41:                                               ; preds = %28
   call void @_ZNK4LIEF12BinaryStream13increment_posEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 4)
-  %42 = zext i32 %35 to i64
-  %43 = call noundef i64 @_ZNK4LIEF12BinaryStream3posEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  call void @_ZNK4LIEF10SpanStream5sliceEmm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected") align 8 %10, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef %43, i64 noundef %42)
-  invoke void @_ZNK4LIEF12BinaryStream13increment_posEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %42)
+  %42 = call noundef i64 @_ZNK4LIEF12BinaryStream3posEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %43 = zext i32 %35 to i64
+  call void @_ZNK4LIEF10SpanStream5sliceEmm(ptr dead_on_unwind nonnull writable sret(%"class.tl::expected") align 8 %10, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef %42, i64 noundef %43)
+  invoke void @_ZNK4LIEF12BinaryStream13increment_posEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %43)
           to label %44 unwind label %49
 
 44:                                               ; preds = %41

@@ -18134,11 +18134,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %7748, %.loopexit.i.
   %.fca.0.extract1.i.i = extractvalue { ptr, i64 } %7782, 0
   %.not.i.i.i590 = icmp eq ptr %.fca.0.extract1.i.i, null
   %.fca.1.extract2.i.i = extractvalue { ptr, i64 } %7782, 1
-  %7783 = trunc i64 %.fca.1.extract2.i.i to i16
-  %7784 = and i16 %7783, 257
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
   store ptr %7780, ptr %7539, align 8
   store ptr %.fca.0.extract1.i.i, ptr %7567, align 8
+  %7783 = trunc i64 %.fca.1.extract2.i.i to i16
+  %7784 = and i16 %7783, 257
   %.sroa.4.0.extract.trunc.i.i = select i1 %.not.i.i.i590, i16 0, i16 %7784
   store i16 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.0..sroa_idx.i310.i, align 8
   %7785 = getelementptr inbounds nuw i8, ptr %7780, i64 48

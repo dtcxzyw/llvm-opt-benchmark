@@ -5562,9 +5562,9 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @maxlinelen(ptr n
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 10
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.11824, i32 %.125)
-  %17 = add nsw i32 %.11824, 1
   %.3 = select i1 %16, i32 %spec.select, i32 %.125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %17 = add nsw i32 %.11824, 1
   %18 = select i1 %16, i32 1, i32 %17
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %13

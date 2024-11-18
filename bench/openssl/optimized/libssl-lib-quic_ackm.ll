@@ -1907,16 +1907,16 @@ entry:
   %2 = icmp ugt i64 %1, 4611686018427387903
   %3 = shl i64 %1, 2
   %4 = call i64 @llvm.umax.i64(i64 %3, i64 1000000)
-  %a.coerce.b.coerce.i = select i1 %2, i64 -1, i64 %4
   %5 = load i64, ptr %rtt, align 8
-  %retval.sroa.0.0.i22 = call i64 @llvm.uadd.sat.i64(i64 %5, i64 %a.coerce.b.coerce.i)
+  %6 = call i64 @llvm.uadd.sat.i64(i64 %5, i64 %4)
+  %retval.sroa.0.0.i22 = select i1 %2, i64 -1, i64 %6
   %pto_count = getelementptr inbounds i8, ptr %ackm, i64 280
-  %6 = load i32, ptr %pto_count, align 8
-  %cond.i = call noundef range(i32 0, 17) i32 @llvm.umin.i32(i32 %6, i32 16)
+  %7 = load i32, ptr %pto_count, align 8
+  %cond.i = call noundef range(i32 0, 17) i32 @llvm.umin.i32(i32 %7, i32 16)
   %sh_prom = zext nneg i32 %cond.i to i64
   %shl = shl nuw nsw i64 1, %sh_prom
-  %7 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.sroa.0.0.i22, i64 %shl)
-  %8 = extractvalue { i64, i1 } %7, 0
+  %8 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.sroa.0.0.i22, i64 %shl)
+  %9 = extractvalue { i64, i1 } %8, 0
   %ack_eliciting_bytes_in_flight.i = getelementptr inbounds i8, ptr %ackm, i64 408
   br label %for.body.i
 
@@ -1924,15 +1924,15 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %total.05.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [3 x i64], ptr %ack_eliciting_bytes_in_flight.i, i64 0, i64 %indvars.iv.i
-  %9 = load i64, ptr %arrayidx.i, align 8
-  %add.i = add i64 %9, %total.05.i
+  %10 = load i64, ptr %arrayidx.i, align 8
+  %add.i = add i64 %10, %total.05.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %ackm_ack_eliciting_bytes_in_flight.exit, label %for.body.i, !llvm.loop !10
 
 ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %for.body.i
-  %10 = extractvalue { i64, i1 } %7, 1
-  %retval.sroa.0.0.i23 = select i1 %10, i64 -1, i64 %8
+  %11 = extractvalue { i64, i1 } %8, 1
+  %retval.sroa.0.0.i23 = select i1 %11, i64 -1, i64 %9
   %cmp = icmp eq i64 %add.i, 0
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
@@ -1944,15 +1944,15 @@ for.cond.preheader:                               ; preds = %ackm_ack_eliciting_
 
 if.then:                                          ; preds = %ackm_ack_eliciting_bytes_in_flight.exit
   %discarded = getelementptr inbounds i8, ptr %ackm, i64 458
-  %11 = load i8, ptr %discarded, align 2
-  %tobool.not = icmp ne i8 %11, 0
+  %12 = load i8, ptr %discarded, align 2
+  %tobool.not = icmp ne i8 %12, 0
   %cond = zext i1 %tobool.not to i32
   store i32 %cond, ptr %space, align 4
   %now = getelementptr inbounds i8, ptr %ackm, i64 240
-  %12 = load ptr, ptr %now, align 8
+  %13 = load ptr, ptr %now, align 8
   %now_arg = getelementptr inbounds i8, ptr %ackm, i64 248
-  %13 = load ptr, ptr %now_arg, align 8
-  %call23 = call i64 %12(ptr noundef %13) #11
+  %14 = load ptr, ptr %now_arg, align 8
+  %call23 = call i64 %13(ptr noundef %14) #11
   %retval.sroa.0.0.i24 = call i64 @llvm.uadd.sat.i64(i64 %call23, i64 %retval.sroa.0.0.i23)
   br label %return
 
@@ -1962,8 +1962,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   %pto_timeout.sroa.0.031 = phi i64 [ -1, %for.cond.preheader ], [ %pto_timeout.sroa.0.1, %for.inc ]
   %pto_space.030 = phi i32 [ 0, %for.cond.preheader ], [ %pto_space.1, %for.inc ]
   %arrayidx31 = getelementptr inbounds [3 x i64], ptr %ack_eliciting_bytes_in_flight.i, i64 0, i64 %indvars.iv
-  %14 = load i64, ptr %arrayidx31, align 8
-  %cmp32 = icmp eq i64 %14, 0
+  %15 = load i64, ptr %arrayidx31, align 8
+  %cmp32 = icmp eq i64 %15, 0
   br i1 %cmp32, label %for.inc, label %if.end35
 
 if.end35:                                         ; preds = %for.body
@@ -1971,31 +1971,31 @@ if.end35:                                         ; preds = %for.body
   br i1 %cmp36, label %if.then38, label %if.end61
 
 if.then38:                                        ; preds = %if.end35
-  %15 = load i8, ptr %handshake_confirmed, align 8
-  %tobool39.not = icmp eq i8 %15, 0
+  %16 = load i8, ptr %handshake_confirmed, align 8
+  %tobool39.not = icmp eq i8 %16, 0
   br i1 %tobool39.not, label %for.end, label %if.end41
 
 if.end41:                                         ; preds = %if.then38
-  %16 = load i64, ptr %rx_max_ack_delay, align 8
-  %cmp.i.not = icmp eq i64 %16, -1
+  %17 = load i64, ptr %rx_max_ack_delay, align 8
+  %cmp.i.not = icmp eq i64 %17, -1
   br i1 %cmp.i.not, label %if.end61, label %if.then45
 
 if.then45:                                        ; preds = %if.end41
-  %17 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 %shl)
-  %18 = extractvalue { i64, i1 } %17, 1
-  %19 = extractvalue { i64, i1 } %17, 0
-  %retval.sroa.0.0.i26 = select i1 %18, i64 -1, i64 %19
-  %retval.sroa.0.0.i27 = call i64 @llvm.uadd.sat.i64(i64 %duration.sroa.0.032, i64 %retval.sroa.0.0.i26)
+  %18 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %17, i64 %shl)
+  %19 = extractvalue { i64, i1 } %18, 1
+  %20 = extractvalue { i64, i1 } %18, 0
+  %21 = call i64 @llvm.uadd.sat.i64(i64 %duration.sroa.0.032, i64 %20)
+  %retval.sroa.0.0.i27 = select i1 %19, i64 -1, i64 %21
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end41, %if.then45, %if.end35
   %duration.sroa.0.2 = phi i64 [ %duration.sroa.0.032, %if.end41 ], [ %retval.sroa.0.0.i27, %if.then45 ], [ %duration.sroa.0.032, %if.end35 ]
   %arrayidx64 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %time_of_last_ack_eliciting_pkt, i64 0, i64 %indvars.iv
-  %20 = load i64, ptr %arrayidx64, align 8
-  %retval.sroa.0.0.i28 = call i64 @llvm.uadd.sat.i64(i64 %20, i64 %duration.sroa.0.2)
+  %22 = load i64, ptr %arrayidx64, align 8
+  %retval.sroa.0.0.i28 = call i64 @llvm.uadd.sat.i64(i64 %22, i64 %duration.sroa.0.2)
   %cmp72 = icmp ult i64 %retval.sroa.0.0.i28, %pto_timeout.sroa.0.031
-  %21 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %cmp72, i32 %21, i32 %pto_space.030
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %cmp72, i32 %23, i32 %pto_space.030
   %spec.select21 = call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i28, i64 %pto_timeout.sroa.0.031)
   br label %for.inc
 
@@ -2333,39 +2333,39 @@ if.end14.i:                                       ; preds = %ackm_has_newly_miss
   %tx_max_ack_delay15.i = getelementptr inbounds i8, ptr %ackm, i64 2360
   %tx_max_ack_delay.sroa.0.0.copyload.i = load i64, ptr %tx_max_ack_delay15.i, align 8
   %or.cond1.i = icmp samesign ult i8 %bf.clear46, 2
-  %spec.select.i = select i1 %or.cond1.i, i64 0, i64 %tx_max_ack_delay.sroa.0.0.copyload.i
   %rx_ack_flush_deadline.i = getelementptr inbounds i8, ptr %ackm, i64 2328
   %arrayidx24.i = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %rx_ack_flush_deadline.i, i64 0, i64 %idxprom.i36
   %29 = load i64, ptr %arrayidx24.i, align 8
   %cmp.i.not.i = icmp eq i64 %29, -1
-  %retval.sroa.0.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %16, i64 %spec.select.i)
+  %30 = call i64 @llvm.uadd.sat.i64(i64 %16, i64 %tx_max_ack_delay.sroa.0.0.copyload.i)
+  %retval.sroa.0.0.i.i = select i1 %or.cond1.i, i64 %16, i64 %30
   br i1 %cmp.i.not.i, label %if.then28.i, label %if.else.i
 
 if.then28.i:                                      ; preds = %if.end14.i
   store i64 %retval.sroa.0.0.i.i, ptr %arrayidx24.i, align 8
   %ack_deadline_cb.i.i = getelementptr inbounds i8, ptr %ackm, i64 2384
-  %30 = load ptr, ptr %ack_deadline_cb.i.i, align 8
-  %cmp.not.i30.i = icmp eq ptr %30, null
+  %31 = load ptr, ptr %ack_deadline_cb.i.i, align 8
+  %cmp.not.i30.i = icmp eq ptr %31, null
   br i1 %cmp.not.i30.i, label %if.end48, label %if.then.i.i42
 
 if.then.i.i42:                                    ; preds = %if.then28.i
   %ack_deadline_cb_arg.i.i = getelementptr inbounds i8, ptr %ackm, i64 2392
-  %31 = load ptr, ptr %ack_deadline_cb_arg.i.i, align 8
-  call void %30(i64 %retval.sroa.0.0.i.i, i32 noundef range(i32 0, 4) %bf.cast47, ptr noundef %31) #11
+  %32 = load ptr, ptr %ack_deadline_cb_arg.i.i, align 8
+  call void %31(i64 %retval.sroa.0.0.i.i, i32 noundef range(i32 0, 4) %bf.cast47, ptr noundef %32) #11
   br label %if.end48
 
 if.else.i:                                        ; preds = %if.end14.i
   %a.coerce.b.coerce.i.i = call i64 @llvm.umin.i64(i64 %29, i64 %retval.sroa.0.0.i.i)
   store i64 %a.coerce.b.coerce.i.i, ptr %arrayidx24.i, align 8
   %ack_deadline_cb.i37.i = getelementptr inbounds i8, ptr %ackm, i64 2384
-  %32 = load ptr, ptr %ack_deadline_cb.i37.i, align 8
-  %cmp.not.i38.i = icmp eq ptr %32, null
+  %33 = load ptr, ptr %ack_deadline_cb.i37.i, align 8
+  %cmp.not.i38.i = icmp eq ptr %33, null
   br i1 %cmp.not.i38.i, label %if.end48, label %if.then.i39.i
 
 if.then.i39.i:                                    ; preds = %if.else.i
   %ack_deadline_cb_arg.i44.i = getelementptr inbounds i8, ptr %ackm, i64 2392
-  %33 = load ptr, ptr %ack_deadline_cb_arg.i44.i, align 8
-  call void %32(i64 %a.coerce.b.coerce.i.i, i32 noundef range(i32 0, 4) %bf.cast47, ptr noundef %33) #11
+  %34 = load ptr, ptr %ack_deadline_cb_arg.i44.i, align 8
+  call void %33(i64 %a.coerce.b.coerce.i.i, i32 noundef range(i32 0, 4) %bf.cast47, ptr noundef %34) #11
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then.i39.i, %if.else.i, %if.then.i.i42, %if.then28.i, %if.then.i.i.i, %if.then13.i, %if.then42, %if.end38
@@ -2384,8 +2384,8 @@ sw.bb:                                            ; preds = %if.end48
   %bf.clear55 = and i8 %bf.load49, 3
   %idxprom57 = zext nneg i8 %bf.clear55 to i64
   %arrayidx58 = getelementptr inbounds [3 x i64], ptr %rx_ect0, i64 0, i64 %idxprom57
-  %34 = load i64, ptr %arrayidx58, align 8
-  %inc = add i64 %34, 1
+  %35 = load i64, ptr %arrayidx58, align 8
+  %inc = add i64 %35, 1
   store i64 %inc, ptr %arrayidx58, align 8
   br label %return
 
@@ -2394,8 +2394,8 @@ sw.bb59:                                          ; preds = %if.end48
   %bf.clear62 = and i8 %bf.load49, 3
   %idxprom64 = zext nneg i8 %bf.clear62 to i64
   %arrayidx65 = getelementptr inbounds [3 x i64], ptr %rx_ect1, i64 0, i64 %idxprom64
-  %35 = load i64, ptr %arrayidx65, align 8
-  %inc66 = add i64 %35, 1
+  %36 = load i64, ptr %arrayidx65, align 8
+  %inc66 = add i64 %36, 1
   store i64 %inc66, ptr %arrayidx65, align 8
   br label %return
 
@@ -2404,8 +2404,8 @@ sw.bb67:                                          ; preds = %if.end48
   %bf.clear70 = and i8 %bf.load49, 3
   %idxprom72 = zext nneg i8 %bf.clear70 to i64
   %arrayidx73 = getelementptr inbounds [3 x i64], ptr %rx_ecnce, i64 0, i64 %idxprom72
-  %36 = load i64, ptr %arrayidx73, align 8
-  %inc74 = add i64 %36, 1
+  %37 = load i64, ptr %arrayidx73, align 8
+  %inc74 = add i64 %37, 1
   store i64 %inc74, ptr %arrayidx73, align 8
   br label %return
 
@@ -2767,13 +2767,13 @@ entry:
   %2 = icmp ugt i64 %1, 4611686018427387903
   %3 = shl i64 %1, 2
   %4 = call i64 @llvm.umax.i64(i64 %3, i64 1000000)
-  %a.coerce.b.coerce.i = select i1 %2, i64 -1, i64 %4
   %5 = load i64, ptr %rtt, align 8
-  %retval.sroa.0.0.i4 = call i64 @llvm.uadd.sat.i64(i64 %5, i64 %a.coerce.b.coerce.i)
+  %6 = call i64 @llvm.uadd.sat.i64(i64 %5, i64 %4)
+  %retval.sroa.0.0.i4 = select i1 %2, i64 -1, i64 %6
   %rx_max_ack_delay = getelementptr inbounds i8, ptr %ackm, i64 2352
-  %6 = load i64, ptr %rx_max_ack_delay, align 8
-  %cmp.i.not = icmp eq i64 %6, -1
-  %retval.sroa.0.0.i5 = call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i4, i64 %6)
+  %7 = load i64, ptr %rx_max_ack_delay, align 8
+  %cmp.i.not = icmp eq i64 %7, -1
+  %retval.sroa.0.0.i5 = call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i4, i64 %7)
   %retval.sroa.0.0 = select i1 %cmp.i.not, i64 %retval.sroa.0.0.i4, i64 %retval.sroa.0.0.i5
   ret i64 %retval.sroa.0.0
 }

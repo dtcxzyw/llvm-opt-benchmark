@@ -18588,12 +18588,12 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %85, %_ZNK5clang4Typ
   %.0.copyload.i.i.i.i.fr.i = freeze i64 %.sroa.082.0.copyload
   %115 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i, 7
   %.sink.i = select i1 %115, ptr %.sroa.283.0.copyload, ptr null
-  %116 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.384.0.copyload, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %117 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 1, ptr %117, align 1
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  store i8 1, ptr %116, align 1
   store ptr @.str.26, ptr %3, align 8
-  %118 = trunc nuw nsw i64 %116 to i16
+  %117 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.384.0.copyload, i1 false)
+  %118 = trunc nuw nsw i64 %117 to i16
   %119 = sub nsw i16 63, %118
   %120 = and i16 %119, 255
   %121 = or disjoint i16 %120, 256

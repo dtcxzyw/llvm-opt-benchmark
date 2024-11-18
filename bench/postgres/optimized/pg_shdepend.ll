@@ -155,8 +155,8 @@ define internal fastcc void @shdepChangeDep(ptr noundef %0, i32 noundef %1, i32 
   %9 = alloca [7 x i8], align 1
   %10 = tail call zeroext i1 @IsSharedRelation(i32 noundef %1) #8
   %11 = load i32, ptr @MyDatabaseId, align 4
-  %12 = zext i32 %11 to i64
   tail call void @shdepLockAndCheckObject(i32 noundef %3, i32 noundef %4)
+  %12 = zext i32 %11 to i64
   %13 = select i1 %10, i64 0, i64 %12
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %13) #8
   %14 = getelementptr inbounds i8, ptr %7, i64 72

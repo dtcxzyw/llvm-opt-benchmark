@@ -1595,8 +1595,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52: ; pr
   %spec.select.i = or i1 %293, %294
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %296 = load i32, ptr %295, align 4
-  %297 = zext i32 %296 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  %297 = zext i32 %296 to i64
   %298 = select i1 %spec.select.i, i64 %297, i64 0
   %299 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 32, ptr %299, align 8

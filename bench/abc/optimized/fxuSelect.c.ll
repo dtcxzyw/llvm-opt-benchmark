@@ -252,7 +252,7 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %85
-  %88 = sext i32 %.039.i.i.ph.ph to i64
+  %88 = zext nneg i32 %.039.i.i.ph.ph to i64
   %89 = getelementptr inbounds i32, ptr %4, i64 %88
   store i32 %79, ptr %89, align 4
   br label %.outer.outer.backedge
@@ -273,7 +273,7 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
 
 98:                                               ; preds = %96
   %99 = load i32, ptr %.043.i.i.ph, align 8
-  %100 = sext i32 %.039.i.i.ph.ph to i64
+  %100 = zext nneg i32 %.039.i.i.ph.ph to i64
   %101 = getelementptr inbounds i32, ptr %4, i64 %100
   store i32 %99, ptr %101, align 4
   br label %.outer.outer.backedge
@@ -512,7 +512,7 @@ define void @Fxu_MatrixGetDoubleVars(ptr nocapture noundef readnone %0, ptr noca
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26
-  %29 = sext i32 %.039.ph.ph to i64
+  %29 = zext nneg i32 %.039.ph.ph to i64
   %30 = getelementptr inbounds i32, ptr %2, i64 %29
   store i32 %20, ptr %30, align 4
   br label %.outer.outer.backedge
@@ -533,7 +533,7 @@ define void @Fxu_MatrixGetDoubleVars(ptr nocapture noundef readnone %0, ptr noca
 
 39:                                               ; preds = %37
   %40 = load i32, ptr %.043.ph, align 8
-  %41 = sext i32 %.039.ph.ph to i64
+  %41 = zext nneg i32 %.039.ph.ph to i64
   %42 = getelementptr inbounds i32, ptr %2, i64 %41
   store i32 %40, ptr %42, align 4
   br label %.outer.outer.backedge
@@ -654,7 +654,7 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %43
-  %46 = sext i32 %.039.i.ph.ph to i64
+  %46 = zext nneg i32 %.039.i.ph.ph to i64
   %47 = getelementptr inbounds i32, ptr %6, i64 %46
   store i32 %37, ptr %47, align 4
   br label %.outer.outer.backedge
@@ -675,7 +675,7 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 56:                                               ; preds = %54
   %57 = load i32, ptr %.043.i.ph, align 8
-  %58 = sext i32 %.039.i.ph.ph to i64
+  %58 = zext nneg i32 %.039.i.ph.ph to i64
   %59 = getelementptr inbounds i32, ptr %6, i64 %58
   store i32 %57, ptr %59, align 4
   br label %.outer.outer.backedge

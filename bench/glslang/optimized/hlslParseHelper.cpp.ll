@@ -53380,7 +53380,7 @@ define void @_ZN7glslang16HlslParseContext8paramFixERNS_5TTypeE(ptr nocapture no
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   %10 = and i32 %9, 127
-  switch i32 %10, label %113 [
+  switch i32 %10, label %114 [
     i32 2, label %11
     i32 1, label %20
     i32 0, label %20
@@ -53397,7 +53397,7 @@ define void @_ZN7glslang16HlslParseContext8paramFixERNS_5TTypeE(ptr nocapture no
   %18 = and i64 %17, -128
   %19 = or disjoint i64 %18, 19
   store i64 %19, ptr %16, align 8
-  br label %113
+  br label %114
 
 20:                                               ; preds = %2, %2
   %21 = load ptr, ptr %1, align 8
@@ -53409,7 +53409,7 @@ define void @_ZN7glslang16HlslParseContext8paramFixERNS_5TTypeE(ptr nocapture no
   %27 = and i64 %26, -128
   %28 = or disjoint i64 %27, 16
   store i64 %28, ptr %25, align 8
-  br label %113
+  br label %114
 
 _ZN7glslang16HlslParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1_b.exit: ; preds = %2
   %29 = load ptr, ptr %1, align 8
@@ -53463,7 +53463,6 @@ _ZN7glslang16HlslParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1
   %.not50.i = icmp eq i64 %55, 0
   %56 = and i64 %.sroa.2.0.copyload, -8071154219723194496
   %57 = or disjoint i64 %55, %56
-  %.sroa.2.0 = select i1 %.not50.i, i64 %.sroa.2.0.copyload, i64 %57
   %58 = getelementptr inbounds i8, ptr %52, i64 16
   %59 = load i8, ptr %58, align 8
   %60 = and i8 %59, 15
@@ -53500,24 +53499,24 @@ _ZN7glslang16HlslParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8
   %84 = and i64 %83, 127
-  %85 = and i64 %.sroa.2.0, -703687475265664
-  %86 = or disjoint i64 %84, %85
-  %87 = load ptr, ptr %1, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 80
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call noundef nonnull align 8 dereferenceable(80) ptr %89(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
-  %92 = load i64, ptr %91, align 8
-  %.lobit = and i64 %92, 140737488355328
-  %93 = or disjoint i64 %86, %.lobit
-  %94 = load ptr, ptr %1, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 80
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef nonnull align 8 dereferenceable(80) ptr %96(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
-  %99 = load i64, ptr %98, align 8
-  %.lobit11 = and i64 %99, 562949953421312
-  %100 = or disjoint i64 %93, %.lobit11
+  %85 = and i64 %.sroa.2.0.copyload, -703687475265664
+  %86 = select i1 %.not50.i, i64 %85, i64 %57
+  %87 = or disjoint i64 %84, %86
+  %88 = load ptr, ptr %1, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 80
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call noundef nonnull align 8 dereferenceable(80) ptr %90(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = load i64, ptr %92, align 8
+  %.lobit = and i64 %93, 140737488355328
+  %94 = or disjoint i64 %87, %.lobit
+  %95 = load ptr, ptr %1, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 80
+  %97 = load ptr, ptr %96, align 8
+  %98 = tail call noundef nonnull align 8 dereferenceable(80) ptr %97(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %100 = load i64, ptr %99, align 8
+  %.lobit11 = and i64 %100, 562949953421312
   %101 = load ptr, ptr %1, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 80
   %103 = load ptr, ptr %102, align 8
@@ -53525,31 +53524,32 @@ _ZN7glslang16HlslParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load i64, ptr %105, align 8
   %107 = and i64 %106, 33488896
-  %108 = or disjoint i64 %100, %107
-  %109 = load ptr, ptr %1, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 80
-  %111 = load ptr, ptr %110, align 8
-  %112 = tail call noundef nonnull align 8 dereferenceable(80) ptr %111(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
-  store ptr %.sroa.0.0.copyload, ptr %112, align 8
-  %.sroa.2.0..sroa_idx13 = getelementptr inbounds i8, ptr %112, i64 8
-  store i64 %108, ptr %.sroa.2.0..sroa_idx13, align 8
-  %.sroa.12.0..sroa_idx19 = getelementptr inbounds i8, ptr %112, i64 16
+  %108 = or disjoint i64 %94, %.lobit11
+  %109 = or disjoint i64 %108, %107
+  %110 = load ptr, ptr %1, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 80
+  %112 = load ptr, ptr %111, align 8
+  %113 = tail call noundef nonnull align 8 dereferenceable(80) ptr %112(ptr noundef nonnull align 8 dereferenceable(152) %1) #24
+  store ptr %.sroa.0.0.copyload, ptr %113, align 8
+  %.sroa.2.0..sroa_idx13 = getelementptr inbounds i8, ptr %113, i64 8
+  store i64 %109, ptr %.sroa.2.0..sroa_idx13, align 8
+  %.sroa.12.0..sroa_idx19 = getelementptr inbounds i8, ptr %113, i64 16
   store i8 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx19, align 8
-  %.sroa.14.0..sroa_idx21 = getelementptr inbounds i8, ptr %112, i64 17
+  %.sroa.14.0..sroa_idx21 = getelementptr inbounds i8, ptr %113, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.0..sroa_idx21, ptr noundef nonnull align 8 dereferenceable(7) %.sroa.14, i64 7, i1 false)
-  %.sroa.1422.0..sroa_idx23 = getelementptr inbounds i8, ptr %112, i64 24
+  %.sroa.1422.0..sroa_idx23 = getelementptr inbounds i8, ptr %113, i64 24
   store i32 %.sroa.1422.0, ptr %.sroa.1422.0..sroa_idx23, align 8
-  %.sroa.15.0..sroa_idx25 = getelementptr inbounds i8, ptr %112, i64 28
+  %.sroa.15.0..sroa_idx25 = getelementptr inbounds i8, ptr %113, i64 28
   store i64 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx25, align 4
-  %.sroa.17.0..sroa_idx27 = getelementptr inbounds i8, ptr %112, i64 36
+  %.sroa.17.0..sroa_idx27 = getelementptr inbounds i8, ptr %113, i64 36
   store i64 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx27, align 4
-  %.sroa.19.0..sroa_idx29 = getelementptr inbounds i8, ptr %112, i64 44
+  %.sroa.19.0..sroa_idx29 = getelementptr inbounds i8, ptr %113, i64 44
   store i8 %.sroa.19.0, ptr %.sroa.19.0..sroa_idx29, align 4
-  %.sroa.20.0..sroa_idx31 = getelementptr inbounds i8, ptr %112, i64 45
+  %.sroa.20.0..sroa_idx31 = getelementptr inbounds i8, ptr %113, i64 45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %.sroa.20.0..sroa_idx31, ptr noundef nonnull align 8 dereferenceable(35) %.sroa.20, i64 35, i1 false)
-  br label %113
+  br label %114
 
-113:                                              ; preds = %2, %_ZN7glslang16HlslParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1_b.exit, %20, %11
+114:                                              ; preds = %2, %_ZN7glslang16HlslParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1_b.exit, %20, %11
   ret void
 }
 

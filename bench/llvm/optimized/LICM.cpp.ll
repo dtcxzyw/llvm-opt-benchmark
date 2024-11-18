@@ -14813,13 +14813,13 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit211:    ; preds = %350, %362
   %370 = load i16, ptr %369, align 2
   %371 = and i16 %370, -1023
   %372 = or disjoint i16 %371, 128
-  %373 = select i1 %224, i16 %372, i16 %370
-  %374 = getelementptr inbounds nuw i8, ptr %351, i64 2
-  %375 = and i16 %373, -127
+  %373 = getelementptr inbounds nuw i8, ptr %351, i64 2
+  %374 = and i16 %370, -127
+  %375 = select i1 %224, i16 %372, i16 %374
   %.tr.i.i.i.i.i = zext nneg i8 %.sroa.0256.1.lcssa to i16
   %376 = shl nuw nsw i16 %.tr.i.i.i.i.i, 1
   %377 = or i16 %375, %376
-  store i16 %377, ptr %374, align 2
+  store i16 %377, ptr %373, align 2
   store ptr null, ptr %33, align 8
   call void @_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(72) %351, ptr noundef nonnull %33)
   %378 = load ptr, ptr %33, align 8

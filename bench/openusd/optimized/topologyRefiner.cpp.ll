@@ -1644,10 +1644,10 @@ define void @_ZN10OpenSubdiv6v3_6_03Far8internal11FeatureMask18InitializeFeature
   store i16 %24, ptr %0, align 4
   %25 = load i16, ptr %1, align 4
   %.lobit = and i16 %25, 512
-  %26 = xor i16 %.lobit, 1536
-  %27 = and i16 %24, -1537
-  %28 = select i1 %.not12, i16 1024, i16 %26
-  %29 = or disjoint i16 %28, %27
+  %26 = and i16 %24, -1537
+  %27 = xor i16 %.lobit, 1536
+  %28 = select i1 %.not12, i16 1024, i16 %27
+  %29 = or disjoint i16 %28, %26
   store i16 %29, ptr %0, align 4
   %30 = load i16, ptr %1, align 4
   %31 = shl i16 %30, 1

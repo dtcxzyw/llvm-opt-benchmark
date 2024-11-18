@@ -1092,8 +1092,8 @@ define internal i32 @chv_color_check(ptr noundef %0) #0 align 16 {
   %117 = lshr i64 %116, 1
   %118 = sub nsw i64 0, %117
   %119 = icmp slt i64 %113, 0
-  %120 = select i1 %119, i64 %118, i64 %117
-  %121 = tail call i64 @llvm.smax.i64(i64 %120, i64 -32768)
+  %120 = tail call i64 @llvm.smax.i64(i64 %118, i64 -32768)
+  %121 = select i1 %119, i64 %120, i64 %117
   %122 = tail call i64 @llvm.smin.i64(i64 %121, i64 32767)
   %123 = trunc nsw i64 %122 to i16
   %124 = getelementptr [9 x i16], ptr %107, i64 0, i64 %111
@@ -4562,8 +4562,8 @@ define internal i32 @vlv_color_check(ptr noundef %0) #0 align 16 {
   %88 = lshr i64 %87, 1
   %89 = sub nsw i64 0, %88
   %90 = icmp slt i64 %84, 0
-  %91 = select i1 %90, i64 %89, i64 %88
-  %92 = tail call i64 @llvm.smax.i64(i64 %91, i64 -2048)
+  %91 = tail call i64 @llvm.smax.i64(i64 %89, i64 -2048)
+  %92 = select i1 %90, i64 %91, i64 %88
   %93 = tail call i64 @llvm.smin.i64(i64 %92, i64 2047)
   %94 = trunc nsw i64 %93 to i16
   %95 = and i16 %94, 4095

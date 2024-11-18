@@ -592,8 +592,8 @@ return:                                           ; preds = %do.body2, %if.end14
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr nocapture readnone %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
-  %cmp52 = icmp sgt i64 %inleft, 0
-  br i1 %cmp52, label %while.body.preheader, label %return
+  %cmp45 = icmp sgt i64 %inleft, 0
+  br i1 %cmp45, label %while.body.preheader, label %return
 
 while.body.preheader:                             ; preds = %entry
   %.pre = load ptr, ptr %inbuf, align 8
@@ -601,7 +601,7 @@ while.body.preheader:                             ; preds = %entry
 
 while.body:                                       ; preds = %while.body.preheader, %while.cond.backedge
   %0 = phi ptr [ %add.ptr119, %while.cond.backedge ], [ %.pre, %while.body.preheader ]
-  %inleft.addr.053 = phi i64 [ %sub120, %while.cond.backedge ], [ %inleft, %while.body.preheader ]
+  %inleft.addr.046 = phi i64 [ %sub120, %while.cond.backedge ], [ %inleft, %while.body.preheader ]
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
   %cmp1 = icmp sgt i8 %1, -1
@@ -613,17 +613,17 @@ do.body:                                          ; preds = %while.body
   br i1 %cmp4, label %return, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %do.body, %do.body172, %do.body105
-  %.sink69 = phi i64 [ 8, %do.body105 ], [ 2, %do.body172 ], [ 1, %do.body ]
+  %.sink61 = phi i64 [ 8, %do.body105 ], [ 2, %do.body172 ], [ 1, %do.body ]
   %.sink = phi i64 [ -8, %do.body105 ], [ -2, %do.body172 ], [ -1, %do.body ]
   %2 = load ptr, ptr %inbuf, align 8
-  %add.ptr119 = getelementptr i8, ptr %2, i64 %.sink69
+  %add.ptr119 = getelementptr i8, ptr %2, i64 %.sink61
   store ptr %add.ptr119, ptr %inbuf, align 8
-  %sub120 = add nsw i64 %inleft.addr.053, %.sink
+  %sub120 = add nsw i64 %inleft.addr.046, %.sink
   %cmp = icmp sgt i64 %sub120, 0
   br i1 %cmp, label %while.body, label %return, !llvm.loop !9
 
 do.body10:                                        ; preds = %while.body
-  %cmp11 = icmp eq i64 %inleft.addr.053, 1
+  %cmp11 = icmp eq i64 %inleft.addr.046, 1
   br i1 %cmp11, label %return, label %do.end15
 
 do.end15:                                         ; preds = %do.body10
@@ -637,7 +637,7 @@ land.lhs.true:                                    ; preds = %do.end15
   br i1 %cmp21, label %do.body24, label %if.else122
 
 do.body24:                                        ; preds = %land.lhs.true
-  %cmp25 = icmp samesign ult i64 %inleft.addr.053, 8
+  %cmp25 = icmp samesign ult i64 %inleft.addr.046, 8
   br i1 %cmp25, label %return, label %do.end29
 
 do.end29:                                         ; preds = %do.body24
@@ -682,30 +682,30 @@ if.end58:                                         ; preds = %if.end44, %if.then5
   %12 = add i8 %11, 65
   %or.cond1 = icmp ult i8 %12, 21
   %sub68 = add nuw nsw i32 %conv60, 65345
-  %13 = and i32 %sub68, 65535
   %arrayidx70 = getelementptr i8, ptr %0, i64 7
-  %14 = load i8, ptr %arrayidx70, align 1
-  %conv71 = zext i8 %14 to i64
-  %cmp72 = icmp eq i8 %14, -44
+  %13 = load i8, ptr %arrayidx70, align 1
+  %conv71 = zext i8 %13 to i64
+  %cmp72 = icmp eq i8 %13, -44
   br i1 %cmp72, label %if.end91, label %if.else75
 
 if.else75:                                        ; preds = %if.end58
-  %15 = add i8 %14, 95
-  %or.cond2 = icmp ult i8 %15, 30
-  br i1 %or.cond2, label %if.then83, label %return
+  %14 = add i8 %13, 95
+  %or.cond2 = icmp ult i8 %14, 30
+  br i1 %or.cond2, label %if.then83, label %if.end91
 
 if.then83:                                        ; preds = %if.else75
   %sub85 = add nuw nsw i64 %conv71, 4294967135
   %idxprom86 = and i64 %sub85, 4294967295
   %arrayidx87 = getelementptr [30 x i8], ptr @cgk2u_jongseong, i64 0, i64 %idxprom86
-  %16 = load i8, ptr %arrayidx87, align 1
-  %17 = zext i8 %16 to i32
+  %15 = load i8, ptr %arrayidx87, align 1
+  %16 = zext i8 %15 to i32
   br label %if.end91
 
-if.end91:                                         ; preds = %if.end58, %if.then83
-  %jong.0 = phi i32 [ %17, %if.then83 ], [ 0, %if.end58 ]
+if.end91:                                         ; preds = %if.else75, %if.end58, %if.then83
+  %jong.0 = phi i32 [ %16, %if.then83 ], [ 0, %if.end58 ], [ 127, %if.else75 ]
   %cmp93 = icmp eq i32 %cho.0, 127
-  %conv96 = select i1 %or.cond1, i32 %13, i32 127
+  %17 = and i32 %sub68, 65535
+  %conv96 = select i1 %or.cond1, i32 %17, i32 127
   %cmp97 = icmp eq i32 %conv96, 127
   %or.cond3 = select i1 %cmp93, i1 true, i1 %cmp97
   %cmp101 = icmp eq i32 %jong.0, 127
@@ -760,8 +760,8 @@ do.body172:                                       ; preds = %land.lhs.true150
   %cmp174 = icmp slt i32 %call173, 0
   br i1 %cmp174, label %return, label %while.cond.backedge
 
-return:                                           ; preds = %do.body, %do.body10, %do.body24, %lor.lhs.false38, %lor.lhs.false, %do.end29, %if.end91, %do.body105, %do.body172, %land.lhs.true150, %land.lhs.true139, %land.lhs.true128, %if.else122, %while.cond.backedge, %if.else75, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ 1, %if.else75 ], [ 0, %while.cond.backedge ], [ 1, %if.else122 ], [ 1, %land.lhs.true128 ], [ 1, %land.lhs.true139 ], [ 1, %land.lhs.true150 ], [ -4, %do.body172 ], [ -4, %do.body105 ], [ 1, %if.end91 ], [ 1, %do.end29 ], [ 1, %lor.lhs.false ], [ 1, %lor.lhs.false38 ], [ -2, %do.body24 ], [ -2, %do.body10 ], [ -4, %do.body ]
+return:                                           ; preds = %do.body, %do.body10, %do.body24, %lor.lhs.false38, %lor.lhs.false, %do.end29, %if.end91, %do.body105, %do.body172, %land.lhs.true150, %land.lhs.true139, %land.lhs.true128, %if.else122, %while.cond.backedge, %entry
+  %retval.0 = phi i64 [ 0, %entry ], [ 0, %while.cond.backedge ], [ 1, %if.else122 ], [ 1, %land.lhs.true128 ], [ 1, %land.lhs.true139 ], [ 1, %land.lhs.true150 ], [ -4, %do.body172 ], [ -4, %do.body105 ], [ 1, %if.end91 ], [ 1, %do.end29 ], [ 1, %lor.lhs.false ], [ 1, %lor.lhs.false38 ], [ -2, %do.body24 ], [ -2, %do.body10 ], [ -4, %do.body ]
   ret i64 %retval.0
 }
 

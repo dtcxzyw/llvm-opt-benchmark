@@ -997,9 +997,9 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #3 section ".init.text
   %38 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
   %39 = and i64 %38, 2147483648
   %40 = icmp eq i64 %39, 0
-  %41 = select i1 %40, i32 3, i32 0
-  %42 = and i32 %17, 31
-  %43 = tail call i32 @llvm.umax.i32(i32 %42, i32 %41)
+  %41 = and i32 %17, 31
+  %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 3)
+  %43 = select i1 %40, i32 %42, i32 %41
   store i32 %43, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 160), align 8
   %44 = shl nsw i32 -1, %43
   %45 = xor i32 %44, -1

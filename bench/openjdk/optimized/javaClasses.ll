@@ -9595,103 +9595,103 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %520, %518, %3
 define linkonce_odr hidden void @_ZN16BacktraceBuilder4pushEP6MethodiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = alloca %class.methodHandle, align 8
   %6 = icmp eq i32 %2, -1
-  %7 = shl i32 %2, 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 52
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp sgt i32 %9, 31
-  br i1 %10, label %11, label %36
+  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp sgt i32 %8, 31
+  br i1 %9, label %10, label %35
 
-11:                                               ; preds = %4
+10:                                               ; preds = %4
   store ptr %1, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %3, ptr %12, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %3, ptr %11, align 8
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %_ZN12methodHandleC2EP6ThreadP6Method.exit, label %13
+  br i1 %.not.i, label %_ZN12methodHandleC2EP6ThreadP6Method.exit, label %12
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %3, i64 816
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %16, %18
-  br i1 %19, label %20, label %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds i8, ptr %3, i64 816
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 %15, %17
+  br i1 %18, label %19, label %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
 
-20:                                               ; preds = %13
-  %21 = add nsw i32 %16, 1
-  %22 = icmp sgt i32 %16, -1
-  %23 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %21)
-  %24 = icmp samesign ult i32 %23, 2
-  %or.cond.i.i.i.i.i.i = select i1 %22, i1 %24, i1 false
-  %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
-  %26 = sub nuw nsw i32 32, %25
-  %27 = shl nuw i32 1, %26
-  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %21, i32 %27
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %.0.i.i.i.i.i.i)
-  %.pre.i.i.i = load i32, ptr %15, align 8
+19:                                               ; preds = %12
+  %20 = add nsw i32 %15, 1
+  %21 = icmp sgt i32 %15, -1
+  %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
+  %23 = icmp samesign ult i32 %22, 2
+  %or.cond.i.i.i.i.i.i = select i1 %21, i1 %23, i1 false
+  %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
+  %25 = sub nuw nsw i32 32, %24
+  %26 = shl nuw i32 1, %25
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %20, i32 %26
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %.0.i.i.i.i.i.i)
+  %.pre.i.i.i = load i32, ptr %14, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
 
-_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i: ; preds = %20, %13
-  %28 = phi i32 [ %.pre.i.i.i, %20 ], [ %16, %13 ]
-  %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %15, align 8
-  %30 = getelementptr inbounds i8, ptr %15, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
-  store ptr %1, ptr %33, align 8
+_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i: ; preds = %19, %12
+  %27 = phi i32 [ %.pre.i.i.i, %19 ], [ %15, %12 ]
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %14, align 8
+  %29 = getelementptr inbounds i8, ptr %14, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = sext i32 %27 to i64
+  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  store ptr %1, ptr %32, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
-_ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %11, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
+_ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %10, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
   tail call void @_ZN16BacktraceBuilder6expandEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %.not = icmp eq ptr %35, null
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %.not = icmp eq ptr %34, null
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br i1 %.not, label %.thread, label %116
 
 .thread:                                          ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %.pre = load i32, ptr %8, align 4
-  br label %36
+  %.pre = load i32, ptr %7, align 4
+  br label %35
 
-36:                                               ; preds = %.thread, %4
-  %37 = phi i32 [ %.pre, %.thread ], [ %9, %4 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 50
-  %43 = load i16, ptr %42, align 2
-  %44 = load i8, ptr @UseCompressedClassPointers, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = ptrtoint ptr %39 to i64
-  %47 = select i1 %45, i64 16, i64 20
-  %48 = add nsw i64 %47, %46
-  %49 = inttoptr i64 %48 to ptr
-  %50 = sext i32 %37 to i64
-  %51 = getelementptr inbounds i16, ptr %49, i64 %50
-  store i16 %43, ptr %51, align 2
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %8, align 4
-  %55 = load ptr, ptr %40, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 64
-  %59 = load i32, ptr %58, align 8
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %59, i32 65535)
-  %60 = select i1 %6, i32 0, i32 %7
+35:                                               ; preds = %.thread, %4
+  %36 = phi i32 [ %.pre, %.thread ], [ %8, %4 ]
+  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 50
+  %42 = load i16, ptr %41, align 2
+  %43 = load i8, ptr @UseCompressedClassPointers, align 1
+  %44 = trunc i8 %43 to i1
+  %45 = ptrtoint ptr %38 to i64
+  %46 = select i1 %44, i64 16, i64 20
+  %47 = add nsw i64 %46, %45
+  %48 = inttoptr i64 %47 to ptr
+  %49 = sext i32 %36 to i64
+  %50 = getelementptr inbounds i16, ptr %48, i64 %49
+  store i16 %42, ptr %50, align 2
+  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %7, align 4
+  %54 = load ptr, ptr %39, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 64
+  %58 = load i32, ptr %57, align 8
+  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %58, i32 65535)
+  %59 = shl i32 %2, 16
+  %60 = select i1 %6, i32 0, i32 %59
   %61 = or disjoint i32 %spec.store.select.i, %60
   %62 = load i8, ptr @UseCompressedClassPointers, align 1
   %63 = trunc i8 %62 to i1
-  %64 = ptrtoint ptr %53 to i64
+  %64 = ptrtoint ptr %52 to i64
   %65 = select i1 %63, i64 16, i64 20
   %66 = add nsw i64 %65, %64
   %67 = inttoptr i64 %66 to ptr
-  %68 = sext i32 %54 to i64
+  %68 = sext i32 %53 to i64
   %69 = getelementptr inbounds i32, ptr %67, i64 %68
   store i32 %61, ptr %69, align 4
-  %70 = load ptr, ptr %40, align 8
+  %70 = load ptr, ptr %39, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %70, i64 36
@@ -9702,7 +9702,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %11, %_ZN26GrowableA
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 40
   %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %8, align 4
+  %81 = load i32, ptr %7, align 4
   %82 = load i8, ptr @UseCompressedClassPointers, align 1
   %83 = trunc i8 %82 to i1
   %84 = ptrtoint ptr %80 to i64
@@ -9714,8 +9714,8 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %11, %_ZN26GrowableA
   store ptr %78, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 32
   %91 = load ptr, ptr %90, align 8
-  %92 = load i32, ptr %8, align 4
-  %93 = load ptr, ptr %40, align 8
+  %92 = load i32, ptr %7, align 4
+  %93 = load ptr, ptr %39, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 24
@@ -9725,13 +9725,13 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %11, %_ZN26GrowableA
   %100 = icmp eq ptr %99, null
   br i1 %100, label %_ZNK5Klass11java_mirrorEv.exit, label %101
 
-101:                                              ; preds = %36
+101:                                              ; preds = %35
   %102 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %103 = call noundef ptr %102(ptr noundef nonnull %99) #19
   br label %_ZNK5Klass11java_mirrorEv.exit
 
-_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %36, %101
-  %104 = phi ptr [ %103, %101 ], [ null, %36 ]
+_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %35, %101
+  %104 = phi ptr [ %103, %101 ], [ null, %35 ]
   %105 = load i8, ptr @UseCompressedOops, align 1
   %106 = trunc i8 %105 to i1
   %107 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -9744,9 +9744,9 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %36, %101
   %112 = add nsw i64 %110, %111
   %113 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %113(ptr noundef nonnull align 8 dereferenceable(16) %91, i64 noundef %112, ptr noundef %104) #19
-  %114 = load i32, ptr %8, align 4
+  %114 = load i32, ptr %7, align 4
   %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %8, align 4
+  store i32 %115, ptr %7, align 4
   br label %116
 
 116:                                              ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit, %_ZNK5Klass11java_mirrorEv.exit

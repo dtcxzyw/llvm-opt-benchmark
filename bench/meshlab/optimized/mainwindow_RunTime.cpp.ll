@@ -38702,8 +38702,8 @@ define void @_ZN10MainWindow29computeRenderingDataOnLoadingEP9MeshModelbP15MLRen
   %31 = trunc i64 %30 to i32
   %32 = mul i32 %31, 5
   %33 = icmp ugt i32 %.0.lcssa, %32
-  %34 = and i64 %30, 4294967295
   call void @_ZN15MLRenderingDataC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  %34 = and i64 %30, 4294967295
   %35 = select i1 %33, i64 0, i64 %34
   invoke void @_ZN29MLPoliciesStandAloneFunctions36suggestedDefaultPerViewRenderingDataEP9MeshModelR15MLRenderingDatam(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 noundef %35)
           to label %36 unwind label %.loopexit.split-lp

@@ -392,12 +392,12 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %1 = trunc i64 %port to i32
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @qemu_spice, i64 16), align 8
-  %conv = select i1 %has_port, i32 %1, i32 -1
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @qemu_spice, i64 16), align 8
+  %2 = trunc i64 %port to i32
+  %conv = select i1 %has_port, i32 %2, i32 -1
   %3 = trunc i64 %tls_port to i32
   %conv14 = select i1 %has_tls_port, i32 %3, i32 -1
-  %call15 = tail call i32 %2(ptr noundef %hostname, i32 noundef %conv, i32 noundef %conv14, ptr noundef %cert_subject) #9
+  %call15 = tail call i32 %1(ptr noundef %hostname, i32 noundef %conv, i32 noundef %conv14, ptr noundef %cert_subject) #9
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return, label %if.then17
 

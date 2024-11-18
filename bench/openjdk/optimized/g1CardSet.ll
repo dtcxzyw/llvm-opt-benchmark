@@ -1052,9 +1052,8 @@ define hidden void @_ZN9G1CardSet10initializeE9MemRegion(ptr nocapture readnone 
   %or.cond.i = icmp eq i64 %13, 1
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
   %15 = sub nuw nsw i64 64, %14
-  %16 = shl nuw i64 1, %15
-  %.0.i = select i1 %or.cond.i, i64 %12, i64 %16
-  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i, i1 true)
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %12, i1 true)
+  %17 = select i1 %or.cond.i, i64 %16, i64 %15
   %18 = trunc nuw nsw i64 %17 to i32
   %19 = add i32 %6, 32
   %20 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4

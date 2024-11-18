@@ -280,7 +280,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.219 = private unnamed_addr constant [19 x i8] c"ff_pa_action_codes\00", align 1
 @ff_pa_action_codes_ext = hidden global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 39, ptr @ff_pa_action_codes, ptr @.str.219 }, align 8
 @bssid_broadcast.0 = internal unnamed_addr global i32 0, align 8
-@bssid_broadcast.1 = internal unnamed_addr global i1 false, align 8
+@bssid_broadcast.1 = internal unnamed_addr global i1 false, align 4
 @bssid_broadcast.2 = internal unnamed_addr global ptr null, align 8
 @dot11decrypt_ctx = global %struct._DOT11DECRYPT_CONTEXT zeroinitializer, align 8
 @hf_ieee80211_tag_oui = internal global i32 0, align 4
@@ -15158,7 +15158,7 @@ define range(i32 0, 2) i32 @is_broadcast_bssid(ptr nocapture noundef readonly %0
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
-  %.b = load i1, ptr @bssid_broadcast.1, align 8
+  %.b = load i1, ptr @bssid_broadcast.1, align 4
   %6 = select i1 %.b, i32 6, i32 0
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
@@ -22426,7 +22426,7 @@ define hidden void @proto_register_ieee80211() local_unnamed_addr #2 {
   %31 = tail call i32 @address_type_dissector_register(ptr noundef nonnull @.str.7197, ptr noundef nonnull @.str.7198, ptr noundef nonnull @ether_to_str, ptr noundef nonnull @ether_str_len, ptr noundef null, ptr noundef nonnull @wlan_bssid_col_filter_str, ptr noundef nonnull @ether_len, ptr noundef nonnull @ether_name_resolution_str, ptr noundef nonnull @ether_name_resolution_len) #22
   store i32 %31, ptr @wlan_bssid_address_type, align 4
   store i32 %31, ptr @bssid_broadcast.0, align 8
-  store i1 true, ptr @bssid_broadcast.1, align 8
+  store i1 true, ptr @bssid_broadcast.1, align 4
   store ptr @bssid_broadcast_data, ptr @bssid_broadcast.2, align 8
   %32 = tail call i32 @address_type_dissector_register(ptr noundef nonnull @.str.7199, ptr noundef nonnull @.str.7200, ptr noundef nonnull @ether_to_str, ptr noundef nonnull @ether_str_len, ptr noundef null, ptr noundef nonnull @wlan_ra_ta_col_filter_str, ptr noundef nonnull @ether_len, ptr noundef nonnull @ether_name_resolution_str, ptr noundef nonnull @ether_name_resolution_len) #22
   store i32 %32, ptr @wlan_ra_ta_address_type, align 4

@@ -14,9 +14,8 @@ define hidden noundef range(i64 42, 45) i64 @_Z26XPlatformAddressOffsetBitsv() l
   %or.cond.i = icmp eq i64 %3, 1
   %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
   %5 = sub nuw nsw i64 64, %4
-  %6 = shl nuw i64 1, %5
-  %.0.i = select i1 %or.cond.i, i64 %2, i64 %6
-  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i, i1 true)
+  %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %7 = select i1 %or.cond.i, i64 %6, i64 %5
   %8 = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 42)
   %9 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 44)
   ret i64 %9
@@ -30,9 +29,8 @@ define hidden noundef range(i64 42, 45) i64 @_Z29XPlatformAddressMetadataShiftv(
   %or.cond.i.i = icmp eq i64 %3, 1
   %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
   %5 = sub nuw nsw i64 64, %4
-  %6 = shl nuw i64 1, %5
-  %.0.i.i = select i1 %or.cond.i.i, i64 %2, i64 %6
-  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i.i, i1 true)
+  %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %7 = select i1 %or.cond.i.i, i64 %6, i64 %5
   %8 = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 42)
   %9 = tail call noundef range(i64 42, 45) i64 @llvm.umin.i64(i64 %8, i64 44)
   ret i64 %9

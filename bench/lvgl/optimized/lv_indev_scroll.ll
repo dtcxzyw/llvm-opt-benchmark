@@ -507,125 +507,125 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
   %69 = call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %.0136246) #5
   %70 = and i32 %69, 1
   %71 = icmp ne i32 %70, 0
-  %72 = trunc nuw i8 %..0139 to i1
-  %73 = and i32 %69, 2
-  %74 = icmp eq i32 %73, 0
-  %.0154 = select i1 %74, i8 0, i8 %..0139
-  %75 = and i32 %69, 4
-  %76 = icmp eq i32 %75, 0
-  %.0160 = select i1 %76, i8 0, i8 %.0152.
-  %77 = and i32 %69, 8
-  %78 = icmp eq i32 %77, 0
-  %.0158 = select i1 %78, i8 0, i8 %.0152.
-  %79 = call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %.0136246) #5
-  %.not173 = icmp eq i32 %79, 0
-  br i1 %.not173, label %.thread, label %80
+  %72 = and i32 %69, 2
+  %73 = icmp eq i32 %72, 0
+  %.0154 = select i1 %73, i8 0, i8 %..0139
+  %74 = and i32 %69, 4
+  %75 = icmp eq i32 %74, 0
+  %.0160 = select i1 %75, i8 0, i8 %.0152.
+  %76 = and i32 %69, 8
+  %77 = icmp eq i32 %76, 0
+  %.0158 = select i1 %77, i8 0, i8 %.0152.
+  %78 = call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %.0136246) #5
+  %.not173 = icmp eq i32 %78, 0
+  br i1 %.not173, label %.thread, label %79
 
-80:                                               ; preds = %66
-  %81 = call i32 @lv_obj_get_child_count(ptr noundef nonnull %.0136246) #5
-  %.not263 = icmp eq i32 %81, 0
+79:                                               ; preds = %66
+  %80 = call i32 @lv_obj_get_child_count(ptr noundef nonnull %.0136246) #5
+  %.not263 = icmp eq i32 %80, 0
   br i1 %.not263, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %80, %86
-  %.0135228 = phi i32 [ %87, %86 ], [ 0, %80 ]
-  %.1148227 = phi i32 [ %.3150, %86 ], [ 0, %80 ]
-  %82 = call ptr @lv_obj_get_child(ptr noundef nonnull %.0136246, i32 noundef %.0135228) #5
-  %83 = call zeroext i1 @lv_obj_has_flag(ptr noundef %82, i32 noundef 4096) #5
-  br i1 %83, label %84, label %86
+.lr.ph:                                           ; preds = %79, %85
+  %.0135228 = phi i32 [ %86, %85 ], [ 0, %79 ]
+  %.1148227 = phi i32 [ %.3150, %85 ], [ 0, %79 ]
+  %81 = call ptr @lv_obj_get_child(ptr noundef nonnull %.0136246, i32 noundef %.0135228) #5
+  %82 = call zeroext i1 @lv_obj_has_flag(ptr noundef %81, i32 noundef 4096) #5
+  br i1 %82, label %83, label %85
 
-84:                                               ; preds = %.lr.ph
-  %85 = icmp eq i32 %.1148227, 1
-  br i1 %85, label %._crit_edge.thread275, label %86
+83:                                               ; preds = %.lr.ph
+  %84 = icmp eq i32 %.1148227, 1
+  br i1 %84, label %._crit_edge.thread275, label %85
 
-86:                                               ; preds = %.lr.ph, %84
-  %.3150 = phi i32 [ 1, %84 ], [ %.1148227, %.lr.ph ]
-  %87 = add nuw i32 %.0135228, 1
-  %exitcond.not = icmp eq i32 %87, %81
+85:                                               ; preds = %.lr.ph, %83
+  %.3150 = phi i32 [ 1, %83 ], [ %.1148227, %.lr.ph ]
+  %86 = add nuw i32 %.0135228, 1
+  %exitcond.not = icmp eq i32 %86, %80
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %86
-  %88 = icmp ult i32 %.3150, 2
-  br i1 %88, label %.thread, label %._crit_edge.thread275
+._crit_edge:                                      ; preds = %85
+  %87 = icmp ult i32 %.3150, 2
+  br i1 %87, label %.thread, label %._crit_edge.thread275
 
-.thread:                                          ; preds = %80, %66, %._crit_edge
-  %89 = call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %.0136246) #5
-  %90 = call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %.0136246) #5
+.thread:                                          ; preds = %79, %66, %._crit_edge
+  %88 = call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %.0136246) #5
+  %89 = call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %.0136246) #5
+  %90 = icmp sgt i32 %88, 0
   %91 = icmp sgt i32 %89, 0
-  %92 = icmp sgt i32 %90, 0
   br label %._crit_edge.thread275
 
-._crit_edge.thread275:                            ; preds = %84, %._crit_edge, %.thread
-  %.2146 = phi i1 [ %91, %.thread ], [ false, %._crit_edge ], [ true, %84 ]
-  %.2143 = phi i1 [ %92, %.thread ], [ false, %._crit_edge ], [ true, %84 ]
-  %93 = call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %.0136246) #5
-  %.not174 = icmp eq i32 %93, 0
-  br i1 %.not174, label %.thread200, label %94
+._crit_edge.thread275:                            ; preds = %83, %._crit_edge, %.thread
+  %.2146 = phi i1 [ %90, %.thread ], [ false, %._crit_edge ], [ true, %83 ]
+  %.2143 = phi i1 [ %91, %.thread ], [ false, %._crit_edge ], [ true, %83 ]
+  %92 = call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %.0136246) #5
+  %.not174 = icmp eq i32 %92, 0
+  br i1 %.not174, label %.thread200, label %93
 
-94:                                               ; preds = %._crit_edge.thread275
-  %95 = call i32 @lv_obj_get_child_count(ptr noundef nonnull %.0136246) #5
-  %.not264 = icmp eq i32 %95, 0
+93:                                               ; preds = %._crit_edge.thread275
+  %94 = call i32 @lv_obj_get_child_count(ptr noundef nonnull %.0136246) #5
+  %.not264 = icmp eq i32 %94, 0
   br i1 %.not264, label %.thread200, label %.lr.ph236
 
-.lr.ph236:                                        ; preds = %94, %100
-  %.0234 = phi i32 [ %101, %100 ], [ 0, %94 ]
-  %.5233 = phi i32 [ %.7, %100 ], [ 0, %94 ]
-  %96 = call ptr @lv_obj_get_child(ptr noundef nonnull %.0136246, i32 noundef %.0234) #5
-  %97 = call zeroext i1 @lv_obj_has_flag(ptr noundef %96, i32 noundef 4096) #5
-  br i1 %97, label %98, label %100
+.lr.ph236:                                        ; preds = %93, %99
+  %.0234 = phi i32 [ %100, %99 ], [ 0, %93 ]
+  %.5233 = phi i32 [ %.7, %99 ], [ 0, %93 ]
+  %95 = call ptr @lv_obj_get_child(ptr noundef nonnull %.0136246, i32 noundef %.0234) #5
+  %96 = call zeroext i1 @lv_obj_has_flag(ptr noundef %95, i32 noundef 4096) #5
+  br i1 %96, label %97, label %99
 
-98:                                               ; preds = %.lr.ph236
-  %99 = icmp eq i32 %.5233, 1
-  br i1 %99, label %.thread283, label %100
+97:                                               ; preds = %.lr.ph236
+  %98 = icmp eq i32 %.5233, 1
+  br i1 %98, label %.thread283, label %99
 
-100:                                              ; preds = %.lr.ph236, %98
-  %.7 = phi i32 [ 1, %98 ], [ %.5233, %.lr.ph236 ]
-  %101 = add nuw i32 %.0234, 1
-  %exitcond268.not = icmp eq i32 %101, %95
+99:                                               ; preds = %.lr.ph236, %97
+  %.7 = phi i32 [ 1, %97 ], [ %.5233, %.lr.ph236 ]
+  %100 = add nuw i32 %.0234, 1
+  %exitcond268.not = icmp eq i32 %100, %94
   br i1 %exitcond268.not, label %._crit_edge237, label %.lr.ph236, !llvm.loop !36
 
-._crit_edge237:                                   ; preds = %100
-  %102 = icmp ult i32 %.7, 2
-  br i1 %102, label %.thread200, label %107
+._crit_edge237:                                   ; preds = %99
+  %101 = icmp ult i32 %.7, 2
+  br i1 %101, label %.thread200, label %106
 
-.thread200:                                       ; preds = %94, %._crit_edge.thread275, %._crit_edge237
-  %103 = call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %.0136246) #5
-  %104 = call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %.0136246) #5
+.thread200:                                       ; preds = %93, %._crit_edge.thread275, %._crit_edge237
+  %102 = call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %.0136246) #5
+  %103 = call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %.0136246) #5
+  %104 = icmp sgt i32 %102, 0
   %105 = icmp sgt i32 %103, 0
-  %106 = icmp sgt i32 %104, 0
-  br label %107
+  br label %106
 
-107:                                              ; preds = %._crit_edge237, %.thread200
-  %.2134 = phi i1 [ %105, %.thread200 ], [ false, %._crit_edge237 ]
-  %.2131 = phi i1 [ %106, %.thread200 ], [ false, %._crit_edge237 ]
+106:                                              ; preds = %._crit_edge237, %.thread200
+  %.2134 = phi i1 [ %104, %.thread200 ], [ false, %._crit_edge237 ]
+  %.2131 = phi i1 [ %105, %.thread200 ], [ false, %._crit_edge237 ]
   %or.cond9 = select i1 %.2134, i1 true, i1 %.2131
-  br i1 %or.cond9, label %.thread283, label %113
+  br i1 %or.cond9, label %.thread283, label %112
 
-.thread283:                                       ; preds = %98, %107
-  %108 = phi i1 [ %.2131, %107 ], [ true, %98 ]
-  %109 = phi i1 [ %.2134, %107 ], [ true, %98 ]
-  %110 = trunc nuw i8 %.0160 to i1
-  %111 = load i32, ptr %19, align 4
-  %.not175 = icmp sge i32 %111, %6
-  %or.cond185.not = select i1 %110, i1 %.not175, i1 false
-  %112 = trunc nuw i8 %.0158 to i1
-  %.not176 = icmp sle i32 %111, %20
-  %or.cond212.not = select i1 %112, i1 %.not176, i1 false
+.thread283:                                       ; preds = %97, %106
+  %107 = phi i1 [ %.2131, %106 ], [ true, %97 ]
+  %108 = phi i1 [ %.2134, %106 ], [ true, %97 ]
+  %109 = trunc nuw i8 %.0160 to i1
+  %110 = load i32, ptr %19, align 4
+  %.not175 = icmp sge i32 %110, %6
+  %or.cond185.not = select i1 %109, i1 %.not175, i1 false
+  %111 = trunc nuw i8 %.0158 to i1
+  %.not176 = icmp sle i32 %110, %20
+  %or.cond212.not = select i1 %111, i1 %.not176, i1 false
   %or.cond257 = select i1 %or.cond185.not, i1 true, i1 %or.cond212.not
   %spec.select259 = select i1 %or.cond257, i16 12, i16 %.0124251
   %spec.select260 = select i1 %or.cond257, ptr %.0136246, ptr %.0123252
-  br label %113
+  br label %112
 
-113:                                              ; preds = %.thread283, %107
-  %114 = phi i1 [ %.2131, %107 ], [ %108, %.thread283 ]
-  %115 = phi i1 [ %.2134, %107 ], [ %109, %.thread283 ]
-  %.3127 = phi i16 [ %.0124251, %107 ], [ %spec.select259, %.thread283 ]
-  %.3 = phi ptr [ %.0123252, %107 ], [ %spec.select260, %.thread283 ]
+112:                                              ; preds = %.thread283, %106
+  %113 = phi i1 [ %.2131, %106 ], [ %107, %.thread283 ]
+  %114 = phi i1 [ %.2134, %106 ], [ %108, %.thread283 ]
+  %.3127 = phi i16 [ %.0124251, %106 ], [ %spec.select259, %.thread283 ]
+  %.3 = phi ptr [ %.0123252, %106 ], [ %spec.select260, %.thread283 ]
   %or.cond11 = select i1 %.2146, i1 true, i1 %.2143
   %.pre270 = load i32, ptr %3, align 8
-  br i1 %or.cond11, label %116, label %.thread297
+  br i1 %or.cond11, label %115, label %.thread297
 
-116:                                              ; preds = %113
-  %117 = select i1 %71, i1 %72, i1 false
+115:                                              ; preds = %112
+  %116 = trunc nuw i8 %..0139 to i1
+  %117 = select i1 %71, i1 %116, i1 false
   %.not177 = icmp sge i32 %.pre270, %6
   %or.cond187.not = select i1 %117, i1 %.not177, i1 false
   %118 = trunc nuw i8 %.0154 to i1
@@ -639,18 +639,18 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
   %or.cond190.not = select i1 %119, i1 %.not179, i1 false
   br i1 %or.cond190.not, label %129, label %120
 
-120:                                              ; preds = %116
+120:                                              ; preds = %115
   %121 = trunc nuw i8 %.0154 to i1
   %122 = select i1 %.2143, i1 %121, i1 false
   %.not180 = icmp sle i32 %.pre270, %20
   %or.cond216.not = select i1 %122, i1 %.not180, i1 false
   br i1 %or.cond216.not, label %129, label %.thread297
 
-.thread297:                                       ; preds = %113, %120
-  %.4128293303 = phi i16 [ %spec.select261, %120 ], [ %.3127, %113 ]
-  %.4295302 = phi ptr [ %spec.select262, %120 ], [ %.3, %113 ]
+.thread297:                                       ; preds = %112, %120
+  %.4128293303 = phi i16 [ %spec.select261, %120 ], [ %.3127, %112 ]
+  %.4295302 = phi ptr [ %spec.select262, %120 ], [ %.3, %112 ]
   %123 = trunc nuw i8 %.0160 to i1
-  %124 = select i1 %115, i1 %123, i1 false
+  %124 = select i1 %114, i1 %123, i1 false
   %125 = load i32, ptr %19, align 4
   %.not181 = icmp sge i32 %125, %6
   %or.cond192.not = select i1 %124, i1 %.not181, i1 false
@@ -658,14 +658,14 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
 
 126:                                              ; preds = %.thread297
   %127 = trunc nuw i8 %.0158 to i1
-  %128 = select i1 %114, i1 %127, i1 false
+  %128 = select i1 %113, i1 %127, i1 false
   %.not182 = icmp sle i32 %125, %20
   %or.cond218.not = select i1 %128, i1 %.not182, i1 false
   br i1 %or.cond218.not, label %129, label %135
 
-129:                                              ; preds = %126, %120, %.thread297, %116
-  %.4296 = phi ptr [ %.4295302, %126 ], [ %spec.select262, %120 ], [ %.4295302, %.thread297 ], [ %spec.select262, %116 ]
-  %.4128294 = phi i16 [ %.4128293303, %126 ], [ %spec.select261, %120 ], [ %.4128293303, %.thread297 ], [ %spec.select261, %116 ]
+129:                                              ; preds = %126, %120, %.thread297, %115
+  %.4296 = phi ptr [ %.4295302, %126 ], [ %spec.select262, %120 ], [ %.4295302, %.thread297 ], [ %spec.select262, %115 ]
+  %.4128294 = phi i16 [ %.4128293303, %126 ], [ %spec.select261, %120 ], [ %.4128293303, %.thread297 ], [ %spec.select261, %115 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %131 = select i1 %68, i16 3, i16 12
   %132 = load i16, ptr %130, align 4

@@ -2226,10 +2226,9 @@ if.end10:                                         ; preds = %if.end
   %6 = load i8, ptr %call13, align 8
   %7 = add i8 %6, -109
   %8 = icmp ult i8 %7, 11
-  %9 = ptrtoint ptr %call13 to i64
-  %10 = load i32, ptr %Size.i.i5, align 8
-  %11 = load i32, ptr %Capacity.i.i6, align 4
-  %cmp.not.i7 = icmp ult i32 %10, %11
+  %9 = load i32, ptr %Size.i.i5, align 8
+  %10 = load i32, ptr %Capacity.i.i6, align 4
+  %cmp.not.i7 = icmp ult i32 %9, %10
   br i1 %cmp.not.i7, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit14, label %if.then.i8
 
 if.then.i8:                                       ; preds = %if.end10
@@ -2238,11 +2237,12 @@ if.then.i8:                                       ; preds = %if.end10
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit14
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit14: ; preds = %if.end10, %if.then.i8
-  %12 = phi i32 [ %.pre.i10, %if.then.i8 ], [ %10, %if.end10 ]
-  %13 = load ptr, ptr %caseLiterals, align 8
-  %conv.i3.i11 = zext i32 %12 to i64
-  %add.ptr.i.i12 = getelementptr inbounds ptr, ptr %13, i64 %conv.i3.i11
-  %14 = select i1 %8, i64 %9, i64 0
+  %11 = phi i32 [ %.pre.i10, %if.then.i8 ], [ %9, %if.end10 ]
+  %12 = load ptr, ptr %caseLiterals, align 8
+  %conv.i3.i11 = zext i32 %11 to i64
+  %add.ptr.i.i12 = getelementptr inbounds ptr, ptr %12, i64 %conv.i3.i11
+  %13 = ptrtoint ptr %call13 to i64
+  %14 = select i1 %8, i64 %13, i64 0
   store i64 %14, ptr %add.ptr.i.i12, align 1
   br label %for.inc
 

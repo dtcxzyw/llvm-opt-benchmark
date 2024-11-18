@@ -601,14 +601,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
 
 35:                                               ; preds = %33
   %36 = add nsw i32 %13, -1
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = select i1 %1, i64 %37, i64 0
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = zext nneg i32 %36 to i64
+  %40 = select i1 %1, i64 %39, i64 0
   br i1 %19, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %35
-  %41 = getelementptr inbounds %"class.cv::Point_.0", ptr %39, i64 %40
+  %41 = getelementptr inbounds %"class.cv::Point_.0", ptr %38, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = sitofp i32 %42 to float
   %44 = getelementptr inbounds i8, ptr %41, i64 4
@@ -618,7 +618,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %35
-  %47 = getelementptr inbounds %"class.cv::Point_", ptr %39, i64 %40
+  %47 = getelementptr inbounds %"class.cv::Point_", ptr %38, i64 %40
   %48 = load float, ptr %47, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %47, i64 4
   %49 = load float, ptr %.sroa_idx, align 4
@@ -630,7 +630,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %.03855.us = phi double [ 0.000000e+00, %.lr.ph.split.us.preheader ], [ %58, %.lr.ph.split.us ]
   %.sroa.050.153.us = phi float [ %48, %.lr.ph.split.us.preheader ], [ %51, %.lr.ph.split.us ]
   %.sroa.451.152.us = phi float [ %49, %.lr.ph.split.us.preheader ], [ %52, %.lr.ph.split.us ]
-  %50 = getelementptr inbounds %"class.cv::Point_", ptr %39, i64 %indvars.iv59
+  %50 = getelementptr inbounds %"class.cv::Point_", ptr %38, i64 %indvars.iv59
   %51 = load float, ptr %50, align 4
   %.sroa_idx47.us = getelementptr inbounds i8, ptr %50, i64 4
   %52 = load float, ptr %.sroa_idx47.us, align 4
@@ -650,7 +650,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %.03855 = phi double [ 0.000000e+00, %.lr.ph.split.preheader ], [ %70, %.lr.ph.split ]
   %.sroa.050.153 = phi float [ %43, %.lr.ph.split.preheader ], [ %61, %.lr.ph.split ]
   %.sroa.451.152 = phi float [ %46, %.lr.ph.split.preheader ], [ %64, %.lr.ph.split ]
-  %59 = getelementptr inbounds %"class.cv::Point_.0", ptr %39, i64 %indvars.iv
+  %59 = getelementptr inbounds %"class.cv::Point_.0", ptr %38, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = sitofp i32 %60 to float
   %62 = getelementptr inbounds i8, ptr %59, i64 4

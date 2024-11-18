@@ -122,10 +122,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8overflowEv.exit: ; preds = %
   br label %62
 
 55:                                               ; preds = %41
-  %56 = lshr i32 %45, 13
-  %57 = shl nuw nsw i32 %spec.select38, 10
-  %58 = select i1 %.not, i32 %56, i32 0
-  %59 = or i32 %58, %57
+  %56 = shl nuw nsw i32 %spec.select38, 10
+  %57 = lshr i32 %45, 13
+  %58 = select i1 %.not, i32 %57, i32 0
+  %59 = or i32 %58, %56
   %60 = or i32 %59, %4
   %61 = trunc nuw i32 %60 to i16
   br label %62

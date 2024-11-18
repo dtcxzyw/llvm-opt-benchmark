@@ -274,34 +274,34 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 156:                                              ; preds = %153
   %157 = mul nsw i32 %148, %148
   %158 = add nuw nsw i32 %157, 1
-  %159 = zext nneg i32 %158 to i64
-  br i1 %41, label %160, label %161
+  br i1 %41, label %159, label %160
 
-160:                                              ; preds = %156
+159:                                              ; preds = %156
   tail call void @dlaset_(ptr noundef nonnull @.str.5, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull @c_b17, ptr noundef nonnull @c_b18, ptr noundef %4, ptr noundef nonnull %5) #4
-  br label %161
+  br label %160
 
-161:                                              ; preds = %160, %156
-  %162 = tail call double @dlanst_(ptr noundef nonnull @.str.6, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #4
-  store double %162, ptr %16, align 8, !tbaa !9
-  %163 = fcmp oeq double %162, 0.000000e+00
-  br i1 %163, label %.loopexit34, label %164
+160:                                              ; preds = %159, %156
+  %161 = tail call double @dlanst_(ptr noundef nonnull @.str.6, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #4
+  store double %161, ptr %16, align 8, !tbaa !9
+  %162 = fcmp oeq double %161, 0.000000e+00
+  br i1 %162, label %.loopexit34, label %163
 
-164:                                              ; preds = %161
-  %165 = tail call double @dlamch_(ptr noundef nonnull @.str.7) #4
-  %166 = getelementptr i8, ptr %22, i64 8
-  %167 = load i32, ptr %1, align 4, !tbaa !3
-  %168 = icmp slt i32 %167, 1
-  br i1 %168, label %.loopexit35, label %169
+163:                                              ; preds = %160
+  %164 = tail call double @dlamch_(ptr noundef nonnull @.str.7) #4
+  %165 = getelementptr i8, ptr %22, i64 8
+  %166 = load i32, ptr %1, align 4, !tbaa !3
+  %167 = icmp slt i32 %166, 1
+  br i1 %167, label %.loopexit35, label %168
 
-169:                                              ; preds = %164
-  %170 = select i1 %40, i64 %159, i64 1
+168:                                              ; preds = %163
+  %169 = zext nneg i32 %158 to i64
+  %170 = select i1 %40, i64 %169, i64 1
   %171 = getelementptr inbounds double, ptr %23, i64 %170
   %172 = add i32 %19, 1
   br label %173
 
-173:                                              ; preds = %208, %169
-  %174 = phi i32 [ 1, %169 ], [ %209, %208 ]
+173:                                              ; preds = %208, %168
+  %174 = phi i32 [ 1, %168 ], [ %209, %208 ]
   %175 = sext i32 %174 to i64
   br label %176
 
@@ -319,7 +319,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %185 = fneg double %183
   %186 = select i1 %184, double %183, double %185
   %187 = call double @sqrt(double noundef %186) #4
-  %188 = fmul double %165, %187
+  %188 = fmul double %164, %187
   %189 = add nsw i64 %177, 1
   %190 = getelementptr double, ptr %2, i64 %177
   %191 = load double, ptr %190, align 8, !tbaa !9
@@ -412,7 +412,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dsteqr_(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef nonnull %244, ptr noundef nonnull %245, ptr noundef %6, ptr noundef nonnull %14, ptr noundef %249, ptr noundef nonnull %10) #4
   %250 = mul nsw i32 %174, %19
   %251 = sext i32 %250 to i64
-  %252 = getelementptr double, ptr %166, i64 %251
+  %252 = getelementptr double, ptr %165, i64 %251
   call void @dlacpy_(ptr noundef nonnull @.str.9, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef %252, ptr noundef nonnull %5, ptr noundef nonnull %171, ptr noundef nonnull %1) #4
   call void @dgemm_(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull @c_b18, ptr noundef nonnull %171, ptr noundef nonnull %1, ptr noundef %6, ptr noundef nonnull %14, ptr noundef nonnull @c_b17, ptr noundef %252, ptr noundef nonnull %5) #4
   br label %258
@@ -445,9 +445,9 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.pre = load i32, ptr %15, align 4, !tbaa !3
   br label %.loopexit35
 
-.loopexit35:                                      ; preds = %.loopexit35.loopexit, %164
-  %266 = phi i32 [ %.sink, %164 ], [ %.pre, %.loopexit35.loopexit ]
-  %267 = phi i32 [ %167, %164 ], [ %210, %.loopexit35.loopexit ]
+.loopexit35:                                      ; preds = %.loopexit35.loopexit, %163
+  %266 = phi i32 [ %.sink, %163 ], [ %.pre, %.loopexit35.loopexit ]
+  %267 = phi i32 [ %166, %163 ], [ %210, %.loopexit35.loopexit ]
   %268 = icmp eq i32 %266, 0
   br i1 %268, label %269, label %270
 
@@ -509,10 +509,10 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %279, ptr %305, align 8, !tbaa !9
   store double %300, ptr %278, align 8, !tbaa !9
   %306 = mul nsw i64 %277, %273
-  %307 = getelementptr double, ptr %166, i64 %306
+  %307 = getelementptr double, ptr %165, i64 %306
   %308 = mul nsw i32 %299, %19
   %309 = sext i32 %308 to i64
-  %310 = getelementptr double, ptr %166, i64 %309
+  %310 = getelementptr double, ptr %165, i64 %309
   call void @dswap_(ptr noundef nonnull %1, ptr noundef %307, ptr noundef nonnull @c__1, ptr noundef %310, ptr noundef nonnull @c__1) #4
   %.pre63 = load i32, ptr %12, align 4, !tbaa !3
   br label %311
@@ -524,7 +524,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %315 = icmp slt i64 %276, %314
   br i1 %315, label %274, label %.loopexit34, !llvm.loop !13
 
-.loopexit34:                                      ; preds = %311, %270, %269, %261, %229, %161, %155, %152
+.loopexit34:                                      ; preds = %311, %270, %269, %261, %229, %160, %155, %152
   %316 = sitofp i32 %.ph22 to double
   store double %316, ptr %6, align 8, !tbaa !9
   store i32 %.ph23, ptr %8, align 4, !tbaa !3

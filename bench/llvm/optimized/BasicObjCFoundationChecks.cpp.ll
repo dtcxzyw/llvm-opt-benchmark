@@ -7752,15 +7752,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit60.i:             ; preds = %286, %284
   %.not17.i.i = icmp eq i64 %357, 0
   %358 = shl i64 %356, 5
   %359 = and i64 %358, 8589934592
-  %360 = xor i64 %359, 56100862820352
-  %361 = and i64 %355, -140732121603582
-  %362 = select i1 %.not17.i.i, i64 56092272885760, i64 %360
+  %360 = and i64 %355, -140732121603582
+  %361 = xor i64 %359, 56100862820352
+  %362 = select i1 %.not17.i.i, i64 56092272885760, i64 %361
   %363 = getelementptr inbounds nuw i8, ptr %297, i64 88
   %364 = load i64, ptr %363, align 8
   %365 = shl i64 %364, 37
   %366 = and i64 %365, 70368744177664
   %367 = or disjoint i64 %362, %366
-  %368 = or disjoint i64 %367, %361
+  %368 = or disjoint i64 %367, %360
   store i64 %368, ptr %18, align 8
   store ptr null, ptr %154, align 8
   store i8 1, ptr %155, align 8

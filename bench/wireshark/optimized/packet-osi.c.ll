@@ -228,8 +228,8 @@ define hidden range(i32 0, 2) i32 @osi_check_and_get_checksum(ptr noundef %0, i3
   %41 = srem i32 %spec.select, 255
   %42 = srem i32 %.0, 255
   %43 = icmp eq i32 %41, 0
-  %44 = shl nsw i32 %41, 8
   %spec.store.select2 = tail call i32 @llvm.umax.i32(i32 %42, i32 1)
+  %44 = shl nsw i32 %41, 8
   %45 = select i1 %43, i32 65280, i32 %44
   %46 = and i32 %spec.store.select2, 255
   %47 = or disjoint i32 %45, %46

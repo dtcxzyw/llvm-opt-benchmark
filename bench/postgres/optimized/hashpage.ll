@@ -885,51 +885,51 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %64 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 true)
   %65 = xor i32 %64, 31
   %66 = shl nuw i32 2, %65
-  %.0.i = select i1 %63, i32 %61, i32 %66
-  %67 = add i32 %.0.i, -1
-  %68 = getelementptr i8, ptr %.0.i.i, i64 52
-  store i32 %67, ptr %68, align 4
-  %69 = lshr i32 %67, 1
-  %70 = getelementptr i8, ptr %.0.i.i, i64 56
-  store i32 %69, ptr %70, align 8
-  %71 = getelementptr i8, ptr %.0.i.i, i64 76
-  %72 = ptrtoint ptr %71 to i64
-  %73 = and i64 %72, 7
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %75, label %84
+  %67 = add i32 %66, -1
+  %68 = select i1 %63, i32 %.0, i32 %67
+  %69 = getelementptr i8, ptr %.0.i.i, i64 52
+  store i32 %68, ptr %69, align 4
+  %70 = lshr i32 %68, 1
+  %71 = getelementptr i8, ptr %.0.i.i, i64 56
+  store i32 %70, ptr %71, align 8
+  %72 = getelementptr i8, ptr %.0.i.i, i64 76
+  %73 = ptrtoint ptr %72 to i64
+  %74 = and i64 %73, 7
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %76, label %85
 
-75:                                               ; preds = %31
-  %76 = getelementptr i8, ptr %.0.i.i, i64 468
-  %77 = icmp ult ptr %71, %76
-  br i1 %77, label %.lr.ph.preheader, label %.loopexit
+76:                                               ; preds = %31
+  %77 = getelementptr i8, ptr %.0.i.i, i64 468
+  %78 = icmp ult ptr %72, %77
+  br i1 %78, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %75
-  %78 = add i64 %.0.i.i84, 468
-  %79 = add i64 %.0.i.i84, 84
-  %umax = tail call i64 @llvm.umax.i64(i64 %78, i64 %79)
-  %80 = add i64 %umax, -77
-  %81 = sub i64 %80, %.0.i.i84
-  %82 = and i64 %81, -8
-  %83 = add i64 %82, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %71, i8 0, i64 %83, i1 false)
+.lr.ph.preheader:                                 ; preds = %76
+  %79 = add i64 %.0.i.i84, 468
+  %80 = add i64 %.0.i.i84, 84
+  %umax = tail call i64 @llvm.umax.i64(i64 %79, i64 %80)
+  %81 = add i64 %umax, -77
+  %82 = sub i64 %81, %.0.i.i84
+  %83 = and i64 %82, -8
+  %84 = add i64 %83, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %72, i8 0, i64 %84, i1 false)
   br label %.loopexit
 
-84:                                               ; preds = %31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(392) %71, i8 0, i64 392, i1 false)
+85:                                               ; preds = %31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(392) %72, i8 0, i64 392, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %75, %84
-  %85 = getelementptr i8, ptr %.0.i.i, i64 468
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %85, i8 0, i64 4096, i1 false)
-  %86 = zext i32 %16 to i64
-  %87 = getelementptr [98 x i32], ptr %71, i64 0, i64 %86
-  store i32 1, ptr %87, align 4
-  %88 = getelementptr i8, ptr %.0.i.i, i64 60
-  store i32 %16, ptr %88, align 4
-  %89 = getelementptr i8, ptr %.0.i.i, i64 64
-  store i32 0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
-  store i16 4568, ptr %90, align 4
+.loopexit:                                        ; preds = %.lr.ph.preheader, %76, %85
+  %86 = getelementptr i8, ptr %.0.i.i, i64 468
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %86, i8 0, i64 4096, i1 false)
+  %87 = zext i32 %16 to i64
+  %88 = getelementptr [98 x i32], ptr %72, i64 0, i64 %87
+  store i32 1, ptr %88, align 4
+  %89 = getelementptr i8, ptr %.0.i.i, i64 60
+  store i32 %16, ptr %89, align 4
+  %90 = getelementptr i8, ptr %.0.i.i, i64 64
+  store i32 0, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  store i16 4568, ptr %91, align 4
   ret void
 }
 

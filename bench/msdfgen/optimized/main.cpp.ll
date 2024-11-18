@@ -2065,13 +2065,13 @@ lor.lhs.false.i:                                  ; preds = %for.cond.i
   %161 = add i8 %160, -97
   %or.cond.i.i = icmp ult i8 %161, 26
   %add.i.i = add nsw i8 %160, -32
-  %cond.i.i = select i1 %or.cond.i.i, i8 %add.i.i, i8 %160
+  %conv5.i.i = select i1 %or.cond.i.i, i8 %add.i.i, i8 %160
   %162 = load i8, ptr %b.0.i, align 1
   %163 = add i8 %162, -97
   %or.cond.i9.i = icmp ult i8 %163, 26
   %add.i10.i = add nsw i8 %162, -32
-  %cond.i11.i = select i1 %or.cond.i9.i, i8 %add.i10.i, i8 %162
-  %cmp9.not.i = icmp eq i8 %cond.i.i, %cond.i11.i
+  %conv5.i11.i = select i1 %or.cond.i9.i, i8 %add.i10.i, i8 %162
+  %cmp9.not.i = icmp eq i8 %conv5.i.i, %conv5.i11.i
   br i1 %cmp9.not.i, label %for.cond.i, label %if.end1034, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit:                     ; preds = %for.cond.i
@@ -3203,13 +3203,13 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i
   %282 = add i8 %281, -97
   %or.cond.i.i.i = icmp ult i8 %282, 26
   %add.i.i.i = add nsw i8 %281, -32
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %281
+  %conv5.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %281
   %283 = load i8, ptr %b.0.i.i, align 1
   %284 = add i8 %283, -97
   %or.cond.i9.i.i = icmp ult i8 %284, 26
   %add.i10.i.i = add nsw i8 %283, -32
-  %cond.i11.i.i = select i1 %or.cond.i9.i.i, i8 %add.i10.i.i, i8 %283
-  %cmp9.not.i.i = icmp eq i8 %cond.i.i.i, %cond.i11.i.i
+  %conv5.i11.i.i = select i1 %or.cond.i9.i.i, i8 %add.i10.i.i, i8 %283
+  %cmp9.not.i.i = icmp eq i8 %conv5.i.i.i, %conv5.i11.i.i
   br i1 %cmp9.not.i.i, label %for.cond.i.i, label %for.cond.i62.i.preheader, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit.i:                   ; preds = %for.cond.i.i
@@ -3233,13 +3233,13 @@ lor.lhs.false.i70.i:                              ; preds = %for.cond.i62.i
   %286 = add i8 %285, -97
   %or.cond.i.i71.i = icmp ult i8 %286, 26
   %add.i.i72.i = add nsw i8 %285, -32
-  %cond.i.i73.i = select i1 %or.cond.i.i71.i, i8 %add.i.i72.i, i8 %285
+  %conv5.i.i73.i = select i1 %or.cond.i.i71.i, i8 %add.i.i72.i, i8 %285
   %287 = load i8, ptr %b.0.i65.i, align 1
   %288 = add i8 %287, -97
   %or.cond.i9.i74.i = icmp ult i8 %288, 26
   %add.i10.i75.i = add nsw i8 %287, -32
-  %cond.i11.i76.i = select i1 %or.cond.i9.i74.i, i8 %add.i10.i75.i, i8 %287
-  %cmp9.not.i77.i = icmp eq i8 %cond.i.i73.i, %cond.i11.i76.i
+  %conv5.i11.i76.i = select i1 %or.cond.i9.i74.i, i8 %add.i10.i75.i, i8 %287
+  %cmp9.not.i77.i = icmp eq i8 %conv5.i.i73.i, %conv5.i11.i76.i
   br i1 %cmp9.not.i77.i, label %for.cond.i62.i, label %for.cond.i84.i.preheader, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit79.i:                 ; preds = %for.cond.i62.i
@@ -3263,13 +3263,13 @@ lor.lhs.false.i92.i:                              ; preds = %for.cond.i84.i
   %290 = add i8 %289, -97
   %or.cond.i.i93.i = icmp ult i8 %290, 26
   %add.i.i94.i = add nsw i8 %289, -32
-  %cond.i.i95.i = select i1 %or.cond.i.i93.i, i8 %add.i.i94.i, i8 %289
+  %conv5.i.i95.i = select i1 %or.cond.i.i93.i, i8 %add.i.i94.i, i8 %289
   %291 = load i8, ptr %b.0.i87.i, align 1
   %292 = add i8 %291, -97
   %or.cond.i9.i96.i = icmp ult i8 %292, 26
   %add.i10.i97.i = add nsw i8 %291, -32
-  %cond.i11.i98.i = select i1 %or.cond.i9.i96.i, i8 %add.i10.i97.i, i8 %291
-  %cmp9.not.i99.i = icmp eq i8 %cond.i.i95.i, %cond.i11.i98.i
+  %conv5.i11.i98.i = select i1 %or.cond.i9.i96.i, i8 %add.i10.i97.i, i8 %291
+  %cmp9.not.i99.i = icmp eq i8 %conv5.i.i95.i, %conv5.i11.i98.i
   br i1 %cmp9.not.i99.i, label %for.cond.i84.i, label %for.cond.i106.i.preheader, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit101.i:                ; preds = %for.cond.i84.i
@@ -3293,13 +3293,13 @@ lor.lhs.false.i114.i:                             ; preds = %for.cond.i106.i
   %294 = add i8 %293, -97
   %or.cond.i.i115.i = icmp ult i8 %294, 26
   %add.i.i116.i = add nsw i8 %293, -32
-  %cond.i.i117.i = select i1 %or.cond.i.i115.i, i8 %add.i.i116.i, i8 %293
+  %conv5.i.i117.i = select i1 %or.cond.i.i115.i, i8 %add.i.i116.i, i8 %293
   %295 = load i8, ptr %b.0.i109.i, align 1
   %296 = add i8 %295, -97
   %or.cond.i9.i118.i = icmp ult i8 %296, 26
   %add.i10.i119.i = add nsw i8 %295, -32
-  %cond.i11.i120.i = select i1 %or.cond.i9.i118.i, i8 %add.i10.i119.i, i8 %295
-  %cmp9.not.i121.i = icmp eq i8 %cond.i.i117.i, %cond.i11.i120.i
+  %conv5.i11.i120.i = select i1 %or.cond.i9.i118.i, i8 %add.i10.i119.i, i8 %295
+  %cmp9.not.i121.i = icmp eq i8 %conv5.i.i117.i, %conv5.i11.i120.i
   br i1 %cmp9.not.i121.i, label %for.cond.i106.i, label %if.else9.i, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit123.i:                ; preds = %for.cond.i106.i
@@ -3822,13 +3822,13 @@ lor.lhs.false.i.i1104:                            ; preds = %for.cond.i.i1096
   %351 = add i8 %350, -97
   %or.cond.i.i.i1105 = icmp ult i8 %351, 26
   %add.i.i.i1106 = add nsw i8 %350, -32
-  %cond.i.i.i1107 = select i1 %or.cond.i.i.i1105, i8 %add.i.i.i1106, i8 %350
+  %conv5.i.i.i1107 = select i1 %or.cond.i.i.i1105, i8 %add.i.i.i1106, i8 %350
   %352 = load i8, ptr %b.0.i.i1099, align 1
   %353 = add i8 %352, -97
   %or.cond.i9.i.i1108 = icmp ult i8 %353, 26
   %add.i10.i.i1109 = add nsw i8 %352, -32
-  %cond.i11.i.i1110 = select i1 %or.cond.i9.i.i1108, i8 %add.i10.i.i1109, i8 %352
-  %cmp9.not.i.i1111 = icmp eq i8 %cond.i.i.i1107, %cond.i11.i.i1110
+  %conv5.i11.i.i1110 = select i1 %or.cond.i9.i.i1108, i8 %add.i10.i.i1109, i8 %352
+  %cmp9.not.i.i1111 = icmp eq i8 %conv5.i.i.i1107, %conv5.i11.i.i1110
   br i1 %cmp9.not.i.i1111, label %for.cond.i.i1096, label %for.cond.i62.i1113.preheader, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit.i1174:               ; preds = %for.cond.i.i1096
@@ -3852,13 +3852,13 @@ lor.lhs.false.i70.i1121:                          ; preds = %for.cond.i62.i1113
   %355 = add i8 %354, -97
   %or.cond.i.i71.i1122 = icmp ult i8 %355, 26
   %add.i.i72.i1123 = add nsw i8 %354, -32
-  %cond.i.i73.i1124 = select i1 %or.cond.i.i71.i1122, i8 %add.i.i72.i1123, i8 %354
+  %conv5.i.i73.i1124 = select i1 %or.cond.i.i71.i1122, i8 %add.i.i72.i1123, i8 %354
   %356 = load i8, ptr %b.0.i65.i1116, align 1
   %357 = add i8 %356, -97
   %or.cond.i9.i74.i1125 = icmp ult i8 %357, 26
   %add.i10.i75.i1126 = add nsw i8 %356, -32
-  %cond.i11.i76.i1127 = select i1 %or.cond.i9.i74.i1125, i8 %add.i10.i75.i1126, i8 %356
-  %cmp9.not.i77.i1128 = icmp eq i8 %cond.i.i73.i1124, %cond.i11.i76.i1127
+  %conv5.i11.i76.i1127 = select i1 %or.cond.i9.i74.i1125, i8 %add.i10.i75.i1126, i8 %356
+  %cmp9.not.i77.i1128 = icmp eq i8 %conv5.i.i73.i1124, %conv5.i11.i76.i1127
   br i1 %cmp9.not.i77.i1128, label %for.cond.i62.i1113, label %for.cond.i84.i1130.preheader, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit79.i1172:             ; preds = %for.cond.i62.i1113
@@ -3882,13 +3882,13 @@ lor.lhs.false.i92.i1138:                          ; preds = %for.cond.i84.i1130
   %359 = add i8 %358, -97
   %or.cond.i.i93.i1139 = icmp ult i8 %359, 26
   %add.i.i94.i1140 = add nsw i8 %358, -32
-  %cond.i.i95.i1141 = select i1 %or.cond.i.i93.i1139, i8 %add.i.i94.i1140, i8 %358
+  %conv5.i.i95.i1141 = select i1 %or.cond.i.i93.i1139, i8 %add.i.i94.i1140, i8 %358
   %360 = load i8, ptr %b.0.i87.i1133, align 1
   %361 = add i8 %360, -97
   %or.cond.i9.i96.i1142 = icmp ult i8 %361, 26
   %add.i10.i97.i1143 = add nsw i8 %360, -32
-  %cond.i11.i98.i1144 = select i1 %or.cond.i9.i96.i1142, i8 %add.i10.i97.i1143, i8 %360
-  %cmp9.not.i99.i1145 = icmp eq i8 %cond.i.i95.i1141, %cond.i11.i98.i1144
+  %conv5.i11.i98.i1144 = select i1 %or.cond.i9.i96.i1142, i8 %add.i10.i97.i1143, i8 %360
+  %cmp9.not.i99.i1145 = icmp eq i8 %conv5.i.i95.i1141, %conv5.i11.i98.i1144
   br i1 %cmp9.not.i99.i1145, label %for.cond.i84.i1130, label %for.cond.i106.i1147.preheader, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit101.i1171:            ; preds = %for.cond.i84.i1130
@@ -3912,13 +3912,13 @@ lor.lhs.false.i114.i1155:                         ; preds = %for.cond.i106.i1147
   %363 = add i8 %362, -97
   %or.cond.i.i115.i1156 = icmp ult i8 %363, 26
   %add.i.i116.i1157 = add nsw i8 %362, -32
-  %cond.i.i117.i1158 = select i1 %or.cond.i.i115.i1156, i8 %add.i.i116.i1157, i8 %362
+  %conv5.i.i117.i1158 = select i1 %or.cond.i.i115.i1156, i8 %add.i.i116.i1157, i8 %362
   %364 = load i8, ptr %b.0.i109.i1150, align 1
   %365 = add i8 %364, -97
   %or.cond.i9.i118.i1159 = icmp ult i8 %365, 26
   %add.i10.i119.i1160 = add nsw i8 %364, -32
-  %cond.i11.i120.i1161 = select i1 %or.cond.i9.i118.i1159, i8 %add.i10.i119.i1160, i8 %364
-  %cmp9.not.i121.i1162 = icmp eq i8 %cond.i.i117.i1158, %cond.i11.i120.i1161
+  %conv5.i11.i120.i1161 = select i1 %or.cond.i9.i118.i1159, i8 %add.i10.i119.i1160, i8 %364
+  %cmp9.not.i121.i1162 = icmp eq i8 %conv5.i.i117.i1158, %conv5.i11.i120.i1161
   br i1 %cmp9.not.i121.i1162, label %for.cond.i106.i1147, label %if.else9.i1163, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit123.i1169:            ; preds = %for.cond.i106.i1147
@@ -4448,13 +4448,13 @@ lor.lhs.false.i.i1438:                            ; preds = %for.cond.i.i1430
   %420 = add i8 %419, -97
   %or.cond.i.i.i1439 = icmp ult i8 %420, 26
   %add.i.i.i1440 = add nsw i8 %419, -32
-  %cond.i.i.i1441 = select i1 %or.cond.i.i.i1439, i8 %add.i.i.i1440, i8 %419
+  %conv5.i.i.i1441 = select i1 %or.cond.i.i.i1439, i8 %add.i.i.i1440, i8 %419
   %421 = load i8, ptr %b.0.i.i1433, align 1
   %422 = add i8 %421, -97
   %or.cond.i9.i.i1442 = icmp ult i8 %422, 26
   %add.i10.i.i1443 = add nsw i8 %421, -32
-  %cond.i11.i.i1444 = select i1 %or.cond.i9.i.i1442, i8 %add.i10.i.i1443, i8 %421
-  %cmp9.not.i.i1445 = icmp eq i8 %cond.i.i.i1441, %cond.i11.i.i1444
+  %conv5.i11.i.i1444 = select i1 %or.cond.i9.i.i1442, i8 %add.i10.i.i1443, i8 %421
+  %cmp9.not.i.i1445 = icmp eq i8 %conv5.i.i.i1441, %conv5.i11.i.i1444
   br i1 %cmp9.not.i.i1445, label %for.cond.i.i1430, label %for.cond.i62.i1447.preheader, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit.i1508:               ; preds = %for.cond.i.i1430
@@ -4478,13 +4478,13 @@ lor.lhs.false.i70.i1455:                          ; preds = %for.cond.i62.i1447
   %424 = add i8 %423, -97
   %or.cond.i.i71.i1456 = icmp ult i8 %424, 26
   %add.i.i72.i1457 = add nsw i8 %423, -32
-  %cond.i.i73.i1458 = select i1 %or.cond.i.i71.i1456, i8 %add.i.i72.i1457, i8 %423
+  %conv5.i.i73.i1458 = select i1 %or.cond.i.i71.i1456, i8 %add.i.i72.i1457, i8 %423
   %425 = load i8, ptr %b.0.i65.i1450, align 1
   %426 = add i8 %425, -97
   %or.cond.i9.i74.i1459 = icmp ult i8 %426, 26
   %add.i10.i75.i1460 = add nsw i8 %425, -32
-  %cond.i11.i76.i1461 = select i1 %or.cond.i9.i74.i1459, i8 %add.i10.i75.i1460, i8 %425
-  %cmp9.not.i77.i1462 = icmp eq i8 %cond.i.i73.i1458, %cond.i11.i76.i1461
+  %conv5.i11.i76.i1461 = select i1 %or.cond.i9.i74.i1459, i8 %add.i10.i75.i1460, i8 %425
+  %cmp9.not.i77.i1462 = icmp eq i8 %conv5.i.i73.i1458, %conv5.i11.i76.i1461
   br i1 %cmp9.not.i77.i1462, label %for.cond.i62.i1447, label %for.cond.i84.i1464.preheader, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit79.i1506:             ; preds = %for.cond.i62.i1447
@@ -4508,13 +4508,13 @@ lor.lhs.false.i92.i1472:                          ; preds = %for.cond.i84.i1464
   %428 = add i8 %427, -97
   %or.cond.i.i93.i1473 = icmp ult i8 %428, 26
   %add.i.i94.i1474 = add nsw i8 %427, -32
-  %cond.i.i95.i1475 = select i1 %or.cond.i.i93.i1473, i8 %add.i.i94.i1474, i8 %427
+  %conv5.i.i95.i1475 = select i1 %or.cond.i.i93.i1473, i8 %add.i.i94.i1474, i8 %427
   %429 = load i8, ptr %b.0.i87.i1467, align 1
   %430 = add i8 %429, -97
   %or.cond.i9.i96.i1476 = icmp ult i8 %430, 26
   %add.i10.i97.i1477 = add nsw i8 %429, -32
-  %cond.i11.i98.i1478 = select i1 %or.cond.i9.i96.i1476, i8 %add.i10.i97.i1477, i8 %429
-  %cmp9.not.i99.i1479 = icmp eq i8 %cond.i.i95.i1475, %cond.i11.i98.i1478
+  %conv5.i11.i98.i1478 = select i1 %or.cond.i9.i96.i1476, i8 %add.i10.i97.i1477, i8 %429
+  %cmp9.not.i99.i1479 = icmp eq i8 %conv5.i.i95.i1475, %conv5.i11.i98.i1478
   br i1 %cmp9.not.i99.i1479, label %for.cond.i84.i1464, label %for.cond.i106.i1481.preheader, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit101.i1505:            ; preds = %for.cond.i84.i1464
@@ -4538,13 +4538,13 @@ lor.lhs.false.i114.i1489:                         ; preds = %for.cond.i106.i1481
   %432 = add i8 %431, -97
   %or.cond.i.i115.i1490 = icmp ult i8 %432, 26
   %add.i.i116.i1491 = add nsw i8 %431, -32
-  %cond.i.i117.i1492 = select i1 %or.cond.i.i115.i1490, i8 %add.i.i116.i1491, i8 %431
+  %conv5.i.i117.i1492 = select i1 %or.cond.i.i115.i1490, i8 %add.i.i116.i1491, i8 %431
   %433 = load i8, ptr %b.0.i109.i1484, align 1
   %434 = add i8 %433, -97
   %or.cond.i9.i118.i1493 = icmp ult i8 %434, 26
   %add.i10.i119.i1494 = add nsw i8 %433, -32
-  %cond.i11.i120.i1495 = select i1 %or.cond.i9.i118.i1493, i8 %add.i10.i119.i1494, i8 %433
-  %cmp9.not.i121.i1496 = icmp eq i8 %cond.i.i117.i1492, %cond.i11.i120.i1495
+  %conv5.i11.i120.i1495 = select i1 %or.cond.i9.i118.i1493, i8 %add.i10.i119.i1494, i8 %433
+  %cmp9.not.i121.i1496 = icmp eq i8 %conv5.i.i117.i1492, %conv5.i11.i120.i1495
   br i1 %cmp9.not.i121.i1496, label %for.cond.i106.i1481, label %if.else9.i1497, !llvm.loop !10
 
 _ZL12cmpExtensionPKcS0_.exit123.i1503:            ; preds = %for.cond.i106.i1481
@@ -5230,13 +5230,13 @@ lor.lhs.false:                                    ; preds = %for.cond
   %1 = add i8 %0, -97
   %or.cond.i = icmp ult i8 %1, 26
   %add.i = add nsw i8 %0, -32
-  %cond.i = select i1 %or.cond.i, i8 %add.i, i8 %0
+  %conv5.i = select i1 %or.cond.i, i8 %add.i, i8 %0
   %2 = load i8, ptr %b.0, align 1
   %3 = add i8 %2, -97
   %or.cond.i9 = icmp ult i8 %3, 26
   %add.i10 = add nsw i8 %2, -32
-  %cond.i11 = select i1 %or.cond.i9, i8 %add.i10, i8 %2
-  %cmp9.not = icmp eq i8 %cond.i, %cond.i11
+  %conv5.i11 = select i1 %or.cond.i9, i8 %add.i10, i8 %2
+  %cmp9.not = icmp eq i8 %conv5.i, %conv5.i11
   br i1 %cmp9.not, label %for.cond, label %return, !llvm.loop !10
 
 return:                                           ; preds = %for.cond, %lor.lhs.false

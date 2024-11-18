@@ -532,8 +532,8 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
 18:                                               ; preds = %30, %26, %8
   %19 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %6)
   %20 = icmp eq i64 %6, 0
-  %21 = select i1 %20, i64 4, i64 0
-  %22 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %21)
+  %21 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 4)
+  %22 = select i1 %20, i64 %21, i64 %19
   %23 = lshr i64 %22, 2
   %24 = mul nuw i64 %23, 3
   %25 = icmp ult i64 %5, %24

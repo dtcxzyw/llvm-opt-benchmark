@@ -3543,26 +3543,26 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit1383: ; pre
   %209 = fdiv contract float %208, %.sroa.speculated1604
   %210 = fsub contract float 0x3FF921FB60000000, %209
   %spec.select = select i1 %207, float %210, float %209
-  %211 = bitcast float %spec.select to i32
-  %212 = call float @llvm.fabs.f32(float %spec.select)
-  %213 = select contract i1 %narrow, float 0.000000e+00, float %212
-  %214 = fmul contract float %213, 0x3FF45F3060000000
-  %215 = fptosi float %214 to i32
-  %216 = add nsw i32 %215, 1
-  %217 = and i32 %216, -2
-  %218 = sitofp i32 %217 to float
-  %219 = shl i32 %217, 29
-  %220 = select i1 %narrow, i32 0, i32 %211
-  %221 = xor i32 %219, %220
-  %222 = sub i32 0, %219
-  %223 = fmul contract float %218, 0x3FE9200000000000
-  %224 = fsub contract float %213, %223
-  %225 = fmul contract float %218, 0x3F2FB40000000000
+  %211 = call float @llvm.fabs.f32(float %spec.select)
+  %212 = select contract i1 %narrow, float 0.000000e+00, float %211
+  %213 = fmul contract float %212, 0x3FF45F3060000000
+  %214 = fptosi float %213 to i32
+  %215 = add nsw i32 %214, 1
+  %216 = and i32 %215, -2
+  %217 = sitofp i32 %216 to float
+  %218 = shl i32 %216, 29
+  %219 = bitcast float %spec.select to i32
+  %220 = select i1 %narrow, i32 0, i32 %219
+  %221 = xor i32 %218, %220
+  %222 = sub i32 0, %218
+  %223 = fmul contract float %217, 0x3FE9200000000000
+  %224 = fsub contract float %212, %223
+  %225 = fmul contract float %217, 0x3F2FB40000000000
   %226 = fsub contract float %224, %225
-  %227 = fmul contract float %218, 0x3E64442D20000000
+  %227 = fmul contract float %217, 0x3E64442D20000000
   %228 = fsub contract float %226, %227
   %229 = fmul contract float %228, %228
-  %230 = fcmp contract oeq float %213, 0x7FF0000000000000
+  %230 = fcmp contract oeq float %212, 0x7FF0000000000000
   %231 = select i1 %230, float 0xFFFFFFFFE0000000, float %229
   %232 = call contract noundef float @llvm.fma.f32(float %231, float 0x3F811073C0000000, float 0xBFC5555460000000)
   %233 = fmul contract float %231, %231
@@ -3574,7 +3574,7 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit1383: ; pre
   %239 = call contract noundef float @llvm.fma.f32(float %235, float %228, float %228)
   %240 = call contract noundef float @llvm.fma.f32(float %231, float -5.000000e-01, float 1.000000e+00)
   %241 = call contract noundef float @llvm.fma.f32(float %238, float %231, float %240)
-  %242 = and i32 %216, 2
+  %242 = and i32 %215, 2
   %243 = icmp eq i32 %242, 0
   %244 = select contract i1 %243, float %239, float %241
   %245 = and i32 %221, -2147483648
@@ -4296,23 +4296,23 @@ define weak_odr <4 x float> @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8Spec
   %.not = icmp eq i32 %8, 0
   %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %10 = sub nuw nsw i32 32, %9
-  %11 = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 96
   %.pre = load i32, ptr %.phi.trans.insert, align 16
   br i1 %.not, label %_ZN5drjit13binary_searchIjZNK7mitsuba12BSplineCurveIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEE24invert_silhouette_sampleERKNS1_16SilhouetteSampleIfS6_EEbEUljE_EET_NS_6detail6scalarISD_iE4typeESH_RKT0_.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 456
-  %13 = icmp eq i64 %.fr52.i, 1
-  %14 = load ptr, ptr %12, align 8
-  br i1 %13, label %.lr.ph.split.us.split.us.i, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i
+  %11 = getelementptr inbounds i8, ptr %0, i64 456
+  %12 = icmp eq i64 %.fr52.i, 1
+  %13 = load ptr, ptr %11, align 8
+  br i1 %12, label %.lr.ph.split.us.split.us.i, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i
 
 _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i: ; preds = %.lr.ph.split.us.i
-  %umax56.i = zext nneg i32 %11 to i64
+  %14 = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
+  %umax56.i = zext nneg i32 %14 to i64
   br label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %13, align 4
   %16 = icmp ugt i32 %15, %.pre
   %.fr51.i = freeze i1 %16
   %spec.select = select i1 %.fr51.i, float 0x41F0000000000000, float 0.000000e+00
@@ -4325,7 +4325,7 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i: ; pr
   %17 = add i32 %.04446.us.i, %.04347.us.i
   %18 = lshr i32 %17, 1
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %14, i64 %19
+  %20 = getelementptr inbounds i32, ptr %13, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = icmp ugt i32 %21, %.pre
   %23 = add nuw i32 %18, 1
@@ -4629,18 +4629,18 @@ define weak_odr void @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfL
   %.not1532 = icmp eq i32 %24, 0
   %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %26 = sub nuw nsw i32 32, %25
-  %27 = tail call i32 @llvm.umax.i32(i32 %26, i32 1)
   %.pre = load ptr, ptr %20, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 224
   %.pre1543 = load i32, ptr %.phi.trans.insert, align 16
   br i1 %.not1532, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit1277, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %19
-  %28 = icmp eq i64 %.fr52.i, 1
-  br i1 %28, label %.lr.ph.split.us.split.us.i, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i
+  %27 = icmp eq i64 %.fr52.i, 1
+  br i1 %27, label %.lr.ph.split.us.split.us.i, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i
 
 _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i: ; preds = %.lr.ph.split.us.i
-  %umax56.i = zext nneg i32 %27 to i64
+  %28 = tail call i32 @llvm.umax.i32(i32 %26, i32 1)
+  %umax56.i = zext nneg i32 %28 to i64
   br label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i

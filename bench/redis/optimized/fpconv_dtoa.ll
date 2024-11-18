@@ -63,7 +63,6 @@ if.end4:                                          ; preds = %if.end.i
   %add.i.i = or disjoint i64 %and4.i, 4503599627370496
   %sub.i.i = add nsw i32 %conv.i.i, -1075
   %retval.sroa.0.0.i.i = select i1 %tobool.not.i.i, i64 %and4.i, i64 %add.i.i
-  %2 = add nsw i32 %conv.i.i, -1064
   %shl.i.i = shl nuw nsw i64 %retval.sroa.0.0.i.i, 1
   %add.i14.i = or disjoint i64 %shl.i.i, 1
   br i1 %tobool.not.i.i, label %while.body.i.i, label %get_normalized_boundaries.exit.i
@@ -73,12 +72,11 @@ while.body.i.i:                                   ; preds = %if.end4, %while.bod
   %shl52025.i.i = phi i64 [ %shl5.i.i, %while.body.i.i ], [ %add.i14.i, %if.end4 ]
   %storemerge.in27.i.i = add nsw i32 %storemerge.in27.in.i.i, -1
   %shl5.i.i = shl i64 %shl52025.i.i, 1
-  %3 = and i64 %shl52025.i.i, 4503599627370496
-  %cmp.i.i = icmp eq i64 %3, 0
+  %2 = and i64 %shl52025.i.i, 4503599627370496
+  %cmp.i.i = icmp eq i64 %2, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %get_normalized_boundaries.exit.i, !llvm.loop !5
 
 get_normalized_boundaries.exit.i:                 ; preds = %while.body.i.i, %if.end4
-  %.neg.i = phi i32 [ %2, %if.end4 ], [ -1063, %while.body.i.i ]
   %storemerge.in.lcssa.i.i = phi i32 [ %sub.i.i, %if.end4 ], [ %storemerge.in27.i.i, %while.body.i.i ]
   %.lcssa.i.i = phi i64 [ %add.i14.i, %if.end4 ], [ %shl5.i.i, %while.body.i.i ]
   %shl8.i.i = shl i64 %.lcssa.i.i, 10
@@ -88,6 +86,8 @@ get_normalized_boundaries.exit.i:                 ; preds = %while.body.i.i, %if
   %sh_prom15.i.i = select i1 %cmp13.i.i, i64 2, i64 1
   %shl16.i.i = shl nuw nsw i64 %retval.sroa.0.0.i.i, %sh_prom15.i.i
   %sub17.i.i = add nsw i64 %shl16.i.i, -1
+  %3 = add nsw i32 %conv.i.i, -1064
+  %.neg.i = select i1 %tobool.not.i.i, i32 -1063, i32 %3
   %reass.sub.i = add nsw i32 %.neg.i, %cond.i.neg120.i
   %sub24.i.i = sub i32 %reass.sub.i, %storemerge.in.lcssa.i.i
   %sh_prom26.i.i = zext nneg i32 %sub24.i.i to i64

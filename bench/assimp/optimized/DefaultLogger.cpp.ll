@@ -875,27 +875,27 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp2 = icmp eq i32 %severity, 0
-  %0 = xor i32 %severity, -1
   %m_StreamArray = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %m_StreamArray, align 8
+  %0 = load ptr, ptr %m_StreamArray, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not12 = icmp eq ptr %1, %2
+  %1 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not12 = icmp eq ptr %0, %1
   br i1 %cmp.i.not12, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %it.sroa.0.013 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %1, %if.end ]
-  %3 = load ptr, ptr %it.sroa.0.013, align 8
-  %m_pStream = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %m_pStream, align 8
-  %cmp10 = icmp eq ptr %4, %pStream
+  %it.sroa.0.013 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %if.end ]
+  %2 = load ptr, ptr %it.sroa.0.013, align 8
+  %m_pStream = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load ptr, ptr %m_pStream, align 8
+  %cmp10 = icmp eq ptr %3, %pStream
   br i1 %cmp10, label %if.then11, label %for.inc
 
 if.then11:                                        ; preds = %for.body
-  %not = select i1 %cmp2, i32 -16, i32 %0
-  %5 = load i32, ptr %3, align 8
+  %4 = xor i32 %severity, -1
+  %not = select i1 %cmp2, i32 -16, i32 %4
+  %5 = load i32, ptr %2, align 8
   %and = and i32 %5, %not
-  store i32 %and, ptr %3, align 8
+  store i32 %and, ptr %2, align 8
   %6 = load ptr, ptr %it.sroa.0.013, align 8
   %7 = load i32, ptr %6, align 8
   %cmp15 = icmp eq i32 %7, 0
@@ -952,7 +952,7 @@ _ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE5eraseEN9__gnu_cxx17__normal_itera
 
 for.inc:                                          ; preds = %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.013, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !8
 
 return:                                           ; preds = %for.inc, %if.end, %_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, %if.then11, %entry

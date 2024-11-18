@@ -4027,9 +4027,9 @@ invoke.cont669:                                   ; preds = %if.then.i.i.i.i.i.i
   %conv657 = fptoui double %383 to i64
   %cmp660 = icmp eq i64 %conv657, 0
   %or.cond2 = select i1 %cmp658, i1 %cmp660, i1 false
-  %384 = and i64 %conv657, 4294967295
   store i64 %retval.sroa.0.0.insert.insert.i767, ptr %ref.tmp663, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp667) #27
+  %384 = and i64 %conv657, 4294967295
   %385 = or disjoint i64 %384, 8589934592
   %retval.sroa.0.0.insert.insert.i769 = select i1 %or.cond2, i64 8589934593, i64 %385
   store i64 %retval.sroa.0.0.insert.insert.i769, ptr %ref.tmp667, align 8
@@ -10930,13 +10930,13 @@ entry:
   %cmp13 = icmp eq i64 %conv8, 0
   %or.cond = select i1 %cmp12, i1 %cmp13, i1 false
   %alpha.0 = select i1 %or.cond, double 1.000000e+00, double %sub11
-  %11 = and i64 %conv8, 4294967295
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lowerPeriod) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp16) #27
   %retval.sroa.0.0.insert.ext.i = and i64 %conv, 4294967295
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.0.insert.ext.i, 12884901888
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %ref.tmp16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp18) #27
+  %11 = and i64 %conv8, 4294967295
   %12 = or disjoint i64 %11, 8589934592
   %retval.sroa.0.0.insert.insert.i44 = select i1 %or.cond, i64 8589934593, i64 %12
   store i64 %retval.sroa.0.0.insert.insert.i44, ptr %ref.tmp18, align 8

@@ -2863,8 +2863,8 @@ define void @_ZNK10open_spiel11negotiation15NegotiationGame22ObservationTensorSh
   %11 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #34
   %12 = trunc i8 %6 to i1
   %13 = mul nsw i32 %10, %8
-  %14 = add i32 %13, 6
   %reass.mul = mul i32 %4, 23
+  %14 = add i32 %13, 6
   %15 = select i1 %12, i32 %14, i32 6
   %16 = add i32 %15, %reass.mul
   store ptr %11, ptr %0, align 8

@@ -2715,31 +2715,31 @@ _ZN4llvm16AttributorConfigC2ERKS0_.exit:          ; preds = %._crit_edge116
   %302 = call noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %2, ptr nonnull @.str.99, i64 13) #26
   %.not.i52.not = icmp eq ptr %302, null
   %303 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL21SetFixpointIterations, i64 128), align 8
-  %304 = zext i32 %303 to i64
-  %305 = getelementptr inbounds nuw i8, ptr %18, i64 5
+  %304 = getelementptr inbounds nuw i8, ptr %18, i64 5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %18, i8 1, i64 5, i1 false)
-  store i8 0, ptr %305, align 1
-  %306 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %307 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  store ptr %16, ptr %307, align 8
-  %308 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store ptr null, ptr %308, align 8
-  %309 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  %310 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  %311 = getelementptr inbounds nuw i8, ptr %18, i64 3
-  store i8 0, ptr %311, align 1
-  %312 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store i8 0, ptr %312, align 2
-  %313 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %314 = or disjoint i64 %304, 4294967296
+  store i8 0, ptr %304, align 1
+  %305 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  store ptr %16, ptr %306, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  store ptr null, ptr %307, align 8
+  %308 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %309 = getelementptr inbounds nuw i8, ptr %18, i64 112
+  %310 = getelementptr inbounds nuw i8, ptr %18, i64 3
+  store i8 0, ptr %310, align 1
+  %311 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  store i8 0, ptr %311, align 2
+  %312 = getelementptr inbounds nuw i8, ptr %18, i64 88
+  %313 = zext i32 %303 to i64
+  %314 = or disjoint i64 %313, 4294967296
   %.sroa.077.0.insert.insert = select i1 %.not.i52.not, i64 4294967328, i64 %314
-  store i64 %.sroa.077.0.insert.insert, ptr %313, align 8
+  store i64 %.sroa.077.0.insert.insert, ptr %312, align 8
   %315 = ptrtoint ptr %14 to i64
-  store ptr @"_ZN4llvm12function_refIFRNS_25OptimizationRemarkEmitterEPNS_8FunctionEEE11callback_fnIZNS_13OpenMPOptPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_2EES2_lS4_", ptr %309, align 8
+  store ptr @"_ZN4llvm12function_refIFRNS_25OptimizationRemarkEmitterEPNS_8FunctionEEE11callback_fnIZNS_13OpenMPOptPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_2EES2_lS4_", ptr %308, align 8
   %.sroa.276.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 104
   store i64 %315, ptr %.sroa.276.0..sroa_idx, align 8
-  store ptr @.str.54, ptr %310, align 8
-  store ptr @_ZN12_GLOBAL__N_19OpenMPOpt22registerAAsForFunctionERN4llvm10AttributorERKNS1_8FunctionE, ptr %306, align 8
+  store ptr @.str.54, ptr %309, align 8
+  store ptr @_ZN12_GLOBAL__N_19OpenMPOpt22registerAAsForFunctionERN4llvm10AttributorERKNS1_8FunctionE, ptr %305, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %316 = getelementptr inbounds i8, ptr %18, i64 40
@@ -2766,7 +2766,7 @@ _ZN4llvm16AttributorConfigC2ERKS0_.exit:          ; preds = %._crit_edge116
   %325 = getelementptr inbounds nuw i8, ptr %21, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %325, i8 0, i64 32, i1 false)
   %326 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %326, ptr noundef nonnull align 8 dereferenceable(64) %307, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %326, ptr noundef nonnull align 8 dereferenceable(64) %306, i64 64, i1 false)
   call void @_ZN4llvm10AttributorC1ERNS_9SetVectorIPNS_8FunctionENS_11SmallVectorIS3_Lj0EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEERNS_16InformationCacheENS_16AttributorConfigE(ptr noundef nonnull align 8 dereferenceable(4296) %20, ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(368) %17, ptr noundef nonnull %21) #26
   %327 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %328 = load ptr, ptr %327, align 8
@@ -2949,7 +2949,7 @@ _ZNSt8functionIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERN
   br i1 %.not.i.i1.i66, label %_ZN4llvm16AttributorConfigD2Ev.exit67, label %406
 
 406:                                              ; preds = %_ZNSt8functionIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERNS0_8FunctionEjEED2Ev.exit.i65
-  %407 = call noundef zeroext i1 %405(ptr noundef nonnull align 8 dereferenceable(32) %306, ptr noundef nonnull align 8 dereferenceable(32) %306, i32 noundef 3) #26
+  %407 = call noundef zeroext i1 %405(ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %305, i32 noundef 3) #26
   br label %_ZN4llvm16AttributorConfigD2Ev.exit67
 
 _ZN4llvm16AttributorConfigD2Ev.exit67:            ; preds = %_ZNSt8functionIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERNS0_8FunctionEjEED2Ev.exit.i65, %406
@@ -8274,34 +8274,34 @@ _ZN4llvm16AttributorConfigC2ERKS0_.exit:          ; preds = %.lr.ph.i.i, %86
   %137 = call noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %92, ptr nonnull @.str.99, i64 13) #26
   %.not.i21.not = icmp eq ptr %137, null
   %138 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL21SetFixpointIterations, i64 128), align 8
-  %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw i8, ptr %15, i64 5
+  %139 = getelementptr inbounds nuw i8, ptr %15, i64 5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %15, i8 1, i64 5, i1 false)
-  store i8 0, ptr %140, align 1
-  %141 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %142 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store ptr %12, ptr %142, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  store ptr null, ptr %143, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %145 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  %146 = getelementptr inbounds i8, ptr %15, i64 120
-  store i64 0, ptr %146, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %15, i64 3
-  store i8 0, ptr %147, align 1
+  store i8 0, ptr %139, align 1
+  %140 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  store ptr %12, ptr %141, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  store ptr null, ptr %142, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  %144 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  %145 = getelementptr inbounds i8, ptr %15, i64 120
+  store i64 0, ptr %145, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %15, i64 3
+  store i8 0, ptr %146, align 1
   store i8 0, ptr %15, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  store i8 0, ptr %148, align 2
-  %149 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  %150 = or disjoint i64 %139, 4294967296
+  %147 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  store i8 0, ptr %147, align 2
+  %148 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  %149 = zext i32 %138 to i64
+  %150 = or disjoint i64 %149, 4294967296
   %.sroa.031.0.insert.insert = select i1 %.not.i21.not, i64 4294967328, i64 %150
-  store i64 %.sroa.031.0.insert.insert, ptr %149, align 8
+  store i64 %.sroa.031.0.insert.insert, ptr %148, align 8
   %151 = ptrtoint ptr %10 to i64
-  store ptr @"_ZN4llvm12function_refIFRNS_25OptimizationRemarkEmitterEPNS_8FunctionEEE11callback_fnIZNS_18OpenMPOptCGSCCPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerISA_JRS9_EEESD_RNS_17CGSCCUpdateResultEE3$_0EES2_lS4_", ptr %144, align 8
+  store ptr @"_ZN4llvm12function_refIFRNS_25OptimizationRemarkEmitterEPNS_8FunctionEEE11callback_fnIZNS_18OpenMPOptCGSCCPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerISA_JRS9_EEESD_RNS_17CGSCCUpdateResultEE3$_0EES2_lS4_", ptr %143, align 8
   %.sroa.230.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 104
   store i64 %151, ptr %.sroa.230.0..sroa_idx, align 8
-  store ptr @.str.54, ptr %145, align 8
-  store ptr @_ZN12_GLOBAL__N_19OpenMPOpt22registerAAsForFunctionERN4llvm10AttributorERKNS1_8FunctionE, ptr %141, align 8
+  store ptr @.str.54, ptr %144, align 8
+  store ptr @_ZN12_GLOBAL__N_19OpenMPOpt22registerAAsForFunctionERN4llvm10AttributorERKNS1_8FunctionE, ptr %140, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %152 = getelementptr inbounds i8, ptr %15, i64 40
@@ -8323,7 +8323,7 @@ _ZN4llvm16AttributorConfigC2ERKS0_.exit:          ; preds = %.lr.ph.i.i, %86
   %159 = getelementptr inbounds nuw i8, ptr %17, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %159, i8 0, i64 32, i1 false)
   %160 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %160, ptr noundef nonnull align 8 dereferenceable(64) %142, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %160, ptr noundef nonnull align 8 dereferenceable(64) %141, i64 64, i1 false)
   call void @_ZN4llvm10AttributorC1ERNS_9SetVectorIPNS_8FunctionENS_11SmallVectorIS3_Lj0EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEERNS_16InformationCacheENS_16AttributorConfigE(ptr noundef nonnull align 8 dereferenceable(4296) %16, ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(368) %14, ptr noundef nonnull %17) #26
   %161 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %162 = load ptr, ptr %161, align 8
@@ -8421,7 +8421,7 @@ _ZNSt8functionIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERN
   br i1 %.not.i.i1.i26, label %_ZN4llvm16AttributorConfigD2Ev.exit27, label %201
 
 201:                                              ; preds = %_ZNSt8functionIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERNS0_8FunctionEjEED2Ev.exit.i25
-  %202 = call noundef zeroext i1 %200(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(32) %141, i32 noundef 3) #26
+  %202 = call noundef zeroext i1 %200(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull align 8 dereferenceable(32) %140, i32 noundef 3) #26
   br label %_ZN4llvm16AttributorConfigD2Ev.exit27
 
 _ZN4llvm16AttributorConfigD2Ev.exit27:            ; preds = %_ZNSt8functionIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERNS0_8FunctionEjEED2Ev.exit.i25, %201

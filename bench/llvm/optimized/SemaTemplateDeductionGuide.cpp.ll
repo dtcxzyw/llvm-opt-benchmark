@@ -48471,25 +48471,25 @@ _ZN12_GLOBAL__N_128ExtractTypeForDeductionGuideD2Ev.exit: ; preds = %_ZN12_GLOBA
   %121 = load i8, ptr %120, align 16
   %122 = icmp eq i8 %121, 42
   %123 = icmp eq i8 %121, 43
-  %124 = select i1 %123, i16 2, i16 0
   store i8 26, ptr %107, align 8
-  %125 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %127, label %_ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindEPNS_4ExprE.exit
+  %124 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %126, label %_ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindEPNS_4ExprE.exit
 
-127:                                              ; preds = %103
+126:                                              ; preds = %103
   call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 26) #18
   br label %_ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindEPNS_4ExprE.exit
 
-_ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindEPNS_4ExprE.exit: ; preds = %103, %127
-  %128 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %129 = getelementptr inbounds nuw i8, ptr %107, i64 1
-  %130 = load i16, ptr %129, align 1
-  %131 = select i1 %122, i16 1, i16 %124
-  %132 = and i16 %130, -1024
+_ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindEPNS_4ExprE.exit: ; preds = %103, %126
+  %127 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %107, i64 1
+  %129 = load i16, ptr %128, align 1
+  %130 = select i1 %123, i16 2, i16 0
+  %131 = select i1 %122, i16 1, i16 %130
+  %132 = and i16 %129, -1024
   %133 = or disjoint i16 %132, %131
-  store i16 %133, ptr %129, align 1
-  store i64 %112, ptr %128, align 8
+  store i16 %133, ptr %128, align 1
+  store i64 %112, ptr %127, align 8
   %134 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store ptr null, ptr %134, align 8
   %135 = load i32, ptr %107, align 8
@@ -48498,13 +48498,13 @@ _ZN5clang15OpaqueValueExprC2ENS_14SourceLocationENS_8QualTypeENS_13ExprValueKind
   %137 = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 %.sroa.075.0.extract.trunc, ptr %137, align 4
   %138 = call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_15OpaqueValueExprE(ptr noundef nonnull align 8 dereferenceable(24) %107) #18
-  %139 = load i16, ptr %129, align 1
+  %139 = load i16, ptr %128, align 1
   %140 = and i8 %138, 31
   %141 = zext nneg i8 %140 to i16
   %142 = shl nuw nsw i16 %141, 5
   %143 = and i16 %139, -993
   %144 = or disjoint i16 %142, %143
-  store i16 %144, ptr %129, align 1
+  store i16 %144, ptr %128, align 1
   %145 = ptrtoint ptr %107 to i64
   %146 = and i64 %145, -2
   %147 = inttoptr i64 %146 to ptr

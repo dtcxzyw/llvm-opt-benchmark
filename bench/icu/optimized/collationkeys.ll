@@ -3602,9 +3602,6 @@ if.then.i1313:                                    ; preds = %_ZN6icu_7512_GLOBAL
   br label %if.end457
 
 if.else428:                                       ; preds = %if.else417
-  %302 = trunc i64 %ce.0 to i8
-  %303 = lshr i8 %302, 6
-  %304 = or disjoint i8 %303, -4
   %cmp436.not = icmp eq i32 %commonQuaternaries.1, 0
   br i1 %cmp436.not, label %if.end453, label %if.then437
 
@@ -3615,9 +3612,9 @@ if.then437:                                       ; preds = %if.else428
 
 while.body441:                                    ; preds = %if.then437, %invoke.cont442
   %commonQuaternaries.61620 = phi i32 [ %sub443, %invoke.cont442 ], [ %dec438, %if.then437 ]
-  %305 = load i32, ptr %len.i251, align 8
-  %306 = load i32, ptr %capacity.i.i249, align 8
-  %cmp.i1331 = icmp slt i32 %305, %306
+  %302 = load i32, ptr %len.i251, align 8
+  %303 = load i32, ptr %capacity.i.i249, align 8
+  %cmp.i1331 = icmp slt i32 %302, %303
   br i1 %cmp.i1331, label %entry.if.then_crit_edge.i1360, label %lor.lhs.false.i1332
 
 entry.if.then_crit_edge.i1360:                    ; preds = %while.body441
@@ -3625,13 +3622,13 @@ entry.if.then_crit_edge.i1360:                    ; preds = %while.body441
   br label %if.then.i1350
 
 lor.lhs.false.i1332:                              ; preds = %while.body441
-  %307 = load i8, ptr %ok.i252, align 4
-  %tobool.not.i.i1334 = icmp eq i8 %307, 0
+  %304 = load i8, ptr %ok.i252, align 4
+  %tobool.not.i.i1334 = icmp eq i8 %304, 0
   br i1 %tobool.not.i.i1334, label %invoke.cont442, label %if.end.i.i1335
 
 if.end.i.i1335:                                   ; preds = %lor.lhs.false.i1332
-  %mul.i.i1336 = shl nsw i32 %306, 1
-  %add.i.i1337 = add nsw i32 %305, 2
+  %mul.i.i1336 = shl nsw i32 %303, 1
+  %add.i.i1337 = add nsw i32 %302, 2
   %spec.select.i.i1338 = call i32 @llvm.smax.i32(i32 %mul.i.i1336, i32 %add.i.i1337)
   %spec.store.select.i.i1339 = call i32 @llvm.smax.i32(i32 %spec.select.i.i1338, i32 200)
   %conv.i.i.i1340 = zext nneg i32 %spec.store.select.i.i1339 to i64
@@ -3643,26 +3640,26 @@ call.i.i.i.noexc1362:                             ; preds = %if.end.i.i1335
   br i1 %cmp2.not.i.i.i1341, label %if.then12.i.i1359, label %if.then3.i.i.i1342
 
 if.then3.i.i.i1342:                               ; preds = %call.i.i.i.noexc1362
-  %cmp4.i.i.i1343 = icmp sgt i32 %305, 0
+  %cmp4.i.i.i1343 = icmp sgt i32 %302, 0
   br i1 %cmp4.i.i.i1343, label %if.then5.i.i.i1355, label %if.end14.i.i.i1344
 
 if.then5.i.i.i1355:                               ; preds = %if.then3.i.i.i1342
-  %308 = load i32, ptr %capacity.i.i249, align 8
-  %spec.select.i.i.i1356 = call i32 @llvm.smin.i32(i32 %305, i32 %308)
+  %305 = load i32, ptr %capacity.i.i249, align 8
+  %spec.select.i.i.i1356 = call i32 @llvm.smin.i32(i32 %302, i32 %305)
   %length.addr.1.i.i.i1357 = call i32 @llvm.smin.i32(i32 %spec.select.i.i.i1356, i32 %spec.store.select.i.i1339)
-  %309 = load ptr, ptr %quaternaries, align 8
+  %306 = load ptr, ptr %quaternaries, align 8
   %conv12.i.i.i1358 = sext i32 %length.addr.1.i.i.i1357 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i1363, ptr align 1 %309, i64 %conv12.i.i.i1358, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i1363, ptr align 1 %306, i64 %conv12.i.i.i1358, i1 false)
   br label %if.end14.i.i.i1344
 
 if.end14.i.i.i1344:                               ; preds = %if.then5.i.i.i1355, %if.then3.i.i.i1342
-  %310 = load i8, ptr %needToRelease.i.i250, align 4
-  %tobool.not.i.i.i.i1346 = icmp eq i8 %310, 0
+  %307 = load i8, ptr %needToRelease.i.i250, align 4
+  %tobool.not.i.i.i.i1346 = icmp eq i8 %307, 0
   br i1 %tobool.not.i.i.i.i1346, label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1348, label %if.then.i.i.i.i1347
 
 if.then.i.i.i.i1347:                              ; preds = %if.end14.i.i.i1344
-  %311 = load ptr, ptr %quaternaries, align 8
-  invoke void @uprv_free_75(ptr noundef %311)
+  %308 = load ptr, ptr %quaternaries, align 8
+  invoke void @uprv_free_75(ptr noundef %308)
           to label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1348 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.then12.i.i1359:                                ; preds = %call.i.i.i.noexc1362
@@ -3677,12 +3674,12 @@ _ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1348: ; preds = %
   br label %if.then.i1350
 
 if.then.i1350:                                    ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1348, %entry.if.then_crit_edge.i1360
-  %312 = phi ptr [ %call.i.i.i1363, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1348 ], [ %.pre3.i1361, %entry.if.then_crit_edge.i1360 ]
-  %313 = phi i32 [ %.pre.i1349, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1348 ], [ %305, %entry.if.then_crit_edge.i1360 ]
-  %inc.i1351 = add nsw i32 %313, 1
+  %309 = phi ptr [ %call.i.i.i1363, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1348 ], [ %.pre3.i1361, %entry.if.then_crit_edge.i1360 ]
+  %310 = phi i32 [ %.pre.i1349, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1348 ], [ %302, %entry.if.then_crit_edge.i1360 ]
+  %inc.i1351 = add nsw i32 %310, 1
   store i32 %inc.i1351, ptr %len.i251, align 8
-  %conv5.i1352 = sext i32 %313 to i64
-  %arrayidx.i.i1353 = getelementptr inbounds i8, ptr %312, i64 %conv5.i1352
+  %conv5.i1352 = sext i32 %310 to i64
+  %arrayidx.i.i1353 = getelementptr inbounds i8, ptr %309, i64 %conv5.i1352
   store i8 -116, ptr %arrayidx.i.i1353, align 1
   br label %invoke.cont442
 
@@ -3696,9 +3693,9 @@ while.end444:                                     ; preds = %invoke.cont442, %if
   %add448 = add nsw i32 %commonQuaternaries.6.lcssa, 28
   %sub450 = sub i32 252, %commonQuaternaries.6.lcssa
   %b445.0 = select i1 %cmp418, i32 %add448, i32 %sub450
-  %314 = load i32, ptr %len.i251, align 8
-  %315 = load i32, ptr %capacity.i.i249, align 8
-  %cmp.i1368 = icmp slt i32 %314, %315
+  %311 = load i32, ptr %len.i251, align 8
+  %312 = load i32, ptr %capacity.i.i249, align 8
+  %cmp.i1368 = icmp slt i32 %311, %312
   br i1 %cmp.i1368, label %entry.if.then_crit_edge.i1398, label %lor.lhs.false.i1369
 
 entry.if.then_crit_edge.i1398:                    ; preds = %while.end444
@@ -3706,13 +3703,13 @@ entry.if.then_crit_edge.i1398:                    ; preds = %while.end444
   br label %if.then.i1387
 
 lor.lhs.false.i1369:                              ; preds = %while.end444
-  %316 = load i8, ptr %ok.i252, align 4
-  %tobool.not.i.i1371 = icmp eq i8 %316, 0
+  %313 = load i8, ptr %ok.i252, align 4
+  %tobool.not.i.i1371 = icmp eq i8 %313, 0
   br i1 %tobool.not.i.i1371, label %if.end453, label %if.end.i.i1372
 
 if.end.i.i1372:                                   ; preds = %lor.lhs.false.i1369
-  %mul.i.i1373 = shl nsw i32 %315, 1
-  %add.i.i1374 = add nsw i32 %314, 2
+  %mul.i.i1373 = shl nsw i32 %312, 1
+  %add.i.i1374 = add nsw i32 %311, 2
   %spec.select.i.i1375 = call i32 @llvm.smax.i32(i32 %mul.i.i1373, i32 %add.i.i1374)
   %spec.store.select.i.i1376 = call i32 @llvm.smax.i32(i32 %spec.select.i.i1375, i32 200)
   %conv.i.i.i1377 = zext nneg i32 %spec.store.select.i.i1376 to i64
@@ -3724,26 +3721,26 @@ call.i.i.i.noexc1400:                             ; preds = %if.end.i.i1372
   br i1 %cmp2.not.i.i.i1378, label %if.then12.i.i1397, label %if.then3.i.i.i1379
 
 if.then3.i.i.i1379:                               ; preds = %call.i.i.i.noexc1400
-  %cmp4.i.i.i1380 = icmp sgt i32 %314, 0
+  %cmp4.i.i.i1380 = icmp sgt i32 %311, 0
   br i1 %cmp4.i.i.i1380, label %if.then5.i.i.i1393, label %if.end14.i.i.i1381
 
 if.then5.i.i.i1393:                               ; preds = %if.then3.i.i.i1379
-  %317 = load i32, ptr %capacity.i.i249, align 8
-  %spec.select.i.i.i1394 = call i32 @llvm.smin.i32(i32 %314, i32 %317)
+  %314 = load i32, ptr %capacity.i.i249, align 8
+  %spec.select.i.i.i1394 = call i32 @llvm.smin.i32(i32 %311, i32 %314)
   %length.addr.1.i.i.i1395 = call i32 @llvm.smin.i32(i32 %spec.select.i.i.i1394, i32 %spec.store.select.i.i1376)
-  %318 = load ptr, ptr %quaternaries, align 8
+  %315 = load ptr, ptr %quaternaries, align 8
   %conv12.i.i.i1396 = sext i32 %length.addr.1.i.i.i1395 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i1401, ptr align 1 %318, i64 %conv12.i.i.i1396, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i1401, ptr align 1 %315, i64 %conv12.i.i.i1396, i1 false)
   br label %if.end14.i.i.i1381
 
 if.end14.i.i.i1381:                               ; preds = %if.then5.i.i.i1393, %if.then3.i.i.i1379
-  %319 = load i8, ptr %needToRelease.i.i250, align 4
-  %tobool.not.i.i.i.i1383 = icmp eq i8 %319, 0
+  %316 = load i8, ptr %needToRelease.i.i250, align 4
+  %tobool.not.i.i.i.i1383 = icmp eq i8 %316, 0
   br i1 %tobool.not.i.i.i.i1383, label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1385, label %if.then.i.i.i.i1384
 
 if.then.i.i.i.i1384:                              ; preds = %if.end14.i.i.i1381
-  %320 = load ptr, ptr %quaternaries, align 8
-  invoke void @uprv_free_75(ptr noundef %320)
+  %317 = load ptr, ptr %quaternaries, align 8
+  invoke void @uprv_free_75(ptr noundef %317)
           to label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1385 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 if.then12.i.i1397:                                ; preds = %call.i.i.i.noexc1400
@@ -3758,20 +3755,20 @@ _ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1385: ; preds = %
   br label %if.then.i1387
 
 if.then.i1387:                                    ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1385, %entry.if.then_crit_edge.i1398
-  %321 = phi ptr [ %call.i.i.i1401, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1385 ], [ %.pre3.i1399, %entry.if.then_crit_edge.i1398 ]
-  %322 = phi i32 [ %.pre.i1386, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1385 ], [ %314, %entry.if.then_crit_edge.i1398 ]
+  %318 = phi ptr [ %call.i.i.i1401, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1385 ], [ %.pre3.i1399, %entry.if.then_crit_edge.i1398 ]
+  %319 = phi i32 [ %.pre.i1386, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1385 ], [ %311, %entry.if.then_crit_edge.i1398 ]
   %conv.i1388 = trunc i32 %b445.0 to i8
-  %inc.i1389 = add nsw i32 %322, 1
+  %inc.i1389 = add nsw i32 %319, 1
   store i32 %inc.i1389, ptr %len.i251, align 8
-  %conv5.i1390 = sext i32 %322 to i64
-  %arrayidx.i.i1391 = getelementptr inbounds i8, ptr %321, i64 %conv5.i1390
+  %conv5.i1390 = sext i32 %319 to i64
+  %arrayidx.i.i1391 = getelementptr inbounds i8, ptr %318, i64 %conv5.i1390
   store i8 %conv.i1388, ptr %arrayidx.i.i1391, align 1
   br label %if.end453
 
 if.end453:                                        ; preds = %if.then.i1387, %if.then12.i.i1397, %lor.lhs.false.i1369, %if.else428
-  %323 = load i32, ptr %len.i251, align 8
-  %324 = load i32, ptr %capacity.i.i249, align 8
-  %cmp.i1406 = icmp slt i32 %323, %324
+  %320 = load i32, ptr %len.i251, align 8
+  %321 = load i32, ptr %capacity.i.i249, align 8
+  %cmp.i1406 = icmp slt i32 %320, %321
   br i1 %cmp.i1406, label %entry.if.then_crit_edge.i1436, label %lor.lhs.false.i1407
 
 entry.if.then_crit_edge.i1436:                    ; preds = %if.end453
@@ -3779,13 +3776,13 @@ entry.if.then_crit_edge.i1436:                    ; preds = %if.end453
   br label %if.then.i1425
 
 lor.lhs.false.i1407:                              ; preds = %if.end453
-  %325 = load i8, ptr %ok.i252, align 4
-  %tobool.not.i.i1409 = icmp eq i8 %325, 0
+  %322 = load i8, ptr %ok.i252, align 4
+  %tobool.not.i.i1409 = icmp eq i8 %322, 0
   br i1 %tobool.not.i.i1409, label %if.end457, label %if.end.i.i1410
 
 if.end.i.i1410:                                   ; preds = %lor.lhs.false.i1407
-  %mul.i.i1411 = shl nsw i32 %324, 1
-  %add.i.i1412 = add nsw i32 %323, 2
+  %mul.i.i1411 = shl nsw i32 %321, 1
+  %add.i.i1412 = add nsw i32 %320, 2
   %spec.select.i.i1413 = call i32 @llvm.smax.i32(i32 %mul.i.i1411, i32 %add.i.i1412)
   %spec.store.select.i.i1414 = call i32 @llvm.smax.i32(i32 %spec.select.i.i1413, i32 200)
   %conv.i.i.i1415 = zext nneg i32 %spec.store.select.i.i1414 to i64
@@ -3797,26 +3794,26 @@ call.i.i.i.noexc1438:                             ; preds = %if.end.i.i1410
   br i1 %cmp2.not.i.i.i1416, label %if.then12.i.i1435, label %if.then3.i.i.i1417
 
 if.then3.i.i.i1417:                               ; preds = %call.i.i.i.noexc1438
-  %cmp4.i.i.i1418 = icmp sgt i32 %323, 0
+  %cmp4.i.i.i1418 = icmp sgt i32 %320, 0
   br i1 %cmp4.i.i.i1418, label %if.then5.i.i.i1431, label %if.end14.i.i.i1419
 
 if.then5.i.i.i1431:                               ; preds = %if.then3.i.i.i1417
-  %326 = load i32, ptr %capacity.i.i249, align 8
-  %spec.select.i.i.i1432 = call i32 @llvm.smin.i32(i32 %323, i32 %326)
+  %323 = load i32, ptr %capacity.i.i249, align 8
+  %spec.select.i.i.i1432 = call i32 @llvm.smin.i32(i32 %320, i32 %323)
   %length.addr.1.i.i.i1433 = call i32 @llvm.smin.i32(i32 %spec.select.i.i.i1432, i32 %spec.store.select.i.i1414)
-  %327 = load ptr, ptr %quaternaries, align 8
+  %324 = load ptr, ptr %quaternaries, align 8
   %conv12.i.i.i1434 = sext i32 %length.addr.1.i.i.i1433 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i1439, ptr align 1 %327, i64 %conv12.i.i.i1434, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i1439, ptr align 1 %324, i64 %conv12.i.i.i1434, i1 false)
   br label %if.end14.i.i.i1419
 
 if.end14.i.i.i1419:                               ; preds = %if.then5.i.i.i1431, %if.then3.i.i.i1417
-  %328 = load i8, ptr %needToRelease.i.i250, align 4
-  %tobool.not.i.i.i.i1421 = icmp eq i8 %328, 0
+  %325 = load i8, ptr %needToRelease.i.i250, align 4
+  %tobool.not.i.i.i.i1421 = icmp eq i8 %325, 0
   br i1 %tobool.not.i.i.i.i1421, label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1423, label %if.then.i.i.i.i1422
 
 if.then.i.i.i.i1422:                              ; preds = %if.end14.i.i.i1419
-  %329 = load ptr, ptr %quaternaries, align 8
-  invoke void @uprv_free_75(ptr noundef %329)
+  %326 = load ptr, ptr %quaternaries, align 8
+  invoke void @uprv_free_75(ptr noundef %326)
           to label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1423 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 if.then12.i.i1435:                                ; preds = %call.i.i.i.noexc1438
@@ -3831,13 +3828,16 @@ _ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1423: ; preds = %
   br label %if.then.i1425
 
 if.then.i1425:                                    ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1423, %entry.if.then_crit_edge.i1436
-  %330 = phi ptr [ %call.i.i.i1439, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1423 ], [ %.pre3.i1437, %entry.if.then_crit_edge.i1436 ]
-  %331 = phi i32 [ %.pre.i1424, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1423 ], [ %323, %entry.if.then_crit_edge.i1436 ]
-  %conv.i1426 = select i1 %cmp418, i8 1, i8 %304
-  %inc.i1427 = add nsw i32 %331, 1
+  %327 = phi ptr [ %call.i.i.i1439, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1423 ], [ %.pre3.i1437, %entry.if.then_crit_edge.i1436 ]
+  %328 = phi i32 [ %.pre.i1424, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i1423 ], [ %320, %entry.if.then_crit_edge.i1436 ]
+  %329 = trunc i64 %ce.0 to i8
+  %330 = lshr i8 %329, 6
+  %331 = or disjoint i8 %330, -4
+  %conv.i1426 = select i1 %cmp418, i8 1, i8 %331
+  %inc.i1427 = add nsw i32 %328, 1
   store i32 %inc.i1427, ptr %len.i251, align 8
-  %conv5.i1428 = sext i32 %331 to i64
-  %arrayidx.i.i1429 = getelementptr inbounds i8, ptr %330, i64 %conv5.i1428
+  %conv5.i1428 = sext i32 %328 to i64
+  %arrayidx.i.i1429 = getelementptr inbounds i8, ptr %327, i64 %conv5.i1428
   store i8 %conv.i1426, ptr %arrayidx.i.i1429, align 1
   br label %if.end457
 

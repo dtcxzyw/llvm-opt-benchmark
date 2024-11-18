@@ -256,8 +256,8 @@ entry:
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %0 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   %my_table11.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
+  %0 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry

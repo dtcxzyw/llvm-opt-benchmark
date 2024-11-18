@@ -2305,17 +2305,16 @@ for.end:                                          ; preds = %for.inc
   %.pre146.fr = freeze i64 %.pre146
   %.pre147 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre148 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %44 = zext i32 %.pre147 to i64
   %cmp.i.i.i.i = icmp eq i64 %.pre146.fr, 0
-  %spec.select153 = select i1 %cmp.i.i.i.i, i64 %44, i64 %.pre146.fr
-  %45 = trunc i64 %spec.select153 to i32
+  %44 = trunc i64 %.pre146.fr to i32
+  %spec.select151 = select i1 %cmp.i.i.i.i, i32 %.pre147, i32 %44
   br label %for.end.thread
 
 for.end.thread:                                   ; preds = %for.end, %if.end
-  %46 = phi ptr [ null, %if.end ], [ %.pre148, %for.end ]
-  %conv = phi i32 [ 0, %if.end ], [ %45, %for.end ]
+  %45 = phi ptr [ null, %if.end ], [ %.pre148, %for.end ]
+  %46 = phi i32 [ 0, %if.end ], [ %spec.select151, %for.end ]
   %Set.i = getelementptr inbounds i8, ptr %UniqueItems, i64 272
-  call void @_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %Set.i, ptr noundef %46)
+  call void @_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %Set.i, ptr noundef %45)
   %47 = load ptr, ptr %UniqueItems, align 8
   %cmp.i.i.i.i123 = icmp eq ptr %47, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i123, label %_ZN4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -2334,7 +2333,7 @@ if.then.i.i125:                                   ; preds = %_ZN4llvh8SmallSetIS
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i125, %_ZN4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EED2Ev.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit70
-  %retval.0 = phi i32 [ -1, %_ZN4llvh11raw_ostreamlsEPKc.exit70 ], [ %conv, %_ZN4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EED2Ev.exit ], [ %conv, %if.then.i.i125 ]
+  %retval.0 = phi i32 [ -1, %_ZN4llvh11raw_ostreamlsEPKc.exit70 ], [ %46, %_ZN4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EED2Ev.exit ], [ %46, %if.then.i.i125 ]
   %bf.load.i127 = load i8, ptr %HasError.i, align 8
   %bf.cast.i128 = trunc i8 %bf.load.i127 to i1
   br i1 %bf.cast.i128, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %if.then.i

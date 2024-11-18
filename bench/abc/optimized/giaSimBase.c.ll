@@ -24271,7 +24271,7 @@ define void @Gia_ManRelDeriveSims(ptr nocapture noundef readonly %0, ptr nocaptu
 ._crit_edge:                                      ; preds = %.lr.ph82, %.preheader
   %.045.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph82 ]
   %51 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
-  %52 = add i32 %.045.lcssa, -1
+  %52 = add nsw i32 %.045.lcssa, -1
   %or.cond.i = icmp ult i32 %52, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.045.lcssa
   %53 = getelementptr inbounds i8, ptr %51, i64 4

@@ -1850,12 +1850,12 @@ define internal i32 @tt_size_request(ptr noundef %0, ptr noundef %1) #2 {
   %52 = icmp ne i32 %51, 4
   %53 = icmp ne i32 %50, 0
   %or.cond = select i1 %52, i1 %53, i1 false
-  %54 = zext i32 %50 to i64
-  %55 = getelementptr inbounds i8, ptr %0, i64 168
-  %56 = load i16, ptr %55, align 8
-  %57 = zext i16 %56 to i64
-  %58 = select i1 %or.cond, i64 %54, i64 72
-  %59 = call i64 @FT_MulDiv(i64 noundef %57, i64 noundef 4608, i64 noundef %58) #22
+  %54 = getelementptr inbounds i8, ptr %0, i64 168
+  %55 = load i16, ptr %54, align 8
+  %56 = zext i16 %55 to i64
+  %57 = zext i32 %50 to i64
+  %58 = select i1 %or.cond, i64 %57, i64 72
+  %59 = call i64 @FT_MulDiv(i64 noundef %56, i64 noundef 4608, i64 noundef %58) #22
   %60 = getelementptr inbounds i8, ptr %0, i64 248
   store i64 %59, ptr %60, align 8
   br label %tt_size_select.exit
@@ -5209,8 +5209,8 @@ Ins_Goto_CodeRange.exit.i:                        ; preds = %1568, %1567, %1562,
   %1603 = icmp eq i64 %1595, %1596
   %1604 = icmp eq i64 %1599, %1601
   %or.cond.i511 = select i1 %1603, i1 %1604, i1 false
-  %1605 = and i8 %276, 1
   %spec.select56.i = select i1 %or.cond.i511, i64 16384, i64 %1597
+  %1605 = and i8 %276, 1
   %.not5360.i = icmp eq i8 %1605, 0
   %.not53.i = or i1 %.not5360.i, %or.cond.i511
   %1606 = sub i64 0, %1602
@@ -12578,17 +12578,17 @@ define internal i32 @tt_var_load_item_variation_store(ptr nocapture noundef read
   %or.cond159 = select i1 %or.cond, i1 true, i1 %81
   %82 = icmp sgt i16 %72, %76
   %or.cond160 = select i1 %or.cond159, i1 true, i1 %82
-  %83 = shl nsw i64 %73, 2
-  %84 = sext i16 %69 to i64
-  %85 = shl nsw i64 %84, 2
-  %86 = getelementptr inbounds %struct.GX_AxisCoordsRec_, ptr %67, i64 %indvars.iv186
-  store i64 %85, ptr %86, align 8
-  %87 = select i1 %or.cond160, i64 0, i64 %83
-  %88 = getelementptr inbounds i8, ptr %86, i64 8
+  %83 = sext i16 %69 to i64
+  %84 = shl nsw i64 %83, 2
+  %85 = getelementptr inbounds %struct.GX_AxisCoordsRec_, ptr %67, i64 %indvars.iv186
+  store i64 %84, ptr %85, align 8
+  %86 = shl nsw i64 %73, 2
+  %87 = select i1 %or.cond160, i64 0, i64 %86
+  %88 = getelementptr inbounds i8, ptr %85, i64 8
   store i64 %87, ptr %88, align 8
   %89 = sext i16 %76 to i64
   %90 = shl nsw i64 %89, 2
-  %91 = getelementptr inbounds i8, ptr %86, i64 16
+  %91 = getelementptr inbounds i8, ptr %85, i64 16
   store i64 %90, ptr %91, align 8
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %92 = load i16, ptr %51, align 8

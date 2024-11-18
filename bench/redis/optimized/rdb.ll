@@ -12550,8 +12550,8 @@ if.then297:                                       ; preds = %rdbLoadType.exit
   %call.i255 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i254)
   %cmp.i256 = icmp eq i32 %call.i255, -1
   %82 = load i64, ptr %len.i254, align 8
-  %83 = trunc i64 %82 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i254)
+  %83 = trunc i64 %82 to i32
   %conv302 = select i1 %cmp.i256, i32 -1, i32 %83
   %rdb.val = load i64, ptr %flags.i, align 8
   %conv.i258269 = and i64 %rdb.val, 1

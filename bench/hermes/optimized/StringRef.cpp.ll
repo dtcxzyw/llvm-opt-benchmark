@@ -1498,11 +1498,11 @@ _ZNK4llvh9StringRef4findEcm.exit.us:              ; preds = %if.then.i.us
 
 if.end.us:                                        ; preds = %_ZNK4llvh9StringRef4findEcm.exit.us
   %cmp.i20.not.us = icmp eq ptr %call4.i38.us, %S.sroa.0.0110.us
-  %.sroa.speculated83.us = select i1 %cmp.i20.not.us, i64 0, i64 %sub.ptr.sub.i.us
-  %.sroa.speculated56.us = tail call i64 @llvm.umin.i64(i64 %S.sroa.6.0111.us, i64 %.sroa.speculated83.us)
-  %0 = load i32, ptr %Size.i.i, align 8
-  %1 = load i32, ptr %Capacity.i.i, align 4
-  %cmp.not.i.us = icmp ult i32 %0, %1
+  %0 = tail call i64 @llvm.umin.i64(i64 %S.sroa.6.0111.us, i64 %sub.ptr.sub.i.us)
+  %.sroa.speculated56.us = select i1 %cmp.i20.not.us, i64 0, i64 %0
+  %1 = load i32, ptr %Size.i.i, align 8
+  %2 = load i32, ptr %Capacity.i.i, align 4
+  %cmp.not.i.us = icmp ult i32 %1, %2
   br i1 %cmp.not.i.us, label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.us, label %if.then.i24.us
 
 if.then.i24.us:                                   ; preds = %if.end.us
@@ -1511,15 +1511,15 @@ if.then.i24.us:                                   ; preds = %if.end.us
   br label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.us
 
 _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.us: ; preds = %if.then.i24.us, %if.end.us
-  %2 = phi i32 [ %.pre.i.us, %if.then.i24.us ], [ %0, %if.end.us ]
-  %3 = load ptr, ptr %A, align 8
-  %conv.i3.i.us = zext i32 %2 to i64
-  %add.ptr.i.i.us = getelementptr inbounds %"class.llvh::StringRef", ptr %3, i64 %conv.i3.i.us
+  %3 = phi i32 [ %.pre.i.us, %if.then.i24.us ], [ %1, %if.end.us ]
+  %4 = load ptr, ptr %A, align 8
+  %conv.i3.i.us = zext i32 %3 to i64
+  %add.ptr.i.i.us = getelementptr inbounds %"class.llvh::StringRef", ptr %4, i64 %conv.i3.i.us
   store ptr %S.sroa.0.0110.us, ptr %add.ptr.i.i.us, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.us = getelementptr inbounds i8, ptr %add.ptr.i.i.us, i64 8
   store i64 %.sroa.speculated56.us, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.us, align 1
-  %4 = load i32, ptr %Size.i.i, align 8
-  %add.i.us = add i32 %4, 1
+  %5 = load i32, ptr %Size.i.i, align 8
+  %add.i.us = add i32 %5, 1
   store i32 %add.i.us, ptr %Size.i.i, align 8
   %add.us = add nuw i64 %sub.ptr.sub.i.us, 1
   %.sroa.speculated53.us = tail call i64 @llvm.umin.i64(i64 %S.sroa.6.0111.us, i64 %add.us)
@@ -1551,10 +1551,10 @@ if.end:                                           ; preds = %_ZNK4llvh9StringRef
   br i1 %cmp3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %.sroa.speculated56 = tail call i64 @llvm.umin.i64(i64 %S.sroa.6.0111, i64 %sub.ptr.sub.i)
-  %5 = load i32, ptr %Size.i.i, align 8
-  %6 = load i32, ptr %Capacity.i.i, align 4
-  %cmp.not.i = icmp ult i32 %5, %6
+  %6 = tail call i64 @llvm.umin.i64(i64 %S.sroa.6.0111, i64 %sub.ptr.sub.i)
+  %7 = load i32, ptr %Size.i.i, align 8
+  %8 = load i32, ptr %Capacity.i.i, align 4
+  %cmp.not.i = icmp ult i32 %7, %8
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit, label %if.then.i24
 
 if.then.i24:                                      ; preds = %if.then4
@@ -1563,15 +1563,15 @@ if.then.i24:                                      ; preds = %if.then4
   br label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; preds = %if.then4, %if.then.i24
-  %7 = phi i32 [ %.pre.i, %if.then.i24 ], [ %5, %if.then4 ]
-  %8 = load ptr, ptr %A, align 8
-  %conv.i3.i = zext i32 %7 to i64
-  %add.ptr.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %8, i64 %conv.i3.i
+  %9 = phi i32 [ %.pre.i, %if.then.i24 ], [ %7, %if.then4 ]
+  %10 = load ptr, ptr %A, align 8
+  %conv.i3.i = zext i32 %9 to i64
+  %add.ptr.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %10, i64 %conv.i3.i
   store ptr %S.sroa.0.0110, ptr %add.ptr.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i64 %.sroa.speculated56, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
-  %9 = load i32, ptr %Size.i.i, align 8
-  %add.i = add i32 %9, 1
+  store i64 %6, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
+  %11 = load i32, ptr %Size.i.i, align 8
+  %add.i = add i32 %11, 1
   store i32 %add.i, ptr %Size.i.i, align 8
   br label %if.end6
 
@@ -1597,10 +1597,10 @@ if.then12:                                        ; preds = %_ZNK4llvh9StringRef
   %S.sroa.0.0105 = phi ptr [ %S.sroa.0.0.lcssa, %while.end ], [ %S.sroa.0.0110.us, %if.then.i.us ], [ %S.sroa.0.0110.us, %_ZNK4llvh9StringRef4findEcm.exit.us ], [ %S.sroa.0.0110, %if.then.i ], [ %S.sroa.0.0110, %_ZNK4llvh9StringRef4findEcm.exit ]
   %S.sroa.6.0103 = phi i64 [ %S.sroa.6.0.lcssa, %while.end ], [ %S.sroa.6.0111.us, %if.then.i.us ], [ %S.sroa.6.0111.us, %_ZNK4llvh9StringRef4findEcm.exit.us ], [ %S.sroa.6.0111, %if.then.i ], [ %S.sroa.6.0111, %_ZNK4llvh9StringRef4findEcm.exit ]
   %Size.i.i31 = getelementptr inbounds i8, ptr %A, i64 8
-  %10 = load i32, ptr %Size.i.i31, align 8
+  %12 = load i32, ptr %Size.i.i31, align 8
   %Capacity.i.i32 = getelementptr inbounds i8, ptr %A, i64 12
-  %11 = load i32, ptr %Capacity.i.i32, align 4
-  %cmp.not.i33 = icmp ult i32 %10, %11
+  %13 = load i32, ptr %Capacity.i.i32, align 4
+  %cmp.not.i33 = icmp ult i32 %12, %13
   br i1 %cmp.not.i33, label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit40, label %if.then.i34
 
 if.then.i34:                                      ; preds = %if.then12
@@ -1610,15 +1610,15 @@ if.then.i34:                                      ; preds = %if.then12
   br label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit40
 
 _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit40: ; preds = %if.then12, %if.then.i34
-  %12 = phi i32 [ %.pre.i36, %if.then.i34 ], [ %10, %if.then12 ]
-  %13 = load ptr, ptr %A, align 8
-  %conv.i3.i37 = zext i32 %12 to i64
-  %add.ptr.i.i38 = getelementptr inbounds %"class.llvh::StringRef", ptr %13, i64 %conv.i3.i37
+  %14 = phi i32 [ %.pre.i36, %if.then.i34 ], [ %12, %if.then12 ]
+  %15 = load ptr, ptr %A, align 8
+  %conv.i3.i37 = zext i32 %14 to i64
+  %add.ptr.i.i38 = getelementptr inbounds %"class.llvh::StringRef", ptr %15, i64 %conv.i3.i37
   store ptr %S.sroa.0.0105, ptr %add.ptr.i.i38, align 1
   %S.sroa.6.0.add.ptr.i.i38.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
   store i64 %S.sroa.6.0103, ptr %S.sroa.6.0.add.ptr.i.i38.sroa_idx, align 1
-  %14 = load i32, ptr %Size.i.i31, align 8
-  %add.i39 = add i32 %14, 1
+  %16 = load i32, ptr %Size.i.i31, align 8
+  %add.i39 = add i32 %16, 1
   store i32 %add.i39, ptr %Size.i.i31, align 8
   br label %if.end13
 

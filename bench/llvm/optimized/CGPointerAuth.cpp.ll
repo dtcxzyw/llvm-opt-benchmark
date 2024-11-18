@@ -1821,9 +1821,9 @@ _ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread:
   %.023 = phi i8 [ %.124, %70 ], [ %.124, %73 ], [ %.124, %67 ], [ %.124, %.fold.split ], [ %15, %24 ], [ %15, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %15, %40 ], [ %15, %38 ], [ %15, %45 ]
   %.0 = phi i32 [ %.1, %70 ], [ %.1, %73 ], [ %.1, %67 ], [ %.1, %.fold.split ], [ %13, %24 ], [ %13, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %13, %40 ], [ %13, %38 ], [ %13, %45 ]
   %74 = trunc i8 %.023 to i1
-  %75 = shl nuw nsw i32 %.0, 6
-  %76 = select i1 %74, i32 3, i32 1
-  %77 = or disjoint i32 %76, %75
+  %75 = select i1 %74, i32 3, i32 1
+  %76 = shl nuw nsw i32 %.0, 6
+  %77 = or disjoint i32 %75, %76
   %78 = shl i32 %.126, 16
   %79 = or i32 %78, %77
   %80 = or disjoint i32 %79, 12

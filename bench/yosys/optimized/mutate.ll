@@ -27528,7 +27528,7 @@ _ZN12_GLOBAL__N_120mutate_chain_queue_tIN5Yosys5RTLIL8IdStringENS_19mutate_once_
 
 ._crit_edge3091:                                  ; preds = %.lr.ph3090, %._crit_edge3084
   %.0222.lcssa = phi i32 [ 0, %._crit_edge3084 ], [ %spec.select268, %.lr.ph3090 ]
-  %3774 = sitofp i32 %.0218.lcssa to double
+  %3774 = uitofp nneg i32 %.0218.lcssa to double
   %3775 = fmul double %3774, 1.000000e+02
   %3776 = sitofp i32 %3744 to double
   %3777 = fdiv double %3775, %3776
@@ -27543,7 +27543,7 @@ _ZN12_GLOBAL__N_120mutate_chain_queue_tIN5Yosys5RTLIL8IdStringENS_19mutate_once_
   %3783 = sub i64 %3781, %3782
   %3784 = lshr exact i64 %3783, 4
   %3785 = trunc i64 %3784 to i32
-  %3786 = sitofp i32 %.0220.lcssa to double
+  %3786 = uitofp nneg i32 %.0220.lcssa to double
   %3787 = fmul double %3786, 1.000000e+02
   %3788 = sitofp i32 %3785 to double
   %3789 = fdiv double %3787, %3788
@@ -27558,7 +27558,7 @@ _ZN12_GLOBAL__N_120mutate_chain_queue_tIN5Yosys5RTLIL8IdStringENS_19mutate_once_
   %3795 = sub i64 %3793, %3794
   %3796 = sdiv exact i64 %3795, 20
   %3797 = trunc i64 %3796 to i32
-  %3798 = sitofp i32 %.0222.lcssa to double
+  %3798 = uitofp nneg i32 %.0222.lcssa to double
   %3799 = fmul double %3798, 1.000000e+02
   %3800 = sitofp i32 %3797 to double
   %3801 = fdiv double %3799, %3800

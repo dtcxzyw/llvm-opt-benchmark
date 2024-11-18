@@ -9672,10 +9672,10 @@ _ZN5clang26ImplicitConversionSequence11setStandardEv.exit: ; preds = %4, %10
   %.pre = load i64, ptr %6, align 8
   %15 = and i64 %.pre, -65536
   %16 = or disjoint i64 %15, 1
-  %17 = select i1 %3, i64 %16, i64 %.pre
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %13, ptr %18, align 8
-  %19 = and i64 %17, -65281
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %13, ptr %17, align 8
+  %18 = and i64 %.pre, -65281
+  %19 = select i1 %3, i64 %16, i64 %18
   %20 = or disjoint i64 %19, 3840
   store i64 %20, ptr %6, align 8
   %21 = inttoptr i64 %2 to ptr

@@ -9060,7 +9060,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit114._crit_edge: ; preds = %_ZNK4llvm3LLT13get
 141:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit114._crit_edge, %.critedge2
   %142 = phi i32 [ %.pre, %_ZNK4llvm3LLT13getSizeInBitsEv.exit114._crit_edge ], [ %67, %.critedge2 ]
   %143 = icmp eq i32 %142, 2
-  br i1 %143, label %144, label %204
+  br i1 %143, label %144, label %201
 
 144:                                              ; preds = %141
   %145 = and i64 %1, -7
@@ -9082,139 +9082,136 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit114._crit_edge: ; preds = %_ZNK4llvm3LLT13get
 152:                                              ; preds = %151
   %153 = and i64 %1, 4
   %.not1.i2.i131 = icmp eq i64 %153, 0
-  br i1 %.not1.i2.i131, label %158, label %154
+  br i1 %.not1.i2.i131, label %157, label %154
 
 154:                                              ; preds = %152
   %155 = lshr i64 %1, 19
-  %156 = and i64 %155, 65535
-  %spec.select.i.i132 = select i1 %.not.i.not.i116, i64 %155, i64 %156
-  %157 = and i64 %spec.select.i.i132, 4294967295
+  %.v = select i1 %.not.i.not.i116, i64 4294967295, i64 65535
+  %156 = and i64 %155, %.v
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit133
 
-158:                                              ; preds = %152
-  %159 = lshr i64 %1, 3
-  %160 = and i64 %159, 65535
+157:                                              ; preds = %152
+  %158 = lshr i64 %1, 3
+  %159 = and i64 %158, 65535
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit133
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit133:           ; preds = %154, %158
-  %.sroa.012.0.in.i125 = phi i64 [ %160, %158 ], [ %157, %154 ]
-  %161 = icmp samesign ult i64 %.sroa.012.0.in.i125, 65
-  br i1 %161, label %.critedge, label %170
+_ZNK4llvm3LLT13getSizeInBitsEv.exit133:           ; preds = %154, %157
+  %.sroa.012.0.in.i125 = phi i64 [ %159, %157 ], [ %156, %154 ]
+  %160 = icmp samesign ult i64 %.sroa.012.0.in.i125, 65
+  br i1 %160, label %.critedge, label %169
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread223: ; preds = %151
-  %162 = and i64 %1, 34359738360
-  %163 = icmp samesign ult i64 %162, 520
-  br i1 %163, label %.critedge, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread226
+  %161 = and i64 %1, 34359738360
+  %162 = icmp samesign ult i64 %161, 520
+  br i1 %162, label %.critedge, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread226
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread:    ; preds = %144
-  %164 = lshr i64 %1, 3
-  %.sroa.0.0.insert.ext.i.i.i120 = and i64 %164, 65535
-  %165 = and i64 %1, 4
-  %.not1.i8.i122 = icmp eq i64 %165, 0
-  %166 = lshr i64 %1, 19
-  %167 = and i64 %166, 65535
-  %spec.select.i10.i123 = select i1 %.not.i.not.i116, i64 %166, i64 %167
+  %163 = lshr i64 %1, 3
+  %.sroa.0.0.insert.ext.i.i.i120 = and i64 %163, 65535
+  %164 = and i64 %1, 4
+  %.not1.i8.i122 = icmp eq i64 %164, 0
+  %165 = lshr i64 %1, 19
+  %166 = and i64 %165, 65535
+  %spec.select.i10.i123 = select i1 %.not.i.not.i116, i64 %165, i64 %166
   %.0.in.i6.i124 = select i1 %.not1.i8.i122, i64 %.sroa.0.0.insert.ext.i.i.i120, i64 %spec.select.i10.i123
-  %168 = mul nuw nsw i64 %.0.in.i6.i124, %.sroa.0.0.insert.ext.i.i.i120
-  %.sroa.012.0.i127208 = and i64 %168, 4294967295
-  %169 = icmp samesign ult i64 %.sroa.012.0.i127208, 65
-  br i1 %169, label %.critedge, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread
+  %167 = mul nuw nsw i64 %.0.in.i6.i124, %.sroa.0.0.insert.ext.i.i.i120
+  %.sroa.012.0.i127208 = and i64 %167, 4294967295
+  %168 = icmp samesign ult i64 %.sroa.012.0.i127208, 65
+  br i1 %168, label %.critedge, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread
 
-170:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit133
-  %171 = and i64 %1, 4
-  %.not1.i2.i150 = icmp eq i64 %171, 0
-  br i1 %.not1.i2.i150, label %176, label %172
+169:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit133
+  %170 = and i64 %1, 4
+  %.not1.i2.i150 = icmp eq i64 %170, 0
+  br i1 %.not1.i2.i150, label %174, label %171
 
-172:                                              ; preds = %170
-  %173 = lshr i64 %1, 19
-  %174 = and i64 %173, 65535
-  %spec.select.i.i151 = select i1 %.not.i.not.i116, i64 %173, i64 %174
-  %175 = and i64 %spec.select.i.i151, 4294967295
+171:                                              ; preds = %169
+  %172 = lshr i64 %1, 19
+  %.v234 = select i1 %.not.i.not.i116, i64 4294967295, i64 65535
+  %173 = and i64 %172, %.v234
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit152
 
-176:                                              ; preds = %170
-  %177 = lshr i64 %1, 3
-  %178 = and i64 %177, 65535
+174:                                              ; preds = %169
+  %175 = lshr i64 %1, 3
+  %176 = and i64 %175, 65535
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit152
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit152:           ; preds = %172, %176
-  %.sroa.012.0.in.i144 = phi i64 [ %178, %176 ], [ %175, %172 ]
-  %179 = icmp eq i64 %.sroa.012.0.in.i144, 128
-  br i1 %179, label %.critedge, label %182
+_ZNK4llvm3LLT13getSizeInBitsEv.exit152:           ; preds = %171, %174
+  %.sroa.012.0.in.i144 = phi i64 [ %176, %174 ], [ %173, %171 ]
+  %177 = icmp eq i64 %.sroa.012.0.in.i144, 128
+  br i1 %177, label %.critedge, label %180
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread226: ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread223
-  %180 = and i64 %1, 34359738360
-  %181 = icmp eq i64 %180, 1024
-  br i1 %181, label %.critedge, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit171.thread230
+  %178 = and i64 %1, 34359738360
+  %179 = icmp eq i64 %178, 1024
+  br i1 %179, label %.critedge, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit171.thread230
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread:    ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread
-  %trunc = trunc i64 %168 to i32
+  %trunc = trunc i64 %167 to i32
   switch i32 %trunc, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit190 [
     i32 128, label %.critedge
     i32 256, label %.critedge.fold.split
   ]
 
-182:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit152
-  %183 = and i64 %1, 4
-  %.not1.i2.i169 = icmp eq i64 %183, 0
-  br i1 %.not1.i2.i169, label %188, label %184
+180:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit152
+  %181 = and i64 %1, 4
+  %.not1.i2.i169 = icmp eq i64 %181, 0
+  br i1 %.not1.i2.i169, label %185, label %182
 
-184:                                              ; preds = %182
-  %185 = lshr i64 %1, 19
-  %186 = and i64 %185, 65535
-  %spec.select.i.i170 = select i1 %.not.i.not.i116, i64 %185, i64 %186
-  %187 = and i64 %spec.select.i.i170, 4294967295
+182:                                              ; preds = %180
+  %183 = lshr i64 %1, 19
+  %.v235 = select i1 %.not.i.not.i116, i64 4294967295, i64 65535
+  %184 = and i64 %183, %.v235
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit171
 
-188:                                              ; preds = %182
-  %189 = lshr i64 %1, 3
-  %190 = and i64 %189, 65535
+185:                                              ; preds = %180
+  %186 = lshr i64 %1, 3
+  %187 = and i64 %186, 65535
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit171
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit171:           ; preds = %184, %188
-  %.sroa.012.0.in.i163 = phi i64 [ %190, %188 ], [ %187, %184 ]
-  %191 = icmp eq i64 %.sroa.012.0.in.i163, 256
-  br i1 %191, label %.critedge, label %195
+_ZNK4llvm3LLT13getSizeInBitsEv.exit171:           ; preds = %182, %185
+  %.sroa.012.0.in.i163 = phi i64 [ %187, %185 ], [ %184, %182 ]
+  %188 = icmp eq i64 %.sroa.012.0.in.i163, 256
+  br i1 %188, label %.critedge, label %192
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit171.thread230: ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread226
-  %192 = and i64 %1, 34359738360
-  %193 = icmp eq i64 %192, 2048
-  br i1 %193, label %.critedge, label %.thread233
+  %189 = and i64 %1, 34359738360
+  %190 = icmp eq i64 %189, 2048
+  br i1 %190, label %.critedge, label %.thread233
 
 .thread233:                                       ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit171.thread230
-  %194 = lshr i64 %1, 3
+  %191 = lshr i64 %1, 3
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit190
 
-195:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit171
-  %196 = and i64 %1, 4
-  %.not1.i2.i188 = icmp eq i64 %196, 0
-  br i1 %.not1.i2.i188, label %200, label %197
+192:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit171
+  %193 = and i64 %1, 4
+  %.not1.i2.i188 = icmp eq i64 %193, 0
+  br i1 %.not1.i2.i188, label %197, label %194
 
-197:                                              ; preds = %195
-  %198 = lshr i64 %1, 19
+194:                                              ; preds = %192
+  %195 = lshr i64 %1, 19
+  %196 = and i64 %195, 65535
+  %spec.select.i.i189 = select i1 %.not.i.not.i116, i64 %195, i64 %196
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit190
+
+197:                                              ; preds = %192
+  %198 = lshr i64 %1, 3
   %199 = and i64 %198, 65535
-  %spec.select.i.i189 = select i1 %.not.i.not.i116, i64 %198, i64 %199
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit190
 
-200:                                              ; preds = %195
-  %201 = lshr i64 %1, 3
-  %202 = and i64 %201, 65535
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit190
-
-_ZNK4llvm3LLT13getSizeInBitsEv.exit190:           ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread, %.thread233, %197, %200
-  %.sroa.012.0.in.i182 = phi i64 [ %194, %.thread233 ], [ %202, %200 ], [ %spec.select.i.i189, %197 ], [ %168, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit190:           ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread, %.thread233, %194, %197
+  %.sroa.012.0.in.i182 = phi i64 [ %191, %.thread233 ], [ %199, %197 ], [ %spec.select.i.i189, %194 ], [ %167, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread ]
   %.sroa.012.0.i184 = and i64 %.sroa.012.0.in.i182, 4294967295
-  %203 = icmp eq i64 %.sroa.012.0.i184, 512
-  br i1 %203, label %.critedge, label %204
+  %200 = icmp eq i64 %.sroa.012.0.i184, 512
+  br i1 %200, label %.critedge, label %201
 
-204:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit190, %141
+201:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit190, %141
   br label %.critedge
 
 .critedge.fold.split:                             ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread, %.critedge.fold.split, %_ZNK4llvm3LLT13getSizeInBitsEv.exit171.thread230, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread226, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread223, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread, %_ZNK4llvm3LLT13getSizeInBitsEv.exit190, %_ZNK4llvm3LLT13getSizeInBitsEv.exit171, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133, %_ZNK4llvm3LLT13getSizeInBitsEv.exit114, %_ZNK4llvm3LLT13getSizeInBitsEv.exit95, %_ZNK4llvm3LLT13getSizeInBitsEv.exit76, %_ZNK4llvm3LLT13getSizeInBitsEv.exit57, %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %204
-  %.0 = phi ptr [ null, %204 ], [ @_ZN4llvm5RISCV11GPRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ @_ZN4llvm5RISCV11GPRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit57 ], [ @_ZN4llvm5RISCV13FPR16RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit76 ], [ @_ZN4llvm5RISCV13FPR32RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit95 ], [ @_ZN4llvm5RISCV13FPR64RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit114 ], [ @_ZN4llvm5RISCV10VRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133 ], [ @_ZN4llvm5RISCV12VRM2RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152 ], [ @_ZN4llvm5RISCV12VRM4RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit171 ], [ @_ZN4llvm5RISCV12VRM8RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit190 ], [ @_ZN4llvm5RISCV10VRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread ], [ @_ZN4llvm5RISCV12VRM2RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread ], [ @_ZN4llvm5RISCV10VRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread223 ], [ @_ZN4llvm5RISCV12VRM2RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread226 ], [ @_ZN4llvm5RISCV12VRM4RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit171.thread230 ], [ @_ZN4llvm5RISCV12VRM4RegClassE, %.critedge.fold.split ]
+.critedge:                                        ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread, %.critedge.fold.split, %_ZNK4llvm3LLT13getSizeInBitsEv.exit171.thread230, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread226, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread223, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread, %_ZNK4llvm3LLT13getSizeInBitsEv.exit190, %_ZNK4llvm3LLT13getSizeInBitsEv.exit171, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133, %_ZNK4llvm3LLT13getSizeInBitsEv.exit114, %_ZNK4llvm3LLT13getSizeInBitsEv.exit95, %_ZNK4llvm3LLT13getSizeInBitsEv.exit76, %_ZNK4llvm3LLT13getSizeInBitsEv.exit57, %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %201
+  %.0 = phi ptr [ null, %201 ], [ @_ZN4llvm5RISCV11GPRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ @_ZN4llvm5RISCV11GPRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit57 ], [ @_ZN4llvm5RISCV13FPR16RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit76 ], [ @_ZN4llvm5RISCV13FPR32RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit95 ], [ @_ZN4llvm5RISCV13FPR64RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit114 ], [ @_ZN4llvm5RISCV10VRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133 ], [ @_ZN4llvm5RISCV12VRM2RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152 ], [ @_ZN4llvm5RISCV12VRM4RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit171 ], [ @_ZN4llvm5RISCV12VRM8RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit190 ], [ @_ZN4llvm5RISCV10VRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread ], [ @_ZN4llvm5RISCV12VRM2RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread ], [ @_ZN4llvm5RISCV10VRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit133.thread223 ], [ @_ZN4llvm5RISCV12VRM2RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit152.thread226 ], [ @_ZN4llvm5RISCV12VRM4RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit171.thread230 ], [ @_ZN4llvm5RISCV12VRM4RegClassE, %.critedge.fold.split ]
   ret ptr %.0
 }
 

@@ -7848,7 +7848,7 @@ define linkonce_odr void @_ZNK5Eigen12PartialPivLUINS_6MatrixIdLi3ELi3ELi0ELi3EL
   br label %.preheader.i.i.i.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i:                        ; preds = %17, %14
-  %8 = icmp slt i64 %.155.i.i.i.i.i.i.i.i, 2
+  %8 = icmp samesign ult i64 %.155.i.i.i.i.i.i.i.i, 2
   br i1 %8, label %.preheader.i.i.i.i.i.i.i.i.backedge, label %_ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEaSINS_7ProductINS_17PermutationMatrixILi3ELi3EiEES1_Li2EEEEERS1_RKNS_9DenseBaseIT_EE.exit
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i.backedge, %7
@@ -7859,7 +7859,7 @@ define linkonce_odr void @_ZNK5Eigen12PartialPivLUINS_6MatrixIdLi3ELi3ELi0ELi3EL
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.preheader.i.i.i.i.i.i.i.i
-  %13 = icmp slt i64 %.155.i.i.i.i.i.i.i.i, 2
+  %13 = icmp samesign ult i64 %.155.i.i.i.i.i.i.i.i, 2
   br i1 %13, label %.preheader.i.i.i.i.i.i.i.i.backedge, label %_ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEaSINS_7ProductINS_17PermutationMatrixILi3ELi3EiEES1_Li2EEEEERS1_RKNS_9DenseBaseIT_EE.exit
 
 .preheader.i.i.i.i.i.i.i.i.backedge:              ; preds = %12, %.loopexit.i.i.i.i.i.i.i.i

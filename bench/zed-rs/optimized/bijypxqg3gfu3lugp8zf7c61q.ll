@@ -259,7 +259,6 @@ define internal void @"_ZN117_$LT$rodio..source..uniform..UniformSourceIterator$
   %17 = icmp eq i32 %15, %16
   %18 = getelementptr inbounds i8, ptr %1, i64 88
   %19 = load i64, ptr %18, align 8, !alias.scope !43, !noalias !44
-  %.sroa.0.0.i.i.i = select i1 %17, i64 %19, i64 0
   %20 = zext i32 %8 to i64
   %21 = add i32 %15, 2
   %22 = tail call i32 @llvm.usub.sat.i32(i32 %8, i32 %21)
@@ -268,48 +267,49 @@ define internal void @"_ZN117_$LT$rodio..source..uniform..UniformSourceIterator$
   %25 = load i16, ptr %24, align 8, !alias.scope !43, !noalias !44, !noundef !4
   %26 = zext i16 %25 to i64
   %27 = mul nuw nsw i64 %26, %23
-  %28 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.0.0.i.i.i, i64 %27)
-  %29 = zext i32 %10 to i64
-  %30 = mul i64 %28, %29
-  %31 = udiv i64 %30, %20
-  %32 = getelementptr inbounds i8, ptr %1, i64 132
-  %33 = load i32, ptr %32, align 4, !alias.scope !43, !noalias !44, !noundef !4
-  %34 = sub i32 %10, %33
-  %35 = zext i32 %34 to i64
-  %36 = mul nuw nsw i64 %35, %26
-  %37 = getelementptr inbounds i8, ptr %1, i64 112
-  %38 = load i64, ptr %37, align 8, !alias.scope !43, !noalias !44, !noundef !4
-  %39 = add i64 %38, %31
-  %40 = add i64 %39, %36
+  %28 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %27)
+  %29 = select i1 %17, i64 %28, i64 0
+  %30 = zext i32 %10 to i64
+  %31 = mul i64 %29, %30
+  %32 = udiv i64 %31, %20
+  %33 = getelementptr inbounds i8, ptr %1, i64 132
+  %34 = load i32, ptr %33, align 4, !alias.scope !43, !noalias !44, !noundef !4
+  %35 = sub i32 %10, %34
+  %36 = zext i32 %35 to i64
+  %37 = mul nuw nsw i64 %36, %26
+  %38 = getelementptr inbounds i8, ptr %1, i64 112
+  %39 = load i64, ptr %38, align 8, !alias.scope !43, !noalias !44, !noundef !4
+  %40 = add i64 %39, %32
+  %41 = add i64 %40, %37
   br label %"_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he3643347ec32f421E.exit.i"
 
 "_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he3643347ec32f421E.exit.i": ; preds = %6, %"_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3abd72801f1a3d9bE.exit.i.i"
-  %.sroa.0.0.i = phi i64 [ %40, %"_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3abd72801f1a3d9bE.exit.i.i" ], [ 0, %6 ]
-  %41 = getelementptr inbounds i8, ptr %1, i64 152
-  %42 = load i16, ptr %41, align 8, !alias.scope !37, !noalias !48, !noundef !4
-  %43 = icmp eq i16 %42, 0
-  br i1 %43, label %54, label %"_ZN119_$LT$rodio..conversions..channels..ChannelCountConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5d593a7dc24e2d14E.exit"
+  %.sroa.0.0.i = phi i64 [ %41, %"_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3abd72801f1a3d9bE.exit.i.i" ], [ 0, %6 ]
+  %42 = getelementptr inbounds i8, ptr %1, i64 152
+  %43 = load i16, ptr %42, align 8, !alias.scope !37, !noalias !48, !noundef !4
+  %44 = icmp eq i16 %43, 0
+  br i1 %44, label %55, label %"_ZN119_$LT$rodio..conversions..channels..ChannelCountConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5d593a7dc24e2d14E.exit"
 
 "_ZN119_$LT$rodio..conversions..channels..ChannelCountConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5d593a7dc24e2d14E.exit": ; preds = %"_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he3643347ec32f421E.exit.i"
-  %44 = getelementptr inbounds i8, ptr %1, i64 156
-  %45 = load i16, ptr %44, align 4, !alias.scope !37, !noalias !48, !noundef !4
-  %46 = getelementptr inbounds i8, ptr %1, i64 154
-  %47 = load i16, ptr %46, align 2, !alias.scope !37, !noalias !48, !noundef !4
-  %.pre-phi4.i = zext i16 %47 to i64
-  %.pre-phi6.i = zext i16 %45 to i64
-  %.pre.i = zext i16 %42 to i64
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i16 @llvm.umin.i16(i16 %42, i16 %45)
-  %48 = zext i16 %.sroa.0.0.sroa.speculated.i.i to i64
-  %49 = add i64 %.sroa.0.0.i, %48
-  %50 = udiv i64 %49, %.pre.i
-  %51 = mul i64 %50, %.pre-phi4.i
-  %52 = sub i64 %51, %.pre-phi6.i
-  store i64 %52, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %53, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 156
+  %46 = load i16, ptr %45, align 4, !alias.scope !37, !noalias !48, !noundef !4
+  %47 = getelementptr inbounds i8, ptr %1, i64 154
+  %48 = load i16, ptr %47, align 2, !alias.scope !37, !noalias !48, !noundef !4
+  %.pre-phi4.i = zext i16 %48 to i64
+  %.pre-phi6.i = zext i16 %46 to i64
+  %.pre.i = zext i16 %43 to i64
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i16 @llvm.umin.i16(i16 %43, i16 %46)
+  %49 = zext i16 %.sroa.0.0.sroa.speculated.i.i to i64
+  %50 = add i64 %.sroa.0.0.i, %49
+  %51 = udiv i64 %50, %.pre.i
+  %52 = mul i64 %51, %.pre-phi4.i
+  %53 = sub i64 %52, %.pre-phi6.i
+  store i64 %53, ptr %0, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %54, align 8
   ret void
 
-54:                                               ; preds = %"_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he3643347ec32f421E.exit.i"
+55:                                               ; preds = %"_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he3643347ec32f421E.exit.i"
   tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.6) #17, !noalias !49
   unreachable
 }

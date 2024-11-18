@@ -1598,8 +1598,8 @@ matchIdSubst.exit77.us:                           ; preds = %17, %.loopexit82.us
   %47 = phi i32 [ %31, %38 ], [ %32, %.preheader.us ]
   %.2.us = phi ptr [ %30, %38 ], [ %.099.us, %.preheader.us ]
   %.not70.us = icmp eq i32 %31, %47
-  %48 = add i32 %.06198.us, 1
   %spec.select71.us = select i1 %.not70.us, ptr %.2.us, ptr %30
+  %48 = add i32 %.06198.us, 1
   %49 = select i1 %.not70.us, i32 %48, i32 0
   br label %50
 

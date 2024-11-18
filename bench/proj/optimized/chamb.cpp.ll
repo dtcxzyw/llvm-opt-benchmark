@@ -100,9 +100,9 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_chambP8PJconsts(ptr 
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %_ZL4vectP6pj_ctxdddddd.exit ], [ 0, %11 ]
   %33 = icmp eq i64 %indvars.iv102, 2
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %34 = and i64 %indvars.iv.next103, 4294967295
-  %35 = load ptr, ptr %0, align 8
-  %36 = select i1 %33, i64 0, i64 %34
+  %34 = load ptr, ptr %0, align 8
+  %35 = and i64 %indvars.iv.next103, 4294967295
+  %36 = select i1 %33, i64 0, i64 %35
   %37 = getelementptr inbounds [3 x %struct.anon], ptr %3, i64 0, i64 %36
   %38 = load double, ptr %37, align 8
   %39 = getelementptr inbounds [3 x %struct.anon], ptr %3, i64 0, i64 %indvars.iv102
@@ -133,7 +133,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_chambP8PJconsts(ptr 
   %61 = fmul double %43, %47
   %62 = fmul double %61, %55
   %63 = call double @llvm.fmuladd.f64(double %45, double %49, double %62)
-  %64 = call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %35, double noundef %63)
+  %64 = call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %34, double noundef %63)
   br label %77
 
 65:                                               ; preds = %.preheader
@@ -146,7 +146,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_chambP8PJconsts(ptr 
   %72 = fmul double %69, %71
   %73 = call double @llvm.fmuladd.f64(double %67, double %67, double %72)
   %74 = call double @sqrt(double noundef %73) #8
-  %75 = call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %35, double noundef %74)
+  %75 = call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %34, double noundef %74)
   %76 = fmul double %75, 2.000000e+00
   br label %77
 
@@ -376,24 +376,24 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   %.sroa.056.174 = phi double [ %.sroa.056.0.copyload60, %.critedge ], [ %.sroa.056.2, %107 ]
   %63 = icmp eq i64 %indvars.iv78, 2
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %64 = and i64 %indvars.iv.next79, 4294967295
-  %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds [3 x %struct.anon], ptr %6, i64 0, i64 %indvars.iv78, i32 4
-  %67 = load double, ptr %66, align 8
-  %68 = getelementptr inbounds [3 x %struct.VECT], ptr %4, i64 0, i64 %indvars.iv78
-  %69 = load double, ptr %68, align 16
-  %70 = select i1 %63, i64 0, i64 %64
+  %64 = load ptr, ptr %2, align 8
+  %65 = getelementptr inbounds [3 x %struct.anon], ptr %6, i64 0, i64 %indvars.iv78, i32 4
+  %66 = load double, ptr %65, align 8
+  %67 = getelementptr inbounds [3 x %struct.VECT], ptr %4, i64 0, i64 %indvars.iv78
+  %68 = load double, ptr %67, align 16
+  %69 = and i64 %indvars.iv.next79, 4294967295
+  %70 = select i1 %63, i64 0, i64 %69
   %71 = getelementptr inbounds [3 x %struct.VECT], ptr %4, i64 0, i64 %70
   %72 = load double, ptr %71, align 16
-  %73 = fmul double %69, %69
-  %74 = tail call double @llvm.fmuladd.f64(double %67, double %67, double %73)
+  %73 = fmul double %68, %68
+  %74 = tail call double @llvm.fmuladd.f64(double %66, double %66, double %73)
   %75 = fneg double %72
   %76 = tail call double @llvm.fmuladd.f64(double %75, double %72, double %74)
   %77 = fmul double %76, 5.000000e-01
-  %78 = fmul double %67, %69
+  %78 = fmul double %66, %68
   %79 = fdiv double %77, %78
-  %80 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %65, double noundef %79)
-  %81 = getelementptr inbounds i8, ptr %68, i64 8
+  %80 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %64, double noundef %79)
+  %81 = getelementptr inbounds i8, ptr %67, i64 8
   %82 = load double, ptr %81, align 8
   %83 = fcmp olt double %82, 0.000000e+00
   %84 = fneg double %80
@@ -406,9 +406,9 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
 
 86:                                               ; preds = %62
   %87 = tail call double @cos(double noundef %.0) #8
-  %88 = tail call double @llvm.fmuladd.f64(double %69, double %87, double %.sroa.056.174)
+  %88 = tail call double @llvm.fmuladd.f64(double %68, double %87, double %.sroa.056.174)
   %89 = tail call double @sin(double noundef %.0) #8
-  %90 = fneg double %69
+  %90 = fneg double %68
   %91 = tail call double @llvm.fmuladd.f64(double %90, double %89, double %.sroa.11.175)
   br label %107
 
@@ -416,7 +416,7 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   %93 = load double, ptr %60, align 8
   %94 = fsub double %93, %.0
   %95 = tail call double @cos(double noundef %94) #8
-  %96 = fneg double %69
+  %96 = fneg double %68
   %97 = tail call double @llvm.fmuladd.f64(double %96, double %95, double %.sroa.056.174)
   %98 = tail call double @sin(double noundef %94) #8
   %99 = tail call double @llvm.fmuladd.f64(double %96, double %98, double %.sroa.11.175)
@@ -426,9 +426,9 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   %101 = load double, ptr %61, align 8
   %102 = fsub double %101, %.0
   %103 = tail call double @cos(double noundef %102) #8
-  %104 = tail call double @llvm.fmuladd.f64(double %69, double %103, double %.sroa.056.174)
+  %104 = tail call double @llvm.fmuladd.f64(double %68, double %103, double %.sroa.056.174)
   %105 = tail call double @sin(double noundef %102) #8
-  %106 = tail call double @llvm.fmuladd.f64(double %69, double %105, double %.sroa.11.175)
+  %106 = tail call double @llvm.fmuladd.f64(double %68, double %105, double %.sroa.11.175)
   br label %107
 
 107:                                              ; preds = %86, %100, %92

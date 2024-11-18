@@ -6885,13 +6885,13 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %7 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp14.not = icmp ugt i64 %7, %5
   %8 = load i32, ptr %result, align 4
-  %9 = zext i32 %8 to i64
-  %10 = select i1 %cmp14.not, i64 0, i64 4294967296
-  %11 = select i1 %cmp14.not, i64 0, i64 %9
+  %9 = select i1 %cmp14.not, i64 0, i64 4294967296
+  %10 = zext i32 %8 to i64
+  %11 = select i1 %cmp14.not, i64 0, i64 %10
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont12, %invoke.cont6
-  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %10, %invoke.cont12 ]
+  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %9, %invoke.cont12 ]
   %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont6 ], [ %11, %invoke.cont12 ]
   %12 = load ptr, ptr %error_field, align 8
   %cmp.not.i = icmp eq ptr %12, null
@@ -6975,13 +6975,13 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %7 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp14.not = icmp ugt i64 %7, %5
   %result.val = load i8, ptr %result, align 1
-  %8 = zext i8 %result.val to i16
-  %9 = select i1 %cmp14.not, i16 0, i16 256
-  %10 = select i1 %cmp14.not, i16 0, i16 %8
+  %8 = select i1 %cmp14.not, i16 0, i16 256
+  %9 = zext i8 %result.val to i16
+  %10 = select i1 %cmp14.not, i16 0, i16 %9
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont12, %invoke.cont6
-  %retval.sroa.2.0 = phi i16 [ 0, %invoke.cont6 ], [ %9, %invoke.cont12 ]
+  %retval.sroa.2.0 = phi i16 [ 0, %invoke.cont6 ], [ %8, %invoke.cont12 ]
   %retval.sroa.0.0 = phi i16 [ 0, %invoke.cont6 ], [ %10, %invoke.cont12 ]
   %11 = load ptr, ptr %error_field, align 8
   %cmp.not.i = icmp eq ptr %11, null
@@ -13401,13 +13401,13 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %7 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp14.not = icmp ugt i64 %7, %5
   %8 = load i32, ptr %result, align 4
-  %9 = zext i32 %8 to i64
-  %10 = select i1 %cmp14.not, i64 0, i64 4294967296
-  %11 = select i1 %cmp14.not, i64 0, i64 %9
+  %9 = select i1 %cmp14.not, i64 0, i64 4294967296
+  %10 = zext i32 %8 to i64
+  %11 = select i1 %cmp14.not, i64 0, i64 %10
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont12, %invoke.cont6
-  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %10, %invoke.cont12 ]
+  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %9, %invoke.cont12 ]
   %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont6 ], [ %11, %invoke.cont12 ]
   %12 = load ptr, ptr %error_field, align 8
   %cmp.not.i = icmp eq ptr %12, null

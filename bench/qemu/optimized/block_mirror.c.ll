@@ -241,7 +241,6 @@ if.then14:                                        ; preds = %if.end11
 
 if.end15:                                         ; preds = %if.end11
   %cmp16 = icmp eq i64 %buf_size, 0
-  %1 = add nsw i64 %buf_size, -1
   tail call void @bdrv_graph_rdlock_main_loop() #12
   %call20 = tail call ptr @bdrv_skip_filters(ptr noundef %bs) #12
   %call21 = tail call ptr @bdrv_skip_filters(ptr noundef %target) #12
@@ -274,9 +273,9 @@ if.end34:                                         ; preds = %if.then33, %if.end3
   %never_freeze = getelementptr inbounds i8, ptr %call28, i64 17072
   store i8 1, ptr %never_freeze, align 8
   %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
-  %2 = load i64, ptr %total_sectors, align 8
+  %1 = load i64, ptr %total_sectors, align 8
   %total_sectors35 = getelementptr inbounds i8, ptr %call28, i64 16888
-  store i64 %2, ptr %total_sectors35, align 8
+  store i64 %1, ptr %total_sectors35, align 8
   %supported_write_flags = getelementptr inbounds i8, ptr %call28, i64 16588
   store i32 64, ptr %supported_write_flags, align 4
   %supported_zero_flags = getelementptr inbounds i8, ptr %call28, i64 16592
@@ -313,8 +312,8 @@ if.then51:                                        ; preds = %if.end48
   br i1 %cmp53, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.then51
-  %3 = trunc i64 %call52 to i32
-  %conv56 = sub i32 0, %3
+  %2 = trunc i64 %call52 to i32
+  %conv56 = sub i32 0, %2
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1838, ptr noundef nonnull @__func__.mirror_start_job, i32 noundef %conv56, ptr noundef nonnull @.str.6) #12
   br label %if.then176
 
@@ -324,8 +323,8 @@ if.end57:                                         ; preds = %if.then51
   br i1 %cmp59, label %if.then61, label %if.end64
 
 if.then61:                                        ; preds = %if.end57
-  %4 = trunc i64 %call58 to i32
-  %conv63 = sub i32 0, %4
+  %3 = trunc i64 %call58 to i32
+  %conv63 = sub i32 0, %3
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1845, ptr noundef nonnull @__func__.mirror_start_job, i32 noundef %conv63, ptr noundef nonnull @.str.7) #12
   br label %if.then176
 
@@ -353,8 +352,8 @@ if.end75:                                         ; preds = %if.end74, %if.end64
   %target_shared_perms.0 = phi i64 [ 7, %if.end64 ], [ 4, %if.end74 ]
   %target_perms.1 = phi i64 [ %spec.select, %if.end64 ], [ 2, %if.end74 ]
   %aio_context = getelementptr inbounds i8, ptr %call45, i64 112
-  %5 = load ptr, ptr %aio_context, align 8
-  %call76 = tail call ptr @blk_new(ptr noundef %5, i64 noundef %target_perms.1, i64 noundef %target_shared_perms.0) #12
+  %4 = load ptr, ptr %aio_context, align 8
+  %call76 = tail call ptr @blk_new(ptr noundef %4, i64 noundef %target_perms.1, i64 noundef %target_shared_perms.0) #12
   %target77 = getelementptr inbounds i8, ptr %call45, i64 520
   store ptr %call76, ptr %target77, align 8
   %call79 = tail call i32 @blk_insert_bs(ptr noundef %call76, ptr noundef %target, ptr noundef %errp) #12
@@ -365,15 +364,15 @@ if.end83:                                         ; preds = %if.end75
   br i1 %is_mirror, label %if.then85, label %if.end87
 
 if.then85:                                        ; preds = %if.end83
-  %6 = load ptr, ptr %target77, align 8
-  tail call void @blk_set_force_allow_inactivate(ptr noundef %6) #12
+  %5 = load ptr, ptr %target77, align 8
+  tail call void @blk_set_force_allow_inactivate(ptr noundef %5) #12
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then85, %if.end83
+  %6 = load ptr, ptr %target77, align 8
+  tail call void @blk_set_allow_aio_context_change(ptr noundef %6, i1 noundef zeroext true) #12
   %7 = load ptr, ptr %target77, align 8
-  tail call void @blk_set_allow_aio_context_change(ptr noundef %7, i1 noundef zeroext true) #12
-  %8 = load ptr, ptr %target77, align 8
-  tail call void @blk_set_disable_request_queuing(ptr noundef %8, i1 noundef zeroext true) #12
+  tail call void @blk_set_disable_request_queuing(ptr noundef %7, i1 noundef zeroext true) #12
   tail call void @bdrv_graph_rdlock_main_loop() #12
   %call90 = tail call noalias ptr @g_strdup(ptr noundef %replaces) #12
   %replaces91 = getelementptr inbounds i8, ptr %call45, i64 552
@@ -397,7 +396,8 @@ if.end87:                                         ; preds = %if.then85, %if.end8
   store ptr %call107, ptr %base_overlay, align 8
   %granularity109 = getelementptr inbounds i8, ptr %call45, i64 608
   store i64 %conv, ptr %granularity109, align 8
-  %add = select i1 %cmp16, i64 16777215, i64 %1
+  %8 = add nsw i64 %buf_size, -1
+  %add = select i1 %cmp16, i64 16777215, i64 %8
   %sub111 = add nuw i64 %add, %conv
   %sub113 = sub nsw i64 0, %conv
   %and = and i64 %sub111, %sub113

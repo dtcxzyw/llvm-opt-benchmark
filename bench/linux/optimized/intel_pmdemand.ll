@@ -1005,210 +1005,210 @@ define internal fastcc void @intel_pmdemand_program_params(ptr noundef %0, ptr n
   %28 = load ptr, ptr %25, align 8
   %29 = tail call i32 %28(ptr noundef %6, i32 283188, i1 noundef zeroext true) #11
   %30 = lshr i32 %27, 16
-  %31 = select i1 %3, i32 0, i32 %30
-  %32 = icmp eq ptr %2, null
-  br i1 %32, label %37, label %33
+  %31 = icmp eq ptr %2, null
+  br i1 %31, label %36, label %32
 
-33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %2, i64 42
-  %35 = load i16, ptr %34, align 2
-  %36 = zext i16 %35 to i32
-  br label %37
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds i8, ptr %2, i64 42
+  %34 = load i16, ptr %33, align 2
+  %35 = zext i16 %34 to i32
+  br label %36
 
-37:                                               ; preds = %33, %24
-  %38 = phi i32 [ %36, %33 ], [ 0, %24 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 42
-  %40 = load i16, ptr %39, align 2
-  %41 = zext i16 %40 to i32
-  %42 = and i32 %27, 32776
-  %43 = tail call i32 @llvm.umax.i32(i32 %38, i32 %41)
-  %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 %31)
+36:                                               ; preds = %32, %24
+  %37 = phi i32 [ %35, %32 ], [ 0, %24 ]
+  %38 = getelementptr inbounds i8, ptr %1, i64 42
+  %39 = load i16, ptr %38, align 2
+  %40 = zext i16 %39 to i32
+  %41 = and i32 %27, 32776
+  %42 = tail call i32 @llvm.umax.i32(i32 %37, i32 %40)
+  %43 = tail call i32 @llvm.umax.i32(i32 %42, i32 %30)
+  %44 = select i1 %3, i32 %42, i32 %43
   %45 = shl nuw i32 %44, 16
-  %46 = or disjoint i32 %45, %42
+  %46 = or disjoint i32 %45, %41
   %47 = lshr i32 %27, 12
   %48 = and i32 %47, 7
-  %49 = select i1 %3, i32 0, i32 %48
-  br i1 %32, label %54, label %50
+  br i1 %31, label %53, label %49
 
-50:                                               ; preds = %37
-  %51 = getelementptr inbounds i8, ptr %2, i64 44
-  %52 = load i8, ptr %51, align 2
-  %53 = zext i8 %52 to i32
-  br label %54
+49:                                               ; preds = %36
+  %50 = getelementptr inbounds i8, ptr %2, i64 44
+  %51 = load i8, ptr %50, align 2
+  %52 = zext i8 %51 to i32
+  br label %53
 
-54:                                               ; preds = %50, %37
-  %55 = phi i32 [ %53, %50 ], [ 0, %37 ]
-  %56 = getelementptr inbounds i8, ptr %1, i64 44
-  %57 = load i8, ptr %56, align 2
-  %58 = zext i8 %57 to i32
-  %59 = tail call i32 @llvm.umax.i32(i32 %55, i32 %58)
-  %60 = tail call i32 @llvm.umax.i32(i32 %59, i32 %49)
+53:                                               ; preds = %49, %36
+  %54 = phi i32 [ %52, %49 ], [ 0, %36 ]
+  %55 = getelementptr inbounds i8, ptr %1, i64 44
+  %56 = load i8, ptr %55, align 2
+  %57 = zext i8 %56 to i32
+  %58 = tail call i32 @llvm.umax.i32(i32 %54, i32 %57)
+  %59 = tail call i32 @llvm.umax.i32(i32 %58, i32 %48)
+  %60 = select i1 %3, i32 %58, i32 %59
   %61 = shl nuw nsw i32 %60, 12
   %62 = and i32 %61, 28672
   %63 = or disjoint i32 %62, %46
   %64 = lshr i32 %27, 8
   %65 = and i32 %64, 15
-  %66 = select i1 %3, i32 0, i32 %65
-  br i1 %32, label %71, label %67
+  br i1 %31, label %70, label %66
 
-67:                                               ; preds = %54
-  %68 = getelementptr inbounds i8, ptr %2, i64 45
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  br label %71
+66:                                               ; preds = %53
+  %67 = getelementptr inbounds i8, ptr %2, i64 45
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  br label %70
 
-71:                                               ; preds = %67, %54
-  %72 = phi i32 [ %70, %67 ], [ 0, %54 ]
-  %73 = getelementptr inbounds i8, ptr %1, i64 45
-  %74 = load i8, ptr %73, align 1
-  %75 = zext i8 %74 to i32
-  %76 = tail call i32 @llvm.umax.i32(i32 %72, i32 %75)
-  %77 = tail call i32 @llvm.umax.i32(i32 %76, i32 %66)
+70:                                               ; preds = %66, %53
+  %71 = phi i32 [ %69, %66 ], [ 0, %53 ]
+  %72 = getelementptr inbounds i8, ptr %1, i64 45
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = tail call i32 @llvm.umax.i32(i32 %71, i32 %74)
+  %76 = tail call i32 @llvm.umax.i32(i32 %75, i32 %65)
+  %77 = select i1 %3, i32 %75, i32 %76
   %78 = shl nuw nsw i32 %77, 8
   %79 = and i32 %78, 3840
   %80 = or disjoint i32 %79, %63
   %81 = lshr i32 %27, 6
   %82 = and i32 %81, 3
-  %83 = select i1 %3, i32 0, i32 %82
-  br i1 %32, label %88, label %84
+  br i1 %31, label %87, label %83
 
-84:                                               ; preds = %71
-  %85 = getelementptr inbounds i8, ptr %2, i64 46
-  %86 = load i8, ptr %85, align 2
-  %87 = zext i8 %86 to i32
-  br label %88
+83:                                               ; preds = %70
+  %84 = getelementptr inbounds i8, ptr %2, i64 46
+  %85 = load i8, ptr %84, align 2
+  %86 = zext i8 %85 to i32
+  br label %87
 
-88:                                               ; preds = %84, %71
-  %89 = phi i32 [ %87, %84 ], [ 0, %71 ]
-  %90 = getelementptr inbounds i8, ptr %1, i64 46
-  %91 = load i8, ptr %90, align 2
-  %92 = zext i8 %91 to i32
-  %93 = tail call i32 @llvm.umax.i32(i32 %89, i32 %92)
-  %94 = tail call i32 @llvm.umax.i32(i32 %93, i32 %83)
+87:                                               ; preds = %83, %70
+  %88 = phi i32 [ %86, %83 ], [ 0, %70 ]
+  %89 = getelementptr inbounds i8, ptr %1, i64 46
+  %90 = load i8, ptr %89, align 2
+  %91 = zext i8 %90 to i32
+  %92 = tail call i32 @llvm.umax.i32(i32 %88, i32 %91)
+  %93 = tail call i32 @llvm.umax.i32(i32 %92, i32 %82)
+  %94 = select i1 %3, i32 %92, i32 %93
   %95 = shl nuw nsw i32 %94, 6
   %96 = and i32 %95, 192
   %97 = or disjoint i32 %96, %80
   %98 = lshr i32 %27, 4
   %99 = and i32 %98, 3
-  %100 = select i1 %3, i32 0, i32 %99
-  br i1 %32, label %105, label %101
+  br i1 %31, label %104, label %100
 
-101:                                              ; preds = %88
-  %102 = getelementptr inbounds i8, ptr %2, i64 47
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  br label %105
+100:                                              ; preds = %87
+  %101 = getelementptr inbounds i8, ptr %2, i64 47
+  %102 = load i8, ptr %101, align 1
+  %103 = zext i8 %102 to i32
+  br label %104
 
-105:                                              ; preds = %101, %88
-  %106 = phi i32 [ %104, %101 ], [ 0, %88 ]
-  %107 = getelementptr inbounds i8, ptr %1, i64 47
-  %108 = load i8, ptr %107, align 1
-  %109 = zext i8 %108 to i32
-  %110 = tail call i32 @llvm.umax.i32(i32 %106, i32 %109)
-  %111 = tail call i32 @llvm.umax.i32(i32 %110, i32 %100)
+104:                                              ; preds = %100, %87
+  %105 = phi i32 [ %103, %100 ], [ 0, %87 ]
+  %106 = getelementptr inbounds i8, ptr %1, i64 47
+  %107 = load i8, ptr %106, align 1
+  %108 = zext i8 %107 to i32
+  %109 = tail call i32 @llvm.umax.i32(i32 %105, i32 %108)
+  %110 = tail call i32 @llvm.umax.i32(i32 %109, i32 %99)
+  %111 = select i1 %3, i32 %109, i32 %110
   %112 = shl nuw nsw i32 %111, 4
   %113 = and i32 %112, 48
   %114 = and i32 %27, 7
-  %115 = select i1 %3, i32 0, i32 %114
-  br i1 %32, label %120, label %116
+  br i1 %31, label %119, label %115
 
-116:                                              ; preds = %105
-  %117 = getelementptr inbounds i8, ptr %2, i64 48
-  %118 = load i8, ptr %117, align 2
-  %119 = zext i8 %118 to i32
-  br label %120
+115:                                              ; preds = %104
+  %116 = getelementptr inbounds i8, ptr %2, i64 48
+  %117 = load i8, ptr %116, align 2
+  %118 = zext i8 %117 to i32
+  br label %119
 
-120:                                              ; preds = %116, %105
-  %121 = phi i32 [ %119, %116 ], [ 0, %105 ]
-  %122 = getelementptr inbounds i8, ptr %1, i64 48
-  %123 = load i8, ptr %122, align 2
-  %124 = zext i8 %123 to i32
-  %125 = or disjoint i32 %113, %97
-  %126 = tail call i32 @llvm.umax.i32(i32 %121, i32 %124)
-  %127 = tail call i32 @llvm.umax.i32(i32 %126, i32 %115)
+119:                                              ; preds = %115, %104
+  %120 = phi i32 [ %118, %115 ], [ 0, %104 ]
+  %121 = getelementptr inbounds i8, ptr %1, i64 48
+  %122 = load i8, ptr %121, align 2
+  %123 = zext i8 %122 to i32
+  %124 = or disjoint i32 %113, %97
+  %125 = tail call i32 @llvm.umax.i32(i32 %120, i32 %123)
+  %126 = tail call i32 @llvm.umax.i32(i32 %125, i32 %114)
+  %127 = select i1 %3, i32 %125, i32 %126
   %128 = and i32 %127, 7
-  %129 = or disjoint i32 %128, %125
+  %129 = or disjoint i32 %128, %124
   %130 = lshr i32 %29, 20
   %131 = and i32 %130, 2047
-  %132 = select i1 %3, i32 0, i32 %131
-  br i1 %32, label %137, label %133
+  br i1 %31, label %136, label %132
 
-133:                                              ; preds = %120
-  %134 = getelementptr inbounds i8, ptr %2, i64 50
-  %135 = load i16, ptr %134, align 2
-  %136 = zext i16 %135 to i32
-  br label %137
+132:                                              ; preds = %119
+  %133 = getelementptr inbounds i8, ptr %2, i64 50
+  %134 = load i16, ptr %133, align 2
+  %135 = zext i16 %134 to i32
+  br label %136
 
-137:                                              ; preds = %133, %120
-  %138 = phi i32 [ %136, %133 ], [ 0, %120 ]
-  %139 = getelementptr inbounds i8, ptr %1, i64 50
-  %140 = load i16, ptr %139, align 2
-  %141 = zext i16 %140 to i32
-  %142 = and i32 %29, -2146959224
-  %143 = tail call i32 @llvm.umax.i32(i32 %138, i32 %141)
-  %144 = tail call i32 @llvm.umax.i32(i32 %143, i32 %132)
+136:                                              ; preds = %132, %119
+  %137 = phi i32 [ %135, %132 ], [ 0, %119 ]
+  %138 = getelementptr inbounds i8, ptr %1, i64 50
+  %139 = load i16, ptr %138, align 2
+  %140 = zext i16 %139 to i32
+  %141 = and i32 %29, -2146959224
+  %142 = tail call i32 @llvm.umax.i32(i32 %137, i32 %140)
+  %143 = tail call i32 @llvm.umax.i32(i32 %142, i32 %131)
+  %144 = select i1 %3, i32 %142, i32 %143
   %145 = shl i32 %144, 20
   %146 = and i32 %145, 2146435072
-  %147 = or disjoint i32 %146, %142
+  %147 = or disjoint i32 %146, %141
   %148 = lshr i32 %29, 8
   %149 = and i32 %148, 2047
-  %150 = select i1 %3, i32 0, i32 %149
-  br i1 %32, label %155, label %151
+  br i1 %31, label %154, label %150
 
-151:                                              ; preds = %137
-  %152 = getelementptr inbounds i8, ptr %2, i64 52
-  %153 = load i16, ptr %152, align 2
-  %154 = zext i16 %153 to i32
-  br label %155
+150:                                              ; preds = %136
+  %151 = getelementptr inbounds i8, ptr %2, i64 52
+  %152 = load i16, ptr %151, align 2
+  %153 = zext i16 %152 to i32
+  br label %154
 
-155:                                              ; preds = %151, %137
-  %156 = phi i32 [ %154, %151 ], [ 0, %137 ]
-  %157 = getelementptr inbounds i8, ptr %1, i64 52
-  %158 = load i16, ptr %157, align 2
-  %159 = zext i16 %158 to i32
-  %160 = tail call i32 @llvm.umax.i32(i32 %156, i32 %159)
-  %161 = tail call i32 @llvm.umax.i32(i32 %160, i32 %150)
+154:                                              ; preds = %150, %136
+  %155 = phi i32 [ %153, %150 ], [ 0, %136 ]
+  %156 = getelementptr inbounds i8, ptr %1, i64 52
+  %157 = load i16, ptr %156, align 2
+  %158 = zext i16 %157 to i32
+  %159 = tail call i32 @llvm.umax.i32(i32 %155, i32 %158)
+  %160 = tail call i32 @llvm.umax.i32(i32 %159, i32 %149)
+  %161 = select i1 %3, i32 %159, i32 %160
   %162 = shl nuw nsw i32 %161, 8
   %163 = and i32 %162, 524032
   %164 = or disjoint i32 %147, %163
   %165 = lshr i32 %29, 4
   %166 = and i32 %165, 7
-  %167 = select i1 %3, i32 0, i32 %166
-  br i1 %32, label %172, label %168
+  br i1 %31, label %171, label %167
 
-168:                                              ; preds = %155
-  %169 = getelementptr inbounds i8, ptr %2, i64 54
-  %170 = load i8, ptr %169, align 2
-  %171 = zext i8 %170 to i32
-  br label %172
+167:                                              ; preds = %154
+  %168 = getelementptr inbounds i8, ptr %2, i64 54
+  %169 = load i8, ptr %168, align 2
+  %170 = zext i8 %169 to i32
+  br label %171
 
-172:                                              ; preds = %168, %155
-  %173 = phi i32 [ %171, %168 ], [ 0, %155 ]
-  %174 = getelementptr inbounds i8, ptr %1, i64 54
-  %175 = load i8, ptr %174, align 2
-  %176 = zext i8 %175 to i32
-  %177 = tail call i32 @llvm.umax.i32(i32 %173, i32 %176)
-  %178 = tail call i32 @llvm.umax.i32(i32 %177, i32 %167)
+171:                                              ; preds = %167, %154
+  %172 = phi i32 [ %170, %167 ], [ 0, %154 ]
+  %173 = getelementptr inbounds i8, ptr %1, i64 54
+  %174 = load i8, ptr %173, align 2
+  %175 = zext i8 %174 to i32
+  %176 = tail call i32 @llvm.umax.i32(i32 %172, i32 %175)
+  %177 = tail call i32 @llvm.umax.i32(i32 %176, i32 %166)
+  %178 = select i1 %3, i32 %176, i32 %177
   %179 = shl nuw nsw i32 %178, 4
   %180 = and i32 %179, 112
   %181 = or disjoint i32 %164, %180
-  br i1 %32, label %186, label %182
+  br i1 %31, label %186, label %182
 
-182:                                              ; preds = %172
+182:                                              ; preds = %171
   %183 = getelementptr inbounds i8, ptr %2, i64 49
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i32
   br label %186
 
-186:                                              ; preds = %182, %172
-  %187 = phi i32 [ %185, %182 ], [ 0, %172 ]
+186:                                              ; preds = %182, %171
+  %187 = phi i32 [ %185, %182 ], [ 0, %171 ]
   %188 = and i32 %29, 7
-  %189 = select i1 %3, i32 0, i32 %188
-  %190 = getelementptr inbounds i8, ptr %1, i64 49
-  %191 = load i8, ptr %190, align 1
-  %192 = zext i8 %191 to i32
-  %193 = tail call i32 @llvm.umax.i32(i32 %187, i32 %192)
-  %194 = tail call i32 @llvm.umax.i32(i32 %193, i32 %189)
+  %189 = getelementptr inbounds i8, ptr %1, i64 49
+  %190 = load i8, ptr %189, align 1
+  %191 = zext i8 %190 to i32
+  %192 = tail call i32 @llvm.umax.i32(i32 %187, i32 %191)
+  %193 = tail call i32 @llvm.umax.i32(i32 %192, i32 %188)
+  %194 = select i1 %3, i32 %192, i32 %193
   %195 = and i32 %194, 7
   %196 = or disjoint i32 %181, %195
   %197 = icmp eq i32 %27, %129

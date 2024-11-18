@@ -1003,8 +1003,8 @@ _ZN4llvm9StringRef14consumeIntegerIhEEbjRT_.exit.i: ; preds = %239
   %245 = call noundef zeroext i1 @_ZN4llvm22consumeUnsignedIntegerERNS_9StringRefEjRy(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %8) #17
   %246 = load i64, ptr %8, align 8
   %spec.select17.i = call i64 @llvm.umin.i64(i64 %246, i64 256)
-  %247 = and i64 %spec.select17.i, 255
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  %247 = and i64 %spec.select17.i, 255
   %248 = select i1 %245, i64 0, i64 %247
   %249 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #17
   %.not24.i = icmp ugt i64 %249, %248

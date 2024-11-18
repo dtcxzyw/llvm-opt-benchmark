@@ -3223,15 +3223,15 @@ decode_bstr.exit.i:                               ; preds = %215
   %222 = load i64, ptr %221, align 8
   %223 = and i64 %222, 8
   %.not10.i.i = icmp eq i64 %223, 0
-  %224 = shl i64 %222, 1
-  %225 = and i64 %224, 14
-  %226 = sext i32 %220 to i64
-  %227 = getelementptr inbounds i8, ptr %217, i64 8
-  %228 = load ptr, ptr %227, align 8
-  %229 = call i64 @rb_str_new(ptr noundef %228, i64 noundef %226) #9
+  %224 = sext i32 %220 to i64
+  %225 = getelementptr inbounds i8, ptr %217, i64 8
+  %226 = load ptr, ptr %225, align 8
+  %227 = call i64 @rb_str_new(ptr noundef %226, i64 noundef %224) #9
   call void @ASN1_BIT_STRING_free(ptr noundef nonnull %217) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %230 = or disjoint i64 %225, 1
+  %228 = shl i64 %222, 1
+  %229 = and i64 %228, 14
+  %230 = or disjoint i64 %229, 1
   %231 = select i1 %.not10.i.i, i64 1, i64 %230
   br label %281
 
@@ -3376,7 +3376,7 @@ decode_time.exit.i:                               ; preds = %270
 
 281:                                              ; preds = %278, %275, %decode_time.exit.i, %decode_obj.exit.i, %decode_enum.exit.i, %decode_null.exit.i, %decode_bstr.exit.i, %decode_int.exit.i, %decode_bool.exit.i, %decode_eoc.exit.i
   %.075.i = phi i64 [ 1, %275 ], [ 1, %decode_time.exit.i ], [ 1, %decode_obj.exit.i ], [ 1, %decode_enum.exit.i ], [ 1, %decode_null.exit.i ], [ %231, %decode_bstr.exit.i ], [ 1, %decode_int.exit.i ], [ 1, %decode_bool.exit.i ], [ 1, %decode_eoc.exit.i ], [ 1, %278 ]
-  %.0.i71 = phi i64 [ %277, %275 ], [ %272, %decode_time.exit.i ], [ %.0.i.i, %decode_obj.exit.i ], [ %244, %decode_enum.exit.i ], [ 4, %decode_null.exit.i ], [ %229, %decode_bstr.exit.i ], [ %212, %decode_int.exit.i ], [ %204, %decode_bool.exit.i ], [ %190, %decode_eoc.exit.i ], [ %280, %278 ]
+  %.0.i71 = phi i64 [ %277, %275 ], [ %272, %decode_time.exit.i ], [ %.0.i.i, %decode_obj.exit.i ], [ %244, %decode_enum.exit.i ], [ 4, %decode_null.exit.i ], [ %227, %decode_bstr.exit.i ], [ %212, %decode_int.exit.i ], [ %204, %decode_bool.exit.i ], [ %190, %decode_eoc.exit.i ], [ %280, %278 ]
   %282 = add nsw i64 %168, %47
   %283 = load ptr, ptr %0, align 8
   %284 = getelementptr inbounds i8, ptr %283, i64 %282

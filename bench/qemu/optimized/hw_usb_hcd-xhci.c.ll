@@ -6245,9 +6245,8 @@ sw.bb:                                            ; preds = %if.end
   %and6 = and i64 %val, 1
   %tobool.not = icmp eq i64 %and6, 0
   %.pre = load i32, ptr %arrayidx, align 8
-  %and8 = and i32 %.pre, -4
-  %spec.select = select i1 %tobool.not, i32 %.pre, i32 %and8
-  %and11 = and i32 %spec.select, -3
+  %and11.v = select i1 %tobool.not, i32 -3, i32 -4
+  %and11 = and i32 %.pre, %and11.v
   %13 = and i32 %conv1, 2
   %conv15 = or disjoint i32 %and11, %13
   store i32 %conv15, ptr %arrayidx, align 8

@@ -15,11 +15,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [5 x i8] c" %d\0A\00", align 1
 @.str.5 = private unnamed_addr constant [25 x i8] c"Cubes = %d.  Lits = %d.\0A\00", align 1
 @Abc_IsopTest.TotalCost.0 = internal unnamed_addr global i64 0, align 16
-@Abc_IsopTest.TotalCost.1 = internal unnamed_addr global i64 0, align 16
-@Abc_IsopTest.TotalCost.2 = internal unnamed_addr global i64 0, align 16
+@Abc_IsopTest.TotalCost.1 = internal unnamed_addr global i64 0, align 8
+@Abc_IsopTest.TotalCost.2 = internal unnamed_addr global i64 0, align 8
 @Abc_IsopTest.TotalTime.0 = internal unnamed_addr global i64 0, align 16
-@Abc_IsopTest.TotalTime.1 = internal unnamed_addr global i64 0, align 16
-@Abc_IsopTest.TotalTime.5 = internal unnamed_addr global i64 0, align 16
+@Abc_IsopTest.TotalTime.1 = internal unnamed_addr global i64 0, align 8
+@Abc_IsopTest.TotalTime.5 = internal unnamed_addr global i64 0, align 8
 @Abc_IsopTest.Counter = internal unnamed_addr global i32 0, align 4
 @.str.6 = private unnamed_addr constant [2 x i8] c"2\00", align 1
 @.str.7 = private unnamed_addr constant [2 x i8] c"3\00", align 1
@@ -2537,29 +2537,29 @@ Abc_TtSharp.exit:                                 ; preds = %.lr.ph.i272
   %402 = icmp eq i32 %3, 0
   %403 = trunc i64 %401 to i1
   %404 = select i1 %403, i64 3, i64 0
-  %.025.i = select i1 %402, i64 %404, i64 %401
   %405 = icmp ult i32 %3, 2
-  %406 = and i64 %.025.i, 3
-  %407 = mul nuw nsw i64 %406, 5
-  %.126.i = select i1 %405, i64 %407, i64 %401
-  %408 = icmp ult i32 %3, 3
-  %409 = and i64 %.126.i, 15
-  %410 = mul nuw nsw i64 %409, 17
-  %.227.i = select i1 %408, i64 %410, i64 %401
-  %411 = icmp ult i32 %3, 4
-  %412 = and i64 %.227.i, 255
-  %413 = mul nuw nsw i64 %412, 257
-  %.328.i = select i1 %411, i64 %413, i64 %401
+  %406 = and i64 %401, 3
+  %407 = select i1 %402, i64 %404, i64 %406
+  %408 = mul nuw nsw i64 %407, 5
+  %.126.i = select i1 %405, i64 %408, i64 %401
+  %409 = icmp ult i32 %3, 3
+  %410 = and i64 %.126.i, 15
+  %411 = mul nuw nsw i64 %410, 17
+  %.227.i = select i1 %409, i64 %411, i64 %401
+  %412 = icmp ult i32 %3, 4
+  %413 = and i64 %.227.i, 255
+  %414 = mul nuw nsw i64 %413, 257
+  %.328.i = select i1 %412, i64 %414, i64 %401
   %.3.i = call i32 @llvm.umax.i32(i32 %3, i32 4)
-  %414 = icmp ult i32 %3, 5
-  %415 = and i64 %.328.i, 65535
-  %416 = mul nuw nsw i64 %415, 65537
-  %.429.i = select i1 %414, i64 %416, i64 %401
-  %417 = and i32 %.3.i, -2
-  %418 = icmp eq i32 %417, 4
-  %419 = and i64 %.429.i, 4294967295
-  %420 = mul nuw i64 %419, 4294967297
-  %.5.i = select i1 %418, i64 %420, i64 %.429.i
+  %415 = icmp ult i32 %3, 5
+  %416 = and i64 %.328.i, 65535
+  %417 = mul nuw nsw i64 %416, 65537
+  %.429.i = select i1 %415, i64 %417, i64 %401
+  %418 = and i32 %.3.i, -2
+  %419 = icmp eq i32 %418, 4
+  %420 = and i64 %.429.i, 4294967295
+  %421 = mul nuw i64 %420, 4294967297
+  %.5.i = select i1 %419, i64 %421, i64 %.429.i
   store i64 %.5.i, ptr %2, align 8
   ret i64 %400
 }
@@ -2689,7 +2689,7 @@ define noundef i32 @Abc_IsopTest(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %16 = sitofp i64 %15 to double
   %17 = fdiv double %16, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, double noundef %17)
-  %18 = load i64, ptr @Abc_IsopTest.TotalTime.1, align 16
+  %18 = load i64, ptr @Abc_IsopTest.TotalTime.1, align 8
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.2)
   %19 = sitofp i64 %18 to double
   %20 = fdiv double %19, 1.000000e+06
@@ -2700,7 +2700,7 @@ define noundef i32 @Abc_IsopTest(ptr noundef %0, i32 noundef %1, ptr nocapture n
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, double noundef 0.000000e+00)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.8)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, double noundef 0.000000e+00)
-  %21 = load i64, ptr @Abc_IsopTest.TotalTime.5, align 16
+  %21 = load i64, ptr @Abc_IsopTest.TotalTime.5, align 8
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9)
   %22 = sitofp i64 %21 to double
   %23 = fdiv double %22, 1.000000e+06
@@ -2821,9 +2821,9 @@ Abc_TtNot.exit48:                                 ; preds = %.lr.ph.i44, %Abc_Tt
   %72 = trunc nuw i64 %71 to i32
   store i32 %72, ptr %35, align 4
   %73 = ashr i64 %70, 32
-  %74 = load i64, ptr @Abc_IsopTest.TotalCost.1, align 16
+  %74 = load i64, ptr @Abc_IsopTest.TotalCost.1, align 8
   %75 = add i64 %74, %73
-  store i64 %75, ptr @Abc_IsopTest.TotalCost.1, align 16
+  store i64 %75, ptr @Abc_IsopTest.TotalCost.1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %76 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #19
   %77 = icmp slt i32 %76, 0
@@ -2842,9 +2842,9 @@ Abc_Clock.exit50:                                 ; preds = %Abc_TtNot.exit48, %
   %.0.i49 = phi i64 [ %84, %78 ], [ -1, %Abc_TtNot.exit48 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %85 = add i64 %.0.i49, %.0.i40.neg
-  %86 = load i64, ptr @Abc_IsopTest.TotalTime.1, align 16
+  %86 = load i64, ptr @Abc_IsopTest.TotalTime.1, align 8
   %87 = add nsw i64 %85, %86
-  store i64 %87, ptr @Abc_IsopTest.TotalTime.1, align 16
+  store i64 %87, ptr @Abc_IsopTest.TotalTime.1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %88 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #19
   %89 = icmp slt i32 %88, 0
@@ -2865,9 +2865,9 @@ Abc_Clock.exit52:                                 ; preds = %Abc_Clock.exit50, %
   %94 = call i32 @Abc_Isop(ptr noundef %0, i32 noundef %1, i32 noundef 65535, ptr noundef nonnull %2, i32 noundef 1)
   %.val = load i32, ptr %35, align 4
   %95 = sext i32 %.val to i64
-  %96 = load i64, ptr @Abc_IsopTest.TotalCost.2, align 16
+  %96 = load i64, ptr @Abc_IsopTest.TotalCost.2, align 8
   %97 = add i64 %96, %95
-  store i64 %97, ptr @Abc_IsopTest.TotalCost.2, align 16
+  store i64 %97, ptr @Abc_IsopTest.TotalCost.2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %98 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #19
   %99 = icmp slt i32 %98, 0
@@ -2886,9 +2886,9 @@ Abc_Clock.exit54:                                 ; preds = %Abc_Clock.exit52, %
   %.0.i53 = phi i64 [ %106, %100 ], [ -1, %Abc_Clock.exit52 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %107 = add i64 %.0.i53, %.0.i51.neg
-  %108 = load i64, ptr @Abc_IsopTest.TotalTime.5, align 16
+  %108 = load i64, ptr @Abc_IsopTest.TotalTime.5, align 8
   %109 = add nsw i64 %107, %108
-  store i64 %109, ptr @Abc_IsopTest.TotalTime.5, align 16
+  store i64 %109, ptr @Abc_IsopTest.TotalTime.5, align 8
   ret i32 1
 }
 

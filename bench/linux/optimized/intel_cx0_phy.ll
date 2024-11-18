@@ -2523,8 +2523,8 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
   %621 = and i1 %620, %580
   %622 = and i32 %619, 252
   %623 = or disjoint i32 %622, 1
-  %624 = select i1 %621, i32 %623, i32 %619
-  %625 = and i32 %624, 255
+  %624 = and i32 %619, 255
+  %625 = select i1 %621, i32 %623, i32 %624
   %626 = zext nneg i32 %625 to i64
   br label %627
 

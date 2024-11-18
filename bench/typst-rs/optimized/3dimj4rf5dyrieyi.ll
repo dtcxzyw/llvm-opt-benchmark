@@ -96395,8 +96395,8 @@ define hidden void @"_ZN5typst11foundations7content15Packed$LT$T$GT$6unpack17h77
 "_ZN75_$LT$typst..model..bibliography..CslStyle$u20$as$u20$core..clone..Clone$GT$5clone17h3f95eecbbac9f04aE.exit.i": ; preds = %36, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i._crit_edge"
   %61 = phi ptr [ %.pre, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i._crit_edge" ], [ %4, %36 ]
   %.sroa.7.0.i = phi ptr [ %.val.i.i, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i._crit_edge" ], [ undef, %36 ]
-  %.sroa.6.033.i = phi i64 [ %.sroa.5.06.i.i, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i._crit_edge" ], [ undef, %36 ]
-  %.sroa.5.032.i = phi ptr [ %.sroa.4.0.i.i, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i._crit_edge" ], [ undef, %36 ]
+  %.sroa.6.032.i = phi i64 [ %.sroa.5.06.i.i, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i._crit_edge" ], [ undef, %36 ]
+  %.sroa.5.031.i = phi ptr [ %.sroa.4.0.i.i, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i._crit_edge" ], [ undef, %36 ]
   %.sroa.0.0.i = phi i64 [ %storemerge.i.i, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i._crit_edge" ], [ %40, %36 ]
   %62 = getelementptr i8, ptr %18, i64 84
   %63 = load i8, ptr %62, align 4, !range !339, !alias.scope !17010, !noalias !17007, !noundef !4
@@ -96406,9 +96406,9 @@ define hidden void @"_ZN5typst11foundations7content15Packed$LT$T$GT$6unpack17h77
   %66 = load i8, ptr %65, align 1, !range !715, !alias.scope !17010, !noalias !17007, !noundef !4
   %67 = icmp eq i8 %66, 2
   %68 = getelementptr i8, ptr %18, i64 90
-  %.val2029.i = load i16, ptr %68, align 1, !alias.scope !17010, !noalias !17007
+  %.val20.i = load i16, ptr %68, align 1, !alias.scope !17010, !noalias !17007
   %trunc.i23.i = trunc nuw i8 %66 to i1
-  %.sroa.414.0.extract.trunc.i = select i1 %trunc.i23.i, i16 %.val2029.i, i16 0
+  %.sroa.414.0.extract.trunc.i = select i1 %trunc.i23.i, i16 %.val20.i, i16 0
   %.sroa.53.0.i = select i1 %67, i16 undef, i16 %.sroa.414.0.extract.trunc.i
   %trunc15.i = trunc nuw i8 %63 to i1
   %.sroa.5.0.i = select i1 %trunc15.i, i32 %.sroa.010.0.copyload.i, i32 undef
@@ -96419,10 +96419,10 @@ define hidden void @"_ZN5typst11foundations7content15Packed$LT$T$GT$6unpack17h77
   store i8 %38, ptr %70, align 4, !alias.scope !17007, !noalias !17010
   %71 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.0.0.i, ptr %71, align 8, !alias.scope !17007, !noalias !17010
-  %.sroa.5.0..sroa_idx30.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.5.032.i, ptr %.sroa.5.0..sroa_idx30.i, align 8, !alias.scope !17007, !noalias !17010
-  %.sroa.6.0..sroa_idx31.i = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %.sroa.6.033.i, ptr %.sroa.6.0..sroa_idx31.i, align 8, !alias.scope !17007, !noalias !17010
+  %.sroa.5.0..sroa_idx29.i = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %.sroa.5.031.i, ptr %.sroa.5.0..sroa_idx29.i, align 8, !alias.scope !17007, !noalias !17010
+  %.sroa.6.0..sroa_idx30.i = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %.sroa.6.032.i, ptr %.sroa.6.0..sroa_idx30.i, align 8, !alias.scope !17007, !noalias !17010
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !17007, !noalias !17010
   %72 = getelementptr inbounds i8, ptr %0, i64 68
@@ -112037,8 +112037,8 @@ define hidden { ptr, i64 } @_ZN5typst4text4lang9LocalName13local_name_in17h373e1
   %13 = load i8, ptr %11, align 1, !range !339, !alias.scope !20368, !noalias !20367, !noundef !4
   %trunc.i.i.i.i = trunc nuw i8 %13 to i1
   %14 = getelementptr inbounds i8, ptr %11, i64 1
-  %.sroa.0.0.copyload.i.i5.i.i.i = load i16, ptr %14, align 1, !alias.scope !20368, !noalias !20367
-  %15 = zext i16 %.sroa.0.0.copyload.i.i5.i.i.i to i24
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %14, align 1, !alias.scope !20368, !noalias !20367
+  %15 = zext i16 %.sroa.0.0.copyload.i.i.i.i.i to i24
   %16 = shl nuw i24 %15, 8
   %.sroa.3.0.insert.shift.i.i.i = select i1 %trunc.i.i.i.i, i24 %16, i24 0
   %.sroa.0.0.insert.ext.i.i.i = zext nneg i8 %13 to i24
@@ -112087,8 +112087,8 @@ define hidden { ptr, i64 } @_ZN5typst4text4lang9LocalName13local_name_in17haf65f
   %13 = load i8, ptr %11, align 1, !range !339, !alias.scope !20392, !noalias !20391, !noundef !4
   %trunc.i.i.i.i = trunc nuw i8 %13 to i1
   %14 = getelementptr inbounds i8, ptr %11, i64 1
-  %.sroa.0.0.copyload.i.i5.i.i.i = load i16, ptr %14, align 1, !alias.scope !20392, !noalias !20391
-  %15 = zext i16 %.sroa.0.0.copyload.i.i5.i.i.i to i24
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %14, align 1, !alias.scope !20392, !noalias !20391
+  %15 = zext i16 %.sroa.0.0.copyload.i.i.i.i.i to i24
   %16 = shl nuw i24 %15, 8
   %.sroa.3.0.insert.shift.i.i.i = select i1 %trunc.i.i.i.i, i24 %16, i24 0
   %.sroa.0.0.insert.ext.i.i.i = zext nneg i8 %13 to i24
@@ -112137,8 +112137,8 @@ define hidden { ptr, i64 } @_ZN5typst4text4lang9LocalName13local_name_in17hb1b9b
   %13 = load i8, ptr %11, align 1, !range !339, !alias.scope !20416, !noalias !20415, !noundef !4
   %trunc.i.i.i.i = trunc nuw i8 %13 to i1
   %14 = getelementptr inbounds i8, ptr %11, i64 1
-  %.sroa.0.0.copyload.i.i5.i.i.i = load i16, ptr %14, align 1, !alias.scope !20416, !noalias !20415
-  %15 = zext i16 %.sroa.0.0.copyload.i.i5.i.i.i to i24
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %14, align 1, !alias.scope !20416, !noalias !20415
+  %15 = zext i16 %.sroa.0.0.copyload.i.i.i.i.i to i24
   %16 = shl nuw i24 %15, 8
   %.sroa.3.0.insert.shift.i.i.i = select i1 %trunc.i.i.i.i, i24 %16, i24 0
   %.sroa.0.0.insert.ext.i.i.i = zext nneg i8 %13 to i24
@@ -112187,8 +112187,8 @@ define hidden { ptr, i64 } @_ZN5typst4text4lang9LocalName13local_name_in17hc048e
   %13 = load i8, ptr %11, align 1, !range !339, !alias.scope !20440, !noalias !20439, !noundef !4
   %trunc.i.i.i.i = trunc nuw i8 %13 to i1
   %14 = getelementptr inbounds i8, ptr %11, i64 1
-  %.sroa.0.0.copyload.i.i5.i.i.i = load i16, ptr %14, align 1, !alias.scope !20440, !noalias !20439
-  %15 = zext i16 %.sroa.0.0.copyload.i.i5.i.i.i to i24
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %14, align 1, !alias.scope !20440, !noalias !20439
+  %15 = zext i16 %.sroa.0.0.copyload.i.i.i.i.i to i24
   %16 = shl nuw i24 %15, 8
   %.sroa.3.0.insert.shift.i.i.i = select i1 %trunc.i.i.i.i, i24 %16, i24 0
   %.sroa.0.0.insert.ext.i.i.i = zext nneg i8 %13 to i24

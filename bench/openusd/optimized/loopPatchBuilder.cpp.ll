@@ -4087,19 +4087,19 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; p
 
 100:                                              ; preds = %.preheader
   %101 = add nuw i64 %indvars.iv128, 4294967295
-  %102 = and i64 %101, 4294967295
   %.cmp = icmp eq i64 %indvars.iv128, 0
   %.cmp116.not = icmp eq i64 %indvars.iv128, 2
-  %103 = and i64 %indvars.iv.next129, 4294967295
-  %104 = select i1 %.cmp116.not, i64 0, i64 %103
-  %105 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %8, i64 0, i64 %104
-  %106 = load i16, ptr %105, align 8
-  %107 = shl i16 %106, 5
-  %108 = and i16 %107, 256
-  %109 = and i16 %96, -449
-  %110 = or disjoint i16 %108, %109
-  store i16 %110, ptr %95, align 8
-  %111 = select i1 %.cmp, i64 2, i64 %102
+  %102 = and i64 %indvars.iv.next129, 4294967295
+  %103 = select i1 %.cmp116.not, i64 0, i64 %102
+  %104 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %8, i64 0, i64 %103
+  %105 = load i16, ptr %104, align 8
+  %106 = shl i16 %105, 5
+  %107 = and i16 %106, 256
+  %108 = and i16 %96, -449
+  %109 = or disjoint i16 %107, %108
+  store i16 %109, ptr %95, align 8
+  %110 = and i64 %101, 4294967295
+  %111 = select i1 %.cmp, i64 2, i64 %110
   %112 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %8, i64 0, i64 %111
   %113 = load i16, ptr %112, align 8
   %114 = shl i16 %113, 6
@@ -4107,7 +4107,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; p
   br label %116
 
 116:                                              ; preds = %.thread, %100
-  %117 = phi i16 [ %110, %100 ], [ %99, %.thread ]
+  %117 = phi i16 [ %109, %100 ], [ %99, %.thread ]
   %118 = phi i16 [ %115, %100 ], [ 0, %.thread ]
   %119 = and i16 %117, -3777
   %120 = or disjoint i16 %118, %119
@@ -9687,19 +9687,19 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; p
 
 100:                                              ; preds = %.preheader
   %101 = add nuw i64 %indvars.iv128, 4294967295
-  %102 = and i64 %101, 4294967295
   %.cmp = icmp eq i64 %indvars.iv128, 0
   %.cmp116.not = icmp eq i64 %indvars.iv128, 2
-  %103 = and i64 %indvars.iv.next129, 4294967295
-  %104 = select i1 %.cmp116.not, i64 0, i64 %103
-  %105 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %8, i64 0, i64 %104
-  %106 = load i16, ptr %105, align 8
-  %107 = shl i16 %106, 5
-  %108 = and i16 %107, 256
-  %109 = and i16 %96, -449
-  %110 = or disjoint i16 %108, %109
-  store i16 %110, ptr %95, align 8
-  %111 = select i1 %.cmp, i64 2, i64 %102
+  %102 = and i64 %indvars.iv.next129, 4294967295
+  %103 = select i1 %.cmp116.not, i64 0, i64 %102
+  %104 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %8, i64 0, i64 %103
+  %105 = load i16, ptr %104, align 8
+  %106 = shl i16 %105, 5
+  %107 = and i16 %106, 256
+  %108 = and i16 %96, -449
+  %109 = or disjoint i16 %107, %108
+  store i16 %109, ptr %95, align 8
+  %110 = and i64 %101, 4294967295
+  %111 = select i1 %.cmp, i64 2, i64 %110
   %112 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %8, i64 0, i64 %111
   %113 = load i16, ptr %112, align 8
   %114 = shl i16 %113, 6
@@ -9707,7 +9707,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; p
   br label %116
 
 116:                                              ; preds = %.thread, %100
-  %117 = phi i16 [ %110, %100 ], [ %99, %.thread ]
+  %117 = phi i16 [ %109, %100 ], [ %99, %.thread ]
   %118 = phi i16 [ %115, %100 ], [ 0, %.thread ]
   %119 = and i16 %117, -3777
   %120 = or disjoint i16 %118, %119

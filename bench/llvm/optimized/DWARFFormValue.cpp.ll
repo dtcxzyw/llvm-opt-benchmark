@@ -655,8 +655,8 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %6, %15
   %switch.i.i.i = icmp eq i8 %.sroa.4.0.extract.trunc, 0
   %..i.i.i = select i1 %switch.i.i.i, i32 4, i32 8
   %28 = select i1 %26, i1 true, i1 %27
-  %29 = select i1 %28, i32 %12, i32 %..i.i.i
-  %30 = and i32 %29, 255
+  %29 = and i32 %12, 255
+  %30 = select i1 %28, i32 %29, i32 %..i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %30, ptr noundef %2, ptr noundef nonnull %31, ptr noundef nonnull %10) #19
   store i64 %32, ptr %21, align 8

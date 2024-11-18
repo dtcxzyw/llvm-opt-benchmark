@@ -120740,7 +120740,7 @@ _ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit: ; preds = %29, 
   %47 = and i8 %.sroa.8.0.copyload., 1
   %.sroa.4.0 = select i1 %46, i8 2, i8 %47
   %.sroa.0.0 = select i1 %46, i8 9, i8 %.0.i44
-  br label %56
+  br label %57
 
 48:                                               ; preds = %_ZN15ra_ap_rustc_abi7Integer10fit_signed17hbdda0f86c7938073E.exit42
   %49 = getelementptr inbounds i8, ptr %1, i64 10
@@ -120749,16 +120749,16 @@ _ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit: ; preds = %29, 
   %.not33 = icmp eq i8 %51, 0
   %52 = getelementptr inbounds i8, ptr %0, i64 61
   %53 = load i8, ptr %52, align 1, !range !6019
-  %.026 = select i1 %.not33, i8 0, i8 %53
   %54 = icmp slt i128 %2, 0
   %.0.sroa.speculated.i43..0.i = select i1 %54, i8 %.0.sroa.speculated.i43, i8 %.0.i
-  %.0.sroa.speculated.i46 = tail call noundef range(i8 0, 5) i8 @llvm.umax.i8(i8 range(i8 0, 5) %.0.sroa.speculated.i43..0.i, i8 range(i8 0, 5) %.026)
+  %55 = tail call range(i8 0, 5) i8 @llvm.umax.i8(i8 range(i8 0, 5) %.0.sroa.speculated.i43..0.i, i8 range(i8 0, 5) %53)
+  %.0.sroa.speculated.i46 = select i1 %.not33, i8 %.0.sroa.speculated.i43..0.i, i8 %55
   %.lobit = lshr i128 %2, 127
-  %55 = trunc nuw nsw i128 %.lobit to i8
-  br label %56
+  %56 = trunc nuw nsw i128 %.lobit to i8
+  br label %57
 
-56:                                               ; preds = %48, %_ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit
-  %.sroa.4.1 = phi i8 [ %.sroa.4.0, %_ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit ], [ %55, %48 ]
+57:                                               ; preds = %48, %_ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit
+  %.sroa.4.1 = phi i8 [ %.sroa.4.0, %_ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit ], [ %56, %48 ]
   %.sroa.0.1 = phi i8 [ %.sroa.0.0, %_ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit ], [ %.0.sroa.speculated.i46, %48 ]
   %.sroa.4.0.insert.ext = zext nneg i8 %.sroa.4.1 to i16
   %.sroa.4.0.insert.shift = shl nuw nsw i16 %.sroa.4.0.insert.ext, 8

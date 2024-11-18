@@ -13448,29 +13448,29 @@ _ZNSt6vectorIN3vcg6Color4IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds 
   %969 = fcmp olt float %965, 0.000000e+00
   %970 = fcmp ogt float %965, 1.000000e+00
   %..i.i = select i1 %970, float 1.000000e+00, float %965
-  %971 = fmul float %..i.i, 2.550000e+02
-  %972 = fcmp olt float %966, 0.000000e+00
-  %973 = fcmp ogt float %966, 1.000000e+00
-  %..i9.i = select i1 %973, float 1.000000e+00, float %966
-  %974 = fmul float %..i9.i, 2.550000e+02
-  %975 = fcmp olt float %967, 0.000000e+00
-  %976 = fcmp ogt float %967, 1.000000e+00
-  %..i12.i = select i1 %976, float 1.000000e+00, float %967
-  %977 = fmul float %..i12.i, 2.550000e+02
-  %978 = fcmp olt float %968, 0.000000e+00
-  %979 = fcmp ogt float %968, 1.000000e+00
-  %..i15.i = select i1 %979, float 1.000000e+00, float %968
-  %980 = fmul float %..i15.i, 2.550000e+02
-  %981 = select i1 %969, float 0.000000e+00, float %971
+  %971 = fcmp olt float %966, 0.000000e+00
+  %972 = fcmp ogt float %966, 1.000000e+00
+  %..i9.i = select i1 %972, float 1.000000e+00, float %966
+  %973 = fcmp olt float %967, 0.000000e+00
+  %974 = fcmp ogt float %967, 1.000000e+00
+  %..i12.i = select i1 %974, float 1.000000e+00, float %967
+  %975 = fcmp olt float %968, 0.000000e+00
+  %976 = fcmp ogt float %968, 1.000000e+00
+  %..i15.i = select i1 %976, float 1.000000e+00, float %968
+  %977 = fmul float %..i.i, 2.550000e+02
+  %978 = select i1 %969, float 0.000000e+00, float %977
+  %979 = fptoui float %978 to i8
+  store i8 %979, ptr %930, align 1
+  %980 = fmul float %..i9.i, 2.550000e+02
+  %981 = select i1 %971, float 0.000000e+00, float %980
   %982 = fptoui float %981 to i8
-  store i8 %982, ptr %930, align 1
-  %983 = select i1 %972, float 0.000000e+00, float %974
-  %984 = fptoui float %983 to i8
-  store i8 %984, ptr %934, align 1
-  %985 = select i1 %975, float 0.000000e+00, float %977
-  %986 = fptoui float %985 to i8
-  store i8 %986, ptr %938, align 1
-  %987 = select i1 %978, float 0.000000e+00, float %980
+  store i8 %982, ptr %934, align 1
+  %983 = fmul float %..i12.i, 2.550000e+02
+  %984 = select i1 %973, float 0.000000e+00, float %983
+  %985 = fptoui float %984 to i8
+  store i8 %985, ptr %938, align 1
+  %986 = fmul float %..i15.i, 2.550000e+02
+  %987 = select i1 %975, float 0.000000e+00, float %986
   %988 = fptoui float %987 to i8
   store i8 %988, ptr %942, align 1
   %indvars.iv.next1179 = add nuw nsw i64 %indvars.iv1178, 1

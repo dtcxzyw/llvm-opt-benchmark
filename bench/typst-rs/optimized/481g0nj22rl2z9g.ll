@@ -444,17 +444,17 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %64 = ptrtoint ptr %.val.i46.i.i.i.i to i64
   %65 = sub nuw i64 %63, %64
   %66 = lshr exact i64 %65, 3
-  %67 = add nuw nsw i64 %66, 1
-  %68 = load ptr, ptr %3, align 8, !alias.scope !68, !noalias !73, !noundef !14
-  %69 = icmp eq ptr %68, null
+  %67 = load ptr, ptr %3, align 8, !alias.scope !68, !noalias !73, !noundef !14
+  %68 = icmp eq ptr %67, null
   %.val3.i.i.i.i.i = load ptr, ptr %44, align 8, !alias.scope !68, !noalias !73, !nonnull !14
-  %70 = ptrtoint ptr %.val3.i.i.i.i.i to i64
+  %69 = ptrtoint ptr %.val3.i.i.i.i.i to i64
   %.val.i.i.i.i.i = load ptr, ptr %45, align 8, !alias.scope !68, !noalias !73, !nonnull !14
-  %71 = ptrtoint ptr %.val.i.i.i.i.i to i64
-  %72 = sub nuw i64 %70, %71
-  %73 = lshr exact i64 %72, 3
-  %.sroa.7.0.i.i.i.i = select i1 %69, i64 0, i64 %73
-  %74 = select i1 %62, i64 1, i64 %67
+  %70 = ptrtoint ptr %.val.i.i.i.i.i to i64
+  %71 = sub nuw i64 %69, %70
+  %72 = lshr exact i64 %71, 3
+  %.sroa.7.0.i.i.i.i = select i1 %68, i64 0, i64 %72
+  %73 = add nuw nsw i64 %66, 1
+  %74 = select i1 %62, i64 1, i64 %73
   %75 = add nuw nsw i64 %.sroa.7.0.i.i.i.i, %74
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hf7a7e186e093294cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %53, i64 noundef %75)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb2b836ea81caf567E.exit.i.i" unwind label %59

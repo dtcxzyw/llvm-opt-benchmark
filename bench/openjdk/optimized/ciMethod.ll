@@ -1810,27 +1810,27 @@ define hidden void @_ZN8ciMethod19call_profile_at_bciEi(ptr dead_on_unwind noali
   store ptr null, ptr %19, align 8
   %20 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %1)
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %133, label %21
+  br i1 %.not, label %135, label %21
 
 21:                                               ; preds = %3
   %22 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %1)
   %23 = getelementptr inbounds i8, ptr %22, i64 52
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, 2
-  br i1 %25, label %26, label %133
+  br i1 %25, label %26, label %135
 
 26:                                               ; preds = %21
   %27 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %1)
   %28 = tail call noundef ptr @_ZN12ciMethodData11bci_to_dataEiP8ciMethod(ptr noundef nonnull align 8 dereferenceable(176) %27, i32 noundef %2, ptr noundef null) #14
   %.not52 = icmp eq ptr %28, null
-  br i1 %.not52, label %133, label %29
+  br i1 %.not52, label %135, label %29
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %28) #14
-  br i1 %33, label %34, label %133
+  br i1 %33, label %34, label %135
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %28, align 8
@@ -1877,7 +1877,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
 
 58:                                               ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit
   store i32 0, ptr %18, align 4
-  br label %132
+  br label %.thread
 
 59:                                               ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit
   %60 = load ptr, ptr %28, align 8
@@ -1888,7 +1888,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %64 = load i64, ptr @TypeProfileWidth, align 8
   %65 = trunc i64 %64 to i32
   %.not72 = icmp eq i32 %65, 0
-  br i1 %.not72, label %._crit_edge70.thread, label %.lr.ph
+  br i1 %.not72, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %59
   %66 = getelementptr inbounds i8, ptr %..i57, i64 8
@@ -1915,11 +1915,11 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %78 = icmp eq i32 %spec.select, 1
   %79 = icmp ne i64 %42, 0
   %or.cond = and i1 %79, %78
-  %spec.select54 = select i1 %or.cond, i32 0, i32 %53
-  %80 = zext nneg i32 %53 to i64
-  %81 = getelementptr inbounds i8, ptr %..i57, i64 8
-  %82 = select i1 %or.cond, i64 %80, i64 0
-  %.pre = load ptr, ptr %81, align 8
+  %cond.fr89 = freeze i1 %or.cond
+  %80 = getelementptr inbounds i8, ptr %..i57, i64 8
+  %81 = zext nneg i32 %53 to i64
+  %82 = select i1 %cond.fr89, i64 %81, i64 0
+  %.pre = load ptr, ptr %80, align 8
   %83 = getelementptr inbounds i8, ptr %.pre, i64 8
   br label %84
 
@@ -2004,7 +2004,7 @@ _ZN13ciCallProfile12add_receiverEP7ciKlassi.exit: ; preds = %120, %.critedge.i, 
   %124 = load i32, ptr %0, align 8
   %125 = icmp eq i32 %spec.select, %124
   %or.cond56 = select i1 %123, i1 %125, i1 false
-  br i1 %or.cond56, label %126, label %._crit_edge70.thread
+  br i1 %or.cond56, label %126, label %132
 
 126:                                              ; preds = %._crit_edge70
   br i1 %78, label %130, label %127
@@ -2013,45 +2013,48 @@ _ZN13ciCallProfile12add_receiverEP7ciKlassi.exit: ; preds = %120, %.critedge.i, 
   %128 = icmp eq i32 %spec.select, 2
   %129 = icmp eq i64 %42, 0
   %or.cond3 = and i1 %129, %128
-  br i1 %or.cond3, label %130, label %._crit_edge70.thread
+  br i1 %or.cond3, label %130, label %132
 
 130:                                              ; preds = %127, %126
   store i32 %spec.select, ptr %16, align 4
-  br label %._crit_edge70.thread
+  %131 = tail call i32 @llvm.sadd.sat.i32(i32 %53, i32 %.143)
+  br i1 %cond.fr89, label %134, label %.thread
 
-._crit_edge70.thread:                             ; preds = %59, %._crit_edge70, %130, %127
-  %.042.lcssa86 = phi i32 [ %.143, %._crit_edge70 ], [ %.143, %130 ], [ %.143, %127 ], [ 0, %59 ]
-  %spec.select548085 = phi i32 [ %spec.select54, %._crit_edge70 ], [ %spec.select54, %130 ], [ %spec.select54, %127 ], [ %53, %59 ]
-  %131 = tail call noundef i32 @llvm.sadd.sat.i32(i32 %spec.select548085, i32 %.042.lcssa86)
-  br label %132
+132:                                              ; preds = %._crit_edge70, %127
+  %or.cond7984 = phi i1 [ %cond.fr89, %._crit_edge70 ], [ false, %127 ]
+  %133 = tail call i32 @llvm.sadd.sat.i32(i32 %53, i32 %.143)
+  br i1 %or.cond7984, label %134, label %.thread
 
-132:                                              ; preds = %._crit_edge70.thread, %58
-  %.0 = phi i32 [ %131, %._crit_edge70.thread ], [ %53, %58 ]
+134:                                              ; preds = %130, %132
+  br label %.thread
+
+.thread:                                          ; preds = %59, %134, %132, %130, %58
+  %.0 = phi i32 [ %53, %58 ], [ %.143, %134 ], [ %133, %132 ], [ %131, %130 ], [ %53, %59 ]
   store i32 %.0, ptr %17, align 8
-  br label %133
+  br label %135
 
-133:                                              ; preds = %26, %29, %132, %21, %3
-  %134 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %134, null
-  br i1 %.not.i.i.i.i, label %136, label %135
+135:                                              ; preds = %26, %29, %.thread, %21, %3
+  %136 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %136, null
+  br i1 %.not.i.i.i.i, label %138, label %137
 
-135:                                              ; preds = %133
+137:                                              ; preds = %135
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #14
-  br label %136
+  br label %138
 
-136:                                              ; preds = %135, %133
-  %137 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %137, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %138
+138:                                              ; preds = %137, %135
+  %139 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %139, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %140
 
-138:                                              ; preds = %136
+140:                                              ; preds = %138
   store ptr %9, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %136, %138
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %138, %140
   ret void
 }
 

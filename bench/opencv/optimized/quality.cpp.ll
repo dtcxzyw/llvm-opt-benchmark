@@ -1330,12 +1330,12 @@ define linkonce_odr hidden i64 @_ZNK2cv4usac17RansacQualityImpl8getScoreERKSt6ve
 
 ._crit_edge:                                      ; preds = %9, %2
   %.07.lcssa = phi i32 [ 0, %2 ], [ %.1, %9 ]
-  %15 = sitofp i32 %.07.lcssa to float
+  %15 = uitofp nneg i32 %.07.lcssa to float
   %16 = fneg float %15
   %17 = bitcast float %16 to i32
   %.sroa.2.0.insert.ext = zext i32 %17 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %.07.lcssa to i64
+  %.sroa.0.0.insert.ext = zext nneg i32 %.07.lcssa to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
 }

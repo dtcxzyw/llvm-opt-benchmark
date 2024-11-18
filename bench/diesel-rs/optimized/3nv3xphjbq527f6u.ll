@@ -7031,21 +7031,21 @@ define hidden void @"_ZN6diesel3row7private19PartialRow$LT$R$GT$3new17hc1ab971e2
   %10 = tail call noundef ptr @mysql_fetch_fields(ptr noundef nonnull %8), !noalias !1401
   %11 = icmp eq ptr %10, null
   %12 = zext i32 %9 to i64
-  %.sroa.3.0.i.i = select i1 %11, i64 0, i64 %12
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %.sroa.3.0.i.i)
+  %13 = tail call i64 @llvm.umin.i64(i64 %2, i64 %12)
+  %.0.sroa.speculated.i = select i1 %11, i64 0, i64 %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1402)
-  %13 = load ptr, ptr %7, align 8, !alias.scope !1402, !noalias !1405, !nonnull !4, !noundef !4
-  %14 = tail call noundef i32 @mysql_num_fields(ptr noundef nonnull %13), !noalias !1408
-  %15 = tail call noundef ptr @mysql_fetch_fields(ptr noundef nonnull %13), !noalias !1408
-  %16 = icmp eq ptr %15, null
-  %17 = zext i32 %14 to i64
-  %.sroa.3.0.i.i1 = select i1 %16, i64 0, i64 %17
-  %.0.sroa.speculated.i2 = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %.sroa.3.0.i.i1)
+  %14 = load ptr, ptr %7, align 8, !alias.scope !1402, !noalias !1405, !nonnull !4, !noundef !4
+  %15 = tail call noundef i32 @mysql_num_fields(ptr noundef nonnull %14), !noalias !1408
+  %16 = tail call noundef ptr @mysql_fetch_fields(ptr noundef nonnull %14), !noalias !1408
+  %17 = icmp eq ptr %16, null
+  %18 = zext i32 %15 to i64
+  %19 = tail call i64 @llvm.umin.i64(i64 %3, i64 %18)
+  %.0.sroa.speculated.i2 = select i1 %17, i64 0, i64 %19
   store ptr %1, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.0.sroa.speculated.i, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.0.sroa.speculated.i2, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.0.sroa.speculated.i, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.0.sroa.speculated.i2, ptr %21, align 8
   ret void
 }
 

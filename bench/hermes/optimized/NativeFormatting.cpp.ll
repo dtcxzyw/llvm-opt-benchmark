@@ -401,22 +401,22 @@ entry:
   %NumberBuffer = alloca [128 x i8], align 16
   %tobool.i.i = trunc i8 %Width.coerce1 to i1
   %0 = tail call i64 @llvm.umin.i64(i64 %Width.coerce0, i64 128)
-  %1 = trunc nuw nsw i64 %0 to i32
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %N, i1 false)
-  %add = sub nuw nsw i64 67, %2
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %N, i1 false)
+  %add = sub nuw nsw i64 67, %1
   %div9 = lshr i64 %add, 2
   %conv = trunc nuw nsw i64 %div9 to i32
-  %3 = and i32 %Style, -2
-  %4 = icmp eq i32 %3, 2
-  %5 = and i32 %Style, -3
-  %.not = icmp eq i32 %5, 0
-  %cond = select i1 %4, i32 2, i32 0
-  %conv11 = select i1 %tobool.i.i, i32 %1, i32 0
+  %2 = and i32 %Style, -2
+  %3 = icmp eq i32 %2, 2
+  %4 = and i32 %Style, -3
+  %.not = icmp eq i32 %4, 0
+  %cond = select i1 %3, i32 2, i32 0
+  %5 = trunc nuw nsw i64 %0 to i32
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv, i32 1)
   %add15 = add nuw nsw i32 %.sroa.speculated, %cond
-  %.sroa.speculated19 = tail call i32 @llvm.umax.i32(i32 %conv11, i32 %add15)
+  %6 = tail call i32 @llvm.umax.i32(i32 %5, i32 %add15)
+  %.sroa.speculated19 = select i1 %tobool.i.i, i32 %6, i32 %add15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %NumberBuffer, i8 48, i64 128, i1 false)
-  br i1 %4, label %if.then, label %if.end
+  br i1 %3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %NumberBuffer, i64 1

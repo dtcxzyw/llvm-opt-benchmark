@@ -5482,16 +5482,16 @@ for.body31:                                       ; preds = %for.body31.preheade
   %indvars.iv = phi i64 [ 0, %for.body31.preheader ], [ %indvars.iv.next, %for.body31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = icmp eq i64 %indvars.iv.next, %15
-  %24 = and i64 %indvars.iv.next, 4294967295
   %arrayidx = getelementptr inbounds i32, ptr %cycle, i64 %indvars.iv
-  %25 = load i32, ptr %arrayidx, align 4
-  %idxprom32 = select i1 %23, i64 0, i64 %24
+  %24 = load i32, ptr %arrayidx, align 4
+  %25 = and i64 %indvars.iv.next, 4294967295
+  %idxprom32 = select i1 %23, i64 0, i64 %25
   %arrayidx33 = getelementptr inbounds i32, ptr %cycle, i64 %idxprom32
   %26 = load i32, ptr %arrayidx33, align 4
   %27 = load ptr, ptr %permutation0, align 8
   %idxprom.i = zext i32 %26 to i64
   %arrayidx.i45 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i
-  store i32 %25, ptr %arrayidx.i45, align 4
+  store i32 %24, ptr %arrayidx.i45, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %exitcond.not, label %for.cond40.preheader, label %for.body31, !llvm.loop !33
 

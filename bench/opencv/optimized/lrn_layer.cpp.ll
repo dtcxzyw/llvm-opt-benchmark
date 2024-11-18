@@ -2781,9 +2781,9 @@ define linkonce_odr hidden void @_ZNK2cv3dnn12LRNLayerImpl10ChannelLRNclERKNS_5R
   %21 = icmp eq i32 %20, %7
   %22 = sext i32 %20 to i64
   %23 = mul i64 %15, %22
-  %24 = select i1 %21, i64 %11, i64 %23
   %.sroa.speculated140 = tail call i64 @llvm.umin.i64(i64 %11, i64 %18)
-  %.sroa.speculated132 = tail call i64 @llvm.umin.i64(i64 %11, i64 %24)
+  %24 = tail call i64 @llvm.umin.i64(i64 %11, i64 %23)
+  %.sroa.speculated132 = select i1 %21, i64 %11, i64 %24
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load float, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 28

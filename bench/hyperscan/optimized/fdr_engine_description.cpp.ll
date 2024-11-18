@@ -261,16 +261,15 @@ if.end17:                                         ; preds = %invoke.cont11
 
 invoke.cont18:                                    ; preds = %if.end17
   %cmp21.not = icmp samesign ugt i64 %stride.066, %conv20
-  %5 = add nuw nsw i32 %conv, 100
-  %6 = load ptr, ptr %_M_finish.i, align 8
-  %7 = load ptr, ptr %vl, align 8
-  %sub.ptr.lhs.cast.i50 = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i51 = ptrtoint ptr %7 to i64
+  %5 = load ptr, ptr %_M_finish.i, align 8
+  %6 = load ptr, ptr %vl, align 8
+  %sub.ptr.lhs.cast.i50 = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i51 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i52 = sub i64 %sub.ptr.lhs.cast.i50, %sub.ptr.rhs.cast.i51
   %sub.ptr.div.i53 = sdiv exact i64 %sub.ptr.sub.i52, 104
   %conv27 = trunc i64 %sub.ptr.div.i53 to i32
-  %8 = load i32, ptr %numBuckets.i, align 8
-  %cmp30 = icmp ugt i32 %8, %conv27
+  %7 = load i32, ptr %numBuckets.i, align 8
+  %cmp30 = icmp ugt i32 %7, %conv27
   br i1 %cmp30, label %if.end52, label %if.else35
 
 if.else35:                                        ; preds = %invoke.cont18
@@ -296,8 +295,8 @@ if.end52:                                         ; preds = %invoke.cont18
 
 land.lhs.true54:                                  ; preds = %if.else44, %if.else41, %if.else38, %if.else35, %if.end52
   %ideal.059 = phi i32 [ 10, %if.end52 ], [ %.44, %if.else44 ], [ 12, %if.else41 ], [ 11, %if.else38 ], [ 10, %if.else35 ]
-  %9 = load i32, ptr %schemeWidth, align 4
-  %cmp55 = icmp eq i32 %9, 32
+  %8 = load i32, ptr %schemeWidth, align 4
+  %cmp55 = icmp eq i32 %8, 32
   %add57 = zext i1 %cmp55 to i32
   %spec.select = add nuw nsw i32 %ideal.059, %add57
   br label %if.end58
@@ -314,15 +313,16 @@ invoke.cont68:                                    ; preds = %if.end58
   %ideal.3 = add nuw nsw i32 %spec.select45, %inc
   %call69.not = xor i1 %call69, true
   %cmp73 = icmp ugt i32 %conv27, 3999
-  %10 = or i1 %cmp73, %call69.not
-  %or.cond46 = or i1 %make_small, %10
+  %9 = or i1 %cmp73, %call69.not
+  %or.cond46 = or i1 %make_small, %9
   %sub75 = add nsw i32 %ideal.3, -2
   %ideal.4 = select i1 %or.cond46, i32 %ideal.3, i32 %sub75
   %call78 = invoke noundef i32 @_ZN3ue27absdiffEjj(i32 noundef %ideal.4, i32 noundef %domain.069)
           to label %invoke.cont77 unwind label %lpad.loopexit
 
 invoke.cont77:                                    ; preds = %invoke.cont68
-  %11 = select i1 %cmp21.not, i32 100, i32 %5
+  %10 = add nuw nsw i32 %conv, 100
+  %11 = select i1 %cmp21.not, i32 100, i32 %10
   %12 = add i32 %call19, %call78
   %sub79 = sub i32 %11, %12
   %tobool83.not = icmp eq ptr %best.167, null

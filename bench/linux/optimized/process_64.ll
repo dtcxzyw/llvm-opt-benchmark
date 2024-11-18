@@ -1106,15 +1106,15 @@ define dso_local noundef ptr @__switch_to(ptr noundef returned %0, ptr noundef %
   %116 = getelementptr inbounds i8, ptr %1, i64 2854
   %117 = load i16, ptr %116, align 2
   %118 = icmp eq i16 %117, 0
-  %or.cond11 = select i1 %115, i1 %118, i1 false
-  br i1 %or.cond11, label %120, label %._crit_edge8, !prof !74
+  %or.cond12 = select i1 %115, i1 %118, i1 false
+  br i1 %or.cond12, label %120, label %._crit_edge9, !prof !74
 
-._crit_edge8:                                     ; preds = %113
+._crit_edge9:                                     ; preds = %113
   %119 = zext i16 %117 to i32
   tail call fastcc void @load_gs_index(i32 noundef %119)
   br label %120
 
-120:                                              ; preds = %113, %._crit_edge8
+120:                                              ; preds = %113, %._crit_edge9
   %121 = getelementptr inbounds i8, ptr %1, i64 2856
   %122 = load i64, ptr %121, align 8
   tail call void asm sideeffect "wrfsbase $0", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %122) #11, !srcloc !75
@@ -1345,44 +1345,39 @@ define dso_local noundef ptr @__switch_to(ptr noundef returned %0, ptr noundef %
   %218 = load volatile i64, ptr %1, align 8
   %219 = load volatile i64, ptr %0, align 8
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @switch_to_cond_stibp, i1 true) #11
-          to label %220 [label %223], !srcloc !80
+          to label %221 [label %220], !srcloc !80
 
 220:                                              ; preds = %211
-  %221 = and i64 %218, 42041888
-  %222 = and i64 %219, 46238240
-  br label %226
+  br label %221
 
-223:                                              ; preds = %211
-  %224 = and i64 %219, 46237728
-  %225 = and i64 %218, 42041376
-  br label %226
+221:                                              ; preds = %211, %220
+  %.sink = phi i64 [ 42041376, %220 ], [ 42041888, %211 ]
+  %222 = phi i64 [ 46237728, %220 ], [ 46238240, %211 ]
+  %223 = and i64 %218, %.sink
+  %224 = icmp ne i64 %223, 0
+  %225 = and i64 %222, %219
+  %226 = icmp ne i64 %225, 0
+  %227 = select i1 %224, i1 true, i1 %226, !prof !37
+  br i1 %227, label %228, label %229, !prof !37
 
-226:                                              ; preds = %220, %223
-  %227 = phi i64 [ %224, %223 ], [ %222, %220 ]
-  %228 = phi i64 [ %225, %223 ], [ %221, %220 ]
-  %229 = icmp ne i64 %228, 0
-  %230 = icmp ne i64 %227, 0
-  %231 = select i1 %229, i1 true, i1 %230, !prof !37
-  br i1 %231, label %232, label %233, !prof !37
-
-232:                                              ; preds = %226
+228:                                              ; preds = %221
   call void @__switch_to_xtra(ptr noundef %0, ptr noundef %1) #11
-  br label %233
+  br label %229
 
-233:                                              ; preds = %232, %226
+229:                                              ; preds = %228, %221
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 680, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 125)) #11
-          to label %234 [label %234, label %239], !srcloc !22
+          to label %230 [label %230, label %235], !srcloc !22
 
-234:                                              ; preds = %233, %233
-  %235 = call i16 asm "mov %ss,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !81
-  %236 = icmp eq i16 %235, 24
-  br i1 %236, label %239, label %237
+230:                                              ; preds = %229, %229
+  %231 = call i16 asm "mov %ss,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !81
+  %232 = icmp eq i16 %231, 24
+  br i1 %232, label %235, label %233
 
-237:                                              ; preds = %234
-  %238 = call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%ss\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 24) #11, !srcloc !82
-  br label %239
+233:                                              ; preds = %230
+  %234 = call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%ss\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 24) #11, !srcloc !82
+  br label %235
 
-239:                                              ; preds = %237, %234, %233
+235:                                              ; preds = %233, %230, %229
   ret ptr %0
 }
 

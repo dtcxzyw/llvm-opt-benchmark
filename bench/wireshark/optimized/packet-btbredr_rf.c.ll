@@ -1185,11 +1185,11 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond5, label %133, label %145
 
 133:                                              ; preds = %132
-  %134 = call i8 @llvm.bitreverse.i8(i8 %.1878)
-  %135 = and i32 %110, 262143
-  %136 = zext i8 %134 to i32
+  %134 = and i32 %110, 262143
+  %135 = call i8 @llvm.bitreverse.i8(i8 %.1878)
+  %136 = zext i8 %135 to i32
   %137 = select i1 %116, i32 0, i32 %136
-  %138 = xor i32 %137, %135
+  %138 = xor i32 %137, %134
   br label %139
 
 139:                                              ; preds = %139, %133

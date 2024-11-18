@@ -4018,9 +4018,9 @@ define void @_ZN8WasmEdge8Executor8Executor9tableGrowERNS_7Runtime12StackManager
   %15 = load i8, ptr %12, align 4
   %16 = and i8 %15, -3
   %spec.select.i.i = icmp eq i8 %16, 1
-  %17 = zext i32 %14 to i64
-  %18 = zext i32 %5 to i64
-  %19 = select i1 %spec.select.i.i, i64 %17, i64 4294967295
+  %17 = zext i32 %5 to i64
+  %18 = zext i32 %14 to i64
+  %19 = select i1 %spec.select.i.i, i64 %18, i64 4294967295
   %20 = getelementptr inbounds i8, ptr %7, i64 24
   %21 = getelementptr inbounds i8, ptr %7, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -4030,16 +4030,16 @@ define void @_ZN8WasmEdge8Executor8Executor9tableGrowERNS_7Runtime12StackManager
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 4
   %28 = sub nsw i64 %19, %27
-  %.not = icmp ult i64 %28, %18
+  %.not = icmp ult i64 %28, %17
   br i1 %.not, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread, label %29
 
 29:                                               ; preds = %8
-  %30 = add nsw i64 %27, %18
+  %30 = add nsw i64 %27, %17
   %31 = icmp ugt i64 %30, %27
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %29
-  invoke void @_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %18)
+  invoke void @_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %17)
           to label %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i unwind label %44
 
 33:                                               ; preds = %29
@@ -4061,7 +4061,7 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i: ; preds = %37, %35
 
 39:                                               ; preds = %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i
   %40 = load ptr, ptr %21, align 8
-  %41 = sub nsw i64 0, %18
+  %41 = sub nsw i64 0, %17
   %42 = getelementptr inbounds %"struct.WasmEdge::RefVariant", ptr %40, i64 %41
   br label %.lr.ph.i.i.i.i.i.i
 

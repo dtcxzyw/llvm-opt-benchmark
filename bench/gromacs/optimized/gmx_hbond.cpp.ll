@@ -4560,8 +4560,8 @@ _ZNSt6vectorIS_IS_I16HydrogenGridCellSaIS0_EESaIS2_EESaIS4_EED2Ev.exit: ; preds 
 
 1173:                                             ; preds = %1170
   %1174 = icmp slt i32 %1171, 1
-  %1175 = select i1 %1174, i32 2147483647, i32 %1171
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %1172, i32 %1175)
+  %1175 = call i32 @llvm.smin.i32(i32 %1172, i32 %1171)
+  %.sroa.speculated = select i1 %1174, i32 %1172, i32 %1175
   store i32 %.sroa.speculated, ptr %95, align 4
   invoke void @_Z23gmx_omp_set_num_threadsi(i32 noundef %.sroa.speculated)
           to label %1176 unwind label %.loopexit.split-lp835.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

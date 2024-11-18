@@ -3970,10 +3970,10 @@ if.end.i6:                                        ; preds = %lor.lhs.false.i
   br i1 %cmp.not.i7, label %if.end8.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i6
-  %10 = add nuw nsw i32 %spec.select11.i, 1
   %start.addr.0.i = select i1 %cmp.i.i, i32 %spec.select9.i, i32 0
   store i32 %start.addr.0.i, ptr %range.i, align 4
   %arrayinit.element.i = getelementptr inbounds i8, ptr %range.i, i64 4
+  %10 = add nuw nsw i32 %spec.select11.i, 1
   %add.i = select i1 %cmp.i1.i, i32 1, i32 %10
   store i32 %add.i, ptr %arrayinit.element.i, align 4
   %arrayinit.element7.i = getelementptr inbounds i8, ptr %range.i, i64 8
@@ -4079,10 +4079,10 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %5 = add nuw nsw i32 %spec.select11, 1
   %start.addr.0 = select i1 %cmp.i, i32 %spec.select9, i32 0
   store i32 %start.addr.0, ptr %range, align 4
   %arrayinit.element = getelementptr inbounds i8, ptr %range, i64 4
+  %5 = add nuw nsw i32 %spec.select11, 1
   %add = select i1 %cmp.i1, i32 1, i32 %5
   store i32 %add, ptr %arrayinit.element, align 4
   %arrayinit.element7 = getelementptr inbounds i8, ptr %range, i64 8
@@ -5620,10 +5620,10 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = add nuw nsw i32 %spec.select11, 1
   %start.addr.0 = select i1 %cmp.i, i32 %spec.select9, i32 0
   store i32 %start.addr.0, ptr %range, align 4
   %arrayinit.element = getelementptr inbounds i8, ptr %range, i64 4
+  %1 = add nuw nsw i32 %spec.select11, 1
   %add = select i1 %cmp.i1, i32 1, i32 %1
   store i32 %add, ptr %arrayinit.element, align 4
   %arrayinit.element3 = getelementptr inbounds i8, ptr %range, i64 8
@@ -5961,10 +5961,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %range.i)
   %cmp.i1.i = icmp slt i32 %c, 0
   %spec.select9.i = tail call i32 @llvm.umin.i32(i32 %c, i32 1114111)
-  %0 = add nuw nsw i32 %spec.select9.i, 1
   %start.addr.0.i = select i1 %cmp.i1.i, i32 0, i32 %spec.select9.i
   store i32 %start.addr.0.i, ptr %range.i, align 4
   %arrayinit.element.i = getelementptr inbounds i8, ptr %range.i, i64 4
+  %0 = add nuw nsw i32 %spec.select9.i, 1
   %add.i = select i1 %cmp.i1.i, i32 1, i32 %0
   store i32 %add.i, ptr %arrayinit.element.i, align 4
   %arrayinit.element3.i = getelementptr inbounds i8, ptr %range.i, i64 8
@@ -6093,9 +6093,9 @@ _ZN6icu_7510UnicodeSet6retainEii.exit:            ; preds = %if.then.i.i.i, %if.
   %retval.0.i.ph = phi i32 [ %call4.i, %if.then3.i ], [ %conv.i6, %if.then.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %range.i)
   %spec.select9.i = tail call i32 @llvm.umin.i32(i32 %retval.0.i.ph, i32 1114111)
-  %17 = add nuw nsw i32 %spec.select9.i, 1
   store i32 %spec.select9.i, ptr %range.i, align 4
   %arrayinit.element.i = getelementptr inbounds i8, ptr %range.i, i64 4
+  %17 = add nuw nsw i32 %spec.select9.i, 1
   store i32 %17, ptr %arrayinit.element.i, align 4
   %arrayinit.element3.i = getelementptr inbounds i8, ptr %range.i, i64 8
   store i32 1114112, ptr %arrayinit.element3.i, align 4
@@ -6125,10 +6125,10 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = add nuw nsw i32 %spec.select11, 1
   %start.addr.0 = select i1 %cmp.i, i32 %spec.select9, i32 0
   store i32 %start.addr.0, ptr %range, align 4
   %arrayinit.element = getelementptr inbounds i8, ptr %range, i64 4
+  %1 = add nuw nsw i32 %spec.select11, 1
   %add = select i1 %cmp.i1, i32 1, i32 %1
   store i32 %add, ptr %arrayinit.element, align 4
   %arrayinit.element3 = getelementptr inbounds i8, ptr %range, i64 8
@@ -6147,10 +6147,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %range.i)
   %cmp.i1.i = icmp slt i32 %c, 0
   %spec.select9.i = tail call i32 @llvm.umin.i32(i32 %c, i32 1114111)
-  %0 = add nuw nsw i32 %spec.select9.i, 1
   %start.addr.0.i = select i1 %cmp.i1.i, i32 0, i32 %spec.select9.i
   store i32 %start.addr.0.i, ptr %range.i, align 4
   %arrayinit.element.i = getelementptr inbounds i8, ptr %range.i, i64 4
+  %0 = add nuw nsw i32 %spec.select9.i, 1
   %add.i = select i1 %cmp.i1.i, i32 1, i32 %0
   store i32 %add.i, ptr %arrayinit.element.i, align 4
   %arrayinit.element3.i = getelementptr inbounds i8, ptr %range.i, i64 8
@@ -6238,9 +6238,9 @@ _ZN6icu_7510UnicodeSet6removeEii.exit:            ; preds = %if.then.i.i.i, %if.
   %retval.0.i.ph = phi i32 [ %call4.i, %if.then3.i ], [ %conv.i4, %if.then.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %range.i)
   %spec.select9.i = tail call i32 @llvm.umin.i32(i32 %retval.0.i.ph, i32 1114111)
-  %12 = add nuw nsw i32 %spec.select9.i, 1
   store i32 %spec.select9.i, ptr %range.i, align 4
   %arrayinit.element.i = getelementptr inbounds i8, ptr %range.i, i64 4
+  %12 = add nuw nsw i32 %spec.select9.i, 1
   store i32 %12, ptr %arrayinit.element.i, align 4
   %arrayinit.element3.i = getelementptr inbounds i8, ptr %range.i, i64 8
   store i32 1114112, ptr %arrayinit.element3.i, align 4
@@ -6326,7 +6326,7 @@ if.then24:                                        ; preds = %for.cond
   %arrayidx27 = getelementptr inbounds i32, ptr %10, i64 %idxprom26
   store i32 %a.0.ph, ptr %arrayidx27, align 4
   %11 = load ptr, ptr %list, align 8
-  %idxprom30 = sext i32 %i.0.ph to i64
+  %idxprom30 = zext nneg i32 %i.0.ph to i64
   %arrayidx31 = getelementptr inbounds i32, ptr %11, i64 %idxprom30
   br label %for.cond.outer.backedge
 
@@ -6361,7 +6361,7 @@ if.else42:                                        ; preds = %if.else32
 
 if.then44:                                        ; preds = %if.else42
   %14 = load ptr, ptr %list, align 8
-  %idxprom47 = sext i32 %i.0.ph to i64
+  %idxprom47 = zext nneg i32 %i.0.ph to i64
   %arrayidx48 = getelementptr inbounds i32, ptr %14, i64 %idxprom47
   %inc49 = add nsw i32 %j.1, 1
   %idxprom50 = sext i32 %j.1 to i64
@@ -6426,10 +6426,10 @@ lor.lhs.false.i:                                  ; preds = %entry
 if.then6.i:                                       ; preds = %lor.lhs.false.i
   %cmp.i1.i = icmp slt i32 %c, 0
   %spec.select9.i = tail call i32 @llvm.umin.i32(i32 %c, i32 1114111)
-  %4 = add nuw nsw i32 %spec.select9.i, 1
   %start.addr.0.i = select i1 %cmp.i1.i, i32 0, i32 %spec.select9.i
   store i32 %start.addr.0.i, ptr %range.i, align 4
   %arrayinit.element.i = getelementptr inbounds i8, ptr %range.i, i64 4
+  %4 = add nuw nsw i32 %spec.select9.i, 1
   %add.i = select i1 %cmp.i1.i, i32 1, i32 %4
   store i32 %add.i, ptr %arrayinit.element.i, align 4
   %arrayinit.element7.i = getelementptr inbounds i8, ptr %range.i, i64 8
@@ -6631,9 +6631,9 @@ lor.lhs.false.i:                                  ; preds = %if.else11.thread, %
 
 if.end8.i11:                                      ; preds = %lor.lhs.false.i
   %spec.select9.i = tail call i32 @llvm.umin.i32(i32 %retval.0.i.ph20, i32 1114111)
-  %18 = add nuw nsw i32 %spec.select9.i, 1
   store i32 %spec.select9.i, ptr %range.i, align 4
   %arrayinit.element.i = getelementptr inbounds i8, ptr %range.i, i64 4
+  %18 = add nuw nsw i32 %spec.select9.i, 1
   store i32 %18, ptr %arrayinit.element.i, align 4
   %arrayinit.element7.i = getelementptr inbounds i8, ptr %range.i, i64 8
   store i32 1114112, ptr %arrayinit.element7.i, align 4

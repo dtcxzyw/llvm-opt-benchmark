@@ -4934,37 +4934,37 @@ define dso_local void @_ZN5clang6format17WhitespaceManager36alignArrayInitialize
   %39 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i.pre212, i64 %38, i32 4
   %40 = load i32, ptr %39, align 8
   %.not11.i = icmp eq i32 %40, 0
-  %41 = add i32 %.01013.i, 1
-  %42 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp ult i32 %37, %43
-  br i1 %44, label %.lr.ph.i.i, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i
+  %41 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp ult i32 %37, %42
+  br i1 %43, label %.lr.ph.i.i, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i83
-  %wide.trip.count20.i.i = zext i32 %43 to i64
+  %wide.trip.count20.i.i = zext i32 %42 to i64
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i, %.lr.ph.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.lr.ph.split.us.i.i ], [ %38, %.lr.ph.i.i ]
-  %.01112.us.i.i = phi i32 [ %53, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %45 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i.pre212, i64 %indvars.iv17.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = load i32, ptr %46, align 8
-  %.not.us.i.i = icmp eq i32 %47, 0
+  %.01112.us.i.i = phi i32 [ %52, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
+  %44 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i.pre212, i64 %indvars.iv17.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %46 = load i32, ptr %45, align 8
+  %.not.us.i.i = icmp eq i32 %46, 0
   %spec.select.us.i.i = select i1 %.not.us.i.i, i32 %.01112.us.i.i, i32 0
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 108
-  %49 = load i32, ptr %48, align 4
-  %50 = add i32 %spec.select.us.i.i, %49
-  %51 = getelementptr inbounds nuw i8, ptr %45, i64 100
-  %52 = load i32, ptr %51, align 4
-  %53 = add i32 %50, %52
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 108
+  %48 = load i32, ptr %47, align 4
+  %49 = add i32 %spec.select.us.i.i, %48
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 100
+  %51 = load i32, ptr %50, align 4
+  %52 = add i32 %49, %51
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
   %exitcond21.not.i.i = icmp eq i64 %indvars.iv.next18.i.i, %wide.trip.count20.i.i
   br i1 %exitcond21.not.i.i, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !118
 
 _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i: ; preds = %.lr.ph.split.us.i.i, %.lr.ph.i83
-  %.011.lcssa.i.i = phi i32 [ 0, %.lr.ph.i83 ], [ %53, %.lr.ph.split.us.i.i ]
-  %54 = select i1 %.not11.i, i32 %41, i32 1
+  %.011.lcssa.i.i = phi i32 [ 0, %.lr.ph.i83 ], [ %52, %.lr.ph.split.us.i.i ]
+  %53 = add i32 %.01013.i, 1
+  %54 = select i1 %.not11.i, i32 %53, i32 1
   %55 = add i32 %.011.lcssa.i.i, %54
   %56 = getelementptr inbounds i8, ptr %.014.i, i64 24
   %.not.i84 = icmp eq ptr %56, %storemerge194
@@ -5125,37 +5125,37 @@ _ZNK5clang6format17WhitespaceManager19getMaximumCellWidthIPNS1_15CellDescription
   %125 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %121, i64 %124, i32 4
   %126 = load i32, ptr %125, align 8
   %.not11.i104 = icmp eq i32 %126, 0
-  %127 = add i32 %.01013.i103, 1
-  %128 = getelementptr inbounds nuw i8, ptr %.014.i102, i64 8
-  %129 = load i32, ptr %128, align 8
-  %130 = icmp ult i32 %123, %129
-  br i1 %130, label %.lr.ph.i.i109, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i105
+  %127 = getelementptr inbounds nuw i8, ptr %.014.i102, i64 8
+  %128 = load i32, ptr %127, align 8
+  %129 = icmp ult i32 %123, %128
+  br i1 %129, label %.lr.ph.i.i109, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i105
 
 .lr.ph.i.i109:                                    ; preds = %122
-  %wide.trip.count20.i.i110 = zext i32 %129 to i64
+  %wide.trip.count20.i.i110 = zext i32 %128 to i64
   br label %.lr.ph.split.us.i.i111
 
 .lr.ph.split.us.i.i111:                           ; preds = %.lr.ph.split.us.i.i111, %.lr.ph.i.i109
   %indvars.iv17.i.i112 = phi i64 [ %indvars.iv.next18.i.i116, %.lr.ph.split.us.i.i111 ], [ %124, %.lr.ph.i.i109 ]
-  %.01112.us.i.i113 = phi i32 [ %139, %.lr.ph.split.us.i.i111 ], [ 0, %.lr.ph.i.i109 ]
-  %131 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %121, i64 %indvars.iv17.i.i112
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %133 = load i32, ptr %132, align 8
-  %.not.us.i.i114 = icmp eq i32 %133, 0
+  %.01112.us.i.i113 = phi i32 [ %138, %.lr.ph.split.us.i.i111 ], [ 0, %.lr.ph.i.i109 ]
+  %130 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %121, i64 %indvars.iv17.i.i112
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
+  %132 = load i32, ptr %131, align 8
+  %.not.us.i.i114 = icmp eq i32 %132, 0
   %spec.select.us.i.i115 = select i1 %.not.us.i.i114, i32 %.01112.us.i.i113, i32 0
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 108
-  %135 = load i32, ptr %134, align 4
-  %136 = add i32 %spec.select.us.i.i115, %135
-  %137 = getelementptr inbounds nuw i8, ptr %131, i64 100
-  %138 = load i32, ptr %137, align 4
-  %139 = add i32 %136, %138
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 108
+  %134 = load i32, ptr %133, align 4
+  %135 = add i32 %spec.select.us.i.i115, %134
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 100
+  %137 = load i32, ptr %136, align 4
+  %138 = add i32 %135, %137
   %indvars.iv.next18.i.i116 = add nuw nsw i64 %indvars.iv17.i.i112, 1
   %exitcond21.not.i.i117 = icmp eq i64 %indvars.iv.next18.i.i116, %wide.trip.count20.i.i110
   br i1 %exitcond21.not.i.i117, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i105, label %.lr.ph.split.us.i.i111, !llvm.loop !118
 
 _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i105: ; preds = %.lr.ph.split.us.i.i111, %122
-  %.011.lcssa.i.i106 = phi i32 [ 0, %122 ], [ %139, %.lr.ph.split.us.i.i111 ]
-  %140 = select i1 %.not11.i104, i32 %127, i32 1
+  %.011.lcssa.i.i106 = phi i32 [ 0, %122 ], [ %138, %.lr.ph.split.us.i.i111 ]
+  %139 = add i32 %.01013.i103, 1
+  %140 = select i1 %.not11.i104, i32 %139, i32 1
   %141 = add i32 %.011.lcssa.i.i106, %140
   %142 = getelementptr inbounds i8, ptr %.014.i102, i64 24
   %.not.i107 = icmp eq ptr %142, %118
@@ -5227,37 +5227,37 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %178 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %174, i64 %177, i32 4
   %179 = load i32, ptr %178, align 8
   %.not11.i123 = icmp eq i32 %179, 0
-  %180 = add i32 %.01013.i122, 1
-  %181 = getelementptr inbounds nuw i8, ptr %.014.i121, i64 8
-  %182 = load i32, ptr %181, align 8
-  %183 = icmp ult i32 %176, %182
-  br i1 %183, label %.lr.ph.i.i128, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i124
+  %180 = getelementptr inbounds nuw i8, ptr %.014.i121, i64 8
+  %181 = load i32, ptr %180, align 8
+  %182 = icmp ult i32 %176, %181
+  br i1 %182, label %.lr.ph.i.i128, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i124
 
 .lr.ph.i.i128:                                    ; preds = %175
-  %wide.trip.count20.i.i129 = zext i32 %182 to i64
+  %wide.trip.count20.i.i129 = zext i32 %181 to i64
   br label %.lr.ph.split.us.i.i130
 
 .lr.ph.split.us.i.i130:                           ; preds = %.lr.ph.split.us.i.i130, %.lr.ph.i.i128
   %indvars.iv17.i.i131 = phi i64 [ %indvars.iv.next18.i.i135, %.lr.ph.split.us.i.i130 ], [ %177, %.lr.ph.i.i128 ]
-  %.01112.us.i.i132 = phi i32 [ %192, %.lr.ph.split.us.i.i130 ], [ 0, %.lr.ph.i.i128 ]
-  %184 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %174, i64 %indvars.iv17.i.i131
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
-  %186 = load i32, ptr %185, align 8
-  %.not.us.i.i133 = icmp eq i32 %186, 0
+  %.01112.us.i.i132 = phi i32 [ %191, %.lr.ph.split.us.i.i130 ], [ 0, %.lr.ph.i.i128 ]
+  %183 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %174, i64 %indvars.iv17.i.i131
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %185 = load i32, ptr %184, align 8
+  %.not.us.i.i133 = icmp eq i32 %185, 0
   %spec.select.us.i.i134 = select i1 %.not.us.i.i133, i32 %.01112.us.i.i132, i32 0
-  %187 = getelementptr inbounds nuw i8, ptr %184, i64 108
-  %188 = load i32, ptr %187, align 4
-  %189 = add i32 %spec.select.us.i.i134, %188
-  %190 = getelementptr inbounds nuw i8, ptr %184, i64 100
-  %191 = load i32, ptr %190, align 4
-  %192 = add i32 %189, %191
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 108
+  %187 = load i32, ptr %186, align 4
+  %188 = add i32 %spec.select.us.i.i134, %187
+  %189 = getelementptr inbounds nuw i8, ptr %183, i64 100
+  %190 = load i32, ptr %189, align 4
+  %191 = add i32 %188, %190
   %indvars.iv.next18.i.i135 = add nuw nsw i64 %indvars.iv17.i.i131, 1
   %exitcond21.not.i.i136 = icmp eq i64 %indvars.iv.next18.i.i135, %wide.trip.count20.i.i129
   br i1 %exitcond21.not.i.i136, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i124, label %.lr.ph.split.us.i.i130, !llvm.loop !118
 
 _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i124: ; preds = %.lr.ph.split.us.i.i130, %175
-  %.011.lcssa.i.i125 = phi i32 [ 0, %175 ], [ %192, %.lr.ph.split.us.i.i130 ]
-  %193 = select i1 %.not11.i123, i32 %180, i32 1
+  %.011.lcssa.i.i125 = phi i32 [ 0, %175 ], [ %191, %.lr.ph.split.us.i.i130 ]
+  %192 = add i32 %.01013.i122, 1
+  %193 = select i1 %.not11.i123, i32 %192, i32 1
   %194 = add i32 %.011.lcssa.i.i125, %193
   %195 = getelementptr inbounds i8, ptr %.014.i121, i64 24
   %.not.i126 = icmp eq ptr %195, %172
@@ -6152,37 +6152,37 @@ define dso_local void @_ZN5clang6format17WhitespaceManager35alignArrayInitialize
   %57 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %56, i32 4
   %58 = load i32, ptr %57, align 8
   %.not11.i = icmp eq i32 %58, 0
-  %59 = add i32 %.01013.i, 1
-  %60 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp ult i32 %55, %61
-  br i1 %62, label %.lr.ph.i.i, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i
+  %59 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp ult i32 %55, %60
+  br i1 %61, label %.lr.ph.i.i, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i45
-  %wide.trip.count20.i.i = zext i32 %61 to i64
+  %wide.trip.count20.i.i = zext i32 %60 to i64
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i, %.lr.ph.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.lr.ph.split.us.i.i ], [ %56, %.lr.ph.i.i ]
-  %.01112.us.i.i = phi i32 [ %71, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %63 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %indvars.iv17.i.i
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %65 = load i32, ptr %64, align 8
-  %.not.us.i.i = icmp eq i32 %65, 0
+  %.01112.us.i.i = phi i32 [ %70, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
+  %62 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre, i64 %indvars.iv17.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %64 = load i32, ptr %63, align 8
+  %.not.us.i.i = icmp eq i32 %64, 0
   %spec.select.us.i.i = select i1 %.not.us.i.i, i32 %.01112.us.i.i, i32 0
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 108
-  %67 = load i32, ptr %66, align 4
-  %68 = add i32 %spec.select.us.i.i, %67
-  %69 = getelementptr inbounds nuw i8, ptr %63, i64 100
-  %70 = load i32, ptr %69, align 4
-  %71 = add i32 %68, %70
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 108
+  %66 = load i32, ptr %65, align 4
+  %67 = add i32 %spec.select.us.i.i, %66
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 100
+  %69 = load i32, ptr %68, align 4
+  %70 = add i32 %67, %69
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
   %exitcond21.not.i.i = icmp eq i64 %indvars.iv.next18.i.i, %wide.trip.count20.i.i
   br i1 %exitcond21.not.i.i, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !118
 
 _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i: ; preds = %.lr.ph.split.us.i.i, %.lr.ph.i45
-  %.011.lcssa.i.i = phi i32 [ 0, %.lr.ph.i45 ], [ %71, %.lr.ph.split.us.i.i ]
-  %72 = select i1 %.not11.i, i32 %59, i32 1
+  %.011.lcssa.i.i = phi i32 [ 0, %.lr.ph.i45 ], [ %70, %.lr.ph.split.us.i.i ]
+  %71 = add i32 %.01013.i, 1
+  %72 = select i1 %.not11.i, i32 %71, i32 1
   %73 = add i32 %.011.lcssa.i.i, %72
   %74 = getelementptr inbounds i8, ptr %.014.i, i64 24
   %.not.i46 = icmp eq ptr %74, %54
@@ -6255,37 +6255,37 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %109 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre94, i64 %108, i32 4
   %110 = load i32, ptr %109, align 8
   %.not11.i51 = icmp eq i32 %110, 0
-  %111 = add i32 %.01013.i50, 1
-  %112 = getelementptr inbounds nuw i8, ptr %.014.i49, i64 8
-  %113 = load i32, ptr %112, align 8
-  %114 = icmp ult i32 %107, %113
-  br i1 %114, label %.lr.ph.i.i56, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i52
+  %111 = getelementptr inbounds nuw i8, ptr %.014.i49, i64 8
+  %112 = load i32, ptr %111, align 8
+  %113 = icmp ult i32 %107, %112
+  br i1 %113, label %.lr.ph.i.i56, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i52
 
 .lr.ph.i.i56:                                     ; preds = %.lr.ph.i48
-  %wide.trip.count20.i.i57 = zext i32 %113 to i64
+  %wide.trip.count20.i.i57 = zext i32 %112 to i64
   br label %.lr.ph.split.us.i.i58
 
 .lr.ph.split.us.i.i58:                            ; preds = %.lr.ph.split.us.i.i58, %.lr.ph.i.i56
   %indvars.iv17.i.i59 = phi i64 [ %indvars.iv.next18.i.i63, %.lr.ph.split.us.i.i58 ], [ %108, %.lr.ph.i.i56 ]
-  %.01112.us.i.i60 = phi i32 [ %123, %.lr.ph.split.us.i.i58 ], [ 0, %.lr.ph.i.i56 ]
-  %115 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre94, i64 %indvars.iv17.i.i59
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %117 = load i32, ptr %116, align 8
-  %.not.us.i.i61 = icmp eq i32 %117, 0
+  %.01112.us.i.i60 = phi i32 [ %122, %.lr.ph.split.us.i.i58 ], [ 0, %.lr.ph.i.i56 ]
+  %114 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %.pre94, i64 %indvars.iv17.i.i59
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
+  %116 = load i32, ptr %115, align 8
+  %.not.us.i.i61 = icmp eq i32 %116, 0
   %spec.select.us.i.i62 = select i1 %.not.us.i.i61, i32 %.01112.us.i.i60, i32 0
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 108
-  %119 = load i32, ptr %118, align 4
-  %120 = add i32 %spec.select.us.i.i62, %119
-  %121 = getelementptr inbounds nuw i8, ptr %115, i64 100
-  %122 = load i32, ptr %121, align 4
-  %123 = add i32 %120, %122
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 108
+  %118 = load i32, ptr %117, align 4
+  %119 = add i32 %spec.select.us.i.i62, %118
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 100
+  %121 = load i32, ptr %120, align 4
+  %122 = add i32 %119, %121
   %indvars.iv.next18.i.i63 = add nuw nsw i64 %indvars.iv17.i.i59, 1
   %exitcond21.not.i.i64 = icmp eq i64 %indvars.iv.next18.i.i63, %wide.trip.count20.i.i57
   br i1 %exitcond21.not.i.i64, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i52, label %.lr.ph.split.us.i.i58, !llvm.loop !118
 
 _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i52: ; preds = %.lr.ph.split.us.i.i58, %.lr.ph.i48
-  %.011.lcssa.i.i53 = phi i32 [ 0, %.lr.ph.i48 ], [ %123, %.lr.ph.split.us.i.i58 ]
-  %124 = select i1 %.not11.i51, i32 %111, i32 1
+  %.011.lcssa.i.i53 = phi i32 [ 0, %.lr.ph.i48 ], [ %122, %.lr.ph.split.us.i.i58 ]
+  %123 = add i32 %.01013.i50, 1
+  %124 = select i1 %.not11.i51, i32 %123, i32 1
   %125 = add i32 %.011.lcssa.i.i53, %124
   %126 = getelementptr inbounds i8, ptr %.014.i49, i64 24
   %.not.i54 = icmp eq ptr %126, %105
@@ -6382,37 +6382,37 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang6format17WhitespaceManager18ge
   %13 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %9, i64 %12, i32 4
   %14 = load i32, ptr %13, align 8
   %.not11.i = icmp eq i32 %14, 0
-  %15 = add i32 %.01013.i, 1
-  %16 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp ult i32 %11, %17
-  br i1 %18, label %.lr.ph.i.i, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i
+  %15 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp ult i32 %11, %16
+  br i1 %17, label %.lr.ph.i.i, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i
 
 .lr.ph.i.i:                                       ; preds = %10
-  %wide.trip.count20.i.i = zext i32 %17 to i64
+  %wide.trip.count20.i.i = zext i32 %16 to i64
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i, %.lr.ph.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.lr.ph.split.us.i.i ], [ %12, %.lr.ph.i.i ]
-  %.01112.us.i.i = phi i32 [ %27, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %19 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %9, i64 %indvars.iv17.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load i32, ptr %20, align 8
-  %.not.us.i.i = icmp eq i32 %21, 0
+  %.01112.us.i.i = phi i32 [ %26, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
+  %18 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %9, i64 %indvars.iv17.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %20 = load i32, ptr %19, align 8
+  %.not.us.i.i = icmp eq i32 %20, 0
   %spec.select.us.i.i = select i1 %.not.us.i.i, i32 %.01112.us.i.i, i32 0
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 108
-  %23 = load i32, ptr %22, align 4
-  %24 = add i32 %spec.select.us.i.i, %23
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 100
-  %26 = load i32, ptr %25, align 4
-  %27 = add i32 %24, %26
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 108
+  %22 = load i32, ptr %21, align 4
+  %23 = add i32 %spec.select.us.i.i, %22
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 100
+  %25 = load i32, ptr %24, align 4
+  %26 = add i32 %23, %25
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
   %exitcond21.not.i.i = icmp eq i64 %indvars.iv.next18.i.i, %wide.trip.count20.i.i
   br i1 %exitcond21.not.i.i, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !118
 
 _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i: ; preds = %.lr.ph.split.us.i.i, %10
-  %.011.lcssa.i.i = phi i32 [ 0, %10 ], [ %27, %.lr.ph.split.us.i.i ]
-  %28 = select i1 %.not11.i, i32 %15, i32 1
+  %.011.lcssa.i.i = phi i32 [ 0, %10 ], [ %26, %.lr.ph.split.us.i.i ]
+  %27 = add i32 %.01013.i, 1
+  %28 = select i1 %.not11.i, i32 %27, i32 1
   %29 = add i32 %.011.lcssa.i.i, %28
   %30 = getelementptr inbounds i8, ptr %.014.i, i64 24
   %.not.i = icmp eq ptr %30, %8
@@ -6453,37 +6453,37 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %44 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %34, i64 %43, i32 4
   %45 = load i32, ptr %44, align 8
   %.not11.i22 = icmp eq i32 %45, 0
-  %46 = add i32 %.01013.i21, 1
-  %47 = getelementptr inbounds nuw i8, ptr %.014.i20, i64 8
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp ult i32 %42, %48
-  br i1 %49, label %.lr.ph.i.i27, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i23
+  %46 = getelementptr inbounds nuw i8, ptr %.014.i20, i64 8
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp ult i32 %42, %47
+  br i1 %48, label %.lr.ph.i.i27, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i23
 
 .lr.ph.i.i27:                                     ; preds = %41
-  %wide.trip.count20.i.i28 = zext i32 %48 to i64
+  %wide.trip.count20.i.i28 = zext i32 %47 to i64
   br label %.lr.ph.split.us.i.i29
 
 .lr.ph.split.us.i.i29:                            ; preds = %.lr.ph.split.us.i.i29, %.lr.ph.i.i27
   %indvars.iv17.i.i30 = phi i64 [ %indvars.iv.next18.i.i34, %.lr.ph.split.us.i.i29 ], [ %43, %.lr.ph.i.i27 ]
-  %.01112.us.i.i31 = phi i32 [ %58, %.lr.ph.split.us.i.i29 ], [ 0, %.lr.ph.i.i27 ]
-  %50 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %34, i64 %indvars.iv17.i.i30
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load i32, ptr %51, align 8
-  %.not.us.i.i32 = icmp eq i32 %52, 0
+  %.01112.us.i.i31 = phi i32 [ %57, %.lr.ph.split.us.i.i29 ], [ 0, %.lr.ph.i.i27 ]
+  %49 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %34, i64 %indvars.iv17.i.i30
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %51 = load i32, ptr %50, align 8
+  %.not.us.i.i32 = icmp eq i32 %51, 0
   %spec.select.us.i.i33 = select i1 %.not.us.i.i32, i32 %.01112.us.i.i31, i32 0
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 108
-  %54 = load i32, ptr %53, align 4
-  %55 = add i32 %spec.select.us.i.i33, %54
-  %56 = getelementptr inbounds nuw i8, ptr %50, i64 100
-  %57 = load i32, ptr %56, align 4
-  %58 = add i32 %55, %57
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 108
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %spec.select.us.i.i33, %53
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 100
+  %56 = load i32, ptr %55, align 4
+  %57 = add i32 %54, %56
   %indvars.iv.next18.i.i34 = add nuw nsw i64 %indvars.iv17.i.i30, 1
   %exitcond21.not.i.i35 = icmp eq i64 %indvars.iv.next18.i.i34, %wide.trip.count20.i.i28
   br i1 %exitcond21.not.i.i35, label %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i23, label %.lr.ph.split.us.i.i29, !llvm.loop !118
 
 _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i23: ; preds = %.lr.ph.split.us.i.i29, %41
-  %.011.lcssa.i.i24 = phi i32 [ 0, %41 ], [ %58, %.lr.ph.split.us.i.i29 ]
-  %59 = select i1 %.not11.i22, i32 %46, i32 1
+  %.011.lcssa.i.i24 = phi i32 [ 0, %41 ], [ %57, %.lr.ph.split.us.i.i29 ]
+  %58 = add i32 %.01013.i21, 1
+  %59 = select i1 %.not11.i22, i32 %58, i32 1
   %60 = add i32 %.011.lcssa.i.i24, %59
   %61 = getelementptr inbounds i8, ptr %.014.i20, i64 24
   %.not.i25 = icmp eq ptr %61, %40

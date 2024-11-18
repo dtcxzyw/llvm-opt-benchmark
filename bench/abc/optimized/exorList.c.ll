@@ -32,13 +32,13 @@ target triple = "x86_64-pc-linux-gnu"
 @s_ChangeStore.0 = internal unnamed_addr global i32 0, align 8
 @s_ChangeStore.1 = internal unnamed_addr global ptr null, align 8
 @s_ChangeStore.2 = internal unnamed_addr global i32 0, align 8
-@s_ChangeStore.3 = internal unnamed_addr global i32 0, align 8
+@s_ChangeStore.3 = internal unnamed_addr global i32 0, align 4
 @s_ChangeStore.4 = internal unnamed_addr global i32 0, align 8
-@s_ChangeStore.5 = internal unnamed_addr global i32 0, align 8
+@s_ChangeStore.5 = internal unnamed_addr global i32 0, align 4
 @s_ChangeStore.6 = internal unnamed_addr global i32 0, align 8
-@s_ChangeStore.7 = internal unnamed_addr global i32 0, align 8
+@s_ChangeStore.7 = internal unnamed_addr global i32 0, align 4
 @s_ChangeStore.8 = internal unnamed_addr global i32 0, align 8
-@s_ChangeStore.9 = internal unnamed_addr global i32 0, align 8
+@s_ChangeStore.9 = internal unnamed_addr global i32 0, align 4
 @s_GainTotal = internal unnamed_addr global i32 0, align 4
 @s_fInserted = internal unnamed_addr global [5 x i32] zeroinitializer, align 16
 @s_List = internal unnamed_addr global ptr null, align 8
@@ -52,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_pCubeLast = local_unnamed_addr global ptr null, align 8
 @s_nPosAlloc = local_unnamed_addr global i32 0, align 4
 @s_Que = internal global [3 x %struct.que] zeroinitializer, align 16
-@s_Iter.1 = internal unnamed_addr global i32 0, align 8
+@s_Iter.1 = internal unnamed_addr global i32 0, align 4
 @s_Iter.2 = internal unnamed_addr global ptr null, align 8
 @s_Iter.3 = internal unnamed_addr global ptr null, align 8
 @s_Iter.4 = internal unnamed_addr global i32 0, align 8
@@ -124,7 +124,7 @@ define i32 @IterativelyApplyExorLink2(i8 noundef signext %0) local_unnamed_addr 
   store i32 0, ptr @s_cReshapes, align 4
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   store i32 %12, ptr @s_nCubesBefore, align 4
-  store i32 0, ptr @s_Iter.1, align 8
+  store i32 0, ptr @s_Iter.1, align 4
   store ptr @s_pC1, ptr @s_Iter.2, align 8
   store ptr @s_pC2, ptr @s_Iter.3, align 8
   store i32 %7, ptr @s_Iter.4, align 8
@@ -456,7 +456,7 @@ CubeInsert.exit18:                                ; preds = %CubeInsert.exit17, 
   br label %187
 
 187:                                              ; preds = %.lr.ph, %182, %CubeInsert.exit16
-  %188 = load i32, ptr @s_Iter.1, align 8
+  %188 = load i32, ptr @s_Iter.1, align 4
   %189 = zext i32 %188 to i64
   %190 = getelementptr inbounds [3 x %struct.que], ptr @s_Que, i64 0, i64 %189
   store ptr %190, ptr @pQ, align 8
@@ -585,7 +585,7 @@ define range(i32 -2147483647, -2147483648) i32 @GetQuequeStats(i32 noundef %0) l
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @IteratorCubePairStart(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-  store i32 %0, ptr @s_Iter.1, align 8
+  store i32 %0, ptr @s_Iter.1, align 4
   store ptr %1, ptr @s_Iter.2, align 8
   store ptr %2, ptr @s_Iter.3, align 8
   %4 = zext i32 %0 to i64
@@ -878,24 +878,24 @@ define range(i32 -2147483647, -2147483648) i32 @CheckForCloseCubes(ptr noundef %
   store i32 %94, ptr @s_ChangeStore.2, align 8
   %95 = load i16, ptr %7, align 2
   %96 = sext i16 %95 to i32
-  store i32 %96, ptr @s_ChangeStore.3, align 8
+  store i32 %96, ptr @s_ChangeStore.3, align 4
   %97 = getelementptr inbounds i8, ptr %91, i64 6
   %98 = load i16, ptr %97, align 2
   %99 = sext i16 %98 to i32
   store i32 %99, ptr @s_ChangeStore.4, align 8
   %100 = load i16, ptr %8, align 2
   %101 = sext i16 %100 to i32
-  store i32 %101, ptr @s_ChangeStore.5, align 8
+  store i32 %101, ptr @s_ChangeStore.5, align 4
   %102 = load i16, ptr %9, align 4
   %103 = sext i16 %102 to i32
   store i32 %103, ptr @s_ChangeStore.6, align 8
-  store i32 %88, ptr @s_ChangeStore.7, align 8
+  store i32 %88, ptr @s_ChangeStore.7, align 4
   %104 = load i32, ptr @s_DiffVarValueQ, align 4
   store i32 %104, ptr @s_ChangeStore.8, align 8
   %105 = getelementptr inbounds i8, ptr %91, i64 1
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
-  store i32 %107, ptr @s_ChangeStore.9, align 8
+  store i32 %107, ptr @s_ChangeStore.9, align 4
   %108 = load ptr, ptr @s_List, align 8
   %109 = icmp eq ptr %108, %91
   %110 = getelementptr inbounds i8, ptr %91, i64 32
@@ -1154,7 +1154,7 @@ define i32 @IterativelyApplyExorLink3(i8 noundef signext %0) local_unnamed_addr 
   store i32 0, ptr @s_cReshapes, align 4
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   store i32 %12, ptr @s_nCubesBefore, align 4
-  store i32 1, ptr @s_Iter.1, align 8
+  store i32 1, ptr @s_Iter.1, align 4
   store ptr @s_pC1, ptr @s_Iter.2, align 8
   store ptr @s_pC2, ptr @s_Iter.3, align 8
   store i32 %7, ptr @s_Iter.4, align 8
@@ -1380,7 +1380,7 @@ CubeExtract.exit26:                               ; preds = %75, %76
 
 147:                                              ; preds = %125, %103
   %148 = tail call ptr (...) @GetFreeCube() #16
-  %149 = load i32, ptr @s_ChangeStore.9, align 8
+  %149 = load i32, ptr @s_ChangeStore.9, align 4
   %150 = trunc i32 %149 to i8
   %151 = getelementptr inbounds i8, ptr %148, i64 1
   store i8 %150, ptr %151, align 1
@@ -1449,14 +1449,14 @@ CubeExtract.exit.i:                               ; preds = %169, %168
   br label %190
 
 181:                                              ; preds = %CubeExtract.exit.i
-  %182 = load i32, ptr @s_ChangeStore.7, align 8
+  %182 = load i32, ptr @s_ChangeStore.7, align 4
   %183 = load i32, ptr @s_ChangeStore.8, align 8
   tail call void @ExorVar(ptr noundef nonnull %159, i32 noundef %182, i32 noundef %183) #16
-  %184 = load i32, ptr @s_ChangeStore.3, align 8
+  %184 = load i32, ptr @s_ChangeStore.3, align 4
   %185 = trunc i32 %184 to i16
   %186 = getelementptr inbounds i8, ptr %159, i64 2
   store i16 %185, ptr %186, align 2
-  %187 = load i32, ptr @s_ChangeStore.5, align 8
+  %187 = load i32, ptr @s_ChangeStore.5, align 4
   %188 = trunc i32 %187 to i16
   %189 = getelementptr inbounds i8, ptr %159, i64 6
   store i16 %188, ptr %189, align 2
@@ -1588,7 +1588,7 @@ CubeInsert.exit29:                                ; preds = %CubeInsert.exit, %2
   br label %246
 
 246:                                              ; preds = %212, %CubeInsert.exit29, %.lr.ph
-  %247 = load i32, ptr @s_Iter.1, align 8
+  %247 = load i32, ptr @s_Iter.1, align 4
   %248 = zext i32 %247 to i64
   %249 = getelementptr inbounds [3 x %struct.que], ptr @s_Que, i64 0, i64 %248
   store ptr %249, ptr @pQ, align 8
@@ -1721,7 +1721,7 @@ define i32 @IterativelyApplyExorLink4(i8 noundef signext %0) local_unnamed_addr 
   store i32 0, ptr @s_cReshapes, align 4
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   store i32 %12, ptr @s_nCubesBefore, align 4
-  store i32 2, ptr @s_Iter.1, align 8
+  store i32 2, ptr @s_Iter.1, align 4
   store ptr @s_pC1, ptr @s_Iter.2, align 8
   store ptr @s_pC2, ptr @s_Iter.3, align 8
   store i32 %7, ptr @s_Iter.4, align 8
@@ -1914,7 +1914,7 @@ CubeExtract.exit30:                               ; preds = %75, %76
 
 104:                                              ; preds = %101
   %105 = tail call ptr (...) @GetFreeCube() #16
-  %106 = load i32, ptr @s_ChangeStore.9, align 8
+  %106 = load i32, ptr @s_ChangeStore.9, align 4
   %107 = trunc i32 %106 to i8
   %108 = getelementptr inbounds i8, ptr %105, i64 1
   store i8 %107, ptr %108, align 1
@@ -1983,14 +1983,14 @@ CubeExtract.exit.i:                               ; preds = %126, %125
   br label %147
 
 138:                                              ; preds = %CubeExtract.exit.i
-  %139 = load i32, ptr @s_ChangeStore.7, align 8
+  %139 = load i32, ptr @s_ChangeStore.7, align 4
   %140 = load i32, ptr @s_ChangeStore.8, align 8
   tail call void @ExorVar(ptr noundef nonnull %116, i32 noundef %139, i32 noundef %140) #16
-  %141 = load i32, ptr @s_ChangeStore.3, align 8
+  %141 = load i32, ptr @s_ChangeStore.3, align 4
   %142 = trunc i32 %141 to i16
   %143 = getelementptr inbounds i8, ptr %116, i64 2
   store i16 %142, ptr %143, align 2
-  %144 = load i32, ptr @s_ChangeStore.5, align 8
+  %144 = load i32, ptr @s_ChangeStore.5, align 4
   %145 = trunc i32 %144 to i16
   %146 = getelementptr inbounds i8, ptr %116, i64 6
   store i16 %145, ptr %146, align 2
@@ -2119,7 +2119,7 @@ CubeInsert.exit33:                                ; preds = %CubeInsert.exit, %1
   br label %202
 
 202:                                              ; preds = %173, %CubeInsert.exit33, %.lr.ph
-  %203 = load i32, ptr @s_Iter.1, align 8
+  %203 = load i32, ptr @s_Iter.1, align 4
   %204 = zext i32 %203 to i64
   %205 = getelementptr inbounds [3 x %struct.que], ptr @s_Que, i64 0, i64 %204
   store ptr %205, ptr @pQ, align 8
@@ -2238,7 +2238,7 @@ declare i32 @ComputeQCostBits(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define void @UndoRecentChanges() local_unnamed_addr #1 {
   %1 = tail call ptr (...) @GetFreeCube() #16
-  %2 = load i32, ptr @s_ChangeStore.9, align 8
+  %2 = load i32, ptr @s_ChangeStore.9, align 4
   %3 = trunc i32 %2 to i8
   %4 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %3, ptr %4, align 1
@@ -2307,14 +2307,14 @@ CubeExtract.exit:                                 ; preds = %21, %22
   br label %43
 
 34:                                               ; preds = %CubeExtract.exit
-  %35 = load i32, ptr @s_ChangeStore.7, align 8
+  %35 = load i32, ptr @s_ChangeStore.7, align 4
   %36 = load i32, ptr @s_ChangeStore.8, align 8
   tail call void @ExorVar(ptr noundef nonnull %12, i32 noundef %35, i32 noundef %36) #16
-  %37 = load i32, ptr @s_ChangeStore.3, align 8
+  %37 = load i32, ptr @s_ChangeStore.3, align 4
   %38 = trunc i32 %37 to i16
   %39 = getelementptr inbounds i8, ptr %12, i64 2
   store i16 %38, ptr %39, align 2
-  %40 = load i32, ptr @s_ChangeStore.5, align 8
+  %40 = load i32, ptr @s_ChangeStore.5, align 4
   %41 = trunc i32 %40 to i16
   %42 = getelementptr inbounds i8, ptr %12, i64 6
   store i16 %41, ptr %42, align 2
@@ -2418,7 +2418,7 @@ define void @PrintQuequeStats() local_unnamed_addr #9 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @IteratorCubePairNext() local_unnamed_addr #3 {
-  %1 = load i32, ptr @s_Iter.1, align 8
+  %1 = load i32, ptr @s_Iter.1, align 4
   %2 = zext i32 %1 to i64
   %3 = getelementptr inbounds [3 x %struct.que], ptr @s_Que, i64 0, i64 %2
   store ptr %3, ptr @pQ, align 8

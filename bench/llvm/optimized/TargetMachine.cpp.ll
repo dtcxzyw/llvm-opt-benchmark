@@ -1214,8 +1214,8 @@ _ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit5: ; preds = %_ZNK4llvm9StringRe
   %18 = load i64, ptr %3, align 8
   %19 = add i64 %18, 2147483648
   %.not.i3 = icmp ult i64 %19, 4294967296
-  %20 = shl i64 %18, 32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  %20 = shl i64 %18, 32
   %21 = select i1 %.not.i3, i64 %20, i64 0
   %22 = select i1 %17, i64 0, i64 %21
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread

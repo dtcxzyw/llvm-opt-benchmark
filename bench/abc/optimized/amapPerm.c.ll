@@ -1454,16 +1454,16 @@ define void @Amap_LibVerifyPerm(ptr noundef %0, ptr nocapture noundef readonly %
   %13 = select i1 %10, i32 1, i32 %12
   %.fr43.i = freeze i32 %13
   %14 = shl i32 15, %11
-  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 16)
-  %16 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  %spec.store.select.i = select i1 %10, i32 16, i32 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  %16 = tail call i32 @llvm.umax.i32(i32 %14, i32 16)
+  %spec.store.select.i = select i1 %10, i32 16, i32 %16
+  %17 = getelementptr inbounds i8, ptr %15, i64 4
   store i32 0, ptr %17, align 4
-  store i32 %spec.store.select.i, ptr %16, align 8
+  store i32 %spec.store.select.i, ptr %15, align 8
   %18 = sext i32 %spec.store.select.i to i64
   %19 = shl nsw i64 %18, 2
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #9
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %21 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %20, ptr %21, align 8
   %22 = sext i32 %.fr43.i to i64
   %23 = shl nsw i64 %22, 2
@@ -1681,7 +1681,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %Vec_PtrAlloc.exit
-  %110 = call ptr @Amap_LibVerifyPerm_rec(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %51, ptr noundef nonnull %16, i32 noundef %.fr43.i, ptr noundef nonnull %6)
+  %110 = call ptr @Amap_LibVerifyPerm_rec(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %51, ptr noundef nonnull %15, i32 noundef %.fr43.i, ptr noundef nonnull %6)
   %111 = getelementptr inbounds i8, ptr %2, i64 6
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 1
@@ -1762,7 +1762,7 @@ Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i47, 
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Kit_TruthIsEqual.exit, %149
-  call void @free(ptr noundef nonnull %16) #10
+  call void @free(ptr noundef nonnull %15) #10
   %150 = load ptr, ptr %34, align 8
   %.not.i51 = icmp eq ptr %150, null
   br i1 %.not.i51, label %Vec_PtrFree.exit, label %151

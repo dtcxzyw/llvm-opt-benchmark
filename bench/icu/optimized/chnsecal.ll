@@ -317,12 +317,12 @@ if.else:                                          ; preds = %entry
   %arrayidx3.i15 = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i32, ptr %arrayidx3.i15, align 8
   %cmp.i11.inv = icmp slt i32 %6, 1
-  %8 = add i32 %7, -2636
   %fEpochYear = getelementptr inbounds i8, ptr %this, i64 620
-  %9 = load i32, ptr %fEpochYear, align 4
-  %sub5.neg = select i1 %cmp.i11.inv, i32 -2635, i32 %8
+  %8 = load i32, ptr %fEpochYear, align 4
+  %9 = add i32 %7, -2636
+  %sub5.neg = select i1 %cmp.i11.inv, i32 -2635, i32 %9
   %add = add i32 %sub5.neg, %mul
-  %sub6 = sub i32 %add, %9
+  %sub6 = sub i32 %add, %8
   br label %if.end
 
 if.end:                                           ; preds = %cond.true.i, %if.then, %if.else

@@ -7935,10 +7935,10 @@ _ZN4llvm5APIntaSERKS0_.exit53:                    ; preds = %86, %84, %_ZN4llvm5
   %.not.i.i = icmp eq i64 %.sroa.276.0103, 4294967294
   %106 = shl nuw i64 %.sroa.276.0103, 1
   %107 = add nuw nsw i64 %106, 3
-  %108 = and i64 %107, 4294967295
-  %109 = load ptr, ptr %36, align 8
-  %110 = select i1 %.not.i.i, i64 1, i64 %108
-  %111 = getelementptr inbounds %"class.llvm::Use", ptr %109, i64 %110
+  %108 = load ptr, ptr %36, align 8
+  %109 = and i64 %107, 4294967295
+  %110 = select i1 %.not.i.i, i64 1, i64 %109
+  %111 = getelementptr inbounds %"class.llvm::Use", ptr %108, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %105, %104
   br i1 %113, label %114, label %126

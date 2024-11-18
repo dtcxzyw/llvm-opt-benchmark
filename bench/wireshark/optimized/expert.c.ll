@@ -79,7 +79,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.48 = private unnamed_addr constant [14 x i8] c"_ws.malformed\00", align 1
 @proto_malformed = internal unnamed_addr global i32 0, align 4
 @gpa_expertinfo.0 = internal unnamed_addr global i32 0, align 8
-@gpa_expertinfo.1 = internal unnamed_addr global i32 0, align 8
+@gpa_expertinfo.1 = internal unnamed_addr global i32 0, align 4
 @gpa_expertinfo.2 = internal unnamed_addr global ptr null, align 8
 @gpa_name_map = internal unnamed_addr global ptr null, align 8
 @uat_saved_fields = internal unnamed_addr global ptr null, align 8
@@ -423,7 +423,7 @@ declare i32 @proto_get_id_by_filter_name(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @expert_init() local_unnamed_addr #0 {
   store i32 0, ptr @gpa_expertinfo.0, align 8
-  store i32 0, ptr @gpa_expertinfo.1, align 8
+  store i32 0, ptr @gpa_expertinfo.1, align 4
   store ptr null, ptr @gpa_expertinfo.2, align 8
   %1 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef null) #12
   store ptr %1, ptr @gpa_name_map, align 8
@@ -451,13 +451,13 @@ define hidden void @expert_packet_cleanup() local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @expert_cleanup() local_unnamed_addr #0 {
-  %1 = load i32, ptr @gpa_expertinfo.1, align 8
+  %1 = load i32, ptr @gpa_expertinfo.1, align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
   store i32 0, ptr @gpa_expertinfo.0, align 8
-  store i32 0, ptr @gpa_expertinfo.1, align 8
+  store i32 0, ptr @gpa_expertinfo.1, align 4
   %3 = load ptr, ptr @gpa_expertinfo.2, align 8
   tail call void @g_free(ptr noundef %3) #12
   store ptr null, ptr @gpa_expertinfo.2, align 8
@@ -675,7 +675,7 @@ define void @expert_register_field_array(ptr nocapture noundef readonly %0, ptr 
   %33 = getelementptr inbounds i8, ptr %.030, i64 40
   store ptr %32, ptr %33, align 8
   %34 = load i32, ptr @gpa_expertinfo.0, align 8
-  %35 = load i32, ptr @gpa_expertinfo.1, align 8
+  %35 = load i32, ptr @gpa_expertinfo.1, align 4
   %.not.i = icmp ult i32 %34, %35
   %.pre.i = load ptr, ptr @gpa_expertinfo.2, align 8
   br i1 %.not.i, label %expert_register_field_init.exit, label %36
@@ -685,13 +685,13 @@ define void @expert_register_field_array(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not15.i, label %37, label %39
 
 37:                                               ; preds = %36
-  store i32 5000, ptr @gpa_expertinfo.1, align 8
+  store i32 5000, ptr @gpa_expertinfo.1, align 4
   %38 = tail call noalias dereferenceable_or_null(40000) ptr @g_malloc(i64 noundef 40000) #16
   br label %.sink.split.i
 
 39:                                               ; preds = %36
   %40 = add i32 %35, 1000
-  store i32 %40, ptr @gpa_expertinfo.1, align 8
+  store i32 %40, ptr @gpa_expertinfo.1, align 4
   %41 = zext i32 %40 to i64
   %42 = shl nuw nsw i64 %41, 3
   %43 = tail call ptr @g_realloc(ptr noundef nonnull %.pre.i, i64 noundef %42) #12

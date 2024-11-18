@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [9 x i8] c"peel-tag\00", align 1
 @.str.21 = private unnamed_addr constant [45 x i8] c"dereference tags in the input (internal use)\00", align 1
 @rev_names.0 = internal unnamed_addr global i1 false, align 8
-@rev_names.1 = internal unnamed_addr global i1 false, align 8
+@rev_names.1 = internal unnamed_addr global i1 false, align 4
 @rev_names.2 = internal unnamed_addr global i32 0, align 8
 @rev_names.3 = internal unnamed_addr global ptr null, align 8
 @name_rev_usage = internal constant [4 x ptr] [ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr null], align 16
@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [6 x i8] c"refs/\00", align 1
 @tip_table.0 = internal unnamed_addr global ptr null, align 8
 @tip_table.1 = internal unnamed_addr global i32 0, align 8
-@tip_table.2 = internal unnamed_addr global i32 0, align 8
+@tip_table.2 = internal unnamed_addr global i32 0, align 4
 @tip_table.3 = internal unnamed_addr global i1 false, align 8
 @.str.33 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 @.str.34 = private unnamed_addr constant [5 x i8] c"%s^0\00", align 1
@@ -310,7 +310,7 @@ entry:
   store i64 1, ptr %defval126, align 8
   %ll_callback127 = getelementptr inbounds i8, ptr %opts, i64 944
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %ll_callback127, i8 0, i64 112, i1 false)
-  store i1 true, ptr @rev_names.1, align 8
+  store i1 true, ptr @rev_names.1, align 4
   store i1 true, ptr @rev_names.0, align 8
   store i32 0, ptr @rev_names.2, align 8
   store ptr null, ptr @rev_names.3, align 8
@@ -1566,7 +1566,7 @@ do.body.i:                                        ; preds = %do.body.i.i, %do.co
   %refname.addr.0.i = phi ptr [ %path, %if.then.i47 ], [ %path, %do.cond.i6.i ], [ %scevgep19.i, %do.body.i2.i ], [ %scevgep.i, %do.body.i.i ]
   %short_refname.0.i = phi ptr [ %call.i48, %if.then.i47 ], [ null, %do.body.i2.i ], [ null, %do.cond.i6.i ], [ null, %do.body.i.i ]
   %25 = load i32, ptr @tip_table.1, align 8
-  %26 = load i32, ptr @tip_table.2, align 8
+  %26 = load i32, ptr @tip_table.2, align 4
   %cmp.not.i = icmp slt i32 %25, %26
   br i1 %cmp.not.i, label %do.body.do.end_crit_edge.i, label %if.then6.i
 
@@ -1581,7 +1581,7 @@ if.then6.i:                                       ; preds = %do.body.i
   %div.i = sdiv i32 %mul.i, 2
   %cmp9.not.i = icmp sgt i32 %div.i, %25
   %div.add.i = select i1 %cmp9.not.i, i32 %div.i, i32 %add.i
-  store i32 %div.add.i, ptr @tip_table.2, align 8
+  store i32 %div.add.i, ptr @tip_table.2, align 4
   %conv.i49 = sext i32 %div.add.i to i64
   %mul.ov.i.i = icmp slt i32 %div.add.i, 0
   br i1 %mul.ov.i.i, label %if.then.i12.i, label %st_mult.exit.i
@@ -1866,7 +1866,7 @@ if.end12.i.i.i:                                   ; preds = %if.end
   br i1 %tobool16.not.i.i.i, label %return, label %is_valid_rev_name.exit.i
 
 is_valid_rev_name.exit.i:                         ; preds = %if.end12.i.i.i
-  %.b19 = load i1, ptr @rev_names.1, align 8
+  %.b19 = load i1, ptr @rev_names.1, align 4
   %11 = zext nneg i32 %rem.i.i.i to i64
   %idxprom34.i.i.i = select i1 %.b19, i64 %11, i64 0
   %arrayidx35.i.i.i = getelementptr inbounds %struct.rev_name, ptr %10, i64 %idxprom34.i.i.i

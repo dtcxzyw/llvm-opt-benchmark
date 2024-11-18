@@ -5,12 +5,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @opts.0 = internal unnamed_addr global i32 0, align 8
-@opts.1 = internal unnamed_addr global i32 0, align 8
+@opts.1 = internal unnamed_addr global i32 0, align 4
 @opts.2 = internal unnamed_addr global i32 0, align 8
-@opts.3 = internal unnamed_addr global i32 0, align 8
+@opts.3 = internal unnamed_addr global i32 0, align 4
 @opts.4 = internal unnamed_addr global i32 0, align 8
 @opts.6 = internal unnamed_addr global i1 false, align 8
-@opts.7 = internal unnamed_addr global i1 false, align 8
+@opts.7 = internal unnamed_addr global i1 false, align 4
 @opts.8 = internal unnamed_addr global i1 false, align 8
 @opts.9 = internal unnamed_addr global ptr null, align 8
 @opts.10 = internal unnamed_addr global ptr null, align 8
@@ -172,7 +172,7 @@ setOne.exit.i:                                    ; preds = %27
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %45, i64 1
-  store i1 true, ptr @opts.7, align 8
+  store i1 true, ptr @opts.7, align 4
   br label %setFold.exit.i
 
 setFold.exit.i:                                   ; preds = %48, %44
@@ -241,7 +241,7 @@ readPos.exit16.i.i:                               ; preds = %76
 
 setTwo.exit.i:                                    ; preds = %readPos.exit16.i.i
   %81 = trunc nuw nsw i64 %69 to i32
-  store i32 %81, ptr @opts.1, align 8
+  store i32 %81, ptr @opts.1, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %.backedge
 
@@ -494,7 +494,7 @@ setOne.exit97.i:                                  ; preds = %179
   unreachable
 
 190:                                              ; preds = %186
-  %191 = load i32, ptr @opts.1, align 8
+  %191 = load i32, ptr @opts.1, align 4
   %192 = icmp sgt i32 %191, 3
   br i1 %192, label %193, label %.backedge
 
@@ -610,14 +610,14 @@ readPos.exit.i103.i:                              ; preds = %225
 
 readPos.exit30.i.i:                               ; preds = %244
   %249 = trunc nuw nsw i64 %237 to i32
-  store i32 %249, ptr @opts.1, align 8
+  store i32 %249, ptr @opts.1, align 4
   %250 = load i8, ptr %238, align 1
   %.not26.i.i = icmp eq i8 %250, 44
   br i1 %.not26.i.i, label %252, label %251
 
 251:                                              ; preds = %readPos.exit30.i.i
   store i32 0, ptr @opts.4, align 8
-  store i32 0, ptr @opts.3, align 8
+  store i32 0, ptr @opts.3, align 4
   br label %setTwoTwoOpt.exit.thread20.i
 
 252:                                              ; preds = %readPos.exit30.i.i
@@ -645,7 +645,7 @@ readPos.exit30.i.i:                               ; preds = %244
 
 readPos.exit33.i.i:                               ; preds = %261
   %266 = trunc nuw nsw i64 %254 to i32
-  store i32 %266, ptr @opts.3, align 8
+  store i32 %266, ptr @opts.3, align 4
   %267 = load i8, ptr %255, align 1
   %.not27.i.i = icmp eq i8 %267, 44
   br i1 %.not27.i.i, label %269, label %268
@@ -846,8 +846,8 @@ init.exit:                                        ; preds = %336
 
 347:                                              ; preds = %init.exit
   %348 = load i32, ptr @opts.0, align 8
-  %349 = load i32, ptr @opts.1, align 8
-  %.b414 = load i1, ptr @opts.7, align 8
+  %349 = load i32, ptr @opts.1, align 4
+  %.b414 = load i1, ptr @opts.7, align 4
   %350 = zext i1 %.b414 to i32
   %.b = load i1, ptr @opts.6, align 8
   %351 = zext i1 %.b to i32
@@ -865,7 +865,7 @@ init.exit:                                        ; preds = %336
   br label %417
 
 356:                                              ; preds = %init.exit
-  %357 = load i32, ptr @opts.1, align 8
+  %357 = load i32, ptr @opts.1, align 4
   %358 = icmp eq i32 %357, 2
   %359 = load i32, ptr @opts.0, align 8
   br i1 %358, label %360, label %361
@@ -885,18 +885,18 @@ init.exit:                                        ; preds = %336
 
 364:                                              ; preds = %init.exit
   %365 = load i32, ptr @opts.0, align 8
-  %366 = load i32, ptr @opts.1, align 8
+  %366 = load i32, ptr @opts.1, align 4
   tail call void @makeBall(i32 noundef %365, i32 noundef %366, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
 367:                                              ; preds = %init.exit
-  %368 = load i32, ptr @opts.3, align 8
+  %368 = load i32, ptr @opts.3, align 4
   %369 = icmp eq i32 %368, 0
   %370 = load i32, ptr @opts.4, align 8
   %371 = icmp eq i32 %370, 0
   %or.cond = select i1 %369, i1 %371, i1 false
   %372 = load i32, ptr @opts.0, align 8
-  %373 = load i32, ptr @opts.1, align 8
+  %373 = load i32, ptr @opts.1, align 4
   br i1 %or.cond, label %374, label %375
 
 374:                                              ; preds = %367
@@ -909,18 +909,18 @@ init.exit:                                        ; preds = %336
 
 376:                                              ; preds = %init.exit
   %377 = load i32, ptr @opts.0, align 8
-  %378 = load i32, ptr @opts.1, align 8
+  %378 = load i32, ptr @opts.1, align 4
   tail call void @makeCylinder(i32 noundef %377, i32 noundef %378, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
 379:                                              ; preds = %init.exit
   %380 = load i32, ptr @opts.0, align 8
-  %381 = load i32, ptr @opts.1, align 8
+  %381 = load i32, ptr @opts.1, align 4
   tail call void @makeMobius(i32 noundef %380, i32 noundef %381, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
 382:                                              ; preds = %init.exit
-  %383 = load i32, ptr @opts.1, align 8
+  %383 = load i32, ptr @opts.1, align 4
   %384 = icmp eq i32 %383, 2
   %385 = load i32, ptr @opts.0, align 8
   br i1 %384, label %386, label %387
@@ -940,7 +940,7 @@ init.exit:                                        ; preds = %336
 
 390:                                              ; preds = %init.exit
   %391 = load i32, ptr @opts.0, align 8
-  %392 = load i32, ptr @opts.1, align 8
+  %392 = load i32, ptr @opts.1, align 4
   tail call void @makeRandom(i32 noundef %391, i32 noundef %392, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
@@ -980,13 +980,13 @@ closeOpen.exit:                                   ; preds = %402, %400, %.lr.ph
 ._crit_edge:                                      ; preds = %closeOpen.exit, %393
   tail call void @freeTreeGen(ptr noundef %395) #11
   %406 = load i32, ptr @opts.0, align 8
-  %407 = load i32, ptr @opts.1, align 8
+  %407 = load i32, ptr @opts.1, align 4
   tail call void @makeRandom(i32 noundef %406, i32 noundef %407, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
 408:                                              ; preds = %init.exit
   %409 = load i32, ptr @opts.0, align 8
-  %410 = load i32, ptr @opts.1, align 8
+  %410 = load i32, ptr @opts.1, align 4
   tail call void @makeCompleteB(i32 noundef %409, i32 noundef %410, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
@@ -1184,7 +1184,7 @@ readPos.exit16:                                   ; preds = %29
 
 34:                                               ; preds = %readPos.exit16
   %35 = trunc nuw nsw i64 %22 to i32
-  store i32 %35, ptr @opts.1, align 8
+  store i32 %35, ptr @opts.1, align 4
   br label %readPos.exit.thread
 
 readPos.exit.thread:                              ; preds = %31, %26, %12, %7, %readPos.exit16, %34, %17
@@ -1224,7 +1224,7 @@ readPos.exit:                                     ; preds = %10
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %readPos.exit
-  store i32 2, ptr @opts.1, align 8
+  store i32 2, ptr @opts.1, align 4
   br label %readPos.exit.thread
 
 18:                                               ; preds = %readPos.exit
@@ -1256,7 +1256,7 @@ readPos.exit17:                                   ; preds = %27
 
 32:                                               ; preds = %readPos.exit17
   %33 = trunc nuw nsw i64 %20 to i32
-  store i32 %33, ptr @opts.1, align 8
+  store i32 %33, ptr @opts.1, align 4
   br label %readPos.exit.thread
 
 readPos.exit.thread:                              ; preds = %29, %24, %12, %7, %readPos.exit17, %32, %17

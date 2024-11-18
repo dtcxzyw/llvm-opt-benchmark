@@ -12397,14 +12397,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %4 = extractvalue { i64, i8 } %call.i, 0
-  %5 = inttoptr i64 %4 to ptr
   %strictMode_.i.i = getelementptr inbounds i8, ptr %0, i64 64
-  %6 = load i8, ptr %strictMode_.i.i, align 8
-  %tobool.i.i = trunc i8 %6 to i1
+  %5 = load i8, ptr %strictMode_.i.i, align 8
+  %tobool.i.i = trunc i8 %5 to i1
+  %6 = inttoptr i64 %4 to ptr
   br i1 %tobool.i.i, label %if.then7, label %if.end13
 
 if.then7:                                         ; preds = %if.end
-  %sourceRange_.i = getelementptr inbounds i8, ptr %5, i64 24
+  %sourceRange_.i = getelementptr inbounds i8, ptr %6, i64 24
   %retval.sroa.0.0.copyload.i = load ptr, ptr %sourceRange_.i, align 8
   %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
@@ -12417,19 +12417,19 @@ if.then7:                                         ; preds = %if.end
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end, %if.then7
-  %_generator = getelementptr inbounds i8, ptr %5, i64 128
+  %_generator = getelementptr inbounds i8, ptr %6, i64 128
   %8 = load i8, ptr %_generator, align 8
   %tobool = trunc i8 %8 to i1
   br i1 %tobool, label %if.then17, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %_async = getelementptr inbounds i8, ptr %5, i64 129
+  %_async = getelementptr inbounds i8, ptr %6, i64 129
   %9 = load i8, ptr %_async, align 1
   %tobool16 = trunc i8 %9 to i1
   br i1 %tobool16, label %if.then17, label %if.end24
 
 if.then17:                                        ; preds = %lor.lhs.false, %if.end13
-  %sourceRange_.i1 = getelementptr inbounds i8, ptr %5, i64 24
+  %sourceRange_.i1 = getelementptr inbounds i8, ptr %6, i64 24
   %retval.sroa.0.0.copyload.i2 = load ptr, ptr %sourceRange_.i1, align 8
   %LHSKind.i3 = getelementptr inbounds i8, ptr %ref.tmp22, i64 16
   %RHSKind.i4 = getelementptr inbounds i8, ptr %ref.tmp22, i64 17
@@ -12443,11 +12443,11 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 if.end24:                                         ; preds = %if.then17, %lor.lhs.false
   %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %stmts, i64 8
-  %Next2.i.i.i.i.i6 = getelementptr inbounds i8, ptr %5, i64 8
+  %Next2.i.i.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %stmts, ptr %Next2.i.i.i.i.i6, align 8
-  store ptr %stmts, ptr %5, align 8
-  store ptr %5, ptr %Next2.i.i.i.i.i, align 8
-  store ptr %5, ptr %stmts, align 8
+  store ptr %stmts, ptr %6, align 8
+  store ptr %6, ptr %Next2.i.i.i.i.i, align 8
+  store ptr %6, ptr %stmts, align 8
   %11 = load ptr, ptr %0, align 8
   %state_.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %state_.i.i.i, align 8
@@ -12519,11 +12519,11 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes6ESTree4N
   br label %_ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit
 
 _ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit, %if.end.i.i.i.i.i.i
-  %sourceRange_.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %sourceRange_.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %sourceRange_.i.i.i, align 8
   %sourceRange_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i, ptr %sourceRange_.i.i, align 8
-  %End.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %End.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %retval.sroa.0.0.copyload.i.i5.i = load ptr, ptr %End.i.i.i, align 8
   %End.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i.i5.i, ptr %End.i.i, align 8

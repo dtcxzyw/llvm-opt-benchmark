@@ -14624,8 +14624,8 @@ if.end24:                                         ; preds = %if.then22, %if.else
   %and2.i.i.i.i.i14 = and i16 %11, 512
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load i8, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %13 = trunc i8 %12 to i1
   %tobool.i.i20.not = icmp eq i16 %and2.i.i.i.i.i14, 0
+  %13 = trunc i8 %12 to i1
   %retval.0.i23 = select i1 %tobool.i.i20.not, i1 true, i1 %13
   %recv_close_op_cancel_state_34 = getelementptr inbounds i8, ptr %this, i64 1168
   %14 = load atomic i64, ptr %recv_close_op_cancel_state_34 acquire, align 8
@@ -28906,8 +28906,8 @@ entry:
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !575
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
-  %3 = shl i64 %2, 1
   %shr.i.sink.i = lshr i64 %0, 1
+  %3 = shl i64 %2, 1
   %mul.i = select i1 %tobool.i.not.i, i64 2, i64 %3
   %cmp.i.i.i.i = icmp ugt i64 %mul.i, 230584300921369395
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i
@@ -36068,8 +36068,8 @@ invoke.cont25.i:                                  ; preds = %if.end.i
   %68 = load i8, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %69 = and i16 %67, 16384
   %.not.not.not.i = icmp eq i16 %69, 0
-  %70 = and i8 %68, 1
   %is_trailers_only_.i = getelementptr inbounds i8, ptr %50, i64 1224
+  %70 = and i8 %68, 1
   %frombool.i6 = select i1 %.not.not.not.i, i8 0, i8 %70
   store i8 %frombool.i6, ptr %is_trailers_only_.i, align 8
   br label %if.end38.i

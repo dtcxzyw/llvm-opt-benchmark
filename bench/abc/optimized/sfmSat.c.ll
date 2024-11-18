@@ -2248,12 +2248,12 @@ define i64 @Sfm_ComputeInterpolant2(ptr nocapture noundef %0) local_unnamed_addr
   store i32 0, ptr %4, align 4
   %5 = call i32 @Sfm_ComputeInterpolantInt(ptr noundef %0, ptr noundef nonnull %2)
   switch i32 %5, label %7 [
-    i32 0, label %53
+    i32 0, label %55
     i32 1, label %6
   ]
 
 6:                                                ; preds = %1
-  br label %53
+  br label %55
 
 7:                                                ; preds = %1
   %8 = load i64, ptr %2, align 16
@@ -2264,64 +2264,64 @@ define i64 @Sfm_ComputeInterpolant2(ptr nocapture noundef %0) local_unnamed_addr
   %12 = icmp eq i32 %.val13, 0
   %13 = trunc i64 %8 to i1
   %14 = select i1 %13, i64 3, i64 0
-  %.025.i = select i1 %12, i64 %14, i64 %8
   %15 = icmp ult i32 %.val13, 2
-  %16 = and i64 %.025.i, 3
-  %17 = mul nuw nsw i64 %16, 5
-  %.126.i = select i1 %15, i64 %17, i64 %8
+  %16 = and i64 %8, 3
+  %17 = select i1 %12, i64 %14, i64 %16
+  %18 = mul nuw nsw i64 %17, 5
+  %.126.i = select i1 %15, i64 %18, i64 %8
   %.1.i = tail call i32 @llvm.umax.i32(i32 %.val13, i32 2)
-  %18 = icmp ult i32 %.val13, 3
-  %19 = and i64 %.126.i, 15
-  %20 = mul nuw nsw i64 %19, 17
-  %.227.i = select i1 %18, i64 %20, i64 %8
-  %.2.i = select i1 %18, i32 3, i32 %.1.i
-  %21 = icmp eq i32 %.2.i, 3
-  %22 = and i64 %.227.i, 255
-  %23 = mul nuw nsw i64 %22, 257
-  %.328.i = select i1 %21, i64 %23, i64 %.227.i
-  %.3.i = select i1 %21, i32 4, i32 %.2.i
-  %24 = icmp eq i32 %.3.i, 4
-  %25 = and i64 %.328.i, 65535
-  %26 = mul nuw nsw i64 %25, 65537
-  %.429.i = select i1 %24, i64 %26, i64 %.328.i
-  %27 = and i32 %.3.i, -2
-  %28 = icmp eq i32 %27, 4
-  %29 = and i64 %.429.i, 4294967295
-  %30 = mul nuw i64 %29, 4294967297
-  %.5.i = select i1 %28, i64 %30, i64 %.429.i
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
-  %32 = load i64, ptr %31, align 8
-  %33 = trunc i64 %32 to i1
-  %34 = select i1 %33, i64 3, i64 0
-  %.025.i14 = select i1 %12, i64 %34, i64 %32
-  %35 = and i64 %.025.i14, 3
-  %36 = mul nuw nsw i64 %35, 5
-  %.126.i15 = select i1 %15, i64 %36, i64 %32
-  %37 = and i64 %.126.i15, 15
-  %38 = mul nuw nsw i64 %37, 17
-  %.227.i17 = select i1 %18, i64 %38, i64 %32
-  %39 = and i64 %.227.i17, 255
-  %40 = mul nuw nsw i64 %39, 257
-  %.328.i19 = select i1 %21, i64 %40, i64 %.227.i17
-  %41 = and i64 %.328.i19, 65535
-  %42 = mul nuw nsw i64 %41, 65537
-  %.429.i21 = select i1 %24, i64 %42, i64 %.328.i19
-  %43 = and i64 %.429.i21, 4294967295
-  %44 = mul nuw i64 %43, 4294967297
-  %.5.i22 = select i1 %28, i64 %44, i64 %.429.i21
-  %45 = xor i64 %.5.i, -1
-  %46 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i22, i64 noundef %45, i32 noundef %.val13, ptr noundef %3)
-  %47 = xor i64 %.5.i22, -1
-  %48 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i, i64 noundef %47, i32 noundef %.val13, ptr noundef %4)
-  %49 = load i32, ptr %3, align 4
-  %50 = load i32, ptr %4, align 4
-  %.not = icmp sgt i32 %49, %50
-  %51 = xor i64 %48, -1
-  %52 = select i1 %.not, i64 %51, i64 %46
-  br label %53
+  %19 = icmp ult i32 %.val13, 3
+  %20 = and i64 %.126.i, 15
+  %21 = mul nuw nsw i64 %20, 17
+  %.227.i = select i1 %19, i64 %21, i64 %8
+  %.2.i = select i1 %19, i32 3, i32 %.1.i
+  %22 = icmp eq i32 %.2.i, 3
+  %23 = and i64 %.227.i, 255
+  %24 = mul nuw nsw i64 %23, 257
+  %.328.i = select i1 %22, i64 %24, i64 %.227.i
+  %.3.i = select i1 %22, i32 4, i32 %.2.i
+  %25 = icmp eq i32 %.3.i, 4
+  %26 = and i64 %.328.i, 65535
+  %27 = mul nuw nsw i64 %26, 65537
+  %.429.i = select i1 %25, i64 %27, i64 %.328.i
+  %28 = and i32 %.3.i, -2
+  %29 = icmp eq i32 %28, 4
+  %30 = and i64 %.429.i, 4294967295
+  %31 = mul nuw i64 %30, 4294967297
+  %.5.i = select i1 %29, i64 %31, i64 %.429.i
+  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = trunc i64 %33 to i1
+  %35 = select i1 %34, i64 3, i64 0
+  %36 = and i64 %33, 3
+  %37 = select i1 %12, i64 %35, i64 %36
+  %38 = mul nuw nsw i64 %37, 5
+  %.126.i14 = select i1 %15, i64 %38, i64 %33
+  %39 = and i64 %.126.i14, 15
+  %40 = mul nuw nsw i64 %39, 17
+  %.227.i16 = select i1 %19, i64 %40, i64 %33
+  %41 = and i64 %.227.i16, 255
+  %42 = mul nuw nsw i64 %41, 257
+  %.328.i18 = select i1 %22, i64 %42, i64 %.227.i16
+  %43 = and i64 %.328.i18, 65535
+  %44 = mul nuw nsw i64 %43, 65537
+  %.429.i20 = select i1 %25, i64 %44, i64 %.328.i18
+  %45 = and i64 %.429.i20, 4294967295
+  %46 = mul nuw i64 %45, 4294967297
+  %.5.i21 = select i1 %29, i64 %46, i64 %.429.i20
+  %47 = xor i64 %.5.i, -1
+  %48 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i21, i64 noundef %47, i32 noundef %.val13, ptr noundef %3)
+  %49 = xor i64 %.5.i21, -1
+  %50 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i, i64 noundef %49, i32 noundef %.val13, ptr noundef %4)
+  %51 = load i32, ptr %3, align 4
+  %52 = load i32, ptr %4, align 4
+  %.not = icmp sgt i32 %51, %52
+  %53 = xor i64 %50, -1
+  %54 = select i1 %.not, i64 %53, i64 %48
+  br label %55
 
-53:                                               ; preds = %1, %7, %6
-  %.0 = phi i64 [ -8690466094656961759, %6 ], [ %52, %7 ], [ 1311768465173141112, %1 ]
+55:                                               ; preds = %1, %7, %6
+  %.0 = phi i64 [ -8690466094656961759, %6 ], [ %54, %7 ], [ 1311768465173141112, %1 ]
   ret i64 %.0
 }
 

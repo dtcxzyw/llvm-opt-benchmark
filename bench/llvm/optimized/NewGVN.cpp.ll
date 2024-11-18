@@ -20414,12 +20414,12 @@ _ZNK12_GLOBAL__N_16NewGVN24findConditionEquivalenceEPN4llvm5ValueE.exit85.i.i: ;
   %.not.i.i87.i.i = icmp eq i64 %2922, 4294967294
   %2923 = shl nuw nsw i64 %2922, 1
   %2924 = add nuw nsw i64 %2923, 3
-  %2925 = and i64 %2924, 4294967295
-  %2926 = load ptr, ptr %2867, align 8
-  %2927 = select i1 %.not.i.i87.i.i, i64 1, i64 %2925
-  %2928 = getelementptr inbounds %"class.llvm::Use", ptr %2926, i64 %2927
+  %2925 = load ptr, ptr %2867, align 8
+  %2926 = and i64 %2924, 4294967295
+  %2927 = select i1 %.not.i.i87.i.i, i64 1, i64 %2926
+  %2928 = getelementptr inbounds %"class.llvm::Use", ptr %2925, i64 %2927
   %2929 = load ptr, ptr %2928, align 8
-  %2930 = getelementptr inbounds i8, ptr %2926, i64 32
+  %2930 = getelementptr inbounds i8, ptr %2925, i64 32
   %2931 = load ptr, ptr %2930, align 8
   %2932 = icmp eq ptr %2929, %2931
   br i1 %2932, label %2933, label %2934

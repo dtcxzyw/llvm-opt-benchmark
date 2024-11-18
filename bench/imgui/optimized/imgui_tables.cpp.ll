@@ -5439,9 +5439,9 @@ if.then6.i:                                       ; preds = %if.end.i
   %ColumnsCount.i = getelementptr inbounds i8, ptr %11, i64 108
   %14 = load i32, ptr %ColumnsCount.i, align 4
   %cmp3.i = icmp eq i32 %column_n.addr.0.i, %14
-  %15 = trunc i32 %column_n.addr.0.i to i16
   %IsContextPopupOpen.i = getelementptr inbounds i8, ptr %11, i64 571
   store i8 1, ptr %IsContextPopupOpen.i, align 1
+  %15 = trunc i32 %column_n.addr.0.i to i16
   %conv.i = select i1 %cmp3.i, i16 -1, i16 %15
   %ContextPopupColumn.i = getelementptr inbounds i8, ptr %11, i64 548
   store i16 %conv.i, ptr %ContextPopupColumn.i, align 4
@@ -6818,9 +6818,9 @@ if.then6:                                         ; preds = %if.end
   %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %4 = load i32, ptr %ColumnsCount, align 4
   %cmp3 = icmp eq i32 %column_n.addr.0, %4
-  %5 = trunc i32 %column_n.addr.0 to i16
   %IsContextPopupOpen = getelementptr inbounds i8, ptr %1, i64 571
   store i8 1, ptr %IsContextPopupOpen, align 1
+  %5 = trunc i32 %column_n.addr.0 to i16
   %conv = select i1 %cmp3, i16 -1, i16 %5
   %ContextPopupColumn = getelementptr inbounds i8, ptr %1, i64 548
   store i16 %conv, ptr %ContextPopupColumn, align 4
@@ -10137,7 +10137,7 @@ land.end:                                         ; preds = %for.end
   br i1 %brmerge, label %for.cond24.preheader.lr.ph, label %if.end112
 
 land.end.thread114:                               ; preds = %for.end
-  %cmp2172118 = icmp eq i32 %sort_order_count.1, 1
+  %cmp2172118 = icmp ne i32 %sort_order_count.1, 0
   %or.cond119 = and i1 %cmp13.not, %cmp2172118
   br i1 %or.cond119, label %for.cond24.preheader.lr.ph.thread, label %if.end83
 
@@ -10341,7 +10341,7 @@ for.inc109:                                       ; preds = %for.body94, %land.l
   br i1 %exitcond90.not, label %if.end112, label %for.body94, !llvm.loop !50
 
 if.end112:                                        ; preds = %for.inc109, %for.end55, %for.inc76, %land.end, %for.cond91.preheader, %for.end55.us, %if.then104, %land.lhs.true85, %if.end83
-  %sort_order_count.3 = phi i32 [ 0, %land.lhs.true85 ], [ 1, %if.then104 ], [ %sort_order_count.1, %if.end83 ], [ 1, %for.end55.us ], [ 0, %for.cond91.preheader ], [ %sort_order_count.1, %land.end ], [ 1, %for.inc76 ], [ %sort_order_count.1, %for.end55 ], [ 0, %for.inc109 ]
+  %sort_order_count.3 = phi i32 [ 0, %land.lhs.true85 ], [ 1, %if.then104 ], [ 1, %if.end83 ], [ 1, %for.end55.us ], [ 0, %for.cond91.preheader ], [ %sort_order_count.1, %land.end ], [ 1, %for.inc76 ], [ %sort_order_count.1, %for.end55 ], [ 0, %for.inc109 ]
   %conv113 = trunc i32 %sort_order_count.3 to i16
   %SortSpecsCount = getelementptr inbounds i8, ptr %table, i64 512
   store i16 %conv113, ptr %SortSpecsCount, align 8
@@ -10843,9 +10843,9 @@ if.then6.i:                                       ; preds = %if.end.i53
   %ColumnsCount.i56 = getelementptr inbounds i8, ptr %54, i64 108
   %58 = load i32, ptr %ColumnsCount.i56, align 4
   %cmp3.i57 = icmp eq i32 %column_n.addr.0.i, %58
-  %59 = trunc i32 %column_n.addr.0.i to i16
   %IsContextPopupOpen.i = getelementptr inbounds i8, ptr %54, i64 571
   store i8 1, ptr %IsContextPopupOpen.i, align 1
+  %59 = trunc i32 %column_n.addr.0.i to i16
   %conv.i58 = select i1 %cmp3.i57, i16 -1, i16 %59
   %ContextPopupColumn.i = getelementptr inbounds i8, ptr %54, i64 548
   store i16 %conv.i58, ptr %ContextPopupColumn.i, align 4
@@ -11484,9 +11484,9 @@ if.then6.i:                                       ; preds = %if.end.i
   %ColumnsCount.i = getelementptr inbounds i8, ptr %107, i64 108
   %110 = load i32, ptr %ColumnsCount.i, align 4
   %cmp3.i = icmp eq i32 %column_n.addr.0.i181, %110
-  %111 = trunc i32 %column_n.addr.0.i181 to i16
   %IsContextPopupOpen.i = getelementptr inbounds i8, ptr %107, i64 571
   store i8 1, ptr %IsContextPopupOpen.i, align 1
+  %111 = trunc i32 %column_n.addr.0.i181 to i16
   %conv.i183 = select i1 %cmp3.i, i16 -1, i16 %111
   %ContextPopupColumn.i = getelementptr inbounds i8, ptr %107, i64 548
   store i16 %conv.i183, ptr %ContextPopupColumn.i, align 4

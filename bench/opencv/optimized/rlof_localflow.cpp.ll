@@ -1559,7 +1559,7 @@ _ZN2cv3Mat2atIfEERT_i.exit100.i:                  ; preds = %407, %400, %392
   br i1 %441, label %448, label %442
 
 442:                                              ; preds = %._crit_edge123.i
-  %443 = sitofp i32 %.048.lcssa.i to float
+  %443 = uitofp nneg i32 %.048.lcssa.i to float
   %444 = fmul float %440, %443
   %445 = fdiv float %444, 1.000000e+02
   %446 = fptosi float %445 to i32
@@ -1569,7 +1569,7 @@ _ZN2cv3Mat2atIfEERT_i.exit100.i:                  ; preds = %407, %400, %392
 448:                                              ; preds = %442, %._crit_edge123.i
   %449 = phi float [ 1.000000e+00, %._crit_edge123.i ], [ %447, %442 ]
   %450 = call noundef float @sqrtf(float noundef %449) #21
-  %451 = icmp slt i32 %.048.lcssa.i, 8
+  %451 = icmp samesign ult i32 %.048.lcssa.i, 8
   br i1 %451, label %493, label %452
 
 452:                                              ; preds = %448

@@ -854,8 +854,8 @@ define void @_ZNK4LIEF3ELF12AndroidIdent4dumpERSo(ptr noundef nonnull align 8 de
 9:                                                ; preds = %2
   %10 = and i64 %8, 4294967296
   %.not.i = icmp eq i64 %10, 0
-  %11 = and i64 %8, 4294967295
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
+  %11 = and i64 %8, 4294967295
   %.sroa.077.0.insert.ext.i = select i1 %.not.i, i64 0, i64 %11
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21, !noalias !4
   %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21, !noalias !4

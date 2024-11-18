@@ -994,7 +994,7 @@ define hidden void @_ZN18LambdaFormInvokers28dump_static_archive_invokersEv() lo
 
 7:                                                ; preds = %.preheader, %_ZL18should_be_archivedPc.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZL18should_be_archivedPc.exit ]
-  %.034 = phi i32 [ 0, %.preheader ], [ %spec.select, %_ZL18should_be_archivedPc.exit ]
+  %.035 = phi i32 [ 0, %.preheader ], [ %spec.select, %_ZL18should_be_archivedPc.exit ]
   %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   br label %10
@@ -1012,14 +1012,14 @@ define hidden void @_ZN18LambdaFormInvokers28dump_static_archive_invokersEv() lo
 
 _ZL18should_be_archivedPc.exit:                   ; preds = %10
   %14 = zext i1 %.not.not.i to i32
-  %spec.select = add nuw nsw i32 %.034, %14
+  %spec.select = add nuw nsw i32 %.035, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %15, label %7, !llvm.loop !13
 
 15:                                               ; preds = %_ZL18should_be_archivedPc.exit
-  %.not37 = icmp eq i32 %spec.select, 0
-  br i1 %.not37, label %.loopexit, label %.lr.ph.preheader
+  %.not33 = icmp eq i32 %spec.select, 0
+  br i1 %.not33, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %15
   %16 = add nsw i32 %spec.select, -1
@@ -1037,7 +1037,7 @@ _ZL18should_be_archivedPc.exit:                   ; preds = %10
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
   %23 = phi ptr [ %.pre44, %.lr.ph.preheader ], [ %52, %51 ]
   %indvars.iv39 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next40, %51 ]
-  %.02235 = phi i32 [ 0, %.lr.ph.preheader ], [ %.123, %51 ]
+  %.02236 = phi i32 [ 0, %.lr.ph.preheader ], [ %.123, %51 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv39
@@ -1073,20 +1073,20 @@ _ZL18should_be_archivedPc.exit31:                 ; preds = %28
   %42 = tail call ptr @strncpy(ptr noundef nonnull %41, ptr noundef %27, i64 noundef %34) #13
   %43 = load ptr, ptr @_ZN18LambdaFormInvokers24_static_archive_invokersE, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
-  %45 = sext i32 %.02235 to i64
+  %45 = sext i32 %.02236 to i64
   %46 = getelementptr inbounds ptr, ptr %44, i64 %45
   store ptr %40, ptr %46, align 8
   %47 = load ptr, ptr @_ZN18LambdaFormInvokers24_static_archive_invokersE, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = getelementptr inbounds ptr, ptr %48, i64 %45
   tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull %49) #13
-  %50 = add nsw i32 %.02235, 1
+  %50 = add nsw i32 %.02236, 1
   %.pre = load ptr, ptr @_ZN18LambdaFormInvokers17_lambdaform_linesE, align 8
   br label %51
 
 51:                                               ; preds = %_ZL18should_be_archivedPc.exit31, %32
   %52 = phi ptr [ %.pre, %32 ], [ %23, %_ZL18should_be_archivedPc.exit31 ]
-  %.123 = phi i32 [ %50, %32 ], [ %.02235, %_ZL18should_be_archivedPc.exit31 ]
+  %.123 = phi i32 [ %50, %32 ], [ %.02236, %_ZL18should_be_archivedPc.exit31 ]
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count
   br i1 %exitcond43.not, label %.loopexit, label %.lr.ph, !llvm.loop !14

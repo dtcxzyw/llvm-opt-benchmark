@@ -10374,18 +10374,18 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds
   %47 = ptrtoint ptr %40 to i64
   %48 = icmp ugt ptr %40, inttoptr (i64 7 to ptr)
   %49 = and i64 %47, -8
-  %50 = inttoptr i64 %49 to ptr
   %.sink.i = select i1 %48, ptr %42, ptr null
-  %51 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %46, i1 false)
-  %52 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %53 = select i1 %48, ptr %50, ptr null
-  %54 = trunc nuw nsw i64 %51 to i16
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %51 = inttoptr i64 %49 to ptr
+  %52 = select i1 %48, ptr %51, ptr null
+  %53 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %46, i1 false)
+  %54 = trunc nuw nsw i64 %53 to i16
   %55 = sub nsw i16 63, %54
   %56 = and i16 %55, 255
   %57 = or disjoint i16 %56, 256
   %.sroa.02.0.insert.insert.i25 = select i1 %48, i16 %57, i16 511
-  store i16 257, ptr %52, align 8
-  %58 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(160) %11, ptr noundef %.sink.i, ptr noundef %53, i16 %.sroa.02.0.insert.insert.i25, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(34) %9)
+  store i16 257, ptr %50, align 8
+  %58 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(160) %11, ptr noundef %.sink.i, ptr noundef %52, i16 %.sroa.02.0.insert.insert.i25, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(34) %9)
   br label %62
 
 59:                                               ; preds = %32

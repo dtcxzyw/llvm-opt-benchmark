@@ -478,47 +478,47 @@ Abc_TtCountOnesVecMask.exit.thread:               ; preds = %._crit_edge, %Abc_T
   %181 = load i64, ptr %180, align 8
   %182 = trunc i64 %181 to i1
   %183 = select i1 %182, i64 3, i64 0
-  %.025.i = select i1 %172, i64 %183, i64 %181
-  %184 = and i64 %.025.i, 3
-  %185 = mul nuw nsw i64 %184, 5
-  %.126.i = select i1 %173, i64 %185, i64 %181
-  %186 = and i64 %.126.i, 15
-  %187 = mul nuw nsw i64 %186, 17
-  %.227.i = select i1 %174, i64 %187, i64 %181
-  %188 = and i64 %.227.i, 255
-  %189 = mul nuw nsw i64 %188, 257
-  %.328.i = select i1 %175, i64 %189, i64 %.227.i
-  %190 = and i64 %.328.i, 65535
-  %191 = mul nuw nsw i64 %190, 65537
-  %.429.i = select i1 %176, i64 %191, i64 %.328.i
-  %192 = and i64 %.429.i, 4294967295
-  %193 = mul nuw i64 %192, 4294967297
-  %.5.i = select i1 %178, i64 %193, i64 %.429.i
+  %184 = and i64 %181, 3
+  %185 = select i1 %172, i64 %183, i64 %184
+  %186 = mul nuw nsw i64 %185, 5
+  %.126.i = select i1 %173, i64 %186, i64 %181
+  %187 = and i64 %.126.i, 15
+  %188 = mul nuw nsw i64 %187, 17
+  %.227.i = select i1 %174, i64 %188, i64 %181
+  %189 = and i64 %.227.i, 255
+  %190 = mul nuw nsw i64 %189, 257
+  %.328.i = select i1 %175, i64 %190, i64 %.227.i
+  %191 = and i64 %.328.i, 65535
+  %192 = mul nuw nsw i64 %191, 65537
+  %.429.i = select i1 %176, i64 %192, i64 %.328.i
+  %193 = and i64 %.429.i, 4294967295
+  %194 = mul nuw i64 %193, 4294967297
+  %.5.i = select i1 %178, i64 %194, i64 %.429.i
   store i64 %.5.i, ptr %180, align 8
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
   br i1 %exitcond146.not, label %.critedge5, label %179, !llvm.loop !10
 
 .critedge5:                                       ; preds = %179, %._crit_edge127
-  %194 = load ptr, ptr %34, align 8
-  %.not.i = icmp eq ptr %194, null
-  br i1 %.not.i, label %Vec_WrdFree.exit, label %195
+  %195 = load ptr, ptr %34, align 8
+  %.not.i = icmp eq ptr %195, null
+  br i1 %.not.i, label %Vec_WrdFree.exit, label %196
 
-195:                                              ; preds = %.critedge5
-  tail call void @free(ptr noundef nonnull %194) #14
+196:                                              ; preds = %.critedge5
+  tail call void @free(ptr noundef nonnull %195) #14
   br label %Vec_WrdFree.exit
 
-Vec_WrdFree.exit:                                 ; preds = %.critedge5, %195
+Vec_WrdFree.exit:                                 ; preds = %.critedge5, %196
   tail call void @free(ptr noundef nonnull %30) #14
-  %196 = load ptr, ptr %63, align 8
-  %.not.i116 = icmp eq ptr %196, null
-  br i1 %.not.i116, label %Vec_WrdFree.exit117, label %197
+  %197 = load ptr, ptr %63, align 8
+  %.not.i116 = icmp eq ptr %197, null
+  br i1 %.not.i116, label %Vec_WrdFree.exit117, label %198
 
-197:                                              ; preds = %Vec_WrdFree.exit
-  tail call void @free(ptr noundef nonnull %196) #14
+198:                                              ; preds = %Vec_WrdFree.exit
+  tail call void @free(ptr noundef nonnull %197) #14
   br label %Vec_WrdFree.exit117
 
-Vec_WrdFree.exit117:                              ; preds = %Vec_WrdFree.exit, %197
+Vec_WrdFree.exit117:                              ; preds = %Vec_WrdFree.exit, %198
   tail call void @free(ptr noundef nonnull %55) #14
   ret ptr %19
 }

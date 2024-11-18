@@ -193294,48 +193294,48 @@ sqlite3ExprListDelete.exit25:                     ; preds = %exprListDeleteNN.ex
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @sqlite3WindowAlloc(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = icmp eq i32 %1, 0
-  %9 = trunc i32 %1 to i8
   %spec.select40 = zext i1 %8 to i8
-  %10 = icmp eq i32 %2, 85
-  %11 = icmp eq i32 %4, 88
-  %or.cond = and i1 %10, %11
-  br i1 %or.cond, label %15, label %12
+  %9 = icmp eq i32 %2, 85
+  %10 = icmp eq i32 %4, 88
+  %or.cond = and i1 %9, %10
+  br i1 %or.cond, label %14, label %11
 
-12:                                               ; preds = %7
-  %13 = icmp eq i32 %2, 86
-  br i1 %13, label %14, label %16
+11:                                               ; preds = %7
+  %12 = icmp eq i32 %2, 86
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %12
-  switch i32 %4, label %16 [
-    i32 88, label %15
-    i32 85, label %15
+13:                                               ; preds = %11
+  switch i32 %4, label %15 [
+    i32 88, label %14
+    i32 85, label %14
   ]
 
-15:                                               ; preds = %14, %14, %7
+14:                                               ; preds = %13, %13, %7
   tail call void (ptr, ptr, ...) @sqlite3ErrorMsg(ptr noundef %0, ptr noundef nonnull @.str.1066)
   br label %sqlite3DbMallocZero.exit.thread
 
-16:                                               ; preds = %14, %12
-  %17 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %20, label %18
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i, label %19, label %17
 
-18:                                               ; preds = %16
-  %19 = tail call fastcc ptr @sqlite3DbMallocRawNN(ptr noundef nonnull %17, i64 noundef 144)
+17:                                               ; preds = %15
+  %18 = tail call fastcc ptr @sqlite3DbMallocRawNN(ptr noundef nonnull %16, i64 noundef 144)
   br label %sqlite3DbMallocRaw.exit.i
 
-20:                                               ; preds = %16
-  %21 = tail call fastcc ptr @sqlite3Malloc(i64 noundef 144)
+19:                                               ; preds = %15
+  %20 = tail call fastcc ptr @sqlite3Malloc(i64 noundef 144)
   br label %sqlite3DbMallocRaw.exit.i
 
-sqlite3DbMallocRaw.exit.i:                        ; preds = %20, %18
-  %.0.i.i = phi ptr [ %19, %18 ], [ %21, %20 ]
+sqlite3DbMallocRaw.exit.i:                        ; preds = %19, %17
+  %.0.i.i = phi ptr [ %18, %17 ], [ %20, %19 ]
   %.not.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i, label %sqlite3DbMallocZero.exit.thread, label %22
+  br i1 %.not.i, label %sqlite3DbMallocZero.exit.thread, label %21
 
-22:                                               ; preds = %sqlite3DbMallocRaw.exit.i
+21:                                               ; preds = %sqlite3DbMallocRaw.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(144) %.0.i.i, i8 0, i64 144, i1 false)
-  %23 = select i1 %8, i8 89, i8 %9
+  %22 = trunc i32 %1 to i8
+  %23 = select i1 %8, i8 89, i8 %22
   %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   store i8 %23, ptr %24, align 8
   %25 = trunc i32 %2 to i8
@@ -193347,7 +193347,7 @@ sqlite3DbMallocRaw.exit.i:                        ; preds = %20, %18
   %29 = icmp eq i8 %6, 0
   br i1 %29, label %30, label %35
 
-30:                                               ; preds = %22
+30:                                               ; preds = %21
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
   %33 = load i32, ptr %32, align 8
@@ -193356,8 +193356,8 @@ sqlite3DbMallocRaw.exit.i:                        ; preds = %20, %18
   %spec.select41 = select i1 %.not, i8 0, i8 66
   br label %35
 
-35:                                               ; preds = %30, %22
-  %.035 = phi i8 [ %6, %22 ], [ %spec.select41, %30 ]
+35:                                               ; preds = %30, %21
+  %.035 = phi i8 [ %6, %21 ], [ %spec.select41, %30 ]
   %36 = getelementptr inbounds i8, ptr %.0.i.i, i64 36
   store i8 %.035, ptr %36, align 4
   %37 = getelementptr inbounds i8, ptr %.0.i.i, i64 35
@@ -193370,7 +193370,7 @@ sqlite3DbMallocRaw.exit.i:                        ; preds = %20, %18
   store ptr %40, ptr %41, align 8
   br label %sqlite3ExprDelete.exit44
 
-sqlite3DbMallocZero.exit.thread:                  ; preds = %sqlite3DbMallocRaw.exit.i, %15
+sqlite3DbMallocZero.exit.thread:                  ; preds = %sqlite3DbMallocRaw.exit.i, %14
   %.not.i42 = icmp eq ptr %5, null
   br i1 %.not.i42, label %sqlite3ExprDelete.exit, label %42
 
@@ -288049,8 +288049,8 @@ removeUnindexableInClauseTerms.exit:              ; preds = %.loopexit.i
 
 removeUnindexableInClauseTerms.exit.thread269:    ; preds = %141, %removeUnindexableInClauseTerms.exit
   %436 = load ptr, ptr %0, align 8
-  %437 = sext i32 %.0151.lcssa to i64
-  %438 = shl nsw i64 %437, 2
+  %437 = zext nneg i32 %.0151.lcssa to i64
+  %438 = shl nuw nsw i64 %437, 2
   %439 = tail call fastcc ptr @sqlite3DbMallocZero(ptr noundef %436, i64 noundef %438)
   %440 = call fastcc i32 @sqlite3FindInIndex(ptr noundef nonnull %0, ptr noundef %137, i32 noundef 4, ptr noundef null, ptr noundef %439, ptr noundef %7)
   %441 = load i32, ptr %7, align 4
@@ -307386,15 +307386,15 @@ sqlite3FkReferences.exit:                         ; preds = %sqlite3StrICmp.exit
   %469 = load i64, ptr %15, align 8
   %470 = and i64 %469, 34359738368
   %.not166 = icmp ne i64 %470, 0
-  %471 = and i8 %468, -3
-  %472 = load ptr, ptr %10, align 8
-  %473 = load ptr, ptr %11, align 8
-  call fastcc void @fkScanChildren(ptr noundef nonnull %0, ptr noundef %445, ptr noundef %1, ptr noundef %472, ptr noundef %.1280, ptr noundef %473, i32 noundef %2, i32 noundef 1)
-  %474 = load i8, ptr %429, align 4
-  %475 = icmp eq i8 %474, 0
-  %476 = icmp ne i8 %471, 8
+  %471 = load ptr, ptr %10, align 8
+  %472 = load ptr, ptr %11, align 8
+  call fastcc void @fkScanChildren(ptr noundef nonnull %0, ptr noundef %445, ptr noundef %1, ptr noundef %471, ptr noundef %.1280, ptr noundef %472, i32 noundef %2, i32 noundef 1)
+  %473 = load i8, ptr %429, align 4
+  %474 = icmp eq i8 %473, 0
+  %475 = and i8 %468, -3
+  %476 = icmp ne i8 %475, 8
   %477 = select i1 %.not166, i1 true, i1 %476
-  %or.cond3 = select i1 %475, i1 %477, i1 false
+  %or.cond3 = select i1 %474, i1 %477, i1 false
   br i1 %or.cond3, label %478, label %481
 
 478:                                              ; preds = %465
@@ -346768,80 +346768,80 @@ sqlite3_value_double.exit:                        ; preds = %16, %20, %23, %25
   %.0.i.i = phi double [ %17, %16 ], [ %22, %20 ], [ %33, %25 ], [ 0.000000e+00, %23 ]
   %34 = fcmp olt double %.0.i.i, 0.000000e+00
   %35 = fcmp ogt double %.0.i.i, 0.000000e+00
-  %36 = zext i1 %35 to i64
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 20
-  %39 = load i16, ptr %38, align 4
-  %40 = and i16 %39, -28672
-  %.not.i.i7 = icmp eq i16 %40, 0
-  br i1 %.not.i.i7, label %sqlite3_result_int.exit, label %41
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 20
+  %38 = load i16, ptr %37, align 4
+  %39 = and i16 %38, -28672
+  %.not.i.i7 = icmp eq i16 %39, 0
+  br i1 %.not.i.i7, label %sqlite3_result_int.exit, label %40
 
-41:                                               ; preds = %sqlite3_value_double.exit
-  %.not.i.i.i.i.i = icmp sgt i16 %39, -1
-  br i1 %.not.i.i.i.i.i, label %63, label %42
+40:                                               ; preds = %sqlite3_value_double.exit
+  %.not.i.i.i.i.i = icmp sgt i16 %38, -1
+  br i1 %.not.i.i.i.i.i, label %62, label %41
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %37, align 8
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %36, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  %44 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, i8 0, i64 32, i1 false)
+  %43 = getelementptr inbounds i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %43, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %45 = getelementptr inbounds i8, ptr %5, i64 20
-  store i16 1, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %37, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %47, ptr %48, align 8
+  %44 = getelementptr inbounds i8, ptr %5, i64 20
+  store i16 1, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %36, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %46, ptr %47, align 8
   store ptr %5, ptr %4, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %37, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %43, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 100
-  %52 = load i8, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %4, i64 40
-  store i8 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %43, i64 32
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull %4) #57
-  %56 = getelementptr inbounds i8, ptr %37, i64 32
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %59, label %sqlite3VdbeMemFinalize.exit.i.i.i.i.i
+  %48 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %36, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %42, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %46, i64 100
+  %51 = load i8, ptr %50, align 4
+  %52 = getelementptr inbounds i8, ptr %4, i64 40
+  store i8 %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %42, i64 32
+  %54 = load ptr, ptr %53, align 8
+  call void %54(ptr noundef nonnull %4) #57
+  %55 = getelementptr inbounds i8, ptr %36, i64 32
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %58, label %sqlite3VdbeMemFinalize.exit.i.i.i.i.i
 
-59:                                               ; preds = %42
-  %60 = load ptr, ptr %46, align 8
-  %61 = getelementptr inbounds i8, ptr %37, i64 40
-  %62 = load ptr, ptr %61, align 8
-  call fastcc void @sqlite3DbFreeNN(ptr noundef %60, ptr noundef %62)
+58:                                               ; preds = %41
+  %59 = load ptr, ptr %45, align 8
+  %60 = getelementptr inbounds i8, ptr %36, i64 40
+  %61 = load ptr, ptr %60, align 8
+  call fastcc void @sqlite3DbFreeNN(ptr noundef %59, ptr noundef %61)
   br label %sqlite3VdbeMemFinalize.exit.i.i.i.i.i
 
-sqlite3VdbeMemFinalize.exit.i.i.i.i.i:            ; preds = %59, %42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
+sqlite3VdbeMemFinalize.exit.i.i.i.i.i:            ; preds = %58, %41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  %.pre.i.i.i.i.i = load i16, ptr %38, align 4
-  br label %63
+  %.pre.i.i.i.i.i = load i16, ptr %37, align 4
+  br label %62
 
-63:                                               ; preds = %sqlite3VdbeMemFinalize.exit.i.i.i.i.i, %41
-  %64 = phi i16 [ %.pre.i.i.i.i.i, %sqlite3VdbeMemFinalize.exit.i.i.i.i.i ], [ %39, %41 ]
-  %65 = and i16 %64, 4096
-  %.not7.i.i.i.i.i = icmp eq i16 %65, 0
-  br i1 %.not7.i.i.i.i.i, label %sqlite3_result_int.exit, label %66
+62:                                               ; preds = %sqlite3VdbeMemFinalize.exit.i.i.i.i.i, %40
+  %63 = phi i16 [ %.pre.i.i.i.i.i, %sqlite3VdbeMemFinalize.exit.i.i.i.i.i ], [ %38, %40 ]
+  %64 = and i16 %63, 4096
+  %.not7.i.i.i.i.i = icmp eq i16 %64, 0
+  br i1 %.not7.i.i.i.i.i, label %sqlite3_result_int.exit, label %65
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %37, i64 48
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %37, i64 8
-  %70 = load ptr, ptr %69, align 8
-  call void %68(ptr noundef %70) #57
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds i8, ptr %36, i64 48
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %36, i64 8
+  %69 = load ptr, ptr %68, align 8
+  call void %67(ptr noundef %69) #57
   br label %sqlite3_result_int.exit
 
-sqlite3_result_int.exit:                          ; preds = %sqlite3_value_double.exit, %63, %66
-  %71 = select i1 %34, i64 -1, i64 %36
-  store i64 %71, ptr %37, align 8
-  store i16 4, ptr %38, align 4
+sqlite3_result_int.exit:                          ; preds = %sqlite3_value_double.exit, %62, %65
+  %70 = zext i1 %35 to i64
+  %71 = select i1 %34, i64 -1, i64 %70
+  store i64 %71, ptr %36, align 8
+  store i16 4, ptr %37, align 4
   br label %72
 
 72:                                               ; preds = %3, %sqlite3_result_int.exit

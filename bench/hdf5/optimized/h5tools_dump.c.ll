@@ -485,11 +485,11 @@ define noundef i32 @h5tools_dump_simple_data(ptr noundef %0, ptr noundef %1, ptr
   %spec.select47.us = select i1 %.not44.us, ptr @.str.8, ptr %37
   %38 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.17, ptr noundef nonnull %spec.select47.us) #12
   %39 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef %spec.select, i64 noundef %.050.us, i64 noundef %.03749.us) #12
-  %40 = add i64 %.03749.us, 1
-  %41 = load i64, ptr %31, align 8
-  %42 = add i64 %41, 1
-  store i64 %42, ptr %31, align 8
-  %43 = select i1 %39, i64 %40, i64 1
+  %40 = load i64, ptr %31, align 8
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %31, align 8
+  %42 = add i64 %.03749.us, 1
+  %43 = select i1 %39, i64 %42, i64 1
   %exitcond53.not = icmp eq i64 %36, %5
   br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split.us
 
@@ -513,11 +513,11 @@ define noundef i32 @h5tools_dump_simple_data(ptr noundef %0, ptr noundef %1, ptr
 
 53:                                               ; preds = %.lr.ph.split, %50
   %54 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef %spec.select, i64 noundef %.050, i64 noundef %.03749) #12
-  %55 = add i64 %.03749, 1
-  %56 = load i64, ptr %31, align 8
-  %57 = add i64 %56, 1
-  store i64 %57, ptr %31, align 8
-  %58 = select i1 %54, i64 %55, i64 1
+  %55 = load i64, ptr %31, align 8
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %31, align 8
+  %57 = add i64 %.03749, 1
+  %58 = select i1 %54, i64 %57, i64 1
   %exitcond.not = icmp eq i64 %48, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 

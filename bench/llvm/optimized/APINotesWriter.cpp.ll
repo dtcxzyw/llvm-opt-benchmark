@@ -3605,10 +3605,10 @@ _ZN5clang9api_notes12_GLOBAL__N_116emitVariableInfoERN4llvm11raw_ostreamERKNS0_1
   %314 = and i8 %313, 1
   %.not.i.i.i.i.i.i.i9 = icmp eq i8 %314, 0
   %.lobit.i.i.i.i.i.i.i = and i8 %313, 2
-  %315 = or disjoint i8 %.lobit.i.i.i.i.i.i.i, 1
-  %316 = trunc i8 %313 to i1
-  %317 = select i1 %.not.i.i.i.i.i.i.i9, i8 1, i8 %315
-  %.0.i.i.i.i.i.i = select i1 %316, i8 %317, i8 0
+  %315 = trunc i8 %313 to i1
+  %316 = or disjoint i8 %.lobit.i.i.i.i.i.i.i, 1
+  %317 = select i1 %.not.i.i.i.i.i.i.i9, i8 1, i8 %316
+  %.0.i.i.i.i.i.i = select i1 %315, i8 %317, i8 0
   %318 = load ptr, ptr %167, align 8
   %319 = load ptr, ptr %168, align 8
   %.not.i6.i.i.i.i.i.i = icmp ult ptr %318, %319
@@ -11749,10 +11749,10 @@ _ZN5clang9api_notes12_GLOBAL__N_116emitVersionTupleERN4llvm11raw_ostreamERKNS2_1
   %909 = and i8 %908, 1
   %.not.i.i.i.i.i.i.i9 = icmp eq i8 %909, 0
   %.lobit.i.i.i.i.i.i.i = and i8 %908, 2
-  %910 = or disjoint i8 %.lobit.i.i.i.i.i.i.i, 1
-  %911 = trunc i8 %908 to i1
-  %912 = select i1 %.not.i.i.i.i.i.i.i9, i8 1, i8 %910
-  %913 = select i1 %911, i8 %912, i8 0
+  %910 = trunc i8 %908 to i1
+  %911 = or disjoint i8 %.lobit.i.i.i.i.i.i.i, 1
+  %912 = select i1 %.not.i.i.i.i.i.i.i9, i8 1, i8 %911
+  %913 = select i1 %910, i8 %912, i8 0
   %.1.i.i.i.i.i.i = or disjoint i8 %913, %.0.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27)
   store i8 %.1.i.i.i.i.i.i, ptr %27, align 1

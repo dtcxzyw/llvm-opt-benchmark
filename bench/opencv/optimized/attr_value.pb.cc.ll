@@ -5007,8 +5007,8 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit146: ; preds = %
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit151.thread: ; preds = %90
   %92 = getelementptr inbounds i8, ptr %0, i64 16
   %93 = load i8, ptr %92, align 8
-  %94 = and i8 %93, 1
   store i8 40, ptr %.3, align 1
+  %94 = and i8 %93, 1
   br label %100
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit151: ; preds = %90
@@ -5018,8 +5018,8 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit151: ; preds = %
   %96 = icmp eq i32 %.pre198.fr, 5
   %97 = getelementptr inbounds i8, ptr %0, i64 16
   %98 = load i8, ptr %97, align 8
-  %99 = and i8 %98, 1
   store i8 40, ptr %95, align 1
+  %99 = and i8 %98, 1
   %spec.select226 = select i1 %96, i8 %99, i8 0
   br label %100
 

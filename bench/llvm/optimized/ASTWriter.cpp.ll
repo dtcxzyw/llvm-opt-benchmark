@@ -86903,30 +86903,30 @@ _ZN5clang15ASTRecordWriter9writeBoolEb.exit19:    ; preds = %_ZN5clang15ASTRecor
   %.not.i = icmp eq i64 %43, 0
   %44 = and i64 %sum.shift, 7
   %45 = add nuw nsw i64 %44, 4294967295
-  %46 = and i64 %45, 4294967295
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #31
-  %51 = add i64 %50, 1
-  %52 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #31
-  %.not.i.i.i.i20 = icmp ugt i64 %51, %52
-  br i1 %.not.i.i.i.i20, label %53, label %_ZN5clang15ASTRecordWriter11writeUInt32Ej.exit
+  %46 = load ptr, ptr %0, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #31
+  %50 = add i64 %49, 1
+  %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #31
+  %.not.i.i.i.i20 = icmp ugt i64 %50, %51
+  br i1 %.not.i.i.i.i20, label %52, label %_ZN5clang15ASTRecordWriter11writeUInt32Ej.exit
 
-53:                                               ; preds = %_ZN5clang15ASTRecordWriter9writeBoolEb.exit19
-  %54 = getelementptr inbounds i8, ptr %49, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull %54, i64 noundef %51, i64 noundef 8) #31
+52:                                               ; preds = %_ZN5clang15ASTRecordWriter9writeBoolEb.exit19
+  %53 = getelementptr inbounds i8, ptr %48, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %53, i64 noundef %50, i64 noundef 8) #31
   br label %_ZN5clang15ASTRecordWriter11writeUInt32Ej.exit
 
-_ZN5clang15ASTRecordWriter11writeUInt32Ej.exit:   ; preds = %_ZN5clang15ASTRecordWriter9writeBoolEb.exit19, %53
-  %55 = select i1 %.not.i, i64 0, i64 %46
-  %56 = load ptr, ptr %49, align 8
-  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #31
+_ZN5clang15ASTRecordWriter11writeUInt32Ej.exit:   ; preds = %_ZN5clang15ASTRecordWriter9writeBoolEb.exit19, %52
+  %54 = and i64 %45, 4294967295
+  %55 = select i1 %.not.i, i64 0, i64 %54
+  %56 = load ptr, ptr %48, align 8
+  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #31
   %58 = getelementptr inbounds i64, ptr %56, i64 %57
   store i64 %55, ptr %58, align 1
-  %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #31
+  %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #31
   %60 = add i64 %59, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %49, i64 noundef %60) #31
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %60) #31
   %61 = load i64, ptr %9, align 16
   %62 = lshr i64 %61, 19
   %63 = and i64 %62, 31
@@ -87478,30 +87478,30 @@ _ZN5clang15ASTRecordWriter9writeBoolEb.exit66:    ; preds = %_ZN5clang15ASTRecor
   %.not.i67 = icmp eq i64 %271, 0
   %272 = and i64 %sum.shift, 7
   %273 = add nuw nsw i64 %272, 4294967295
-  %274 = and i64 %273, 4294967295
-  %275 = load ptr, ptr %0, align 8
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 16
-  %277 = load ptr, ptr %276, align 8
-  %278 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %277) #31
-  %279 = add i64 %278, 1
-  %280 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %277) #31
-  %.not.i.i.i.i69 = icmp ugt i64 %279, %280
-  br i1 %.not.i.i.i.i69, label %281, label %_ZN5clang15ASTRecordWriter11writeUInt32Ej.exit70
+  %274 = load ptr, ptr %0, align 8
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
+  %276 = load ptr, ptr %275, align 8
+  %277 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %276) #31
+  %278 = add i64 %277, 1
+  %279 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %276) #31
+  %.not.i.i.i.i69 = icmp ugt i64 %278, %279
+  br i1 %.not.i.i.i.i69, label %280, label %_ZN5clang15ASTRecordWriter11writeUInt32Ej.exit70
 
-281:                                              ; preds = %_ZN5clang15ASTRecordWriter9writeBoolEb.exit66
-  %282 = getelementptr inbounds i8, ptr %277, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %277, ptr noundef nonnull %282, i64 noundef %279, i64 noundef 8) #31
+280:                                              ; preds = %_ZN5clang15ASTRecordWriter9writeBoolEb.exit66
+  %281 = getelementptr inbounds i8, ptr %276, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %276, ptr noundef nonnull %281, i64 noundef %278, i64 noundef 8) #31
   br label %_ZN5clang15ASTRecordWriter11writeUInt32Ej.exit70
 
-_ZN5clang15ASTRecordWriter11writeUInt32Ej.exit70: ; preds = %_ZN5clang15ASTRecordWriter9writeBoolEb.exit66, %281
-  %283 = select i1 %.not.i67, i64 0, i64 %274
-  %284 = load ptr, ptr %277, align 8
-  %285 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %277) #31
+_ZN5clang15ASTRecordWriter11writeUInt32Ej.exit70: ; preds = %_ZN5clang15ASTRecordWriter9writeBoolEb.exit66, %280
+  %282 = and i64 %273, 4294967295
+  %283 = select i1 %.not.i67, i64 0, i64 %282
+  %284 = load ptr, ptr %276, align 8
+  %285 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %276) #31
   %286 = getelementptr inbounds i64, ptr %284, i64 %285
   store i64 %283, ptr %286, align 1
-  %287 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %277) #31
+  %287 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %276) #31
   %288 = add i64 %287, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %277, i64 noundef %288) #31
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %276, i64 noundef %288) #31
   %289 = load i64, ptr %4, align 16
   %290 = lshr i64 %289, 19
   %291 = and i64 %290, 31

@@ -1240,22 +1240,22 @@ _ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit104: ; preds = %.l
   %364 = ptrtoint ptr %361 to i64
   %365 = sub i64 %363, %364
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %9, ptr %361, i64 %365)
-  %366 = zext i1 %99 to i64
-  %367 = load ptr, ptr %9, align 8
-  %.not.i.i.i105 = icmp eq ptr %367, null
+  %366 = load ptr, ptr %9, align 8
+  %.not.i.i.i105 = icmp eq ptr %366, null
   br i1 %.not.i.i.i105, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit104
-  %368 = load ptr, ptr %347, align 8
-  %369 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %368)
-  store ptr %369, ptr %9, align 8
+  %367 = load ptr, ptr %347, align 8
+  %368 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %367)
+  store ptr %368, ptr %9, align 8
   br label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit
 
 _ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit: ; preds = %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit104, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
-  %370 = phi ptr [ %369, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %367, %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit104 ]
-  %371 = select i1 %98, i64 2, i64 %366
-  %372 = getelementptr inbounds nuw i8, ptr %370, i64 1
-  %373 = load i8, ptr %370, align 8
+  %369 = phi ptr [ %368, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %366, %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit104 ]
+  %370 = zext i1 %99 to i64
+  %371 = select i1 %98, i64 2, i64 %370
+  %372 = getelementptr inbounds nuw i8, ptr %369, i64 1
+  %373 = load i8, ptr %369, align 8
   %374 = zext i8 %373 to i64
   %375 = getelementptr inbounds [10 x i8], ptr %372, i64 0, i64 %374
   store i8 2, ptr %375, align 1

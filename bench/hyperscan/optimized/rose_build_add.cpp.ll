@@ -9144,12 +9144,12 @@ if.then.i.i.i.i510.i:                             ; preds = %if.then.thread.i496
 
 if.end.i.i735:                                    ; preds = %if.then.i.i.i.i510.i
   %cmp.i.i.i736 = icmp ult i64 %617, 2305843009213693952
+  %add.i.i.i7421320 = add i64 %617, 1
   br i1 %cmp.i.i.i736, label %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread, label %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i
 
 _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread: ; preds = %if.end.i.i735
   %mul.i.i.i772 = shl nuw i64 %617, 3
   %div.i.i.i773 = udiv i64 %mul.i.i.i772, 5
-  %add.i.i.i7421320 = add nuw nsw i64 %617, 1
   %626 = call noundef i64 @llvm.umax.i64(i64 %add.i.i.i7421320, i64 %div.i.i.i773)
   br label %if.end.i4.i744
 
@@ -9157,10 +9157,9 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEE
   %cmp3.i.i.i738 = icmp ugt i64 %617, -6917529027641081857
   %mul6.i.i.i739 = shl i64 %617, 3
   %627 = call i64 @llvm.umin.i64(i64 %mul6.i.i.i739, i64 4611686018427387903)
-  %add.i.i.i742 = add i64 %617, 1
   %628 = select i1 %cmp3.i.i.i738, i64 4611686018427387903, i64 %627
-  %629 = call noundef i64 @llvm.umax.i64(i64 %add.i.i.i742, i64 %628)
-  %cmp3.i.i743 = icmp ugt i64 %add.i.i.i742, 4611686018427387903
+  %629 = call noundef i64 @llvm.umax.i64(i64 %add.i.i.i7421320, i64 %628)
+  %cmp3.i.i743 = icmp ugt i64 %add.i.i.i7421320, 4611686018427387903
   br i1 %cmp3.i.i743, label %if.then.i.i.i.i700.invoke, label %if.end.i4.i744
 
 if.end.i4.i744:                                   ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i

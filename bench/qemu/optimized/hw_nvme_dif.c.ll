@@ -1547,14 +1547,14 @@ if.then40:                                        ; preds = %if.end
   br i1 %cmp61156, label %for.body.lr.ph, label %if.end107
 
 for.body.lr.ph:                                   ; preds = %if.then40
+  %25 = load i8, ptr %dps.i, align 1
+  %26 = and i8 %25, 8
+  %tobool58.not = icmp eq i8 %26, 0
   %tobool.not.i = icmp eq i8 %.val127, 0
   %.neg = select i1 %tobool.not.i, i16 -8, i16 -16
   %conv43 = add i16 %.neg, %22
-  %25 = sext i16 %conv43 to i64
-  %26 = load i8, ptr %dps.i, align 1
-  %27 = and i8 %26, 8
-  %tobool58.not = icmp eq i8 %27, 0
-  %idx.ext = select i1 %tobool58.not, i64 %25, i64 0
+  %27 = sext i16 %conv43 to i64
+  %idx.ext = select i1 %tobool58.not, i64 %27, i64 0
   %28 = tail call i16 @llvm.bswap.i16(i16 %10)
   br label %for.body
 

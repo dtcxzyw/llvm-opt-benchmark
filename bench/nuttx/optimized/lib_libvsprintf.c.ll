@@ -1346,15 +1346,15 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %.not561 = icmp eq i32 %614, 0
   %615 = and i32 %.pre-phi169, 4096
   %.not562 = icmp eq i32 %615, 0
-  %616 = select i1 %.not561, i32 32, i32 43
-  %617 = add nsw i32 %.20, 1
-  %618 = load ptr, ptr %6, align 8
-  %619 = select i1 %.not562, i32 %616, i32 45
-  call void %618(ptr noundef %0, i32 noundef %619) #5
+  %616 = add nsw i32 %.20, 1
+  %617 = load ptr, ptr %6, align 8
+  %618 = select i1 %.not561, i32 32, i32 43
+  %619 = select i1 %.not562, i32 %618, i32 45
+  call void %617(ptr noundef %0, i32 noundef %619) #5
   br label %620
 
 620:                                              ; preds = %611, %613, %602, %606
-  %.22 = phi i32 [ %607, %606 ], [ %603, %602 ], [ %617, %613 ], [ %.20, %611 ]
+  %.22 = phi i32 [ %607, %606 ], [ %603, %602 ], [ %616, %613 ], [ %.20, %611 ]
   %621 = zext i8 %.5418190 to i32
   %622 = icmp sgt i32 %.5481, %621
   br i1 %622, label %.lr.ph108.preheader, label %.preheader

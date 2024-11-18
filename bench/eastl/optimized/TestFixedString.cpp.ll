@@ -33200,9 +33200,9 @@ if.else36:                                        ; preds = %if.else15
   %cond.i = select i1 %tobool.i.i, i64 %7, i64 %sub.i.i
   %mnCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %mnCapacity.i.i, align 8
-  %and.i.i = shl i64 %8, 1
   %sub = sub i64 %sub.ptr.sub4, %sub.ptr.sub
   %add = add i64 %cond.i, %sub
+  %and.i.i = shl i64 %8, 1
   %mul.i = select i1 %tobool.i.i, i64 %and.i.i, i64 46
   %cond.i.i54 = tail call noundef i64 @llvm.umax.i64(i64 %add, i64 %mul.i)
   %add42 = add i64 %cond.i.i54, 1
@@ -33503,8 +33503,8 @@ if.then81:                                        ; preds = %if.else76
 
 if.else83:                                        ; preds = %if.else76.thread, %if.else76
   %cond.i183235 = phi i64 [ %cond.i183234, %if.else76.thread ], [ %3, %if.else76 ]
-  %31 = shl nuw i64 %and.i.i.i.i, 1
   %add84 = add i64 %cond.i183235, %sub.ptr.sub5
+  %31 = shl nuw i64 %and.i.i.i.i, 1
   %mul.i = select i1 %tobool.i.i, i64 %31, i64 46
   %cond.i.i186 = tail call noundef i64 @llvm.umax.i64(i64 %add84, i64 %mul.i)
   br label %if.end87
@@ -35152,8 +35152,8 @@ if.then81:                                        ; preds = %if.else76
 
 if.else83:                                        ; preds = %if.else76.thread, %if.else76
   %cond.i187239 = phi i64 [ %cond.i187238, %if.else76.thread ], [ %3, %if.else76 ]
-  %34 = shl nuw i64 %and.i.i.i.i, 1
   %add84 = add i64 %cond.i187239, %sub.ptr.sub5
+  %34 = shl nuw i64 %and.i.i.i.i, 1
   %mul.i = select i1 %tobool.i.i, i64 %34, i64 46
   %cond.i.i190 = tail call noundef i64 @llvm.umax.i64(i64 %add84, i64 %mul.i)
   br label %if.end87

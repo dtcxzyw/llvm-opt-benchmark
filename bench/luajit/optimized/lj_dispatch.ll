@@ -754,26 +754,26 @@ entry:
   %and = and i32 %mask, 15
   %cmp = icmp eq ptr %func, null
   %cmp1 = icmp eq i32 %and, 0
-  %1 = trunc nuw nsw i32 %and to i8
   %spec.select10 = select i1 %cmp1, ptr null, ptr %func
-  %2 = inttoptr i64 %0 to ptr
-  %hookf = getelementptr inbounds i8, ptr %2, i64 336
+  %1 = inttoptr i64 %0 to ptr
+  %hookf = getelementptr inbounds i8, ptr %1, i64 336
   store ptr %spec.select10, ptr %hookf, align 8
-  %hookcstart = getelementptr inbounds i8, ptr %2, i64 332
+  %hookcstart = getelementptr inbounds i8, ptr %1, i64 332
   store i32 %count, ptr %hookcstart, align 4
-  %hookcount = getelementptr inbounds i8, ptr %2, i64 328
+  %hookcount = getelementptr inbounds i8, ptr %1, i64 328
   store i32 %count, ptr %hookcount, align 8
-  %hookmask = getelementptr inbounds i8, ptr %2, i64 145
-  %3 = load i8, ptr %hookmask, align 1
-  %4 = and i8 %3, -16
-  %5 = select i1 %cmp, i8 0, i8 %1
-  %conv3 = or disjoint i8 %4, %5
+  %hookmask = getelementptr inbounds i8, ptr %1, i64 145
+  %2 = load i8, ptr %hookmask, align 1
+  %3 = and i8 %2, -16
+  %4 = trunc nuw nsw i32 %and to i8
+  %5 = select i1 %cmp, i8 0, i8 %4
+  %conv3 = or disjoint i8 %3, %5
   store i8 %conv3, ptr %hookmask, align 1
-  %state = getelementptr inbounds i8, ptr %2, i64 964
+  %state = getelementptr inbounds i8, ptr %1, i64 964
   %6 = load i32, ptr %state, align 4
   %and5 = and i32 %6, -17
   store i32 %and5, ptr %state, align 4
-  tail call void @lj_dispatch_update(ptr noundef %2)
+  tail call void @lj_dispatch_update(ptr noundef %1)
   ret i32 1
 }
 

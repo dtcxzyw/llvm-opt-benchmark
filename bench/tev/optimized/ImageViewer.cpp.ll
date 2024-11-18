@@ -4079,15 +4079,15 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %1035 = and i8 %1034, 1
   %.not.i.i.i.i.i = icmp eq i8 %1035, 0
   %1036 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8
-  %1037 = ptrtoint ptr %1036 to i64
-  %1038 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8
-  %1039 = lshr i8 %1034, 1
-  %1040 = zext nneg i8 %1039 to i64
-  %1041 = select i1 %.not.i.i.i.i.i, i64 %1040, i64 %1038
-  %1042 = select i1 %.not.i.i.i.i.i, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1037
+  %1037 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8
+  %1038 = lshr i8 %1034, 1
+  %1039 = zext nneg i8 %1038 to i64
+  %1040 = select i1 %.not.i.i.i.i.i, i64 %1039, i64 %1037
+  %1041 = ptrtoint ptr %1036 to i64
+  %1042 = select i1 %.not.i.i.i.i.i, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1041
   store i64 %1042, ptr %40, align 16, !noalias !13
   %1043 = getelementptr inbounds i8, ptr %40, i64 8
-  store i64 %1041, ptr %1043, align 8, !noalias !13
+  store i64 %1040, ptr %1043, align 8, !noalias !13
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %27)
   %1044 = getelementptr inbounds i8, ptr %27, i64 8
   %1045 = getelementptr inbounds i8, ptr %27, i64 24
@@ -4776,15 +4776,15 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit794: ; preds = %1263, %1275
   %1283 = and i8 %1282, 1
   %.not.i.i.i.i.i797 = icmp eq i8 %1283, 0
   %1284 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8
-  %1285 = ptrtoint ptr %1284 to i64
-  %1286 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8
-  %1287 = lshr i8 %1282, 1
-  %1288 = zext nneg i8 %1287 to i64
-  %1289 = select i1 %.not.i.i.i.i.i797, i64 %1288, i64 %1286
-  %1290 = select i1 %.not.i.i.i.i.i797, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1285
+  %1285 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8
+  %1286 = lshr i8 %1282, 1
+  %1287 = zext nneg i8 %1286 to i64
+  %1288 = select i1 %.not.i.i.i.i.i797, i64 %1287, i64 %1285
+  %1289 = ptrtoint ptr %1284 to i64
+  %1290 = select i1 %.not.i.i.i.i.i797, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1289
   store i64 %1290, ptr %41, align 16, !noalias !23
   %1291 = getelementptr inbounds i8, ptr %41, i64 8
-  store i64 %1289, ptr %1291, align 8, !noalias !23
+  store i64 %1288, ptr %1291, align 8, !noalias !23
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %23)
   %1292 = getelementptr inbounds i8, ptr %23, i64 8
   %1293 = getelementptr inbounds i8, ptr %23, i64 24
@@ -4867,15 +4867,15 @@ _ZNSt3__18functionIFvvEED2Ev.exit809:             ; preds = %1312, %.sink.split.
   %1320 = and i8 %1319, 1
   %.not.i.i.i.i.i812 = icmp eq i8 %1320, 0
   %1321 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8
-  %1322 = ptrtoint ptr %1321 to i64
-  %1323 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8
-  %1324 = lshr i8 %1319, 1
-  %1325 = zext nneg i8 %1324 to i64
-  %1326 = select i1 %.not.i.i.i.i.i812, i64 %1325, i64 %1323
-  %1327 = select i1 %.not.i.i.i.i.i812, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1322
+  %1322 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8
+  %1323 = lshr i8 %1319, 1
+  %1324 = zext nneg i8 %1323 to i64
+  %1325 = select i1 %.not.i.i.i.i.i812, i64 %1324, i64 %1322
+  %1326 = ptrtoint ptr %1321 to i64
+  %1327 = select i1 %.not.i.i.i.i.i812, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1326
   store i64 %1327, ptr %42, align 16, !noalias !32
   %1328 = getelementptr inbounds i8, ptr %42, i64 8
-  store i64 %1326, ptr %1328, align 8, !noalias !32
+  store i64 %1325, ptr %1328, align 8, !noalias !32
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %21)
   %1329 = getelementptr inbounds i8, ptr %21, i64 8
   %1330 = getelementptr inbounds i8, ptr %21, i64 24
@@ -5031,15 +5031,15 @@ _ZNSt3__18functionIFvvEED2Ev.exit837:             ; preds = %1377, %.sink.split.
   %1385 = and i8 %1384, 1
   %.not.i.i.i.i.i840 = icmp eq i8 %1385, 0
   %1386 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8
-  %1387 = ptrtoint ptr %1386 to i64
-  %1388 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8
-  %1389 = lshr i8 %1384, 1
-  %1390 = zext nneg i8 %1389 to i64
-  %1391 = select i1 %.not.i.i.i.i.i840, i64 %1390, i64 %1388
-  %1392 = select i1 %.not.i.i.i.i.i840, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1387
+  %1387 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8
+  %1388 = lshr i8 %1384, 1
+  %1389 = zext nneg i8 %1388 to i64
+  %1390 = select i1 %.not.i.i.i.i.i840, i64 %1389, i64 %1387
+  %1391 = ptrtoint ptr %1386 to i64
+  %1392 = select i1 %.not.i.i.i.i.i840, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1391
   store i64 %1392, ptr %43, align 16, !noalias !41
   %1393 = getelementptr inbounds i8, ptr %43, i64 8
-  store i64 %1391, ptr %1393, align 8, !noalias !41
+  store i64 %1390, ptr %1393, align 8, !noalias !41
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %19)
   %1394 = getelementptr inbounds i8, ptr %19, i64 8
   %1395 = getelementptr inbounds i8, ptr %19, i64 24
@@ -5196,19 +5196,19 @@ _ZNSt3__18functionIFvvEED2Ev.exit865:             ; preds = %1442, %.sink.split.
   %1450 = and i8 %1449, 1
   %.not.i.i.i.i.i868 = icmp eq i8 %1450, 0
   %1451 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !50
-  %1452 = ptrtoint ptr %1451 to i64
-  %1453 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !50
-  %1454 = lshr i8 %1449, 1
-  %1455 = zext nneg i8 %1454 to i64
-  %1456 = select i1 %.not.i.i.i.i.i868, i64 %1455, i64 %1453
-  %1457 = select i1 %.not.i.i.i.i.i868, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1452
+  %1452 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !50
+  %1453 = lshr i8 %1449, 1
+  %1454 = zext nneg i8 %1453 to i64
+  %1455 = select i1 %.not.i.i.i.i.i868, i64 %1454, i64 %1452
+  %1456 = ptrtoint ptr %1451 to i64
+  %1457 = select i1 %.not.i.i.i.i.i868, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1456
   store i64 %1457, ptr %38, align 16, !alias.scope !50
   %.sroa.2.0..sroa_idx.i869 = getelementptr inbounds i8, ptr %38, i64 8
-  store i64 %1456, ptr %.sroa.2.0..sroa_idx.i869, align 8, !alias.scope !50
+  store i64 %1455, ptr %.sroa.2.0..sroa_idx.i869, align 8, !alias.scope !50
   %1458 = getelementptr inbounds i8, ptr %38, i64 16
   store i64 %1457, ptr %1458, align 16, !alias.scope !50
   %.sroa.253.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 24
-  store i64 %1456, ptr %.sroa.253.0..sroa_idx.i, align 8, !alias.scope !50
+  store i64 %1455, ptr %.sroa.253.0..sroa_idx.i, align 8, !alias.scope !50
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %17)
   %1459 = getelementptr inbounds i8, ptr %17, i64 8
   %1460 = getelementptr inbounds i8, ptr %17, i64 24
@@ -5510,19 +5510,19 @@ _ZNSt3__18functionIFvbEED2Ev.exit911:             ; preds = %1551, %.sink.split.
   %1559 = and i8 %1558, 1
   %.not.i.i.i.i.i914 = icmp eq i8 %1559, 0
   %1560 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 16), align 8, !noalias !59
-  %1561 = ptrtoint ptr %1560 to i64
-  %1562 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !59
-  %1563 = lshr i8 %1558, 1
-  %1564 = zext nneg i8 %1563 to i64
-  %1565 = select i1 %.not.i.i.i.i.i914, i64 %1564, i64 %1562
-  %1566 = select i1 %.not.i.i.i.i.i914, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1561
+  %1561 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 8), align 8, !noalias !59
+  %1562 = lshr i8 %1558, 1
+  %1563 = zext nneg i8 %1562 to i64
+  %1564 = select i1 %.not.i.i.i.i.i914, i64 %1563, i64 %1561
+  %1565 = ptrtoint ptr %1560 to i64
+  %1566 = select i1 %.not.i.i.i.i.i914, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3tev10HelpWindow7COMMANDE, i64 1) to i64), i64 %1565
   store i64 %1566, ptr %39, align 16, !alias.scope !59
   %.sroa.2.0..sroa_idx.i916 = getelementptr inbounds i8, ptr %39, i64 8
-  store i64 %1565, ptr %.sroa.2.0..sroa_idx.i916, align 8, !alias.scope !59
+  store i64 %1564, ptr %.sroa.2.0..sroa_idx.i916, align 8, !alias.scope !59
   %1567 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %1566, ptr %1567, align 16, !alias.scope !59
   %.sroa.253.0..sroa_idx.i917 = getelementptr inbounds i8, ptr %39, i64 24
-  store i64 %1565, ptr %.sroa.253.0..sroa_idx.i917, align 8, !alias.scope !59
+  store i64 %1564, ptr %.sroa.253.0..sroa_idx.i917, align 8, !alias.scope !59
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %14)
   %1568 = getelementptr inbounds i8, ptr %14, i64 8
   %1569 = getelementptr inbounds i8, ptr %14, i64 24
@@ -11038,13 +11038,13 @@ _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit: ; preds =
   %282 = ptrtoint ptr %274 to i64
   %283 = sub i64 %282, %280
   %.not.i295 = icmp ult i64 %281, %283
+  %284 = getelementptr inbounds i8, ptr %0, i64 848
+  %285 = load ptr, ptr %284, align 16
+  %286 = getelementptr inbounds i8, ptr %285, i64 64
   %sext = shl i64 %281, 28
-  %284 = ashr i64 %sext, 32
-  %285 = getelementptr inbounds i8, ptr %0, i64 848
-  %286 = load ptr, ptr %285, align 16
-  %287 = getelementptr inbounds i8, ptr %286, i64 64
-  %288 = select i1 %.not.i295, i64 %284, i64 -1
-  %289 = load ptr, ptr %287, align 8
+  %287 = ashr i64 %sext, 32
+  %288 = select i1 %.not.i295, i64 %287, i64 -1
+  %289 = load ptr, ptr %286, align 8
   %290 = getelementptr inbounds ptr, ptr %289, i64 %288
   %291 = load ptr, ptr %290, align 8, !nonnull !10, !noundef !10
   %292 = tail call ptr @__dynamic_cast(ptr nonnull %291, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #41
@@ -17006,12 +17006,12 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %613 = and i8 %612, 1
   %.not.i.i.i.i.i150 = icmp eq i8 %613, 0
   %614 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 16), align 8, !noalias !191
-  %615 = ptrtoint ptr %614 to i64
-  %616 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 8), align 8, !noalias !191
-  %617 = lshr i8 %612, 1
-  %618 = zext nneg i8 %617 to i64
-  %619 = select i1 %.not.i.i.i.i.i150, i64 %618, i64 %616
-  %620 = select i1 %.not.i.i.i.i.i150, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 1) to i64), i64 %615
+  %615 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 8), align 8, !noalias !191
+  %616 = lshr i8 %612, 1
+  %617 = zext nneg i8 %616 to i64
+  %618 = select i1 %.not.i.i.i.i.i150, i64 %617, i64 %615
+  %619 = ptrtoint ptr %614 to i64
+  %620 = select i1 %.not.i.i.i.i.i150, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 1) to i64), i64 %619
   %621 = load i32, ptr %597, align 4, !noalias !191
   %.sroa.0.0.insert.ext.i = zext i32 %621 to i64
   %622 = load i32, ptr %595, align 4, !noalias !191
@@ -17020,7 +17020,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %.sroa.090.0.insert.ext.i = zext i32 %623 to i64
   store i64 %620, ptr %11, align 16, !alias.scope !191
   %.sroa.2103.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %619, ptr %.sroa.2103.0..sroa_idx.i, align 8, !alias.scope !191
+  store i64 %618, ptr %.sroa.2103.0..sroa_idx.i, align 8, !alias.scope !191
   %624 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %.sroa.0.0.insert.ext.i, ptr %624, align 16, !alias.scope !191
   %625 = getelementptr inbounds i8, ptr %11, i64 32
@@ -17223,15 +17223,15 @@ _ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
   %698 = and i8 %697, 1
   %.not.i.i.i.i.i163 = icmp eq i8 %698, 0
   %699 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 16), align 8
-  %700 = ptrtoint ptr %699 to i64
-  %701 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 8), align 8
-  %702 = lshr i8 %697, 1
-  %703 = zext nneg i8 %702 to i64
-  %704 = select i1 %.not.i.i.i.i.i163, i64 %703, i64 %701
-  %705 = select i1 %.not.i.i.i.i.i163, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 1) to i64), i64 %700
+  %700 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 8), align 8
+  %701 = lshr i8 %697, 1
+  %702 = zext nneg i8 %701 to i64
+  %703 = select i1 %.not.i.i.i.i.i163, i64 %702, i64 %700
+  %704 = ptrtoint ptr %699 to i64
+  %705 = select i1 %.not.i.i.i.i.i163, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZZN3tev11ImageViewer13draw_contentsEvE20histogramTooltipBase, i64 1) to i64), i64 %704
   store i64 %705, ptr %10, align 16, !noalias !200
   %706 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %704, ptr %706, align 8, !noalias !200
+  store i64 %703, ptr %706, align 8, !noalias !200
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %5)
   %707 = getelementptr inbounds i8, ptr %5, i64 8
   %708 = getelementptr inbounds i8, ptr %5, i64 24

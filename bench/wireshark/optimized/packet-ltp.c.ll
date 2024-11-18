@@ -254,7 +254,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ltp_reassemble_block = internal global i32 1, align 4
 @ltp_handle = internal unnamed_addr global ptr null, align 8
 @ltp_addr_receiver.0 = internal unnamed_addr global i1 false, align 8
-@ltp_addr_receiver.1 = internal unnamed_addr global i1 false, align 8
+@ltp_addr_receiver.1 = internal unnamed_addr global i1 false, align 4
 @ltp_addr_receiver.2 = internal unnamed_addr global ptr null, align 8
 @.str.138 = private unnamed_addr constant [9 x i8] c"receiver\00", align 1
 @ltp_tap = internal unnamed_addr global i32 0, align 4
@@ -370,7 +370,7 @@ define hidden void @proto_register_ltp() local_unnamed_addr #0 {
   %7 = tail call ptr @register_dissector(ptr noundef nonnull @.str.131, ptr noundef nonnull @dissect_ltp, i32 noundef %6) #8
   store ptr %7, ptr @ltp_handle, align 8
   store i1 true, ptr @ltp_addr_receiver.0, align 8
-  store i1 true, ptr @ltp_addr_receiver.1, align 8
+  store i1 true, ptr @ltp_addr_receiver.1, align 4
   store ptr @.str.138, ptr @ltp_addr_receiver.2, align 8
   %8 = load i32, ptr @proto_ltp, align 4
   tail call void @register_conversation_table(i32 noundef %8, i32 noundef 1, ptr noundef nonnull @ltp_conv_packet, ptr noundef nonnull @ltp_endp_packet) #8
@@ -1999,7 +1999,7 @@ define internal noundef i32 @ltp_conv_packet(ptr noundef %0, ptr noundef %1, ptr
   store ptr null, ptr %22, align 8
   %.b = load i1, ptr @ltp_addr_receiver.0, align 8
   %23 = select i1 %.b, i32 7, i32 0
-  %.b20 = load i1, ptr @ltp_addr_receiver.1, align 8
+  %.b20 = load i1, ptr @ltp_addr_receiver.1, align 4
   %24 = select i1 %.b20, i32 9, i32 0
   %25 = load ptr, ptr @ltp_addr_receiver.2, align 8
   store i32 %23, ptr %.0, align 8

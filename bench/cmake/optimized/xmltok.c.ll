@@ -1153,11 +1153,11 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
   %70 = load ptr, ptr %19, align 8
   %71 = icmp ne ptr %70, %18
   %72 = load i8, ptr %18, align 1
-  %73 = and i8 %72, -33
-  %74 = sext i8 %73 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
+  %73 = and i8 %72, -33
+  %74 = sext i8 %73 to i32
   %75 = add nsw i32 %74, -65
   %or.cond893.i = icmp ult i32 %75, 26
   %or.cond89.i = select i1 %71, i1 %or.cond893.i, i1 false

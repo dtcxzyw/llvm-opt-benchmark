@@ -16357,9 +16357,9 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 253:                                              ; preds = %250
   %254 = load ptr, ptr %9, align 8
   %255 = icmp eq ptr %254, %52
-  %256 = trunc nuw i32 %251 to i8
   store i32 1, ptr %0, align 8
   store i32 8, ptr %53, align 4
+  %256 = trunc nuw i32 %251 to i8
   %257 = select i1 %255, i8 0, i8 %256
   store i8 %257, ptr %54, align 8
   br label %306

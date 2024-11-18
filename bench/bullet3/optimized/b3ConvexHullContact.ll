@@ -420,8 +420,6 @@ if.end28:                                         ; preds = %if.end18, %if.end18
   %bvhInfo.sroa.0.sroa.2.0.copyload = load float, ptr %bvhInfo.sroa.0.sroa.2.0.arrayidx32.sroa_idx, align 4
   %bvhInfo.sroa.0.sroa.3.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 8
   %bvhInfo.sroa.0.sroa.3.0.copyload = load float, ptr %bvhInfo.sroa.0.sroa.3.0.arrayidx32.sroa_idx, align 8
-  %bvhInfo.sroa.0.sroa.4.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 12
-  %bvhInfo.sroa.0.sroa.4.0.copyload = load float, ptr %bvhInfo.sroa.0.sroa.4.0.arrayidx32.sroa_idx, align 4
   %bvhInfo.sroa.0.sroa.5.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 16
   %bvhInfo.sroa.0.sroa.5.0.copyload = load float, ptr %bvhInfo.sroa.0.sroa.5.0.arrayidx32.sroa_idx, align 16
   %bvhInfo.sroa.0.sroa.6.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 20
@@ -458,12 +456,6 @@ if.end28:                                         ; preds = %if.end18, %if.end18
   %retval.sroa.0.1.i.i = select i1 %cmp.i4.i.i.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i, <2 x float> %retval.sroa.0.0.i.i
   %retval.sroa.6.8.vec.extract.i.i = extractelement <2 x float> %retval.sroa.6.0.copyload.i.i, i64 0
   %cmp.i7.i.i.i = fcmp olt float %retval.sroa.6.8.vec.extract.i.i, %bvhInfo.sroa.0.sroa.3.0.copyload
-  %retval.sroa.6.8.vec.insert.i.i = insertelement <2 x float> %retval.sroa.6.0.copyload.i.i, float %bvhInfo.sroa.0.sroa.3.0.copyload, i64 0
-  %retval.sroa.6.0.i.i = select i1 %cmp.i7.i.i.i, <2 x float> %retval.sroa.6.8.vec.insert.i.i, <2 x float> %retval.sroa.6.0.copyload.i.i
-  %retval.sroa.6.12.vec.extract.i.i = extractelement <2 x float> %retval.sroa.6.0.i.i, i64 1
-  %cmp.i10.i.i.i = fcmp olt float %retval.sroa.6.12.vec.extract.i.i, %bvhInfo.sroa.0.sroa.4.0.copyload
-  %retval.sroa.6.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.6.0.i.i, float %bvhInfo.sroa.0.sroa.4.0.copyload, i64 1
-  %retval.sroa.6.1.i.i = select i1 %cmp.i10.i.i.i, <2 x float> %retval.sroa.6.12.vec.insert.i.i, <2 x float> %retval.sroa.6.0.i.i
   %retval.sroa.0.0.vec.extract.i16.i = extractelement <2 x float> %retval.sroa.0.1.i.i, i64 0
   %cmp.i.i.i17.i = fcmp olt float %bvhInfo.sroa.0.sroa.5.0.copyload, %retval.sroa.0.0.vec.extract.i16.i
   %retval.sroa.0.0.vec.insert.i18.i = insertelement <2 x float> %retval.sroa.0.1.i.i, float %bvhInfo.sroa.0.sroa.5.0.copyload, i64 0
@@ -472,15 +464,13 @@ if.end28:                                         ; preds = %if.end18, %if.end18
   %cmp.i4.i.i22.i = fcmp olt float %bvhInfo.sroa.0.sroa.6.0.copyload, %retval.sroa.0.4.vec.extract.i21.i
   %retval.sroa.0.4.vec.insert.i23.i = insertelement <2 x float> %retval.sroa.0.0.i19.i, float %bvhInfo.sroa.0.sroa.6.0.copyload, i64 1
   %retval.sroa.0.1.i24.i = select i1 %cmp.i4.i.i22.i, <2 x float> %retval.sroa.0.4.vec.insert.i23.i, <2 x float> %retval.sroa.0.0.i19.i
-  %retval.sroa.6.8.vec.extract.i26.i = extractelement <2 x float> %retval.sroa.6.1.i.i, i64 0
+  %retval.sroa.6.8.vec.extract.i26.i = select i1 %cmp.i7.i.i.i, float %bvhInfo.sroa.0.sroa.3.0.copyload, float %retval.sroa.6.8.vec.extract.i.i
   %cmp.i7.i.i27.i = fcmp olt float %bvhInfo.sroa.0.sroa.7.0.copyload, %retval.sroa.6.8.vec.extract.i26.i
-  %retval.sroa.6.8.vec.insert.i28.i = insertelement <2 x float> poison, float %bvhInfo.sroa.0.sroa.7.0.copyload, i64 0
-  %retval.sroa.6.0.i29.i = select i1 %cmp.i7.i.i27.i, <2 x float> %retval.sroa.6.8.vec.insert.i28.i, <2 x float> %retval.sroa.6.1.i.i
   %clampedPoint.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.1.i24.i, i64 0
   %sub.i.i = fsub float %clampedPoint.sroa.0.0.vec.extract.i, %bvhInfo.sroa.0.sroa.0.0.copyload
   %clampedPoint.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.1.i24.i, i64 1
   %sub4.i.i = fsub float %clampedPoint.sroa.0.4.vec.extract.i, %bvhInfo.sroa.0.sroa.2.0.copyload
-  %clampedPoint.sroa.5.8.vec.extract.i = extractelement <2 x float> %retval.sroa.6.0.i29.i, i64 0
+  %clampedPoint.sroa.5.8.vec.extract.i = select i1 %cmp.i7.i.i27.i, float %bvhInfo.sroa.0.sroa.7.0.copyload, float %retval.sroa.6.8.vec.extract.i26.i
   %sub7.i.i = fsub float %clampedPoint.sroa.5.8.vec.extract.i, %bvhInfo.sroa.0.sroa.3.0.copyload
   %mul.i.i = fmul float %bvhInfo.sroa.0.sroa.9.0.copyload, %sub.i.i
   %mul4.i.i = fmul float %bvhInfo.sroa.0.sroa.10.0.copyload, %sub4.i.i
@@ -505,50 +495,43 @@ if.end28:                                         ; preds = %if.end18, %if.end18
   %retval.sroa.0.1.i.i55 = select i1 %cmp.i4.i.i.i53, <2 x float> %retval.sroa.0.4.vec.insert.i.i54, <2 x float> %retval.sroa.0.0.i.i50
   %retval.sroa.6.8.vec.extract.i.i57 = extractelement <2 x float> %retval.sroa.6.0.copyload.i.i46, i64 0
   %cmp.i7.i.i.i58 = fcmp olt float %retval.sroa.6.8.vec.extract.i.i57, %bvhInfo.sroa.0.sroa.3.0.copyload
-  %retval.sroa.6.8.vec.insert.i.i59 = insertelement <2 x float> %retval.sroa.6.0.copyload.i.i46, float %bvhInfo.sroa.0.sroa.3.0.copyload, i64 0
-  %retval.sroa.6.0.i.i60 = select i1 %cmp.i7.i.i.i58, <2 x float> %retval.sroa.6.8.vec.insert.i.i59, <2 x float> %retval.sroa.6.0.copyload.i.i46
-  %retval.sroa.6.12.vec.extract.i.i62 = extractelement <2 x float> %retval.sroa.6.0.i.i60, i64 1
-  %cmp.i10.i.i.i63 = fcmp olt float %retval.sroa.6.12.vec.extract.i.i62, %bvhInfo.sroa.0.sroa.4.0.copyload
-  %retval.sroa.6.12.vec.insert.i.i64 = insertelement <2 x float> %retval.sroa.6.0.i.i60, float %bvhInfo.sroa.0.sroa.4.0.copyload, i64 1
-  %retval.sroa.6.1.i.i65 = select i1 %cmp.i10.i.i.i63, <2 x float> %retval.sroa.6.12.vec.insert.i.i64, <2 x float> %retval.sroa.6.0.i.i60
-  %retval.sroa.0.0.vec.extract.i16.i66 = extractelement <2 x float> %retval.sroa.0.1.i.i55, i64 0
-  %cmp.i.i.i17.i67 = fcmp olt float %bvhInfo.sroa.0.sroa.5.0.copyload, %retval.sroa.0.0.vec.extract.i16.i66
-  %retval.sroa.0.0.vec.insert.i18.i68 = insertelement <2 x float> %retval.sroa.0.1.i.i55, float %bvhInfo.sroa.0.sroa.5.0.copyload, i64 0
-  %retval.sroa.0.0.i19.i69 = select i1 %cmp.i.i.i17.i67, <2 x float> %retval.sroa.0.0.vec.insert.i18.i68, <2 x float> %retval.sroa.0.1.i.i55
-  %retval.sroa.0.4.vec.extract.i21.i71 = extractelement <2 x float> %retval.sroa.0.0.i19.i69, i64 1
-  %cmp.i4.i.i22.i72 = fcmp olt float %bvhInfo.sroa.0.sroa.6.0.copyload, %retval.sroa.0.4.vec.extract.i21.i71
-  %retval.sroa.0.4.vec.insert.i23.i73 = insertelement <2 x float> %retval.sroa.0.0.i19.i69, float %bvhInfo.sroa.0.sroa.6.0.copyload, i64 1
-  %retval.sroa.0.1.i24.i74 = select i1 %cmp.i4.i.i22.i72, <2 x float> %retval.sroa.0.4.vec.insert.i23.i73, <2 x float> %retval.sroa.0.0.i19.i69
-  %retval.sroa.6.8.vec.extract.i26.i76 = extractelement <2 x float> %retval.sroa.6.1.i.i65, i64 0
-  %cmp.i7.i.i27.i77 = fcmp olt float %bvhInfo.sroa.0.sroa.7.0.copyload, %retval.sroa.6.8.vec.extract.i26.i76
-  %retval.sroa.6.0.i29.i79 = select i1 %cmp.i7.i.i27.i77, <2 x float> %retval.sroa.6.8.vec.insert.i28.i, <2 x float> %retval.sroa.6.1.i.i65
-  %clampedPoint.sroa.0.0.vec.extract.i80 = extractelement <2 x float> %retval.sroa.0.1.i24.i74, i64 0
-  %sub.i.i81 = fsub float %clampedPoint.sroa.0.0.vec.extract.i80, %bvhInfo.sroa.0.sroa.0.0.copyload
-  %clampedPoint.sroa.0.4.vec.extract.i82 = extractelement <2 x float> %retval.sroa.0.1.i24.i74, i64 1
-  %sub4.i.i83 = fsub float %clampedPoint.sroa.0.4.vec.extract.i82, %bvhInfo.sroa.0.sroa.2.0.copyload
-  %clampedPoint.sroa.5.8.vec.extract.i84 = extractelement <2 x float> %retval.sroa.6.0.i29.i79, i64 0
-  %sub7.i.i85 = fsub float %clampedPoint.sroa.5.8.vec.extract.i84, %bvhInfo.sroa.0.sroa.3.0.copyload
-  %mul.i.i86 = fmul float %bvhInfo.sroa.0.sroa.9.0.copyload, %sub.i.i81
-  %mul4.i.i88 = fmul float %bvhInfo.sroa.0.sroa.10.0.copyload, %sub4.i.i83
-  %mul7.i.i90 = fmul float %bvhInfo.sroa.0.sroa.11.0.copyload, %sub7.i.i85
-  %add.i = fadd float %mul.i.i86, 1.000000e+00
+  %retval.sroa.0.0.vec.extract.i16.i59 = extractelement <2 x float> %retval.sroa.0.1.i.i55, i64 0
+  %cmp.i.i.i17.i60 = fcmp olt float %bvhInfo.sroa.0.sroa.5.0.copyload, %retval.sroa.0.0.vec.extract.i16.i59
+  %retval.sroa.0.0.vec.insert.i18.i61 = insertelement <2 x float> %retval.sroa.0.1.i.i55, float %bvhInfo.sroa.0.sroa.5.0.copyload, i64 0
+  %retval.sroa.0.0.i19.i62 = select i1 %cmp.i.i.i17.i60, <2 x float> %retval.sroa.0.0.vec.insert.i18.i61, <2 x float> %retval.sroa.0.1.i.i55
+  %retval.sroa.0.4.vec.extract.i21.i64 = extractelement <2 x float> %retval.sroa.0.0.i19.i62, i64 1
+  %cmp.i4.i.i22.i65 = fcmp olt float %bvhInfo.sroa.0.sroa.6.0.copyload, %retval.sroa.0.4.vec.extract.i21.i64
+  %retval.sroa.0.4.vec.insert.i23.i66 = insertelement <2 x float> %retval.sroa.0.0.i19.i62, float %bvhInfo.sroa.0.sroa.6.0.copyload, i64 1
+  %retval.sroa.0.1.i24.i67 = select i1 %cmp.i4.i.i22.i65, <2 x float> %retval.sroa.0.4.vec.insert.i23.i66, <2 x float> %retval.sroa.0.0.i19.i62
+  %retval.sroa.6.8.vec.extract.i26.i69 = select i1 %cmp.i7.i.i.i58, float %bvhInfo.sroa.0.sroa.3.0.copyload, float %retval.sroa.6.8.vec.extract.i.i57
+  %cmp.i7.i.i27.i70 = fcmp olt float %bvhInfo.sroa.0.sroa.7.0.copyload, %retval.sroa.6.8.vec.extract.i26.i69
+  %clampedPoint.sroa.0.0.vec.extract.i71 = extractelement <2 x float> %retval.sroa.0.1.i24.i67, i64 0
+  %sub.i.i72 = fsub float %clampedPoint.sroa.0.0.vec.extract.i71, %bvhInfo.sroa.0.sroa.0.0.copyload
+  %clampedPoint.sroa.0.4.vec.extract.i73 = extractelement <2 x float> %retval.sroa.0.1.i24.i67, i64 1
+  %sub4.i.i74 = fsub float %clampedPoint.sroa.0.4.vec.extract.i73, %bvhInfo.sroa.0.sroa.2.0.copyload
+  %clampedPoint.sroa.5.8.vec.extract.i75 = select i1 %cmp.i7.i.i27.i70, float %bvhInfo.sroa.0.sroa.7.0.copyload, float %retval.sroa.6.8.vec.extract.i26.i69
+  %sub7.i.i76 = fsub float %clampedPoint.sroa.5.8.vec.extract.i75, %bvhInfo.sroa.0.sroa.3.0.copyload
+  %mul.i.i77 = fmul float %bvhInfo.sroa.0.sroa.9.0.copyload, %sub.i.i72
+  %mul4.i.i79 = fmul float %bvhInfo.sroa.0.sroa.10.0.copyload, %sub4.i.i74
+  %mul7.i.i81 = fmul float %bvhInfo.sroa.0.sroa.11.0.copyload, %sub7.i.i76
+  %add.i = fadd float %mul.i.i77, 1.000000e+00
   %conv.i = fptoui float %add.i to i16
   %13 = or i16 %conv.i, 1
-  %add14.i = fadd float %mul4.i.i88, 1.000000e+00
+  %add14.i = fadd float %mul4.i.i79, 1.000000e+00
   %conv15.i = fptoui float %add14.i to i16
   %14 = or i16 %conv15.i, 1
-  %add20.i = fadd float %mul7.i.i90, 1.000000e+00
+  %add20.i = fadd float %mul7.i.i81, 1.000000e+00
   %conv21.i = fptoui float %add20.i to i16
   %15 = or i16 %conv21.i, 1
-  %cmp42161 = icmp sgt i32 %bvhInfo.sroa.4.0.copyload, 0
-  br i1 %cmp42161, label %for.body.lr.ph, label %for.end113
+  %cmp42151 = icmp sgt i32 %bvhInfo.sroa.4.0.copyload, 0
+  br i1 %cmp42151, label %for.body.lr.ph, label %for.end113
 
 for.body.lr.ph:                                   ; preds = %if.end28
   %cmp67 = icmp eq i32 %7, 6
-  %retval.sroa.2.0.insert.ext.i116 = zext i32 %1 to i64
-  %retval.sroa.2.0.insert.shift.i117 = shl nuw i64 %retval.sroa.2.0.insert.ext.i116, 32
-  %retval.sroa.0.0.insert.ext.i118 = zext i32 %0 to i64
-  %retval.sroa.0.0.insert.insert.i119 = or disjoint i64 %retval.sroa.2.0.insert.shift.i117, %retval.sroa.0.0.insert.ext.i118
+  %retval.sroa.2.0.insert.ext.i107 = zext i32 %1 to i64
+  %retval.sroa.2.0.insert.shift.i108 = shl nuw i64 %retval.sroa.2.0.insert.ext.i107, 32
+  %retval.sroa.0.0.insert.ext.i109 = zext i32 %0 to i64
+  %retval.sroa.0.0.insert.insert.i110 = or disjoint i64 %retval.sroa.2.0.insert.shift.i108, %retval.sroa.0.0.insert.ext.i109
   %16 = getelementptr inbounds i8, ptr %arrayidx20, i64 12
   br i1 %cmp67, label %for.body.us.preheader, label %for.body.preheader
 
@@ -558,12 +541,12 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %17 = sext i32 %maxNumConcavePairsCapacity to i64
-  %wide.trip.count174 = zext nneg i32 %bvhInfo.sroa.4.0.copyload to i64
+  %wide.trip.count164 = zext nneg i32 %bvhInfo.sroa.4.0.copyload to i64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc111.us
-  %indvars.iv171 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next172, %for.inc111.us ]
-  %arrayidx44.us = getelementptr inbounds %struct.b3BvhSubtreeInfoData, ptr %arrayidx34, i64 %indvars.iv171
+  %indvars.iv161 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next162, %for.inc111.us ]
+  %arrayidx44.us = getelementptr inbounds %struct.b3BvhSubtreeInfoData, ptr %arrayidx34, i64 %indvars.iv161
   %subtree.sroa.0.0.copyload.us = load i16, ptr %arrayidx44.us, align 4
   %subtree.sroa.2.0.arrayidx44.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx44.us, i64 2
   %subtree.sroa.2.0.copyload.us = load i16, ptr %subtree.sroa.2.0.arrayidx44.sroa_idx.us, align 2
@@ -581,12 +564,12 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %cmp7.i.us = icmp ult i16 %13, %subtree.sroa.0.0.copyload.us
   %or.cond.us = select i1 %cmp.i.us, i1 true, i1 %cmp7.i.us
   %cmp14.i.us = icmp ugt i16 %10, %subtree.sroa.5.0.copyload.us
-  %or.cond150.us = select i1 %or.cond.us, i1 true, i1 %cmp14.i.us
+  %or.cond140.us = select i1 %or.cond.us, i1 true, i1 %cmp14.i.us
   %cmp21.i.us = icmp ult i16 %14, %subtree.sroa.2.0.copyload.us
-  %or.cond151.us = select i1 %or.cond150.us, i1 true, i1 %cmp21.i.us
+  %or.cond141.us = select i1 %or.cond140.us, i1 true, i1 %cmp21.i.us
   %cmp28.i.us = icmp ugt i16 %11, %subtree.sroa.6.0.copyload.us
-  %or.cond152.us = select i1 %or.cond151.us, i1 true, i1 %cmp28.i.us
-  br i1 %or.cond152.us, label %for.inc111.us, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit.us
+  %or.cond142.us = select i1 %or.cond141.us, i1 true, i1 %cmp28.i.us
+  br i1 %or.cond142.us, label %for.inc111.us, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit.us
 
 _Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit.us: ; preds = %for.body.us
   %subtree.sroa.3.0.arrayidx44.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx44.us, i64 4
@@ -596,17 +579,17 @@ _Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit.us: ; preds = %
 
 if.then50.us:                                     ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit.us
   %add.us = add nsw i32 %subtree.sroa.8.0.copyload.us, %subtree.sroa.7.0.copyload.us
-  %cmp52159.us = icmp sgt i32 %subtree.sroa.8.0.copyload.us, 0
-  br i1 %cmp52159.us, label %while.body.us.us, label %for.inc111.us
+  %cmp52149.us = icmp sgt i32 %subtree.sroa.8.0.copyload.us, 0
+  br i1 %cmp52149.us, label %while.body.us.us, label %for.inc111.us
 
 for.inc111.us:                                    ; preds = %if.end109.us.us, %if.then50.us, %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit.us, %for.body.us
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %for.end113, label %for.body.us, !llvm.loop !5
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
+  %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
+  br i1 %exitcond165.not, label %for.end113, label %for.body.us, !llvm.loop !5
 
 while.body.us.us:                                 ; preds = %if.then50.us, %if.end109.us.us
-  %curIndex.0160.us.us = phi i32 [ %curIndex.1.us.us, %if.end109.us.us ], [ %subtree.sroa.7.0.copyload.us, %if.then50.us ]
-  %idxprom53.us.us = sext i32 %curIndex.0160.us.us to i64
+  %curIndex.0150.us.us = phi i32 [ %curIndex.1.us.us, %if.end109.us.us ], [ %subtree.sroa.7.0.copyload.us, %if.then50.us ]
+  %idxprom53.us.us = sext i32 %curIndex.0150.us.us to i64
   %arrayidx54.us.us = getelementptr inbounds %struct.b3QuantizedBvhNodeData, ptr %arrayidx36, i64 %idxprom53.us.us
   %rootNode.sroa.0.0.copyload.us.us = load i16, ptr %arrayidx54.us.us, align 4
   %rootNode.sroa.2.0.arrayidx54.sroa_idx.us.us = getelementptr inbounds i8, ptr %arrayidx54.us.us, i64 2
@@ -619,76 +602,76 @@ while.body.us.us:                                 ; preds = %if.then50.us, %if.e
   %rootNode.sroa.6.0.copyload.us.us = load i16, ptr %rootNode.sroa.6.0.arrayidx54.sroa_idx.us.us, align 2
   %rootNode.sroa.7.0.arrayidx54.sroa_idx.us.us = getelementptr inbounds i8, ptr %arrayidx54.us.us, i64 12
   %rootNode.sroa.7.0.copyload.us.us = load i32, ptr %rootNode.sroa.7.0.arrayidx54.sroa_idx.us.us, align 4
-  %cmp.i91.us.us = icmp ugt i16 %9, %rootNode.sroa.4.0.copyload.us.us
-  %cmp7.i93.us.us = icmp ult i16 %13, %rootNode.sroa.0.0.copyload.us.us
-  %or.cond153.us.us = select i1 %cmp.i91.us.us, i1 true, i1 %cmp7.i93.us.us
-  %cmp14.i97.us.us = icmp ugt i16 %10, %rootNode.sroa.5.0.copyload.us.us
-  %or.cond154.us.us = select i1 %or.cond153.us.us, i1 true, i1 %cmp14.i97.us.us
-  %cmp21.i101.us.us = icmp ult i16 %14, %rootNode.sroa.2.0.copyload.us.us
-  %or.cond155.us.us = select i1 %or.cond154.us.us, i1 true, i1 %cmp21.i101.us.us
-  %cmp28.i105.us.us = icmp ugt i16 %11, %rootNode.sroa.6.0.copyload.us.us
-  %or.cond156.us.us = select i1 %or.cond155.us.us, i1 true, i1 %cmp28.i105.us.us
-  br i1 %or.cond156.us.us, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread.us.us, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.us.us
+  %cmp.i82.us.us = icmp ugt i16 %9, %rootNode.sroa.4.0.copyload.us.us
+  %cmp7.i84.us.us = icmp ult i16 %13, %rootNode.sroa.0.0.copyload.us.us
+  %or.cond143.us.us = select i1 %cmp.i82.us.us, i1 true, i1 %cmp7.i84.us.us
+  %cmp14.i88.us.us = icmp ugt i16 %10, %rootNode.sroa.5.0.copyload.us.us
+  %or.cond144.us.us = select i1 %or.cond143.us.us, i1 true, i1 %cmp14.i88.us.us
+  %cmp21.i92.us.us = icmp ult i16 %14, %rootNode.sroa.2.0.copyload.us.us
+  %or.cond145.us.us = select i1 %or.cond144.us.us, i1 true, i1 %cmp21.i92.us.us
+  %cmp28.i96.us.us = icmp ugt i16 %11, %rootNode.sroa.6.0.copyload.us.us
+  %or.cond146.us.us = select i1 %or.cond145.us.us, i1 true, i1 %cmp28.i96.us.us
+  br i1 %or.cond146.us.us, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.thread.us.us, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.us.us
 
-_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.us.us: ; preds = %while.body.us.us
+_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.us.us: ; preds = %while.body.us.us
   %rootNode.sroa.3.0.arrayidx54.sroa_idx.us.us = getelementptr inbounds i8, ptr %arrayidx54.us.us, i64 4
   %rootNode.sroa.3.0.copyload.us.us = load i16, ptr %rootNode.sroa.3.0.arrayidx54.sroa_idx.us.us, align 4
-  %cmp35.i109.not.us.us = icmp ult i16 %15, %rootNode.sroa.3.0.copyload.us.us
-  %cmp.i113.us.us = icmp sgt i32 %rootNode.sroa.7.0.copyload.us.us, -1
-  br i1 %cmp35.i109.not.us.us, label %if.else101.us.us, label %if.then63.us.us
+  %cmp35.i100.not.us.us = icmp ult i16 %15, %rootNode.sroa.3.0.copyload.us.us
+  %cmp.i104.us.us = icmp sgt i32 %rootNode.sroa.7.0.copyload.us.us, -1
+  br i1 %cmp35.i100.not.us.us, label %if.else101.us.us, label %if.then63.us.us
 
-if.then63.us.us:                                  ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.us.us
-  br i1 %cmp.i113.us.us, label %if.then65.us.us, label %if.end99.us.us
+if.then63.us.us:                                  ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.us.us
+  br i1 %cmp.i104.us.us, label %if.then65.us.us, label %if.end99.us.us
 
 if.then65.us.us:                                  ; preds = %if.then63.us.us
   %18 = load i32, ptr %arrayidx20, align 4
   %19 = load volatile i32, ptr %numConcavePairsOut, align 4
-  %add.i115.us.us = add nsw i32 %19, %18
-  store volatile i32 %add.i115.us.us, ptr %numConcavePairsOut, align 4
-  %cmp73157.us.us = icmp sgt i32 %18, 0
-  br i1 %cmp73157.us.us, label %for.body74.lr.ph.us.us, label %if.end99.us.us
+  %add.i106.us.us = add nsw i32 %19, %18
+  store volatile i32 %add.i106.us.us, ptr %numConcavePairsOut, align 4
+  %cmp73147.us.us = icmp sgt i32 %18, 0
+  br i1 %cmp73147.us.us, label %for.body74.lr.ph.us.us, label %if.end99.us.us
 
 if.end99.us.us:                                   ; preds = %for.inc.us.us, %if.then65.us.us, %if.then63.us.us
-  %inc100.us.us = add nsw i32 %curIndex.0160.us.us, 1
+  %inc100.us.us = add nsw i32 %curIndex.0150.us.us, 1
   br label %if.end109.us.us
 
 for.body74.us.us:                                 ; preds = %for.body74.lr.ph.us.us, %for.inc.us.us
-  %indvars.iv165 = phi i64 [ 0, %for.body74.lr.ph.us.us ], [ %indvars.iv.next166, %for.inc.us.us ]
-  %20 = add nsw i64 %indvars.iv165, %23
+  %indvars.iv155 = phi i64 [ 0, %for.body74.lr.ph.us.us ], [ %indvars.iv.next156, %for.inc.us.us ]
+  %20 = add nsw i64 %indvars.iv155, %23
   %cmp76.us.us = icmp slt i64 %20, %17
   br i1 %cmp76.us.us, label %if.then77.us.us, label %for.inc.us.us
 
 if.then77.us.us:                                  ; preds = %for.body74.us.us
   %21 = load i32, ptr %16, align 4
-  %22 = trunc nuw nsw i64 %indvars.iv165 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv155 to i32
   %add80.us.us = add nsw i32 %21, %22
   %retval.sroa.5.8.insert.ext.i.us.us = zext i32 %add80.us.us to i64
   %retval.sroa.5.8.insert.shift.i.us.us = shl nuw i64 %retval.sroa.5.8.insert.ext.i.us.us, 32
   %retval.sroa.3.8.insert.insert.i.us.us = or disjoint i64 %retval.sroa.5.8.insert.shift.i.us.us, %retval.sroa.3.8.insert.ext.i.us.us
   %arrayidx85.us.us = getelementptr inbounds %struct.b3Int4, ptr %concavePairsOut, i64 %20
-  store i64 %retval.sroa.0.0.insert.insert.i119, ptr %arrayidx85.us.us, align 16
+  store i64 %retval.sroa.0.0.insert.insert.i110, ptr %arrayidx85.us.us, align 16
   %newPair.sroa.2.0.arrayidx85.sroa_idx.us.us = getelementptr inbounds i8, ptr %arrayidx85.us.us, i64 8
   store i64 %retval.sroa.3.8.insert.insert.i.us.us, ptr %newPair.sroa.2.0.arrayidx85.sroa_idx.us.us, align 8
   br label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %if.then77.us.us, %for.body74.us.us
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
-  %exitcond170.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count169
-  br i1 %exitcond170.not, label %if.end99.us.us, label %for.body74.us.us, !llvm.loop !7
+  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
+  %exitcond160.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count159
+  br i1 %exitcond160.not, label %if.end99.us.us, label %for.body74.us.us, !llvm.loop !7
 
-_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread.us.us: ; preds = %while.body.us.us
-  %cmp.i113146.us.us = icmp sgt i32 %rootNode.sroa.7.0.copyload.us.us, -1
-  br i1 %cmp.i113146.us.us, label %if.then103.us.us, label %if.else105.us.us
+_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.thread.us.us: ; preds = %while.body.us.us
+  %cmp.i104136.us.us = icmp sgt i32 %rootNode.sroa.7.0.copyload.us.us, -1
+  br i1 %cmp.i104136.us.us, label %if.then103.us.us, label %if.else105.us.us
 
-if.else101.us.us:                                 ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.us.us
-  br i1 %cmp.i113.us.us, label %if.then103.us.us, label %if.else105.us.us
+if.else101.us.us:                                 ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.us.us
+  br i1 %cmp.i104.us.us, label %if.then103.us.us, label %if.else105.us.us
 
-if.else105.us.us:                                 ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread.us.us, %if.else101.us.us
-  %add107.us.us = sub nsw i32 %curIndex.0160.us.us, %rootNode.sroa.7.0.copyload.us.us
+if.else105.us.us:                                 ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.thread.us.us, %if.else101.us.us
+  %add107.us.us = sub nsw i32 %curIndex.0150.us.us, %rootNode.sroa.7.0.copyload.us.us
   br label %if.end109.us.us
 
-if.then103.us.us:                                 ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread.us.us, %if.else101.us.us
-  %inc104.us.us = add nsw i32 %curIndex.0160.us.us, 1
+if.then103.us.us:                                 ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.thread.us.us, %if.else101.us.us
+  %inc104.us.us = add nsw i32 %curIndex.0150.us.us, 1
   br label %if.end109.us.us
 
 if.end109.us.us:                                  ; preds = %if.then103.us.us, %if.else105.us.us, %if.end99.us.us
@@ -700,7 +683,7 @@ for.body74.lr.ph.us.us:                           ; preds = %if.then65.us.us
   %and2.i.us.us = and i32 %rootNode.sroa.7.0.copyload.us.us, 2097151
   %retval.sroa.3.8.insert.ext.i.us.us = zext nneg i32 %and2.i.us.us to i64
   %23 = sext i32 %19 to i64
-  %wide.trip.count169 = zext nneg i32 %18 to i64
+  %wide.trip.count159 = zext nneg i32 %18 to i64
   br label %for.body74.us.us
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc111
@@ -723,12 +706,12 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp7.i = icmp ult i16 %13, %subtree.sroa.0.0.copyload
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp7.i
   %cmp14.i = icmp ugt i16 %10, %subtree.sroa.5.0.copyload
-  %or.cond150 = select i1 %or.cond, i1 true, i1 %cmp14.i
+  %or.cond140 = select i1 %or.cond, i1 true, i1 %cmp14.i
   %cmp21.i = icmp ult i16 %14, %subtree.sroa.2.0.copyload
-  %or.cond151 = select i1 %or.cond150, i1 true, i1 %cmp21.i
+  %or.cond141 = select i1 %or.cond140, i1 true, i1 %cmp21.i
   %cmp28.i = icmp ugt i16 %11, %subtree.sroa.6.0.copyload
-  %or.cond152 = select i1 %or.cond151, i1 true, i1 %cmp28.i
-  br i1 %or.cond152, label %for.inc111, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit
+  %or.cond142 = select i1 %or.cond141, i1 true, i1 %cmp28.i
+  br i1 %or.cond142, label %for.inc111, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit
 
 _Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit: ; preds = %for.body
   %subtree.sroa.3.0.arrayidx44.sroa_idx = getelementptr inbounds i8, ptr %arrayidx44, i64 4
@@ -738,12 +721,12 @@ _Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit: ; preds = %for
 
 if.then50:                                        ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit
   %add = add nsw i32 %subtree.sroa.8.0.copyload, %subtree.sroa.7.0.copyload
-  %cmp52159 = icmp sgt i32 %subtree.sroa.8.0.copyload, 0
-  br i1 %cmp52159, label %while.body, label %for.inc111
+  %cmp52149 = icmp sgt i32 %subtree.sroa.8.0.copyload, 0
+  br i1 %cmp52149, label %while.body, label %for.inc111
 
 while.body:                                       ; preds = %if.then50, %if.end109
-  %curIndex.0160 = phi i32 [ %curIndex.1, %if.end109 ], [ %subtree.sroa.7.0.copyload, %if.then50 ]
-  %idxprom53 = sext i32 %curIndex.0160 to i64
+  %curIndex.0150 = phi i32 [ %curIndex.1, %if.end109 ], [ %subtree.sroa.7.0.copyload, %if.then50 ]
+  %idxprom53 = sext i32 %curIndex.0150 to i64
   %arrayidx54 = getelementptr inbounds %struct.b3QuantizedBvhNodeData, ptr %arrayidx36, i64 %idxprom53
   %rootNode.sroa.0.0.copyload = load i16, ptr %arrayidx54, align 4
   %rootNode.sroa.2.0.arrayidx54.sroa_idx = getelementptr inbounds i8, ptr %arrayidx54, i64 2
@@ -756,30 +739,30 @@ while.body:                                       ; preds = %if.then50, %if.end1
   %rootNode.sroa.6.0.copyload = load i16, ptr %rootNode.sroa.6.0.arrayidx54.sroa_idx, align 2
   %rootNode.sroa.7.0.arrayidx54.sroa_idx = getelementptr inbounds i8, ptr %arrayidx54, i64 12
   %rootNode.sroa.7.0.copyload = load i32, ptr %rootNode.sroa.7.0.arrayidx54.sroa_idx, align 4
-  %cmp.i91 = icmp ugt i16 %9, %rootNode.sroa.4.0.copyload
-  %cmp7.i93 = icmp ult i16 %13, %rootNode.sroa.0.0.copyload
-  %or.cond153 = select i1 %cmp.i91, i1 true, i1 %cmp7.i93
-  %cmp14.i97 = icmp ugt i16 %10, %rootNode.sroa.5.0.copyload
-  %or.cond154 = select i1 %or.cond153, i1 true, i1 %cmp14.i97
-  %cmp21.i101 = icmp ult i16 %14, %rootNode.sroa.2.0.copyload
-  %or.cond155 = select i1 %or.cond154, i1 true, i1 %cmp21.i101
-  %cmp28.i105 = icmp ugt i16 %11, %rootNode.sroa.6.0.copyload
-  %or.cond156 = select i1 %or.cond155, i1 true, i1 %cmp28.i105
-  br i1 %or.cond156, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112
+  %cmp.i82 = icmp ugt i16 %9, %rootNode.sroa.4.0.copyload
+  %cmp7.i84 = icmp ult i16 %13, %rootNode.sroa.0.0.copyload
+  %or.cond143 = select i1 %cmp.i82, i1 true, i1 %cmp7.i84
+  %cmp14.i88 = icmp ugt i16 %10, %rootNode.sroa.5.0.copyload
+  %or.cond144 = select i1 %or.cond143, i1 true, i1 %cmp14.i88
+  %cmp21.i92 = icmp ult i16 %14, %rootNode.sroa.2.0.copyload
+  %or.cond145 = select i1 %or.cond144, i1 true, i1 %cmp21.i92
+  %cmp28.i96 = icmp ugt i16 %11, %rootNode.sroa.6.0.copyload
+  %or.cond146 = select i1 %or.cond145, i1 true, i1 %cmp28.i96
+  br i1 %or.cond146, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.thread, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103
 
-_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread: ; preds = %while.body
-  %cmp.i113146 = icmp sgt i32 %rootNode.sroa.7.0.copyload, -1
-  br i1 %cmp.i113146, label %if.then103, label %if.else105
+_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.thread: ; preds = %while.body
+  %cmp.i104136 = icmp sgt i32 %rootNode.sroa.7.0.copyload, -1
+  br i1 %cmp.i104136, label %if.then103, label %if.else105
 
-_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112: ; preds = %while.body
+_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103: ; preds = %while.body
   %rootNode.sroa.3.0.arrayidx54.sroa_idx = getelementptr inbounds i8, ptr %arrayidx54, i64 4
   %rootNode.sroa.3.0.copyload = load i16, ptr %rootNode.sroa.3.0.arrayidx54.sroa_idx, align 4
-  %cmp35.i109.not = icmp ult i16 %15, %rootNode.sroa.3.0.copyload
-  %cmp.i113 = icmp sgt i32 %rootNode.sroa.7.0.copyload, -1
-  br i1 %cmp35.i109.not, label %if.else101, label %if.then63
+  %cmp35.i100.not = icmp ult i16 %15, %rootNode.sroa.3.0.copyload
+  %cmp.i104 = icmp sgt i32 %rootNode.sroa.7.0.copyload, -1
+  br i1 %cmp35.i100.not, label %if.else101, label %if.then63
 
-if.then63:                                        ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112
-  br i1 %cmp.i113, label %if.then65, label %if.end99
+if.then63:                                        ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103
+  br i1 %cmp.i104, label %if.then65, label %if.end99
 
 if.then65:                                        ; preds = %if.then63
   %24 = load volatile i32, ptr %numConcavePairsOut, align 4
@@ -790,27 +773,27 @@ if.then65:                                        ; preds = %if.then63
 
 if.then90:                                        ; preds = %if.then65
   %and2.i = and i32 %rootNode.sroa.7.0.copyload, 2097151
-  %retval.sroa.3.8.insert.ext.i121 = zext nneg i32 %and2.i to i64
+  %retval.sroa.3.8.insert.ext.i112 = zext nneg i32 %and2.i to i64
   %idxprom95 = sext i32 %24 to i64
   %arrayidx96 = getelementptr inbounds %struct.b3Int4, ptr %concavePairsOut, i64 %idxprom95
-  store i64 %retval.sroa.0.0.insert.insert.i119, ptr %arrayidx96, align 16
+  store i64 %retval.sroa.0.0.insert.insert.i110, ptr %arrayidx96, align 16
   %newPair91.sroa.2.0.arrayidx96.sroa_idx = getelementptr inbounds i8, ptr %arrayidx96, i64 8
-  store i64 %retval.sroa.3.8.insert.ext.i121, ptr %newPair91.sroa.2.0.arrayidx96.sroa_idx, align 8
+  store i64 %retval.sroa.3.8.insert.ext.i112, ptr %newPair91.sroa.2.0.arrayidx96.sroa_idx, align 8
   br label %if.end99
 
 if.end99:                                         ; preds = %if.then90, %if.then65, %if.then63
-  %inc100 = add nsw i32 %curIndex.0160, 1
+  %inc100 = add nsw i32 %curIndex.0150, 1
   br label %if.end109
 
-if.else101:                                       ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112
-  br i1 %cmp.i113, label %if.then103, label %if.else105
+if.else101:                                       ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103
+  br i1 %cmp.i104, label %if.then103, label %if.else105
 
-if.then103:                                       ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread, %if.else101
-  %inc104 = add nsw i32 %curIndex.0160, 1
+if.then103:                                       ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.thread, %if.else101
+  %inc104 = add nsw i32 %curIndex.0150, 1
   br label %if.end109
 
-if.else105:                                       ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread, %if.else101
-  %add107 = sub nsw i32 %curIndex.0160, %rootNode.sroa.7.0.copyload
+if.else105:                                       ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit103.thread, %if.else101
+  %add107 = sub nsw i32 %curIndex.0150, %rootNode.sroa.7.0.copyload
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then103, %if.else105, %if.end99

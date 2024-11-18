@@ -1218,19 +1218,19 @@ define hidden void @dissect_attribute_value_pairs(ptr noundef %0, ptr noundef %1
   %.0412.ph.ph = phi i32 [ 0, %20 ], [ %321, %.outer.outer.backedge ]
   %.0411.ph.ph = phi i32 [ 0, %20 ], [ %312, %.outer.outer.backedge ]
   %.0408.ph.ph = phi i32 [ 0, %20 ], [ %.0408.ph.ph.be, %.outer.outer.backedge ]
-  %.0407.ph.ph = phi i32 [ %4, %20 ], [ %54, %.outer.outer.backedge ]
+  %.0407.ph.ph = phi i32 [ %4, %20 ], [ %53, %.outer.outer.backedge ]
   %.0.ph.ph = phi i32 [ %3, %20 ], [ %333, %.outer.outer.backedge ]
   %.not450 = icmp eq ptr %.0426.ph.ph, null
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %316
   %.0411.ph = phi i32 [ %312, %316 ], [ %.0411.ph.ph, %.outer.outer ]
-  %.0407.ph = phi i32 [ %54, %316 ], [ %.0407.ph.ph, %.outer.outer ]
+  %.0407.ph = phi i32 [ %53, %316 ], [ %.0407.ph.ph, %.outer.outer ]
   %.0.ph = phi i32 [ %.pre, %316 ], [ %.0.ph.ph, %.outer.outer ]
   br label %25
 
 25:                                               ; preds = %.backedge, %.outer
-  %.0407 = phi i32 [ %.0407.ph, %.outer ], [ %54, %.backedge ]
+  %.0407 = phi i32 [ %.0407.ph, %.outer ], [ %53, %.backedge ]
   %.0 = phi i32 [ %.0.ph, %.outer ], [ %.0.be, %.backedge ]
   switch i32 %.0407, label %28 [
     i32 0, label %.loopexit485
@@ -1261,41 +1261,41 @@ define hidden void @dissect_attribute_value_pairs(ptr noundef %0, ptr noundef %1
   %.0430 = phi i32 [ %38, %35 ], [ 0, %28 ]
   %40 = load i32, ptr @disable_extended_attributes, align 4
   %.not446 = icmp eq i32 %40, 0
-  %41 = shl nuw nsw i32 %.0430, 8
   %spec.select467 = and i1 %.not446, %spec.select
-  %42 = icmp ult i8 %32, 2
-  br i1 %42, label %43, label %45
+  %41 = icmp ult i8 %32, 2
+  br i1 %41, label %42, label %44
 
-43:                                               ; preds = %39
-  %44 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %2, i32 noundef %.0, i32 noundef 0, ptr noundef nonnull @.str.28, i32 noundef %33) #14
+42:                                               ; preds = %39
+  %43 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %2, i32 noundef %.0, i32 noundef 0, ptr noundef nonnull @.str.28, i32 noundef %33) #14
   br label %.loopexit485
 
-45:                                               ; preds = %39
-  %46 = icmp eq i8 %32, 2
-  %or.cond9 = select i1 %spec.select467, i1 %46, i1 false
-  br i1 %or.cond9, label %47, label %49
+44:                                               ; preds = %39
+  %45 = icmp eq i8 %32, 2
+  %or.cond9 = select i1 %spec.select467, i1 %45, i1 false
+  br i1 %or.cond9, label %46, label %48
 
-47:                                               ; preds = %45
-  %48 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %2, i32 noundef %.0, i32 noundef 0, ptr noundef nonnull @.str.29, i32 noundef 2) #14
+46:                                               ; preds = %44
+  %47 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %2, i32 noundef %.0, i32 noundef 0, ptr noundef nonnull @.str.29, i32 noundef 2) #14
   br label %.loopexit485
 
-49:                                               ; preds = %45
-  %50 = icmp ult i32 %.0407, %33
-  br i1 %50, label %51, label %53
+48:                                               ; preds = %44
+  %49 = icmp ult i32 %.0407, %33
+  br i1 %49, label %50, label %52
 
-51:                                               ; preds = %49
-  %52 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %2, i32 noundef %.0, i32 noundef 0, ptr noundef nonnull @.str.30) #14
+50:                                               ; preds = %48
+  %51 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %2, i32 noundef %.0, i32 noundef 0, ptr noundef nonnull @.str.30) #14
   br label %.loopexit485
 
-53:                                               ; preds = %49
-  %54 = sub nuw i32 %.0407, %33
-  %55 = load ptr, ptr @dict, align 8
-  %56 = load ptr, ptr %55, align 8
-  %.sroa.4221.0.insert.ext = select i1 %.not446, i32 %41, i32 0
+52:                                               ; preds = %48
+  %53 = sub nuw i32 %.0407, %33
+  %54 = load ptr, ptr @dict, align 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = shl nuw nsw i32 %.0430, 8
+  %.sroa.4221.0.insert.ext = select i1 %.not446, i32 %56, i32 0
   %.sroa.0219.0.insert.insert = or disjoint i32 %.sroa.4221.0.insert.ext, %30
   %57 = zext nneg i32 %.sroa.0219.0.insert.insert to i64
   %58 = inttoptr i64 %57 to ptr
-  %59 = call ptr @g_hash_table_lookup(ptr noundef %56, ptr noundef %58) #14
+  %59 = call ptr @g_hash_table_lookup(ptr noundef %55, ptr noundef %58) #14
   %.not447 = icmp eq ptr %59, null
   %spec.store.select = select i1 %.not447, ptr @no_dictionary_entry, ptr %59
   %60 = load i32, ptr @hf_radius_avp, align 4
@@ -1304,11 +1304,11 @@ define hidden void @dissect_attribute_value_pairs(ptr noundef %0, ptr noundef %1
   store ptr %62, ptr %13, align 8
   br i1 %spec.select467, label %63, label %64
 
-63:                                               ; preds = %53
+63:                                               ; preds = %52
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef nonnull @.str.32, i32 noundef %30, i32 noundef %.0430) #14
   br label %65
 
-64:                                               ; preds = %53
+64:                                               ; preds = %52
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef nonnull @.str.33, i32 noundef %30) #14
   br label %65
 
@@ -1941,7 +1941,7 @@ proto_item_set_generated.exit478:                 ; preds = %proto_item_set_gene
   %399 = add i32 %.1, %.0432
   br label %.backedge
 
-.loopexit485:                                     ; preds = %25, %51, %47, %43, %26
+.loopexit485:                                     ; preds = %25, %50, %46, %42, %26
   %400 = call ptr @except_pop() #14
   %401 = load ptr, ptr %12, align 8
   %402 = getelementptr inbounds i8, ptr %12, i64 8

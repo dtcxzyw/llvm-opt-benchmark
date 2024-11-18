@@ -582,9 +582,9 @@ target triple = "x86_64-pc-linux-gnu"
 @pn532_handle = internal unnamed_addr global ptr null, align 8
 @.str.348 = private unnamed_addr constant [21 x i8] c"usbccid.subdissector\00", align 1
 @sub_handles.0 = internal unnamed_addr global ptr null, align 16
-@sub_handles.1 = internal unnamed_addr global ptr null, align 16
+@sub_handles.1 = internal unnamed_addr global ptr null, align 8
 @sub_handles.2 = internal unnamed_addr global ptr null, align 16
-@sub_handles.3 = internal unnamed_addr global ptr null, align 16
+@sub_handles.3 = internal unnamed_addr global ptr null, align 8
 @pn532_commands = internal constant [65 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.350 }, %struct._value_string { i32 1, ptr @.str.351 }, %struct._value_string { i32 2, ptr @.str.352 }, %struct._value_string { i32 3, ptr @.str.353 }, %struct._value_string { i32 4, ptr @.str.354 }, %struct._value_string { i32 5, ptr @.str.355 }, %struct._value_string { i32 6, ptr @.str.356 }, %struct._value_string { i32 7, ptr @.str.357 }, %struct._value_string { i32 8, ptr @.str.358 }, %struct._value_string { i32 9, ptr @.str.359 }, %struct._value_string { i32 12, ptr @.str.360 }, %struct._value_string { i32 13, ptr @.str.361 }, %struct._value_string { i32 14, ptr @.str.362 }, %struct._value_string { i32 15, ptr @.str.363 }, %struct._value_string { i32 16, ptr @.str.364 }, %struct._value_string { i32 17, ptr @.str.365 }, %struct._value_string { i32 18, ptr @.str.366 }, %struct._value_string { i32 19, ptr @.str.367 }, %struct._value_string { i32 20, ptr @.str.368 }, %struct._value_string { i32 21, ptr @.str.369 }, %struct._value_string { i32 22, ptr @.str.370 }, %struct._value_string { i32 23, ptr @.str.371 }, %struct._value_string { i32 50, ptr @.str.372 }, %struct._value_string { i32 51, ptr @.str.373 }, %struct._value_string { i32 64, ptr @.str.374 }, %struct._value_string { i32 65, ptr @.str.375 }, %struct._value_string { i32 66, ptr @.str.376 }, %struct._value_string { i32 67, ptr @.str.377 }, %struct._value_string { i32 68, ptr @.str.378 }, %struct._value_string { i32 69, ptr @.str.379 }, %struct._value_string { i32 70, ptr @.str.380 }, %struct._value_string { i32 71, ptr @.str.381 }, %struct._value_string { i32 74, ptr @.str.382 }, %struct._value_string { i32 75, ptr @.str.383 }, %struct._value_string { i32 78, ptr @.str.384 }, %struct._value_string { i32 79, ptr @.str.385 }, %struct._value_string { i32 80, ptr @.str.386 }, %struct._value_string { i32 81, ptr @.str.387 }, %struct._value_string { i32 82, ptr @.str.388 }, %struct._value_string { i32 83, ptr @.str.389 }, %struct._value_string { i32 84, ptr @.str.390 }, %struct._value_string { i32 85, ptr @.str.391 }, %struct._value_string { i32 86, ptr @.str.392 }, %struct._value_string { i32 87, ptr @.str.393 }, %struct._value_string { i32 88, ptr @.str.394 }, %struct._value_string { i32 89, ptr @.str.395 }, %struct._value_string { i32 96, ptr @.str.396 }, %struct._value_string { i32 97, ptr @.str.397 }, %struct._value_string { i32 134, ptr @.str.398 }, %struct._value_string { i32 135, ptr @.str.399 }, %struct._value_string { i32 136, ptr @.str.400 }, %struct._value_string { i32 137, ptr @.str.401 }, %struct._value_string { i32 138, ptr @.str.402 }, %struct._value_string { i32 139, ptr @.str.403 }, %struct._value_string { i32 140, ptr @.str.404 }, %struct._value_string { i32 141, ptr @.str.405 }, %struct._value_string { i32 142, ptr @.str.406 }, %struct._value_string { i32 143, ptr @.str.407 }, %struct._value_string { i32 144, ptr @.str.408 }, %struct._value_string { i32 145, ptr @.str.409 }, %struct._value_string { i32 146, ptr @.str.410 }, %struct._value_string { i32 147, ptr @.str.411 }, %struct._value_string { i32 148, ptr @.str.412 }, %struct._value_string { i32 149, ptr @.str.413 }, %struct._value_string zeroinitializer], align 16
 @.str.349 = private unnamed_addr constant [15 x i8] c"pn532_commands\00", align 1
 @.str.350 = private unnamed_addr constant [9 x i8] c"Diagnose\00", align 1
@@ -1654,7 +1654,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
 
 489:                                              ; preds = %481, %481
   %490 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef 5) #5
-  %491 = load ptr, ptr @sub_handles.1, align 16
+  %491 = load ptr, ptr @sub_handles.1, align 8
   %492 = call i32 @call_dissector(ptr noundef %491, ptr noundef %490, ptr noundef nonnull %1, ptr noundef %2) #5
   br label %.loopexit
 
@@ -1922,7 +1922,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   %669 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3) #5
   %670 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 0, ptr %670, align 4
-  %671 = load ptr, ptr @sub_handles.3, align 16
+  %671 = load ptr, ptr @sub_handles.3, align 8
   %672 = call i32 @call_dissector(ptr noundef %671, ptr noundef %669, ptr noundef nonnull %1, ptr noundef %2) #5
   %673 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
   %674 = add i32 %673, 3
@@ -1946,7 +1946,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   %685 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3) #5
   %686 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 1, ptr %686, align 4
-  %687 = load ptr, ptr @sub_handles.3, align 16
+  %687 = load ptr, ptr @sub_handles.3, align 8
   %688 = call i32 @call_dissector(ptr noundef %687, ptr noundef %685, ptr noundef nonnull %1, ptr noundef %2) #5
   %689 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
   %690 = add i32 %689, 3
@@ -1969,7 +1969,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   %701 = load i32, ptr @hf_pn532_payload_length, align 4
   %702 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %701, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %703 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3) #5
-  %704 = load ptr, ptr @sub_handles.1, align 16
+  %704 = load ptr, ptr @sub_handles.1, align 8
   %705 = call i32 @call_dissector(ptr noundef %704, ptr noundef %703, ptr noundef nonnull %1, ptr noundef %2) #5
   br label %.loopexit
 
@@ -1991,7 +1991,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   %716 = load i32, ptr @hf_pn532_payload_length, align 4
   %717 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %716, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
   %718 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #5
-  %719 = load ptr, ptr @sub_handles.1, align 16
+  %719 = load ptr, ptr @sub_handles.1, align 8
   %720 = call i32 @call_dissector(ptr noundef %719, ptr noundef %718, ptr noundef nonnull %1, ptr noundef %2) #5
   br label %.loopexit
 
@@ -2336,13 +2336,13 @@ define hidden void @proto_reg_handoff_pn532() local_unnamed_addr #0 {
   store ptr %2, ptr @sub_handles.0, align 16
   %3 = load i32, ptr @proto_pn532, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.333, i32 noundef %3) #5
-  store ptr %4, ptr @sub_handles.1, align 16
+  store ptr %4, ptr @sub_handles.1, align 8
   %5 = load i32, ptr @proto_pn532, align 4
   %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.335, i32 noundef %5) #5
   store ptr %6, ptr @sub_handles.2, align 16
   %7 = load i32, ptr @proto_pn532, align 4
   %8 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.337, i32 noundef %7) #5
-  store ptr %8, ptr @sub_handles.3, align 16
+  store ptr %8, ptr @sub_handles.3, align 8
   ret void
 }
 

@@ -14178,9 +14178,9 @@ _ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16AvailabilityAttrEEEvRNS1_4Se
   br i1 %.not95, label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16SwiftPrivateAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit, label %284
 
 284:                                              ; preds = %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16AvailabilityAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEENS9_IFPKPNS1_4AttrEPKS5_EEE.exit
-  %285 = and i8 %282, 8
-  %.not96 = icmp eq i8 %285, 0
-  %286 = load ptr, ptr %7, align 8
+  %285 = load ptr, ptr %7, align 8
+  %286 = and i8 %282, 8
+  %.not96 = icmp eq i8 %286, 0
   %.sroa.091.0.copyload = load i64, ptr %3, align 8
   %.sroa.292.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.292.0.copyload = load i64, ptr %.sroa.292.0..sroa_idx, align 8
@@ -14191,14 +14191,14 @@ _ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16AvailabilityAttrEEEvRNS1_4Se
   br i1 %.not.i.i24, label %396, label %288
 
 288:                                              ; preds = %284
-  %289 = getelementptr inbounds nuw i8, ptr %286, i64 28
+  %289 = getelementptr inbounds nuw i8, ptr %285, i64 28
   %290 = load i32, ptr %289, align 4
   %291 = and i32 %290, 256
   %.not.i.i.i.i.i25 = icmp eq i32 %291, 0
   br i1 %.not.i.i.i.i.i25, label %_ZNK5clang4Decl5attrsEv.exit.i.i.i29, label %_ZNK5clang4Decl10attr_beginEv.exit.i.i.i.i26
 
 _ZNK5clang4Decl10attr_beginEv.exit.i.i.i.i26:     ; preds = %288
-  %292 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %286) #16
+  %292 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %285) #16
   %293 = load ptr, ptr %292, align 8
   %.pre.i.i.i.i27 = load i32, ptr %289, align 4
   %.pre2.i.i.i.i28 = and i32 %.pre.i.i.i.i27, 256
@@ -14206,7 +14206,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i.i.i.i26:     ; preds = %288
   br i1 %294, label %_ZNK5clang4Decl5attrsEv.exit.i.i.i29, label %295
 
 295:                                              ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i.i.i.i26
-  %296 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %286) #16
+  %296 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %285) #16
   %297 = load ptr, ptr %296, align 8
   %298 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %296) #16
   %299 = getelementptr inbounds ptr, ptr %297, i64 %298
@@ -14335,7 +14335,7 @@ _ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL_
   br i1 %.not.i.i.i37, label %_ZNK5clang4Decl8attr_endEv.exit.i.i38, label %346
 
 346:                                              ; preds = %_ZN4llvm12function_refIFPKPN5clang4AttrEPKNS1_4DeclEEE11callback_fnIZN12_GLOBAL__N_123handleAPINotedAttributeINS1_16SwiftPrivateAttrEEEvRNS1_4SemaEPS6_bNSC_21VersionedInfoMetadataENS0_IFPT_vEEEEUlS8_E_EES5_lS8_.exit.i
-  %347 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %286) #16
+  %347 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %285) #16
   %348 = load ptr, ptr %347, align 8
   %349 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %347) #16
   %350 = getelementptr inbounds ptr, ptr %348, i64 %349
@@ -14351,7 +14351,7 @@ _ZNK5clang4Decl8attr_endEv.exit.i.i38:            ; preds = %346, %_ZN4llvm12fun
   %354 = load ptr, ptr %353, align 8
   %355 = load ptr, ptr %.028.i.i.i.i.i.i.i36, align 8
   %356 = call noundef ptr @_ZN5clang26SwiftVersionedAdditionAttr14CreateImplicitERNS_10ASTContextEN4llvm12VersionTupleEPNS_4AttrEbNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23096) %354, i64 %.sroa.091.0.copyload, i64 %.sroa.292.0.copyload, ptr noundef %355, i1 noundef zeroext true, i64 0) #16
-  %357 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %286) #16
+  %357 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %285) #16
   %358 = getelementptr inbounds i8, ptr %.028.i.i.i.i.i.i.i36, i64 8
   %359 = load ptr, ptr %357, align 8
   %360 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %357) #16
@@ -14370,7 +14370,7 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i.i41: ; preds = %362
   %366 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %357) #16
   %367 = add i64 %366, -1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %357, i64 noundef %367) #16
-  call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %286, ptr noundef %356) #16
+  call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %285, ptr noundef %356) #16
   br label %368
 
 368:                                              ; preds = %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit.i.i41, %_ZNK5clang4Decl8attr_endEv.exit.i.i38
@@ -14507,7 +14507,7 @@ _ZN5clang4AttrnwEmRNS_10ASTContextEm.exit.i.i143: ; preds = %.critedge.i.i.i.i.i
 
 .sink.split.i.i43:                                ; preds = %"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit", %429, %422
   %.sink.i.i44 = phi ptr [ %428, %422 ], [ %434, %429 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit" ]
-  call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %286, ptr noundef %.sink.i.i44) #16
+  call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %285, ptr noundef %.sink.i.i44) #16
   br label %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16SwiftPrivateAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit
 
 _ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16SwiftPrivateAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE.exit: ; preds = %"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit147.thread", %"_ZN4llvm12function_refIFPN5clang16SwiftPrivateAttrEvEE11callback_fnIZL15ProcessAPINotesRNS1_4SemaEPNS1_4DeclERKNS1_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEE3$_3EES3_l.exit.thread", %.sink.split.i.i43, %368, %_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang16AvailabilityAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEENS9_IFPKPNS1_4AttrEPKS5_EEE.exit

@@ -192,7 +192,6 @@ _ZN6vectorImLb0EjE9push_backERKm.exit:            ; preds = %lor.lhs.false.i, %i
   %add = add i64 %0, %conv
   %cond = select i1 %tobool.not, i64 -1, i64 %add
   %cmp.not = icmp ugt i64 %cond, %0
-  %new_limit.0 = select i1 %cmp.not, i64 %cond, i64 -1
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %5, i64 %idx.ext.i
   %6 = load i64, ptr %m_limit, align 8
@@ -203,7 +202,8 @@ _ZN6vectorImLb0EjE9push_backERKm.exit:            ; preds = %lor.lhs.false.i, %i
   %inc.i = add i32 %8, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %9 = load i64, ptr %m_limit, align 8
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %9, i64 %new_limit.0)
+  %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %cond)
+  %.sroa.speculated = select i1 %cmp.not, i64 %10, i64 %9
   store i64 %.sroa.speculated, ptr %m_limit, align 8
   store atomic i32 0, ptr %this seq_cst, align 8
   ret void

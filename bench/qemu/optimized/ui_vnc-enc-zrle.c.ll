@@ -1845,19 +1845,19 @@ do.body.i.i:                                      ; preds = %while.body.i.i, %do
   %and24.i.i = and i32 %shr21.i.i, -8
   %and25.i.i = and i32 %shr22.i.i, -8
   %cmp26.i.i = icmp eq i32 %23, 0
-  %24 = trunc nuw i32 %23 to i8
-  %25 = xor i8 %24, -128
   %cmp29.i.i = icmp eq i32 %and24.i.i, -128
-  %26 = trunc i32 %and24.i.i to i8
   %cmp34.i.i = icmp eq i32 %and25.i.i, -128
-  %27 = trunc i32 %and25.i.i to i8
-  %conv41.i.i = select i1 %cmp34.i.i, i8 -120, i8 %27
+  %24 = trunc i32 %and25.i.i to i8
+  %conv41.i.i = select i1 %cmp34.i.i, i8 -120, i8 %24
   %arrayidx42.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 2
   store i8 %conv41.i.i, ptr %arrayidx42.i.i, align 1
-  %conv43.i.i = select i1 %cmp26.i.i, i8 -124, i8 %25
+  %25 = trunc nuw i32 %23 to i8
+  %26 = xor i8 %25, -128
+  %conv43.i.i = select i1 %cmp26.i.i, i8 -124, i8 %26
   %arrayidx44.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 1
   store i8 %conv43.i.i, ptr %arrayidx44.i.i, align 1
-  %conv45.i.i = select i1 %cmp29.i.i, i8 -120, i8 %26
+  %27 = trunc i32 %and24.i.i to i8
+  %conv45.i.i = select i1 %cmp29.i.i, i8 -120, i8 %27
   store i8 %conv45.i.i, ptr %buf.addr.134.i.i, align 1
   %incdec.ptr.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 4
   %incdec.ptr48.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 2
@@ -2962,19 +2962,19 @@ do.body.i.i:                                      ; preds = %while.body.i.i, %do
   %and24.i.i = and i32 %shr21.i.i, -8
   %and25.i.i = and i32 %shr22.i.i, -8
   %cmp26.i.i = icmp eq i32 %23, 0
-  %24 = trunc nuw i32 %23 to i8
-  %25 = xor i8 %24, -128
   %cmp29.i.i = icmp eq i32 %and24.i.i, -128
-  %26 = trunc i32 %and24.i.i to i8
   %cmp34.i.i = icmp eq i32 %and25.i.i, -128
-  %27 = trunc i32 %and25.i.i to i8
-  %conv41.i.i = select i1 %cmp34.i.i, i8 -120, i8 %27
+  %24 = trunc i32 %and25.i.i to i8
+  %conv41.i.i = select i1 %cmp34.i.i, i8 -120, i8 %24
   %arrayidx42.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 2
   store i8 %conv41.i.i, ptr %arrayidx42.i.i, align 1
-  %conv43.i.i = select i1 %cmp26.i.i, i8 -124, i8 %25
+  %25 = trunc nuw i32 %23 to i8
+  %26 = xor i8 %25, -128
+  %conv43.i.i = select i1 %cmp26.i.i, i8 -124, i8 %26
   %arrayidx44.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 1
   store i8 %conv43.i.i, ptr %arrayidx44.i.i, align 1
-  %conv45.i.i = select i1 %cmp29.i.i, i8 -120, i8 %26
+  %27 = trunc i32 %and24.i.i to i8
+  %conv45.i.i = select i1 %cmp29.i.i, i8 -120, i8 %27
   store i8 %conv45.i.i, ptr %buf.addr.134.i.i, align 1
   %incdec.ptr.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 4
   %incdec.ptr48.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 2
@@ -3700,19 +3700,19 @@ do.body.i.i:                                      ; preds = %while.body.i.i, %do
   %and25.i.i = and i32 %shr22.i.i, -8
   %and26.i.i = and i32 %shr23.i.i, -8
   %cmp27.i.i = icmp eq i32 %25, 0
-  %26 = trunc nuw i32 %25 to i8
-  %27 = xor i8 %26, -128
   %cmp30.i.i = icmp eq i32 %and25.i.i, -128
-  %28 = trunc i32 %and25.i.i to i8
   %cmp35.i.i = icmp eq i32 %and26.i.i, -128
-  %29 = trunc i32 %and26.i.i to i8
-  %conv42.i.i = select i1 %cmp35.i.i, i8 -120, i8 %29
+  %26 = trunc i32 %and26.i.i to i8
+  %conv42.i.i = select i1 %cmp35.i.i, i8 -120, i8 %26
   %arrayidx43.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 2
   store i8 %conv42.i.i, ptr %arrayidx43.i.i, align 1
-  %conv44.i.i = select i1 %cmp27.i.i, i8 -120, i8 %27
+  %27 = trunc nuw i32 %25 to i8
+  %28 = xor i8 %27, -128
+  %conv44.i.i = select i1 %cmp27.i.i, i8 -120, i8 %28
   %arrayidx45.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 1
   store i8 %conv44.i.i, ptr %arrayidx45.i.i, align 1
-  %conv46.i.i = select i1 %cmp30.i.i, i8 -120, i8 %28
+  %29 = trunc i32 %and25.i.i to i8
+  %conv46.i.i = select i1 %cmp30.i.i, i8 -120, i8 %29
   store i8 %conv46.i.i, ptr %buf.addr.134.i.i, align 1
   %incdec.ptr.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 4
   %incdec.ptr49.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 2
@@ -4440,19 +4440,19 @@ do.body.i.i:                                      ; preds = %while.body.i.i, %do
   %and25.i.i = and i32 %shr22.i.i, -8
   %and26.i.i = and i32 %shr23.i.i, -8
   %cmp27.i.i = icmp eq i32 %25, 0
-  %26 = trunc nuw i32 %25 to i8
-  %27 = xor i8 %26, -128
   %cmp30.i.i = icmp eq i32 %and25.i.i, -128
-  %28 = trunc i32 %and25.i.i to i8
   %cmp35.i.i = icmp eq i32 %and26.i.i, -128
-  %29 = trunc i32 %and26.i.i to i8
-  %conv42.i.i = select i1 %cmp35.i.i, i8 -120, i8 %29
+  %26 = trunc i32 %and26.i.i to i8
+  %conv42.i.i = select i1 %cmp35.i.i, i8 -120, i8 %26
   %arrayidx43.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 2
   store i8 %conv42.i.i, ptr %arrayidx43.i.i, align 1
-  %conv44.i.i = select i1 %cmp27.i.i, i8 -120, i8 %27
+  %27 = trunc nuw i32 %25 to i8
+  %28 = xor i8 %27, -128
+  %conv44.i.i = select i1 %cmp27.i.i, i8 -120, i8 %28
   %arrayidx45.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 1
   store i8 %conv44.i.i, ptr %arrayidx45.i.i, align 1
-  %conv46.i.i = select i1 %cmp30.i.i, i8 -120, i8 %28
+  %29 = trunc i32 %and25.i.i to i8
+  %conv46.i.i = select i1 %cmp30.i.i, i8 -120, i8 %29
   store i8 %conv46.i.i, ptr %buf.addr.134.i.i, align 1
   %incdec.ptr.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 4
   %incdec.ptr49.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 2
@@ -5202,19 +5202,19 @@ do.body.i:                                        ; preds = %while.body.i, %do.b
   %shr14.i = ashr i32 %sub.i, 1
   %shr15.i = ashr i32 %sub12.i, 1
   %cmp18.i = icmp samesign ult i32 %add11.i, 4
-  %6 = trunc nuw i32 %shr.i to i8
-  %7 = xor i8 %6, -128
   %cmp21.i = icmp eq i32 %shr14.i, -128
-  %8 = trunc nsw i32 %shr14.i to i8
   %cmp26.i = icmp eq i32 %shr15.i, -128
-  %9 = trunc nsw i32 %shr15.i to i8
-  %conv33.i = select i1 %cmp26.i, i8 -127, i8 %9
+  %6 = trunc nsw i32 %shr15.i to i8
+  %conv33.i = select i1 %cmp26.i, i8 -127, i8 %6
   %arrayidx34.i = getelementptr i8, ptr %buf.addr.132.i, i64 2
   store i8 %conv33.i, ptr %arrayidx34.i, align 1
-  %conv35.i = select i1 %cmp18.i, i8 -127, i8 %7
+  %7 = trunc nuw i32 %shr.i to i8
+  %8 = xor i8 %7, -128
+  %conv35.i = select i1 %cmp18.i, i8 -127, i8 %8
   %arrayidx36.i = getelementptr i8, ptr %buf.addr.132.i, i64 1
   store i8 %conv35.i, ptr %arrayidx36.i, align 1
-  %conv37.i = select i1 %cmp21.i, i8 -127, i8 %8
+  %9 = trunc nsw i32 %shr14.i to i8
+  %conv37.i = select i1 %cmp21.i, i8 -127, i8 %9
   store i8 %conv37.i, ptr %buf.addr.132.i, align 1
   %incdec.ptr.i = getelementptr i8, ptr %buf.addr.132.i, i64 4
   %incdec.ptr40.i = getelementptr i8, ptr %data.addr.131.i, i64 4
@@ -5999,19 +5999,19 @@ do.body.i:                                        ; preds = %while.body.i, %do.b
   %shr14.i = ashr i32 %sub.i, 1
   %shr15.i = ashr i32 %sub12.i, 1
   %cmp18.i = icmp samesign ult i32 %add11.i, 4
-  %6 = trunc nuw i32 %shr.i to i8
-  %7 = xor i8 %6, -128
   %cmp21.i = icmp eq i32 %shr14.i, -128
-  %8 = trunc nsw i32 %shr14.i to i8
   %cmp26.i = icmp eq i32 %shr15.i, -128
-  %9 = trunc nsw i32 %shr15.i to i8
-  %conv33.i = select i1 %cmp26.i, i8 -127, i8 %9
+  %6 = trunc nsw i32 %shr15.i to i8
+  %conv33.i = select i1 %cmp26.i, i8 -127, i8 %6
   %arrayidx34.i = getelementptr i8, ptr %buf.addr.132.i, i64 2
   store i8 %conv33.i, ptr %arrayidx34.i, align 1
-  %conv35.i = select i1 %cmp18.i, i8 -127, i8 %7
+  %7 = trunc nuw i32 %shr.i to i8
+  %8 = xor i8 %7, -128
+  %conv35.i = select i1 %cmp18.i, i8 -127, i8 %8
   %arrayidx36.i = getelementptr i8, ptr %buf.addr.132.i, i64 1
   store i8 %conv35.i, ptr %arrayidx36.i, align 1
-  %conv37.i = select i1 %cmp21.i, i8 -127, i8 %8
+  %9 = trunc nsw i32 %shr14.i to i8
+  %conv37.i = select i1 %cmp21.i, i8 -127, i8 %9
   store i8 %conv37.i, ptr %buf.addr.132.i, align 1
   %incdec.ptr.i = getelementptr i8, ptr %buf.addr.132.i, i64 4
   %incdec.ptr40.i = getelementptr i8, ptr %data.addr.131.i, i64 4

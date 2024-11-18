@@ -823,7 +823,7 @@ if.else18:                                        ; preds = %if.else, %for.end
   %runCount5.0.lcssa205 = phi i32 [ %spec.select106, %for.end ], [ 0, %if.else ]
   %cmp19 = icmp slt i32 %8, %6
   %inc21 = zext i1 %cmp19 to i32
-  %spec.select107 = add nsw i32 %runCount5.0.lcssa205, %inc21
+  %spec.select107 = add nuw nsw i32 %runCount5.0.lcssa205, %inc21
   %runsMemory = getelementptr inbounds i8, ptr %pBiDi, i64 88
   %runsSize = getelementptr inbounds i8, ptr %pBiDi, i64 44
   %mayAllocateRuns = getelementptr inbounds i8, ptr %pBiDi, i64 105
@@ -1039,11 +1039,11 @@ while.body66.i:                                   ; preds = %while.body66.i, %wh
 
 _ZL11reorderLineP5UBiDihh.exit:                   ; preds = %while.body66.i, %if.end72, %while.end55.i, %if.then57.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %tempRun.i)
-  %cmp76171 = icmp sgt i32 %spec.select107, 0
-  br i1 %cmp76171, label %for.body77.preheader, label %for.end95
+  %cmp76171.not = icmp eq i32 %spec.select107, 0
+  br i1 %cmp76171.not, label %for.end95, label %for.body77.preheader
 
 for.body77.preheader:                             ; preds = %_ZL11reorderLineP5UBiDihh.exit
-  %wide.trip.count199 = zext nneg i32 %spec.select107 to i64
+  %wide.trip.count199 = zext i32 %spec.select107 to i64
   br label %for.body77
 
 for.body77:                                       ; preds = %for.body77.preheader, %for.body77
@@ -1068,7 +1068,7 @@ for.body77:                                       ; preds = %for.body77.preheade
   br i1 %exitcond200.not, label %for.end95, label %for.body77, !llvm.loop !18
 
 for.end95:                                        ; preds = %for.body77, %_ZL11reorderLineP5UBiDihh.exit
-  %cmp96 = icmp slt i32 %inc54153, %spec.select107
+  %cmp96 = icmp samesign ult i32 %inc54153, %spec.select107
   br i1 %cmp96, label %if.then97, label %if.end112
 
 if.then97:                                        ; preds = %for.end95
@@ -1077,8 +1077,8 @@ if.then97:                                        ; preds = %for.end95
   %41 = and i8 %40, 1
   %and100 = zext nneg i8 %41 to i32
   %cmp101.not = icmp eq i8 %41, 0
-  %42 = zext nneg i32 %inc54153 to i64
   %shl105 = shl nuw i32 %and100, 31
+  %42 = zext nneg i32 %inc54153 to i64
   %idxprom106 = select i1 %cmp101.not, i64 %42, i64 0
   %arrayidx107 = getelementptr inbounds %struct.Run, ptr %13, i64 %idxprom106
   %43 = load i32, ptr %arrayidx107, align 4

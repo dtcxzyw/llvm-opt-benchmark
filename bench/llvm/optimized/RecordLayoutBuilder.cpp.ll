@@ -9646,8 +9646,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder14fi
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   %.sroa.speculated12 = tail call i64 @llvm.smin.i64(i64 %14, i64 %12)
-  %.sroa.0.0 = select i1 %15, i64 %12, i64 %.sroa.speculated12
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %.sroa.0.0, i64 %7)
+  %minmaxop = select i1 %15, i64 %11, i64 %.sroa.speculated12
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %minmaxop, i64 %7)
   %16 = icmp ne i64 %5, 0
   %17 = zext i1 %16 to i64
   %18 = sub i64 %5, %17

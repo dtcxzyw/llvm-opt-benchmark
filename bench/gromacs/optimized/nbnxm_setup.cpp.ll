@@ -549,8 +549,8 @@ _ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i: ; preds
   %73 = call ptr @getenv(ptr noundef nonnull @.str.17) #18
   %.not6.i.i = icmp eq ptr %73, null
   %74 = select i1 %70, i32 3, i32 2
-  %75 = select i1 %68, i64 4294967296, i64 8589934592
   %.sroa.06.0.extract.trunc.i = select i1 %.not4.i.i, i32 %74, i32 3
+  %75 = select i1 %68, i64 4294967296, i64 8589934592
   %76 = select i1 %.not5.i.i, i64 %75, i64 4294967296
   %77 = select i1 %.not6.i.i, i64 %76, i64 8589934592
   br label %78

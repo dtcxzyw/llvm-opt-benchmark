@@ -2460,7 +2460,7 @@ GetCopyLengthCode.exit321:                        ; preds = %if.then13.i299, %if
 if.then.i376:                                     ; preds = %GetCopyLengthCode.exit321
   %cmp11.i378 = icmp samesign ult i16 %retval.i290.0, 8
   %or15.i381 = or disjoint i16 %or.i351, 64
-  %cond.i383 = select i1 %cmp11.i378, i16 %or.i351, i16 %or15.i381
+  %conv16.i384 = select i1 %cmp11.i378, i16 %or.i351, i16 %or15.i381
   br label %CombineLengthCodes.exit387
 
 if.else.i354:                                     ; preds = %if.else10.i296, %GetCopyLengthCode.exit321
@@ -2481,7 +2481,7 @@ if.else.i354:                                     ; preds = %if.else10.i296, %Ge
 
 CombineLengthCodes.exit387:                       ; preds = %if.else.i354, %if.then.i376
   %retval.i290.0365 = phi i16 [ %retval.i290.0, %if.then.i376 ], [ %retval.i290.0366, %if.else.i354 ]
-  %retval.i340.0 = phi i16 [ %cond.i383, %if.then.i376 ], [ %conv28.i369, %if.else.i354 ]
+  %retval.i340.0 = phi i16 [ %conv16.i384, %if.then.i376 ], [ %conv28.i369, %if.else.i354 ]
   %cmp129 = icmp ult i16 %retval.i340.0, 128
   %cond134 = select i1 %cmp129, float %add24, float %add117
   %idxprom.i476 = zext i16 %retval.i290.0365 to i64

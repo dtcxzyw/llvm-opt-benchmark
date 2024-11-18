@@ -462,11 +462,11 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %216 = sub nuw nsw i32 16, %.sroa.6.0.extract.trunc
   %217 = shl i32 %195, %216
   %218 = icmp eq i32 %217, 0
-  %219 = and i8 %.9201303, 1
-  %220 = and i16 %.0178, 1
-  %221 = zext nneg i8 %219 to i16
+  %219 = and i16 %.0178, 1
+  %220 = and i8 %.9201303, 1
+  %221 = zext nneg i8 %220 to i16
   %222 = select i1 %218, i16 %221, i16 1
-  %223 = or i16 %220, %222
+  %223 = or i16 %219, %222
   %224 = add i16 %223, %.0178
   br label %225
 

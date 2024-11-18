@@ -788,19 +788,16 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
   %153 = mul nsw i64 %149, 3
   %154 = icmp ult i64 %153, %152
   %155 = tail call i32 @llvm.smax.i32(i32 %151, i32 1)
-  %156 = zext nneg i32 %155 to i64
-  %157 = select i1 %154, i64 %153, i64 %156
-  %158 = trunc i64 %157 to i32
-  store i32 %158, ptr %150, align 4, !tbaa !52
-  %159 = getelementptr inbounds i8, ptr %2, i64 12
-  %160 = load i32, ptr %159, align 4, !tbaa !53
-  %161 = sext i32 %160 to i64
-  %162 = icmp ult i64 %153, %161
-  %163 = tail call i32 @llvm.smax.i32(i32 %160, i32 1)
-  %164 = zext nneg i32 %163 to i64
-  %165 = select i1 %162, i64 %153, i64 %164
-  %166 = trunc i64 %165 to i32
-  store i32 %166, ptr %159, align 4, !tbaa !53
+  %156 = trunc i64 %153 to i32
+  %157 = select i1 %154, i32 %156, i32 %155
+  store i32 %157, ptr %150, align 4, !tbaa !52
+  %158 = getelementptr inbounds i8, ptr %2, i64 12
+  %159 = load i32, ptr %158, align 4, !tbaa !53
+  %160 = sext i32 %159 to i64
+  %161 = icmp ult i64 %153, %160
+  %162 = tail call i32 @llvm.smax.i32(i32 %159, i32 1)
+  %163 = select i1 %161, i32 %156, i32 %162
+  store i32 %163, ptr %158, align 4, !tbaa !53
   ret void
 }
 

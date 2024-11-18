@@ -15643,14 +15643,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit47:              ; preds = %208, %214, %221
   %243 = call i32 @llvm.usub.sat.i32(i32 %.0116, i32 %.0118)
   %.1117 = select i1 %.not26, i32 0, i32 %243
   %244 = sub i32 %.1, %.sroa.speculated
-  %245 = add i32 %244, 1
-  %246 = add i32 %65, %29
-  %247 = add i32 %246, %101
-  %248 = add i32 %247, %137
-  %249 = select i1 %.not25, i32 1, i32 %245
+  %245 = add i32 %65, %29
+  %246 = add i32 %245, %101
+  %247 = add i32 %246, %137
+  %248 = add i32 %244, 1
+  %249 = select i1 %.not25, i32 1, i32 %248
   %250 = add i32 %249, %.1117
   %251 = lshr i32 %250, 1
-  %252 = add i32 %248, %251
+  %252 = add i32 %247, %251
   ret i32 %252
 }
 

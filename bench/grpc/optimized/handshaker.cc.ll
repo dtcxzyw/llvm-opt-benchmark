@@ -1818,8 +1818,8 @@ entry:
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !30
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
-  %3 = shl i64 %2, 1
   %shr.i.sink.i = lshr i64 %0, 1
+  %3 = shl i64 %2, 1
   %mul.i = select i1 %tobool.i.not.i, i64 4, i64 %3
   %cmp.i.i.i.i = icmp ugt i64 %mul.i, 1152921504606846975
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core13RefCountedPtrINS3_10HandshakerEEEELb0EE8AllocateERS7_m.exit.i

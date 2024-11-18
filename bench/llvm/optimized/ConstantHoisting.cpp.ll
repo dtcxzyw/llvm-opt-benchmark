@@ -2192,9 +2192,9 @@ _ZL20findBestInsertionSetRN4llvm13DominatorTreeERNS_18BlockFrequencyInfoEPNS_10B
   %.fca.0.extract1.i = extractvalue { ptr, i64 } %603, 0
   %.not.i.i37 = icmp eq ptr %.fca.0.extract1.i, null
   %.fca.1.extract2.i = extractvalue { ptr, i64 } %603, 1
+  store ptr %.fca.0.extract1.i, ptr %16, align 8
   %604 = trunc i64 %.fca.1.extract2.i to i16
   %605 = and i16 %604, 257
-  store ptr %.fca.0.extract1.i, ptr %16, align 8
   %.sroa.210.0.extract.trunc = select i1 %.not.i.i37, i16 0, i16 %605
   store i16 %.sroa.210.0.extract.trunc, ptr %.sroa.210.0..sroa_idx, align 8
   %606 = call noundef zeroext i1 @_ZN4llvm9SetVectorINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEENS_11SmallVectorIS7_Lj0EEENS_8DenseSetIS7_NS_12DenseMapInfoIS7_vEEEELj0EE6insertERKS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(10) %16)

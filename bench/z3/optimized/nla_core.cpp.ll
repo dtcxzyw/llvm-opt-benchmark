@@ -7136,16 +7136,16 @@ _ZN2lp8lar_term14const_iteratorppEv.exit.i:       ; preds = %land.rhs.i.i.i.i.i
 
 for.end.loopexit.i:                               ; preds = %if.end14.i, %_ZN2lp8lar_term14const_iteratorppEv.exit.i, %while.body.i.i.i.i.i
   %6 = shl i32 %spec.select41, 1
-  %7 = and i8 %seen_plus.1.i, 1
-  %8 = xor i8 %7, 1
-  %9 = zext nneg i8 %8 to i32
-  %10 = shl i32 %spec.select, 1
-  %11 = select i1 %seen_minus.1.i, i32 %9, i32 1
+  %7 = shl i32 %spec.select, 1
+  %8 = and i8 %seen_plus.1.i, 1
+  %9 = xor i8 %8, 1
+  %10 = zext nneg i8 %9 to i32
+  %11 = select i1 %seen_minus.1.i, i32 %10, i32 1
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i.i.i.i.i, %for.end.loopexit.i, %_ZNK2lp8lar_term5beginEv.exit.i
   %sign.0.ph = phi i32 [ %11, %for.end.loopexit.i ], [ 1, %_ZNK2lp8lar_term5beginEv.exit.i ], [ 1, %while.body.i.i.i.i.i.i ]
-  %j.2.ph = phi i32 [ %10, %for.end.loopexit.i ], [ 0, %_ZNK2lp8lar_term5beginEv.exit.i ], [ 0, %while.body.i.i.i.i.i.i ]
+  %j.2.ph = phi i32 [ %7, %for.end.loopexit.i ], [ 0, %_ZNK2lp8lar_term5beginEv.exit.i ], [ 0, %while.body.i.i.i.i.i.i ]
   %i.2.ph = phi i32 [ %6, %for.end.loopexit.i ], [ -2, %_ZNK2lp8lar_term5beginEv.exit.i ], [ -2, %while.body.i.i.i.i.i.i ]
   %m_evars = getelementptr inbounds i8, ptr %this, i64 8
   %m_find.i.i = getelementptr inbounds i8, ptr %this, i64 32

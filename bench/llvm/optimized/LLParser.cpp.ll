@@ -41530,23 +41530,23 @@ _ZN4llvm8LLParser20parseValueAsMetadataERPNS_8MetadataERKNS_5TwineEPNS0_16PerFun
   %43 = load i8, ptr %.11017, align 4
   %44 = add i8 %43, -1
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %44, 2
-  %45 = ptrtoint ptr %.11017 to i64
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
-  %47 = add i64 %46, 1
-  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
-  %.not.i.i.i = icmp ugt i64 %47, %48
-  br i1 %.not.i.i.i, label %49, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
+  %46 = add i64 %45, 1
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
+  %.not.i.i.i = icmp ugt i64 %46, %47
+  br i1 %.not.i.i.i, label %48, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
 
-49:                                               ; preds = %42
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %21, i64 noundef %47, i64 noundef 8) #25
+48:                                               ; preds = %42
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %21, i64 noundef %46, i64 noundef 8) #25
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit: ; preds = %42, %49
-  %50 = load ptr, ptr %9, align 8
-  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
-  %53 = select i1 %spec.select.i.i.i.i.i.i.i.i, i64 %45, i64 0
-  store i64 %53, ptr %52, align 1
+_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit: ; preds = %42, %48
+  %49 = load ptr, ptr %9, align 8
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
+  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %52 = ptrtoint ptr %.11017 to i64
+  %53 = select i1 %spec.select.i.i.i.i.i.i.i.i, i64 %52, i64 0
+  store i64 %53, ptr %51, align 1
   %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
   %55 = add i64 %54, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %55) #25

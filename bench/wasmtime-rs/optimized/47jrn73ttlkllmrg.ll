@@ -5954,12 +5954,12 @@ _ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit.i:
   %123 = extractvalue { i64, i32 } %118, 0
   %124 = icmp eq i32 %122, 1000000000
   %125 = zext i64 %123 to i128
-  %126 = udiv i32 %122, 1000000
-  %127 = mul nuw nsw i128 %125, 1000
-  %128 = select i1 %124, i128 0, i128 %127
-  %129 = select i1 %124, i32 0, i32 %126
+  %126 = mul nuw nsw i128 %125, 1000
+  %127 = select i1 %124, i128 0, i128 %126
+  %128 = udiv i32 %122, 1000000
+  %129 = select i1 %124, i32 0, i32 %128
   %130 = zext nneg i32 %129 to i128
-  %131 = add nuw nsw i128 %128, %130
+  %131 = add nuw nsw i128 %127, %130
   %132 = icmp samesign ugt i128 %131, 2147483646
   br i1 %132, label %133, label %137
 

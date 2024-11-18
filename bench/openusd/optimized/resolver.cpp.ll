@@ -11704,8 +11704,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingISt10shared_ptrINS_12_GL
   br label %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i
-  %218 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %219 = getelementptr inbounds nuw i8, ptr %212, i64 72
+  %218 = getelementptr inbounds nuw i8, ptr %212, i64 72
+  %219 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i.i.i.i.i to i64
   br label %222
 
 .preheader14.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i, %.noexc64
@@ -11721,8 +11721,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingISt10shared_ptrINS_12_GL
 222:                                              ; preds = %222, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i
   %.01016.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ], [ %226, %222 ]
   %223 = icmp eq i64 %.01016.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  %224 = getelementptr inbounds [64 x %"struct.std::atomic.252"], ptr %219, i64 0, i64 %.01016.i.i.i.i.i.i.i.i.i.i.i.i
-  %225 = select i1 %223, i64 %218, i64 0
+  %224 = getelementptr inbounds [64 x %"struct.std::atomic.252"], ptr %218, i64 0, i64 %.01016.i.i.i.i.i.i.i.i.i.i.i.i
+  %225 = select i1 %223, i64 %219, i64 0
   store atomic i64 %225, ptr %224 monotonic, align 8, !noalias !161
   %226 = add nuw nsw i64 %.01016.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %226, 64

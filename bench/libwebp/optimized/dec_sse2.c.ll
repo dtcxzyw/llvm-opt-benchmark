@@ -1767,8 +1767,8 @@ define internal void @VFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, 
   %87 = xor <16 x i8> %47, splat (i8 -128)
   %88 = xor <16 x i8> %32, splat (i8 -128)
   %89 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %87, <16 x i8> %88)
-  %90 = select <16 x i1> %.not.i, <16 x i8> %86, <16 x i8> zeroinitializer
-  %91 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %90, <16 x i8> %89)
+  %90 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %86, <16 x i8> %89)
+  %91 = select <16 x i1> %.not.i, <16 x i8> %90, <16 x i8> %89
   %92 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %91, <16 x i8> %89)
   %93 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %92, <16 x i8> %89)
   %94 = select <16 x i1> %82, <16 x i8> %93, <16 x i8> zeroinitializer
@@ -2068,8 +2068,8 @@ define internal void @HFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, 
   %209 = xor <16 x i8> %181, splat (i8 -128)
   %210 = xor <16 x i8> %96, splat (i8 -128)
   %211 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %209, <16 x i8> %210)
-  %212 = select <16 x i1> %.not.i, <16 x i8> %208, <16 x i8> zeroinitializer
-  %213 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %212, <16 x i8> %211)
+  %212 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %208, <16 x i8> %211)
+  %213 = select <16 x i1> %.not.i, <16 x i8> %212, <16 x i8> %211
   %214 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %213, <16 x i8> %211)
   %215 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %214, <16 x i8> %211)
   %216 = select <16 x i1> %204, <16 x i8> %215, <16 x i8> zeroinitializer
@@ -2326,8 +2326,8 @@ define internal void @VFilter8i_SSE2(ptr nocapture noundef %0, ptr nocapture nou
   %119 = xor <16 x i8> %75, splat (i8 -128)
   %120 = xor <16 x i8> %35, splat (i8 -128)
   %121 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %119, <16 x i8> %120)
-  %122 = select <16 x i1> %.not.i, <16 x i8> %118, <16 x i8> zeroinitializer
-  %123 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %122, <16 x i8> %121)
+  %122 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %118, <16 x i8> %121)
+  %123 = select <16 x i1> %.not.i, <16 x i8> %122, <16 x i8> %121
   %124 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %123, <16 x i8> %121)
   %125 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %124, <16 x i8> %121)
   %126 = select <16 x i1> %111, <16 x i8> %125, <16 x i8> zeroinitializer
@@ -2626,8 +2626,8 @@ define internal void @HFilter8i_SSE2(ptr nocapture noundef %0, ptr nocapture nou
   %205 = xor <16 x i8> %161, splat (i8 -128)
   %206 = xor <16 x i8> %82, splat (i8 -128)
   %207 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %205, <16 x i8> %206)
-  %208 = select <16 x i1> %.not.i, <16 x i8> %204, <16 x i8> zeroinitializer
-  %209 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %208, <16 x i8> %207)
+  %208 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %204, <16 x i8> %207)
+  %209 = select <16 x i1> %.not.i, <16 x i8> %208, <16 x i8> %207
   %210 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %209, <16 x i8> %207)
   %211 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %210, <16 x i8> %207)
   %212 = select <16 x i1> %197, <16 x i8> %211, <16 x i8> zeroinitializer

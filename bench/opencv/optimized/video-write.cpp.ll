@@ -334,28 +334,28 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   %138 = load i8, ptr %137, align 1
   %switch.selectcmp = icmp eq i8 %138, 71
   %switch.selectcmp48 = icmp eq i8 %138, 66
-  %139 = select i1 %switch.selectcmp, i64 1, i64 2
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  %140 = getelementptr inbounds i8, ptr %14, i64 16
-  %141 = getelementptr inbounds i8, ptr %14, i64 20
-  %142 = getelementptr inbounds i8, ptr %14, i64 8
-  %143 = getelementptr inbounds i8, ptr %15, i64 8
-  %144 = getelementptr inbounds i8, ptr %15, i64 16
+  %139 = getelementptr inbounds i8, ptr %14, i64 16
+  %140 = getelementptr inbounds i8, ptr %14, i64 20
+  %141 = getelementptr inbounds i8, ptr %14, i64 8
+  %142 = getelementptr inbounds i8, ptr %15, i64 8
+  %143 = getelementptr inbounds i8, ptr %15, i64 16
   %.sroa.5.0.insert.ext = zext i32 %87 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %86 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
-  %145 = getelementptr inbounds i8, ptr %16, i64 208
-  %146 = getelementptr inbounds i8, ptr %16, i64 112
-  %147 = getelementptr inbounds i8, ptr %16, i64 16
-  %148 = getelementptr inbounds i8, ptr %17, i64 16
-  %149 = getelementptr inbounds i8, ptr %17, i64 20
-  %150 = getelementptr inbounds i8, ptr %17, i64 8
-  %151 = getelementptr inbounds i8, ptr %18, i64 8
-  %152 = getelementptr inbounds i8, ptr %18, i64 16
-  %153 = select i1 %switch.selectcmp48, i64 0, i64 %139
+  %144 = getelementptr inbounds i8, ptr %16, i64 208
+  %145 = getelementptr inbounds i8, ptr %16, i64 112
+  %146 = getelementptr inbounds i8, ptr %16, i64 16
+  %147 = getelementptr inbounds i8, ptr %17, i64 16
+  %148 = getelementptr inbounds i8, ptr %17, i64 20
+  %149 = getelementptr inbounds i8, ptr %17, i64 8
+  %150 = getelementptr inbounds i8, ptr %18, i64 8
+  %151 = getelementptr inbounds i8, ptr %18, i64 16
+  %152 = select i1 %switch.selectcmp, i64 1, i64 2
+  %153 = select i1 %switch.selectcmp48, i64 0, i64 %152
   br label %154
 
 154:                                              ; preds = %177, %136
@@ -385,13 +385,13 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %.loopexit.split-lp
 
 159:                                              ; preds = %158
-  store i32 0, ptr %140, align 8
-  store i32 0, ptr %141, align 4
+  store i32 0, ptr %139, align 8
+  store i32 0, ptr %140, align 4
   store i32 16842752, ptr %14, align 8
-  store ptr %11, ptr %142, align 8
-  store i64 0, ptr %144, align 8
+  store ptr %11, ptr %141, align 8
+  store i64 0, ptr %143, align 8
   store i32 33882112, ptr %15, align 8
-  store ptr %13, ptr %143, align 8
+  store ptr %13, ptr %142, align 8
   invoke void @_ZN2cv5splitERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %.preheader unwind label %171
 
@@ -418,9 +418,9 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %_ZN2cv3MataSERKNS_7MatExprE.exit unwind label %173
 
 _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %164
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %144) #8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %145) #8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %146) #8
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %147) #8
   br label %175
 
 171:                                              ; preds = %159
@@ -440,13 +440,13 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %164
   br i1 %exitcond.not, label %176, label %.preheader, !llvm.loop !5
 
 176:                                              ; preds = %175
-  store i32 0, ptr %148, align 8
-  store i32 0, ptr %149, align 4
+  store i32 0, ptr %147, align 8
+  store i32 0, ptr %148, align 4
   store i32 17104896, ptr %17, align 8
-  store ptr %13, ptr %150, align 8
-  store i64 0, ptr %152, align 8
+  store ptr %13, ptr %149, align 8
+  store i64 0, ptr %151, align 8
   store i32 33619968, ptr %18, align 8
-  store ptr %12, ptr %151, align 8
+  store ptr %12, ptr %150, align 8
   invoke void @_ZN2cv5mergeERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %177 unwind label %179
 

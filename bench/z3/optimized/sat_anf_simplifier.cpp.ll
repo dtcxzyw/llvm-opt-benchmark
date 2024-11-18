@@ -9035,8 +9035,8 @@ entry:
   %b.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.3.0.extract.shift.i.i.i to i32
   %cmp.i.i.i.i = icmp ugt i32 %b.sroa.0.0.extract.trunc.i.i.i, %b.sroa.3.0.extract.trunc.i.i.i
   %retval.sroa.3.0.i.i.i.i = tail call i32 @llvm.umax.i32(i32 %b.sroa.0.0.extract.trunc.i.i.i, i32 %b.sroa.3.0.extract.trunc.i.i.i)
-  %retval.sroa.0.0.i.i.i.i = select i1 %cmp.i.i.i.i, i64 %b.sroa.3.0.extract.shift.i.i.i, i64 %__args.val
-  %ref.tmp.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.i.i.i.i to i32
+  %retval.sroa.0.0.insert.ext.i.i.i.i = select i1 %cmp.i.i.i.i, i64 %b.sroa.3.0.extract.shift.i.i.i, i64 %__args.val
+  %ref.tmp.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.insert.ext.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i = shl i32 %retval.sroa.3.0.i.i.i.i, 1
   %add.i.i.i.i.i.i.i = add i32 %mul.i.i.i.i.i.i.i, %ref.tmp.sroa.0.0.extract.trunc.i.i.i
   %sub.i.i.i.i.i = add i32 %call.val.val1, -1

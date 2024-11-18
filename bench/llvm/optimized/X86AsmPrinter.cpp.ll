@@ -587,8 +587,8 @@ _ZNK4llvm5Value11getMetadataEj.exit:              ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %91 = call noundef zeroext i1 @_ZN4llvm18getAsSignedIntegerENS_9StringRefEjRx(ptr %89, i64 %90, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   %92 = load i64, ptr %4, align 8
-  %93 = add nsw i64 %92, 5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %93 = add nsw i64 %92, 5
   %94 = select i1 %91, i64 5, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 340
   %.sroa.0.0.copyload.i3.i26 = load i8, ptr %95, align 4

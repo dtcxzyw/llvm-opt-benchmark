@@ -7438,11 +7438,11 @@ if.else.i.i.i:                                    ; preds = %if.then6.i
   %notmask.i19.i.i.i = shl nsw i64 -1, %sub.i.i.i
   %sub.i20.i.i.i = xor i64 %notmask.i19.i.i.i, -1
   %shl4.i21.i.i.i = shl i64 %sub.i20.i.i.i, %rem.i.i.i.i
-  %15 = xor i64 %shl4.i21.i.i.i, -1
   %sub4.i.i.i = sub nsw i64 %div.i1.i, %sub.i.i.i
   %rem.i.i.i = and i64 %sub4.i.i.i, 63
   %notmask.i28.i.i.i = shl nsw i64 -1, %rem.i.i.i
   %arrayidx.i.i = getelementptr i64, ptr %13, i64 %div1.i.i32.i
+  %15 = xor i64 %shl4.i21.i.i.i, -1
   %not.i.i = select i1 %cmp.i15.i.i.i, i64 0, i64 %15
   %16 = atomicrmw and ptr %arrayidx.i.i, i64 %not.i.i acq_rel, align 8
   %field.011.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 8
@@ -21180,14 +21180,14 @@ _mi_stat_decrease.exit:                           ; preds = %while.end, %if.then
 if.end.i.i15:                                     ; preds = %_mi_stat_decrease.exit
   %div4.i.i.i = lshr i64 %25, 25
   %rem.i.i.i = and i64 %div4.i.i.i, 63
-  %26 = shl nuw i64 1, %rem.i.i.i
   %arrayidx.i.i16 = getelementptr [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i.i.i
-  %27 = load atomic i64, ptr %arrayidx.i.i16 monotonic, align 8
-  %28 = xor i64 %26, -1
+  %26 = load atomic i64, ptr %arrayidx.i.i16 monotonic, align 8
+  %27 = shl nuw i64 1, %rem.i.i.i
+  %28 = xor i64 %27, -1
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %if.end.i.i15
-  %mask.0.i.i = phi i64 [ %27, %if.end.i.i15 ], [ %31, %do.body.i.i ]
+  %mask.0.i.i = phi i64 [ %26, %if.end.i.i15 ], [ %31, %do.body.i.i ]
   %and.i.i = and i64 %mask.0.i.i, %28
   %29 = cmpxchg weak ptr %arrayidx.i.i16, i64 %mask.0.i.i, i64 %and.i.i release monotonic, align 8
   %30 = extractvalue { i64, i1 } %29, 1
@@ -23432,22 +23432,22 @@ define hidden void @_mi_segment_map_allocated_at(ptr noundef %segment) local_unn
 entry:
   %cmp.i = icmp ugt ptr %segment, inttoptr (i64 43980465111039 to ptr)
   %0 = ptrtoint ptr %segment to i64
-  %div4.i = lshr i64 %0, 25
-  %rem.i = and i64 %div4.i, 63
   %div15.i = lshr i64 %0, 31
-  %1 = shl nuw i64 1, %rem.i
   %cmp4 = icmp eq i64 %div15.i, 20480
   %cmp = or i1 %cmp.i, %cmp4
   br i1 %cmp, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry
+  %div4.i = lshr i64 %0, 25
+  %rem.i = and i64 %div4.i, 63
   %arrayidx = getelementptr [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i
-  %2 = load atomic i64, ptr %arrayidx monotonic, align 8
+  %1 = load atomic i64, ptr %arrayidx monotonic, align 8
+  %2 = shl nuw i64 1, %rem.i
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.end
-  %mask.0 = phi i64 [ %2, %if.end ], [ %5, %do.body ]
-  %or = or i64 %mask.0, %1
+  %mask.0 = phi i64 [ %1, %if.end ], [ %5, %do.body ]
+  %or = or i64 %mask.0, %2
   %3 = cmpxchg weak ptr %arrayidx, i64 %mask.0, i64 %or release monotonic, align 8
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
@@ -23470,14 +23470,14 @@ entry:
 if.end:                                           ; preds = %entry
   %div4.i = lshr i64 %0, 25
   %rem.i = and i64 %div4.i, 63
-  %1 = shl nuw i64 1, %rem.i
   %arrayidx = getelementptr [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i
-  %2 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %3 = xor i64 %1, -1
+  %1 = load atomic i64, ptr %arrayidx monotonic, align 8
+  %2 = shl nuw i64 1, %rem.i
+  %3 = xor i64 %2, -1
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.end
-  %mask.0 = phi i64 [ %2, %if.end ], [ %6, %do.body ]
+  %mask.0 = phi i64 [ %1, %if.end ], [ %6, %do.body ]
   %and = and i64 %mask.0, %3
   %4 = cmpxchg weak ptr %arrayidx, i64 %mask.0, i64 %and release monotonic, align 8
   %5 = extractvalue { i64, i1 } %4, 1
@@ -28990,11 +28990,11 @@ if.else.i.i22:                                    ; preds = %if.end
   %notmask.i19.i.i = shl nsw i64 -1, %sub.i.i23
   %sub.i20.i.i = xor i64 %notmask.i19.i.i, -1
   %shl4.i21.i.i = shl i64 %sub.i20.i.i, %rem.i.i.i.i
-  %22 = xor i64 %shl4.i21.i.i, -1
   %sub4.i.i = sub i64 %blocks, %sub.i.i23
   %rem.i.i = and i64 %sub4.i.i, 63
   %notmask.i28.i.i = shl nsw i64 -1, %rem.i.i
   %arrayidx.i = getelementptr i64, ptr %19, i64 %div1.i.i.i
+  %22 = xor i64 %shl4.i21.i.i, -1
   %not.i = select i1 %cmp.i15.i.i, i64 0, i64 %22
   %23 = atomicrmw and ptr %arrayidx.i, i64 %not.i acq_rel, align 8
   %field.011.i = getelementptr i8, ptr %arrayidx.i, i64 8
@@ -30853,22 +30853,22 @@ land.end29.i:                                     ; preds = %land.rhs26.i, %if.e
   tail call fastcc void @mi_segments_track_size(i64 noundef %mul4.i, ptr noundef %tld)
   %cmp.i.i30.i = icmp ugt ptr %call7.i, inttoptr (i64 43980465111039 to ptr)
   %16 = ptrtoint ptr %call7.i to i64
-  %div4.i.i.i = lshr i64 %16, 25
-  %rem.i.i.i = and i64 %div4.i.i.i, 63
   %div15.i.i.i = lshr i64 %16, 31
-  %17 = shl nuw i64 1, %rem.i.i.i
   %cmp4.i.i = icmp eq i64 %div15.i.i.i, 20480
   %cmp.i.i31 = or i1 %cmp.i.i30.i, %cmp4.i.i
   br i1 %cmp.i.i31, label %if.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.end29.i
+  %div4.i.i.i = lshr i64 %16, 25
+  %rem.i.i.i = and i64 %div4.i.i.i, 63
   %arrayidx.i31.i = getelementptr [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i.i.i
-  %18 = load atomic i64, ptr %arrayidx.i31.i monotonic, align 8
+  %17 = load atomic i64, ptr %arrayidx.i31.i monotonic, align 8
+  %18 = shl nuw i64 1, %rem.i.i.i
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %if.end.i.i
-  %mask.0.i.i = phi i64 [ %18, %if.end.i.i ], [ %21, %do.body.i.i ]
-  %or.i.i = or i64 %mask.0.i.i, %17
+  %mask.0.i.i = phi i64 [ %17, %if.end.i.i ], [ %21, %do.body.i.i ]
+  %or.i.i = or i64 %mask.0.i.i, %18
   %19 = cmpxchg weak ptr %arrayidx.i31.i, i64 %mask.0.i.i, i64 %or.i.i release monotonic, align 8
   %20 = extractvalue { i64, i1 } %19, 1
   %21 = extractvalue { i64, i1 } %19, 0

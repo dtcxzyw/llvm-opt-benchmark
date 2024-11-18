@@ -3999,9 +3999,9 @@ declare hidden i32 @luaO_ceillog2(i32 noundef) local_unnamed_addr #6
 define hidden void @luaK_setlist(ptr nocapture noundef %fs, i32 noundef %base, i32 noundef %nelems, i32 noundef %tostore) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i32 %tostore, -1
-  %0 = shl i32 %tostore, 16
   %cmp1 = icmp slt i32 %nelems, 256
   %shl1.i = shl i32 %base, 7
+  %0 = shl i32 %tostore, 16
   %shl2.i = select i1 %cmp, i32 0, i32 %0
   %shl4.i = shl i32 %nelems, 24
   %or.i = or i32 %shl1.i, %shl4.i

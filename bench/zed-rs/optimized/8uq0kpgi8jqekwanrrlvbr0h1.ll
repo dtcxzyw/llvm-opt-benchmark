@@ -53775,8 +53775,8 @@ _ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit: ; pr
   ]
 
 351:                                              ; preds = %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$16select_row_bound28_$u7b$$u7b$closure$u7d$$u7d$17h0ef6139c618935dcE.exit", %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$16select_row_bound28_$u7b$$u7b$closure$u7d$$u7d$17h0ef6139c618935dcE.exit.thread"
-  %.sroa.7.095118 = phi i64 [ %311, %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$16select_row_bound28_$u7b$$u7b$closure$u7d$$u7d$17h0ef6139c618935dcE.exit.thread" ], [ %.sink1.i.i, %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$16select_row_bound28_$u7b$$u7b$closure$u7d$$u7d$17h0ef6139c618935dcE.exit" ]
-  %352 = inttoptr i64 %.sroa.7.095118 to ptr
+  %.sroa.7.095117 = phi i64 [ %311, %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$16select_row_bound28_$u7b$$u7b$closure$u7d$$u7d$17h0ef6139c618935dcE.exit.thread" ], [ %.sink1.i.i, %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$16select_row_bound28_$u7b$$u7b$closure$u7d$$u7d$17h0ef6139c618935dcE.exit" ]
+  %352 = inttoptr i64 %.sroa.7.095117 to ptr
   br label %391
 
 353:                                              ; preds = %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$16select_row_bound28_$u7b$$u7b$closure$u7d$$u7d$17h0ef6139c618935dcE.exit"
@@ -53867,7 +53867,7 @@ _ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit: ; pr
   br i1 %389, label %382, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h904f667976e8dd6aE.exit"
 
 _ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.thread: ; preds = %_ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit, %235, %253, %_ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.thread99, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h904f667976e8dd6aE.exit", %384
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3132, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h904f667976e8dd6aE.exit" ], [ null, %384 ], [ null, %_ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.thread99 ], [ %256, %_ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit ], [ %.sroa.8.2.in.i, %235 ], [ %.sroa.8.0.in.i, %253 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.3131, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h904f667976e8dd6aE.exit" ], [ null, %384 ], [ null, %_ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.thread99 ], [ %256, %_ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit ], [ %.sroa.8.2.in.i, %235 ], [ %.sroa.8.0.in.i, %253 ]
   ret ptr %.sroa.0.2
 
 390:                                              ; preds = %401, %397, %.noexc85
@@ -53918,7 +53918,7 @@ _ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.threa
   unreachable
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h904f667976e8dd6aE.exit": ; preds = %385, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6c96ef5f5dd7ca08E.exit.i", %407, %390
-  %.sroa.0.3132 = phi ptr [ %.sroa.0.1, %390 ], [ %288, %407 ], [ %288, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6c96ef5f5dd7ca08E.exit.i" ], [ %388, %385 ]
+  %.sroa.0.3131 = phi ptr [ %.sroa.0.1, %390 ], [ %288, %407 ], [ %288, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6c96ef5f5dd7ca08E.exit.i" ], [ %388, %385 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   br label %_ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.thread
 

@@ -62831,8 +62831,8 @@ _ZN5Catch10ColourImpl11ColourGuardD2Ev.exit:      ; preds = %14
 
 .noexc:                                           ; preds = %26
   %29 = icmp ult i64 %27, 20
-  %30 = add nuw nsw i64 %27, 4
   store i64 79, ptr %23, align 8
+  %30 = add nuw nsw i64 %27, 4
   %31 = select i1 %29, i64 %30, i64 2
   store i64 %31, ptr %24, align 8
   store i64 2, ptr %25, align 8

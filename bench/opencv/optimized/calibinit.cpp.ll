@@ -5597,8 +5597,8 @@ _ZNSt6vectorIPN2cv14ChessBoardQuadESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN
   %44 = load i32, ptr %22, align 4
   %45 = mul nsw i32 %44, %43
   %46 = sub nsw i32 0, %40
-  %47 = select i1 %42, i32 %45, i32 %46
-  %.sroa.speculated53 = call i32 @llvm.smin.i32(i32 %45, i32 %47)
+  %47 = call i32 @llvm.smin.i32(i32 %45, i32 %46)
+  %.sroa.speculated53 = select i1 %42, i32 %45, i32 %47
   %48 = icmp sgt i32 %.sroa.speculated53, 0
   br i1 %48, label %.lr.ph, label %._crit_edge
 

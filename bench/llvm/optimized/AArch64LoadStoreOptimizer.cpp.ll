@@ -5541,10 +5541,10 @@ _ZL10isTagStoreRKN4llvm12MachineInstrE.exit.i.i:  ; preds = %1619
   %spec.select.i.i.i173 = add i32 %.0108.i.i, %1625
   %1626 = call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isPairedLdStERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0295.0439) #19
   %brmerge.i.i.i = or i1 %1624, %1626
-  %1627 = zext i32 %spec.select.i.i.i173 to i64
-  %1628 = load ptr, ptr %1622, align 8
-  %1629 = select i1 %brmerge.i.i.i, i64 %1627, i64 0
-  %1630 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %1628, i64 %1629, i32 1
+  %1627 = load ptr, ptr %1622, align 8
+  %1628 = zext i32 %spec.select.i.i.i173 to i64
+  %1629 = select i1 %brmerge.i.i.i, i64 %1628, i64 0
+  %1630 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %1627, i64 %1629, i32 1
   %1631 = load i32, ptr %1630, align 4
   %1632 = icmp eq i32 %1631, %1612
   br i1 %1632, label %_ZN12_GLOBAL__N_119AArch64LoadStoreOpt30findMatchingUpdateInsnBackwardEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEj.exit.i, label %1633
@@ -12803,10 +12803,10 @@ define internal fastcc ptr @_ZN12_GLOBAL__N_119AArch64LoadStoreOpt29findMatching
   %spec.select.i = add i32 %.0122, %28
   %29 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isPairedLdStERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %1) #19
   %brmerge.i = or i1 %27, %29
-  %30 = zext i32 %spec.select.i to i64
-  %31 = load ptr, ptr %24, align 8
-  %32 = select i1 %brmerge.i, i64 %30, i64 0
-  %33 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %31, i64 %32, i32 1
+  %30 = load ptr, ptr %24, align 8
+  %31 = zext i32 %spec.select.i to i64
+  %32 = select i1 %brmerge.i, i64 %31, i64 0
+  %33 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %30, i64 %32, i32 1
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, %10
   br i1 %35, label %_ZNK4llvm14MCRegisterInfo13isSubRegisterENS_10MCRegisterES1_.exit, label %36

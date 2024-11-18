@@ -2626,7 +2626,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @i8042_controller_resume(i1
 
 5:                                                ; preds = %1
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55) #10
-  br label %89
+  br label %88
 
 7:                                                ; preds = %1
   %8 = load i32, ptr @i8042_reset, align 4
@@ -2641,159 +2641,158 @@ define internal fastcc noundef range(i32 -19, 1) i32 @i8042_controller_resume(i1
 10:                                               ; preds = %9, %7
   %11 = tail call fastcc i32 @i8042_controller_selftest(), !range !17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %89
+  br i1 %12, label %13, label %88
 
 13:                                               ; preds = %10, %9, %7
   %14 = load i8, ptr @i8042_initial_ctr, align 1
   %15 = load i8, ptr @i8042_direct, align 1, !range !5, !noundef !6
   %16 = icmp eq i8 %15, 0
-  %17 = and i8 %14, -116
-  %spec.select = select i1 %16, i8 %14, i8 %17
-  %18 = and i8 %spec.select, -52
-  %19 = or disjoint i8 %18, 48
-  store i8 %19, ptr @i8042_ctr, align 1
-  %20 = load i1, ptr @i8042_present, align 1
-  br i1 %20, label %21, label %25
+  %.v = select i1 %16, i8 -52, i8 -116
+  %17 = and i8 %14, %.v
+  %18 = or disjoint i8 %17, 48
+  store i8 %18, ptr @i8042_ctr, align 1
+  %19 = load i1, ptr @i8042_present, align 1
+  br i1 %19, label %20, label %24
 
-21:                                               ; preds = %13
-  %22 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %23 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %22) #9
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %32, label %25
+20:                                               ; preds = %13
+  %21 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
+  %22 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %21) #9
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %31, label %24
 
-25:                                               ; preds = %21, %13
-  %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52) #10
+24:                                               ; preds = %20, %13
+  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52) #10
   tail call void @msleep(i32 noundef 50) #9
-  %27 = load i1, ptr @i8042_present, align 1
-  br i1 %27, label %i8042_command.exit, label %i8042_command.exit.thread
+  %26 = load i1, ptr @i8042_present, align 1
+  br i1 %26, label %i8042_command.exit, label %i8042_command.exit.thread
 
-i8042_command.exit:                               ; preds = %25
-  %28 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %29 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %28) #9
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %32, label %i8042_command.exit.thread
+i8042_command.exit:                               ; preds = %24
+  %27 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
+  %28 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %27) #9
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %31, label %i8042_command.exit.thread
 
-i8042_command.exit.thread:                        ; preds = %25, %i8042_command.exit
-  %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.53) #10
-  br label %89
+i8042_command.exit.thread:                        ; preds = %24, %i8042_command.exit
+  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.53) #10
+  br label %88
 
-32:                                               ; preds = %i8042_command.exit, %21
-  %33 = load i8, ptr @i8042_dritek, align 1, !range !5, !noundef !6
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %43, label %35
+31:                                               ; preds = %i8042_command.exit, %20
+  %32 = load i8, ptr @i8042_dritek, align 1, !range !5, !noundef !6
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %42, label %34
 
-35:                                               ; preds = %32
+34:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #9
   store i8 -112, ptr %2, align 1
-  %36 = load i1, ptr @i8042_present, align 1
-  br i1 %36, label %37, label %.critedge
+  %35 = load i1, ptr @i8042_present, align 1
+  br i1 %35, label %36, label %.critedge
 
-37:                                               ; preds = %35
-  %38 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %39 = call fastcc i32 @__i8042_command(ptr noundef nonnull %2, i32 noundef 4185)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %38) #9
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %42, label %.critedge
+36:                                               ; preds = %34
+  %37 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
+  %38 = call fastcc i32 @__i8042_command(ptr noundef nonnull %2, i32 noundef 4185)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %37) #9
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %41, label %.critedge
 
-.critedge:                                        ; preds = %35, %37
-  %41 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef -1) #10
+.critedge:                                        ; preds = %34, %36
+  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef -1) #10
+  br label %41
+
+41:                                               ; preds = %.critedge, %36
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #9
   br label %42
 
-42:                                               ; preds = %.critedge, %37
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #9
-  br label %43
+42:                                               ; preds = %41, %31
+  %43 = load i1, ptr @i8042_mux_present, align 1
+  br i1 %43, label %44, label %50
 
-43:                                               ; preds = %42, %32
-  %44 = load i1, ptr @i8042_mux_present, align 1
-  br i1 %44, label %45, label %51
+44:                                               ; preds = %42
+  %45 = tail call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext true, ptr noundef null), !range !19
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %66
 
-45:                                               ; preds = %43
-  %46 = tail call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext true, ptr noundef null), !range !19
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %67
+47:                                               ; preds = %44
+  %48 = tail call i32 @i8042_enable_mux_ports(), !range !15
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %69, label %66
 
-48:                                               ; preds = %45
-  %49 = tail call i32 @i8042_enable_mux_ports(), !range !15
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %70, label %67
+50:                                               ; preds = %42
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 16), align 16
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %69, label %53
 
-51:                                               ; preds = %43
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 16), align 16
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %70, label %54
+53:                                               ; preds = %50
+  %54 = load i8, ptr @i8042_ctr, align 1
+  %55 = and i8 %54, -35
+  %56 = or disjoint i8 %55, 2
+  store i8 %56, ptr @i8042_ctr, align 1
+  %57 = load i1, ptr @i8042_present, align 1
+  br i1 %57, label %58, label %63
 
-54:                                               ; preds = %51
-  %55 = load i8, ptr @i8042_ctr, align 1
-  %56 = and i8 %55, -35
-  %57 = or disjoint i8 %56, 2
-  store i8 %57, ptr @i8042_ctr, align 1
-  %58 = load i1, ptr @i8042_present, align 1
-  br i1 %58, label %59, label %64
+58:                                               ; preds = %53
+  %59 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
+  %60 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %59) #9
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %69, label %._crit_edge
 
-59:                                               ; preds = %54
-  %60 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %61 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %60) #9
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %70, label %._crit_edge
-
-._crit_edge:                                      ; preds = %59
+._crit_edge:                                      ; preds = %58
   %.pre = load i8, ptr @i8042_ctr, align 1
-  %63 = and i8 %.pre, -35
-  br label %64
+  %62 = and i8 %.pre, -35
+  br label %63
 
-64:                                               ; preds = %._crit_edge, %54
-  %65 = phi i8 [ %63, %._crit_edge ], [ %56, %54 ]
-  %66 = or disjoint i8 %65, 32
-  store i8 %66, ptr @i8042_ctr, align 1
-  br label %67
+63:                                               ; preds = %._crit_edge, %53
+  %64 = phi i8 [ %62, %._crit_edge ], [ %55, %53 ]
+  %65 = or disjoint i8 %64, 32
+  store i8 %65, ptr @i8042_ctr, align 1
+  br label %66
 
-67:                                               ; preds = %64, %48, %45
-  %68 = phi ptr [ @.str.36, %64 ], [ @.str.54, %45 ], [ @.str.54, %48 ]
-  %69 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %68) #10
-  br label %70
+66:                                               ; preds = %63, %47, %44
+  %67 = phi ptr [ @.str.36, %63 ], [ @.str.54, %44 ], [ @.str.54, %47 ]
+  %68 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %67) #10
+  br label %69
 
-70:                                               ; preds = %67, %59, %51, %48
-  %71 = load ptr, ptr @i8042_ports, align 16
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %87, label %73
+69:                                               ; preds = %66, %58, %50, %47
+  %70 = load ptr, ptr @i8042_ports, align 16
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %86, label %72
 
-73:                                               ; preds = %70
-  %74 = load i8, ptr @i8042_ctr, align 1
-  %75 = and i8 %74, -18
-  %76 = or disjoint i8 %75, 1
-  store i8 %76, ptr @i8042_ctr, align 1
-  %77 = load i1, ptr @i8042_present, align 1
-  br i1 %77, label %78, label %83
+72:                                               ; preds = %69
+  %73 = load i8, ptr @i8042_ctr, align 1
+  %74 = and i8 %73, -18
+  %75 = or disjoint i8 %74, 1
+  store i8 %75, ptr @i8042_ctr, align 1
+  %76 = load i1, ptr @i8042_present, align 1
+  br i1 %76, label %77, label %82
 
-78:                                               ; preds = %73
-  %79 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
-  %80 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %79) #9
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %87, label %._crit_edge2
+77:                                               ; preds = %72
+  %78 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #9
+  %79 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %78) #9
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %86, label %._crit_edge2
 
-._crit_edge2:                                     ; preds = %78
+._crit_edge2:                                     ; preds = %77
   %.pre3 = load i8, ptr @i8042_ctr, align 1
-  %82 = and i8 %.pre3, -18
-  br label %83
+  %81 = and i8 %.pre3, -18
+  br label %82
 
-83:                                               ; preds = %._crit_edge2, %73
-  %84 = phi i8 [ %82, %._crit_edge2 ], [ %75, %73 ]
-  %85 = or disjoint i8 %84, 16
-  store i8 %85, ptr @i8042_ctr, align 1
-  %86 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48) #10
-  br label %87
+82:                                               ; preds = %._crit_edge2, %72
+  %83 = phi i8 [ %81, %._crit_edge2 ], [ %74, %72 ]
+  %84 = or disjoint i8 %83, 16
+  store i8 %84, ptr @i8042_ctr, align 1
+  %85 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48) #10
+  br label %86
 
-87:                                               ; preds = %83, %78, %70
-  %88 = tail call i32 @i8042_interrupt(i32 noundef 0, ptr poison), !range !33
-  br label %89
+86:                                               ; preds = %82, %77, %69
+  %87 = tail call i32 @i8042_interrupt(i32 noundef 0, ptr poison), !range !33
+  br label %88
 
-89:                                               ; preds = %5, %87, %i8042_command.exit.thread, %10
-  %90 = phi i32 [ -5, %i8042_command.exit.thread ], [ 0, %87 ], [ -19, %5 ], [ %11, %10 ]
-  ret i32 %90
+88:                                               ; preds = %5, %86, %i8042_command.exit.thread, %10
+  %89 = phi i32 [ -5, %i8042_command.exit.thread ], [ 0, %86 ], [ -19, %5 ], [ %11, %10 ]
+  ret i32 %89
 }
 
 ; Function Attrs: null_pointer_is_valid

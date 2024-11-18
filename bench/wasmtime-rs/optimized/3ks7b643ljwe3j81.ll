@@ -4948,7 +4948,7 @@ define void @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..fi
   %.sroa.9.0.ph9 = select i1 %switch16.i.not.i.i, i64 %35, i64 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !521
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !521
-  br label %50
+  br label %51
 
 .noexc7.i:                                        ; preds = %29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !529
@@ -4986,7 +4986,7 @@ define void @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..fi
   %.sroa.9.0.ph = phi ptr [ %28, %26 ], [ %20, %.noexc3.i ], [ %19, %16 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !521
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !521
-  br label %52
+  br label %53
 
 "_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit": ; preds = %36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !529
@@ -4996,28 +4996,28 @@ define void @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..fi
   %46 = load ptr, ptr %45, align 8, !noalias !529
   %47 = ptrtoint ptr %46 to i64
   %48 = sub i64 %.sroa.827.0.copyload.i.i, %47
-  %.sink.i.i = select i1 %trunc44.i.i, i64 %47, i64 %48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !529
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !521
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !521
-  %49 = inttoptr i64 %.sink.i.i to ptr
-  br i1 %trunc44.i.i, label %52, label %50
+  %49 = inttoptr i64 %48 to ptr
+  %50 = select i1 %trunc44.i.i, ptr %46, ptr %49
+  br i1 %trunc44.i.i, label %53, label %51
 
-50:                                               ; preds = %.noexc5.i, %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit"
+51:                                               ; preds = %.noexc5.i, %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit"
   %.sroa.9.015 = phi i64 [ %.sroa.9.0.ph9, %.noexc5.i ], [ %48, %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit" ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.9.015, ptr %51, align 8
-  br label %56
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.9.015, ptr %52, align 8
+  br label %57
 
-52:                                               ; preds = %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit.thread", %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit"
-  %53 = phi ptr [ %.sroa.9.0.ph, %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit.thread" ], [ %49, %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit" ]
-  %54 = call noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_15error126_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Error$GT$4from17h6b8ab7f5c776d3c7E"(ptr noundef nonnull %53)
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %54, ptr %55, align 8
-  br label %56
+53:                                               ; preds = %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit.thread", %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit"
+  %54 = phi ptr [ %.sroa.9.0.ph, %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit.thread" ], [ %50, %"_ZN87_$LT$cap_std..fs..file..File$u20$as$u20$system_interface..io..read_ready..ReadReady$GT$15num_ready_bytes17h73f10d9a6bda7430E.exit" ]
+  %55 = call noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_15error126_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Error$GT$4from17h6b8ab7f5c776d3c7E"(ptr noundef nonnull %54)
+  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %55, ptr %56, align 8
+  br label %57
 
-56:                                               ; preds = %52, %50
-  %storemerge = phi i64 [ 1, %52 ], [ 0, %50 ]
+57:                                               ; preds = %53, %51
+  %storemerge = phi i64 [ 1, %53 ], [ 0, %51 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

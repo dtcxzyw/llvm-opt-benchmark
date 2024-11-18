@@ -29141,25 +29141,25 @@ _ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_deta
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.01108.01325, i64 64
   %114 = load i8, ptr %113, align 8
   %.not.i = icmp eq i8 %114, 0
-  %115 = ptrtoint ptr %.sroa.01108.01325 to i64
-  br i1 %.not.i, label %116, label %124
+  br i1 %.not.i, label %115, label %124
 
-116:                                              ; preds = %.lr.ph
-  %117 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %41) #25
-  %118 = add i64 %117, 1
-  %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(64) %41) #25
-  %.not.i.i.i.i = icmp ugt i64 %118, %119
-  br i1 %.not.i.i.i.i, label %120, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_17DbgVariableRecordELb1EE9push_backES2_.exit.i
+115:                                              ; preds = %.lr.ph
+  %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %41) #25
+  %117 = add i64 %116, 1
+  %118 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(64) %41) #25
+  %.not.i.i.i.i = icmp ugt i64 %117, %118
+  br i1 %.not.i.i.i.i, label %119, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_17DbgVariableRecordELb1EE9push_backES2_.exit.i
 
-120:                                              ; preds = %116
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull %50, i64 noundef %118, i64 noundef 8) #25
+119:                                              ; preds = %115
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull %50, i64 noundef %117, i64 noundef 8) #25
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_17DbgVariableRecordELb1EE9push_backES2_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_17DbgVariableRecordELb1EE9push_backES2_.exit.i: ; preds = %120, %116
-  %121 = load ptr, ptr %41, align 8
-  %122 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %41) #25
-  %123 = getelementptr inbounds ptr, ptr %121, i64 %122
-  store i64 %115, ptr %123, align 1
+_ZN4llvm23SmallVectorTemplateBaseIPNS_17DbgVariableRecordELb1EE9push_backES2_.exit.i: ; preds = %119, %115
+  %120 = load ptr, ptr %41, align 8
+  %121 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %41) #25
+  %122 = getelementptr inbounds ptr, ptr %120, i64 %121
+  %123 = ptrtoint ptr %.sroa.01108.01325 to i64
+  store i64 %123, ptr %122, align 1
   br label %"_ZZL32buildOverlapMapAndRecordDeclaresRN4llvm8FunctionEP22FunctionVarLocsBuilderRKNS_8DenseSetISt4pairIPKNS_15DILocalVariableEPKNS_10DILocationEENS_12DenseMapInfoISC_vEEEERNS_8DenseMapIPKNS_11InstructionENS_11SmallVectorIS5_INS_10VariableIDENS_2at14AssignmentInfoEELj1EEENSD_ISL_vEENS_6detail12DenseMapPairISL_SR_EEEERjENK3$_0clINS_17DbgVariableRecordENSM_IPS11_Lj6EEEEEDaPT_RT0_.exit.sink.split"
 
 124:                                              ; preds = %.lr.ph
@@ -30347,25 +30347,25 @@ _ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit: ; pr
   %750 = getelementptr inbounds nuw i8, ptr %742, i64 36
   %751 = load i32, ptr %750, align 4
   %.not.i104 = icmp eq i32 %751, 67
-  %752 = ptrtoint ptr %100 to i64
-  br i1 %.not.i104, label %753, label %761
+  br i1 %.not.i104, label %752, label %761
 
-753:                                              ; preds = %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
-  %754 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %40) #25
-  %755 = add i64 %754, 1
-  %756 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(64) %40) #25
-  %.not.i.i.i.i114 = icmp ugt i64 %755, %756
-  br i1 %.not.i.i.i.i114, label %757, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_14DbgDeclareInstELb1EE9push_backES2_.exit.i
+752:                                              ; preds = %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
+  %753 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %40) #25
+  %754 = add i64 %753, 1
+  %755 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(64) %40) #25
+  %.not.i.i.i.i114 = icmp ugt i64 %754, %755
+  br i1 %.not.i.i.i.i114, label %756, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_14DbgDeclareInstELb1EE9push_backES2_.exit.i
 
-757:                                              ; preds = %753
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull %49, i64 noundef %755, i64 noundef 8) #25
+756:                                              ; preds = %752
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull %49, i64 noundef %754, i64 noundef 8) #25
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_14DbgDeclareInstELb1EE9push_backES2_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_14DbgDeclareInstELb1EE9push_backES2_.exit.i: ; preds = %757, %753
-  %758 = load ptr, ptr %40, align 8
-  %759 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %40) #25
-  %760 = getelementptr inbounds ptr, ptr %758, i64 %759
-  store i64 %752, ptr %760, align 1
+_ZN4llvm23SmallVectorTemplateBaseIPNS_14DbgDeclareInstELb1EE9push_backES2_.exit.i: ; preds = %756, %752
+  %757 = load ptr, ptr %40, align 8
+  %758 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %40) #25
+  %759 = getelementptr inbounds ptr, ptr %757, i64 %758
+  %760 = ptrtoint ptr %100 to i64
+  store i64 %760, ptr %759, align 1
   br label %"_ZZL32buildOverlapMapAndRecordDeclaresRN4llvm8FunctionEP22FunctionVarLocsBuilderRKNS_8DenseSetISt4pairIPKNS_15DILocalVariableEPKNS_10DILocationEENS_12DenseMapInfoISC_vEEEERNS_8DenseMapIPKNS_11InstructionENS_11SmallVectorIS5_INS_10VariableIDENS_2at14AssignmentInfoEELj1EEENSD_ISL_vEENS_6detail12DenseMapPairISL_SR_EEEERjENK3$_0clINS_20DbgVariableIntrinsicENSM_IPNS_14DbgDeclareInstELj6EEEEEDaPT_RT0_.exit.sink.split"
 
 761:                                              ; preds = %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit

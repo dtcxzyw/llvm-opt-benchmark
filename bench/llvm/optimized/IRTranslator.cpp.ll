@@ -5889,10 +5889,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator15translateSwitchERKN
   %.not.i.i = icmp eq i64 %.sroa.374.084, 4294967294
   %30 = shl nuw i64 %.sroa.374.084, 1
   %31 = add nuw nsw i64 %30, 3
-  %32 = and i64 %31, 4294967295
-  %33 = load ptr, ptr %24, align 8
-  %34 = select i1 %.not.i.i, i64 1, i64 %32
-  %35 = getelementptr inbounds %"class.llvm::Use", ptr %33, i64 %34
+  %32 = load ptr, ptr %24, align 8
+  %33 = and i64 %31, 4294967295
+  %34 = select i1 %.not.i.i, i64 1, i64 %33
+  %35 = getelementptr inbounds %"class.llvm::Use", ptr %32, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 44
   %38 = load i32, ptr %37, align 4
@@ -5902,7 +5902,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator15translateSwitchERKN
   %42 = load ptr, ptr %41, align 8
   %43 = add nuw nsw i64 %30, 2
   %44 = and i64 %43, 4294967294
-  %45 = getelementptr inbounds %"class.llvm::Use", ptr %33, i64 %44
+  %45 = getelementptr inbounds %"class.llvm::Use", ptr %32, i64 %44
   %46 = load ptr, ptr %45, align 8
   br i1 %.not47, label %53, label %47
 

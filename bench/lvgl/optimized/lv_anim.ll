@@ -1057,24 +1057,24 @@ define i32 @lv_anim_speed_clamped(i32 noundef %0, i32 noundef %1, i32 noundef %2
   %4 = icmp ugt i32 %0, 10000
   %5 = icmp ugt i32 %1, 10000
   %6 = icmp ugt i32 %2, 10000
-  %7 = add i32 %2, 5
-  %8 = trunc i32 %0 to i16
-  %.lhs.trunc = add i16 %8, 5
-  %9 = udiv i16 %.lhs.trunc, 10
-  %.zext = zext nneg i16 %9 to i32
-  %10 = select i1 %4, i32 1023, i32 %.zext
-  %11 = trunc i32 %1 to i16
-  %.lhs.trunc11 = add i16 %11, 5
-  %12 = udiv i16 %.lhs.trunc11, 10
-  %.zext12 = zext nneg i16 %12 to i32
-  %13 = shl nuw nsw i32 %.zext12, 10
-  %14 = udiv i32 %7, 10
-  %15 = shl i32 %14, 20
-  %16 = xor i32 %15, -2147483648
-  %17 = select i1 %6, i32 -1074790400, i32 %16
-  %18 = select i1 %5, i32 1047552, i32 %13
-  %19 = add nuw nsw i32 %18, %10
-  %20 = add i32 %19, %17
+  %7 = trunc i32 %0 to i16
+  %.lhs.trunc = add i16 %7, 5
+  %8 = udiv i16 %.lhs.trunc, 10
+  %.zext = zext nneg i16 %8 to i32
+  %9 = select i1 %4, i32 1023, i32 %.zext
+  %10 = trunc i32 %1 to i16
+  %.lhs.trunc11 = add i16 %10, 5
+  %11 = udiv i16 %.lhs.trunc11, 10
+  %.zext12 = zext nneg i16 %11 to i32
+  %12 = add i32 %2, 5
+  %13 = udiv i32 %12, 10
+  %14 = shl i32 %13, 20
+  %15 = xor i32 %14, -2147483648
+  %16 = select i1 %6, i32 -1074790400, i32 %15
+  %17 = shl nuw nsw i32 %.zext12, 10
+  %18 = select i1 %5, i32 1047552, i32 %17
+  %19 = add nuw nsw i32 %18, %9
+  %20 = add i32 %19, %16
   ret i32 %20
 }
 

@@ -1215,11 +1215,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nocap
   %211 = getelementptr inbounds i8, ptr %10, i64 32
   %212 = call i64 @_copy_to_user(ptr noundef %211, ptr noundef %61, i64 noundef 8) #13
   %213 = icmp eq i64 %212, 0
-  %214 = sext i32 %205 to i64
-  %215 = getelementptr inbounds i8, ptr %4, i64 112
-  %216 = load ptr, ptr %215, align 8
-  call void @kfree(ptr noundef %216) #13
-  %217 = select i1 %213, i64 %214, i64 -14
+  %214 = getelementptr inbounds i8, ptr %4, i64 112
+  %215 = load ptr, ptr %214, align 8
+  call void @kfree(ptr noundef %215) #13
+  %216 = sext i32 %205 to i64
+  %217 = select i1 %213, i64 %216, i64 -14
   br label %.thread
 
 .thread:                                          ; preds = %52, %50, %40, %33, %20, %13, %7, %71, %210

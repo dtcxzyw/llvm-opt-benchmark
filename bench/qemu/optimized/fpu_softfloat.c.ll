@@ -11522,29 +11522,29 @@ if.end3.i:                                        ; preds = %if.then
   %cmp4.i = icmp eq i32 %sub.i, -1
   %shr.i = zext i1 %cmp4.i to i64
   %spec.select.i = lshr i64 %5, %shr.i
-  %6 = add nsw i32 %sub.i, -64
-  %7 = getelementptr inbounds i8, ptr %b, i64 8
-  %8 = load i64, ptr %7, align 8
-  %cmp7.i = icmp ule i64 %8, %spec.select.i
+  %6 = getelementptr inbounds i8, ptr %b, i64 8
+  %7 = load i64, ptr %6, align 8
+  %cmp7.i = icmp ule i64 %7, %spec.select.i
   %conv8.i = zext i1 %cmp7.i to i64
-  %sub11.i = select i1 %cmp7.i, i64 %8, i64 0
+  %sub11.i = select i1 %cmp7.i, i64 %7, i64 0
   %a0.1.i = sub nuw i64 %spec.select.i, %sub11.i
-  %sub13.i = select i1 %cmp4.i, i32 -64, i32 %6
+  %8 = add nsw i32 %sub.i, -64
+  %sub13.i = select i1 %cmp4.i, i32 -64, i32 %8
   %cmp1457.i = icmp sgt i32 %sub13.i, 0
   br i1 %cmp1457.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end3.i
-  %shr.i.i = lshr i64 %8, 32
-  %shl.i.i = and i64 %8, -4294967296
-  %conv.i.i.i.i = zext i64 %8 to i128
-  %shl4.i.i = shl i64 %8, 32
+  %shr.i.i = lshr i64 %7, 32
+  %shl.i.i = and i64 %7, -4294967296
+  %conv.i.i.i.i = zext i64 %7 to i128
+  %shl4.i.i = shl i64 %7, 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %estimateDiv128To64.exit.i, %while.body.lr.ph.i
-  %exp_diff.161.i = phi i32 [ %6, %while.body.lr.ph.i ], [ %sub19.i, %estimateDiv128To64.exit.i ]
+  %exp_diff.161.i = phi i32 [ %8, %while.body.lr.ph.i ], [ %sub19.i, %estimateDiv128To64.exit.i ]
   %a1.059.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %shl.i49.i, %estimateDiv128To64.exit.i ]
   %a0.258.i = phi i64 [ %a0.1.i, %while.body.lr.ph.i ], [ %or.i53.i, %estimateDiv128To64.exit.i ]
-  %cmp.not.i.i = icmp ugt i64 %8, %a0.258.i
+  %cmp.not.i.i = icmp ugt i64 %7, %a0.258.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %estimateDiv128To64.exit.i
 
 if.end.i.i:                                       ; preds = %while.body.i
@@ -11633,19 +11633,19 @@ while.end.i:                                      ; preds = %estimateDiv128To64.
   br i1 %cmp21.i, label %if.then23.i, label %if.else54.i
 
 if.then23.i:                                      ; preds = %while.end.i
-  %cmp.not.i56.i = icmp ugt i64 %8, %a0.2.lcssa.i
+  %cmp.not.i56.i = icmp ugt i64 %7, %a0.2.lcssa.i
   br i1 %cmp.not.i56.i, label %if.end.i58.i, label %estimateDiv128To64.exit97.thread.i
 
 estimateDiv128To64.exit97.thread.i:               ; preds = %if.then23.i
   %sub2945.i = sub nsw i32 0, %exp_diff.1.lcssa.i
   %sh_prom46.i = zext nneg i32 %sub2945.i to i64
   %shr3047.i = lshr i64 -3, %sh_prom46.i
-  %.pre.i = zext i64 %8 to i128
+  %.pre.i = zext i64 %7 to i128
   br label %shortShift128Left.exit.i
 
 if.end.i58.i:                                     ; preds = %if.then23.i
-  %shr.i59.i = lshr i64 %8, 32
-  %shl.i60.i = and i64 %8, -4294967296
+  %shr.i59.i = lshr i64 %7, 32
+  %shl.i60.i = and i64 %7, -4294967296
   %cmp1.not.i61.i = icmp ugt i64 %shl.i60.i, %a0.2.lcssa.i
   br i1 %cmp1.not.i61.i, label %cond.false.i94.i, label %cond.end.i62.i
 
@@ -11656,7 +11656,7 @@ cond.false.i94.i:                                 ; preds = %if.end.i58.i
 
 cond.end.i62.i:                                   ; preds = %cond.false.i94.i, %if.end.i58.i
   %cond.i63.i = phi i64 [ %shl2.i96.i, %cond.false.i94.i ], [ -4294967296, %if.end.i58.i ]
-  %conv.i.i.i64.i = zext i64 %8 to i128
+  %conv.i.i.i64.i = zext i64 %7 to i128
   %conv1.i.i.i65.i = zext i64 %cond.i63.i to i128
   %mul.i.i.i66.i = mul nuw i128 %conv1.i.i.i65.i, %conv.i.i.i64.i
   %conv2.i.i.i67.i = trunc i128 %mul.i.i.i66.i to i64
@@ -11672,7 +11672,7 @@ cond.end.i62.i:                                   ; preds = %cond.false.i94.i, %
   br i1 %cmp316.i72.i, label %while.body.lr.ph.i84.i, label %while.end.i73.i
 
 while.body.lr.ph.i84.i:                           ; preds = %cond.end.i62.i
-  %shl4.i85.i = shl i64 %8, 32
+  %shl4.i85.i = shl i64 %7, 32
   br label %while.body.i86.i
 
 while.body.i86.i:                                 ; preds = %while.body.i86.i, %while.body.lr.ph.i84.i
@@ -11729,11 +11729,11 @@ shortShift128Left.exit.i:                         ; preds = %estimateDiv128To64.
   %conv.i1.neg.i104.i = sext i1 %32 to i64
   %33 = sub i64 %a0.2.lcssa.i, %conv3.i.i103.i
   %34 = add i64 %33, %conv.i1.neg.i104.i
-  %shl.i105.i = shl i64 %8, %sh_prom51.i
+  %shl.i105.i = shl i64 %7, %sh_prom51.i
   %cmp.i.i = icmp eq i32 %sub2949.i, 0
   %and.i.i = and i32 %exp_diff.1.lcssa.i, 63
   %sh_prom3.i.i = zext nneg i32 %and.i.i to i64
-  %shr.i109.i = lshr i64 %8, %sh_prom3.i.i
+  %shr.i109.i = lshr i64 %7, %sh_prom3.i.i
   %cond.i112.i = select i1 %cmp.i.i, i64 0, i64 %shr.i109.i
   br label %while.cond38.i
 
@@ -11763,7 +11763,7 @@ while.body40.i:                                   ; preds = %le128.exit.i, %whil
 if.else54.i:                                      ; preds = %le128.exit.i, %while.end.i
   %a0.4.i = phi i64 [ %a0.2.lcssa.i, %while.end.i ], [ %a0.3.i, %le128.exit.i ]
   %a1.2.i = phi i64 [ %a1.0.lcssa.i, %while.end.i ], [ %a1.1.i, %le128.exit.i ]
-  %t0.0.i = phi i64 [ %8, %while.end.i ], [ %cond.i112.i, %le128.exit.i ]
+  %t0.0.i = phi i64 [ %7, %while.end.i ], [ %cond.i112.i, %le128.exit.i ]
   %t1.0.i = phi i64 [ 0, %while.end.i ], [ %shl.i105.i, %le128.exit.i ]
   %q.2.i = phi i64 [ %q.0.lcssa.i, %while.end.i ], [ %q.1.i, %le128.exit.i ]
   %40 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %t1.0.i, i64 %a1.2.i)
@@ -12237,52 +12237,52 @@ if.end3.i:                                        ; preds = %if.then
   %shr8.i.i = zext i1 %cmp4.i to i64
   %a0.0.i = lshr i64 %5, %shr8.i.i
   %a1.0.i = select i1 %cmp4.i, i64 %or.i.i, i64 %4
-  %6 = add nsw i32 %sub.i, -64
   %frac_hi7.i = getelementptr inbounds i8, ptr %b, i64 8
-  %7 = load i64, ptr %frac_hi7.i, align 8
+  %6 = load i64, ptr %frac_hi7.i, align 8
   %frac_lo8.i = getelementptr inbounds i8, ptr %b, i64 16
-  %8 = load i64, ptr %frac_lo8.i, align 8
-  %cmp.i.i = icmp ult i64 %7, %a0.0.i
+  %7 = load i64, ptr %frac_lo8.i, align 8
+  %cmp.i.i = icmp ult i64 %6, %a0.0.i
   br i1 %cmp.i.i, label %if.then10.i, label %le128.exit.i
 
 le128.exit.i:                                     ; preds = %if.end3.i
-  %cmp1.i.i = icmp eq i64 %7, %a0.0.i
-  %cmp2.i.i = icmp ule i64 %8, %a1.0.i
-  %9 = and i1 %cmp1.i.i, %cmp2.i.i
-  br i1 %9, label %if.then10.i, label %if.end11.i
+  %cmp1.i.i = icmp eq i64 %6, %a0.0.i
+  %cmp2.i.i = icmp ule i64 %7, %a1.0.i
+  %8 = and i1 %cmp1.i.i, %cmp2.i.i
+  br i1 %8, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %le128.exit.i, %if.end3.i
-  %10 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %a1.0.i, i64 %8)
-  %11 = extractvalue { i64, i1 } %10, 1
-  %12 = extractvalue { i64, i1 } %10, 0
-  %conv.i1.neg.i.i = sext i1 %11 to i64
-  %13 = sub i64 %a0.0.i, %7
-  %14 = add i64 %13, %conv.i1.neg.i.i
+  %9 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %a1.0.i, i64 %7)
+  %10 = extractvalue { i64, i1 } %9, 1
+  %11 = extractvalue { i64, i1 } %9, 0
+  %conv.i1.neg.i.i = sext i1 %10 to i64
+  %12 = sub i64 %a0.0.i, %6
+  %13 = add i64 %12, %conv.i1.neg.i.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then10.i, %le128.exit.i
   %conv252.i = phi i64 [ 1, %if.then10.i ], [ 0, %le128.exit.i ]
-  %a0.1.i = phi i64 [ %14, %if.then10.i ], [ %a0.0.i, %le128.exit.i ]
-  %a1.1.i = phi i64 [ %12, %if.then10.i ], [ %a1.0.i, %le128.exit.i ]
-  %sub12.i = select i1 %cmp4.i, i32 -64, i32 %6
+  %a0.1.i = phi i64 [ %13, %if.then10.i ], [ %a0.0.i, %le128.exit.i ]
+  %a1.1.i = phi i64 [ %11, %if.then10.i ], [ %a1.0.i, %le128.exit.i ]
+  %14 = add nsw i32 %sub.i, -64
+  %sub12.i = select i1 %cmp4.i, i32 -64, i32 %14
   %cmp13273.i = icmp sgt i32 %sub12.i, 0
   br i1 %cmp13273.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end11.i
-  %shr.i58.i = lshr i64 %7, 32
-  %shl.i59.i = and i64 %7, -4294967296
-  %conv.i.i.i.i = zext i64 %7 to i128
-  %shl4.i.i = shl i64 %7, 32
-  %conv.i.i.i61.i = zext i64 %8 to i128
+  %shr.i58.i = lshr i64 %6, 32
+  %shl.i59.i = and i64 %6, -4294967296
+  %conv.i.i.i.i = zext i64 %6 to i128
+  %shl4.i.i = shl i64 %6, 32
+  %conv.i.i.i61.i = zext i64 %7 to i128
   br label %while.body.i
 
 while.body.i:                                     ; preds = %estimateDiv128To64.exit.i, %while.body.lr.ph.i
-  %exp_diff.1278.i = phi i32 [ %6, %while.body.lr.ph.i ], [ %sub19.i, %estimateDiv128To64.exit.i ]
+  %exp_diff.1278.i = phi i32 [ %14, %while.body.lr.ph.i ], [ %sub19.i, %estimateDiv128To64.exit.i ]
   %quot.0277.i = phi i64 [ %conv252.i, %while.body.lr.ph.i ], [ %add.i, %estimateDiv128To64.exit.i ]
   %a2.0276.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %shl.i73.i, %estimateDiv128To64.exit.i ]
   %a1.2275.i = phi i64 [ %a1.1.i, %while.body.lr.ph.i ], [ %or.i71.i, %estimateDiv128To64.exit.i ]
   %a0.2274.i = phi i64 [ %a0.1.i, %while.body.lr.ph.i ], [ %or10.i.i, %estimateDiv128To64.exit.i ]
-  %cmp.not.i.i = icmp ugt i64 %7, %a0.2274.i
+  %cmp.not.i.i = icmp ugt i64 %6, %a0.2274.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %estimateDiv128To64.exit.i
 
 if.end.i.i:                                       ; preds = %while.body.i
@@ -12393,19 +12393,19 @@ while.end.i:                                      ; preds = %estimateDiv128To64.
   br i1 %cmp21.i, label %if.then23.i, label %if.end50.i
 
 if.then23.i:                                      ; preds = %while.end.i
-  %cmp.not.i74.i = icmp ugt i64 %7, %a0.2.lcssa.i
+  %cmp.not.i74.i = icmp ugt i64 %6, %a0.2.lcssa.i
   br i1 %cmp.not.i74.i, label %if.end.i76.i, label %estimateDiv128To64.exit115.thread.i
 
 estimateDiv128To64.exit115.thread.i:              ; preds = %if.then23.i
   %sub29257.i = sub nsw i32 0, %exp_diff.1.lcssa.i
   %sh_prom258.i = zext nneg i32 %sub29257.i to i64
   %shr259.i = lshr i64 -5, %sh_prom258.i
-  %.pre.i = zext i64 %7 to i128
+  %.pre.i = zext i64 %6 to i128
   br label %shortShift192Left.exit.i
 
 if.end.i76.i:                                     ; preds = %if.then23.i
-  %shr.i77.i = lshr i64 %7, 32
-  %shl.i78.i = and i64 %7, -4294967296
+  %shr.i77.i = lshr i64 %6, 32
+  %shl.i78.i = and i64 %6, -4294967296
   %cmp1.not.i79.i = icmp ugt i64 %shl.i78.i, %a0.2.lcssa.i
   br i1 %cmp1.not.i79.i, label %cond.false.i112.i, label %cond.end.i80.i
 
@@ -12416,7 +12416,7 @@ cond.false.i112.i:                                ; preds = %if.end.i76.i
 
 cond.end.i80.i:                                   ; preds = %cond.false.i112.i, %if.end.i76.i
   %cond.i81.i = phi i64 [ %shl2.i114.i, %cond.false.i112.i ], [ -4294967296, %if.end.i76.i ]
-  %conv.i.i.i82.i = zext i64 %7 to i128
+  %conv.i.i.i82.i = zext i64 %6 to i128
   %conv1.i.i.i83.i = zext i64 %cond.i81.i to i128
   %mul.i.i.i84.i = mul nuw i128 %conv1.i.i.i83.i, %conv.i.i.i82.i
   %conv2.i.i.i85.i = trunc i128 %mul.i.i.i84.i to i64
@@ -12432,7 +12432,7 @@ cond.end.i80.i:                                   ; preds = %cond.false.i112.i, 
   br i1 %cmp316.i90.i, label %while.body.lr.ph.i102.i, label %while.end.i91.i
 
 while.body.lr.ph.i102.i:                          ; preds = %cond.end.i80.i
-  %shl4.i103.i = shl i64 %7, 32
+  %shl4.i103.i = shl i64 %6, 32
   br label %while.body.i104.i
 
 while.body.i104.i:                                ; preds = %while.body.i104.i, %while.body.lr.ph.i102.i
@@ -12479,7 +12479,7 @@ shortShift192Left.exit.i:                         ; preds = %estimateDiv128To64.
   %sub29261.i = phi i32 [ %sub29.i, %estimateDiv128To64.exit115.i ], [ %sub29257.i, %estimateDiv128To64.exit115.thread.i ]
   %46 = phi i64 [ %spec.select.i, %estimateDiv128To64.exit115.i ], [ %shr259.i, %estimateDiv128To64.exit115.thread.i ]
   %shl35.i = shl i64 %46, %sh_prom263.i
-  %conv.i.i.i116.i = zext i64 %8 to i128
+  %conv.i.i.i116.i = zext i64 %7 to i128
   %conv1.i.i.i117.i = zext i64 %shl35.i to i128
   %mul.i.i.i118.i = mul nuw i128 %conv1.i.i.i117.i, %conv.i.i.i116.i
   %conv2.i.i.i119.i = trunc i128 %mul.i.i.i118.i to i64
@@ -12506,16 +12506,16 @@ shortShift192Left.exit.i:                         ; preds = %estimateDiv128To64.
   %.neg270.i = sub i64 %a0.2.lcssa.i, %conv3.i.i7.i126.i
   %58 = add i64 %.neg270.i, %conv.i1.i.i127.neg285.i
   %59 = add i64 %58, %conv.i3.neg.i129.i
-  %shl2.i130.i = shl i64 %7, %sh_prom263.i
+  %shl2.i130.i = shl i64 %6, %sh_prom263.i
   %cmp.not.i132.i = icmp eq i32 %sub29261.i, 0
   %conv.i.i = and i32 %exp_diff.1.lcssa.i, 63
   %sh_prom6.i.i = zext nneg i32 %conv.i.i to i64
-  %shr.i133.i = lshr i64 %8, %sh_prom6.i.i
-  %shr9.i135.i = lshr i64 %7, %sh_prom6.i.i
+  %shr.i133.i = lshr i64 %7, %sh_prom6.i.i
+  %shr9.i135.i = lshr i64 %6, %sh_prom6.i.i
   %or.i134.i = select i1 %cmp.not.i132.i, i64 0, i64 %shr.i133.i
   %z1.0.i.i = or i64 %or.i134.i, %shl2.i130.i
   %z0.0.i.i = select i1 %cmp.not.i132.i, i64 0, i64 %shr9.i135.i
-  %shl.i138.i = shl i64 %8, %sh_prom263.i
+  %shl.i138.i = shl i64 %7, %sh_prom263.i
   br label %while.cond37.i
 
 while.cond37.i:                                   ; preds = %while.body39.i, %shortShift192Left.exit.i
@@ -12574,8 +12574,8 @@ if.end50.i:                                       ; preds = %while.end40.i, %whi
   %a0.4.i = phi i64 [ %a0.3.lcssa.i, %while.end40.i ], [ %a0.2.lcssa.i, %while.end.i ]
   %a1.4.i = phi i64 [ %a1.3.lcssa.i, %while.end40.i ], [ %a1.2.lcssa.i, %while.end.i ]
   %a2.2.i = phi i64 [ %a2.1.i, %while.end40.i ], [ %a2.0.lcssa.i, %while.end.i ]
-  %t0.0.i = phi i64 [ %z0.0.i.i, %while.end40.i ], [ %7, %while.end.i ]
-  %t1.0.i = phi i64 [ %z1.0.i.i, %while.end40.i ], [ %8, %while.end.i ]
+  %t0.0.i = phi i64 [ %z0.0.i.i, %while.end40.i ], [ %6, %while.end.i ]
+  %t1.0.i = phi i64 [ %z1.0.i.i, %while.end40.i ], [ %7, %while.end.i ]
   %t2.0.i = phi i64 [ %shl.i138.i, %while.end40.i ], [ 0, %while.end.i ]
   %q.2.i = phi i64 [ %q.1.i, %while.end40.i ], [ %q.0.lcssa.i, %while.end.i ]
   %quot.1.i = phi i64 [ %add49.i, %while.end40.i ], [ %quot.0.lcssa.i, %while.end.i ]

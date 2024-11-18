@@ -1208,23 +1208,23 @@ _ZNK5ZXing14RegressionLine6lengthEv.exit.i.i:     ; preds = %437, %430
   %559 = fsub double %553, %558
   %560 = call double @llvm.fabs.f64(double %559)
   %561 = select i1 %555, double %560, double 0x7FF0000000000000
-  %562 = shl nsw i32 %557, 1
-  %563 = call noundef i1 @llvm.is.fpclass.f64(double %554, i32 264)
-  %564 = fadd double %554, 5.000000e-01
-  %565 = fptosi double %564 to i32
-  %566 = shl nsw i32 %565, 1
-  %567 = sitofp i32 %565 to double
-  %568 = fsub double %554, %567
-  %569 = call double @llvm.fabs.f64(double %568)
-  %570 = select i1 %563, double %569, double 0x7FF0000000000000
-  %571 = select i1 %555, i32 %562, i32 0
-  %572 = select i1 %563, i32 %566, i32 0
-  %573 = sub nsw i32 %571, %572
+  %562 = call noundef i1 @llvm.is.fpclass.f64(double %554, i32 264)
+  %563 = fadd double %554, 5.000000e-01
+  %564 = fptosi double %563 to i32
+  %565 = sitofp i32 %564 to double
+  %566 = fsub double %554, %565
+  %567 = call double @llvm.fabs.f64(double %566)
+  %568 = select i1 %562, double %567, double 0x7FF0000000000000
+  %569 = shl nsw i32 %557, 1
+  %570 = select i1 %555, i32 %569, i32 0
+  %571 = shl nsw i32 %564, 1
+  %572 = select i1 %562, i32 %571, i32 0
+  %573 = sub nsw i32 %570, %572
   %574 = call i32 @llvm.abs.i32(i32 %573, i1 true)
   %575 = icmp samesign ult i32 %574, 10
-  %576 = fcmp olt double %570, %561
-  %577 = select i1 %576, i32 %572, i32 %571
-  %.0266.i.i = select i1 %575, i32 %577, i32 %571
+  %576 = fcmp olt double %568, %561
+  %577 = select i1 %576, i32 %572, i32 %570
+  %.0266.i.i = select i1 %575, i32 %577, i32 %570
   %.0.i.i = select i1 %575, i32 %577, i32 %572
   %578 = add i32 %.0266.i.i, -10
   %or.cond3.i.i = icmp ult i32 %578, 135
@@ -3279,8 +3279,8 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i: ; preds
   %32 = fneg double %.lcssa92.sink.i
   %33 = fdiv double %32, %sqrt69.i
   %34 = fcmp ord double %31, 0.000000e+00
-  %35 = fmul double %33, 0.000000e+00
   %.sroa.0.0.i.i = select i1 %34, double %31, double 0.000000e+00
+  %35 = fmul double %33, 0.000000e+00
   %36 = select i1 %34, double %35, double 0.000000e+00
   %37 = tail call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i.i, double 0.000000e+00, double %36)
   %38 = fcmp olt double %37, 0.000000e+00
@@ -4585,7 +4585,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit107:        ; preds = %_ZNSt6vectorIdSaIdE
 
 ._crit_edge260:                                   ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit107
   %177 = icmp eq ptr %.sroa.0163.2, %.sroa.22.1
-  br i1 %177, label %306, label %178
+  br i1 %177, label %310, label %178
 
 178:                                              ; preds = %._crit_edge260
   %179 = load ptr, ptr %7, align 8
@@ -4683,7 +4683,6 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i121: ; preds = %216, 
   %sqrt.i.i.i127 = tail call noundef double @llvm.sqrt.f64(double %224)
   %225 = fsub double %sqrt.i.i.i127, %sqrt.i
   %226 = getelementptr inbounds i8, ptr %.sroa.0163.6, i64 8
-  %.cast.i.i = ptrtoint ptr %226 to i64
   %227 = icmp eq ptr %226, %.sroa.22.4
   br i1 %227, label %.loopexit, label %228
 
@@ -4696,20 +4695,22 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i121: ; preds = %216, 
   %232 = load double, ptr %229, align 8
   %233 = load double, ptr %226, align 8
   %234 = fcmp olt double %232, %233
-  %235 = ptrtoint ptr %229 to i64
-  %storemerge17.sroa.speculated.i.i = select i1 %234, i64 %235, i64 %.cast.i.i
-  %236 = inttoptr i64 %storemerge17.sroa.speculated.i.i to ptr
-  %storemerge.sroa.speculated.i.i = select i1 %234, i64 %.cast.i.i, i64 %235
-  %237 = inttoptr i64 %storemerge.sroa.speculated.i.i to ptr
+  %235 = select i1 %234, ptr %229, ptr %226
+  %storemerge.sroa.speculated.v.i.i = select i1 %234, ptr %226, ptr %229
   %.sroa.036.055.i.i = getelementptr inbounds i8, ptr %.sroa.0163.6, i64 24
   %.not56.i.i = icmp eq ptr %.sroa.036.055.i.i, %.sroa.22.4
-  br i1 %.not56.i.i, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not56.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %231, %262
-  %.sroa.036.060.i.i = phi ptr [ %.sroa.036.0.i.i, %262 ], [ %.sroa.036.055.i.i, %231 ]
-  %.sroa.0.059.i.i = phi ptr [ %.sroa.0.2.i.i, %262 ], [ %237, %231 ]
-  %.sroa.022.058.i.i = phi ptr [ %.sroa.022.3.i.i, %262 ], [ %236, %231 ]
-  %.pn4857.i.i = phi ptr [ %.sroa.036.060.i.i, %262 ], [ %226, %231 ]
+.lr.ph.preheader.i.i:                             ; preds = %231
+  %236 = select i1 %234, double %232, double %233
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %265, %.lr.ph.preheader.i.i
+  %237 = phi double [ %266, %265 ], [ %236, %.lr.ph.preheader.i.i ]
+  %.sroa.036.060.i.i = phi ptr [ %.sroa.036.0.i.i, %265 ], [ %.sroa.036.055.i.i, %.lr.ph.preheader.i.i ]
+  %.sroa.0.059.i.i = phi ptr [ %.sroa.0.2.i.i, %265 ], [ %storemerge.sroa.speculated.v.i.i, %.lr.ph.preheader.i.i ]
+  %.sroa.022.058.i.i = phi ptr [ %.sroa.022.3.i.i, %265 ], [ %235, %.lr.ph.preheader.i.i ]
+  %.pn4857.i.i = phi ptr [ %.sroa.036.060.i.i, %265 ], [ %226, %.lr.ph.preheader.i.i ]
   %238 = getelementptr inbounds i8, ptr %.pn4857.i.i, i64 24
   %239 = icmp eq ptr %238, %.sroa.22.4
   br i1 %239, label %240, label %248
@@ -4732,164 +4733,168 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i121: ; preds = %216, 
   %249 = load double, ptr %238, align 8
   %250 = load double, ptr %.sroa.036.060.i.i, align 8
   %251 = fcmp olt double %249, %250
-  %252 = load double, ptr %.sroa.022.058.i.i, align 8
-  %253 = load double, ptr %.sroa.0.059.i.i, align 8
-  br i1 %251, label %254, label %258
+  br i1 %251, label %252, label %259
 
-254:                                              ; preds = %248
-  %255 = fcmp olt double %249, %252
-  %.sroa.022.2.i.i = select i1 %255, ptr %238, ptr %.sroa.022.058.i.i
-  %256 = fcmp olt double %250, %253
-  br i1 %256, label %262, label %257
+252:                                              ; preds = %248
+  %253 = load double, ptr %.sroa.022.058.i.i, align 8
+  %254 = fcmp olt double %249, %253
+  %255 = select i1 %254, double %249, double %253
+  %.sroa.022.2.i.i = select i1 %254, ptr %238, ptr %.sroa.022.058.i.i
+  %256 = load double, ptr %.sroa.0.059.i.i, align 8
+  %257 = fcmp olt double %250, %256
+  br i1 %257, label %265, label %258
 
-257:                                              ; preds = %254
-  br label %262
+258:                                              ; preds = %252
+  br label %265
 
-258:                                              ; preds = %248
-  %259 = fcmp olt double %250, %252
-  %.sroa.022.4.i.i = select i1 %259, ptr %.sroa.036.060.i.i, ptr %.sroa.022.058.i.i
-  %260 = fcmp olt double %249, %253
-  br i1 %260, label %262, label %261
+259:                                              ; preds = %248
+  %260 = fcmp olt double %250, %237
+  %261 = select i1 %260, double %250, double %237
+  %.sroa.022.4.i.i = select i1 %260, ptr %.sroa.036.060.i.i, ptr %.sroa.022.058.i.i
+  %262 = load double, ptr %.sroa.0.059.i.i, align 8
+  %263 = fcmp olt double %249, %262
+  br i1 %263, label %265, label %264
 
-261:                                              ; preds = %258
-  br label %262
+264:                                              ; preds = %259
+  br label %265
 
-262:                                              ; preds = %261, %258, %257, %254
-  %.sroa.022.3.i.i = phi ptr [ %.sroa.022.2.i.i, %254 ], [ %.sroa.022.2.i.i, %257 ], [ %.sroa.022.4.i.i, %258 ], [ %.sroa.022.4.i.i, %261 ]
-  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.059.i.i, %254 ], [ %.sroa.036.060.i.i, %257 ], [ %.sroa.0.059.i.i, %258 ], [ %238, %261 ]
+265:                                              ; preds = %264, %259, %258, %252
+  %266 = phi double [ %255, %252 ], [ %255, %258 ], [ %261, %259 ], [ %261, %264 ]
+  %.sroa.022.3.i.i = phi ptr [ %.sroa.022.2.i.i, %252 ], [ %.sroa.022.2.i.i, %258 ], [ %.sroa.022.4.i.i, %259 ], [ %.sroa.022.4.i.i, %264 ]
+  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.059.i.i, %252 ], [ %.sroa.036.060.i.i, %258 ], [ %.sroa.0.059.i.i, %259 ], [ %238, %264 ]
   %.sroa.036.0.i.i = getelementptr inbounds i8, ptr %.sroa.036.060.i.i, i64 16
   %.not.i.i128 = icmp eq ptr %.sroa.036.0.i.i, %.sroa.22.4
   br i1 %.not.i.i128, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !48
 
-.loopexit:                                        ; preds = %262, %247, %244, %240, %231, %228, %220
-  %.pn51.i.i = phi ptr [ %226, %228 ], [ %226, %220 ], [ %.sroa.022.058.i.i, %244 ], [ %.sroa.022.058.i.i, %247 ], [ %.sroa.036.060.i.i, %240 ], [ %236, %231 ], [ %.sroa.022.3.i.i, %262 ]
-  %.pn49.i.i = phi ptr [ %226, %228 ], [ %226, %220 ], [ %.sroa.0.059.i.i, %244 ], [ %.sroa.036.060.i.i, %247 ], [ %.sroa.0.059.i.i, %240 ], [ %237, %231 ], [ %.sroa.0.2.i.i, %262 ]
+.loopexit:                                        ; preds = %265, %247, %244, %240, %231, %228, %220
+  %.pn51.i.i = phi ptr [ %226, %228 ], [ %226, %220 ], [ %.sroa.022.058.i.i, %244 ], [ %.sroa.022.058.i.i, %247 ], [ %.sroa.036.060.i.i, %240 ], [ %235, %231 ], [ %.sroa.022.3.i.i, %265 ]
+  %.pn49.i.i = phi ptr [ %226, %228 ], [ %226, %220 ], [ %.sroa.0.059.i.i, %244 ], [ %.sroa.036.060.i.i, %247 ], [ %.sroa.0.059.i.i, %240 ], [ %storemerge.sroa.speculated.v.i.i, %231 ], [ %.sroa.0.2.i.i, %265 ]
   %.not13.i = icmp eq ptr %.sroa.0163.6, %.sroa.22.4
   br i1 %.not13.i, label %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE_EEdRKT_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.016.i = phi double [ %.1.i, %.lr.ph.i ], [ 0.000000e+00, %.loopexit ]
   %.0815.i = phi i32 [ %.19.i, %.lr.ph.i ], [ 0, %.loopexit ]
-  %.sroa.010.014.i = phi ptr [ %267, %.lr.ph.i ], [ %.sroa.0163.6, %.loopexit ]
-  %263 = load double, ptr %.sroa.010.014.i, align 8
-  %264 = fcmp ogt double %263, 0.000000e+00
-  %265 = fadd double %.016.i, %263
-  %266 = zext i1 %264 to i32
-  %.19.i = add nuw nsw i32 %.0815.i, %266
-  %.1.i = select i1 %264, double %265, double %.016.i
-  %267 = getelementptr inbounds i8, ptr %.sroa.010.014.i, i64 8
-  %.not.i = icmp eq ptr %267, %.sroa.22.4
+  %.sroa.010.014.i = phi ptr [ %271, %.lr.ph.i ], [ %.sroa.0163.6, %.loopexit ]
+  %267 = load double, ptr %.sroa.010.014.i, align 8
+  %268 = fcmp ogt double %267, 0.000000e+00
+  %269 = fadd double %.016.i, %267
+  %270 = zext i1 %268 to i32
+  %.19.i = add nuw nsw i32 %.0815.i, %270
+  %.1.i = select i1 %268, double %269, double %.016.i
+  %271 = getelementptr inbounds i8, ptr %.sroa.010.014.i, i64 8
+  %.not.i = icmp eq ptr %271, %.sroa.22.4
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %268 = uitofp nneg i32 %.19.i to double
-  %269 = fdiv double %.1.i, %268
+  %272 = uitofp nneg i32 %.19.i to double
+  %273 = fdiv double %.1.i, %272
   br label %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE_EEdRKT_T0_.exit
 
 _ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE_EEdRKT_T0_.exit: ; preds = %._crit_edge.loopexit.i, %.loopexit
-  %270 = phi double [ 0x7FF8000000000000, %.loopexit ], [ %269, %._crit_edge.loopexit.i ]
-  %271 = load double, ptr %.pn49.i.i, align 8
-  %272 = load double, ptr %.pn51.i.i, align 8
-  %273 = fmul double %272, 2.000000e+00
-  %274 = fcmp ogt double %271, %273
-  br i1 %274, label %.preheader, label %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE0_EEdRKT_T0_.exit
+  %274 = phi double [ 0x7FF8000000000000, %.loopexit ], [ %273, %._crit_edge.loopexit.i ]
+  %275 = load double, ptr %.pn49.i.i, align 8
+  %276 = load double, ptr %.pn51.i.i, align 8
+  %277 = fmul double %276, 2.000000e+00
+  %278 = fcmp ogt double %275, %277
+  br i1 %278, label %.preheader, label %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE0_EEdRKT_T0_.exit
 
 .preheader:                                       ; preds = %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE_EEdRKT_T0_.exit
-  %275 = ptrtoint ptr %.sroa.22.4 to i64
-  %276 = ptrtoint ptr %.sroa.0163.6 to i64
-  %277 = sub i64 %275, %276
-  %278 = lshr exact i64 %277, 3
-  %279 = trunc i64 %278 to i32
-  %280 = icmp sgt i32 %279, 3
-  br i1 %280, label %.lr.ph267, label %._crit_edge268
+  %279 = ptrtoint ptr %.sroa.22.4 to i64
+  %280 = ptrtoint ptr %.sroa.0163.6 to i64
+  %281 = sub i64 %279, %280
+  %282 = lshr exact i64 %281, 3
+  %283 = trunc i64 %282 to i32
+  %284 = icmp sgt i32 %283, 3
+  br i1 %284, label %.lr.ph267, label %._crit_edge268
 
 .lr.ph267:                                        ; preds = %.preheader
-  %281 = add nuw nsw i64 %278, 4294967294
-  %282 = fmul double %270, 1.400000e+00
-  %283 = fmul double %270, 1.600000e+00
-  %wide.trip.count = and i64 %281, 4294967295
-  br label %284
+  %285 = add nuw nsw i64 %282, 4294967294
+  %286 = fmul double %274, 1.400000e+00
+  %287 = fmul double %274, 1.600000e+00
+  %wide.trip.count = and i64 %285, 4294967295
+  br label %288
 
-284:                                              ; preds = %.lr.ph267, %297
-  %indvars.iv = phi i64 [ 1, %.lr.ph267 ], [ %indvars.iv.next, %297 ]
-  %285 = getelementptr inbounds double, ptr %.sroa.0163.6, i64 %indvars.iv
-  %286 = load double, ptr %285, align 8
-  %287 = fcmp ogt double %286, 0.000000e+00
-  br i1 %287, label %288, label %295
+288:                                              ; preds = %.lr.ph267, %301
+  %indvars.iv = phi i64 [ 1, %.lr.ph267 ], [ %indvars.iv.next, %301 ]
+  %289 = getelementptr inbounds double, ptr %.sroa.0163.6, i64 %indvars.iv
+  %290 = load double, ptr %289, align 8
+  %291 = fcmp ogt double %290, 0.000000e+00
+  br i1 %291, label %292, label %299
 
-288:                                              ; preds = %284
-  %289 = add nuw nsw i64 %indvars.iv, 2
-  %290 = getelementptr inbounds double, ptr %.sroa.0163.6, i64 %289
-  %291 = load double, ptr %290, align 8
-  %292 = fadd double %286, %291
-  %293 = fcmp olt double %292, %282
-  br i1 %293, label %294, label %295
+292:                                              ; preds = %288
+  %293 = add nuw nsw i64 %indvars.iv, 2
+  %294 = getelementptr inbounds double, ptr %.sroa.0163.6, i64 %293
+  %295 = load double, ptr %294, align 8
+  %296 = fadd double %290, %295
+  %297 = fcmp olt double %296, %286
+  br i1 %297, label %298, label %299
 
-294:                                              ; preds = %288
-  store double 0.000000e+00, ptr %290, align 8
+298:                                              ; preds = %292
+  store double 0.000000e+00, ptr %294, align 8
   br label %.sink.split
 
-295:                                              ; preds = %288, %284
-  %296 = fcmp ogt double %286, %283
-  br i1 %296, label %.sink.split, label %297
+299:                                              ; preds = %292, %288
+  %300 = fcmp ogt double %290, %287
+  br i1 %300, label %.sink.split, label %301
 
-.sink.split:                                      ; preds = %295, %294
-  %.sink = phi double [ %292, %294 ], [ 0.000000e+00, %295 ]
-  store double %.sink, ptr %285, align 8
-  br label %297
+.sink.split:                                      ; preds = %299, %298
+  %.sink = phi double [ %296, %298 ], [ 0.000000e+00, %299 ]
+  store double %.sink, ptr %289, align 8
+  br label %301
 
-297:                                              ; preds = %.sink.split, %295
+301:                                              ; preds = %.sink.split, %299
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge268, label %284, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge268, label %288, !llvm.loop !49
 
-._crit_edge268:                                   ; preds = %297, %.preheader
+._crit_edge268:                                   ; preds = %301, %.preheader
   br i1 %.not13.i, label %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE0_EEdRKT_T0_.exit, label %.lr.ph.i130
 
 .lr.ph.i130:                                      ; preds = %._crit_edge268, %.lr.ph.i130
   %.016.i131 = phi double [ %.1.i135, %.lr.ph.i130 ], [ 0.000000e+00, %._crit_edge268 ]
   %.0815.i132 = phi i32 [ %.19.i134, %.lr.ph.i130 ], [ 0, %._crit_edge268 ]
-  %.sroa.010.014.i133 = phi ptr [ %302, %.lr.ph.i130 ], [ %.sroa.0163.6, %._crit_edge268 ]
-  %298 = load double, ptr %.sroa.010.014.i133, align 8
-  %299 = fcmp ogt double %298, 0.000000e+00
-  %300 = fadd double %.016.i131, %298
-  %301 = zext i1 %299 to i32
-  %.19.i134 = add nuw nsw i32 %.0815.i132, %301
-  %.1.i135 = select i1 %299, double %300, double %.016.i131
-  %302 = getelementptr inbounds i8, ptr %.sroa.010.014.i133, i64 8
-  %.not.i136 = icmp eq ptr %302, %.sroa.22.4
+  %.sroa.010.014.i133 = phi ptr [ %306, %.lr.ph.i130 ], [ %.sroa.0163.6, %._crit_edge268 ]
+  %302 = load double, ptr %.sroa.010.014.i133, align 8
+  %303 = fcmp ogt double %302, 0.000000e+00
+  %304 = fadd double %.016.i131, %302
+  %305 = zext i1 %303 to i32
+  %.19.i134 = add nuw nsw i32 %.0815.i132, %305
+  %.1.i135 = select i1 %303, double %304, double %.016.i131
+  %306 = getelementptr inbounds i8, ptr %.sroa.010.014.i133, i64 8
+  %.not.i136 = icmp eq ptr %306, %.sroa.22.4
   br i1 %.not.i136, label %._crit_edge.loopexit.i137, label %.lr.ph.i130
 
 ._crit_edge.loopexit.i137:                        ; preds = %.lr.ph.i130
-  %303 = uitofp nneg i32 %.19.i134 to double
-  %304 = fdiv double %.1.i135, %303
+  %307 = uitofp nneg i32 %.19.i134 to double
+  %308 = fdiv double %.1.i135, %307
   br label %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE0_EEdRKT_T0_.exit
 
 _ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE0_EEdRKT_T0_.exit: ; preds = %._crit_edge.loopexit.i137, %._crit_edge268, %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE_EEdRKT_T0_.exit
-  %.063 = phi double [ %270, %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE_EEdRKT_T0_.exit ], [ 0x7FF8000000000000, %._crit_edge268 ], [ %304, %._crit_edge.loopexit.i137 ]
-  %305 = fdiv double %225, %.063
-  br label %306
+  %.063 = phi double [ %274, %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE_EEdRKT_T0_.exit ], [ 0x7FF8000000000000, %._crit_edge268 ], [ %308, %._crit_edge.loopexit.i137 ]
+  %309 = fdiv double %225, %.063
+  br label %310
 
-306:                                              ; preds = %._crit_edge260, %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE0_EEdRKT_T0_.exit
+310:                                              ; preds = %._crit_edge260, %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE0_EEdRKT_T0_.exit
   %.sroa.0163.3 = phi ptr [ %.sroa.0163.2, %._crit_edge260 ], [ %.sroa.0163.6, %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE0_EEdRKT_T0_.exit ]
-  %.064 = phi double [ 0.000000e+00, %._crit_edge260 ], [ %305, %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE0_EEdRKT_T0_.exit ]
+  %.064 = phi double [ 0.000000e+00, %._crit_edge260 ], [ %309, %_ZN5ZXing10DataMatrix16DMRegressionLine7averageISt6vectorIdSaIdEEZNS1_7modulesENS_6PointTIdEES7_EUldE0_EEdRKT_T0_.exit ]
   %.not.i.i.i138 = icmp eq ptr %.sroa.0163.3, null
-  br i1 %.not.i.i.i138, label %_ZNSt6vectorIdSaIdEED2Ev.exit139, label %307
+  br i1 %.not.i.i.i138, label %_ZNSt6vectorIdSaIdEED2Ev.exit139, label %311
 
-307:                                              ; preds = %306
+311:                                              ; preds = %310
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0163.3) #19
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit139
 
-_ZNSt6vectorIdSaIdEED2Ev.exit139:                 ; preds = %._crit_edge, %306, %307
-  %.064289 = phi double [ %.064, %306 ], [ %.064, %307 ], [ 0.000000e+00, %._crit_edge ]
+_ZNSt6vectorIdSaIdEED2Ev.exit139:                 ; preds = %._crit_edge, %310, %311
+  %.064289 = phi double [ %.064, %310 ], [ %.064, %311 ], [ 0.000000e+00, %._crit_edge ]
   %.not.i.i.i140 = icmp eq ptr %.sroa.0193.1.lcssa, null
-  br i1 %.not.i.i.i140, label %_ZNSt6vectorIdSaIdEED2Ev.exit141, label %308
+  br i1 %.not.i.i.i140, label %_ZNSt6vectorIdSaIdEED2Ev.exit141, label %312
 
-308:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit139
+312:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit139
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0193.1.lcssa) #19
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit141
 
-_ZNSt6vectorIdSaIdEED2Ev.exit141:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit139, %308
+_ZNSt6vectorIdSaIdEED2Ev.exit141:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit139, %312
   ret double %.064289
 }
 

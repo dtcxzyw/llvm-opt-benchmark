@@ -30419,34 +30419,35 @@ define hidden void @_ZN6cvtest9thresholdERKN2cv3MatERS1_ddi(ptr nocapture nounde
   %149 = getelementptr inbounds i8, ptr %1, i64 72
   %150 = icmp sgt i32 %17, 0
   %151 = fptrunc double %2 to float
+  %152 = trunc i32 %.0260274 to i16
+  %153 = trunc i32 %.0260274 to i8
   %wide.trip.count442 = zext nneg i32 %19 to i64
   %wide.trip.count437 = zext nneg i32 %17 to i64
   br i1 %22, label %.lr.ph323.split.us, label %.lr.ph323.split
 
 .lr.ph323.split.us:                               ; preds = %.lr.ph323, %.loopexit284.us
   %indvars.iv439 = phi i64 [ %indvars.iv.next440, %.loopexit284.us ], [ 0, %.lr.ph323 ]
-  %152 = load ptr, ptr %146, align 8
-  %153 = load ptr, ptr %147, align 8
-  %154 = load i64, ptr %153, align 8
-  %155 = mul i64 %154, %indvars.iv439
-  %156 = getelementptr inbounds i8, ptr %152, i64 %155
-  %157 = load ptr, ptr %148, align 8
-  %158 = load ptr, ptr %149, align 8
-  %159 = load i64, ptr %158, align 8
-  %160 = mul i64 %159, %indvars.iv439
-  %161 = getelementptr inbounds i8, ptr %157, i64 %160
+  %154 = load ptr, ptr %146, align 8
+  %155 = load ptr, ptr %147, align 8
+  %156 = load i64, ptr %155, align 8
+  %157 = mul i64 %156, %indvars.iv439
+  %158 = getelementptr inbounds i8, ptr %154, i64 %157
+  %159 = load ptr, ptr %148, align 8
+  %160 = load ptr, ptr %149, align 8
+  %161 = load i64, ptr %160, align 8
+  %162 = mul i64 %161, %indvars.iv439
+  %163 = getelementptr inbounds i8, ptr %159, i64 %162
   br i1 %150, label %.lr.ph321.us, label %.loopexit284.us
 
 .lr.ph321.us:                                     ; preds = %.lr.ph323.split.us, %.lr.ph321.us
   %indvars.iv434 = phi i64 [ %indvars.iv.next435, %.lr.ph321.us ], [ 0, %.lr.ph323.split.us ]
-  %162 = getelementptr inbounds i8, ptr %156, i64 %indvars.iv434
-  %163 = load i8, ptr %162, align 1
-  %164 = zext i8 %163 to i32
-  %165 = icmp slt i32 %21, %164
-  %166 = select i1 %165, i32 %.0260274, i32 %164
-  %167 = trunc i32 %166 to i8
-  %168 = getelementptr inbounds i8, ptr %161, i64 %indvars.iv434
-  store i8 %167, ptr %168, align 1
+  %164 = getelementptr inbounds i8, ptr %158, i64 %indvars.iv434
+  %165 = load i8, ptr %164, align 1
+  %166 = zext i8 %165 to i32
+  %167 = icmp slt i32 %21, %166
+  %168 = select i1 %167, i8 %153, i8 %165
+  %169 = getelementptr inbounds i8, ptr %163, i64 %indvars.iv434
+  store i8 %168, ptr %169, align 1
   %indvars.iv.next435 = add nuw nsw i64 %indvars.iv434, 1
   %exitcond438.not = icmp eq i64 %indvars.iv.next435, %wide.trip.count437
   br i1 %exitcond438.not, label %.loopexit284.us, label %.lr.ph321.us, !llvm.loop !740
@@ -30461,27 +30462,26 @@ define hidden void @_ZN6cvtest9thresholdERKN2cv3MatERS1_ddi(ptr nocapture nounde
 
 .lr.ph323.split.split.us:                         ; preds = %.lr.ph323.split, %.loopexit285.us
   %indvars.iv429 = phi i64 [ %indvars.iv.next430, %.loopexit285.us ], [ 0, %.lr.ph323.split ]
-  %169 = load ptr, ptr %146, align 8
-  %170 = load ptr, ptr %147, align 8
-  %171 = load i64, ptr %170, align 8
-  %172 = mul i64 %171, %indvars.iv429
-  %173 = getelementptr inbounds i8, ptr %169, i64 %172
-  %174 = load ptr, ptr %148, align 8
-  %175 = load ptr, ptr %149, align 8
-  %176 = load i64, ptr %175, align 8
-  %177 = mul i64 %176, %indvars.iv429
-  %178 = getelementptr inbounds i8, ptr %174, i64 %177
+  %170 = load ptr, ptr %146, align 8
+  %171 = load ptr, ptr %147, align 8
+  %172 = load i64, ptr %171, align 8
+  %173 = mul i64 %172, %indvars.iv429
+  %174 = getelementptr inbounds i8, ptr %170, i64 %173
+  %175 = load ptr, ptr %148, align 8
+  %176 = load ptr, ptr %149, align 8
+  %177 = load i64, ptr %176, align 8
+  %178 = mul i64 %177, %indvars.iv429
+  %179 = getelementptr inbounds i8, ptr %175, i64 %178
   br i1 %150, label %.lr.ph319.us, label %.loopexit285.us
 
 .lr.ph319.us:                                     ; preds = %.lr.ph323.split.split.us, %.lr.ph319.us
   %indvars.iv424 = phi i64 [ %indvars.iv.next425, %.lr.ph319.us ], [ 0, %.lr.ph323.split.split.us ]
-  %179 = getelementptr inbounds i16, ptr %173, i64 %indvars.iv424
-  %180 = load i16, ptr %179, align 2
-  %181 = sext i16 %180 to i32
-  %182 = icmp slt i32 %21, %181
-  %183 = select i1 %182, i32 %.0260274, i32 %181
-  %184 = trunc i32 %183 to i16
-  %185 = getelementptr inbounds i16, ptr %178, i64 %indvars.iv424
+  %180 = getelementptr inbounds i16, ptr %174, i64 %indvars.iv424
+  %181 = load i16, ptr %180, align 2
+  %182 = sext i16 %181 to i32
+  %183 = icmp slt i32 %21, %182
+  %184 = select i1 %183, i16 %152, i16 %181
+  %185 = getelementptr inbounds i16, ptr %179, i64 %indvars.iv424
   store i16 %184, ptr %185, align 2
   %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
   %exitcond428.not = icmp eq i64 %indvars.iv.next425, %wide.trip.count437

@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @the_index = external global %struct.index_state, align 8
 @include_sparse = internal global i32 0, align 4
 @list.0 = internal unnamed_addr global i32 0, align 8
-@list.1 = internal unnamed_addr global i32 0, align 8
+@list.1 = internal unnamed_addr global i32 0, align 4
 @list.2 = internal unnamed_addr global ptr null, align 8
 @.str.6 = private unnamed_addr constant [66 x i8] c"please stage your changes to .gitmodules or stash them to proceed\00", align 1
 @ignore_unmatch = internal global i32 0, align 4
@@ -230,7 +230,7 @@ if.end36:                                         ; preds = %lor.lhs.false, %for
 
 do.body:                                          ; preds = %if.end36
   %17 = load i32, ptr @list.0, align 8
-  %18 = load i32, ptr @list.1, align 8
+  %18 = load i32, ptr @list.1, align 4
   %cmp41.not = icmp slt i32 %17, %18
   br i1 %cmp41.not, label %do.end, label %if.then43
 
@@ -241,7 +241,7 @@ if.then43:                                        ; preds = %do.body
   %div = sdiv i32 %mul, 2
   %cmp46.not = icmp sgt i32 %div, %17
   %div.add = select i1 %cmp46.not, i32 %div, i32 %add
-  store i32 %div.add, ptr @list.1, align 8
+  store i32 %div.add, ptr @list.1, align 4
   %conv55 = sext i32 %div.add to i64
   %cmp.i37 = icmp slt i32 %div.add, 0
   br i1 %cmp.i37, label %if.then.i, label %st_mult.exit

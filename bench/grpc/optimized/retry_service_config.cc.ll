@@ -942,13 +942,13 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   %7 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp16.not = icmp ugt i64 %7, %5
   %8 = load i32, ptr %result, align 4
-  %9 = zext i32 %8 to i64
-  %10 = select i1 %cmp16.not, i64 0, i64 4294967296
-  %11 = select i1 %cmp16.not, i64 0, i64 %9
+  %9 = select i1 %cmp16.not, i64 0, i64 4294967296
+  %10 = zext i32 %8 to i64
+  %11 = select i1 %cmp16.not, i64 0, i64 %10
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont13, %invoke.cont6
-  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %10, %invoke.cont13 ]
+  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %9, %invoke.cont13 ]
   %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont6 ], [ %11, %invoke.cont13 ]
   %12 = load ptr, ptr %error_field, align 8
   %cmp.not.i = icmp eq ptr %12, null

@@ -1381,10 +1381,10 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL16ClUseStackSafety, i64 8), align 8
   %.not2.i = icmp eq i16 %12, 0
   %13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16ClUseStackSafety, i64 128), align 8
-  %14 = and i8 %13, 1
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 29
-  %16 = select i1 %.not2.i, i8 1, i8 %14
-  store i8 %16, ptr %15, align 1
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 29
+  %15 = and i8 %13, 1
+  %16 = select i1 %.not2.i, i8 1, i8 %15
+  store i8 %16, ptr %14, align 1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
   %18 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #18

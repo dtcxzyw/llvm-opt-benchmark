@@ -2732,17 +2732,17 @@ define internal noundef i64 @rb_fiber_initialize(i32 noundef %0, ptr noundef %1,
   %10 = call i32 @rb_get_kwargs(i64 noundef %9, ptr noundef nonnull @fiber_initialize_keywords, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %5) #9
   %11 = load i64, ptr %5, align 16
   %12 = icmp ne i64 %11, 36
-  %13 = and i64 %11, -5
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
-  %15 = load i64, ptr %14, align 16
-  %16 = icmp ne i64 %13, 0
+  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = load i64, ptr %13, align 16
+  %15 = and i64 %11, -5
+  %16 = icmp ne i64 %15, 0
   %17 = and i1 %12, %16
   %18 = zext i1 %17 to i32
   br label %rb_fiber_initialize_kw.exit
 
 rb_fiber_initialize_kw.exit:                      ; preds = %3, %7
   %.07.i = phi i32 [ %18, %7 ], [ 0, %3 ]
-  %.0.i = phi i64 [ %15, %7 ], [ 36, %3 ]
+  %.0.i = phi i64 [ %14, %7 ], [ 36, %3 ]
   %19 = call i64 @rb_block_proc() #9
   %20 = call fastcc i64 @fiber_initialize(i64 noundef %2, i64 noundef %19, i32 noundef %.07.i, i64 noundef %.0.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)

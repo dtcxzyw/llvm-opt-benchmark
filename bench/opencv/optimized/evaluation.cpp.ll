@@ -2701,12 +2701,12 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIP19DMatchForEvaluationSt6vectorIS2_SaIS
   %101 = uitofp nneg i32 %100 to float
   %102 = fdiv float %99, %101
   %103 = fsub float 1.000000e+00, %102
-  %104 = bitcast float %103 to i32
-  %105 = load ptr, ptr %2, align 8
-  %106 = getelementptr inbounds %"class.cv::Point_", ptr %105, i64 %.034107.us
-  %107 = select i1 %.not.i52.us, i32 1073741824, i32 %104
-  store i32 %107, ptr %106, align 4
-  %.sroa_idx56.us = getelementptr inbounds i8, ptr %106, i64 4
+  %104 = load ptr, ptr %2, align 8
+  %105 = getelementptr inbounds %"class.cv::Point_", ptr %104, i64 %.034107.us
+  %106 = bitcast float %103 to i32
+  %107 = select i1 %.not.i52.us, i32 1073741824, i32 %106
+  store i32 %107, ptr %105, align 4
+  %.sroa_idx56.us = getelementptr inbounds i8, ptr %105, i64 4
   store i32 -1082130432, ptr %.sroa_idx56.us, align 4
   %108 = add nuw i64 %.034107.us, 1
   %exitcond118.not = icmp eq i64 %108, %umax117
@@ -2731,12 +2731,12 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIP19DMatchForEvaluationSt6vectorIS2_SaIS
   %116 = uitofp nneg i32 %115 to float
   %117 = fdiv float %113, %116
   %118 = fsub float 1.000000e+00, %117
-  %119 = bitcast float %118 to i32
-  %120 = load ptr, ptr %2, align 8
-  %121 = getelementptr inbounds %"class.cv::Point_", ptr %120, i64 %.034107
-  %122 = select i1 %.not.i52, i32 1073741824, i32 %119
-  store i32 %122, ptr %121, align 4
-  %.sroa_idx56 = getelementptr inbounds i8, ptr %121, i64 4
+  %119 = load ptr, ptr %2, align 8
+  %120 = getelementptr inbounds %"class.cv::Point_", ptr %119, i64 %.034107
+  %121 = bitcast float %118 to i32
+  %122 = select i1 %.not.i52, i32 1073741824, i32 %121
+  store i32 %122, ptr %120, align 4
+  %.sroa_idx56 = getelementptr inbounds i8, ptr %120, i64 4
   store float %114, ptr %.sroa_idx56, align 4
   %123 = add nuw i64 %.034107, 1
   %exitcond.not = icmp eq i64 %123, %umax117

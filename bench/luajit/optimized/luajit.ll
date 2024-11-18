@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [39 x i8] c"cannot create state: not enough memory\00", align 1
 @smain.0 = internal unnamed_addr global ptr null, align 8
 @smain.1 = internal unnamed_addr global i32 0, align 8
-@smain.2 = internal unnamed_addr global i32 0, align 8
+@smain.2 = internal unnamed_addr global i32 0, align 4
 @.str.1 = private unnamed_addr constant [7 x i8] c"luajit\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @globalL = internal unnamed_addr global ptr null, align 8
@@ -97,7 +97,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 report.exit:                                      ; preds = %if.end8, %land.lhs.true.i, %if.then.i
   tail call void @lua_close(ptr noundef nonnull %call) #9
   %tobool11 = icmp ne i32 %call9, 0
-  %2 = load i32, ptr @smain.2, align 8
+  %2 = load i32, ptr @smain.2, align 4
   %cmp12 = icmp sgt i32 %2, 0
   %3 = select i1 %tobool11, i1 true, i1 %cmp12
   %cond = zext i1 %3 to i32
@@ -248,7 +248,7 @@ collectargs.exit:                                 ; preds = %if.end.i, %for.body
 
 if.then:                                          ; preds = %if.then48.i, %sw.bb28.i, %sw.bb19.i, %if.end.i, %sw.bb.i, %sw.bb57.i, %collectargs.exit
   tail call fastcc void @print_usage()
-  store i32 1, ptr @smain.2, align 8
+  store i32 1, ptr @smain.2, align 4
   br label %return
 
 if.end:                                           ; preds = %collectargs.exit
@@ -329,16 +329,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br label %handle_luainit.exit.thread99
 
 handle_luainit.exit.thread:                       ; preds = %if.then8, %lor.end.i.i
-  store i32 0, ptr @smain.2, align 8
+  store i32 0, ptr @smain.2, align 4
   br label %if.end15
 
 handle_luainit.exit.thread99:                     ; preds = %land.lhs.true.i.i.i, %if.then.i.i.i
-  store i32 1, ptr @smain.2, align 8
+  store i32 1, ptr @smain.2, align 4
   br label %return
 
 handle_luainit.exit:                              ; preds = %if.else.i
   %call6.i = tail call fastcc i32 @dostring(ptr noundef %L, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.7)
-  store i32 %call6.i, ptr @smain.2, align 8
+  store i32 %call6.i, ptr @smain.2, align 4
   %cmp12.not = icmp eq i32 %call6.i, 0
   br i1 %cmp12.not, label %if.end15, label %return
 
@@ -561,11 +561,11 @@ return.sink.split.i:                              ; preds = %land.lhs.true.i.i35
 
 runargs.exit.thread:                              ; preds = %if.end13.i, %dojitcmd.exit.i, %sw.bb49.i, %if.then.i.i, %sw.bb57.i42, %for.end.i.i, %land.lhs.true.i.i35.i, %land.lhs.true.i.i.i53, %return.sink.split.i
   %retval.0.i36.ph = phi i32 [ %retval.0.ph.i, %return.sink.split.i ], [ 1, %land.lhs.true.i.i.i53 ], [ -1, %land.lhs.true.i.i35.i ], [ -1, %for.end.i.i ], [ 1, %sw.bb57.i42 ], [ 1, %if.then.i.i ], [ 1, %sw.bb49.i ], [ 1, %dojitcmd.exit.i ], [ 1, %if.end13.i ]
-  store i32 %retval.0.i36.ph, ptr @smain.2, align 8
+  store i32 %retval.0.i36.ph, ptr @smain.2, align 4
   br label %return
 
 if.end25:                                         ; preds = %for.inc.i47, %if.end19
-  store i32 0, ptr @smain.2, align 8
+  store i32 0, ptr @smain.2, align 4
   %31 = load i32, ptr @smain.1, align 8
   %cmp27 = icmp sgt i32 %31, %retval.0.i8893
   br i1 %cmp27, label %if.then28, label %if.end35
@@ -655,11 +655,11 @@ if.then.i.i65:                                    ; preds = %land.lhs.true.i.i
   br label %handle_script.exit.thread
 
 handle_script.exit.thread:                        ; preds = %land.lhs.true.i.i, %if.then.i.i65
-  store i32 %status.020.i, ptr @smain.2, align 8
+  store i32 %status.020.i, ptr @smain.2, align 4
   br label %return
 
 handle_script.exit:                               ; preds = %if.end15.i
-  store i32 0, ptr @smain.2, align 8
+  store i32 0, ptr @smain.2, align 4
   br label %if.end35
 
 if.end35:                                         ; preds = %handle_script.exit, %if.end25

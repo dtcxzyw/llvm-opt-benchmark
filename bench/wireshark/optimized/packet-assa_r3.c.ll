@@ -5791,24 +5791,24 @@ define internal void @dissect_r3_upstreammfgfield_iopins(ptr noundef %0, i32 nou
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
   %.034 = phi i8 [ %32, %.lr.ph ], [ 65, %.thread ]
-  %.02733 = phi i32 [ %31, %.lr.ph ], [ 0, %.thread ]
+  %.02733 = phi i32 [ %30, %.lr.ph ], [ 0, %.thread ]
   %18 = load i32, ptr @ett_r3iopins, align 4
   %19 = icmp eq i8 %.034, 73
-  %20 = add i8 %.034, 1
   %narrow = select i1 %19, i8 74, i8 %.034
-  %21 = sext i8 %narrow to i32
-  %22 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %.02733, i32 noundef 3, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.1996, i32 noundef %21) #5
-  %23 = load i32, ptr @hf_r3_iopins_lat, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef %.02733, i32 noundef 1, i32 noundef -2147483648) #5
-  %25 = load i32, ptr @hf_r3_iopins_port, align 4
-  %26 = add nsw i32 %.02733, 1
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef -2147483648) #5
-  %28 = load i32, ptr @hf_r3_iopins_tris, align 4
-  %29 = add i32 %.02733, 2
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef -2147483648) #5
-  %31 = add i32 %.02733, 3
-  %32 = select i1 %19, i8 75, i8 %20
-  %33 = icmp slt i32 %31, %12
+  %20 = sext i8 %narrow to i32
+  %21 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %.02733, i32 noundef 3, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.1996, i32 noundef %20) #5
+  %22 = load i32, ptr @hf_r3_iopins_lat, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %.02733, i32 noundef 1, i32 noundef -2147483648) #5
+  %24 = load i32, ptr @hf_r3_iopins_port, align 4
+  %25 = add nsw i32 %.02733, 1
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %24, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef -2147483648) #5
+  %27 = load i32, ptr @hf_r3_iopins_tris, align 4
+  %28 = add i32 %.02733, 2
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef -2147483648) #5
+  %30 = add i32 %.02733, 3
+  %31 = add i8 %.034, 1
+  %32 = select i1 %19, i8 75, i8 %31
+  %33 = icmp slt i32 %30, %12
   br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %.thread, %14

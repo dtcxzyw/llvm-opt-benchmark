@@ -11100,11 +11100,11 @@ bary_swap.exit214:                                ; preds = %.lr.ph.i210, %.lr.p
   %.032.i = select i1 %160, i64 %161, i64 0
   %.0.i227 = select i1 %160, i64 -1, i64 1
   %162 = sub nuw nsw i32 8, %154
-  %163 = shl nsw i32 -1, %162
-  %164 = getelementptr i8, ptr %2, i64 %.035.i
-  %165 = getelementptr i8, ptr %2, i64 %.033.i
+  %163 = getelementptr i8, ptr %2, i64 %.035.i
+  %164 = getelementptr i8, ptr %2, i64 %.033.i
   %.not372 = icmp eq i64 %spec.select.i, 0
-  %166 = xor i32 %163, -1
+  %165 = shl nsw i32 -1, %162
+  %166 = xor i32 %165, -1
   %167 = select i1 %155, i32 %166, i32 0
   br label %168
 
@@ -11112,7 +11112,7 @@ bary_swap.exit214:                                ; preds = %.lr.ph.i210, %.lr.p
   %.0292 = phi ptr [ %0, %147 ], [ %.2294, %201 ]
   %.0285 = phi i64 [ 0, %147 ], [ %.2287, %201 ]
   %.0283 = phi i32 [ 0, %147 ], [ %.2, %201 ]
-  %.0136 = phi ptr [ %164, %147 ], [ %202, %201 ]
+  %.0136 = phi ptr [ %163, %147 ], [ %202, %201 ]
   %169 = getelementptr i8, ptr %.0136, i64 %.032.i
   br i1 %.not372, label %._crit_edge, label %.lr.ph
 
@@ -11187,7 +11187,7 @@ integer_unpack_push_bits.exit230:                 ; preds = %.lr.ph.i229, %185, 
   %.2294 = phi ptr [ %.1293.lcssa, %._crit_edge ], [ %.1293.lcssa, %185 ], [ %196, %.lr.ph.i229 ]
   %.2287 = phi i64 [ %.1286.lcssa, %._crit_edge ], [ %192, %185 ], [ %197, %.lr.ph.i229 ]
   %.2 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %193, %185 ], [ %198, %.lr.ph.i229 ]
-  %200 = icmp eq ptr %.0136, %165
+  %200 = icmp eq ptr %.0136, %164
   br i1 %200, label %203, label %201
 
 201:                                              ; preds = %integer_unpack_push_bits.exit230

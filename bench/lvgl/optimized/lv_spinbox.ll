@@ -559,17 +559,17 @@ define void @lv_spinbox_set_digit_format(ptr noundef %0, i32 noundef %1, i32 nou
 
 22:                                               ; preds = %14, %20, %3
   %.not = icmp ult i32 %2, %spec.store.select1
-  %23 = trunc i32 %2 to i16
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %25 = trunc nuw nsw i32 %spec.store.select1 to i16
-  %26 = load i16, ptr %24, align 8
-  %27 = and i16 %26, -256
-  %28 = shl i16 %23, 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %24 = trunc nuw nsw i32 %spec.store.select1 to i16
+  %25 = load i16, ptr %23, align 8
+  %26 = and i16 %25, -256
+  %27 = trunc i32 %2 to i16
+  %28 = shl i16 %27, 4
   %29 = and i16 %28, 240
   %30 = select i1 %.not, i16 %29, i16 0
-  %31 = or disjoint i16 %30, %25
-  %32 = or disjoint i16 %31, %27
-  store i16 %32, ptr %24, align 8
+  %31 = or disjoint i16 %30, %24
+  %32 = or disjoint i16 %31, %26
+  store i16 %32, ptr %23, align 8
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef %0)
   ret void
 }

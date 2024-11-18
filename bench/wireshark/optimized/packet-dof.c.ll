@@ -58,10 +58,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [42 x i8] c"api_data->transport_session != ((void*)0)\00", align 1
 @.str.16 = private unnamed_addr constant [41 x i8] c"api_data->transport_packet != ((void*)0)\00", align 1
 @globals.0 = internal unnamed_addr global i32 0, align 8
-@globals.1 = internal unnamed_addr global i32 0, align 8
+@globals.1 = internal unnamed_addr global i32 0, align 4
 @globals.2 = internal unnamed_addr global ptr null, align 8
 @globals.3 = internal unnamed_addr global ptr null, align 8
-@globals.7 = internal unnamed_addr global i32 0, align 8
+@globals.7 = internal unnamed_addr global i32 0, align 4
 @globals.8 = internal unnamed_addr global i32 0, align 8
 @proto_2008_1_dof = internal unnamed_addr global i32 0, align 4
 @.str.18 = private unnamed_addr constant [19 x i8] c"DOF Protocol Stack\00", align 1
@@ -2555,12 +2555,12 @@ define internal void @dof_reset() #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i32, align 4
-  store i32 1, ptr @globals.1, align 8
+  store i32 1, ptr @globals.1, align 4
   store i32 1, ptr @globals.0, align 8
   store ptr null, ptr @globals.3, align 8
   store ptr null, ptr @globals.2, align 8
   %5 = load i32, ptr @track_operations, align 4
-  store i32 %5, ptr @globals.7, align 8
+  store i32 %5, ptr @globals.7, align 4
   %6 = load i32, ptr @track_operations_window, align 4
   store i32 %6, ptr @globals.8, align 8
   %7 = load ptr, ptr @addr_port_to_id, align 8
@@ -8527,9 +8527,9 @@ proto_item_set_generated.exit148:                 ; preds = %111, %108, %105, %v
   store i32 %.0109.sroa.speculated, ptr %138, align 4
   %139 = load ptr, ptr @dof_ns_session_lookup, align 8
   %140 = call i32 @g_hash_table_insert(ptr noundef %139, ptr noundef nonnull %136, ptr noundef %132) #20
-  %141 = load i32, ptr @globals.1, align 8
+  %141 = load i32, ptr @globals.1, align 4
   %142 = add i32 %141, 1
-  store i32 %142, ptr @globals.1, align 8
+  store i32 %142, ptr @globals.1, align 4
   store i32 %141, ptr %132, align 8
   %143 = getelementptr inbounds i8, ptr %132, i64 4
   store i8 %13, ptr %143, align 4
@@ -9261,7 +9261,7 @@ validate_c4.exit:                                 ; preds = %285, %288
   br label %321
 
 321:                                              ; preds = %303, %315, %317, %307, %296, %validate_c4.exit
-  %322 = load i32, ptr @globals.7, align 8
+  %322 = load i32, ptr @globals.7, align 4
   %323 = icmp ne i32 %322, 0
   %324 = icmp ne ptr %2, null
   %or.cond = and i1 %324, %323
@@ -12913,10 +12913,10 @@ define internal fastcc noundef i32 @oap_1_tree_add_interface(ptr noundef %0, ptr
   %8 = add nsw i32 %7, -1
   %9 = shl nuw nsw i32 1, %8
   %10 = and i32 %9, 255
-  %11 = add nuw nsw i32 %10, 1
-  %12 = load i32, ptr @hf_oap_1_interfaceid, align 4
-  %13 = select i1 %6, i32 17, i32 %11
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef %2, i32 noundef %13, i32 noundef 0) #20
+  %11 = load i32, ptr @hf_oap_1_interfaceid, align 4
+  %12 = add nuw nsw i32 %10, 1
+  %13 = select i1 %6, i32 17, i32 %12
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %2, i32 noundef %13, i32 noundef 0) #20
   %15 = add i32 %13, %2
   ret i32 %15
 }
@@ -14270,9 +14270,9 @@ proto_item_set_generated.exit384:                 ; preds = %277, %274, %271, %.
 .critedge378:                                     ; preds = %354, %334
   %356 = call ptr @wmem_file_scope() #20
   %357 = call noalias ptr @wmem_alloc0(ptr noundef %356, i64 noundef 24) #20
-  %358 = load i32, ptr @globals.1, align 8
+  %358 = load i32, ptr @globals.1, align 4
   %359 = add i32 %358, 1
-  store i32 %359, ptr @globals.1, align 8
+  store i32 %359, ptr @globals.1, align 4
   store i32 %358, ptr %357, align 8
   %360 = load ptr, ptr %335, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 4

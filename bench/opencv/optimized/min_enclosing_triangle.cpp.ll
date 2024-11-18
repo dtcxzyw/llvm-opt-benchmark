@@ -2084,23 +2084,23 @@ define internal fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGamma
   %sqrt.i.i = tail call double @llvm.sqrt.f64(double %41)
   %42 = fcmp une double %41, 0.000000e+00
   %43 = fdiv double %39, %sqrt.i.i
-  %44 = fmul double %43, 2.000000e+00
-  %45 = load ptr, ptr %12, align 8
-  %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
-  %48 = load double, ptr %47, align 8
-  %49 = fmul double %48, %48
-  %50 = tail call double @llvm.fmuladd.f64(double %46, double %46, double %49)
-  %sqrt = tail call double @llvm.sqrt.f64(double %50)
-  %51 = select i1 %42, double %44, double 0.000000e+00
+  %44 = load ptr, ptr %12, align 8
+  %45 = load double, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %47 = load double, ptr %46, align 8
+  %48 = fmul double %47, %47
+  %49 = tail call double @llvm.fmuladd.f64(double %45, double %45, double %48)
+  %sqrt = tail call double @llvm.sqrt.f64(double %49)
+  %50 = fmul double %43, 2.000000e+00
+  %51 = select i1 %42, double %50, double 0.000000e+00
   %52 = fmul double %sqrt, %51
   %53 = load ptr, ptr %11, align 8
   %54 = load double, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %53, i64 8
   %56 = load double, ptr %55, align 8
   %57 = fneg double %56
-  %58 = fmul double %46, %57
-  %59 = tail call double @llvm.fmuladd.f64(double %54, double %48, double %58)
+  %58 = fmul double %45, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %54, double %47, double %58)
   %60 = tail call noundef double @llvm.fabs.f64(double %59)
   %61 = fcmp ogt double %60, 1.000000e+00
   %.sroa.speculated2.i.i.i.i = select i1 %61, double %60, double 1.000000e+00
@@ -2109,7 +2109,7 @@ define internal fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGamma
   br i1 %63, label %64, label %108
 
 64:                                               ; preds = %13
-  %65 = getelementptr inbounds i8, ptr %45, i64 16
+  %65 = getelementptr inbounds i8, ptr %44, i64 16
   %66 = load double, ptr %65, align 8
   %67 = fneg double %66
   %68 = fsub double %67, %52
@@ -2117,11 +2117,11 @@ define internal fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGamma
   %70 = load double, ptr %69, align 8
   %71 = fneg double %70
   %72 = fmul double %68, %57
-  %73 = tail call double @llvm.fmuladd.f64(double %71, double %48, double %72)
+  %73 = tail call double @llvm.fmuladd.f64(double %71, double %47, double %72)
   %74 = fdiv double %73, %59
   %75 = fptrunc double %74 to float
   store float %75, ptr %8, align 4
-  %76 = fmul double %46, %70
+  %76 = fmul double %45, %70
   %77 = tail call double @llvm.fmuladd.f64(double %68, double %54, double %76)
   %78 = fdiv double %77, %59
   %79 = fptrunc double %78 to float
@@ -2129,8 +2129,8 @@ define internal fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGamma
   store float %79, ptr %80, align 4
   %81 = load double, ptr %53, align 8
   %82 = load double, ptr %55, align 8
-  %83 = load double, ptr %45, align 8
-  %84 = load double, ptr %47, align 8
+  %83 = load double, ptr %44, align 8
+  %84 = load double, ptr %46, align 8
   %85 = fneg double %82
   %86 = fmul double %83, %85
   %87 = tail call double @llvm.fmuladd.f64(double %81, double %84, double %86)
@@ -2167,14 +2167,14 @@ _ZN20minEnclosingTriangleL20areIntersectingLinesERKSt6vectorIdSaIdEES4_dRN2cv6Po
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIdSaIdEED2Ev.exit31, label %171
 
 108:                                              ; preds = %13, %64
-  %109 = phi double [ %48, %13 ], [ %84, %64 ]
-  %110 = phi double [ %46, %13 ], [ %83, %64 ]
+  %109 = phi double [ %47, %13 ], [ %84, %64 ]
+  %110 = phi double [ %45, %13 ], [ %83, %64 ]
   %111 = phi double [ %56, %13 ], [ %82, %64 ]
   %112 = phi double [ %54, %13 ], [ %81, %64 ]
   %113 = getelementptr inbounds i8, ptr %53, i64 16
   %114 = load double, ptr %113, align 8
   %115 = fneg double %114
-  %116 = getelementptr inbounds i8, ptr %45, i64 16
+  %116 = getelementptr inbounds i8, ptr %44, i64 16
   %117 = load double, ptr %116, align 8
   %118 = fneg double %117
   %119 = fsub double %118, %52
@@ -2259,7 +2259,7 @@ _ZN20minEnclosingTriangleL17areIdenticalLinesERKSt6vectorIdSaIdEES4_d.exit.threa
 
 _ZNSt6vectorIdSaIdEED2Ev.exit29:                  ; preds = %108, %.thread.i, %_ZN20minEnclosingTriangleL20areIntersectingLinesERKSt6vectorIdSaIdEES4_dRN2cv6Point_IfEES8_.exit, %_ZN20minEnclosingTriangleL17areIdenticalLinesERKSt6vectorIdSaIdEES4_d.exit, %_ZN20minEnclosingTriangleL17areIdenticalLinesERKSt6vectorIdSaIdEES4_d.exit.thread32
   %.0 = phi i1 [ true, %_ZN20minEnclosingTriangleL17areIdenticalLinesERKSt6vectorIdSaIdEES4_d.exit.thread32 ], [ true, %_ZN20minEnclosingTriangleL20areIntersectingLinesERKSt6vectorIdSaIdEES4_dRN2cv6Point_IfEES8_.exit ], [ false, %_ZN20minEnclosingTriangleL17areIdenticalLinesERKSt6vectorIdSaIdEES4_d.exit ], [ false, %.thread.i ], [ false, %108 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %45) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %44) #18
   tail call void @_ZdlPv(ptr noundef nonnull %53) #18
   ret i1 %.0
 

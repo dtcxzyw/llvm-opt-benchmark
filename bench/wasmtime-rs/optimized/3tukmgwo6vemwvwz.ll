@@ -3442,31 +3442,31 @@ define void @_ZN16wasmtime_environ6module11MemoryStyle10for_memory17h1e0126df03f
   %trunc = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  %.0 = select i1 %trunc, i64 %9, i64 %.
   %10 = getelementptr inbounds i8, ptr %2, i64 36
   %11 = load i8, ptr %10, align 4, !range !10, !noundef !4
   %12 = trunc nuw i8 %11 to i1
   %13 = load i64, ptr %2, align 8
   %.0.sroa.speculated.i12 = tail call i64 @llvm.umin.i64(i64 %13, i64 %.)
   %.1 = select i1 %12, i64 %.0.sroa.speculated.i12, i64 %.
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.0, i64 %.1)
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = load i64, ptr %14, align 8, !noundef !4
-  %.not = icmp ule i64 %15, %.0.sroa.speculated.i
+  %14 = tail call i64 @llvm.umin.i64(i64 %9, i64 %.1)
+  %.0.sroa.speculated.i = select i1 %trunc, i64 %14, i64 %.1
+  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = load i64, ptr %15, align 8, !noundef !4
+  %.not = icmp ule i64 %16, %.0.sroa.speculated.i
   %.not11 = icmp ule i64 %.0.sroa.speculated.i, %13
   %or.cond.not = select i1 %.not, i1 %.not11, i1 false
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
-  %17 = load i64, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = load i64, ptr %17, align 8
   %.sink = select i1 %or.cond.not, i64 8, i64 16
   %.sink16 = zext i1 %or.cond.not to i64
-  %.sink14 = select i1 %or.cond.not, i64 %13, i64 %17
-  %18 = getelementptr inbounds i8, ptr %2, i64 %.sink
-  %19 = load i64, ptr %18, align 8, !noundef !4
+  %.sink14 = select i1 %or.cond.not, i64 %13, i64 %18
+  %19 = getelementptr inbounds i8, ptr %2, i64 %.sink
+  %20 = load i64, ptr %19, align 8, !noundef !4
   store i64 %.sink16, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink14, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %19, ptr %21, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink14, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %20, ptr %22, align 8
   ret void
 }
 
@@ -3482,37 +3482,37 @@ define void @_ZN16wasmtime_environ6module10MemoryPlan10for_memory17h7540a7a90cf6
   %4 = trunc nuw i8 %.sroa.64.0.copyload to i1
   %..i = select i1 %4, i64 281474976710656, i64 65536
   %trunc.i = trunc nuw i64 %.sroa.01.0.copyload to i1
-  %.0.i = select i1 %trunc.i, i64 %.sroa.42.0.copyload, i64 %..i
   %5 = getelementptr inbounds i8, ptr %2, i64 36
   %6 = load i8, ptr %5, align 4, !range !10, !alias.scope !254, !noalias !257, !noundef !4
   %7 = trunc nuw i8 %6 to i1
   %8 = load i64, ptr %2, align 8, !alias.scope !254, !noalias !257
   %.0.sroa.speculated.i12.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %..i)
   %.1.i = select i1 %7, i64 %.0.sroa.speculated.i12.i, i64 %..i
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.0.i, i64 %.1.i)
+  %9 = tail call i64 @llvm.umin.i64(i64 %.sroa.42.0.copyload, i64 %.1.i)
+  %.0.sroa.speculated.i.i = select i1 %trunc.i, i64 %9, i64 %.1.i
   %.not.i = icmp ule i64 %.sroa.5.0.copyload, %.0.sroa.speculated.i.i
   %.not11.i = icmp ule i64 %.0.sroa.speculated.i.i, %8
   %or.cond.not.i = select i1 %.not.i, i1 %.not11.i, i1 false
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
-  %10 = load i64, ptr %9, align 8, !alias.scope !254, !noalias !257
+  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = load i64, ptr %10, align 8, !alias.scope !254, !noalias !257
   %.sink.i = select i1 %or.cond.not.i, i64 8, i64 16
   %.sink16.i = zext i1 %or.cond.not.i to i64
-  %.sink14.i = select i1 %or.cond.not.i, i64 %8, i64 %10
-  %11 = getelementptr inbounds i8, ptr %2, i64 %.sink.i
-  %12 = load i64, ptr %11, align 8, !alias.scope !254, !noalias !257, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %2, i64 37
-  %14 = load i8, ptr %13, align 1, !range !10, !noundef !4
-  %15 = trunc nuw i8 %14 to i1
-  %. = select i1 %15, i64 %12, i64 0
+  %.sink14.i = select i1 %or.cond.not.i, i64 %8, i64 %11
+  %12 = getelementptr inbounds i8, ptr %2, i64 %.sink.i
+  %13 = load i64, ptr %12, align 8, !alias.scope !254, !noalias !257, !noundef !4
+  %14 = getelementptr inbounds i8, ptr %2, i64 37
+  %15 = load i8, ptr %14, align 1, !range !10, !noundef !4
+  %16 = trunc nuw i8 %15 to i1
+  %. = select i1 %16, i64 %13, i64 0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sink16.i, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sink14.i, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %., ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %12, ptr %19, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %.sink16.i, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.sink14.i, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %., ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %13, ptr %20, align 8
   ret void
 }
 

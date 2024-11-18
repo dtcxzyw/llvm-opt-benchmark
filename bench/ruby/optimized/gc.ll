@@ -447,17 +447,17 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.372 = private unnamed_addr constant [36 x i8] c"heap_name must be nil or an Integer\00", align 1
 @.str.373 = private unnamed_addr constant [29 x i8] c"size pool index out of range\00", align 1
 @gc_stat_heap_symbols.0 = internal unnamed_addr global i64 0, align 16
-@gc_stat_heap_symbols.1 = internal unnamed_addr global i64 0, align 16
+@gc_stat_heap_symbols.1 = internal unnamed_addr global i64 0, align 8
 @gc_stat_heap_symbols.2 = internal unnamed_addr global i64 0, align 16
-@gc_stat_heap_symbols.3 = internal unnamed_addr global i64 0, align 16
+@gc_stat_heap_symbols.3 = internal unnamed_addr global i64 0, align 8
 @gc_stat_heap_symbols.4 = internal unnamed_addr global i64 0, align 16
-@gc_stat_heap_symbols.5 = internal unnamed_addr global i64 0, align 16
+@gc_stat_heap_symbols.5 = internal unnamed_addr global i64 0, align 8
 @gc_stat_heap_symbols.6 = internal unnamed_addr global i64 0, align 16
-@gc_stat_heap_symbols.7 = internal unnamed_addr global i64 0, align 16
+@gc_stat_heap_symbols.7 = internal unnamed_addr global i64 0, align 8
 @gc_stat_heap_symbols.8 = internal unnamed_addr global i64 0, align 16
-@gc_stat_heap_symbols.9 = internal unnamed_addr global i64 0, align 16
+@gc_stat_heap_symbols.9 = internal unnamed_addr global i64 0, align 8
 @gc_stat_heap_symbols.10 = internal unnamed_addr global i64 0, align 16
-@gc_stat_heap_symbols.11 = internal unnamed_addr global i64 0, align 16
+@gc_stat_heap_symbols.11 = internal unnamed_addr global i64 0, align 8
 @.str.374 = private unnamed_addr constant [10 x i8] c"slot_size\00", align 1
 @.str.375 = private unnamed_addr constant [16 x i8] c"heap_eden_slots\00", align 1
 @.str.376 = private unnamed_addr constant [16 x i8] c"heap_tomb_slots\00", align 1
@@ -28064,7 +28064,7 @@ define internal fastcc i64 @gc_stat_heap_internal(i32 noundef %0, i64 noundef %1
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.250, i64 noundef 22) #39
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.250, i64 noundef 22) #39
   %14 = tail call i64 @rb_id2sym(i64 noundef %13) #39
-  store i64 %14, ptr @gc_stat_heap_symbols.1, align 16
+  store i64 %14, ptr @gc_stat_heap_symbols.1, align 8
   %15 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.256, i64 noundef 15) #39
   %16 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.256, i64 noundef 15) #39
   %17 = tail call i64 @rb_id2sym(i64 noundef %16) #39
@@ -28072,7 +28072,7 @@ define internal fastcc i64 @gc_stat_heap_internal(i32 noundef %0, i64 noundef %1
   %18 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.375, i64 noundef 15) #39
   %19 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.375, i64 noundef 15) #39
   %20 = tail call i64 @rb_id2sym(i64 noundef %19) #39
-  store i64 %20, ptr @gc_stat_heap_symbols.3, align 16
+  store i64 %20, ptr @gc_stat_heap_symbols.3, align 8
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.257, i64 noundef 15) #39
   %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.257, i64 noundef 15) #39
   %23 = tail call i64 @rb_id2sym(i64 noundef %22) #39
@@ -28080,7 +28080,7 @@ define internal fastcc i64 @gc_stat_heap_internal(i32 noundef %0, i64 noundef %1
   %24 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.376, i64 noundef 15) #39
   %25 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.376, i64 noundef 15) #39
   %26 = tail call i64 @rb_id2sym(i64 noundef %25) #39
-  store i64 %26, ptr @gc_stat_heap_symbols.5, align 16
+  store i64 %26, ptr @gc_stat_heap_symbols.5, align 8
   %27 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.258, i64 noundef 21) #39
   %28 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.258, i64 noundef 21) #39
   %29 = tail call i64 @rb_id2sym(i64 noundef %28) #39
@@ -28088,7 +28088,7 @@ define internal fastcc i64 @gc_stat_heap_internal(i32 noundef %0, i64 noundef %1
   %30 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.259, i64 noundef 17) #39
   %31 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.259, i64 noundef 17) #39
   %32 = tail call i64 @rb_id2sym(i64 noundef %31) #39
-  store i64 %32, ptr @gc_stat_heap_symbols.7, align 16
+  store i64 %32, ptr @gc_stat_heap_symbols.7, align 8
   %33 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.377, i64 noundef 20) #39
   %34 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.377, i64 noundef 20) #39
   %35 = tail call i64 @rb_id2sym(i64 noundef %34) #39
@@ -28096,7 +28096,7 @@ define internal fastcc i64 @gc_stat_heap_internal(i32 noundef %0, i64 noundef %1
   %36 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.378, i64 noundef 38) #39
   %37 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.378, i64 noundef 38) #39
   %38 = tail call i64 @rb_id2sym(i64 noundef %37) #39
-  store i64 %38, ptr @gc_stat_heap_symbols.9, align 16
+  store i64 %38, ptr @gc_stat_heap_symbols.9, align 8
   %39 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.260, i64 noundef 23) #39
   %40 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.260, i64 noundef 23) #39
   %41 = tail call i64 @rb_id2sym(i64 noundef %40) #39
@@ -28104,7 +28104,7 @@ define internal fastcc i64 @gc_stat_heap_internal(i32 noundef %0, i64 noundef %1
   %42 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.261, i64 noundef 19) #39
   %43 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.261, i64 noundef 19) #39
   %44 = tail call i64 @rb_id2sym(i64 noundef %43) #39
-  store i64 %44, ptr @gc_stat_heap_symbols.11, align 16
+  store i64 %44, ptr @gc_stat_heap_symbols.11, align 8
   br label %setup_gc_stat_heap_symbols.exit
 
 setup_gc_stat_heap_symbols.exit:                  ; preds = %2, %8
@@ -28180,14 +28180,14 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %49, %RB_SYMBOL_P.ex
   br label %.thread128
 
 77:                                               ; preds = %67
-  %78 = load i64, ptr @gc_stat_heap_symbols.1, align 16
+  %78 = load i64, ptr @gc_stat_heap_symbols.1, align 8
   %79 = icmp eq i64 %.089, %78
   br i1 %79, label %83, label %95
 
 .thread128:                                       ; preds = %75, %72
   %.0.i = phi i64 [ %74, %72 ], [ %76, %75 ]
   %80 = tail call i64 @rb_hash_aset(i64 noundef %.090, i64 noundef %62, i64 noundef %.0.i) #39
-  %81 = load i64, ptr @gc_stat_heap_symbols.1, align 16
+  %81 = load i64, ptr @gc_stat_heap_symbols.1, align 8
   %82 = icmp eq i64 %.089, %81
   br i1 %82, label %83, label %86
 
@@ -28244,14 +28244,14 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %49, %RB_SYMBOL_P.ex
   br label %.thread132
 
 113:                                              ; preds = %95
-  %114 = load i64, ptr @gc_stat_heap_symbols.3, align 16
+  %114 = load i64, ptr @gc_stat_heap_symbols.3, align 8
   %115 = icmp eq i64 %.089, %114
   br i1 %115, label %119, label %130
 
 .thread132:                                       ; preds = %111, %108
   %.0.i107 = phi i64 [ %110, %108 ], [ %112, %111 ]
   %116 = tail call i64 @rb_hash_aset(i64 noundef %.090, i64 noundef %99, i64 noundef %.0.i107) #39
-  %117 = load i64, ptr @gc_stat_heap_symbols.3, align 16
+  %117 = load i64, ptr @gc_stat_heap_symbols.3, align 8
   %118 = icmp eq i64 %.089, %117
   br i1 %118, label %119, label %.thread133
 
@@ -28308,14 +28308,14 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %49, %RB_SYMBOL_P.ex
   br label %.thread136
 
 148:                                              ; preds = %130
-  %149 = load i64, ptr @gc_stat_heap_symbols.5, align 16
+  %149 = load i64, ptr @gc_stat_heap_symbols.5, align 8
   %150 = icmp eq i64 %.089, %149
   br i1 %150, label %154, label %166
 
 .thread136:                                       ; preds = %146, %143
   %.0.i111 = phi i64 [ %145, %143 ], [ %147, %146 ]
   %151 = tail call i64 @rb_hash_aset(i64 noundef %.090, i64 noundef %134, i64 noundef %.0.i111) #39
-  %152 = load i64, ptr @gc_stat_heap_symbols.5, align 16
+  %152 = load i64, ptr @gc_stat_heap_symbols.5, align 8
   %153 = icmp eq i64 %.089, %152
   br i1 %153, label %154, label %157
 
@@ -28372,14 +28372,14 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %49, %RB_SYMBOL_P.ex
   br label %.thread140
 
 183:                                              ; preds = %166
-  %184 = load i64, ptr @gc_stat_heap_symbols.7, align 16
+  %184 = load i64, ptr @gc_stat_heap_symbols.7, align 8
   %185 = icmp eq i64 %.089, %184
   br i1 %185, label %189, label %201
 
 .thread140:                                       ; preds = %181, %178
   %.0.i115 = phi i64 [ %180, %178 ], [ %182, %181 ]
   %186 = tail call i64 @rb_hash_aset(i64 noundef %.090, i64 noundef %170, i64 noundef %.0.i115) #39
-  %187 = load i64, ptr @gc_stat_heap_symbols.7, align 16
+  %187 = load i64, ptr @gc_stat_heap_symbols.7, align 8
   %188 = icmp eq i64 %.089, %187
   br i1 %188, label %189, label %192
 
@@ -28436,14 +28436,14 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %49, %RB_SYMBOL_P.ex
   br label %.thread144
 
 219:                                              ; preds = %201
-  %220 = load i64, ptr @gc_stat_heap_symbols.9, align 16
+  %220 = load i64, ptr @gc_stat_heap_symbols.9, align 8
   %221 = icmp eq i64 %.089, %220
   br i1 %221, label %225, label %236
 
 .thread144:                                       ; preds = %217, %214
   %.0.i119 = phi i64 [ %216, %214 ], [ %218, %217 ]
   %222 = tail call i64 @rb_hash_aset(i64 noundef %.090, i64 noundef %205, i64 noundef %.0.i119) #39
-  %223 = load i64, ptr @gc_stat_heap_symbols.9, align 16
+  %223 = load i64, ptr @gc_stat_heap_symbols.9, align 8
   %224 = icmp eq i64 %.089, %223
   br i1 %224, label %225, label %.thread145
 
@@ -28500,14 +28500,14 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %49, %RB_SYMBOL_P.ex
   br label %.thread148
 
 254:                                              ; preds = %236
-  %255 = load i64, ptr @gc_stat_heap_symbols.11, align 16
+  %255 = load i64, ptr @gc_stat_heap_symbols.11, align 8
   %256 = icmp eq i64 %.089, %255
   br i1 %256, label %260, label %273
 
 .thread148:                                       ; preds = %252, %249
   %.0.i123 = phi i64 [ %251, %249 ], [ %253, %252 ]
   %257 = tail call i64 @rb_hash_aset(i64 noundef %.090, i64 noundef %240, i64 noundef %.0.i123) #39
-  %258 = load i64, ptr @gc_stat_heap_symbols.11, align 16
+  %258 = load i64, ptr @gc_stat_heap_symbols.11, align 8
   %259 = icmp eq i64 %.089, %258
   br i1 %259, label %260, label %263
 

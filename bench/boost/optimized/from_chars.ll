@@ -135,10 +135,10 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   %9 = call { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS0_19from_chars_result_tIcEEPKcS6_RbRT_RT0_NS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %3) #13
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  switch i32 %11, label %77 [
+  switch i32 %11, label %78 [
     i32 75, label %12
     i32 95, label %16
-    i32 0, label %25
+    i32 0, label %26
   ]
 
 12:                                               ; preds = %4
@@ -146,146 +146,146 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   %14 = trunc nuw i8 %13 to i1
   %15 = select i1 %14, float 0xFFF0000000000000, float 0x7FF0000000000000
   store float %15, ptr %2, align 4, !tbaa !11
-  br label %77
+  br label %78
 
 16:                                               ; preds = %4
   %17 = load i64, ptr %6, align 8, !tbaa !7
   %18 = icmp eq i64 %17, 0
   %19 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
   %20 = trunc nuw i8 %19 to i1
-  br i1 %18, label %21, label %22
+  br i1 %18, label %21, label %23
 
 21:                                               ; preds = %16
-  %narrow.sel = select i1 %20, float 0xFFF8000000000000, float 0x7FF8000000000000
-  br label %24
+  %22 = select i1 %20, float 0xFFF8000000000000, float 0x7FF8000000000000
+  br label %25
 
-22:                                               ; preds = %16
-  %23 = select i1 %20, float 0xFFF4000000000000, float 0x7FF4000000000000
-  br label %24
+23:                                               ; preds = %16
+  %24 = select i1 %20, float 0xFFF4000000000000, float 0x7FF4000000000000
+  br label %25
 
-24:                                               ; preds = %22, %21
-  %storemerge = phi float [ %23, %22 ], [ %narrow.sel, %21 ]
+25:                                               ; preds = %23, %21
+  %storemerge = phi float [ %24, %23 ], [ %22, %21 ]
   store float %storemerge, ptr %2, align 4, !tbaa !11
-  br label %77
+  br label %78
 
-25:                                               ; preds = %4
-  %26 = load i64, ptr %6, align 8, !tbaa !7
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %32
+26:                                               ; preds = %4
+  %27 = load i64, ptr %6, align 8, !tbaa !7
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %33
 
-28:                                               ; preds = %25
-  %29 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
-  %30 = trunc nuw i8 %29 to i1
-  %31 = select i1 %30, float -0.000000e+00, float 0.000000e+00
-  store float %31, ptr %2, align 4, !tbaa !11
-  br label %77
+29:                                               ; preds = %26
+  %30 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
+  %31 = trunc nuw i8 %30 to i1
+  %32 = select i1 %31, float -0.000000e+00, float 0.000000e+00
+  store float %32, ptr %2, align 4, !tbaa !11
+  br label %78
 
-32:                                               ; preds = %25
-  %33 = load i64, ptr %7, align 8, !tbaa !7
-  %34 = icmp eq i64 %33, -1
+33:                                               ; preds = %26
+  %34 = load i64, ptr %7, align 8, !tbaa !7
+  %35 = icmp eq i64 %34, -1
   %.pre = load i8, ptr %5, align 1, !tbaa !3, !range !9
-  %35 = trunc nuw i8 %.pre to i1
-  br i1 %34, label %36, label %._crit_edge
+  %36 = trunc nuw i8 %.pre to i1
+  br i1 %35, label %37, label %._crit_edge
 
-36:                                               ; preds = %32
-  %37 = uitofp i64 %26 to float
-  %38 = fneg float %37
-  %39 = select i1 %35, float %38, float %37
-  %40 = fdiv float %39, 1.000000e+01
-  store float %40, ptr %2, align 4, !tbaa !11
+37:                                               ; preds = %33
+  %38 = uitofp i64 %27 to float
+  %39 = fneg float %38
+  %40 = select i1 %36, float %39, float %38
+  %41 = fdiv float %40, 1.000000e+01
+  store float %41, ptr %2, align 4, !tbaa !11
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %32, %36
+._crit_edge:                                      ; preds = %33, %37
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #13
   store i8 0, ptr %8, align 1, !tbaa !3
-  %41 = call noundef double @_ZN5boost8charconv6detail15compute_float64ElmbRb(i64 noundef %33, i64 noundef %26, i1 noundef zeroext %35, ptr noundef nonnull align 1 dereferenceable(1) %8) #13
-  %42 = load i8, ptr %8, align 1, !tbaa !3, !range !9, !noundef !10
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %49
+  %42 = call noundef double @_ZN5boost8charconv6detail15compute_float64ElmbRb(i64 noundef %34, i64 noundef %27, i1 noundef zeroext %36, ptr noundef nonnull align 1 dereferenceable(1) %8) #13
+  %43 = load i8, ptr %8, align 1, !tbaa !3, !range !9, !noundef !10
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %45, label %50
 
-44:                                               ; preds = %._crit_edge
-  %45 = call double @llvm.fabs.f64(double %41)
-  %or.cond.i = fcmp ogt double %45, 0x47EFFFFFE0000000
-  br i1 %or.cond.i, label %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread, label %47
+45:                                               ; preds = %._crit_edge
+  %46 = call double @llvm.fabs.f64(double %42)
+  %or.cond.i = fcmp ogt double %46, 0x47EFFFFFE0000000
+  br i1 %or.cond.i, label %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread, label %48
 
-_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread: ; preds = %44
-  %46 = select i1 %35, float 0xFFF0000000000000, float 0x7FF0000000000000
+_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread: ; preds = %45
+  %47 = select i1 %36, float 0xFFF0000000000000, float 0x7FF0000000000000
   store i8 0, ptr %8, align 1, !tbaa !3
-  br label %56
+  br label %57
 
-47:                                               ; preds = %44
-  %48 = fptrunc double %41 to float
+48:                                               ; preds = %45
+  %49 = fptrunc double %42 to float
   br label %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
 
-49:                                               ; preds = %._crit_edge
-  %50 = icmp sgt i64 %33, 38
-  br i1 %50, label %51, label %53
+50:                                               ; preds = %._crit_edge
+  %51 = icmp sgt i64 %34, 38
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %49
-  %52 = select i1 %35, float 0xFFF0000000000000, float 0x7FF0000000000000
+52:                                               ; preds = %50
+  %53 = select i1 %36, float 0xFFF0000000000000, float 0x7FF0000000000000
   br label %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
 
-53:                                               ; preds = %49
-  %54 = select i1 %35, float -0.000000e+00, float 0.000000e+00
+54:                                               ; preds = %50
+  %55 = select i1 %36, float -0.000000e+00, float 0.000000e+00
   br label %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
 
-_ZN5boost8charconv6detail15compute_float32ElmbRb.exit: ; preds = %47, %51, %53
-  %.0.i = phi float [ %48, %47 ], [ %52, %51 ], [ %54, %53 ]
-  %55 = trunc nuw i8 %42 to i1
-  br i1 %55, label %75, label %56
+_ZN5boost8charconv6detail15compute_float32ElmbRb.exit: ; preds = %48, %52, %54
+  %.0.i = phi float [ %49, %48 ], [ %53, %52 ], [ %55, %54 ]
+  %56 = trunc nuw i8 %43 to i1
+  br i1 %56, label %76, label %57
 
-56:                                               ; preds = %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread, %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
-  %.0.i29 = phi float [ %46, %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread ], [ %.0.i, %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit ]
-  %57 = load i64, ptr %6, align 8, !tbaa !7
-  %58 = icmp eq i64 %57, 1
-  %59 = load i64, ptr %7, align 8
-  %60 = icmp eq i64 %59, 0
-  %or.cond = select i1 %58, i1 %60, i1 false
-  br i1 %or.cond, label %61, label %62
+57:                                               ; preds = %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread, %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
+  %.0.i29 = phi float [ %47, %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread ], [ %.0.i, %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit ]
+  %58 = load i64, ptr %6, align 8, !tbaa !7
+  %59 = icmp eq i64 %58, 1
+  %60 = load i64, ptr %7, align 8
+  %61 = icmp eq i64 %60, 0
+  %or.cond = select i1 %59, i1 %61, i1 false
+  br i1 %or.cond, label %62, label %63
 
-61:                                               ; preds = %56
+62:                                               ; preds = %57
   store float 1.000000e+00, ptr %2, align 4, !tbaa !11
-  br label %76
-
-62:                                               ; preds = %56
-  %63 = call float @llvm.fabs.f32(float %.0.i29)
-  %or.cond3 = fcmp oeq float %63, 0x7FF0000000000000
-  br i1 %or.cond3, label %64, label %65
-
-64:                                               ; preds = %62
-  store float %.0.i29, ptr %2, align 4, !tbaa !11
-  br label %76
-
-65:                                               ; preds = %62
-  %66 = icmp slt i64 %59, -46
-  br i1 %66, label %67, label %71
-
-67:                                               ; preds = %65
-  %68 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
-  %69 = trunc nuw i8 %68 to i1
-  %70 = select i1 %69, float -0.000000e+00, float 0.000000e+00
-  store float %70, ptr %2, align 4, !tbaa !11
-  br label %76
-
-71:                                               ; preds = %65
-  %72 = call { ptr, i32 } @_ZN5boost8charconv6detail17from_chars_strtodIfEENS0_19from_chars_result_tIcEEPKcS6_RT_(ptr noundef %0, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %2) #13
-  %73 = extractvalue { ptr, i32 } %72, 0
-  %74 = extractvalue { ptr, i32 } %72, 1
-  br label %76
-
-75:                                               ; preds = %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
-  store float %.0.i, ptr %2, align 4, !tbaa !11
-  br label %76
-
-76:                                               ; preds = %61, %67, %71, %64, %75
-  %.sroa.021.1 = phi ptr [ %10, %75 ], [ %1, %61 ], [ %10, %64 ], [ %10, %67 ], [ %73, %71 ]
-  %.sroa.522.1 = phi i32 [ 0, %75 ], [ 0, %61 ], [ 34, %64 ], [ 34, %67 ], [ %74, %71 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #13
   br label %77
 
-77:                                               ; preds = %4, %76, %28, %24, %12
-  %.sroa.021.0 = phi ptr [ %10, %12 ], [ %10, %24 ], [ %10, %28 ], [ %.sroa.021.1, %76 ], [ %10, %4 ]
-  %.sroa.522.0 = phi i32 [ 0, %12 ], [ 0, %24 ], [ 0, %28 ], [ %.sroa.522.1, %76 ], [ %11, %4 ]
+63:                                               ; preds = %57
+  %64 = call float @llvm.fabs.f32(float %.0.i29)
+  %or.cond3 = fcmp oeq float %64, 0x7FF0000000000000
+  br i1 %or.cond3, label %65, label %66
+
+65:                                               ; preds = %63
+  store float %.0.i29, ptr %2, align 4, !tbaa !11
+  br label %77
+
+66:                                               ; preds = %63
+  %67 = icmp slt i64 %60, -46
+  br i1 %67, label %68, label %72
+
+68:                                               ; preds = %66
+  %69 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
+  %70 = trunc nuw i8 %69 to i1
+  %71 = select i1 %70, float -0.000000e+00, float 0.000000e+00
+  store float %71, ptr %2, align 4, !tbaa !11
+  br label %77
+
+72:                                               ; preds = %66
+  %73 = call { ptr, i32 } @_ZN5boost8charconv6detail17from_chars_strtodIfEENS0_19from_chars_result_tIcEEPKcS6_RT_(ptr noundef %0, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %2) #13
+  %74 = extractvalue { ptr, i32 } %73, 0
+  %75 = extractvalue { ptr, i32 } %73, 1
+  br label %77
+
+76:                                               ; preds = %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
+  store float %.0.i, ptr %2, align 4, !tbaa !11
+  br label %77
+
+77:                                               ; preds = %62, %68, %72, %65, %76
+  %.sroa.021.1 = phi ptr [ %10, %76 ], [ %1, %62 ], [ %10, %65 ], [ %10, %68 ], [ %74, %72 ]
+  %.sroa.522.1 = phi i32 [ 0, %76 ], [ 0, %62 ], [ 34, %65 ], [ 34, %68 ], [ %75, %72 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #13
+  br label %78
+
+78:                                               ; preds = %4, %77, %29, %25, %12
+  %.sroa.021.0 = phi ptr [ %10, %12 ], [ %10, %25 ], [ %10, %29 ], [ %.sroa.021.1, %77 ], [ %10, %4 ]
+  %.sroa.522.0 = phi i32 [ 0, %12 ], [ 0, %25 ], [ 0, %29 ], [ %.sroa.522.1, %77 ], [ %11, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
@@ -329,10 +329,10 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   %9 = call { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS0_19from_chars_result_tIcEEPKcS6_RbRT_RT0_NS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %3) #13
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  switch i32 %11, label %65 [
+  switch i32 %11, label %66 [
     i32 75, label %12
     i32 95, label %16
-    i32 0, label %25
+    i32 0, label %26
   ]
 
 12:                                               ; preds = %4
@@ -340,114 +340,114 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   %14 = trunc nuw i8 %13 to i1
   %15 = select i1 %14, double 0xFFF0000000000000, double 0x7FF0000000000000
   store double %15, ptr %2, align 8, !tbaa !13
-  br label %65
+  br label %66
 
 16:                                               ; preds = %4
   %17 = load i64, ptr %6, align 8, !tbaa !7
   %18 = icmp eq i64 %17, 0
   %19 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
   %20 = trunc nuw i8 %19 to i1
-  br i1 %18, label %21, label %22
+  br i1 %18, label %21, label %23
 
 21:                                               ; preds = %16
-  %narrow.sel = select i1 %20, double 0xFFF8000000000000, double 0x7FF8000000000000
-  br label %24
+  %22 = select i1 %20, double 0xFFF8000000000000, double 0x7FF8000000000000
+  br label %25
 
-22:                                               ; preds = %16
-  %23 = select i1 %20, double 0xFFF4000000000000, double 0x7FF4000000000000
-  br label %24
+23:                                               ; preds = %16
+  %24 = select i1 %20, double 0xFFF4000000000000, double 0x7FF4000000000000
+  br label %25
 
-24:                                               ; preds = %22, %21
-  %storemerge = phi double [ %23, %22 ], [ %narrow.sel, %21 ]
+25:                                               ; preds = %23, %21
+  %storemerge = phi double [ %24, %23 ], [ %22, %21 ]
   store double %storemerge, ptr %2, align 8, !tbaa !13
-  br label %65
+  br label %66
 
-25:                                               ; preds = %4
-  %26 = load i64, ptr %6, align 8, !tbaa !7
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %32
+26:                                               ; preds = %4
+  %27 = load i64, ptr %6, align 8, !tbaa !7
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %33
 
-28:                                               ; preds = %25
-  %29 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
-  %30 = trunc nuw i8 %29 to i1
-  %31 = select i1 %30, double -0.000000e+00, double 0.000000e+00
-  store double %31, ptr %2, align 8, !tbaa !13
-  br label %65
+29:                                               ; preds = %26
+  %30 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
+  %31 = trunc nuw i8 %30 to i1
+  %32 = select i1 %31, double -0.000000e+00, double 0.000000e+00
+  store double %32, ptr %2, align 8, !tbaa !13
+  br label %66
 
-32:                                               ; preds = %25
-  %33 = load i64, ptr %7, align 8, !tbaa !7
-  %34 = icmp eq i64 %33, -1
+33:                                               ; preds = %26
+  %34 = load i64, ptr %7, align 8, !tbaa !7
+  %35 = icmp eq i64 %34, -1
   %.pre = load i8, ptr %5, align 1, !tbaa !3, !range !9
-  %35 = trunc nuw i8 %.pre to i1
-  br i1 %34, label %36, label %._crit_edge
+  %36 = trunc nuw i8 %.pre to i1
+  br i1 %35, label %37, label %._crit_edge
 
-36:                                               ; preds = %32
-  %37 = uitofp i64 %26 to double
-  %38 = fneg double %37
-  %39 = select i1 %35, double %38, double %37
-  %40 = fdiv double %39, 1.000000e+01
-  store double %40, ptr %2, align 8, !tbaa !13
+37:                                               ; preds = %33
+  %38 = uitofp i64 %27 to double
+  %39 = fneg double %38
+  %40 = select i1 %36, double %39, double %38
+  %41 = fdiv double %40, 1.000000e+01
+  store double %41, ptr %2, align 8, !tbaa !13
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %32, %36
+._crit_edge:                                      ; preds = %33, %37
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #13
   store i8 0, ptr %8, align 1, !tbaa !3
-  %41 = call noundef double @_ZN5boost8charconv6detail15compute_float64ElmbRb(i64 noundef %33, i64 noundef %26, i1 noundef zeroext %35, ptr noundef nonnull align 1 dereferenceable(1) %8) #13
-  %42 = load i8, ptr %8, align 1, !tbaa !3, !range !9, !noundef !10
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %63, label %44
+  %42 = call noundef double @_ZN5boost8charconv6detail15compute_float64ElmbRb(i64 noundef %34, i64 noundef %27, i1 noundef zeroext %36, ptr noundef nonnull align 1 dereferenceable(1) %8) #13
+  %43 = load i8, ptr %8, align 1, !tbaa !3, !range !9, !noundef !10
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %64, label %45
 
-44:                                               ; preds = %._crit_edge
-  %45 = load i64, ptr %6, align 8, !tbaa !7
-  %46 = icmp eq i64 %45, 1
-  %47 = load i64, ptr %7, align 8
-  %48 = icmp eq i64 %47, 0
-  %or.cond = select i1 %46, i1 %48, i1 false
-  br i1 %or.cond, label %49, label %50
+45:                                               ; preds = %._crit_edge
+  %46 = load i64, ptr %6, align 8, !tbaa !7
+  %47 = icmp eq i64 %46, 1
+  %48 = load i64, ptr %7, align 8
+  %49 = icmp eq i64 %48, 0
+  %or.cond = select i1 %47, i1 %49, i1 false
+  br i1 %or.cond, label %50, label %51
 
-49:                                               ; preds = %44
+50:                                               ; preds = %45
   store double 1.000000e+00, ptr %2, align 8, !tbaa !13
-  br label %64
-
-50:                                               ; preds = %44
-  %51 = call double @llvm.fabs.f64(double %41)
-  %or.cond3 = fcmp oeq double %51, 0x7FF0000000000000
-  br i1 %or.cond3, label %52, label %53
-
-52:                                               ; preds = %50
-  store double %41, ptr %2, align 8, !tbaa !13
-  br label %64
-
-53:                                               ; preds = %50
-  %54 = icmp slt i64 %47, -342
-  br i1 %54, label %55, label %59
-
-55:                                               ; preds = %53
-  %56 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
-  %57 = trunc nuw i8 %56 to i1
-  %58 = select i1 %57, double -0.000000e+00, double 0.000000e+00
-  store double %58, ptr %2, align 8, !tbaa !13
-  br label %64
-
-59:                                               ; preds = %53
-  %60 = call { ptr, i32 } @_ZN5boost8charconv6detail17from_chars_strtodIdEENS0_19from_chars_result_tIcEEPKcS6_RT_(ptr noundef %0, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %2) #13
-  %61 = extractvalue { ptr, i32 } %60, 0
-  %62 = extractvalue { ptr, i32 } %60, 1
-  br label %64
-
-63:                                               ; preds = %._crit_edge
-  store double %41, ptr %2, align 8, !tbaa !13
-  br label %64
-
-64:                                               ; preds = %49, %55, %59, %52, %63
-  %.sroa.021.1 = phi ptr [ %10, %63 ], [ %1, %49 ], [ %10, %52 ], [ %10, %55 ], [ %61, %59 ]
-  %.sroa.522.1 = phi i32 [ 0, %63 ], [ 0, %49 ], [ 34, %52 ], [ 34, %55 ], [ %62, %59 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #13
   br label %65
 
-65:                                               ; preds = %4, %64, %28, %24, %12
-  %.sroa.021.0 = phi ptr [ %10, %12 ], [ %10, %24 ], [ %10, %28 ], [ %.sroa.021.1, %64 ], [ %10, %4 ]
-  %.sroa.522.0 = phi i32 [ 0, %12 ], [ 0, %24 ], [ 0, %28 ], [ %.sroa.522.1, %64 ], [ %11, %4 ]
+51:                                               ; preds = %45
+  %52 = call double @llvm.fabs.f64(double %42)
+  %or.cond3 = fcmp oeq double %52, 0x7FF0000000000000
+  br i1 %or.cond3, label %53, label %54
+
+53:                                               ; preds = %51
+  store double %42, ptr %2, align 8, !tbaa !13
+  br label %65
+
+54:                                               ; preds = %51
+  %55 = icmp slt i64 %48, -342
+  br i1 %55, label %56, label %60
+
+56:                                               ; preds = %54
+  %57 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
+  %58 = trunc nuw i8 %57 to i1
+  %59 = select i1 %58, double -0.000000e+00, double 0.000000e+00
+  store double %59, ptr %2, align 8, !tbaa !13
+  br label %65
+
+60:                                               ; preds = %54
+  %61 = call { ptr, i32 } @_ZN5boost8charconv6detail17from_chars_strtodIdEENS0_19from_chars_result_tIcEEPKcS6_RT_(ptr noundef %0, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  %62 = extractvalue { ptr, i32 } %61, 0
+  %63 = extractvalue { ptr, i32 } %61, 1
+  br label %65
+
+64:                                               ; preds = %._crit_edge
+  store double %42, ptr %2, align 8, !tbaa !13
+  br label %65
+
+65:                                               ; preds = %50, %56, %60, %53, %64
+  %.sroa.021.1 = phi ptr [ %10, %64 ], [ %1, %50 ], [ %10, %53 ], [ %10, %56 ], [ %62, %60 ]
+  %.sroa.522.1 = phi i32 [ 0, %64 ], [ 0, %50 ], [ 34, %53 ], [ 34, %56 ], [ %63, %60 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #13
+  br label %66
+
+66:                                               ; preds = %4, %65, %29, %25, %12
+  %.sroa.021.0 = phi ptr [ %10, %12 ], [ %10, %25 ], [ %10, %29 ], [ %.sroa.021.1, %65 ], [ %10, %4 ]
+  %.sroa.522.0 = phi i32 [ 0, %12 ], [ 0, %25 ], [ 0, %29 ], [ %.sroa.522.1, %65 ], [ %11, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13

@@ -3322,10 +3322,9 @@ if.end657:                                        ; preds = %if.end651
   %70 = and i32 %67, -1809
   %71 = or i32 %69, %70
   %or.cond92 = icmp eq i32 %71, 0
-  %72 = or i32 %67, 16
   %stat_width = getelementptr inbounds i8, ptr %rev, i64 1864
-  %73 = load i32, ptr %stat_width, align 8
-  %tobool672.not = icmp eq i32 %73, 0
+  %72 = load i32, ptr %stat_width, align 8
+  %tobool672.not = icmp eq i32 %72, 0
   br i1 %tobool672.not, label %if.then673, label %if.end676
 
 if.then673:                                       ; preds = %if.end657
@@ -3333,7 +3332,8 @@ if.then673:                                       ; preds = %if.end657
   br label %if.end676
 
 if.end676:                                        ; preds = %if.then673, %if.end657
-  %or = select i1 %or.cond92, i32 26, i32 %72
+  %73 = or i32 %67, 16
+  %or = select i1 %or.cond92, i32 26, i32 %73
   store i32 %or, ptr %output_format, align 4
   %bf.set681 = or i64 %bf.load652, 1125899906842624
   store i64 %bf.set681, ptr %verbose_header, align 8

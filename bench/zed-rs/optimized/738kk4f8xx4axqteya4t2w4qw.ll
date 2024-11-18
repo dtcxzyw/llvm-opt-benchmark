@@ -94927,7 +94927,7 @@ define hidden void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$
   store i8 7, ptr %0, align 8
   %.sroa.427.sroa.3.0..sroa.427.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.427.sroa.3.0..sroa.427.0..sroa_idx.sroa_idx, align 8
-  br label %41
+  br label %42
 
 20:                                               ; preds = %13
   %21 = load i64, ptr %2, align 8, !range !475, !noundef !9
@@ -94971,17 +94971,17 @@ switch.lookup:                                    ; preds = %20
   %36 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %.sroa.03.0.i)
   %37 = extractvalue { i64, i1 } %36, 1
   %38 = extractvalue { i64, i1 } %36, 0
-  %spec.select.i = select i1 %37, i64 -1, i64 %38
-  %39 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.033.0, i64 %spec.select.i)
-  %40 = sub i64 %.sroa.033.0, %39
+  %39 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.033.0, i64 %38)
+  %40 = select i1 %37, i64 0, i64 %39
+  %41 = sub i64 %.sroa.033.0, %40
   store i64 %.sroa.01.0.copyload, ptr %1, align 8
-  store i64 %40, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  store i64 %39, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  store i64 %39, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %41, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %40, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %40, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   store i64 %.sroa.5.sroa.7.0.copyload, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  br label %41
+  br label %42
 
-41:                                               ; preds = %32, %19
+42:                                               ; preds = %32, %19
   ret void
 }
 

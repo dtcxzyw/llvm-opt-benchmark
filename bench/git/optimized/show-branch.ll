@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [13 x i8] c"<n>[,<base>]\00", align 1
 @.str.33 = private unnamed_addr constant [54 x i8] c"show <n> most recent ref-log entries starting at base\00", align 1
 @name_slab.0 = internal unnamed_addr global i1 false, align 8
-@name_slab.1 = internal unnamed_addr global i1 false, align 8
+@name_slab.1 = internal unnamed_addr global i1 false, align 4
 @name_slab.2 = internal unnamed_addr global i32 0, align 8
 @name_slab.3 = internal unnamed_addr global ptr null, align 8
 @default_args = internal global %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, align 8
@@ -455,7 +455,7 @@ entry:
   store ptr @parse_reflog_param, ptr %callback178, align 16
   %defval179 = getelementptr inbounds i8, ptr %builtin_show_branch_options, i64 1288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %defval179, i8 0, i64 120, i1 false)
-  store i1 true, ptr @name_slab.1, align 8
+  store i1 true, ptr @name_slab.1, align 4
   store i1 true, ptr @name_slab.0, align 8
   store i32 0, ptr @name_slab.2, align 8
   store ptr null, ptr @name_slab.3, align 8
@@ -2610,7 +2610,7 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i, %ent
 if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %.b = load i1, ptr @name_slab.0, align 8
   %conv22.i.i.i = select i1 %.b, i64 65532, i64 0
-  %.b12 = load i1, ptr @name_slab.1, align 8
+  %.b12 = load i1, ptr @name_slab.1, align 4
   %mul.i.i.i = select i1 %.b12, i64 8, i64 0
   %call24.i.i.i = tail call ptr @xcalloc(i64 noundef %conv22.i.i.i, i64 noundef %mul.i.i.i) #16
   %7 = load ptr, ptr @name_slab.3, align 8
@@ -2620,7 +2620,7 @@ if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
 
 commit_to_name.exit:                              ; preds = %if.end12.i.i.i, %if.end20.i.i.i
   %8 = phi ptr [ %6, %if.end12.i.i.i ], [ %call24.i.i.i, %if.end20.i.i.i ]
-  %.b13 = load i1, ptr @name_slab.1, align 8
+  %.b13 = load i1, ptr @name_slab.1, align 4
   %9 = zext nneg i32 %rem.i.i.i to i64
   %idxprom34.i.i.i = select i1 %.b13, i64 %9, i64 0
   %arrayidx35.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %idxprom34.i.i.i
@@ -3176,7 +3176,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %entry
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %.b44 = load i1, ptr @name_slab.0, align 8
   %conv22.i.i = select i1 %.b44, i64 65532, i64 0
-  %.b48 = load i1, ptr @name_slab.1, align 8
+  %.b48 = load i1, ptr @name_slab.1, align 4
   %mul.i.i = select i1 %.b48, i64 8, i64 0
   %call24.i.i = tail call ptr @xcalloc(i64 noundef %conv22.i.i, i64 noundef %mul.i.i) #16
   %7 = load ptr, ptr @name_slab.3, align 8
@@ -3186,7 +3186,7 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
 
 commit_name_slab_at.exit:                         ; preds = %if.end12.i.i, %if.end20.i.i
   %8 = phi ptr [ %6, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
-  %.b49 = load i1, ptr @name_slab.1, align 8
+  %.b49 = load i1, ptr @name_slab.1, align 4
   %9 = zext nneg i32 %rem.i.i to i64
   %idxprom34.i.i = select i1 %.b49, i64 %9, i64 0
   %arrayidx35.i.i = getelementptr inbounds ptr, ptr %8, i64 %idxprom34.i.i
@@ -3247,7 +3247,7 @@ if.end12.i.i25:                                   ; preds = %for.end.i.i23, %if.
 if.end20.i.i33:                                   ; preds = %if.end12.i.i25
   %.b = load i1, ptr @name_slab.0, align 8
   %conv22.i.i34 = select i1 %.b, i64 65532, i64 0
-  %.b46 = load i1, ptr @name_slab.1, align 8
+  %.b46 = load i1, ptr @name_slab.1, align 4
   %mul.i.i36 = select i1 %.b46, i64 8, i64 0
   %call24.i.i37 = tail call ptr @xcalloc(i64 noundef %conv22.i.i34, i64 noundef %mul.i.i36) #16
   %17 = load ptr, ptr @name_slab.3, align 8
@@ -3257,7 +3257,7 @@ if.end20.i.i33:                                   ; preds = %if.end12.i.i25
 
 commit_name_slab_at.exit42:                       ; preds = %if.end12.i.i25, %if.end20.i.i33
   %18 = phi ptr [ %16, %if.end12.i.i25 ], [ %call24.i.i37, %if.end20.i.i33 ]
-  %.b47 = load i1, ptr @name_slab.1, align 8
+  %.b47 = load i1, ptr @name_slab.1, align 4
   %19 = zext nneg i32 %rem.i.i29 to i64
   %idxprom34.i.i31 = select i1 %.b47, i64 %19, i64 0
   %arrayidx35.i.i32 = getelementptr inbounds ptr, ptr %18, i64 %idxprom34.i.i31
@@ -3332,7 +3332,7 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i, %whi
   %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %.pre3.i.i.i.i63, i64 %idxprom14.i.i.i
   %5 = load ptr, ptr %arrayidx15.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %5, null
-  %.pre57.b = load i1, ptr @name_slab.1, align 8
+  %.pre57.b = load i1, ptr @name_slab.1, align 4
   br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %commit_to_name.exit
 
 if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
@@ -3343,7 +3343,7 @@ if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %6 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom14.i.i.i
   store ptr %call24.i.i.i, ptr %arrayidx27.i.i.i, align 8
-  %.pre.b = load i1, ptr @name_slab.1, align 8
+  %.pre.b = load i1, ptr @name_slab.1, align 4
   br label %commit_to_name.exit
 
 commit_to_name.exit:                              ; preds = %if.end12.i.i.i, %if.end20.i.i.i
@@ -3403,7 +3403,7 @@ for.end.loopexit.i.i.i24:                         ; preds = %for.body.i.i.i18
 for.end.i.i.i26:                                  ; preds = %for.end.loopexit.i.i.i24, %if.end.i.i.i12
   %.pre.i.i.i27 = phi ptr [ %.pre.pre.i.i.i25, %for.end.loopexit.i.i.i24 ], [ %call4.i.i.i16, %if.end.i.i.i12 ]
   store i32 %add.i.i.i13, ptr @name_slab.2, align 8
-  %.pre60.pre.b = load i1, ptr @name_slab.1, align 8
+  %.pre60.pre.b = load i1, ptr @name_slab.1, align 4
   br label %if.end12.i.i.i28
 
 if.end12.i.i.i28:                                 ; preds = %for.end.i.i.i26, %if.end4
@@ -3423,7 +3423,7 @@ if.end20.i.i.i36:                                 ; preds = %if.end12.i.i.i28
   %18 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i.i41 = getelementptr inbounds ptr, ptr %18, i64 %idxprom14.i.i.i29
   store ptr %call24.i.i.i40, ptr %arrayidx27.i.i.i41, align 8
-  %.pre59.b = load i1, ptr @name_slab.1, align 8
+  %.pre59.b = load i1, ptr @name_slab.1, align 4
   br label %commit_to_name.exit45
 
 commit_to_name.exit45:                            ; preds = %if.end12.i.i.i28, %if.end20.i.i.i36
@@ -3477,7 +3477,7 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
   store i32 %add.i.i.i.i, ptr @name_slab.2, align 8
   %.pre1.pre.i.b = load i1, ptr @name_slab.0, align 8
   %.pre1.pre.i = select i1 %.pre1.pre.i.b, i32 65532, i32 0
-  %.pre72.pre.b = load i1, ptr @name_slab.1, align 8
+  %.pre72.pre.b = load i1, ptr @name_slab.1, align 4
   br label %if.end12.i.i.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %for.end.i.i.i.i, %if.then8
@@ -3501,7 +3501,7 @@ if.end20.i.i.i.i:                                 ; preds = %if.end12.i.i.i.i
   %.pre.i.b = load i1, ptr @name_slab.0, align 8
   %.pre.i = select i1 %.pre.i.b, i32 65532, i32 0
   %.pre2.i = load i32, ptr @name_slab.2, align 8
-  %.pre71.b = load i1, ptr @name_slab.1, align 8
+  %.pre71.b = load i1, ptr @name_slab.1, align 4
   br label %commit_to_name.exit.i
 
 commit_to_name.exit.i:                            ; preds = %if.end20.i.i.i.i, %if.end12.i.i.i.i
@@ -3550,7 +3550,7 @@ for.end.loopexit.i.i.i21.i:                       ; preds = %for.body.i.i.i15.i
 for.end.i.i.i23.i:                                ; preds = %for.end.loopexit.i.i.i21.i, %if.end.i.i.i9.i
   %.pre.i.i.i24.i = phi ptr [ %.pre.pre.i.i.i22.i, %for.end.loopexit.i.i.i21.i ], [ %call4.i.i.i13.i, %if.end.i.i.i9.i ]
   store i32 %add.i.i.i10.i, ptr @name_slab.2, align 8
-  %.pre5.pre.i.b = load i1, ptr @name_slab.1, align 8
+  %.pre5.pre.i.b = load i1, ptr @name_slab.1, align 4
   br label %if.end12.i.i.i25.i
 
 if.end12.i.i.i25.i:                               ; preds = %for.end.i.i.i23.i, %commit_to_name.exit.i
@@ -3570,7 +3570,7 @@ if.end20.i.i.i33.i:                               ; preds = %if.end12.i.i.i25.i
   %37 = load ptr, ptr @name_slab.3, align 8
   %arrayidx27.i.i.i38.i = getelementptr inbounds ptr, ptr %37, i64 %idxprom14.i.i.i26.i
   store ptr %call24.i.i.i37.i, ptr %arrayidx27.i.i.i38.i, align 8
-  %.pre4.i.b = load i1, ptr @name_slab.1, align 8
+  %.pre4.i.b = load i1, ptr @name_slab.1, align 4
   br label %commit_to_name.exit42.i
 
 commit_to_name.exit42.i:                          ; preds = %if.end20.i.i.i33.i, %if.end12.i.i.i25.i

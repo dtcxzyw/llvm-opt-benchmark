@@ -4113,9 +4113,9 @@ _RNvXs9_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4fuseINtB5_4FuseINtNtNtBb_5slice4
   %24 = getelementptr inbounds i8, ptr %2, i64 64
   %25 = icmp ne i64 %3, 1
   %26 = getelementptr inbounds i8, ptr %2, i64 128
-  %27 = ptrtoint ptr %24 to i64
   %spec.select48.i = select i1 %25, ptr %26, ptr %24
   %..i = zext i1 %25 to i64
+  %27 = ptrtoint ptr %24 to i64
   %28 = select i1 %25, i64 %27, i64 0
   %29 = inttoptr i64 %28 to ptr
   br label %_RNvMs0_NtCseG2FYMysgNb_3wax4ruleINtB5_8AdjacentINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtB7_5token5TokenEE3newB7_.exit

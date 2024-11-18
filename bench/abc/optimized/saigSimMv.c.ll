@@ -1038,13 +1038,13 @@ Saig_MvAnd.exit:                                  ; preds = %18, %36, %41, %44, 
   %.not.i44 = icmp eq i32 %132, 536870910
   %133 = and i32 %.val36, 1
   %134 = xor i32 %132, %133
-  %135 = shl nuw i32 %134, 3
-  %136 = getelementptr inbounds i8, ptr %126, i64 8
-  %137 = load i32, ptr %136, align 4
-  %138 = select i1 %.not.i44, i32 -16, i32 %135
-  %139 = and i32 %137, 7
+  %135 = getelementptr inbounds i8, ptr %126, i64 8
+  %136 = load i32, ptr %135, align 4
+  %137 = shl nuw i32 %134, 3
+  %138 = select i1 %.not.i44, i32 -16, i32 %137
+  %139 = and i32 %136, 7
   %140 = or disjoint i32 %138, %139
-  store i32 %140, ptr %136, align 4
+  store i32 %140, ptr %135, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %141 = load ptr, ptr %14, align 8
   %142 = getelementptr i8, ptr %141, i64 4

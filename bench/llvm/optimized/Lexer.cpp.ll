@@ -3989,17 +3989,17 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   %98 = call noundef zeroext i1 @_ZN5clang5Lexer11getRawTokenENS_14SourceLocationERNS_5TokenERKNS_13SourceManagerERKNS_11LangOptionsEb(i32 %.sroa.01.0.i, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(841) %2, i1 noundef zeroext false)
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %100 = load i32, ptr %99, align 4
-  %101 = zext i32 %100 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %102 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.03.0.extract.trunc, ptr noundef null) #24
-  %103 = extractvalue { ptr, i64 } %102, 0
-  %104 = extractvalue { ptr, i64 } %102, 1
-  %105 = select i1 %98, i64 0, i64 %101
-  %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %104, i64 %.sroa.2.0.extract.shift)
-  %106 = getelementptr inbounds i8, ptr %103, i64 %.sroa.speculated5.i
-  %107 = sub i64 %104, %.sroa.speculated5.i
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %107, i64 %105)
-  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %106, 0
+  %101 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.03.0.extract.trunc, ptr noundef null) #24
+  %102 = extractvalue { ptr, i64 } %101, 0
+  %103 = extractvalue { ptr, i64 } %101, 1
+  %104 = zext i32 %100 to i64
+  %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %103, i64 %.sroa.2.0.extract.shift)
+  %105 = getelementptr inbounds i8, ptr %102, i64 %.sroa.speculated5.i
+  %106 = sub i64 %103, %.sroa.speculated5.i
+  %107 = call i64 @llvm.umin.i64(i64 %106, i64 %104)
+  %.sroa.speculated.i = select i1 %98, i64 0, i64 %107
+  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %105, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %.sroa.speculated.i, 1
   ret { ptr, i64 } %.fca.1.insert.i
 }
@@ -4074,21 +4074,21 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit35: ; preds =
   %22 = call noundef zeroext i1 @_ZN5clang5Lexer11getRawTokenENS_14SourceLocationERNS_5TokenERKNS_13SourceManagerERKNS_11LangOptionsEb(i32 %.sroa.01.0.i34, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(841) %2, i1 noundef zeroext false)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %24 = load i32, ptr %23, align 4
-  %25 = zext i32 %24 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %26 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.03.0.extract.trunc, ptr noundef null) #24
-  %27 = extractvalue { ptr, i64 } %26, 0
-  %28 = extractvalue { ptr, i64 } %26, 1
-  %29 = select i1 %22, i64 0, i64 %25
-  %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %28, i64 %.sroa.2.0.extract.shift)
-  %30 = getelementptr inbounds i8, ptr %27, i64 %.sroa.speculated5.i
-  %31 = sub i64 %28, %.sroa.speculated5.i
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %31, i64 %29)
+  %25 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.03.0.extract.trunc, ptr noundef null) #24
+  %26 = extractvalue { ptr, i64 } %25, 0
+  %27 = extractvalue { ptr, i64 } %25, 1
+  %28 = zext i32 %24 to i64
+  %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %27, i64 %.sroa.2.0.extract.shift)
+  %29 = getelementptr inbounds i8, ptr %26, i64 %.sroa.speculated5.i
+  %30 = sub i64 %27, %.sroa.speculated5.i
+  %31 = call i64 @llvm.umin.i64(i64 %30, i64 %28)
+  %.sroa.speculated.i = select i1 %22, i64 0, i64 %31
   br label %32
 
 32:                                               ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit35
   %.sroa.4.0 = phi i64 [ %.sroa.speculated.i, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit35 ], [ 0, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit ], [ 0, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit ]
-  %.sroa.043.0 = phi ptr [ %30, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit35 ], [ null, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit ], [ null, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit ]
+  %.sroa.043.0 = phi ptr [ %29, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit35 ], [ null, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit ], [ null, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.043.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert

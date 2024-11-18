@@ -987,7 +987,6 @@ if.end7:                                          ; preds = %entry
   %conv9 = sitofp i32 %conv to double
   %sub10 = fsub double %3, %conv9
   %cmp11 = icmp eq i32 %sub, 9
-  %4 = mul i32 %sub, 180
   %turb_frac.0 = select i1 %cmp11, double 1.000000e+00, double %sub10
   %sub15 = fadd double %wavelength, -3.200000e+02
   %div16 = fdiv double %sub15, 4.000000e+01
@@ -1008,13 +1007,14 @@ if.end7:                                          ; preds = %entry
   %mul6.i = fmul double %call5.i, 0x3FF921FB54442D18
   %idxprom.i = sext i32 %wl_low.0 to i64
   %arrayidx.i = getelementptr inbounds [11 x ptr], ptr @solarDatasets, i64 0, i64 %idxprom.i
-  %5 = load ptr, ptr %arrayidx.i, align 8
-  %mul7.i = select i1 %cmp11, i32 1440, i32 %4
+  %4 = load ptr, ptr %arrayidx.i, align 8
+  %5 = mul i32 %sub, 180
+  %mul7.i = select i1 %cmp11, i32 1440, i32 %5
   %add.i = shl i32 %spec.store.select.i, 2
   %mul8.i = add i32 %mul7.i, 4
   %add9.i = add i32 %mul8.i, %add.i
   %6 = sext i32 %add9.i to i64
-  %7 = getelementptr double, ptr %5, i64 %6
+  %7 = getelementptr double, ptr %4, i64 %6
   %sub10.i = fsub double %elevation, %mul6.i
   br label %for.body.i
 

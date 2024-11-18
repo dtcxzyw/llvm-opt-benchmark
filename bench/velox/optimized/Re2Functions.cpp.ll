@@ -3995,12 +3995,8 @@ while.end:                                        ; preds = %if.end33, %if.end33
   %fixedPatternEnd.0.lcssa = phi i32 [ %fixedPatternEnd.1.us, %if.end33.us ], [ %fixedPatternEnd.1, %if.end33 ]
   %fixedPatternStart.0.lcssa = phi i32 [ %fixedPatternStart.1.us, %if.end33.us ], [ %fixedPatternStart.1, %if.end33 ]
   %wildcardStart.0.lcssa = phi i32 [ %wildcardStart.2.us, %if.end33.us ], [ %wildcardStart.2, %if.end33 ]
-  %cmp34 = icmp ne i32 %fixedPatternStart.0.lcssa, -1
   %cmp36 = icmp eq i32 %fixedPatternEnd.0.lcssa, -1
-  %or.cond1 = select i1 %cmp34, i1 %cmp36, i1 false
   %6 = trunc i64 %pattern.coerce0 to i32
-  %conv39 = add i32 %6, -1
-  %fixedPatternEnd.2 = select i1 %or.cond1, i32 %conv39, i32 %fixedPatternEnd.0.lcssa
   %cmp41 = icmp eq i32 %fixedPatternStart.0.lcssa, -1
   br i1 %cmp41, label %if.then42, label %if.end58
 
@@ -4009,10 +4005,10 @@ if.then42:                                        ; preds = %while.end
   br i1 %cmp43, label %if.then44, label %if.end51
 
 if.then44:                                        ; preds = %entry, %if.then42
-  %singleCharacterWildcardCount.0.lcssa149154 = phi i64 [ %singleCharacterWildcardCount.0.lcssa, %if.then42 ], [ 0, %entry ]
+  %singleCharacterWildcardCount.0.lcssa147152 = phi i64 [ %singleCharacterWildcardCount.0.lcssa, %if.then42 ], [ 0, %entry ]
   store i32 0, ptr %agg.result, align 8
   %length46 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %singleCharacterWildcardCount.0.lcssa149154, ptr %length46, align 8
+  store i64 %singleCharacterWildcardCount.0.lcssa147152, ptr %length46, align 8
   %fixedPattern47 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #21
   %call.i44 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %fixedPattern47)
@@ -4179,7 +4175,8 @@ if.end98:                                         ; preds = %if.end82
   br i1 %cmp99, label %if.then100, label %if.end115
 
 if.then100:                                       ; preds = %if.end98
-  %add = add nsw i32 %fixedPatternEnd.2, 1
+  %15 = add nsw i32 %fixedPatternEnd.0.lcssa, 1
+  %add = select i1 %cmp36, i32 %6, i32 %15
   %conv104 = sext i32 %add to i64
   call void @_ZN8facebook5velox9functions8unescapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEmmSt8optionalIcE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %fixedPattern101, i64 poison, ptr nonnull %pattern.coerce1, i64 noundef %conv103, i64 noundef %conv104, i16 %escapeChar.coerce.fr)
   store i32 5, ptr %agg.result, align 8
@@ -4195,7 +4192,7 @@ invoke.cont114:                                   ; preds = %if.then100
   br label %return
 
 lpad113:                                          ; preds = %if.then100
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fixedPattern101) #21
   br label %eh.resume
@@ -4215,7 +4212,7 @@ invoke.cont128:                                   ; preds = %if.end115
   br label %return
 
 lpad127:                                          ; preds = %if.end115
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fixedPattern116) #21
   br label %eh.resume
@@ -4224,7 +4221,7 @@ return:                                           ; preds = %invoke.cont128, %in
   ret void
 
 eh.resume:                                        ; preds = %lpad127, %lpad113, %lpad96, %lpad80.body, %lpad71, %lpad56.body, %lpad49.body, %lpad.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body46, %lpad49.body ], [ %eh.lpad-body55, %lpad56.body ], [ %11, %lpad71 ], [ %eh.lpad-body64, %lpad80.body ], [ %14, %lpad96 ], [ %15, %lpad113 ], [ %16, %lpad127 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body46, %lpad49.body ], [ %eh.lpad-body55, %lpad56.body ], [ %11, %lpad71 ], [ %eh.lpad-body64, %lpad80.body ], [ %14, %lpad96 ], [ %16, %lpad113 ], [ %17, %lpad127 ]
   resume { ptr, i32 } %.pn
 }
 

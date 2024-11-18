@@ -4833,10 +4833,10 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit.i190:        ; preds = %_ZN4llvm16dyn_cast_
   %2115 = and i64 %.sroa.5.0160.i, 4294967295
   %.not.i.i61.i = icmp eq i64 %2115, 4294967294
   %2116 = add i64 %2096, 3
-  %2117 = and i64 %2116, 4294967295
-  %2118 = load ptr, ptr %2094, align 8
-  %2119 = select i1 %.not.i.i61.i, i64 1, i64 %2117
-  %2120 = getelementptr inbounds %"class.llvm::Use", ptr %2118, i64 %2119
+  %2117 = load ptr, ptr %2094, align 8
+  %2118 = and i64 %2116, 4294967295
+  %2119 = select i1 %.not.i.i61.i, i64 1, i64 %2118
+  %2120 = getelementptr inbounds %"class.llvm::Use", ptr %2117, i64 %2119
   %2121 = load ptr, ptr %2120, align 8
   store ptr %2121, ptr %10, align 8
   call void @_ZN4llvm10BasicBlock17removePredecessorEPS0_b(ptr noundef nonnull align 8 dereferenceable(80) %2121, ptr noundef %2036, i1 noundef zeroext false) #15

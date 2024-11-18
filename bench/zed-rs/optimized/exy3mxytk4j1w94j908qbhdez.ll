@@ -59084,17 +59084,17 @@ define internal fastcc void @_ZN3vim7command10VimCommand14parse_position17h78099
   %or.cond = icmp ult i32 %53, 10
   br i1 %or.cond, label %56, label %55
 
-54:                                               ; preds = %120, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit"
+54:                                               ; preds = %121, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit"
   store i32 4, ptr %0, align 4
-  br label %127
+  br label %128
 
 55:                                               ; preds = %52
-  switch i32 %49, label %117 [
-    i32 39, label %120
-    i32 46, label %128
-    i32 43, label %118
-    i32 45, label %118
-    i32 36, label %130
+  switch i32 %49, label %118 [
+    i32 39, label %121
+    i32 46, label %129
+    i32 43, label %119
+    i32 45, label %119
+    i32 36, label %131
   ]
 
 56:                                               ; preds = %52
@@ -59107,7 +59107,7 @@ define internal fastcc void @_ZN3vim7command10VimCommand14parse_position17h78099
 59:                                               ; preds = %110, %56
   %60 = phi ptr [ %.promoted17.i, %56 ], [ %104, %110 ]
   %61 = phi i32 [ %49, %56 ], [ 1114113, %110 ]
-  %.sroa.0.0.i = phi i32 [ 0, %56 ], [ %115, %110 ]
+  %.sroa.0.0.i = phi i32 [ 0, %56 ], [ %116, %110 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12571)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12573)
   %62 = icmp eq i32 %61, 1114113
@@ -59199,69 +59199,69 @@ define internal fastcc void @_ZN3vim7command10VimCommand14parse_position17h78099
   %111 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.sroa.0.0.i, i32 10)
   %112 = extractvalue { i32, i1 } %111, 0
   %113 = extractvalue { i32, i1 } %111, 1
-  %spec.select.i = select i1 %113, i32 -1, i32 %112
   store i32 1114113, ptr %3, align 8, !alias.scope !12559
   %114 = add nsw i32 %105, -48
-  %115 = tail call i32 @llvm.uadd.sat.i32(i32 %spec.select.i, i32 %114)
+  %115 = tail call i32 @llvm.uadd.sat.i32(i32 %112, i32 %114)
+  %116 = select i1 %113, i32 -1, i32 %115
   br label %59
 
 _ZN3vim7command10VimCommand9parse_u3217h1fcab26717cfb94dE.exit: ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit.i"
-  %116 = tail call fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17hb63105aa3aff9a04E(ptr noalias noundef align 8 dereferenceable(24) %1)
+  %117 = tail call fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17hb63105aa3aff9a04E(ptr noalias noundef align 8 dereferenceable(24) %1)
   store i32 0, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %116, ptr %.sroa.5.0..sroa_idx, align 4
-  br label %127
+  store i32 %117, ptr %.sroa.5.0..sroa_idx, align 4
+  br label %128
 
-117:                                              ; preds = %55
+118:                                              ; preds = %55
   store i32 4, ptr %0, align 4
-  br label %127
+  br label %128
 
-118:                                              ; preds = %55, %55
-  %119 = tail call fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17hb63105aa3aff9a04E(ptr noalias noundef align 8 dereferenceable(24) %1)
+119:                                              ; preds = %55, %55
+  %120 = tail call fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17hb63105aa3aff9a04E(ptr noalias noundef align 8 dereferenceable(24) %1)
   store i32 3, ptr %0, align 4
   %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %119, ptr %.sroa.411.0..sroa_idx, align 4
-  br label %127
+  store i32 %120, ptr %.sroa.411.0..sroa_idx, align 4
+  br label %128
 
-120:                                              ; preds = %55
+121:                                              ; preds = %55
   store i32 1114113, ptr %3, align 8
-  %121 = tail call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h0603fe6d9162d691E(ptr noalias noundef align 8 dereferenceable(16) %1)
-  %122 = extractvalue { i32, i32 } %121, 0
-  %switch = icmp eq i32 %122, 0
-  br i1 %switch, label %54, label %123
+  %122 = tail call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h0603fe6d9162d691E(ptr noalias noundef align 8 dereferenceable(16) %1)
+  %123 = extractvalue { i32, i32 } %122, 0
+  %switch = icmp eq i32 %123, 0
+  br i1 %switch, label %54, label %124
 
-123:                                              ; preds = %120
-  %124 = extractvalue { i32, i32 } %121, 1
-  %125 = icmp ult i32 %124, 1114112
-  tail call void @llvm.assume(i1 %125)
-  %126 = tail call fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17hb63105aa3aff9a04E(ptr noalias noundef align 8 dereferenceable(24) %1)
+124:                                              ; preds = %121
+  %125 = extractvalue { i32, i32 } %122, 1
+  %126 = icmp ult i32 %125, 1114112
+  tail call void @llvm.assume(i1 %126)
+  %127 = tail call fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17hb63105aa3aff9a04E(ptr noalias noundef align 8 dereferenceable(24) %1)
   store i32 1, ptr %0, align 4
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %126, ptr %.sroa.45.0..sroa_idx, align 4
+  store i32 %127, ptr %.sroa.45.0..sroa_idx, align 4
   %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %124, ptr %.sroa.56.0..sroa_idx, align 4
-  br label %127
+  store i32 %125, ptr %.sroa.56.0..sroa_idx, align 4
+  br label %128
 
-127:                                              ; preds = %_ZN3vim7command10VimCommand9parse_u3217h1fcab26717cfb94dE.exit, %117, %118, %123, %128, %130, %54
+128:                                              ; preds = %_ZN3vim7command10VimCommand9parse_u3217h1fcab26717cfb94dE.exit, %118, %119, %124, %129, %131, %54
   ret void
 
-128:                                              ; preds = %55
+129:                                              ; preds = %55
   store i32 1114113, ptr %3, align 8
-  %129 = tail call fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17hb63105aa3aff9a04E(ptr noalias noundef align 8 dereferenceable(24) %1)
+  %130 = tail call fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17hb63105aa3aff9a04E(ptr noalias noundef align 8 dereferenceable(24) %1)
   store i32 3, ptr %0, align 4
   %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %129, ptr %.sroa.48.0..sroa_idx, align 4
-  br label %127
+  store i32 %130, ptr %.sroa.48.0..sroa_idx, align 4
+  br label %128
 
-130:                                              ; preds = %55
+131:                                              ; preds = %55
   store i32 1114113, ptr %3, align 8
-  %131 = tail call fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17hb63105aa3aff9a04E(ptr noalias noundef align 8 dereferenceable(24) %1)
+  %132 = tail call fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17hb63105aa3aff9a04E(ptr noalias noundef align 8 dereferenceable(24) %1)
   store i32 2, ptr %0, align 4
   %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %131, ptr %.sroa.414.0..sroa_idx, align 4
-  br label %127
+  store i32 %132, ptr %.sroa.414.0..sroa_idx, align 4
+  br label %128
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -59273,10 +59273,10 @@ define internal fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17h
   %4 = load ptr, ptr %3, align 8, !nonnull !5
   br label %5
 
-5:                                                ; preds = %162, %1
-  %6 = phi ptr [ %.promoted29, %1 ], [ %163, %162 ]
-  %7 = phi i32 [ %.promoted, %1 ], [ %164, %162 ]
-  %.sroa.0.0 = phi i32 [ 0, %1 ], [ %165, %162 ]
+5:                                                ; preds = %163, %1
+  %6 = phi ptr [ %.promoted29, %1 ], [ %164, %163 ]
+  %7 = phi i32 [ %.promoted, %1 ], [ %165, %163 ]
+  %.sroa.0.0 = phi i32 [ 0, %1 ], [ %166, %163 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12591)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12594)
   %8 = icmp eq i32 %7, 1114113
@@ -59444,7 +59444,7 @@ define internal fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17h
   %or.cond = select i1 %96, i1 %97, i1 false
   %98 = icmp samesign ult i32 %94, 58
   %or.cond17 = select i1 %or.cond, i1 %98, i1 false
-  br i1 %or.cond17, label %99, label %162
+  br i1 %or.cond17, label %99, label %163
 
 99:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit23"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12645)
@@ -59454,7 +59454,7 @@ define internal fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17h
   %101 = phi ptr [ %93, %99 ], [ %147, %154 ]
   %102 = phi ptr [ %93, %99 ], [ %148, %154 ]
   %103 = phi i32 [ %94, %99 ], [ 1114113, %154 ]
-  %.sroa.0.0.i24 = phi i32 [ 0, %99 ], [ %159, %154 ]
+  %.sroa.0.0.i24 = phi i32 [ 0, %99 ], [ %160, %154 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12648)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12651)
   %104 = icmp eq i32 %103, 1114113
@@ -59548,33 +59548,33 @@ define internal fastcc noundef i32 @_ZN3vim7command10VimCommand12parse_offset17h
   %155 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.sroa.0.0.i24, i32 10)
   %156 = extractvalue { i32, i1 } %155, 0
   %157 = extractvalue { i32, i1 } %155, 1
-  %spec.select.i = select i1 %157, i32 -1, i32 %156
   store i32 1114113, ptr %2, align 8, !alias.scope !12645
   %158 = add nsw i32 %149, -48
-  %159 = tail call i32 @llvm.uadd.sat.i32(i32 %spec.select.i, i32 %158)
+  %159 = tail call i32 @llvm.uadd.sat.i32(i32 %156, i32 %158)
+  %160 = select i1 %157, i32 -1, i32 %159
   br label %100
 
 _ZN3vim7command10VimCommand9parse_u3217h1fcab26717cfb94dE.exit: ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit.i"
-  %160 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %.sroa.0.0.i24, i32 %.)
-  %161 = extractvalue { i32, i1 } %160, 1
-  br i1 %161, label %168, label %166
+  %161 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %.sroa.0.0.i24, i32 %.)
+  %162 = extractvalue { i32, i1 } %161, 1
+  br i1 %162, label %169, label %167
 
-162:                                              ; preds = %168, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit23", %166
-  %163 = phi ptr [ %147, %166 ], [ %93, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit23" ], [ %147, %168 ]
-  %164 = phi i32 [ %149, %166 ], [ %94, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit23" ], [ %149, %168 ]
-  %.sroa.05.1 = phi i32 [ %167, %166 ], [ %., %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit23" ], [ %.18, %168 ]
-  %165 = tail call i32 @llvm.sadd.sat.i32(i32 %.sroa.0.0, i32 %.sroa.05.1)
+163:                                              ; preds = %169, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit23", %167
+  %164 = phi ptr [ %147, %167 ], [ %93, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit23" ], [ %147, %169 ]
+  %165 = phi i32 [ %149, %167 ], [ %94, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit23" ], [ %149, %169 ]
+  %.sroa.05.1 = phi i32 [ %168, %167 ], [ %., %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h6b3892eb5b65eac9E.exit23" ], [ %.18, %169 ]
+  %166 = tail call i32 @llvm.sadd.sat.i32(i32 %.sroa.0.0, i32 %.sroa.05.1)
   br label %5
 
-166:                                              ; preds = %_ZN3vim7command10VimCommand9parse_u3217h1fcab26717cfb94dE.exit
-  %167 = extractvalue { i32, i1 } %160, 0
-  br label %162
+167:                                              ; preds = %_ZN3vim7command10VimCommand9parse_u3217h1fcab26717cfb94dE.exit
+  %168 = extractvalue { i32, i1 } %161, 0
+  br label %163
 
-168:                                              ; preds = %_ZN3vim7command10VimCommand9parse_u3217h1fcab26717cfb94dE.exit
-  %169 = icmp sgt i32 %.sroa.0.0.i24, -1
-  %170 = xor i1 %55, %169
-  %.18 = select i1 %170, i32 2147483647, i32 -2147483648
-  br label %162
+169:                                              ; preds = %_ZN3vim7command10VimCommand9parse_u3217h1fcab26717cfb94dE.exit
+  %170 = icmp sgt i32 %.sroa.0.0.i24, -1
+  %171 = xor i1 %55, %170
+  %.18 = select i1 %171, i32 2147483647, i32 -2147483648
+  br label %163
 }
 
 ; Function Attrs: nonlazybind uwtable

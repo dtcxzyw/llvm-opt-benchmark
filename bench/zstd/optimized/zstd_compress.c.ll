@@ -3714,26 +3714,26 @@ cond.end.i:                                       ; preds = %cond.true.i, %ZSTD_
   %13 = load i32, ptr %hashLog3.i, align 8
   %tobool33.not.i = icmp eq i32 %13, 0
   %sh_prom35.i = zext nneg i32 %13 to i64
-  %14 = shl i64 4, %sh_prom35.i
   %blockState40.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3200
   %matchState41.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3216
   %hashTable.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3328
-  %15 = load ptr, ptr %hashTable.i, align 8
+  %14 = load ptr, ptr %hashTable.i, align 8
   %hashTable44.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3328
-  %16 = load ptr, ptr %hashTable44.i, align 8
+  %15 = load ptr, ptr %hashTable44.i, align 8
   %mul.i = shl i64 4, %sh_prom31.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 4 %16, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %14, ptr align 4 %15, i64 %mul.i, i1 false)
   %chainTable.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3344
-  %17 = load ptr, ptr %chainTable.i, align 8
+  %16 = load ptr, ptr %chainTable.i, align 8
   %chainTable49.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3344
-  %18 = load ptr, ptr %chainTable49.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %18, i64 %cond.i, i1 false)
+  %17 = load ptr, ptr %chainTable49.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %17, i64 %cond.i, i1 false)
   %hashTable3.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3336
-  %19 = load ptr, ptr %hashTable3.i, align 8
+  %18 = load ptr, ptr %hashTable3.i, align 8
   %hashTable355.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3336
-  %20 = load ptr, ptr %hashTable355.i, align 8
-  %mul56.i = select i1 %tobool33.not.i, i64 0, i64 %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 4 %20, i64 %mul56.i, i1 false)
+  %19 = load ptr, ptr %hashTable355.i, align 8
+  %20 = shl i64 4, %sh_prom35.i
+  %mul56.i = select i1 %tobool33.not.i, i64 0, i64 %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %19, i64 %mul56.i, i1 false)
   %21 = load ptr, ptr %tableValidEnd.i.i, align 8
   %tableEnd.i.i = getelementptr inbounds i8, ptr %dstCCtx, i64 704
   %22 = load ptr, ptr %tableEnd.i.i, align 8
@@ -6186,11 +6186,11 @@ if.end51.i.i:                                     ; preds = %if.then42.i20.i, %i
   %62 = load i32, ptr %hashLog3.i.i, align 8
   %tobool54.not.i.i = icmp eq i32 %62, 0
   %sh_prom56.i.i = zext nneg i32 %62 to i64
-  %63 = shl i64 4, %sh_prom56.i.i
   %hashTable3.i.i = getelementptr inbounds i8, ptr %cctx, i64 3336
-  %64 = load ptr, ptr %hashTable3.i.i, align 8
-  %mul.i.i = select i1 %tobool54.not.i.i, i64 0, i64 %63
-  tail call void @llvm.memset.p0.i64(ptr align 4 %64, i8 0, i64 %mul.i.i, i1 false)
+  %63 = load ptr, ptr %hashTable3.i.i, align 8
+  %64 = shl i64 4, %sh_prom56.i.i
+  %mul.i.i = select i1 %tobool54.not.i.i, i64 0, i64 %64
+  tail call void @llvm.memset.p0.i64(ptr align 4 %63, i8 0, i64 %mul.i.i, i1 false)
   %65 = load ptr, ptr %tableValidEnd.i.i.i, align 8
   %tableEnd.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 704
   %66 = load ptr, ptr %tableEnd.i.i.i, align 8
@@ -9044,26 +9044,34 @@ ZSTD_CCtx_refCDict.exit:
 if.then.i:                                        ; preds = %ZSTD_CCtx_refCDict.exit
   %cParamsChanged.i = getelementptr inbounds i8, ptr %zcs, i64 4
   store i32 1, ptr %cParamsChanged.i, align 4
+  %1 = tail call i32 @llvm.smax.i32(i32 %compressionLevel, i32 -131072)
+  %2 = add i32 %compressionLevel, -23
+  %3 = icmp ult i32 %2, -131095
+  %simplifycfg.merge.i.i = tail call i32 @llvm.smin.i32(i32 %1, i32 22)
+  %value.addr.1.i = select i1 %3, i32 %simplifycfg.merge.i.i, i32 %compressionLevel
+  %cmp.i21 = icmp eq i32 %value.addr.1.i, 0
+  %spec.select462.i = select i1 %cmp.i21, i32 3, i32 %value.addr.1.i
   br label %ZSTD_CCtx_setPledgedSrcSize.exit
 
 do.end10.i.critedge:                              ; preds = %ZSTD_CCtx_refCDict.exit
   %cmp = icmp eq i64 %pss, 0
-  %1 = add i64 %pss, 1
-  %add.i = select i1 %cmp, i64 0, i64 %1
+  %4 = tail call i32 @llvm.smax.i32(i32 %compressionLevel, i32 -131072)
+  %5 = add i32 %compressionLevel, -23
+  %6 = icmp ult i32 %5, -131095
+  %simplifycfg.merge.i.i.c = tail call i32 @llvm.smin.i32(i32 %4, i32 22)
+  %value.addr.1.i.c = select i1 %6, i32 %simplifycfg.merge.i.i.c, i32 %compressionLevel
+  %cmp.i21.c = icmp eq i32 %value.addr.1.i.c, 0
+  %spec.select462.i.c = select i1 %cmp.i21.c, i32 3, i32 %value.addr.1.i.c
+  %7 = add i64 %pss, 1
+  %add.i = select i1 %cmp, i64 0, i64 %7
   store i64 %add.i, ptr %pledgedSrcSizePlusOne.i, align 8
   br label %ZSTD_CCtx_setPledgedSrcSize.exit
 
 ZSTD_CCtx_setPledgedSrcSize.exit:                 ; preds = %if.then.i, %do.end10.i.critedge
+  %spec.select462.i.sink = phi i32 [ %spec.select462.i.c, %do.end10.i.critedge ], [ %spec.select462.i, %if.then.i ]
   %.call46 = phi i64 [ 0, %do.end10.i.critedge ], [ -60, %if.then.i ]
-  %2 = add i32 %compressionLevel, -23
-  %3 = icmp ult i32 %2, -131095
-  %4 = tail call i32 @llvm.smax.i32(i32 %compressionLevel, i32 -131072)
-  %simplifycfg.merge.i.i.c = tail call i32 @llvm.smin.i32(i32 %4, i32 22)
-  %value.addr.1.i.c = select i1 %3, i32 %simplifycfg.merge.i.i.c, i32 %compressionLevel
-  %cmp.i21.c = icmp eq i32 %value.addr.1.i.c, 0
-  %spec.select462.i.c = select i1 %cmp.i21.c, i32 3, i32 %value.addr.1.i.c
-  %5 = getelementptr inbounds i8, ptr %zcs, i64 60
-  store i32 %spec.select462.i.c, ptr %5, align 4
+  %8 = getelementptr inbounds i8, ptr %zcs, i64 60
+  store i32 %spec.select462.i.sink, ptr %8, align 4
   ret i64 %.call46
 }
 
@@ -13266,13 +13274,12 @@ cond.end14:                                       ; preds = %cond.true6, %cond.e
   %cond15 = phi i32 [ 0, %land.lhs.true ], [ 0, %cond.end ], [ %spec.select, %cond.true6 ]
   %tobool16.not = icmp eq i32 %cond15, 0
   %sh_prom18 = zext nneg i32 %cond15 to i64
-  %9 = shl nuw nsw i64 4, %sh_prom18
   %cmp23.not = icmp eq i32 %forceResetIndex, 0
   br i1 %cmp23.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end14
-  %10 = getelementptr inbounds i8, ptr %ms, i64 32
-  store i64 0, ptr %10, align 8
+  %9 = getelementptr inbounds i8, ptr %ms, i64 32
+  store i64 0, ptr %9, align 8
   %base.i = getelementptr inbounds i8, ptr %ms, i64 8
   store ptr @.str, ptr %base.i, align 8
   %dictBase.i = getelementptr inbounds i8, ptr %ms, i64 16
@@ -13283,9 +13290,9 @@ if.then:                                          ; preds = %cond.end14
   store i32 2, ptr %lowLimit.i, align 4
   store ptr getelementptr inbounds (i8, ptr @.str, i64 2), ptr %ms, align 8
   %objectEnd.i = getelementptr inbounds i8, ptr %ws, i64 16
-  %11 = load ptr, ptr %objectEnd.i, align 8
+  %10 = load ptr, ptr %objectEnd.i, align 8
   %tableValidEnd.i = getelementptr inbounds i8, ptr %ws, i64 32
-  store ptr %11, ptr %tableValidEnd.i, align 8
+  store ptr %10, ptr %tableValidEnd.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.end14
@@ -13293,11 +13300,11 @@ if.end:                                           ; preds = %if.then, %cond.end1
   store i32 %cond15, ptr %hashLog324, align 8
   %lazySkipping = getelementptr inbounds i8, ptr %ms, i64 300
   store i32 0, ptr %lazySkipping, align 4
-  %12 = load ptr, ptr %ms, align 8
+  %11 = load ptr, ptr %ms, align 8
   %base.i.i = getelementptr inbounds i8, ptr %ms, i64 8
-  %13 = load ptr, ptr %base.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
+  %12 = load ptr, ptr %base.i.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
   %lowLimit.i.i = getelementptr inbounds i8, ptr %ms, i64 28
@@ -13313,29 +13320,29 @@ if.end:                                           ; preds = %if.then, %cond.end1
   %dictMatchState.i = getelementptr inbounds i8, ptr %ms, i64 248
   store ptr null, ptr %dictMatchState.i, align 8
   %objectEnd.i63 = getelementptr inbounds i8, ptr %ws, i64 16
-  %14 = load ptr, ptr %objectEnd.i63, align 8
+  %13 = load ptr, ptr %objectEnd.i63, align 8
   %tableEnd.i = getelementptr inbounds i8, ptr %ws, i64 24
-  store ptr %14, ptr %tableEnd.i, align 8
+  store ptr %13, ptr %tableEnd.i, align 8
   %mul = shl i64 4, %sh_prom2
   %phase1.i = getelementptr inbounds i8, ptr %ws, i64 64
-  %15 = load i32, ptr %phase1.i, align 8
-  %cmp.i = icmp eq i32 %15, 0
+  %14 = load i32, ptr %phase1.i, align 8
+  %cmp.i = icmp eq i32 %14, 0
   br i1 %cmp.i, label %if.then.i.i, label %if.end4.i
 
 if.then.i.i:                                      ; preds = %if.end
   %tableValidEnd.i.i = getelementptr inbounds i8, ptr %ws, i64 32
-  store ptr %14, ptr %tableValidEnd.i.i, align 8
-  %16 = getelementptr i8, ptr %ws, i64 8
-  %ws.val.i.i = load ptr, ptr %16, align 8
-  %17 = ptrtoint ptr %ws.val.i.i to i64
-  %and.i.i.i = and i64 %17, -64
-  %18 = inttoptr i64 %and.i.i.i to ptr
+  store ptr %13, ptr %tableValidEnd.i.i, align 8
+  %15 = getelementptr i8, ptr %ws, i64 8
+  %ws.val.i.i = load ptr, ptr %15, align 8
+  %16 = ptrtoint ptr %ws.val.i.i to i64
+  %and.i.i.i = and i64 %16, -64
+  %17 = inttoptr i64 %and.i.i.i to ptr
   %initOnceStart.i.i = getelementptr inbounds i8, ptr %ws, i64 48
-  store ptr %18, ptr %initOnceStart.i.i, align 8
-  %19 = ptrtoint ptr %14 to i64
-  %sub1.i.i.i = sub i64 0, %19
+  store ptr %17, ptr %initOnceStart.i.i, align 8
+  %18 = ptrtoint ptr %13 to i64
+  %sub1.i.i.i = sub i64 0, %18
   %and2.i.i.i = and i64 %sub1.i.i.i, 63
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 %and2.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 %and2.i.i.i
   %cmp10.i.i = icmp ugt ptr %add.ptr.i.i, %ws.val.i.i
   br i1 %cmp10.i.i, label %ZSTD_cwksp_reserve_table.exit, label %do.end20.i.i
 
@@ -13354,11 +13361,11 @@ ZSTD_cwksp_internal_advance_phase.exit.thread.i:  ; preds = %if.then25.i.i, %do.
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end, %ZSTD_cwksp_internal_advance_phase.exit.thread.i
-  %20 = phi ptr [ %add.ptr.i.i, %ZSTD_cwksp_internal_advance_phase.exit.thread.i ], [ %14, %if.end ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 %mul
+  %19 = phi ptr [ %add.ptr.i.i, %ZSTD_cwksp_internal_advance_phase.exit.thread.i ], [ %13, %if.end ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 %mul
   %allocStart.i = getelementptr inbounds i8, ptr %ws, i64 40
-  %21 = load ptr, ptr %allocStart.i, align 8
-  %cmp5.i = icmp ugt ptr %add.ptr.i, %21
+  %20 = load ptr, ptr %allocStart.i, align 8
+  %cmp5.i = icmp ugt ptr %add.ptr.i, %20
   br i1 %cmp5.i, label %do.end8.i, label %if.end9.i
 
 do.end8.i:                                        ; preds = %if.end4.i
@@ -13371,11 +13378,11 @@ if.end9.i:                                        ; preds = %if.end4.i
   br label %ZSTD_cwksp_reserve_table.exit
 
 ZSTD_cwksp_reserve_table.exit:                    ; preds = %if.then.i.i, %do.end8.i, %if.end9.i
-  %retval.0.i = phi ptr [ null, %do.end8.i ], [ %20, %if.end9.i ], [ null, %if.then.i.i ]
+  %retval.0.i = phi ptr [ null, %do.end8.i ], [ %19, %if.end9.i ], [ null, %if.then.i.i ]
   %hashTable = getelementptr inbounds i8, ptr %ms, i64 112
   store ptr %retval.0.i, ptr %hashTable, align 8
-  %22 = load i32, ptr %phase1.i, align 8
-  %cmp.i66 = icmp eq i32 %22, 0
+  %21 = load i32, ptr %phase1.i, align 8
+  %cmp.i66 = icmp eq i32 %21, 0
   br i1 %cmp.i66, label %if.then.i.i79, label %entry.if.end4_crit_edge.i67
 
 entry.if.end4_crit_edge.i67:                      ; preds = %ZSTD_cwksp_reserve_table.exit
@@ -13383,20 +13390,20 @@ entry.if.end4_crit_edge.i67:                      ; preds = %ZSTD_cwksp_reserve_
   br label %if.end4.i70
 
 if.then.i.i79:                                    ; preds = %ZSTD_cwksp_reserve_table.exit
-  %23 = load ptr, ptr %objectEnd.i63, align 8
+  %22 = load ptr, ptr %objectEnd.i63, align 8
   %tableValidEnd.i.i81 = getelementptr inbounds i8, ptr %ws, i64 32
-  store ptr %23, ptr %tableValidEnd.i.i81, align 8
-  %24 = getelementptr i8, ptr %ws, i64 8
-  %ws.val.i.i82 = load ptr, ptr %24, align 8
-  %25 = ptrtoint ptr %ws.val.i.i82 to i64
-  %and.i.i.i83 = and i64 %25, -64
-  %26 = inttoptr i64 %and.i.i.i83 to ptr
+  store ptr %22, ptr %tableValidEnd.i.i81, align 8
+  %23 = getelementptr i8, ptr %ws, i64 8
+  %ws.val.i.i82 = load ptr, ptr %23, align 8
+  %24 = ptrtoint ptr %ws.val.i.i82 to i64
+  %and.i.i.i83 = and i64 %24, -64
+  %25 = inttoptr i64 %and.i.i.i83 to ptr
   %initOnceStart.i.i84 = getelementptr inbounds i8, ptr %ws, i64 48
-  store ptr %26, ptr %initOnceStart.i.i84, align 8
-  %27 = ptrtoint ptr %23 to i64
-  %sub1.i.i.i85 = sub i64 0, %27
+  store ptr %25, ptr %initOnceStart.i.i84, align 8
+  %26 = ptrtoint ptr %22 to i64
+  %sub1.i.i.i85 = sub i64 0, %26
   %and2.i.i.i86 = and i64 %sub1.i.i.i85, 63
-  %add.ptr.i.i87 = getelementptr inbounds i8, ptr %23, i64 %and2.i.i.i86
+  %add.ptr.i.i87 = getelementptr inbounds i8, ptr %22, i64 %and2.i.i.i86
   %cmp10.i.i88 = icmp ugt ptr %add.ptr.i.i87, %ws.val.i.i82
   br i1 %cmp10.i.i88, label %ZSTD_cwksp_reserve_table.exit94, label %do.end20.i.i89
 
@@ -13415,11 +13422,11 @@ ZSTD_cwksp_internal_advance_phase.exit.thread.i93: ; preds = %if.then25.i.i92, %
   br label %if.end4.i70
 
 if.end4.i70:                                      ; preds = %ZSTD_cwksp_internal_advance_phase.exit.thread.i93, %entry.if.end4_crit_edge.i67
-  %28 = phi ptr [ %.pre.i69, %entry.if.end4_crit_edge.i67 ], [ %add.ptr.i.i87, %ZSTD_cwksp_internal_advance_phase.exit.thread.i93 ]
-  %add.ptr.i71 = getelementptr inbounds i8, ptr %28, i64 %cond
+  %27 = phi ptr [ %.pre.i69, %entry.if.end4_crit_edge.i67 ], [ %add.ptr.i.i87, %ZSTD_cwksp_internal_advance_phase.exit.thread.i93 ]
+  %add.ptr.i71 = getelementptr inbounds i8, ptr %27, i64 %cond
   %allocStart.i72 = getelementptr inbounds i8, ptr %ws, i64 40
-  %29 = load ptr, ptr %allocStart.i72, align 8
-  %cmp5.i73 = icmp ugt ptr %add.ptr.i71, %29
+  %28 = load ptr, ptr %allocStart.i72, align 8
+  %cmp5.i73 = icmp ugt ptr %add.ptr.i71, %28
   br i1 %cmp5.i73, label %do.end8.i77, label %if.end9.i74
 
 do.end8.i77:                                      ; preds = %if.end4.i70
@@ -13432,10 +13439,11 @@ if.end9.i74:                                      ; preds = %if.end4.i70
   br label %ZSTD_cwksp_reserve_table.exit94
 
 ZSTD_cwksp_reserve_table.exit94:                  ; preds = %if.then.i.i79, %do.end8.i77, %if.end9.i74
-  %retval.0.i76 = phi ptr [ null, %do.end8.i77 ], [ %28, %if.end9.i74 ], [ null, %if.then.i.i79 ]
+  %retval.0.i76 = phi ptr [ null, %do.end8.i77 ], [ %27, %if.end9.i74 ], [ null, %if.then.i.i79 ]
   %chainTable = getelementptr inbounds i8, ptr %ms, i64 128
   store ptr %retval.0.i76, ptr %chainTable, align 8
-  %mul30 = select i1 %tobool16.not, i64 0, i64 %9
+  %29 = shl nuw nsw i64 4, %sh_prom18
+  %mul30 = select i1 %tobool16.not, i64 0, i64 %29
   %30 = load i32, ptr %phase1.i, align 8
   %cmp.i96 = icmp eq i32 %30, 0
   br i1 %cmp.i96, label %if.then.i.i109, label %entry.if.end4_crit_edge.i97

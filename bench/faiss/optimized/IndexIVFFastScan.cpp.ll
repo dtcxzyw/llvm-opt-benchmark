@@ -3991,12 +3991,12 @@ _ZNSt10unique_ptrIN5faiss24SIMDResultHandlerToFloatESt14default_deleteIS1_EED2Ev
   %.sroa.speculated15.i = select i1 %111, i64 1, i64 %110
   %112 = udiv i64 %1, %.sroa.speculated15.i
   %113 = icmp ugt i64 %.sroa.speculated15.i, %1
-  %114 = add i64 %112, -1
-  %115 = call i32 @omp_get_max_threads()
-  %116 = sext i32 %115 to i64
-  %117 = select i1 %113, i64 0, i64 %114
-  %118 = add i64 %117, %116
-  %119 = urem i64 %118, %116
+  %114 = call i32 @omp_get_max_threads()
+  %115 = sext i32 %114 to i64
+  %116 = add i64 %112, -1
+  %117 = select i1 %113, i64 0, i64 %116
+  %118 = add i64 %117, %115
+  %119 = urem i64 %118, %115
   %120 = sub nuw i64 %118, %119
   %121 = trunc i64 %120 to i32
   br label %_ZN5faiss12_GLOBAL__N_121compute_search_nsliceEPKNS_16IndexIVFFastScanEmm.exit
@@ -4345,12 +4345,12 @@ _ZNKSt14default_deleteIN5faiss24SIMDResultHandlerToFloatEEclEPS1_.exit.i27: ; pr
   %.sroa.speculated15.i = select i1 %106, i64 1, i64 %105
   %107 = udiv i64 %1, %.sroa.speculated15.i
   %108 = icmp ugt i64 %.sroa.speculated15.i, %1
-  %109 = add nsw i64 %107, -1
-  %110 = tail call i32 @omp_get_max_threads()
-  %111 = sext i32 %110 to i64
-  %112 = select i1 %108, i64 0, i64 %109
-  %113 = add i64 %112, %111
-  %114 = urem i64 %113, %111
+  %109 = tail call i32 @omp_get_max_threads()
+  %110 = sext i32 %109 to i64
+  %111 = add nsw i64 %107, -1
+  %112 = select i1 %108, i64 0, i64 %111
+  %113 = add i64 %112, %110
+  %114 = urem i64 %113, %110
   %115 = sub nuw i64 %113, %114
   %116 = trunc i64 %115 to i32
   br label %_ZN5faiss12_GLOBAL__N_121compute_search_nsliceEPKNS_16IndexIVFFastScanEmm.exit

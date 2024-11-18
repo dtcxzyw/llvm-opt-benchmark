@@ -8034,61 +8034,61 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h7032cb7be23e1
   %132 = fcmp olt float %130, 6.553600e+04
   %or.cond.i.i118 = and i1 %131, %132
   %133 = fptoui float %130 to i16
-  %134 = zext i16 %133 to i32
-  br i1 %or.cond.i.i118, label %136, label %.invoke
+  br i1 %or.cond.i.i118, label %135, label %.invoke
 
-.invoke:                                          ; preds = %152, %145, %136, %._crit_edge227
-  %135 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.54, %._crit_edge227 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.55, %136 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.56, %145 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.57, %152 ]
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.50.llvm.6960974148744716740, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %135) #31
+.invoke:                                          ; preds = %150, %143, %135, %._crit_edge227
+  %134 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.54, %._crit_edge227 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.55, %135 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.56, %143 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.57, %150 ]
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.50.llvm.6960974148744716740, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %134) #31
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-136:                                              ; preds = %._crit_edge227
-  %137 = fcmp olt float %.088.lcssa, 0.000000e+00
-  %138 = fcmp ogt float %.088.lcssa, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i119 = select i1 %138, float 6.553500e+04, float %.088.lcssa
-  %139 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i119)
-  %140 = select i1 %137, float 0.000000e+00, float %139
-  %141 = fcmp ogt float %140, -1.000000e+00
-  %142 = fcmp olt float %140, 6.553600e+04
-  %or.cond.i.i121 = and i1 %141, %142
-  %143 = fptoui float %140 to i16
-  %144 = zext i16 %143 to i32
-  br i1 %or.cond.i.i121, label %145, label %.invoke
+135:                                              ; preds = %._crit_edge227
+  %136 = fcmp olt float %.088.lcssa, 0.000000e+00
+  %137 = fcmp ogt float %.088.lcssa, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i119 = select i1 %137, float 6.553500e+04, float %.088.lcssa
+  %138 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i119)
+  %139 = select i1 %136, float 0.000000e+00, float %138
+  %140 = fcmp ogt float %139, -1.000000e+00
+  %141 = fcmp olt float %139, 6.553600e+04
+  %or.cond.i.i121 = and i1 %140, %141
+  %142 = fptoui float %139 to i16
+  br i1 %or.cond.i.i121, label %143, label %.invoke
 
-145:                                              ; preds = %136
-  %146 = fcmp olt float %.086.lcssa, 0.000000e+00
-  %147 = fcmp ogt float %.086.lcssa, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i124 = select i1 %147, float 6.553500e+04, float %.086.lcssa
-  %148 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i124)
-  %149 = select i1 %146, float 0.000000e+00, float %148
-  %150 = fcmp ogt float %149, -1.000000e+00
-  %151 = fcmp olt float %149, 6.553600e+04
-  %or.cond.i.i126 = and i1 %150, %151
-  br i1 %or.cond.i.i126, label %152, label %.invoke
+143:                                              ; preds = %135
+  %144 = fcmp olt float %.086.lcssa, 0.000000e+00
+  %145 = fcmp ogt float %.086.lcssa, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i124 = select i1 %145, float 6.553500e+04, float %.086.lcssa
+  %146 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i124)
+  %147 = select i1 %144, float 0.000000e+00, float %146
+  %148 = fcmp ogt float %147, -1.000000e+00
+  %149 = fcmp olt float %147, 6.553600e+04
+  %or.cond.i.i126 = and i1 %148, %149
+  br i1 %or.cond.i.i126, label %150, label %.invoke
 
-152:                                              ; preds = %145
-  %153 = fcmp olt float %.0.lcssa, 0.000000e+00
-  %154 = fcmp ogt float %.0.lcssa, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i129 = select i1 %154, float 6.553500e+04, float %.0.lcssa
-  %155 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i129)
-  %156 = select i1 %153, float 0.000000e+00, float %155
-  %157 = fcmp ogt float %156, -1.000000e+00
-  %158 = fcmp olt float %156, 6.553600e+04
-  %or.cond.i.i131 = and i1 %157, %158
-  br i1 %or.cond.i.i131, label %159, label %.invoke
+150:                                              ; preds = %143
+  %151 = fcmp olt float %.0.lcssa, 0.000000e+00
+  %152 = fcmp ogt float %.0.lcssa, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i129 = select i1 %152, float 6.553500e+04, float %.0.lcssa
+  %153 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i129)
+  %154 = select i1 %151, float 0.000000e+00, float %153
+  %155 = fcmp ogt float %154, -1.000000e+00
+  %156 = fcmp olt float %154, 6.553600e+04
+  %or.cond.i.i131 = and i1 %155, %156
+  br i1 %or.cond.i.i131, label %157, label %.invoke
 
-159:                                              ; preds = %152
-  %160 = shl nuw i32 %144, 16
-  %.sroa.0.2.insert.insert.i = or disjoint i32 %160, %134
+157:                                              ; preds = %150
+  %158 = zext i16 %133 to i32
+  %159 = zext i16 %142 to i32
+  %160 = shl nuw i32 %159, 16
+  %.sroa.0.2.insert.insert.i = or disjoint i32 %160, %158
   call void @llvm.experimental.noalias.scope.decl(metadata !771)
   %161 = icmp samesign uge i64 %indvars.iv286, %wide.trip.count289
   %or.cond.i.i134 = select i1 %91, i1 true, i1 %161
   br i1 %or.cond.i.i134, label %162, label %166
 
-162:                                              ; preds = %159
+162:                                              ; preds = %157
   %163 = trunc nuw i64 %indvars.iv286 to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !774
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !774
@@ -8103,7 +8103,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h7032cb7be23e1
   store ptr %8, ptr %9, align 8, !noalias !774
   br label %.invoke335
 
-166:                                              ; preds = %159
+166:                                              ; preds = %157
   %167 = mul nuw i64 %indvars.iv286, %wide.trip.count294
   %168 = add nuw i64 %167, %indvars.iv291
   %169 = shl i64 %168, 1
@@ -8536,65 +8536,65 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17haa59e50452639
   %132 = fcmp olt float %130, 6.553600e+04
   %or.cond.i.i116 = and i1 %131, %132
   %133 = fptoui float %130 to i16
-  %134 = zext i16 %133 to i48
-  br i1 %or.cond.i.i116, label %136, label %.invoke
+  br i1 %or.cond.i.i116, label %135, label %.invoke
 
-.invoke:                                          ; preds = %154, %145, %136, %._crit_edge227
-  %135 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.54, %._crit_edge227 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.55, %136 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.56, %145 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.57, %154 ]
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.50.llvm.6960974148744716740, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %135) #31
+.invoke:                                          ; preds = %151, %143, %135, %._crit_edge227
+  %134 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.54, %._crit_edge227 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.55, %135 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.56, %143 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.57, %151 ]
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.50.llvm.6960974148744716740, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %134) #31
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-136:                                              ; preds = %._crit_edge227
-  %137 = fcmp olt float %.086.lcssa, 0.000000e+00
-  %138 = fcmp ogt float %.086.lcssa, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i117 = select i1 %138, float 6.553500e+04, float %.086.lcssa
-  %139 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i117)
-  %140 = select i1 %137, float 0.000000e+00, float %139
-  %141 = fcmp ogt float %140, -1.000000e+00
-  %142 = fcmp olt float %140, 6.553600e+04
-  %or.cond.i.i119 = and i1 %141, %142
-  %143 = fptoui float %140 to i16
-  %144 = zext i16 %143 to i48
-  br i1 %or.cond.i.i119, label %145, label %.invoke
+135:                                              ; preds = %._crit_edge227
+  %136 = fcmp olt float %.086.lcssa, 0.000000e+00
+  %137 = fcmp ogt float %.086.lcssa, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i117 = select i1 %137, float 6.553500e+04, float %.086.lcssa
+  %138 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i117)
+  %139 = select i1 %136, float 0.000000e+00, float %138
+  %140 = fcmp ogt float %139, -1.000000e+00
+  %141 = fcmp olt float %139, 6.553600e+04
+  %or.cond.i.i119 = and i1 %140, %141
+  %142 = fptoui float %139 to i16
+  br i1 %or.cond.i.i119, label %143, label %.invoke
 
-145:                                              ; preds = %136
-  %146 = fcmp olt float %.084.lcssa, 0.000000e+00
-  %147 = fcmp ogt float %.084.lcssa, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i122 = select i1 %147, float 6.553500e+04, float %.084.lcssa
-  %148 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i122)
-  %149 = select i1 %146, float 0.000000e+00, float %148
-  %150 = fcmp ogt float %149, -1.000000e+00
-  %151 = fcmp olt float %149, 6.553600e+04
-  %or.cond.i.i124 = and i1 %150, %151
-  %152 = fptoui float %149 to i16
-  %153 = zext i16 %152 to i48
-  br i1 %or.cond.i.i124, label %154, label %.invoke
+143:                                              ; preds = %135
+  %144 = fcmp olt float %.084.lcssa, 0.000000e+00
+  %145 = fcmp ogt float %.084.lcssa, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i122 = select i1 %145, float 6.553500e+04, float %.084.lcssa
+  %146 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i122)
+  %147 = select i1 %144, float 0.000000e+00, float %146
+  %148 = fcmp ogt float %147, -1.000000e+00
+  %149 = fcmp olt float %147, 6.553600e+04
+  %or.cond.i.i124 = and i1 %148, %149
+  %150 = fptoui float %147 to i16
+  br i1 %or.cond.i.i124, label %151, label %.invoke
 
-154:                                              ; preds = %145
-  %155 = fcmp olt float %.0.lcssa, 0.000000e+00
-  %156 = fcmp ogt float %.0.lcssa, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i127 = select i1 %156, float 6.553500e+04, float %.0.lcssa
-  %157 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i127)
-  %158 = select i1 %155, float 0.000000e+00, float %157
-  %159 = fcmp ogt float %158, -1.000000e+00
-  %160 = fcmp olt float %158, 6.553600e+04
-  %or.cond.i.i129 = and i1 %159, %160
-  br i1 %or.cond.i.i129, label %161, label %.invoke
+151:                                              ; preds = %143
+  %152 = fcmp olt float %.0.lcssa, 0.000000e+00
+  %153 = fcmp ogt float %.0.lcssa, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i127 = select i1 %153, float 6.553500e+04, float %.0.lcssa
+  %154 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i127)
+  %155 = select i1 %152, float 0.000000e+00, float %154
+  %156 = fcmp ogt float %155, -1.000000e+00
+  %157 = fcmp olt float %155, 6.553600e+04
+  %or.cond.i.i129 = and i1 %156, %157
+  br i1 %or.cond.i.i129, label %158, label %.invoke
 
-161:                                              ; preds = %154
-  %162 = shl nuw nsw i48 %144, 16
-  %.sroa.0.2.insert.insert.i = or disjoint i48 %162, %134
-  %163 = shl nuw i48 %153, 32
+158:                                              ; preds = %151
+  %159 = zext i16 %133 to i48
+  %160 = zext i16 %142 to i48
+  %161 = shl nuw nsw i48 %160, 16
+  %.sroa.0.2.insert.insert.i = or disjoint i48 %161, %159
+  %162 = zext i16 %150 to i48
+  %163 = shl nuw i48 %162, 32
   %.sroa.0.4.insert.insert.i = or disjoint i48 %.sroa.0.2.insert.insert.i, %163
   call void @llvm.experimental.noalias.scope.decl(metadata !828)
   %164 = icmp samesign uge i64 %indvars.iv289, %wide.trip.count292
   %or.cond.i.i132 = select i1 %91, i1 true, i1 %164
   br i1 %or.cond.i.i132, label %165, label %169
 
-165:                                              ; preds = %161
+165:                                              ; preds = %158
   %166 = trunc nuw i64 %indvars.iv289 to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !831
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !831
@@ -8609,7 +8609,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17haa59e50452639
   store ptr %8, ptr %9, align 8, !noalias !831
   br label %.invoke341
 
-169:                                              ; preds = %161
+169:                                              ; preds = %158
   %170 = mul nuw i64 %indvars.iv289, %wide.trip.count297
   %171 = add nuw i64 %170, %indvars.iv294
   %172 = mul i64 %171, 3
@@ -9041,69 +9041,69 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hb62c94970eb0b
   %131 = fcmp olt float %129, 6.553600e+04
   %or.cond.i.i118 = and i1 %130, %131
   %132 = fptoui float %129 to i16
-  %133 = zext i16 %132 to i64
-  br i1 %or.cond.i.i118, label %135, label %.invoke
+  br i1 %or.cond.i.i118, label %134, label %.invoke
 
-.invoke:                                          ; preds = %153, %144, %135, %._crit_edge227
-  %134 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.54, %._crit_edge227 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.55, %135 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.56, %144 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.57, %153 ]
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.50.llvm.6960974148744716740, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %134) #31
+.invoke:                                          ; preds = %150, %142, %134, %._crit_edge227
+  %133 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.54, %._crit_edge227 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.55, %134 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.56, %142 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.57, %150 ]
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.50.llvm.6960974148744716740, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %133) #31
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-135:                                              ; preds = %._crit_edge227
-  %136 = fcmp olt float %.088.lcssa, 0.000000e+00
-  %137 = fcmp ogt float %.088.lcssa, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i119 = select i1 %137, float 6.553500e+04, float %.088.lcssa
-  %138 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i119)
-  %139 = select i1 %136, float 0.000000e+00, float %138
-  %140 = fcmp ogt float %139, -1.000000e+00
-  %141 = fcmp olt float %139, 6.553600e+04
-  %or.cond.i.i121 = and i1 %140, %141
-  %142 = fptoui float %139 to i16
-  %143 = zext i16 %142 to i64
-  br i1 %or.cond.i.i121, label %144, label %.invoke
+134:                                              ; preds = %._crit_edge227
+  %135 = fcmp olt float %.088.lcssa, 0.000000e+00
+  %136 = fcmp ogt float %.088.lcssa, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i119 = select i1 %136, float 6.553500e+04, float %.088.lcssa
+  %137 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i119)
+  %138 = select i1 %135, float 0.000000e+00, float %137
+  %139 = fcmp ogt float %138, -1.000000e+00
+  %140 = fcmp olt float %138, 6.553600e+04
+  %or.cond.i.i121 = and i1 %139, %140
+  %141 = fptoui float %138 to i16
+  br i1 %or.cond.i.i121, label %142, label %.invoke
 
-144:                                              ; preds = %135
-  %145 = fcmp olt float %.086.lcssa, 0.000000e+00
-  %146 = fcmp ogt float %.086.lcssa, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i124 = select i1 %146, float 6.553500e+04, float %.086.lcssa
-  %147 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i124)
-  %148 = select i1 %145, float 0.000000e+00, float %147
-  %149 = fcmp ogt float %148, -1.000000e+00
-  %150 = fcmp olt float %148, 6.553600e+04
-  %or.cond.i.i126 = and i1 %149, %150
-  %151 = fptoui float %148 to i16
-  %152 = zext i16 %151 to i64
-  br i1 %or.cond.i.i126, label %153, label %.invoke
+142:                                              ; preds = %134
+  %143 = fcmp olt float %.086.lcssa, 0.000000e+00
+  %144 = fcmp ogt float %.086.lcssa, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i124 = select i1 %144, float 6.553500e+04, float %.086.lcssa
+  %145 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i124)
+  %146 = select i1 %143, float 0.000000e+00, float %145
+  %147 = fcmp ogt float %146, -1.000000e+00
+  %148 = fcmp olt float %146, 6.553600e+04
+  %or.cond.i.i126 = and i1 %147, %148
+  %149 = fptoui float %146 to i16
+  br i1 %or.cond.i.i126, label %150, label %.invoke
 
-153:                                              ; preds = %144
-  %154 = fcmp olt float %.0.lcssa, 0.000000e+00
-  %155 = fcmp ogt float %.0.lcssa, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i129 = select i1 %155, float 6.553500e+04, float %.0.lcssa
-  %156 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i129)
-  %157 = select i1 %154, float 0.000000e+00, float %156
-  %158 = fcmp ogt float %157, -1.000000e+00
-  %159 = fcmp olt float %157, 6.553600e+04
-  %or.cond.i.i131 = and i1 %158, %159
-  br i1 %or.cond.i.i131, label %160, label %.invoke
+150:                                              ; preds = %142
+  %151 = fcmp olt float %.0.lcssa, 0.000000e+00
+  %152 = fcmp ogt float %.0.lcssa, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i129 = select i1 %152, float 6.553500e+04, float %.0.lcssa
+  %153 = call float @llvm.round.f32(float %.0.in.sroa.speculate.load.3.sroa.speculated.i129)
+  %154 = select i1 %151, float 0.000000e+00, float %153
+  %155 = fcmp ogt float %154, -1.000000e+00
+  %156 = fcmp olt float %154, 6.553600e+04
+  %or.cond.i.i131 = and i1 %155, %156
+  br i1 %or.cond.i.i131, label %157, label %.invoke
 
-160:                                              ; preds = %153
-  %161 = fptoui float %157 to i16
-  %.sroa.6.0.insert.ext.i = zext i16 %161 to i64
+157:                                              ; preds = %150
+  %158 = fptoui float %154 to i16
+  %.sroa.6.0.insert.ext.i = zext i16 %158 to i64
   %.sroa.6.0.insert.shift.i = shl nuw i64 %.sroa.6.0.insert.ext.i, 48
-  %162 = shl nuw nsw i64 %152, 32
-  %.sroa.5.0.insert.insert.i = or disjoint i64 %.sroa.6.0.insert.shift.i, %162
-  %163 = shl nuw nsw i64 %143, 16
-  %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %163
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, %133
+  %159 = zext i16 %149 to i64
+  %160 = shl nuw nsw i64 %159, 32
+  %.sroa.5.0.insert.insert.i = or disjoint i64 %.sroa.6.0.insert.shift.i, %160
+  %161 = zext i16 %141 to i64
+  %162 = shl nuw nsw i64 %161, 16
+  %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %162
+  %163 = zext i16 %132 to i64
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, %163
   call void @llvm.experimental.noalias.scope.decl(metadata !885)
   %164 = icmp samesign uge i64 %indvars.iv286, %wide.trip.count289
   %or.cond.i.i134 = select i1 %91, i1 true, i1 %164
   br i1 %or.cond.i.i134, label %165, label %169
 
-165:                                              ; preds = %160
+165:                                              ; preds = %157
   %166 = trunc nuw i64 %indvars.iv286 to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !888
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !888
@@ -9118,7 +9118,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hb62c94970eb0b
   store ptr %8, ptr %9, align 8, !noalias !888
   br label %.invoke335
 
-169:                                              ; preds = %160
+169:                                              ; preds = %157
   %170 = mul nuw i64 %indvars.iv286, %wide.trip.count294
   %171 = add nuw i64 %170, %indvars.iv291
   %172 = shl i64 %171, 2
@@ -21626,59 +21626,59 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h9e414dceb1a08a6eE(ptr 
   %52 = fcmp olt float %.0.in.sroa.speculated.i.us, 6.553600e+04
   %or.cond.i.i.us = and i1 %51, %52
   %53 = fptoui float %.0.in.sroa.speculated.i.us to i16
-  %54 = zext i16 %53 to i64
-  br i1 %or.cond.i.i.us, label %55, label %.split.us.invoke
+  br i1 %or.cond.i.i.us, label %54, label %.split.us.invoke
 
-55:                                               ; preds = %._crit_edge.us
-  %56 = fdiv float %.086.lcssa.us, %.
-  %57 = fcmp olt float %56, 0.000000e+00
-  %58 = fcmp ogt float %56, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us = select i1 %58, float 6.553500e+04, float %56
-  %.0.in.sroa.speculated.i104.us = select i1 %57, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us
-  %59 = fcmp ogt float %.0.in.sroa.speculated.i104.us, -1.000000e+00
-  %60 = fcmp olt float %.0.in.sroa.speculated.i104.us, 6.553600e+04
-  %or.cond.i.i105.us = and i1 %59, %60
-  %61 = fptoui float %.0.in.sroa.speculated.i104.us to i16
-  %62 = zext i16 %61 to i64
-  br i1 %or.cond.i.i105.us, label %63, label %.split.us.invoke
+54:                                               ; preds = %._crit_edge.us
+  %55 = fdiv float %.086.lcssa.us, %.
+  %56 = fcmp olt float %55, 0.000000e+00
+  %57 = fcmp ogt float %55, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us = select i1 %57, float 6.553500e+04, float %55
+  %.0.in.sroa.speculated.i104.us = select i1 %56, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us
+  %58 = fcmp ogt float %.0.in.sroa.speculated.i104.us, -1.000000e+00
+  %59 = fcmp olt float %.0.in.sroa.speculated.i104.us, 6.553600e+04
+  %or.cond.i.i105.us = and i1 %58, %59
+  %60 = fptoui float %.0.in.sroa.speculated.i104.us to i16
+  br i1 %or.cond.i.i105.us, label %61, label %.split.us.invoke
 
-63:                                               ; preds = %55
-  %64 = fcmp olt float %47, 0.000000e+00
-  %65 = fcmp ogt float %47, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us = select i1 %65, float 6.553500e+04, float %47
-  %.0.in.sroa.speculated.i109.us = select i1 %64, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us
-  %66 = fcmp ogt float %.0.in.sroa.speculated.i109.us, -1.000000e+00
-  %67 = fcmp olt float %.0.in.sroa.speculated.i109.us, 6.553600e+04
-  %or.cond.i.i110.us = and i1 %66, %67
-  %68 = fptoui float %.0.in.sroa.speculated.i109.us to i16
-  %69 = zext i16 %68 to i64
-  br i1 %or.cond.i.i110.us, label %70, label %.split.us.invoke
+61:                                               ; preds = %54
+  %62 = fcmp olt float %47, 0.000000e+00
+  %63 = fcmp ogt float %47, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us = select i1 %63, float 6.553500e+04, float %47
+  %.0.in.sroa.speculated.i109.us = select i1 %62, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us
+  %64 = fcmp ogt float %.0.in.sroa.speculated.i109.us, -1.000000e+00
+  %65 = fcmp olt float %.0.in.sroa.speculated.i109.us, 6.553600e+04
+  %or.cond.i.i110.us = and i1 %64, %65
+  %66 = fptoui float %.0.in.sroa.speculated.i109.us to i16
+  br i1 %or.cond.i.i110.us, label %67, label %.split.us.invoke
 
-70:                                               ; preds = %63
-  %71 = fcmp olt float %48, 0.000000e+00
-  %72 = fcmp ogt float %48, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us = select i1 %72, float 6.553500e+04, float %48
-  %.0.in.sroa.speculated.i114.us = select i1 %71, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us
-  %73 = fcmp ogt float %.0.in.sroa.speculated.i114.us, -1.000000e+00
-  %74 = fcmp olt float %.0.in.sroa.speculated.i114.us, 6.553600e+04
-  %or.cond.i.i115.us = and i1 %73, %74
-  br i1 %or.cond.i.i115.us, label %75, label %.split.us.invoke
+67:                                               ; preds = %61
+  %68 = fcmp olt float %48, 0.000000e+00
+  %69 = fcmp ogt float %48, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us = select i1 %69, float 6.553500e+04, float %48
+  %.0.in.sroa.speculated.i114.us = select i1 %68, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us
+  %70 = fcmp ogt float %.0.in.sroa.speculated.i114.us, -1.000000e+00
+  %71 = fcmp olt float %.0.in.sroa.speculated.i114.us, 6.553600e+04
+  %or.cond.i.i115.us = and i1 %70, %71
+  br i1 %or.cond.i.i115.us, label %72, label %.split.us.invoke
 
-75:                                               ; preds = %70
-  %76 = fptoui float %.0.in.sroa.speculated.i114.us to i16
-  %.sroa.6.0.insert.ext.i.us = zext i16 %76 to i64
+72:                                               ; preds = %67
+  %73 = fptoui float %.0.in.sroa.speculated.i114.us to i16
+  %.sroa.6.0.insert.ext.i.us = zext i16 %73 to i64
   %.sroa.6.0.insert.shift.i.us = shl nuw i64 %.sroa.6.0.insert.ext.i.us, 48
-  %77 = shl nuw nsw i64 %69, 32
-  %.sroa.5.0.insert.insert.i.us = or disjoint i64 %.sroa.6.0.insert.shift.i.us, %77
-  %78 = shl nuw nsw i64 %62, 16
-  %.sroa.4.0.insert.insert.i.us = or disjoint i64 %.sroa.5.0.insert.insert.i.us, %78
-  %.sroa.0.0.insert.insert.i.us = or disjoint i64 %.sroa.4.0.insert.insert.i.us, %54
+  %74 = zext i16 %66 to i64
+  %75 = shl nuw nsw i64 %74, 32
+  %.sroa.5.0.insert.insert.i.us = or disjoint i64 %.sroa.6.0.insert.shift.i.us, %75
+  %76 = zext i16 %60 to i64
+  %77 = shl nuw nsw i64 %76, 16
+  %.sroa.4.0.insert.insert.i.us = or disjoint i64 %.sroa.5.0.insert.insert.i.us, %77
+  %78 = zext i16 %53 to i64
+  %.sroa.0.0.insert.insert.i.us = or disjoint i64 %.sroa.4.0.insert.insert.i.us, %78
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1998)
   %79 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %79, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split192.us, label %80
 
-80:                                               ; preds = %75
+80:                                               ; preds = %72
   %81 = add nuw i64 %43, %indvars.iv
   %82 = shl i64 %81, 2
   %83 = add i64 %82, 4
@@ -21755,15 +21755,15 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h9e414dceb1a08a6eE(ptr 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   ret void
 
-.split.us.invoke:                                 ; preds = %70, %63, %55, %._crit_edge.us
-  %114 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.93, %._crit_edge.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.94, %55 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.95, %63 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.96, %70 ]
+.split.us.invoke:                                 ; preds = %67, %61, %54, %._crit_edge.us
+  %114 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.93, %._crit_edge.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.94, %54 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.95, %61 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.96, %67 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.50.llvm.6960974148744716740, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %114) #31
           to label %.split.us.cont unwind label %.loopexit.split-lp
 
 .split.us.cont:                                   ; preds = %.split.us.invoke
   unreachable
 
-.split192.us:                                     ; preds = %75
+.split192.us:                                     ; preds = %72
   %115 = trunc nuw i64 %indvars.iv239 to i32
   %116 = trunc nuw i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !2003
@@ -22538,55 +22538,55 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd2c689bdd76c0ecfE(ptr 
   %52 = fcmp olt float %.0.in.sroa.speculated.i.us, 6.553600e+04
   %or.cond.i.i.us = and i1 %51, %52
   %53 = fptoui float %.0.in.sroa.speculated.i.us to i16
-  %54 = zext i16 %53 to i48
-  br i1 %or.cond.i.i.us, label %55, label %.split.us.invoke
+  br i1 %or.cond.i.i.us, label %54, label %.split.us.invoke
 
-55:                                               ; preds = %._crit_edge.us
-  %56 = fdiv float %.086.lcssa.us, %.
-  %57 = fcmp olt float %56, 0.000000e+00
-  %58 = fcmp ogt float %56, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us = select i1 %58, float 6.553500e+04, float %56
-  %.0.in.sroa.speculated.i104.us = select i1 %57, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us
-  %59 = fcmp ogt float %.0.in.sroa.speculated.i104.us, -1.000000e+00
-  %60 = fcmp olt float %.0.in.sroa.speculated.i104.us, 6.553600e+04
-  %or.cond.i.i105.us = and i1 %59, %60
-  %61 = fptoui float %.0.in.sroa.speculated.i104.us to i16
-  %62 = zext i16 %61 to i48
-  br i1 %or.cond.i.i105.us, label %63, label %.split.us.invoke
+54:                                               ; preds = %._crit_edge.us
+  %55 = fdiv float %.086.lcssa.us, %.
+  %56 = fcmp olt float %55, 0.000000e+00
+  %57 = fcmp ogt float %55, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us = select i1 %57, float 6.553500e+04, float %55
+  %.0.in.sroa.speculated.i104.us = select i1 %56, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us
+  %58 = fcmp ogt float %.0.in.sroa.speculated.i104.us, -1.000000e+00
+  %59 = fcmp olt float %.0.in.sroa.speculated.i104.us, 6.553600e+04
+  %or.cond.i.i105.us = and i1 %58, %59
+  %60 = fptoui float %.0.in.sroa.speculated.i104.us to i16
+  br i1 %or.cond.i.i105.us, label %61, label %.split.us.invoke
 
-63:                                               ; preds = %55
-  %64 = fcmp olt float %47, 0.000000e+00
-  %65 = fcmp ogt float %47, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us = select i1 %65, float 6.553500e+04, float %47
-  %.0.in.sroa.speculated.i109.us = select i1 %64, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us
-  %66 = fcmp ogt float %.0.in.sroa.speculated.i109.us, -1.000000e+00
-  %67 = fcmp olt float %.0.in.sroa.speculated.i109.us, 6.553600e+04
-  %or.cond.i.i110.us = and i1 %66, %67
-  %68 = fptoui float %.0.in.sroa.speculated.i109.us to i16
-  %69 = zext i16 %68 to i48
-  br i1 %or.cond.i.i110.us, label %70, label %.split.us.invoke
+61:                                               ; preds = %54
+  %62 = fcmp olt float %47, 0.000000e+00
+  %63 = fcmp ogt float %47, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us = select i1 %63, float 6.553500e+04, float %47
+  %.0.in.sroa.speculated.i109.us = select i1 %62, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us
+  %64 = fcmp ogt float %.0.in.sroa.speculated.i109.us, -1.000000e+00
+  %65 = fcmp olt float %.0.in.sroa.speculated.i109.us, 6.553600e+04
+  %or.cond.i.i110.us = and i1 %64, %65
+  %66 = fptoui float %.0.in.sroa.speculated.i109.us to i16
+  br i1 %or.cond.i.i110.us, label %67, label %.split.us.invoke
 
-70:                                               ; preds = %63
-  %71 = fcmp olt float %48, 0.000000e+00
-  %72 = fcmp ogt float %48, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us = select i1 %72, float 6.553500e+04, float %48
-  %.0.in.sroa.speculated.i114.us = select i1 %71, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us
-  %73 = fcmp ogt float %.0.in.sroa.speculated.i114.us, -1.000000e+00
-  %74 = fcmp olt float %.0.in.sroa.speculated.i114.us, 6.553600e+04
-  %or.cond.i.i115.us = and i1 %73, %74
-  br i1 %or.cond.i.i115.us, label %75, label %.split.us.invoke
+67:                                               ; preds = %61
+  %68 = fcmp olt float %48, 0.000000e+00
+  %69 = fcmp ogt float %48, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us = select i1 %69, float 6.553500e+04, float %48
+  %.0.in.sroa.speculated.i114.us = select i1 %68, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us
+  %70 = fcmp ogt float %.0.in.sroa.speculated.i114.us, -1.000000e+00
+  %71 = fcmp olt float %.0.in.sroa.speculated.i114.us, 6.553600e+04
+  %or.cond.i.i115.us = and i1 %70, %71
+  br i1 %or.cond.i.i115.us, label %72, label %.split.us.invoke
 
-75:                                               ; preds = %70
-  %76 = shl nuw nsw i48 %62, 16
-  %.sroa.0.2.insert.insert.i.us = or disjoint i48 %76, %54
-  %77 = shl nuw i48 %69, 32
+72:                                               ; preds = %67
+  %73 = zext i16 %53 to i48
+  %74 = zext i16 %60 to i48
+  %75 = shl nuw nsw i48 %74, 16
+  %.sroa.0.2.insert.insert.i.us = or disjoint i48 %75, %73
+  %76 = zext i16 %66 to i48
+  %77 = shl nuw i48 %76, 32
   %.sroa.0.4.insert.insert.i.us = or disjoint i48 %.sroa.0.2.insert.insert.i.us, %77
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2082)
   %78 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %78, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split196.us, label %79
 
-79:                                               ; preds = %75
+79:                                               ; preds = %72
   %80 = add nuw i64 %43, %indvars.iv
   %81 = mul i64 %80, 3
   %82 = add i64 %81, 3
@@ -22661,15 +22661,15 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd2c689bdd76c0ecfE(ptr 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   ret void
 
-.split.us.invoke:                                 ; preds = %70, %63, %55, %._crit_edge.us
-  %112 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.93, %._crit_edge.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.94, %55 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.95, %63 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.96, %70 ]
+.split.us.invoke:                                 ; preds = %67, %61, %54, %._crit_edge.us
+  %112 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.93, %._crit_edge.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.94, %54 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.95, %61 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.96, %67 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.50.llvm.6960974148744716740, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %112) #31
           to label %.split.us.cont unwind label %.loopexit.split-lp
 
 .split.us.cont:                                   ; preds = %.split.us.invoke
   unreachable
 
-.split196.us:                                     ; preds = %75
+.split196.us:                                     ; preds = %72
   %113 = trunc nuw i64 %indvars.iv247 to i32
   %114 = trunc nuw i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !2087
@@ -22852,51 +22852,51 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd546ecba3c6625e6E(ptr 
   %52 = fcmp olt float %.0.in.sroa.speculated.i.us, 6.553600e+04
   %or.cond.i.i.us = and i1 %51, %52
   %53 = fptoui float %.0.in.sroa.speculated.i.us to i16
-  %54 = zext i16 %53 to i32
-  br i1 %or.cond.i.i.us, label %55, label %.split.us.invoke
+  br i1 %or.cond.i.i.us, label %54, label %.split.us.invoke
 
-55:                                               ; preds = %._crit_edge.us
-  %56 = fdiv float %.086.lcssa.us, %.
-  %57 = fcmp olt float %56, 0.000000e+00
-  %58 = fcmp ogt float %56, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us = select i1 %58, float 6.553500e+04, float %56
-  %.0.in.sroa.speculated.i104.us = select i1 %57, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us
-  %59 = fcmp ogt float %.0.in.sroa.speculated.i104.us, -1.000000e+00
-  %60 = fcmp olt float %.0.in.sroa.speculated.i104.us, 6.553600e+04
-  %or.cond.i.i105.us = and i1 %59, %60
-  %61 = fptoui float %.0.in.sroa.speculated.i104.us to i16
-  %62 = zext i16 %61 to i32
-  br i1 %or.cond.i.i105.us, label %63, label %.split.us.invoke
+54:                                               ; preds = %._crit_edge.us
+  %55 = fdiv float %.086.lcssa.us, %.
+  %56 = fcmp olt float %55, 0.000000e+00
+  %57 = fcmp ogt float %55, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us = select i1 %57, float 6.553500e+04, float %55
+  %.0.in.sroa.speculated.i104.us = select i1 %56, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i103.us
+  %58 = fcmp ogt float %.0.in.sroa.speculated.i104.us, -1.000000e+00
+  %59 = fcmp olt float %.0.in.sroa.speculated.i104.us, 6.553600e+04
+  %or.cond.i.i105.us = and i1 %58, %59
+  %60 = fptoui float %.0.in.sroa.speculated.i104.us to i16
+  br i1 %or.cond.i.i105.us, label %61, label %.split.us.invoke
 
-63:                                               ; preds = %55
-  %64 = fcmp olt float %47, 0.000000e+00
-  %65 = fcmp ogt float %47, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us = select i1 %65, float 6.553500e+04, float %47
-  %.0.in.sroa.speculated.i109.us = select i1 %64, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us
-  %66 = fcmp ogt float %.0.in.sroa.speculated.i109.us, -1.000000e+00
-  %67 = fcmp olt float %.0.in.sroa.speculated.i109.us, 6.553600e+04
-  %or.cond.i.i110.us = and i1 %66, %67
-  br i1 %or.cond.i.i110.us, label %68, label %.split.us.invoke
+61:                                               ; preds = %54
+  %62 = fcmp olt float %47, 0.000000e+00
+  %63 = fcmp ogt float %47, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us = select i1 %63, float 6.553500e+04, float %47
+  %.0.in.sroa.speculated.i109.us = select i1 %62, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i108.us
+  %64 = fcmp ogt float %.0.in.sroa.speculated.i109.us, -1.000000e+00
+  %65 = fcmp olt float %.0.in.sroa.speculated.i109.us, 6.553600e+04
+  %or.cond.i.i110.us = and i1 %64, %65
+  br i1 %or.cond.i.i110.us, label %66, label %.split.us.invoke
 
-68:                                               ; preds = %63
-  %69 = fcmp olt float %48, 0.000000e+00
-  %70 = fcmp ogt float %48, 6.553500e+04
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us = select i1 %70, float 6.553500e+04, float %48
-  %.0.in.sroa.speculated.i114.us = select i1 %69, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us
-  %71 = fcmp ogt float %.0.in.sroa.speculated.i114.us, -1.000000e+00
-  %72 = fcmp olt float %.0.in.sroa.speculated.i114.us, 6.553600e+04
-  %or.cond.i.i115.us = and i1 %71, %72
-  br i1 %or.cond.i.i115.us, label %73, label %.split.us.invoke
+66:                                               ; preds = %61
+  %67 = fcmp olt float %48, 0.000000e+00
+  %68 = fcmp ogt float %48, 6.553500e+04
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us = select i1 %68, float 6.553500e+04, float %48
+  %.0.in.sroa.speculated.i114.us = select i1 %67, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i113.us
+  %69 = fcmp ogt float %.0.in.sroa.speculated.i114.us, -1.000000e+00
+  %70 = fcmp olt float %.0.in.sroa.speculated.i114.us, 6.553600e+04
+  %or.cond.i.i115.us = and i1 %69, %70
+  br i1 %or.cond.i.i115.us, label %71, label %.split.us.invoke
 
-73:                                               ; preds = %68
-  %74 = shl nuw i32 %62, 16
-  %.sroa.0.2.insert.insert.i.us = or disjoint i32 %74, %54
+71:                                               ; preds = %66
+  %72 = zext i16 %53 to i32
+  %73 = zext i16 %60 to i32
+  %74 = shl nuw i32 %73, 16
+  %.sroa.0.2.insert.insert.i.us = or disjoint i32 %74, %72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2109)
   %75 = icmp samesign uge i64 %indvars.iv, %39
   %or.cond.i.i118.us = select i1 %75, i1 true, i1 %42
   br i1 %or.cond.i.i118.us, label %.split193.us, label %76
 
-76:                                               ; preds = %73
+76:                                               ; preds = %71
   %77 = add nuw i64 %43, %indvars.iv
   %78 = shl i64 %77, 1
   %79 = add i64 %78, 2
@@ -22966,15 +22966,15 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd546ecba3c6625e6E(ptr 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   ret void
 
-.split.us.invoke:                                 ; preds = %68, %63, %55, %._crit_edge.us
-  %107 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.93, %._crit_edge.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.94, %55 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.95, %63 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.96, %68 ]
+.split.us.invoke:                                 ; preds = %66, %61, %54, %._crit_edge.us
+  %107 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.93, %._crit_edge.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.94, %54 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.95, %61 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.96, %66 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.50.llvm.6960974148744716740, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %107) #31
           to label %.split.us.cont unwind label %.loopexit.split-lp
 
 .split.us.cont:                                   ; preds = %.split.us.invoke
   unreachable
 
-.split193.us:                                     ; preds = %73
+.split193.us:                                     ; preds = %71
   %108 = trunc nuw i64 %indvars.iv240 to i32
   %109 = trunc nuw i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !2114

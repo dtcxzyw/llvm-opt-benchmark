@@ -319,8 +319,8 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %_ZNSt11char_traitsI
   %.0.i.i = select i1 %.not.i.i, i64 -1, i64 %35
   %36 = icmp eq i64 %.0.i.i, -1
   %37 = sub i64 %.0.i.i, %.01832
-  %38 = select i1 %36, i64 -1, i64 %37
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %30, i64 %38)
+  %38 = call i64 @llvm.umin.i64(i64 %30, i64 %37)
+  %.sroa.speculated.i = select i1 %36, i64 %30, i64 %38
   %.not.i = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %.not.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread31, label %_ZNK4llvm9StringRef9ends_withES0_.exit
 
@@ -888,12 +888,12 @@ _ZNK4llvm9StringRef4findEcm.exit.thread.i:        ; preds = %68, %_ZNK4llvm9Stri
 72:                                               ; preds = %_ZNK4llvm9StringRef4findEcm.exit.thread.i
   %73 = icmp eq i64 %.1.i, -1
   %74 = sub i64 %.1.i, %spec.select.i
-  %75 = select i1 %73, i64 -1, i64 %74
   %.sroa.speculated5.i.i = call i64 @llvm.umin.i64(i64 %.sroa.4.1, i64 %spec.select.i)
-  %76 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 %.sroa.speculated5.i.i
-  %77 = sub i64 %.sroa.4.1, %.sroa.speculated5.i.i
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %77, i64 %75)
-  store ptr %76, ptr %19, align 8, !alias.scope !12
+  %75 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 %.sroa.speculated5.i.i
+  %76 = sub i64 %.sroa.4.1, %.sroa.speculated5.i.i
+  %77 = call i64 @llvm.umin.i64(i64 %76, i64 %74)
+  %.sroa.speculated.i.i = select i1 %73, i64 %76, i64 %77
+  store ptr %75, ptr %19, align 8, !alias.scope !12
   %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %.sroa.speculated.i.i, ptr %.sroa.2.0..sroa_idx.i9, align 8, !alias.scope !12
   br label %_ZN4llvm9symbolize10SourceCode11pruneSourceERKSt8optionalINS_9StringRefEE.exit

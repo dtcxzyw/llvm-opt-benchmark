@@ -112699,18 +112699,18 @@ _ZN11struct_pack6detail18calculate_one_sizeISt6vectorINSt7__cxx1112basic_stringI
   %ret.sroa.0.0.i26.i = select i1 %tobool.i.i.i20.i, i64 %add.i.i22.i, i64 1
   %tobool.i.i.i38.i = trunc i8 %11 to i1
   %spec.select.i39.i = select i1 %tobool.i.i.i38.i, i64 5, i64 1
-  %ret.sroa.7.0.i.i = select i1 %tobool.i.i.i.i, i64 %1, i64 0
-  %ret.sroa.7.0.i23.i = select i1 %tobool.i.i.i20.i, i64 %6, i64 0
-  %18 = tail call i64 @llvm.umax.i64(i64 %ret.sroa.7.0.i23.i, i64 %ret.sroa.7.0.i31.i)
-  %19 = tail call i64 @llvm.umax.i64(i64 %ret.sroa.7.0.i.i, i64 %18)
+  %18 = tail call i64 @llvm.umax.i64(i64 %6, i64 %ret.sroa.7.0.i31.i)
+  %19 = select i1 %tobool.i.i.i20.i, i64 %18, i64 %ret.sroa.7.0.i31.i
+  %20 = tail call i64 @llvm.umax.i64(i64 %1, i64 %19)
+  %21 = select i1 %tobool.i.i.i.i, i64 %20, i64 %19
   %tobool.i.i.mask.i24.i = and i8 %5, 1
   %tobool.i.i.mask.i.i = and i8 %0, 1
   %narrow.i = add nuw nsw i8 %tobool.i.i.mask.i24.i, %tobool.i.i.mask.i.i
   %add6.i45.i = zext nneg i8 %narrow.i to i64
   %add6.i77.i = add nuw nsw i64 %ret.sroa.5.0.i32.i, %add6.i45.i
   %_M_engaged.i.i.i6 = getelementptr inbounds i8, ptr %item, i64 209
-  %20 = load i8, ptr %_M_engaged.i.i.i6, align 1, !noalias !1533
-  %tobool.i.i.i7 = trunc i8 %20 to i1
+  %22 = load i8, ptr %_M_engaged.i.i.i6, align 1, !noalias !1533
+  %tobool.i.i.i7 = trunc i8 %22 to i1
   %spec.select.i8 = select i1 %tobool.i.i.i7, i64 2, i64 1
   %add.i = add i64 %spec.select.i.i, %add.i.i
   %add.i10 = add i64 %add.i, %spec.select.i13.i
@@ -112722,12 +112722,12 @@ _ZN11struct_pack6detail18calculate_one_sizeISt6vectorINSt7__cxx1112basic_stringI
   %add.i81.i = add i64 %add.i73.i, %ret.sroa.0.0.lcssa.i
   %add.i18 = add i64 %add.i81.i, %spec.select.i8
   %add6.i22 = add i64 %add6.i77.i, %ret.sroa.4.0.lcssa.i
-  %21 = tail call i64 @llvm.umax.i64(i64 %19, i64 %ret.sroa.8.0.lcssa.i)
+  %23 = tail call i64 @llvm.umax.i64(i64 %21, i64 %ret.sroa.8.0.lcssa.i)
   store i64 %add.i18, ptr %agg.result, align 8
   %ret.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %add6.i22, ptr %ret.sroa.4.0.agg.result.sroa_idx, align 8
   %ret.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i64 %21, ptr %ret.sroa.6.0.agg.result.sroa_idx, align 8
+  store i64 %23, ptr %ret.sroa.6.0.agg.result.sroa_idx, align 8
   ret void
 }
 

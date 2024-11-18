@@ -56850,13 +56850,13 @@ _ZN5clang15ASTRecordReader12readQualTypeEv.exit70: ; preds = %131, %139
   %179 = getelementptr inbounds i64, ptr %173, i64 %178
   %180 = load i64, ptr %179, align 8
   %.not78 = icmp eq i64 %180, 0
-  %181 = trunc i64 %175 to i32
-  %182 = select i1 %.not78, i32 7, i32 -2147483641
-  store i32 %182, ptr %0, align 8
-  %183 = inttoptr i64 %169 to ptr
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %183, ptr %184, align 8
-  %.sink.i = select i1 %.not.not.i.i.not, i32 0, i32 %181
+  %181 = select i1 %.not78, i32 7, i32 -2147483641
+  store i32 %181, ptr %0, align 8
+  %182 = inttoptr i64 %169 to ptr
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %182, ptr %183, align 8
+  %184 = trunc i64 %175 to i32
+  %.sink.i = select i1 %.not.not.i.i.not, i32 0, i32 %184
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink.i, ptr %185, align 4
   br label %_ZN4llvm6APSIntD2Ev.exit

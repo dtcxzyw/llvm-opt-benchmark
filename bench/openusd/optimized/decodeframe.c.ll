@@ -5224,14 +5224,14 @@ frame_might_allow_ref_frame_mvs.exit793.thread:   ; preds = %1704, %1707, %1710,
   %.ph.i.i = phi ptr [ %1737, %.thread73.i.i ], [ %1742, %1785 ]
   %1791 = xor i32 %1729, 1
   %1792 = sub nuw nsw i32 9, %1791
-  %1793 = shl nuw nsw i32 1, %1792
-  %1794 = sub nuw nsw i32 14, %1729
-  %1795 = trunc nuw nsw i32 %1793 to i16
+  %1793 = sub nuw nsw i32 14, %1729
+  %1794 = shl nuw nsw i32 1, %1792
+  %1795 = trunc nuw nsw i32 %1794 to i16
   %1796 = or disjoint i16 %1795, 1
   br label %1797
 
 1797:                                             ; preds = %1790, %1788
-  %1798 = phi i32 [ %1794, %1790 ], [ 10, %1788 ]
+  %1798 = phi i32 [ %1793, %1790 ], [ 10, %1788 ]
   %1799 = phi ptr [ %.ph.i.i, %1790 ], [ %1745, %1788 ]
   %1800 = phi i16 [ %1796, %1790 ], [ 4097, %1788 ]
   %1801 = load i32, ptr %1725, align 4

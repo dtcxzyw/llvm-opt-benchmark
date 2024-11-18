@@ -695,24 +695,24 @@ _ZNK5clang4Type13isBooleanTypeEv.exit46.thread:   ; preds = %_ZNK5clang4Type13is
   %93 = phi i8 [ %87, %85 ], [ %storemerge.i, %57 ]
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %.sink72, i64 16, i1 false)
-  %95 = zext i8 %93 to i64
-  %96 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction23EmitCheckSourceLocationENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 %6) #19
-  store ptr %96, ptr %13, align 16
-  %97 = getelementptr inbounds i8, ptr %13, i64 8
-  %98 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction23EmitCheckTypeDescriptorENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %2) #19
-  store ptr %98, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %13, i64 16
-  %100 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction23EmitCheckTypeDescriptorENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %4) #19
-  store ptr %100, ptr %99, align 16
-  %101 = getelementptr inbounds i8, ptr %13, i64 24
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %103 = load ptr, ptr %102, align 8
-  %104 = call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %103) #19
-  %105 = select i1 %92, i64 4, i64 %95
-  %106 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %104, i64 noundef %105, i1 noundef zeroext false) #19
-  store ptr %106, ptr %101, align 8
+  %95 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction23EmitCheckSourceLocationENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 %6) #19
+  store ptr %95, ptr %13, align 16
+  %96 = getelementptr inbounds i8, ptr %13, i64 8
+  %97 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction23EmitCheckTypeDescriptorENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %2) #19
+  store ptr %97, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %13, i64 16
+  %99 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction23EmitCheckTypeDescriptorENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %4) #19
+  store ptr %99, ptr %98, align 16
+  %100 = getelementptr inbounds i8, ptr %13, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %102 = load ptr, ptr %101, align 8
+  %103 = call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %102) #19
+  %104 = zext i8 %93 to i64
+  %105 = select i1 %92, i64 4, i64 %104
+  %106 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %103, i64 noundef %105, i1 noundef zeroext false) #19
+  store ptr %106, ptr %100, align 8
   %107 = getelementptr inbounds i8, ptr %13, i64 32
-  %108 = load ptr, ptr %102, align 8
+  %108 = load ptr, ptr %101, align 8
   %109 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %108) #19
   %110 = load i32, ptr %5, align 8
   %111 = lshr i32 %110, 16

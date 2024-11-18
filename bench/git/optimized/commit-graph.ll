@@ -8671,16 +8671,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %num_generation_data_overflows.1 = add nuw nsw i32 %num_generation_data_overflows.012, %inc7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i)
   %9 = or disjoint i32 %num_generation_data_overflows.012, -2147483648
-  %or = zext i32 %9 to i64
-  %offset.0 = select i1 %cmp4, i64 %or, i64 %sub
-  %conv8 = trunc i64 %offset.0 to i32
-  %10 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv8) #24, !srcloc !5
-  store i32 %10, ptr %data.addr.i, align 4
+  %10 = trunc i64 %sub to i32
+  %conv8 = select i1 %cmp4, i32 %9, i32 %10
+  %11 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv8) #24, !srcloc !5
+  store i32 %11, ptr %data.addr.i, align 4
   call void @hashwrite(ptr noundef %f, ptr noundef nonnull %data.addr.i, i32 noundef 4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i64, ptr %nr, align 8
-  %cmp = icmp ugt i64 %11, %indvars.iv.next
+  %12 = load i64, ptr %nr, align 8
+  %cmp = icmp ugt i64 %12, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !69
 
 for.end:                                          ; preds = %for.body, %entry

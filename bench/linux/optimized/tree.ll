@@ -7431,11 +7431,11 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %217 = phi i32 [ %202, %201 ], [ %215, %211 ]
   %218 = tail call i64 @__msecs_to_jiffies(i32 noundef %217) #29
   %219 = tail call i64 @llvm.umax.i64(i64 %218, i64 2)
-  %220 = and i64 %219, 4294967295
-  %221 = icmp eq i32 %217, 0
+  %220 = icmp eq i32 %217, 0
+  %221 = and i64 %219, 4294967295
   %.inv = icmp ult i64 %218, 300000
-  %.pre88 = select i1 %.inv, i64 %220, i64 300000
-  br i1 %221, label %._crit_edge, label %222
+  %.pre88 = select i1 %.inv, i64 %221, i64 300000
+  br i1 %220, label %._crit_edge, label %222
 
 222:                                              ; preds = %216
   %223 = tail call i32 @jiffies_to_msecs(i64 noundef %.pre88) #29

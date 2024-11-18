@@ -8095,15 +8095,15 @@ for.inc80:                                        ; preds = %_ZN20btAlignedObjec
   br i1 %exitcond308.not, label %for.cond83.preheader, label %for.body66, !llvm.loop !73
 
 for.cond91.preheader:                             ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %for.cond83.preheader
-  %cmp92286 = icmp sgt i32 %numCurConstraints.0.lcssa, 0
-  br i1 %cmp92286, label %for.body93.lr.ph, label %for.cond99.preheader
+  %cmp92286.not = icmp eq i32 %numCurConstraints.0.lcssa, 0
+  br i1 %cmp92286.not, label %for.cond99.preheader, label %for.body93.lr.ph
 
 for.body93.lr.ph:                                 ; preds = %for.cond91.preheader
   %m_size.i.i179 = getelementptr inbounds i8, ptr %this, i64 172
   %m_capacity.i.i180 = getelementptr inbounds i8, ptr %this, i64 176
   %m_data.i.i.i209 = getelementptr inbounds i8, ptr %this, i64 184
   %m_ownsMemory.i.i.i203 = getelementptr inbounds i8, ptr %this, i64 192
-  %wide.trip.count317 = zext nneg i32 %numCurConstraints.0.lcssa to i64
+  %wide.trip.count317 = zext i32 %numCurConstraints.0.lcssa to i64
   %.pre327 = load i32, ptr %m_size.i.i179, align 4
   br label %for.body93
 
@@ -8190,20 +8190,20 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   br i1 %exitcond313.not, label %for.cond91.preheader, label %for.body85, !llvm.loop !75
 
 for.cond99.preheader:                             ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit, %for.cond91.preheader
-  %cmp100288 = icmp sgt i32 %numCurMultiBodyConstraints.0.lcssa, 0
-  %m_size.i.i217 = getelementptr inbounds i8, ptr %this, i64 204
-  br i1 %cmp100288, label %for.body101.lr.ph, label %for.cond99.preheader.for.end106_crit_edge
+  %cmp100288.not = icmp eq i32 %numCurMultiBodyConstraints.0.lcssa, 0
+  %m_size.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 204
+  br i1 %cmp100288.not, label %for.cond99.preheader.for.end106_crit_edge, label %for.body101.lr.ph
 
 for.cond99.preheader.for.end106_crit_edge:        ; preds = %for.cond99.preheader
-  %.pre329 = load i32, ptr %m_size.i.i217, align 4
+  %.pre329 = load i32, ptr %m_size.i.phi.trans.insert, align 4
   br label %for.end106
 
 for.body101.lr.ph:                                ; preds = %for.cond99.preheader
   %m_capacity.i.i218 = getelementptr inbounds i8, ptr %this, i64 208
   %m_data.i.i.i247 = getelementptr inbounds i8, ptr %this, i64 216
   %m_ownsMemory.i.i.i241 = getelementptr inbounds i8, ptr %this, i64 224
-  %wide.trip.count322 = zext nneg i32 %numCurMultiBodyConstraints.0.lcssa to i64
-  %.pre328 = load i32, ptr %m_size.i.i217, align 4
+  %wide.trip.count322 = zext i32 %numCurMultiBodyConstraints.0.lcssa to i64
+  %.pre328 = load i32, ptr %m_size.i.phi.trans.insert, align 4
   br label %for.body101
 
 for.body93:                                       ; preds = %for.body93.lr.ph, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit
@@ -8311,7 +8311,7 @@ if.then.i.i.i231:                                 ; preds = %if.then.i.i229
   %conv.i.i.i.i232 = sext i32 %cond.i.i227 to i64
   %mul.i.i.i.i233 = shl nsw i64 %conv.i.i.i.i232, 3
   %call.i.i.i.i234 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul.i.i.i.i233, i32 noundef 16)
-  %.pre.i235 = load i32, ptr %m_size.i.i217, align 4
+  %.pre.i235 = load i32, ptr %m_size.i.phi.trans.insert, align 4
   br label %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE8allocateEi.exit.i.i
 
 _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE8allocateEi.exit.i.i: ; preds = %if.then.i.i.i231, %if.then.i.i229
@@ -8353,7 +8353,7 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE10deallocateEv.exit.i.i: ; pr
   store i8 1, ptr %m_ownsMemory.i.i.i241, align 8
   store ptr %retval.0.i.i.i236, ptr %m_data.i.i.i247, align 8
   store i32 %cond.i.i227, ptr %m_capacity.i.i218, align 8
-  %.pre2.i244 = load i32, ptr %m_size.i.i217, align 4
+  %.pre2.i244 = load i32, ptr %m_size.i.phi.trans.insert, align 4
   br label %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9push_backERKS1_.exit
 
 _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9push_backERKS1_.exit: ; preds = %for.body101, %if.then.i224, %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE10deallocateEv.exit.i.i
@@ -8363,9 +8363,9 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9push_backERKS1_.exit: ; pred
   %arrayidx.i222 = getelementptr inbounds ptr, ptr %109, i64 %idxprom.i221
   %110 = load ptr, ptr %arrayidx103, align 8
   store ptr %110, ptr %arrayidx.i222, align 8
-  %111 = load i32, ptr %m_size.i.i217, align 4
+  %111 = load i32, ptr %m_size.i.phi.trans.insert, align 4
   %inc.i223 = add nsw i32 %111, 1
-  store i32 %inc.i223, ptr %m_size.i.i217, align 4
+  store i32 %inc.i223, ptr %m_size.i.phi.trans.insert, align 4
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %exitcond323.not = icmp eq i64 %indvars.iv.next320, %wide.trip.count322
   br i1 %exitcond323.not, label %for.end106, label %for.body101, !llvm.loop !77

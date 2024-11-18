@@ -239,7 +239,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.169 = private unnamed_addr constant [35 x i8] c"Realm status is 'Full' in red text\00", align 1
 @.str.170 = private unnamed_addr constant [25 x i8] c"Unrecognized packet type\00", align 1
 @client_game_version.0 = internal unnamed_addr global i8 -1, align 2
-@client_game_version.1 = internal unnamed_addr global i8 -1, align 2
+@client_game_version.1 = internal unnamed_addr global i8 -1, align 1
 @client_game_version.2 = internal unnamed_addr global i8 -1, align 2
 
 ; Function Attrs: nounwind uwtable
@@ -282,10 +282,10 @@ define internal noundef i32 @dissect_wow(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %4
-  %16 = select i1 %or.cond, i32 3, i32 1
-  %17 = load i32, ptr @wow_preference_desegment, align 4
-  %18 = select i1 %or.cond5, i32 4, i32 %16
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %18, ptr noundef nonnull @get_wow_pdu_len, ptr noundef nonnull @dissect_wow_pdu, ptr noundef %3) #3
+  %16 = load i32, ptr @wow_preference_desegment, align 4
+  %17 = select i1 %or.cond, i32 3, i32 1
+  %18 = select i1 %or.cond5, i32 4, i32 %17
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %16, i32 noundef %18, ptr noundef nonnull @get_wow_pdu_len, ptr noundef nonnull @dissect_wow_pdu, ptr noundef %3) #3
   br label %21
 
 19:                                               ; preds = %4
@@ -485,7 +485,7 @@ define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not68.i, label %98, label %parse_logon_reconnect_proof.exit
 
 98:                                               ; preds = %97
-  %99 = load i8, ptr @client_game_version.1, align 2
+  %99 = load i8, ptr @client_game_version.1, align 1
   %100 = icmp sgt i8 %99, 12
   br i1 %100, label %version_is_at_or_above.exit.thread.i, label %101
 
@@ -537,7 +537,7 @@ version_is_at_or_above.exit.thread.i:             ; preds = %101, %98, %72
   br i1 %.not36.i, label %130, label %parse_logon_reconnect_proof.exit
 
 130:                                              ; preds = %129
-  %131 = load i8, ptr @client_game_version.1, align 2
+  %131 = load i8, ptr @client_game_version.1, align 1
   %132 = icmp sgt i8 %131, 12
   br i1 %132, label %version_is_at_or_above.exit.thread.i56, label %133
 
@@ -587,7 +587,7 @@ version_is_at_or_above.exit.thread.i56:           ; preds = %133, %130, %118
   br i1 %.not38.i, label %157, label %version_is_at_or_above.exit.thread29.i
 
 157:                                              ; preds = %156
-  %158 = load i8, ptr @client_game_version.1, align 2
+  %158 = load i8, ptr @client_game_version.1, align 1
   %159 = icmp sgt i8 %158, 4
   br i1 %159, label %version_is_at_or_above.exit.thread.i59, label %160
 
@@ -616,7 +616,7 @@ version_is_at_or_above.exit.thread29.i:           ; preds = %version_is_at_or_ab
   br i1 %.not41.i, label %169, label %parse_logon_reconnect_proof.exit
 
 169:                                              ; preds = %168
-  %170 = load i8, ptr @client_game_version.1, align 2
+  %170 = load i8, ptr @client_game_version.1, align 1
   %171 = icmp sgt i8 %170, 0
   br i1 %171, label %version_is_at_or_above.exit25.thread.i, label %172
 
@@ -658,7 +658,7 @@ version_is_at_or_above.exit25.thread.i:           ; preds = %172, %169, %version
   br i1 %.not110.i, label %192, label %.thread139.i
 
 192:                                              ; preds = %191
-  %193 = load i8, ptr @client_game_version.1, align 2
+  %193 = load i8, ptr @client_game_version.1, align 1
   %194 = icmp sgt i8 %193, 4
   br i1 %194, label %.thread139.i, label %195
 
@@ -710,7 +710,7 @@ version_is_at_or_above.exit.i:                    ; preds = %195
   br i1 %.not.i60, label %217, label %version_is_at_or_above.exit96.thread103.i
 
 217:                                              ; preds = %216
-  %218 = load i8, ptr @client_game_version.1, align 2
+  %218 = load i8, ptr @client_game_version.1, align 1
   %219 = icmp sgt i8 %218, 4
   br i1 %219, label %version_is_at_or_above.exit96.thread.i, label %220
 
@@ -766,7 +766,7 @@ version_is_at_or_above.exit96.thread103.i:        ; preds = %version_is_at_or_ab
   br i1 %.not114.i, label %256, label %version_is_at_or_above.exit99.thread.i
 
 256:                                              ; preds = %255
-  %257 = load i8, ptr @client_game_version.1, align 2
+  %257 = load i8, ptr @client_game_version.1, align 1
   %258 = icmp sgt i8 %257, 4
   br i1 %258, label %version_is_at_or_above.exit99.i, label %259
 
@@ -852,7 +852,7 @@ define internal fastcc void @parse_logon_challenge_client_to_server(ptr nocaptur
   %15 = load i32, ptr @hf_wow_version1, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %1, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #3
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 9) #3
-  store i8 %17, ptr @client_game_version.1, align 2
+  store i8 %17, ptr @client_game_version.1, align 1
   %18 = load i32, ptr @hf_wow_version2, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %1, i32 noundef 9, i32 noundef 1, i32 noundef -2147483648) #3
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 10) #3

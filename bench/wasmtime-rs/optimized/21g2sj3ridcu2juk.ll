@@ -7240,7 +7240,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 "_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us72.preheader": ; preds = %9
   %72 = load i8, ptr %8, align 8, !range !411, !alias.scope !435, !noalias !433, !noundef !5
   %73 = icmp eq i8 %72, 6
-  %.val.i.i.i133 = load i32, ptr %8, align 8, !alias.scope !435, !noalias !433
+  %.val.i.i.i = load i32, ptr %8, align 8, !alias.scope !435, !noalias !433
   %74 = load ptr, ptr %0, align 8, !nonnull !5, !align !6
   %75 = getelementptr inbounds i8, ptr %74, i64 160
   %76 = getelementptr inbounds i8, ptr %74, i64 144
@@ -7248,7 +7248,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %78 = getelementptr inbounds i8, ptr %74, i64 136
   %79 = getelementptr inbounds i8, ptr %74, i64 128
   %80 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.8.16.extract.trunc.us128 = select i1 %73, i32 6, i32 %.val.i.i.i133
+  %.sroa.8.16.extract.trunc.us128 = select i1 %73, i32 6, i32 %.val.i.i.i
   %81 = and i32 %.sroa.8.16.extract.trunc.us128, 255
   %82 = icmp eq i32 %81, 6
   br i1 %82, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread", label %.lr.ph

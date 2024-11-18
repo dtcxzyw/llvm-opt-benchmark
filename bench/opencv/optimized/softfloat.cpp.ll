@@ -408,11 +408,11 @@ define void @_ZN2cv9softfloatC2El(ptr nocapture noundef nonnull writeonly align 
   %60 = xor i64 %59, -1
   %61 = and i64 %58, %60
   %.not49.i.i = icmp eq i64 %61, 0
-  %62 = shl nuw nsw i64 %.038.i.i, 23
-  %63 = lshr i64 %1, 32
-  %64 = and i64 %63, 2147483648
-  %65 = select i1 %.not49.i.i, i64 0, i64 %62
-  %66 = add nuw nsw i64 %65, %64
+  %62 = lshr i64 %1, 32
+  %63 = and i64 %62, 2147483648
+  %64 = shl nuw nsw i64 %.038.i.i, 23
+  %65 = select i1 %.not49.i.i, i64 0, i64 %64
+  %66 = add nuw nsw i64 %65, %63
   %67 = and i64 %66, 4286578688
   %68 = add nuw nsw i64 %67, %61
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i
@@ -744,11 +744,11 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %98, %89
   %114 = xor i64 %113, -1
   %115 = and i64 %112, %114
   %.not49.i.i = icmp eq i64 %115, 0
-  %116 = shl nuw nsw i64 %.038.i.i, 23
-  %117 = and i32 %.lobit61.i, -2147483648
-  %118 = zext i32 %117 to i64
-  %119 = select i1 %.not49.i.i, i64 0, i64 %116
-  %120 = add nuw nsw i64 %115, %118
+  %116 = and i32 %.lobit61.i, -2147483648
+  %117 = zext i32 %116 to i64
+  %118 = shl nuw nsw i64 %.038.i.i, 23
+  %119 = select i1 %.not49.i.i, i64 0, i64 %118
+  %120 = add nuw nsw i64 %115, %117
   %121 = add nuw nsw i64 %120, %119
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i
 
@@ -990,11 +990,11 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %93, %84
   %109 = xor i64 %108, -1
   %110 = and i64 %107, %109
   %.not49.i.i = icmp eq i64 %110, 0
-  %111 = shl nuw nsw i64 %.038.i.i, 23
-  %112 = and i32 %.lobit64.i, -2147483648
-  %113 = zext i32 %112 to i64
-  %114 = select i1 %.not49.i.i, i64 0, i64 %111
-  %115 = add nuw nsw i64 %110, %113
+  %111 = and i32 %.lobit64.i, -2147483648
+  %112 = zext i32 %111 to i64
+  %113 = shl nuw nsw i64 %.038.i.i, 23
+  %114 = select i1 %.not49.i.i, i64 0, i64 %113
+  %115 = add nuw nsw i64 %110, %112
   %116 = add nuw nsw i64 %115, %114
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i
 
@@ -2380,11 +2380,11 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %36, %34
   %59 = xor i64 %58, -1
   %60 = and i64 %57, %59
   %.not49.i.i = icmp eq i64 %60, 0
-  %61 = shl nuw nsw i64 %.038.i.i, 23
-  %62 = lshr i64 %3, 32
-  %63 = and i64 %62, 2147483648
-  %64 = select i1 %.not49.i.i, i64 0, i64 %61
-  %65 = add nuw nsw i64 %60, %63
+  %61 = lshr i64 %3, 32
+  %62 = and i64 %61, 2147483648
+  %63 = shl nuw nsw i64 %.038.i.i, 23
+  %64 = select i1 %.not49.i.i, i64 0, i64 %63
+  %65 = add nuw nsw i64 %60, %62
   %66 = add nuw nsw i64 %65, %64
   br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.exit
 
@@ -2638,10 +2638,10 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %112, %109, %102, %6
   %122 = xor i64 %121, -1
   %123 = and i64 %120, %122
   %.not49.i.i = icmp eq i64 %123, 0
-  %124 = shl i64 %.038.i.i, 52
-  %125 = and i64 %.lobit65.i, -9223372036854775808
-  %126 = select i1 %.not49.i.i, i64 0, i64 %124
-  %127 = or disjoint i64 %123, %125
+  %124 = and i64 %.lobit65.i, -9223372036854775808
+  %125 = shl i64 %.038.i.i, 52
+  %126 = select i1 %.not49.i.i, i64 0, i64 %125
+  %127 = or disjoint i64 %123, %124
   %128 = add i64 %127, %126
   br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.exit
 
@@ -2915,10 +2915,10 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %126, %123, %116, %1
   %136 = xor i64 %135, -1
   %137 = and i64 %134, %136
   %.not49.i.i = icmp eq i64 %137, 0
-  %138 = shl i64 %.038.i.i, 52
-  %139 = and i64 %.lobit84.i, -9223372036854775808
-  %140 = select i1 %.not49.i.i, i64 0, i64 %138
-  %141 = or disjoint i64 %137, %139
+  %138 = and i64 %.lobit84.i, -9223372036854775808
+  %139 = shl i64 %.038.i.i, 52
+  %140 = select i1 %.not49.i.i, i64 0, i64 %139
+  %141 = or disjoint i64 %137, %138
   %142 = add i64 %141, %140
   br label %_ZN2cvL7f64_divENS_10softdoubleES0_.exit
 
@@ -3925,10 +3925,10 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i: ; preds = %239, %230
   %255 = xor i64 %254, -1
   %256 = and i64 %253, %255
   %.not49.i.i.i = icmp eq i64 %256, 0
-  %257 = shl nsw i64 %.038.i.i.i, 23
-  %258 = select i1 %.0134.i.i, i64 2147483648, i64 0
-  %259 = select i1 %.not49.i.i.i, i64 0, i64 %257
-  %260 = add nsw i64 %259, %258
+  %257 = select i1 %.0134.i.i, i64 2147483648, i64 0
+  %258 = shl nsw i64 %.038.i.i.i, 23
+  %259 = select i1 %.not49.i.i.i, i64 0, i64 %258
+  %260 = add nsw i64 %259, %257
   %261 = and i64 %260, 4286578688
   %262 = add nuw nsw i64 %261, %256
   br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
@@ -4501,10 +4501,10 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i: ; preds = %274, %271, %264, %2
   %283 = xor i64 %282, -1
   %284 = and i64 %281, %283
   %.not49.i.i.i = icmp eq i64 %284, 0
-  %285 = shl i64 %.038.i.i.i, 52
-  %286 = select i1 %.0165.i.i, i64 -9223372036854775808, i64 0
-  %287 = select i1 %.not49.i.i.i, i64 0, i64 %285
-  %288 = or disjoint i64 %284, %286
+  %285 = select i1 %.0165.i.i, i64 -9223372036854775808, i64 0
+  %286 = shl i64 %.038.i.i.i, 52
+  %287 = select i1 %.not49.i.i.i, i64 0, i64 %286
+  %288 = or disjoint i64 %284, %285
   %289 = add i64 %288, %287
   br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit
 
@@ -8568,10 +8568,10 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %93
   %116 = xor i64 %115, -1
   %117 = and i64 %114, %116
   %.not49.i = icmp eq i64 %117, 0
-  %118 = shl nuw nsw i64 %.038.i, 23
-  %119 = select i1 %.059.in, i64 2147483648, i64 0
-  %120 = select i1 %.not49.i, i64 0, i64 %118
-  %121 = add nuw nsw i64 %117, %119
+  %118 = select i1 %.059.in, i64 2147483648, i64 0
+  %119 = shl nuw nsw i64 %.038.i, 23
+  %120 = select i1 %.not49.i, i64 0, i64 %119
+  %121 = add nuw nsw i64 %117, %118
   %122 = add nuw nsw i64 %121, %120
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
@@ -8703,10 +8703,10 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %51, %42
   %67 = xor i64 %66, -1
   %68 = and i64 %65, %67
   %.not49.i = icmp eq i64 %68, 0
-  %69 = shl nuw nsw i64 %.038.i, 23
-  %70 = select i1 %1, i64 2147483648, i64 0
-  %71 = select i1 %.not49.i, i64 0, i64 %69
-  %72 = or disjoint i64 %71, %70
+  %69 = select i1 %1, i64 2147483648, i64 0
+  %70 = shl nuw nsw i64 %.038.i, 23
+  %71 = select i1 %.not49.i, i64 0, i64 %70
+  %72 = or disjoint i64 %71, %69
   %73 = add nuw nsw i64 %72, %68
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
@@ -8879,10 +8879,10 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %82, %74, %69
   %91 = xor i64 %90, -1
   %92 = and i64 %89, %91
   %.not49.i = icmp eq i64 %92, 0
-  %93 = shl nsw i64 %.038.i, 52
-  %94 = select i1 %3, i64 -9223372036854775808, i64 0
-  %95 = select i1 %.not49.i, i64 0, i64 %93
-  %96 = or disjoint i64 %92, %94
+  %93 = select i1 %3, i64 -9223372036854775808, i64 0
+  %94 = shl nsw i64 %.038.i, 52
+  %95 = select i1 %.not49.i, i64 0, i64 %94
+  %96 = or disjoint i64 %92, %93
   %97 = add i64 %96, %95
   br label %_ZN2cvL24softfloat_roundPackToF64Eblm.exit
 
@@ -9195,10 +9195,10 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %52, %49, %42, %32
   %61 = xor i64 %60, -1
   %62 = and i64 %59, %61
   %.not49.i = icmp eq i64 %62, 0
-  %63 = shl i64 %.038.i, 52
-  %64 = select i1 %1, i64 -9223372036854775808, i64 0
-  %65 = select i1 %.not49.i, i64 0, i64 %63
-  %66 = or disjoint i64 %62, %64
+  %63 = select i1 %1, i64 -9223372036854775808, i64 0
+  %64 = shl i64 %.038.i, 52
+  %65 = select i1 %.not49.i, i64 0, i64 %64
+  %66 = or disjoint i64 %62, %63
   %67 = add i64 %66, %65
   br label %_ZN2cvL24softfloat_roundPackToF64Eblm.exit
 

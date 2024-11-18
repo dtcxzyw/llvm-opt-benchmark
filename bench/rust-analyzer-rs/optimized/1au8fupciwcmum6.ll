@@ -50728,10 +50728,10 @@ define hidden noundef ptr @"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_ana
 61:                                               ; preds = %56
   %62 = and i32 %60, 255
   %63 = icmp ne i32 %62, 3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48), !noalias !5993
   %64 = and i32 %60, 16777216
   %65 = icmp ne i32 %64, 0
   %66 = trunc i32 %60 to i1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48), !noalias !5993
   %67 = and i1 %63, %66
   %spec.select.i = and i1 %65, %67
   br i1 %spec.select.i, label %68, label %159
@@ -78452,12 +78452,12 @@ define internal fastcc void @"_ZN68_$LT$rust_analyzer..config..Config$u20$as$u20
   %trunc.i108.i.i = trunc nuw i32 %554 to i1
   %574 = getelementptr inbounds i8, ptr %1, i64 4052
   %575 = load i32, ptr %574, align 4, !alias.scope !10446, !noalias !10449
-  %576 = zext i32 %575 to i64
-  %577 = getelementptr inbounds i8, ptr %1, i64 4058
-  %578 = load i8, ptr %577, align 2, !range !20, !alias.scope !10446, !noalias !10449, !noundef !4
-  %.sroa.4162.4.insert.ext.i.i = select i1 %trunc.i108.i.i, i64 %576, i64 0
+  %576 = getelementptr inbounds i8, ptr %1, i64 4058
+  %577 = load i8, ptr %576, align 2, !range !20, !alias.scope !10446, !noalias !10449, !noundef !4
+  %578 = zext i32 %575 to i64
+  %.sroa.4162.4.insert.ext.i.i = select i1 %trunc.i108.i.i, i64 %578, i64 0
   %.sroa.4162.4.insert.insert.i.i = or disjoint i64 %.sroa.4162.4.insert.ext.i.i, %573
-  %.sroa.4162.10.insert.ext.i.i = zext nneg i8 %578 to i64
+  %.sroa.4162.10.insert.ext.i.i = zext nneg i8 %577 to i64
   %.sroa.4162.10.insert.shift.i.i = shl nuw nsw i64 %.sroa.4162.10.insert.ext.i.i, 48
   %.sroa.4162.10.insert.insert.i.i = or disjoint i64 %.sroa.4162.4.insert.insert.i.i, %.sroa.4162.10.insert.shift.i.i
   br label %565

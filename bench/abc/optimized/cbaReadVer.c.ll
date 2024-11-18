@@ -202,7 +202,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.196 = private unnamed_addr constant [11 x i8] c"%9.2f sec\0A\00", align 1
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 @stdout = external local_unnamed_addr global ptr, align 8
-@Prs_CatSignals.V.1 = internal unnamed_addr global i32 0, align 8
+@Prs_CatSignals.V.1 = internal unnamed_addr global i32 0, align 4
 @Prs_CatSignals.V.2 = internal unnamed_addr global ptr null, align 8
 @.str.199 = private unnamed_addr constant [8 x i8] c"%d'b%0s\00", align 1
 @.str.200 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -3862,7 +3862,7 @@ define i32 @Prs_CreateCatIn(ptr noundef %0, ptr nocapture noundef readonly %1, i
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds i32, ptr %.val.i, i64 %5
   %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr @Prs_CatSignals.V.1, align 8
+  store i32 %7, ptr @Prs_CatSignals.V.1, align 4
   %8 = getelementptr i32, ptr %.val.i, i64 %5
   %9 = getelementptr i8, ptr %8, i64 4
   store ptr %9, ptr @Prs_CatSignals.V.2, align 8
@@ -3883,7 +3883,7 @@ define i32 @Prs_CreateCatIn(ptr noundef %0, ptr nocapture noundef readonly %1, i
   store i32 %15, ptr %20, align 4
   %.val49 = load ptr, ptr %0, align 8
   tail call fastcc void @Cba_NtkSetMap(ptr %.val49, i32 noundef %15, i32 noundef %14)
-  %Prs_CatSignals.V.val53 = load i32, ptr @Prs_CatSignals.V.1, align 8
+  %Prs_CatSignals.V.val53 = load i32, ptr @Prs_CatSignals.V.1, align 4
   %21 = icmp sgt i32 %Prs_CatSignals.V.val53, 0
   br i1 %21, label %.lr.ph, label %.critedge
 
@@ -3974,7 +3974,7 @@ Cba_FonRangeSize.exit:                            ; preds = %38, %Cba_NtkRangeSi
 .critedge42:                                      ; preds = %27, %Cba_FonRangeSize.exit
   %.1 = phi i32 [ %68, %Cba_FonRangeSize.exit ], [ %.03854, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %Prs_CatSignals.V.val = load i32, ptr @Prs_CatSignals.V.1, align 8
+  %Prs_CatSignals.V.val = load i32, ptr @Prs_CatSignals.V.1, align 4
   %69 = sext i32 %Prs_CatSignals.V.val to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
   br i1 %70, label %27, label %.critedge.loopexit, !llvm.loop !27
@@ -4339,7 +4339,7 @@ Cba_NtkRangeSize.exit:                            ; preds = %27, %34
   %54 = sext i32 %6 to i64
   %55 = getelementptr inbounds i32, ptr %.val.i, i64 %54
   %56 = load i32, ptr %55, align 4
-  store i32 %56, ptr @Prs_CatSignals.V.1, align 8
+  store i32 %56, ptr @Prs_CatSignals.V.1, align 4
   %57 = getelementptr i32, ptr %.val.i, i64 %54
   %58 = getelementptr i8, ptr %57, i64 4
   store ptr %58, ptr @Prs_CatSignals.V.2, align 8
@@ -4349,7 +4349,7 @@ Cba_NtkRangeSize.exit:                            ; preds = %27, %34
 .lr.ph.i.preheader:                               ; preds = %52
   %60 = load ptr, ptr @Prs_CatSignals.V.2, align 8
   %61 = load ptr, ptr @Prs_CatSignals.V.2, align 8
-  %62 = load i32, ptr @Prs_CatSignals.V.1, align 8
+  %62 = load i32, ptr @Prs_CatSignals.V.1, align 4
   %63 = sdiv i32 %62, 2
   %64 = sext i32 %63 to i64
   br label %.lr.ph.i
@@ -4481,7 +4481,7 @@ Cba_NtkRangeSize.exit116:                         ; preds = %111, %117
   %.295.pn = phi i32 [ 1, %89 ], [ %101, %93 ], [ %130, %Cba_NtkRangeSize.exit116 ], [ %.093123, %84 ]
   %.2 = add nsw i32 %.295.pn, %.1124
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %Prs_CatSignals.V.val = load i32, ptr @Prs_CatSignals.V.1, align 8
+  %Prs_CatSignals.V.val = load i32, ptr @Prs_CatSignals.V.1, align 4
   %135 = sext i32 %Prs_CatSignals.V.val to i64
   %136 = icmp slt i64 %indvars.iv.next, %135
   br i1 %136, label %84, label %.critedge, !llvm.loop !29
@@ -4493,7 +4493,7 @@ Cba_NtkRangeSize.exit116:                         ; preds = %111, %117
 .lr.ph.i117.preheader:                            ; preds = %.critedge
   %138 = load ptr, ptr @Prs_CatSignals.V.2, align 8
   %139 = load ptr, ptr @Prs_CatSignals.V.2, align 8
-  %140 = load i32, ptr @Prs_CatSignals.V.1, align 8
+  %140 = load i32, ptr @Prs_CatSignals.V.1, align 4
   %141 = sdiv i32 %140, 2
   %142 = sext i32 %141 to i64
   br label %.lr.ph.i117
@@ -5065,7 +5065,7 @@ define range(i32 -2147483648, 2147483645) i32 @Prs_CreateBitSignal(ptr nocapture
   %20 = sext i32 %3 to i64
   %21 = getelementptr inbounds i32, ptr %.val.i, i64 %20
   %22 = load i32, ptr %21, align 4
-  store i32 %22, ptr @Prs_CatSignals.V.1, align 8
+  store i32 %22, ptr @Prs_CatSignals.V.1, align 4
   %23 = getelementptr i32, ptr %.val.i, i64 %20
   %24 = getelementptr i8, ptr %23, i64 4
   store ptr %24, ptr @Prs_CatSignals.V.2, align 8
@@ -5314,7 +5314,7 @@ Cba_NtkCleanMap2.exit:                            ; preds = %12, %7
   %78 = sext i32 %61 to i64
   %79 = getelementptr inbounds i32, ptr %.val.i.i82, i64 %78
   %80 = load i32, ptr %79, align 4
-  store i32 %80, ptr @Prs_CatSignals.V.1, align 8
+  store i32 %80, ptr @Prs_CatSignals.V.1, align 4
   %81 = getelementptr i32, ptr %.val.i.i82, i64 %78
   %82 = getelementptr i8, ptr %81, i64 4
   store ptr %82, ptr @Prs_CatSignals.V.2, align 8
@@ -5413,7 +5413,7 @@ Prs_CreateBitSignal.exit:                         ; preds = %.lr.ph.i, %90, %60,
   %110 = sext i32 %93 to i64
   %111 = getelementptr inbounds i32, ptr %.val.i.i84, i64 %110
   %112 = load i32, ptr %111, align 4
-  store i32 %112, ptr @Prs_CatSignals.V.1, align 8
+  store i32 %112, ptr @Prs_CatSignals.V.1, align 4
   %113 = getelementptr i32, ptr %.val.i.i84, i64 %110
   %114 = getelementptr i8, ptr %113, i64 4
   store ptr %114, ptr @Prs_CatSignals.V.2, align 8

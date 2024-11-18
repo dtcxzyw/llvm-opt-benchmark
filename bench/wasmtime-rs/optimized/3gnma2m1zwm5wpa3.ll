@@ -9350,10 +9350,10 @@ common.ret:                                       ; preds = %189, %132, %23
 221:                                              ; preds = %217
   %.sroa.6207.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 136
   %.sroa.6207.0.copyload = load i32, ptr %.sroa.6207.0..sroa_idx, align 8
-  %222 = zext i32 %.sroa.6207.0.copyload to i64
-  %223 = extractvalue { i64, i1 } %219, 0
-  %224 = select i1 %trunc.i109, i64 %222, i64 0
-  %225 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %223, i64 %224)
+  %222 = extractvalue { i64, i1 } %219, 0
+  %223 = zext i32 %.sroa.6207.0.copyload to i64
+  %224 = select i1 %trunc.i109, i64 %223, i64 0
+  %225 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %222, i64 %224)
   %226 = extractvalue { i64, i1 } %225, 1
   br i1 %226, label %227, label %229
 
@@ -9376,10 +9376,10 @@ common.ret:                                       ; preds = %189, %132, %23
 234:                                              ; preds = %229
   %.sroa.6219.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 160
   %.sroa.6219.0.copyload = load i32, ptr %.sroa.6219.0..sroa_idx, align 8
-  %235 = zext i32 %.sroa.6219.0.copyload to i64
-  %236 = extractvalue { i64, i1 } %232, 0
-  %237 = select i1 %trunc.i114, i64 %235, i64 0
-  %238 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %236, i64 %237)
+  %235 = extractvalue { i64, i1 } %232, 0
+  %236 = zext i32 %.sroa.6219.0.copyload to i64
+  %237 = select i1 %trunc.i114, i64 %236, i64 0
+  %238 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %235, i64 %237)
   %239 = extractvalue { i64, i1 } %238, 1
   br i1 %239, label %240, label %242
 
@@ -9402,10 +9402,10 @@ common.ret:                                       ; preds = %189, %132, %23
 247:                                              ; preds = %242
   %.sroa.6231.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 184
   %.sroa.6231.0.copyload = load i32, ptr %.sroa.6231.0..sroa_idx, align 8
-  %248 = zext i32 %.sroa.6231.0.copyload to i64
-  %249 = extractvalue { i64, i1 } %245, 0
-  %250 = select i1 %trunc.i124, i64 %248, i64 0
-  %251 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %249, i64 %250)
+  %248 = extractvalue { i64, i1 } %245, 0
+  %249 = zext i32 %.sroa.6231.0.copyload to i64
+  %250 = select i1 %trunc.i124, i64 %249, i64 0
+  %251 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %248, i64 %250)
   %252 = extractvalue { i64, i1 } %251, 1
   br i1 %252, label %259, label %253
 
@@ -18065,10 +18065,10 @@ common.ret:                                       ; preds = %171, %100, %20
 203:                                              ; preds = %199
   %.sroa.6191.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 120
   %.sroa.6191.0.copyload = load i32, ptr %.sroa.6191.0..sroa_idx, align 8
-  %204 = zext i32 %.sroa.6191.0.copyload to i64
-  %205 = extractvalue { i64, i1 } %201, 0
-  %206 = select i1 %trunc.i103, i64 %204, i64 0
-  %207 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %205, i64 %206)
+  %204 = extractvalue { i64, i1 } %201, 0
+  %205 = zext i32 %.sroa.6191.0.copyload to i64
+  %206 = select i1 %trunc.i103, i64 %205, i64 0
+  %207 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %204, i64 %206)
   %208 = extractvalue { i64, i1 } %207, 1
   br i1 %208, label %209, label %211
 
@@ -18091,10 +18091,10 @@ common.ret:                                       ; preds = %171, %100, %20
 216:                                              ; preds = %211
   %.sroa.6203.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 144
   %.sroa.6203.0.copyload = load i32, ptr %.sroa.6203.0..sroa_idx, align 8
-  %217 = zext i32 %.sroa.6203.0.copyload to i64
-  %218 = extractvalue { i64, i1 } %214, 0
-  %219 = select i1 %trunc.i106, i64 %217, i64 0
-  %220 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %218, i64 %219)
+  %217 = extractvalue { i64, i1 } %214, 0
+  %218 = zext i32 %.sroa.6203.0.copyload to i64
+  %219 = select i1 %trunc.i106, i64 %218, i64 0
+  %220 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %217, i64 %219)
   %221 = extractvalue { i64, i1 } %220, 1
   br i1 %221, label %222, label %224
 
@@ -18117,10 +18117,10 @@ common.ret:                                       ; preds = %171, %100, %20
 229:                                              ; preds = %224
   %.sroa.6215.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 168
   %.sroa.6215.0.copyload = load i32, ptr %.sroa.6215.0..sroa_idx, align 8
-  %230 = zext i32 %.sroa.6215.0.copyload to i64
-  %231 = extractvalue { i64, i1 } %227, 0
-  %232 = select i1 %trunc.i116, i64 %230, i64 0
-  %233 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %231, i64 %232)
+  %230 = extractvalue { i64, i1 } %227, 0
+  %231 = zext i32 %.sroa.6215.0.copyload to i64
+  %232 = select i1 %trunc.i116, i64 %231, i64 0
+  %233 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %230, i64 %232)
   %234 = extractvalue { i64, i1 } %233, 1
   br i1 %234, label %242, label %235
 

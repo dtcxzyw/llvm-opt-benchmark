@@ -10092,10 +10092,10 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %
   %or.cond = select i1 %101, i1 %103, i1 false
   %104 = icmp eq i32 %66, 3145728
   %spec.store.select = select i1 %104, i32 0, i32 %66
-  %105 = zext nneg i32 %spec.store.select to i64
-  %106 = and i64 %100, -3145729
-  %107 = select i1 %or.cond, i64 2097152, i64 %105
-  %108 = or disjoint i64 %107, %106
+  %105 = and i64 %100, -3145729
+  %106 = zext nneg i32 %spec.store.select to i64
+  %107 = select i1 %or.cond, i64 2097152, i64 %106
+  %108 = or disjoint i64 %107, %105
   store i64 %108, ptr %6, align 8
   br label %109
 

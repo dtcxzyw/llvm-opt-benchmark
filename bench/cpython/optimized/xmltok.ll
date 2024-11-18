@@ -1180,11 +1180,11 @@ if.then32:                                        ; preds = %if.end28
   %14 = load ptr, ptr %p.i, align 8
   %cmp.i = icmp ne ptr %14, %buf.i
   %15 = load i8, ptr %buf.i, align 1
-  %16 = and i8 %15, -33
-  %17 = sext i8 %16 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
+  %16 = and i8 %15, -33
+  %17 = sext i8 %16 to i32
   %18 = add nsw i32 %17, -65
   %or.cond5265 = icmp ult i32 %18, 26
   %or.cond52 = select i1 %cmp.i, i1 %or.cond5265, i1 false

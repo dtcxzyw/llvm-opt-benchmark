@@ -978,10 +978,10 @@ _ZL18get_header_versionILi256EEvRAT__c.exit:      ; preds = %66, %68
   %88 = load i8, ptr @_ZN14ClassLoaderExt16_has_app_classesE, align 1
   %89 = trunc i8 %88 to i1
   %90 = load i8, ptr @_ZN14ClassLoaderExt21_has_platform_classesE, align 1
-  %91 = and i8 %90, 1
-  %92 = getelementptr inbounds i8, ptr %0, i64 726
-  %93 = select i1 %89, i8 1, i8 %91
-  store i8 %93, ptr %92, align 2
+  %91 = getelementptr inbounds i8, ptr %0, i64 726
+  %92 = and i8 %90, 1
+  %93 = select i1 %89, i8 1, i8 %92
+  store i8 %93, ptr %91, align 2
   %94 = load i8, ptr @_ZN14ClassLoaderExt25_has_non_jar_in_classpathE, align 1
   %95 = getelementptr inbounds i8, ptr %0, i64 440
   %96 = and i8 %94, 1

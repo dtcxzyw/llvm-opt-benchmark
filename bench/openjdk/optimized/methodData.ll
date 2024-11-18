@@ -3101,61 +3101,61 @@ _ZN10MethodData29profile_parameters_for_methodERK12methodHandle.exit: ; preds = 
 33:                                               ; preds = %_ZN10MethodData29profile_parameters_for_methodERK12methodHandle.exit.thread, %_ZN10MethodData29profile_parameters_for_methodERK12methodHandle.exit
   %34 = load i32, ptr @TypeProfileParmsLimit, align 4
   %35 = icmp eq i32 %34, -1
-  %36 = select i1 %35, i32 2147483647, i32 %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 38
-  %42 = load i16, ptr %41, align 2
-  %43 = getelementptr inbounds i8, ptr %40, i64 72
-  %44 = zext i16 %42 to i64
-  %45 = getelementptr inbounds i64, ptr %43, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.0.0.copyload.i.i = load i32, ptr %47, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %37, i64 38
+  %41 = load i16, ptr %40, align 2
+  %42 = getelementptr inbounds i8, ptr %39, i64 72
+  %43 = zext i16 %41 to i64
+  %44 = getelementptr inbounds i64, ptr %42, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.0.copyload.i.i = load i32, ptr %46, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 800
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 32
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 40
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %50, i64 8
-  %58 = load i64, ptr %57, align 8
-  call void @_ZN22ReferenceArgumentCountC1EP6Symbol(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %46) #20
-  %59 = getelementptr inbounds i8, ptr %2, i64 24
-  %60 = load i32, ptr %59, align 8
-  %61 = load ptr, ptr %52, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i.i.i, label %63, label %62
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 800
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %49, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %49, i64 40
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %49, i64 8
+  %57 = load i64, ptr %56, align 8
+  call void @_ZN22ReferenceArgumentCountC1EP6Symbol(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %45) #20
+  %58 = getelementptr inbounds i8, ptr %2, i64 24
+  %59 = load i32, ptr %58, align 8
+  %60 = load ptr, ptr %51, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %60, null
+  br i1 %.not.i.i.i.i.i, label %62, label %61
 
-62:                                               ; preds = %33
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %50, i64 noundef %58) #20
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %52) #20
-  br label %63
+61:                                               ; preds = %33
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %49, i64 noundef %57) #20
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %51) #20
+  br label %62
 
-63:                                               ; preds = %62, %33
-  %64 = load ptr, ptr %53, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %64, %54
-  br i1 %.not8.i.i.i.i.i, label %_ZN20TypeStackSlotEntries18compute_cell_countEP6Symbolbi.exit, label %65
+62:                                               ; preds = %61, %33
+  %63 = load ptr, ptr %52, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %63, %53
+  br i1 %.not8.i.i.i.i.i, label %_ZN20TypeStackSlotEntries18compute_cell_countEP6Symbolbi.exit, label %64
 
-65:                                               ; preds = %63
-  store ptr %52, ptr %51, align 8
-  store ptr %54, ptr %53, align 8
-  store ptr %56, ptr %55, align 8
+64:                                               ; preds = %62
+  store ptr %51, ptr %50, align 8
+  store ptr %53, ptr %52, align 8
+  store ptr %55, ptr %54, align 8
   br label %_ZN20TypeStackSlotEntries18compute_cell_countEP6Symbolbi.exit
 
-_ZN20TypeStackSlotEntries18compute_cell_countEP6Symbolbi.exit: ; preds = %63, %65
-  %66 = lshr i32 %.sroa.0.0.copyload.i.i, 3
-  %.lobit = and i32 %66, 1
-  %67 = xor i32 %.lobit, 1
-  %68 = add nsw i32 %60, %67
-  %69 = call noundef i32 @llvm.smin.i32(i32 %68, i32 %36)
-  %70 = shl nuw nsw i32 %69, 1
+_ZN20TypeStackSlotEntries18compute_cell_countEP6Symbolbi.exit: ; preds = %62, %64
+  %65 = lshr i32 %.sroa.0.0.copyload.i.i, 3
+  %.lobit = and i32 %65, 1
+  %66 = xor i32 %.lobit, 1
+  %67 = add nsw i32 %59, %66
+  %68 = call i32 @llvm.smin.i32(i32 %67, i32 %34)
+  %69 = select i1 %35, i32 %67, i32 %68
+  %70 = shl nsw i32 %69, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %71 = icmp sgt i32 %69, 0
   %72 = or disjoint i32 %70, 1

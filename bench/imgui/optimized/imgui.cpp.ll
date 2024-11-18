@@ -24907,9 +24907,9 @@ if.end10.i263.i.i:                                ; preds = %for.inc.i29.i260.i.
 
 if.else168.i.i:                                   ; preds = %if.then138.i.i
   %tobool140.not.i.i = icmp eq i32 %383, 0
-  %402 = and i32 %383, 63488
   %tobool147.not.i.i = icmp eq i32 %384, 0
   %cond152.i.i = select i1 %tobool147.not.i.i, i32 63488, i32 %384
+  %402 = and i32 %383, 63488
   %and153.i.i = select i1 %tobool140.not.i.i, i32 63488, i32 %402
   %and154.i.i = and i32 %cond152.i.i, %and153.i.i
   %KeyMods.i.i363 = getelementptr inbounds i8, ptr %285, i64 3688
@@ -29001,9 +29001,9 @@ if.end81.i:                                       ; preds = %land.lhs.true.i497,
   %y95.i = getelementptr inbounds i8, ptr %957, i64 16464
   %1020 = load float, ptr %y95.i, align 4
   %1021 = call float @llvm.fabs.f32(float %cond22.i)
-  %1022 = fdiv float %1021, 3.000000e+01
   %div.i159.i = fdiv float %1020, 3.000000e+01
   %sub.i160.i = fsub float %1020, %div.i159.i
+  %1022 = fdiv float %1021, 3.000000e+01
   %div2.i161.i = select i1 %tobool83.i, float 0.000000e+00, float %1022
   %add.i162.i = fadd float %div2.i161.i, %sub.i160.i
   store float %add.i162.i, ptr %y95.i, align 4
@@ -33739,11 +33739,11 @@ if.then144.i:                                     ; preds = %if.end138.i
   %.pre78.i = load i8, ptr %hovered.i, align 1
   %.pre84.i = trunc i8 %.pre77.fr.i to i1
   %tobool148.i = trunc i8 %.pre78.i to i1
-  %400 = select i1 %tobool148.i, i64 31, i64 30
-  %401 = load ptr, ptr @GImGui, align 8
-  %Style.i.i = getelementptr inbounds i8, ptr %401, i64 14576
-  %Colors.i.i = getelementptr inbounds i8, ptr %401, i64 14804
-  %spec.select.i = select i1 %.pre84.i, i64 32, i64 %400
+  %400 = load ptr, ptr @GImGui, align 8
+  %Style.i.i = getelementptr inbounds i8, ptr %400, i64 14576
+  %Colors.i.i = getelementptr inbounds i8, ptr %400, i64 14804
+  %401 = select i1 %tobool148.i, i64 31, i64 30
+  %spec.select.i = select i1 %.pre84.i, i64 32, i64 %401
   br label %402
 
 402:                                              ; preds = %if.then144.i, %if.then144.thread101.i, %if.then144.thread.i

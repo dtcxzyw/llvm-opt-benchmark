@@ -577,11 +577,11 @@ if.end:                                           ; preds = %entry
   %notmask.i = shl nsw i64 -1, %mul.i
   %sub.i = xor i64 %notmask.i, -1
   %add.i = add nuw nsw i64 %lenbytes, %sub.i
-  %retval.0.i = select i1 %or.cond.i, i64 -1, i64 %add.i
   %staticbuf = getelementptr inbounds i8, ptr %pkt, i64 8
   store ptr %buf, ptr %staticbuf, align 8
   store ptr null, ptr %pkt, align 8
-  %cond = tail call i64 @llvm.umin.i64(i64 %retval.0.i, i64 %len)
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 %len)
+  %cond = select i1 %or.cond.i, i64 %len, i64 %2
   %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   store i64 %cond, ptr %maxsize, align 8
   %endfirst = getelementptr inbounds i8, ptr %pkt, i64 48
@@ -608,16 +608,16 @@ if.end3.i:                                        ; preds = %if.end.i
   store i64 %lenbytes, ptr %lenbytes6.i, align 8
   %call7.i = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %pkt, i64 noundef %lenbytes, ptr noundef nonnull %lenchars.i)
   %tobool.not.i = icmp eq i32 %call7.i, 0
-  %2 = load ptr, ptr %subs.i, align 8
+  %3 = load ptr, ptr %subs.i, align 8
   br i1 %tobool.not.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end3.i
-  call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 120) #12
+  call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 120) #12
   store ptr null, ptr %subs.i, align 8
   br label %wpacket_intern_init_len.exit
 
 if.end11.i:                                       ; preds = %if.end3.i
-  %packet_len.i = getelementptr inbounds i8, ptr %2, i64 8
+  %packet_len.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %packet_len.i, align 8
   br label %wpacket_intern_init_len.exit
 

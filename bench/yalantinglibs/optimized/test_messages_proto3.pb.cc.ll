@@ -44598,10 +44598,10 @@ if.then2251:                                      ; preds = %if.end2249
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit6094.thread: ; preds = %if.then2251
   %oneof_field_.i60979661 = getelementptr inbounds i8, ptr %this, i64 3632
   %1119 = load i8, ptr %oneof_field_.i60979661, align 8
-  %1120 = and i8 %1119, 1
   store i8 -104, ptr %target.addr.132, align 1
   %arrayidx6.i.i61029662 = getelementptr inbounds i8, ptr %target.addr.132, i64 1
   store i8 7, ptr %arrayidx6.i.i61029662, align 1
+  %1120 = and i8 %1119, 1
   br label %1124
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit6094: ; preds = %if.then2251
@@ -44611,10 +44611,10 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit6094: ; preds = 
   %1121 = icmp eq i32 %.pre9622.fr, 115
   %oneof_field_.i6097 = getelementptr inbounds i8, ptr %this, i64 3632
   %1122 = load i8, ptr %oneof_field_.i6097, align 8
-  %1123 = and i8 %1122, 1
   store i8 -104, ptr %call.i6092, align 1
   %arrayidx6.i.i6102 = getelementptr inbounds i8, ptr %call.i6092, i64 1
   store i8 7, ptr %arrayidx6.i.i6102, align 1
+  %1123 = and i8 %1122, 1
   %spec.select = select i1 %1121, i8 %1123, i8 0
   br label %1124
 

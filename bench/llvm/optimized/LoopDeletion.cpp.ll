@@ -1584,10 +1584,10 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit112.i.i: ; preds = %590, %._crit_edge.
   %.not.i.i120.i.i = icmp eq i64 %661, 4294967294
   %662 = shl nuw nsw i64 %661, 1
   %663 = add nuw nsw i64 %662, 3
-  %664 = and i64 %663, 4294967295
-  %665 = load ptr, ptr %640, align 8
-  %666 = select i1 %.not.i.i120.i.i, i64 1, i64 %664
-  %667 = getelementptr inbounds %"class.llvm::Use", ptr %665, i64 %666
+  %664 = load ptr, ptr %640, align 8
+  %665 = and i64 %663, 4294967295
+  %666 = select i1 %.not.i.i120.i.i, i64 1, i64 %665
+  %667 = getelementptr inbounds %"class.llvm::Use", ptr %664, i64 %666
   %668 = load ptr, ptr %667, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %669 = load ptr, ptr %14, align 8

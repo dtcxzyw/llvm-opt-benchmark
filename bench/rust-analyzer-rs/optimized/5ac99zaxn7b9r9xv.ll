@@ -4029,17 +4029,17 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hebd02bf52e029b50E.exit:
   %or.cond.i62 = icmp eq i64 %289, 0
   %or.cond18.i = and i1 %.not.i, %or.cond.i62
   %290 = and i64 %.sroa.8.0, 65280
-  %291 = or disjoint i64 %290, 137438953472
-  %292 = extractvalue { i32, i1 } %283, 0
-  %293 = extractvalue { i32, i1 } %286, 0
-  %294 = icmp eq i64 %.sroa.027.0.insert.ext, 2
-  %295 = or i1 %294, %or.cond.i62
-  %spec.select.i.i.i = zext i1 %295 to i64
-  %.sroa.38.0.insert.insert.i.i.i = select i1 %or.cond18.i, i64 137438958592, i64 %291
+  %291 = extractvalue { i32, i1 } %283, 0
+  %292 = extractvalue { i32, i1 } %286, 0
+  %293 = icmp eq i64 %.sroa.027.0.insert.ext, 2
+  %294 = or i1 %293, %or.cond.i62
+  %spec.select.i.i.i = zext i1 %294 to i64
+  %295 = or disjoint i64 %290, 137438953472
+  %.sroa.38.0.insert.insert.i.i.i = select i1 %or.cond18.i, i64 137438958592, i64 %295
   %.sroa.07.0.insert.insert.i.i.i = or disjoint i64 %.sroa.38.0.insert.insert.i.i.i, %spec.select.i.i.i
   %296 = getelementptr inbounds i8, ptr %280, i64 32
   %297 = load ptr, ptr %296, align 8, !invariant.load !7, !noalias !302, !nonnull !7
-  call void %297(ptr noundef nonnull align 1 %279, i32 noundef %292, i32 noundef %293, i64 %.sroa.07.0.insert.insert.i.i.i), !noalias !302
+  call void %297(ptr noundef nonnull align 1 %279, i32 noundef %291, i32 noundef %292, i64 %.sroa.07.0.insert.insert.i.i.i), !noalias !302
   %298 = load ptr, ptr %7, align 8, !nonnull !7, !noundef !7
   %299 = load ptr, ptr %5, align 8, !alias.scope !305, !nonnull !7, !noundef !7
   %300 = icmp eq ptr %299, %298

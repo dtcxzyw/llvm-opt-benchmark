@@ -3023,23 +3023,23 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_118SelectInstToUnfoldELj4EED2Ev.exit49: ; pr
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %33, ptr noundef nonnull %164, i64 noundef 8) #17, !noalias !36
   %1213 = load i8, ptr %1212, align 8, !noalias !36
   %1214 = icmp eq i8 %1213, 84
-  %1215 = ptrtoint ptr %1212 to i64
-  %1216 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #17, !noalias !36
-  %1217 = add i64 %1216, 1
-  %1218 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #17, !noalias !36
-  %.not.i.i.i.i.i50 = icmp ugt i64 %1217, %1218
-  br i1 %.not.i.i.i.i.i50, label %1219, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit.i.i
+  %1215 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #17, !noalias !36
+  %1216 = add i64 %1215, 1
+  %1217 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #17, !noalias !36
+  %.not.i.i.i.i.i50 = icmp ugt i64 %1216, %1217
+  br i1 %.not.i.i.i.i.i50, label %1218, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit.i.i
 
-1219:                                             ; preds = %_ZN4llvm11SmallVectorIN12_GLOBAL__N_118SelectInstToUnfoldELj4EED2Ev.exit49
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %164, i64 noundef %1217, i64 noundef 8) #17, !noalias !36
+1218:                                             ; preds = %_ZN4llvm11SmallVectorIN12_GLOBAL__N_118SelectInstToUnfoldELj4EED2Ev.exit49
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %164, i64 noundef %1216, i64 noundef 8) #17, !noalias !36
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit.i.i: ; preds = %1219, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_118SelectInstToUnfoldELj4EED2Ev.exit49
-  %1220 = load ptr, ptr %33, align 8, !noalias !36
-  %1221 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #17, !noalias !36
-  %1222 = getelementptr inbounds ptr, ptr %1220, i64 %1221
-  %1223 = select i1 %1214, i64 %1215, i64 0
-  store i64 %1223, ptr %1222, align 1, !noalias !36
+_ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit.i.i: ; preds = %1218, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_118SelectInstToUnfoldELj4EED2Ev.exit49
+  %1219 = load ptr, ptr %33, align 8, !noalias !36
+  %1220 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #17, !noalias !36
+  %1221 = getelementptr inbounds ptr, ptr %1219, i64 %1220
+  %1222 = ptrtoint ptr %1212 to i64
+  %1223 = select i1 %1214, i64 %1222, i64 0
+  store i64 %1223, ptr %1221, align 1, !noalias !36
   %1224 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #17, !noalias !36
   %1225 = add i64 %1224, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %33, i64 noundef %1225) #17, !noalias !36

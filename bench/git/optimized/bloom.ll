@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.bloom_filter = type { ptr, i64 }
 
 @bloom_filters.0 = internal unnamed_addr global i1 false, align 8
-@bloom_filters.1 = internal unnamed_addr global i1 false, align 8
+@bloom_filters.1 = internal unnamed_addr global i1 false, align 4
 @bloom_filters.2 = internal unnamed_addr global i32 0, align 8
 @bloom_filters.3 = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -220,7 +220,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @init_bloom_filters() local_unnamed_addr #6 {
 entry:
-  store i1 true, ptr @bloom_filters.1, align 8
+  store i1 true, ptr @bloom_filters.1, align 4
   store i1 true, ptr @bloom_filters.0, align 8
   store i32 0, ptr @bloom_filters.2, align 8
   store ptr null, ptr @bloom_filters.3, align 8
@@ -298,7 +298,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %if.en
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %.b = load i1, ptr @bloom_filters.0, align 8
   %conv22.i.i = select i1 %.b, i64 32766, i64 0
-  %.b137 = load i1, ptr @bloom_filters.1, align 8
+  %.b137 = load i1, ptr @bloom_filters.1, align 4
   %mul.i.i = select i1 %.b137, i64 16, i64 0
   %call24.i.i = tail call ptr @xcalloc(i64 noundef %conv22.i.i, i64 noundef %mul.i.i) #14
   %7 = load ptr, ptr @bloom_filters.3, align 8
@@ -308,7 +308,7 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
 
 bloom_filter_slab_at.exit:                        ; preds = %if.end12.i.i, %if.end20.i.i
   %8 = phi ptr [ %6, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
-  %.b138 = load i1, ptr @bloom_filters.1, align 8
+  %.b138 = load i1, ptr @bloom_filters.1, align 4
   %9 = zext nneg i32 %rem.i.i to i64
   %idxprom34.i.i = select i1 %.b138, i64 %9, i64 0
   %arrayidx35.i.i = getelementptr inbounds %struct.bloom_filter, ptr %8, i64 %idxprom34.i.i

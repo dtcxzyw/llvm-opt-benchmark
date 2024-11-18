@@ -5289,11 +5289,9 @@ _ZN12_GLOBAL__N_19GCOVLines7addLineEj.exit361:    ; preds = %1445, %1454
   %.fca.0.extract1.i = extractvalue { ptr, i64 } %1476, 0
   %.not.i.i365 = icmp eq ptr %.fca.0.extract1.i, null
   %.fca.1.extract2.i = extractvalue { ptr, i64 } %1476, 1
-  %1477 = trunc i64 %.fca.1.extract2.i to i16
-  %1478 = and i16 %1477, 257
-  %1479 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %1475) #25
+  %1477 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %1475) #25
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %74, ptr noundef nonnull %167, i64 noundef 2) #25
-  store ptr %1479, ptr %168, align 8
+  store ptr %1477, ptr %168, align 8
   store ptr %165, ptr %169, align 8
   store ptr %166, ptr %170, align 8
   store ptr null, ptr %171, align 8
@@ -5307,7 +5305,9 @@ _ZN12_GLOBAL__N_19GCOVLines7addLineEj.exit361:    ; preds = %1445, %1454
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %1475, ptr %177, align 8
   store ptr %.fca.0.extract1.i, ptr %178, align 8
-  %.sroa.4.0.extract.trunc.i = select i1 %.not.i.i365, i16 0, i16 %1478
+  %1478 = trunc i64 %.fca.1.extract2.i to i16
+  %1479 = and i16 %1478, 257
+  %.sroa.4.0.extract.trunc.i = select i1 %.not.i.i365, i16 0, i16 %1479
   store i16 %.sroa.4.0.extract.trunc.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %1480 = getelementptr inbounds nuw i8, ptr %1475, i64 48
   %.not.i450 = icmp eq ptr %.fca.0.extract1.i, %1480

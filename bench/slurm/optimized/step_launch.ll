@@ -597,14 +597,14 @@ _msg_thr_create.exit.thread:                      ; preds = %177, %_msg_thr_crea
   call void @env_array_merge(ptr noundef nonnull %8, ptr noundef %.sink146) #14
   %240 = load i32, ptr %216, align 8
   %.not126 = icmp ne i32 %240, -2
-  %241 = trunc i8 %11 to i1
-  %242 = load ptr, ptr %98, align 8
-  %243 = load ptr, ptr %32, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 184
-  %245 = load ptr, ptr %244, align 8
-  %246 = load i16, ptr %245, align 2
-  %247 = select i1 %.not126, i1 true, i1 %241
-  call void @env_array_for_step(ptr noundef nonnull %8, ptr noundef %242, ptr noundef nonnull %7, i16 noundef zeroext %246, i1 noundef zeroext %247) #14
+  %241 = load ptr, ptr %98, align 8
+  %242 = load ptr, ptr %32, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i64 184
+  %244 = load ptr, ptr %243, align 8
+  %245 = load i16, ptr %244, align 2
+  %246 = trunc i8 %11 to i1
+  %247 = select i1 %.not126, i1 true, i1 %246
+  call void @env_array_for_step(ptr noundef nonnull %8, ptr noundef %241, ptr noundef nonnull %7, i16 noundef zeroext %245, i1 noundef zeroext %247) #14
   %248 = load ptr, ptr %9, align 8
   call void @env_array_merge(ptr noundef nonnull %8, ptr noundef %248) #14
   %249 = load ptr, ptr %9, align 8
@@ -1539,10 +1539,10 @@ define i32 @slurm_step_launch_add(ptr noundef readonly %0, ptr nocapture noundef
   %.096 = phi i16 [ %85, %84 ], [ 0, %25 ]
   %87 = load i32, ptr %55, align 8
   %.not109 = icmp ne i32 %87, -2
-  %88 = trunc i8 %9 to i1
-  %89 = load ptr, ptr %17, align 8
-  %90 = select i1 %.not109, i1 true, i1 %88
-  call void @env_array_for_step(ptr noundef nonnull %7, ptr noundef %89, ptr noundef nonnull %6, i16 noundef zeroext %.096, i1 noundef zeroext %90) #14
+  %88 = load ptr, ptr %17, align 8
+  %89 = trunc i8 %9 to i1
+  %90 = select i1 %.not109, i1 true, i1 %89
+  call void @env_array_for_step(ptr noundef nonnull %7, ptr noundef %88, ptr noundef nonnull %6, i16 noundef zeroext %.096, i1 noundef zeroext %90) #14
   call void @env_array_merge(ptr noundef nonnull %7, ptr noundef null) #14
   call void @env_array_free(ptr noundef null) #14
   %91 = load ptr, ptr %7, align 8

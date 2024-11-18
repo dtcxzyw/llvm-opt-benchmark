@@ -1750,9 +1750,9 @@ define void @_ZN8WasmEdge8Executor8Executor14runTableGrowOpERNS_7Runtime12StackM
   %14 = load i8, ptr %11, align 8
   %15 = and i8 %14, -3
   %spec.select.i.i = icmp eq i8 %15, 1
-  %16 = zext i32 %13 to i64
-  %17 = and i64 %.sroa.0.0.copyload.i, 4294967295
-  %18 = select i1 %spec.select.i.i, i64 %16, i64 4294967295
+  %16 = and i64 %.sroa.0.0.copyload.i, 4294967295
+  %17 = zext i32 %13 to i64
+  %18 = select i1 %spec.select.i.i, i64 %17, i64 4294967295
   %19 = getelementptr inbounds i8, ptr %3, i64 24
   %20 = getelementptr inbounds i8, ptr %3, i64 32
   %21 = load ptr, ptr %20, align 16
@@ -1762,16 +1762,16 @@ define void @_ZN8WasmEdge8Executor8Executor14runTableGrowOpERNS_7Runtime12StackM
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 4
   %27 = sub nsw i64 %18, %26
-  %.not = icmp ult i64 %27, %17
+  %.not = icmp ult i64 %27, %16
   br i1 %.not, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread, label %28
 
 28:                                               ; preds = %4
-  %29 = add nsw i64 %26, %17
+  %29 = add nsw i64 %26, %16
   %30 = icmp ugt i64 %29, %26
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %28
-  invoke void @_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %17)
+  invoke void @_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %16)
           to label %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i unwind label %43
 
 32:                                               ; preds = %28
@@ -1793,7 +1793,7 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i: ; preds = %36, %34
 
 38:                                               ; preds = %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i
   %39 = load ptr, ptr %20, align 16
-  %40 = sub nsw i64 0, %17
+  %40 = sub nsw i64 0, %16
   %41 = getelementptr inbounds %"struct.WasmEdge::RefVariant", ptr %39, i64 %40
   br label %.lr.ph.i.i.i.i.i.i
 

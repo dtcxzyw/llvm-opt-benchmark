@@ -18353,11 +18353,11 @@ invoke.cont183:                                   ; preds = %invoke.cont181
 
 invoke.cont188:                                   ; preds = %invoke.cont183
   %85 = load i32, ptr %val.i, align 4
-  %86 = zext i32 %85 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp1.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i204)
+  %86 = zext i32 %85 to i64
   %retval.i.sroa.0.0.insert.ext.i.i206 = select i1 %call.i203, i64 %86, i64 0
   store i64 %retval.i.sroa.0.0.insert.ext.i.i206, ptr %ref.tmp.i204, align 16, !noalias !275
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp186, ptr nonnull @.str.117, i64 16, i64 1, ptr nonnull %ref.tmp.i204)
@@ -19701,7 +19701,7 @@ for.body757:                                      ; preds = %if.end750, %for.bod
 for.end769:                                       ; preds = %for.body757, %if.end750
   %nbroken.0.lcssa = phi i32 [ 0, %if.end750 ], [ %spec.select, %for.body757 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i507)
-  %retval.i.i.i.sroa.0.0.insert.ext.i509 = zext i32 %nbroken.0.lcssa to i64
+  %retval.i.i.i.sroa.0.0.insert.ext.i509 = zext nneg i32 %nbroken.0.lcssa to i64
   store i64 %retval.i.i.i.sroa.0.0.insert.ext.i509, ptr %ref.tmp.i507, align 16
   invoke void @_ZN3fmt2v86vprintIcEEvRSt13basic_ostreamIT_St11char_traitsIS3_EENS0_17basic_string_viewIS3_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS3_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS0_6detail6bufferISF_EEEE4typeESF_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nonnull @.str.162, i64 30, i64 1, ptr nonnull %ref.tmp.i507)
           to label %invoke.cont770 unwind label %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

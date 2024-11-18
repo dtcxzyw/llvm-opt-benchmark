@@ -26288,33 +26288,33 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = select i1 %12, i32 %13, i32 0
-  %17 = ptrtoint ptr %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %23, i8 0, i64 88, i1 false)
-  store i64 -49064778989728563, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 64
-  %25 = load ptr, ptr %1, align 8
-  %26 = ptrtoint ptr %25 to i64
-  store i64 %26, ptr %3, align 8
-  %27 = load ptr, ptr %18, align 8
-  %28 = ptrtoint ptr %27 to i64
-  store i64 %28, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 20
-  store i32 %16, ptr %22, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 28
-  %31 = select i1 %12, i64 %17, i64 0
-  store i64 %31, ptr %29, align 4
-  %32 = load ptr, ptr %19, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, i8 0, i64 88, i1 false)
+  store i64 -49064778989728563, ptr %19, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 64
+  %24 = load ptr, ptr %1, align 8
+  %25 = ptrtoint ptr %24 to i64
+  store i64 %25, ptr %3, align 8
+  %26 = load ptr, ptr %17, align 8
+  %27 = ptrtoint ptr %26 to i64
+  store i64 %27, ptr %20, align 8
+  %28 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 %16, ptr %21, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 28
+  %30 = ptrtoint ptr %15 to i64
+  %31 = select i1 %12, i64 %30, i64 0
+  store i64 %31, ptr %28, align 4
+  %32 = load ptr, ptr %18, align 8
   %33 = getelementptr inbounds i8, ptr %3, i64 36
   %34 = ptrtoint ptr %32 to i64
-  store i64 %34, ptr %30, align 4
-  %35 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %3, i64 noundef 0, ptr noundef nonnull %33, ptr noundef nonnull %24)
+  store i64 %34, ptr %29, align 4
+  %35 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %3, i64 noundef 0, ptr noundef nonnull %33, ptr noundef nonnull %23)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   %36 = trunc i64 %35 to i32
   %37 = add i32 %6, -1

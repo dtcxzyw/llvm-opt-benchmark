@@ -15385,10 +15385,10 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %96, %103
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !256
   %.not.i.i42 = icmp eq i64 %.sroa.3.0115, 4294967294
   %107 = add nuw nsw i64 %86, 3
-  %108 = and i64 %107, 4294967295
-  %109 = load ptr, ptr %57, align 8
-  %110 = select i1 %.not.i.i42, i64 1, i64 %108
-  %111 = getelementptr inbounds %"class.llvm::Use", ptr %109, i64 %110
+  %108 = load ptr, ptr %57, align 8
+  %109 = and i64 %107, 4294967295
+  %110 = select i1 %.not.i.i42, i64 1, i64 %109
+  %111 = getelementptr inbounds %"class.llvm::Use", ptr %108, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %112) #25
   %114 = extractvalue { ptr, i64 } %113, 0

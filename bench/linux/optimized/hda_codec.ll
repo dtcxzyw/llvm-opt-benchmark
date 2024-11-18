@@ -3828,8 +3828,8 @@ define internal fastcc i32 @update_amp_value(ptr noundef %0, i16 noundef zeroext
   %62 = select i1 %59, i32 %61, i32 127
   %63 = icmp eq i32 %6, 0
   %64 = add i32 %6, %5
-  %65 = select i1 %63, i32 0, i32 %64
-  %66 = call i32 @llvm.umin.i32(i32 %65, i32 %62)
+  %65 = call i32 @llvm.umin.i32(i32 %64, i32 %62)
+  %66 = select i1 %63, i32 0, i32 %65
   %67 = shl i32 %10, 20
   %68 = icmp eq i32 %2, 0
   %69 = select i1 %68, i32 8192, i32 0

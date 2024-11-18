@@ -13782,10 +13782,10 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEjLj16ENS_12DenseMapIn
   %.not.i.i = icmp eq i64 %.sroa.3.0174, 4294967294
   %189 = shl nuw i64 %.sroa.3.0174, 1
   %190 = add nuw nsw i64 %189, 3
-  %191 = and i64 %190, 4294967295
-  %192 = load ptr, ptr %125, align 8
-  %193 = select i1 %.not.i.i, i64 1, i64 %191
-  %194 = getelementptr inbounds %"class.llvm::Use", ptr %192, i64 %193
+  %191 = load ptr, ptr %125, align 8
+  %192 = and i64 %190, 4294967295
+  %193 = select i1 %.not.i.i, i64 1, i64 %192
+  %194 = getelementptr inbounds %"class.llvm::Use", ptr %191, i64 %193
   %195 = load ptr, ptr %194, align 8
   %196 = load i32, ptr %6, align 8
   %197 = and i32 %196, 1
@@ -13840,7 +13840,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEjLj16ENS_12DenseMapI
   store ptr %195, ptr %187, align 8
   %228 = add nuw nsw i64 %189, 2
   %229 = and i64 %228, 4294967294
-  %230 = getelementptr inbounds %"class.llvm::Use", ptr %192, i64 %229
+  %230 = getelementptr inbounds %"class.llvm::Use", ptr %191, i64 %229
   %231 = load ptr, ptr %230, align 8
   %232 = call noundef zeroext i1 @_ZN4llvm7GVNPass17propagateEqualityEPNS_5ValueES2_RKNS_14BasicBlockEdgeEb(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef %127, ptr noundef %231, ptr noundef nonnull align 8 dereferenceable(16) %8, i1 noundef zeroext true)
   %233 = or i1 %.068175, %232

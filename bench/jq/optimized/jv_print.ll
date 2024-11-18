@@ -1146,14 +1146,14 @@ define void @jv_dump(i64 %0, ptr %1, i32 noundef %2) local_unnamed_addr #4 {
 ; Function Attrs: nounwind uwtable
 define void @jv_show(i64 %0, ptr %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i32 %2, -1
-  %5 = or i32 %2, 16
-  %6 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #11
-  %7 = extractvalue { i64, ptr } %6, 0
-  %8 = extractvalue { i64, ptr } %6, 1
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = select i1 %4, i32 533, i32 %5
+  %5 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #11
+  %6 = extractvalue { i64, ptr } %5, 0
+  %7 = extractvalue { i64, ptr } %5, 1
+  %8 = load ptr, ptr @stderr, align 8
+  %9 = or i32 %2, 16
+  %10 = select i1 %4, i32 533, i32 %9
   %11 = tail call ptr (...) @tsd_dtoa_context_get() #11
-  tail call fastcc void @jv_dump_term(ptr noundef %11, i64 %7, ptr %8, i32 noundef %10, i32 noundef 0, ptr noundef %9, ptr noundef null)
+  tail call fastcc void @jv_dump_term(ptr noundef %11, i64 %6, ptr %7, i32 noundef %10, i32 noundef 0, ptr noundef %8, ptr noundef null)
   %12 = load ptr, ptr @stderr, align 8
   %13 = tail call i32 @fflush(ptr noundef %12)
   ret void

@@ -5459,8 +5459,7 @@ define dso_local i64 @timetz_larger(ptr nocapture noundef readonly %0) local_unn
 
 19:                                               ; preds = %17
   %20 = icmp sgt i32 %.val7, %.val9
-  %spec.select = select i1 %20, ptr %4, ptr %7
-  %21 = ptrtoint ptr %spec.select to i64
+  %21 = select i1 %20, i64 %3, i64 %6
   br label %timetz_cmp_internal.exit
 
 timetz_cmp_internal.exit:                         ; preds = %19, %1, %17

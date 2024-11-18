@@ -409,13 +409,13 @@ bcread_ktab.exit.i:                               ; preds = %bcread_ktabk.exit63
 if.then15.i:                                      ; preds = %if.else.i
   %cmp16.i = icmp eq i32 %call.i73.i, 4
   %cmp18.i = icmp eq i32 %call.i73.i, 2
-  %42 = select i1 %cmp18.i, i16 11, i16 12
-  %43 = load ptr, ptr %L, align 8
+  %42 = load ptr, ptr %L, align 8
   %add.i.i = select i1 %cmp16.i, i64 32, i64 24
-  %call.i76.i = call ptr @lj_mem_newgco(ptr noundef %43, i64 noundef %add.i.i) #9
+  %call.i76.i = call ptr @lj_mem_newgco(ptr noundef %42, i64 noundef %add.i.i) #9
   %gct.i.i = getelementptr inbounds i8, ptr %call.i76.i, i64 9
   store i8 10, ptr %gct.i.i, align 1
-  %conv1.i.i = select i1 %cmp16.i, i16 16, i16 %42
+  %43 = select i1 %cmp18.i, i16 11, i16 12
+  %conv1.i.i = select i1 %cmp16.i, i16 16, i16 %43
   %ctypeid.i.i = getelementptr inbounds i8, ptr %call.i76.i, i64 10
   store i16 %conv1.i.i, ptr %ctypeid.i.i, align 2
   %add.ptr27.i = getelementptr inbounds i8, ptr %call.i76.i, i64 16

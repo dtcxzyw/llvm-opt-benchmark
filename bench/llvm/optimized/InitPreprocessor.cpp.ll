@@ -7274,21 +7274,21 @@ _ZN4llvmplERKNS_5TwineES2_.exit731:               ; preds = %836
   %864 = trunc nuw i64 %863 to i32
   %865 = and i32 %864, 2147483647
   %.not1239 = icmp sgt i64 %.sroa.01200.0.copyload, -1
-  %866 = mul i32 %865, 100
-  %867 = trunc i64 %.sroa.3.0.copyload to i32
-  %.sroa.01192.0.extract.trunc = and i32 %867, 2147483647
-  %868 = and i64 %.sroa.3.0.copyload, 2147483648
-  %.not1240 = icmp eq i64 %868, 0
+  %866 = trunc i64 %.sroa.3.0.copyload to i32
+  %.sroa.01192.0.extract.trunc = and i32 %866, 2147483647
+  %867 = and i64 %.sroa.3.0.copyload, 2147483648
+  %.not1240 = icmp eq i64 %867, 0
   %.0.i744 = select i1 %.not1240, i32 0, i32 %.sroa.01192.0.extract.trunc
-  %869 = getelementptr inbounds nuw i8, ptr %295, i64 32
-  %870 = getelementptr inbounds nuw i8, ptr %295, i64 33
-  store i8 1, ptr %870, align 1
+  %868 = getelementptr inbounds nuw i8, ptr %295, i64 32
+  %869 = getelementptr inbounds nuw i8, ptr %295, i64 33
+  store i8 1, ptr %869, align 1
   store ptr @.str.116, ptr %295, align 8
-  store i8 3, ptr %869, align 8
-  %871 = trunc i64 %.sroa.01200.0.copyload to i32
-  %872 = mul i32 %871, 10000
-  %873 = select i1 %.not1239, i32 0, i32 %866
-  %874 = add i32 %.0.i744, %872
+  store i8 3, ptr %868, align 8
+  %870 = trunc i64 %.sroa.01200.0.copyload to i32
+  %871 = mul i32 %870, 10000
+  %872 = mul i32 %865, 100
+  %873 = select i1 %.not1239, i32 0, i32 %872
+  %874 = add i32 %.0.i744, %871
   %875 = add i32 %874, %873
   %876 = getelementptr inbounds nuw i8, ptr %296, i64 32
   store i8 9, ptr %876, align 8

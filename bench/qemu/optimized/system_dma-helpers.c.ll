@@ -765,15 +765,15 @@ entry:
   %0 = add i64 %start, -1
   %1 = xor i64 %start, -1
   %sub3 = and i64 %0, %1
-  %cond = select i1 %tobool.not, i64 %max_mask.0, i64 %sub3
-  %cond8 = tail call i64 @llvm.umin.i64(i64 %cond, i64 %max_mask.0)
+  %2 = tail call i64 @llvm.umin.i64(i64 %sub3, i64 %max_mask.0)
+  %cond8 = select i1 %tobool.not, i64 %max_mask.0, i64 %2
   %cmp15.not = icmp ult i64 %sub, %cond8
   br i1 %cmp15.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %entry
   %add = add nuw i64 %sub, 1
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %add, i1 true)
-  %sub20 = xor i64 %2, 63
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %add, i1 true)
+  %sub20 = xor i64 %3, 63
   %notmask15 = shl nsw i64 -1, %sub20
   %sub23 = xor i64 %notmask15, -1
   br label %return

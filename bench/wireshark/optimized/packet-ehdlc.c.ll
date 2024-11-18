@@ -97,9 +97,9 @@ target triple = "x86_64-pc-linux-gnu"
 @ehdlc_handle = internal unnamed_addr global ptr null, align 8
 @.str.48 = private unnamed_addr constant [13 x i8] c"gsm_abis_rsl\00", align 1
 @sub_handles.0 = internal unnamed_addr global ptr null, align 16
-@sub_handles.1 = internal unnamed_addr global ptr null, align 16
+@sub_handles.1 = internal unnamed_addr global ptr null, align 8
 @sub_handles.2 = internal unnamed_addr global ptr null, align 16
-@sub_handles.3 = internal unnamed_addr global ptr null, align 16
+@sub_handles.3 = internal unnamed_addr global ptr null, align 8
 @sub_handles.4 = internal unnamed_addr global ptr null, align 16
 @.str.49 = private unnamed_addr constant [13 x i8] c"gsm_abis_oml\00", align 1
 @.str.50 = private unnamed_addr constant [13 x i8] c"gsm_abis_tfp\00", align 1
@@ -275,7 +275,7 @@ proto_item_set_generated.exit123:                 ; preds = %proto_item_set_gene
   br label %.backedge
 
 .backedge:                                        ; preds = %74, %83, %dissect_ehdlc_xid.exit
-  %.pn = phi i32 [ %75, %74 ], [ %84, %83 ], [ %152, %dissect_ehdlc_xid.exit ]
+  %.pn = phi i32 [ %75, %74 ], [ %84, %83 ], [ %151, %dissect_ehdlc_xid.exit ]
   %.0.be = add i32 %.0124, %.pn
   %80 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.be) #3
   %81 = icmp sgt i32 %80, 0
@@ -288,7 +288,7 @@ proto_item_set_generated.exit123:                 ; preds = %proto_item_set_gene
   %84 = zext nneg i16 %11 to i32
   %85 = add nsw i32 %84, -2
   %86 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %73, i32 noundef %85) #3
-  %87 = load ptr, ptr @sub_handles.3, align 16
+  %87 = load ptr, ptr @sub_handles.3, align 8
   %88 = tail call i32 @call_dissector(ptr noundef %87, ptr noundef %86, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %.backedge
 
@@ -391,19 +391,19 @@ proto_item_set_generated.exit123:                 ; preds = %proto_item_set_gene
   br i1 %149, label %.lr.ph.i, label %dissect_ehdlc_xid.exit, !llvm.loop !6
 
 dissect_ehdlc_xid.exit.sink.split:                ; preds = %100, %107, %105
-  %sub_handles.0.sink = phi ptr [ @sub_handles.0, %105 ], [ @sub_handles.1, %107 ], [ @sub_handles.4, %100 ]
-  %150 = load ptr, ptr %sub_handles.0.sink, align 16
-  %151 = tail call i32 @call_dissector(ptr noundef %150, ptr noundef %104, ptr noundef nonnull %1, ptr noundef %2) #3
+  %.sink.in = phi ptr [ @sub_handles.0, %105 ], [ @sub_handles.1, %107 ], [ @sub_handles.4, %100 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %150 = tail call i32 @call_dissector(ptr noundef %.sink, ptr noundef %104, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %dissect_ehdlc_xid.exit
 
 dissect_ehdlc_xid.exit:                           ; preds = %146, %dissect_ehdlc_xid.exit.sink.split, %111, %109, %105, %107
   %spec.store.select = tail call i16 @llvm.umax.i16(i16 %11, i16 1)
-  %152 = zext nneg i16 %spec.store.select to i32
+  %151 = zext nneg i16 %spec.store.select to i32
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %4
-  %153 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %153
+  %152 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %152
 }
 
 ; Function Attrs: nounwind uwtable
@@ -413,13 +413,13 @@ define hidden void @proto_reg_handoff_ehdlc() local_unnamed_addr #0 {
   store ptr %2, ptr @sub_handles.0, align 16
   %3 = load i32, ptr @proto_ehdlc, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.49, i32 noundef %3) #3
-  store ptr %4, ptr @sub_handles.1, align 16
+  store ptr %4, ptr @sub_handles.1, align 8
   %5 = load i32, ptr @proto_ehdlc, align 4
   %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.50, i32 noundef %5) #3
   store ptr %6, ptr @sub_handles.2, align 16
   %7 = load i32, ptr @proto_ehdlc, align 4
   %8 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.51, i32 noundef %7) #3
-  store ptr %8, ptr @sub_handles.3, align 16
+  store ptr %8, ptr @sub_handles.3, align 8
   %9 = tail call ptr @find_dissector(ptr noundef nonnull @.str.52) #3
   store ptr %9, ptr @sub_handles.4, align 16
   %10 = load ptr, ptr @ehdlc_handle, align 8

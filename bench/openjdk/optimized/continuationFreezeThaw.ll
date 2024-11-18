@@ -4363,7 +4363,7 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %193, %188, %167, %1
 
 198:                                              ; preds = %_ZN8ThawBase18maybe_set_fastpathEPl.exit
   call void @_ZN17stackChunkOopDesc16fix_thawed_frameI16SmallRegisterMapEEvRK5framePKT_(ptr noundef nonnull align 8 dereferenceable(16) %197, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef null) #16
-  br label %254
+  br label %252
 
 199:                                              ; preds = %_ZN8ThawBase18maybe_set_fastpathEPl.exit
   %200 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
@@ -4376,7 +4376,7 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %193, %188, %167, %1
   %207 = icmp ne i8 %206, 0
   %208 = icmp sgt i32 %91, 0
   %or.cond = and i1 %208, %207
-  br i1 %or.cond, label %209, label %254
+  br i1 %or.cond, label %209, label %252
 
 209:                                              ; preds = %199
   %210 = load ptr, ptr %92, align 8
@@ -4398,41 +4398,39 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %193, %188, %167, %1
   %225 = trunc i8 %224 to i1
   %226 = ptrtoint ptr %223 to i64
   %227 = and i64 %226, -8
-  %228 = inttoptr i64 %227 to ptr
-  %229 = select i1 %225, ptr %223, ptr %228
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %230 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !37
-  %231 = sext i32 %230 to i64
-  %232 = add nsw i64 %231, %201
-  %233 = inttoptr i64 %232 to ptr
-  %234 = load i32, ptr %233, align 4, !noalias !37
-  %235 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
-  %236 = sext i32 %235 to i64
-  %237 = add i64 %236, %201
-  %238 = inttoptr i64 %237 to ptr
-  %239 = sext i32 %234 to i64
-  %240 = getelementptr inbounds ptr, ptr %238, i64 %239
-  %241 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !37
-  %242 = sub nsw i32 6, %241
-  %243 = zext nneg i32 %242 to i64
-  %244 = shl i64 %239, %243
-  %245 = add i64 %244, 63
-  %246 = and i64 %245, -64
-  store ptr %240, ptr %6, align 8, !alias.scope !37
-  %247 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %246, ptr %247, align 8, !alias.scope !37
-  %248 = ptrtoint ptr %214 to i64
-  %249 = sub i64 %248, %237
+  %228 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !37
+  %229 = sext i32 %228 to i64
+  %230 = add nsw i64 %229, %201
+  %231 = inttoptr i64 %230 to ptr
+  %232 = load i32, ptr %231, align 4, !noalias !37
+  %233 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
+  %234 = sext i32 %233 to i64
+  %235 = add i64 %234, %201
+  %236 = inttoptr i64 %235 to ptr
+  %237 = sext i32 %232 to i64
+  %238 = getelementptr inbounds ptr, ptr %236, i64 %237
+  %239 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !37
+  %240 = sub nsw i32 6, %239
+  %241 = zext nneg i32 %240 to i64
+  %242 = shl i64 %237, %241
+  %243 = add i64 %242, 63
+  %244 = and i64 %243, -64
+  store ptr %238, ptr %6, align 8, !alias.scope !37
+  %245 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %244, ptr %245, align 8, !alias.scope !37
+  %246 = ptrtoint ptr %214 to i64
+  %247 = sub i64 %246, %235
   %..i.i = select i1 %225, i64 2, i64 3
-  %250 = ashr exact i64 %249, %..i.i
-  %251 = ptrtoint ptr %229 to i64
-  %252 = sub i64 %251, %237
-  %253 = ashr exact i64 %252, %..i.i
-  call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %250, i64 noundef %253) #16
+  %248 = ashr exact i64 %247, %..i.i
+  %249 = select i1 %225, i64 %226, i64 %227
+  %250 = sub i64 %249, %235
+  %251 = ashr exact i64 %250, %..i.i
+  call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %248, i64 noundef %251) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %254
+  br label %252
 
-254:                                              ; preds = %199, %209, %198
+252:                                              ; preds = %199, %209, %198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
   ret void
 }
@@ -4670,7 +4668,7 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %_ZN8ThawBase5patchE
 
 159:                                              ; preds = %_ZN8ThawBase18maybe_set_fastpathEPl.exit
   call void @_ZN17stackChunkOopDesc16fix_thawed_frameI16SmallRegisterMapEEvRK5framePKT_(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef null) #16
-  br label %203
+  br label %201
 
 160:                                              ; preds = %_ZN8ThawBase18maybe_set_fastpathEPl.exit
   %161 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
@@ -4683,7 +4681,7 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %_ZN8ThawBase5patchE
   %168 = icmp ne i8 %167, 0
   %169 = icmp ne i16 %154, 0
   %or.cond = and i1 %169, %168
-  br i1 %or.cond, label %170, label %203
+  br i1 %or.cond, label %170, label %201
 
 170:                                              ; preds = %160
   %171 = zext i16 %154 to i64
@@ -4693,41 +4691,39 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %_ZN8ThawBase5patchE
   %174 = load i8, ptr @UseCompressedOops, align 1
   %175 = trunc i8 %174 to i1
   %176 = and i64 %83, -8
-  %177 = inttoptr i64 %176 to ptr
-  %178 = select i1 %175, ptr %82, ptr %177
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %179 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !43
-  %180 = sext i32 %179 to i64
-  %181 = add nsw i64 %180, %162
-  %182 = inttoptr i64 %181 to ptr
-  %183 = load i32, ptr %182, align 4, !noalias !43
-  %184 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
-  %185 = sext i32 %184 to i64
-  %186 = add i64 %185, %162
-  %187 = inttoptr i64 %186 to ptr
-  %188 = sext i32 %183 to i64
-  %189 = getelementptr inbounds ptr, ptr %187, i64 %188
-  %190 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !43
-  %191 = sub nsw i32 6, %190
-  %192 = zext nneg i32 %191 to i64
-  %193 = shl i64 %188, %192
-  %194 = add i64 %193, 63
-  %195 = and i64 %194, -64
-  store ptr %189, ptr %5, align 8, !alias.scope !43
-  %196 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %195, ptr %196, align 8, !alias.scope !43
-  %197 = ptrtoint ptr %173 to i64
-  %198 = sub i64 %197, %186
+  %177 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !43
+  %178 = sext i32 %177 to i64
+  %179 = add nsw i64 %178, %162
+  %180 = inttoptr i64 %179 to ptr
+  %181 = load i32, ptr %180, align 4, !noalias !43
+  %182 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
+  %183 = sext i32 %182 to i64
+  %184 = add i64 %183, %162
+  %185 = inttoptr i64 %184 to ptr
+  %186 = sext i32 %181 to i64
+  %187 = getelementptr inbounds ptr, ptr %185, i64 %186
+  %188 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !43
+  %189 = sub nsw i32 6, %188
+  %190 = zext nneg i32 %189 to i64
+  %191 = shl i64 %186, %190
+  %192 = add i64 %191, 63
+  %193 = and i64 %192, -64
+  store ptr %187, ptr %5, align 8, !alias.scope !43
+  %194 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %193, ptr %194, align 8, !alias.scope !43
+  %195 = ptrtoint ptr %173 to i64
+  %196 = sub i64 %195, %184
   %..i.i = select i1 %175, i64 2, i64 3
-  %199 = ashr exact i64 %198, %..i.i
-  %200 = ptrtoint ptr %178 to i64
-  %201 = sub i64 %200, %186
-  %202 = ashr exact i64 %201, %..i.i
-  call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %199, i64 noundef %202) #16
+  %197 = ashr exact i64 %196, %..i.i
+  %198 = select i1 %175, i64 %83, i64 %176
+  %199 = sub i64 %198, %184
+  %200 = ashr exact i64 %199, %..i.i
+  call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %197, i64 noundef %200) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %203
+  br label %201
 
-203:                                              ; preds = %160, %170, %159
+201:                                              ; preds = %160, %170, %159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   ret void
 }
@@ -4822,42 +4818,40 @@ define hidden void @_ZN8ThawBase17clear_bitmap_bitsEPhS0_(ptr nocapture noundef 
   %6 = trunc i8 %5 to i1
   %7 = ptrtoint ptr %2 to i64
   %8 = and i64 %7, -8
-  %9 = inttoptr i64 %8 to ptr
-  %10 = select i1 %6, ptr %2, ptr %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %15 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !49
-  %16 = ptrtoint ptr %14 to i64
-  %17 = sext i32 %15 to i64
-  %18 = add nsw i64 %17, %16
-  %19 = inttoptr i64 %18 to ptr
-  %20 = load i32, ptr %19, align 4, !noalias !49
-  %21 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
-  %22 = sext i32 %21 to i64
-  %23 = add i64 %22, %16
-  %24 = inttoptr i64 %23 to ptr
-  %25 = sext i32 %20 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
-  %27 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !49
-  %28 = sub nsw i32 6, %27
-  %29 = zext nneg i32 %28 to i64
-  %30 = shl i64 %25, %29
-  %31 = add i64 %30, 63
-  %32 = and i64 %31, -64
-  store ptr %26, ptr %4, align 8, !alias.scope !49
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %32, ptr %33, align 8, !alias.scope !49
-  %34 = ptrtoint ptr %1 to i64
-  %35 = sub i64 %34, %23
+  %13 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !49
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sext i32 %13 to i64
+  %16 = add nsw i64 %15, %14
+  %17 = inttoptr i64 %16 to ptr
+  %18 = load i32, ptr %17, align 4, !noalias !49
+  %19 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
+  %20 = sext i32 %19 to i64
+  %21 = add i64 %20, %14
+  %22 = inttoptr i64 %21 to ptr
+  %23 = sext i32 %18 to i64
+  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %25 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !49
+  %26 = sub nsw i32 6, %25
+  %27 = zext nneg i32 %26 to i64
+  %28 = shl i64 %23, %27
+  %29 = add i64 %28, 63
+  %30 = and i64 %29, -64
+  store ptr %24, ptr %4, align 8, !alias.scope !49
+  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %30, ptr %31, align 8, !alias.scope !49
+  %32 = ptrtoint ptr %1 to i64
+  %33 = sub i64 %32, %21
   %..i = select i1 %6, i64 2, i64 3
-  %36 = ashr exact i64 %35, %..i
-  %37 = ptrtoint ptr %10 to i64
-  %38 = sub i64 %37, %23
-  %39 = ashr exact i64 %38, %..i
-  call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %36, i64 noundef %39) #16
+  %34 = ashr exact i64 %33, %..i
+  %35 = select i1 %6, i64 %7, i64 %8
+  %36 = sub i64 %35, %21
+  %37 = ashr exact i64 %36, %..i
+  call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %34, i64 noundef %37) #16
   ret void
 }
 

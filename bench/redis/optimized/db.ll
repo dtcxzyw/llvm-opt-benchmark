@@ -8894,18 +8894,18 @@ if.then3:                                         ; preds = %for.cond
   %4 = load i32, ptr %count, align 4
   %cmp5 = icmp eq i32 %4, -1
   %add = add nsw i32 %4, %3
-  %cond = select i1 %cmp5, i32 %argc, i32 %add
-  %stop.0 = tail call i32 @llvm.smin.i32(i32 %cond, i32 %argc)
+  %5 = tail call i32 @llvm.smin.i32(i32 %add, i32 %argc)
+  %stop.0 = select i1 %cmp5, i32 %argc, i32 %5
   %sub = sub i32 %stop.0, %3
   %keys.i = getelementptr inbounds i8, ptr %result, i64 2048
-  %5 = load ptr, ptr %keys.i, align 8
-  %tobool.not.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %keys.i, align 8
+  %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then3
   %numkeys1.i = getelementptr inbounds i8, ptr %result, i64 2056
-  %6 = load i32, ptr %numkeys1.i, align 8
-  %tobool2.not.i = icmp eq i32 %6, 0
+  %7 = load i32, ptr %numkeys1.i, align 8
+  %tobool2.not.i = icmp eq i32 %7, 0
   br i1 %tobool2.not.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
@@ -8918,20 +8918,20 @@ cond.end.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end.i, %if.then3
-  %7 = phi ptr [ %result, %cond.end.i ], [ %5, %if.then3 ]
+  %8 = phi ptr [ %result, %cond.end.i ], [ %6, %if.then3 ]
   %size.i = getelementptr inbounds i8, ptr %result, i64 2060
-  %8 = load i32, ptr %size.i, align 4
-  %cmp.i = icmp sgt i32 %sub, %8
+  %9 = load i32, ptr %size.i, align 4
+  %cmp.i = icmp sgt i32 %sub, %9
   br i1 %cmp.i, label %if.then8.i, label %getKeysPrepareResult.exit
 
 if.then8.i:                                       ; preds = %if.end.i
-  %cmp12.not.i = icmp eq ptr %7, %result
+  %cmp12.not.i = icmp eq ptr %8, %result
   %conv18.i = sext i32 %sub to i64
   %mul19.i = shl nsw i64 %conv18.i, 3
   br i1 %cmp12.not.i, label %if.else.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.then8.i
-  %call.i = tail call ptr @zrealloc(ptr noundef nonnull %7, i64 noundef %mul19.i) #22
+  %call.i = tail call ptr @zrealloc(ptr noundef nonnull %8, i64 noundef %mul19.i) #22
   store ptr %call.i, ptr %keys.i, align 8
   br label %if.end32.i
 
@@ -8939,23 +8939,23 @@ if.else.i:                                        ; preds = %if.then8.i
   %call20.i = tail call noalias ptr @zmalloc(i64 noundef %mul19.i) #19
   store ptr %call20.i, ptr %keys.i, align 8
   %numkeys22.i = getelementptr inbounds i8, ptr %result, i64 2056
-  %9 = load i32, ptr %numkeys22.i, align 8
-  %tobool23.not.i = icmp eq i32 %9, 0
+  %10 = load i32, ptr %numkeys22.i, align 8
+  %tobool23.not.i = icmp eq i32 %10, 0
   br i1 %tobool23.not.i, label %if.end32.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.else.i
-  %conv29.i = sext i32 %9 to i64
+  %conv29.i = sext i32 %10 to i64
   %mul30.i = shl nsw i64 %conv29.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call20.i, ptr nonnull align 8 %result, i64 %mul30.i, i1 false)
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then24.i, %if.else.i, %if.then14.i
-  %10 = phi ptr [ %call20.i, %if.else.i ], [ %call20.i, %if.then24.i ], [ %call.i, %if.then14.i ]
+  %11 = phi ptr [ %call20.i, %if.else.i ], [ %call20.i, %if.then24.i ], [ %call.i, %if.then14.i ]
   store i32 %sub, ptr %size.i, align 4
   br label %getKeysPrepareResult.exit
 
 getKeysPrepareResult.exit:                        ; preds = %if.end.i, %if.end32.i
-  %11 = phi ptr [ %10, %if.end32.i ], [ %7, %if.end.i ]
+  %12 = phi ptr [ %11, %if.end32.i ], [ %8, %if.end.i ]
   %cmp1324 = icmp slt i32 %3, %stop.0
   br i1 %cmp1324, label %for.body14.lr.ph, label %for.end
 
@@ -8967,10 +8967,10 @@ for.body14.lr.ph:                                 ; preds = %getKeysPrepareResul
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.body14
   %indvars.iv = phi i64 [ 0, %for.body14.lr.ph ], [ %indvars.iv.next, %for.body14 ]
   %i.026 = phi i32 [ %3, %for.body14.lr.ph ], [ %inc19, %for.body14 ]
-  %arrayidx = getelementptr inbounds %struct.keyReference, ptr %11, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds %struct.keyReference, ptr %12, i64 %indvars.iv
   store i32 %i.026, ptr %arrayidx, align 4
-  %12 = load i64, ptr %flags15, align 8
-  %conv = trunc i64 %12 to i32
+  %13 = load i64, ptr %flags15, align 8
+  %conv = trunc i64 %13 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %flags18 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 %conv, ptr %flags18, align 4

@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ractor_local_storage_type_null = internal constant %struct.rb_ractor_local_storage_type zeroinitializer, align 8
 @ractor_local_storage_type_value = internal constant %struct.rb_ractor_local_storage_type { ptr @rb_ractor_local_storage_value_mark, ptr null }, align 8
 @freed_ractor_local_keys.0 = internal unnamed_addr global i32 0, align 8
-@freed_ractor_local_keys.1 = internal unnamed_addr global i32 0, align 8
+@freed_ractor_local_keys.1 = internal unnamed_addr global i32 0, align 4
 @freed_ractor_local_keys.2 = internal unnamed_addr global ptr null, align 8
 @Init_builtin_ractor.ractor_table = internal constant [25 x %struct.rb_builtin_function] [%struct.rb_builtin_function { ptr @builtin_inline_class_276, i32 0, i32 0, ptr @.str.34 }, %struct.rb_builtin_function { ptr @ractor_create, i32 4, i32 1, ptr @.str.35 }, %struct.rb_builtin_function { ptr @builtin_inline_class_289, i32 0, i32 2, ptr @.str.36 }, %struct.rb_builtin_function { ptr @builtin_inline_class_303, i32 0, i32 3, ptr @.str.37 }, %struct.rb_builtin_function { ptr @ractor_select_internal, i32 5, i32 4, ptr @.str.38 }, %struct.rb_builtin_function { ptr @builtin_inline_class_431, i32 0, i32 5, ptr @.str.39 }, %struct.rb_builtin_function { ptr @builtin_inline_class_442, i32 0, i32 6, ptr @.str.40 }, %struct.rb_builtin_function { ptr @ractor_receive_if, i32 1, i32 7, ptr @.str.41 }, %struct.rb_builtin_function { ptr @builtin_inline_class_600, i32 0, i32 8, ptr @.str.42 }, %struct.rb_builtin_function { ptr @builtin_inline_class_644, i32 0, i32 9, ptr @.str.43 }, %struct.rb_builtin_function { ptr @builtin_inline_class_711, i32 0, i32 10, ptr @.str.44 }, %struct.rb_builtin_function { ptr @builtin_inline_class_717, i32 0, i32 11, ptr @.str.45 }, %struct.rb_builtin_function { ptr @builtin_inline_class_718, i32 0, i32 12, ptr @.str.46 }, %struct.rb_builtin_function { ptr @builtin_inline_class_719, i32 0, i32 13, ptr @.str.47 }, %struct.rb_builtin_function { ptr @builtin_inline_class_720, i32 0, i32 14, ptr @.str.48 }, %struct.rb_builtin_function { ptr @builtin_inline_class_730, i32 0, i32 15, ptr @.str.49 }, %struct.rb_builtin_function { ptr @builtin_inline_class_750, i32 0, i32 16, ptr @.str.50 }, %struct.rb_builtin_function { ptr @builtin_inline_class_768, i32 0, i32 17, ptr @.str.51 }, %struct.rb_builtin_function { ptr @builtin_inline_class_785, i32 0, i32 18, ptr @.str.52 }, %struct.rb_builtin_function { ptr @builtin_inline_class_827, i32 0, i32 19, ptr @.str.53 }, %struct.rb_builtin_function { ptr @builtin_inline_class_831, i32 0, i32 20, ptr @.str.54 }, %struct.rb_builtin_function { ptr @ractor_local_value, i32 1, i32 21, ptr @.str.55 }, %struct.rb_builtin_function { ptr @ractor_local_value_set, i32 2, i32 22, ptr @.str.56 }, %struct.rb_builtin_function { ptr @builtin_inline_class_849, i32 0, i32 23, ptr @.str.57 }, %struct.rb_builtin_function { ptr null, i32 0, i32 -1, ptr null }], align 16
 @.str.34 = private unnamed_addr constant [7 x i8] c"_bi276\00", align 1
@@ -3384,7 +3384,7 @@ define dso_local void @rb_ractor_local_storage_delkey(ptr noundef %0) local_unna
 
 rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %5 = load i32, ptr @freed_ractor_local_keys.0, align 8
-  %6 = load i32, ptr @freed_ractor_local_keys.1, align 8
+  %6 = load i32, ptr @freed_ractor_local_keys.1, align 4
   %7 = icmp eq i32 %5, %6
   %.pre = load ptr, ptr @freed_ractor_local_keys.2, align 8
   br i1 %7, label %8, label %13
@@ -3393,7 +3393,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %.not = icmp eq i32 %5, 0
   %9 = shl i32 %5, 1
   %10 = select i1 %.not, i32 4, i32 %9
-  store i32 %10, ptr @freed_ractor_local_keys.1, align 8
+  store i32 %10, ptr @freed_ractor_local_keys.1, align 4
   %11 = sext i32 %10 to i64
   %12 = call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %11, i64 noundef 8) #38
   store ptr %12, ptr @freed_ractor_local_keys.2, align 8
@@ -3711,12 +3711,12 @@ define hidden void @rb_ractor_finish_marking() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   store i32 0, ptr @freed_ractor_local_keys.0, align 8
-  %9 = load i32, ptr @freed_ractor_local_keys.1, align 8
+  %9 = load i32, ptr @freed_ractor_local_keys.1, align 4
   %10 = icmp sgt i32 %9, 16
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %._crit_edge
-  store i32 16, ptr @freed_ractor_local_keys.1, align 8
+  store i32 16, ptr @freed_ractor_local_keys.1, align 4
   %12 = load ptr, ptr @freed_ractor_local_keys.2, align 8
   %13 = tail call nonnull dereferenceable(128) ptr @ruby_xrealloc2(ptr noundef %12, i64 noundef 16, i64 noundef 8) #38
   store ptr %13, ptr @freed_ractor_local_keys.2, align 8

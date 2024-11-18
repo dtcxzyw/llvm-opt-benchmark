@@ -250,7 +250,7 @@ mca_pml_ob1_calc_weighted_length.exit:            ; preds = %79, %._crit_edge.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_pipeline_btls_count(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define range(i64 0, 2147483648) i64 @mca_pml_ob1_rdma_pipeline_btls_count(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 184
   %.val21 = load i64, ptr %2, align 8
   %3 = trunc i64 %.val21 to i32
@@ -400,7 +400,7 @@ mca_bml_base_btl_array_get_index.exit._crit_edge: ; preds = %50, %mca_bml_base_b
 
 ._crit_edge30:                                    ; preds = %mca_bml_base_btl_array_get_index.exit._crit_edge, %mca_bml_base_btl_array_get_next.exit.us, %._crit_edge30.loopexit66, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.us, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %17, %.lr.ph.split.us.split.us ], [ %31, %.lr.ph.split.split.us.split.us ], [ %not..us37, %._crit_edge30.loopexit66 ], [ %spec.select.us, %mca_bml_base_btl_array_get_next.exit.us ], [ %spec.select, %mca_bml_base_btl_array_get_index.exit._crit_edge ]
-  %60 = sext i32 %.0.lcssa to i64
+  %60 = zext nneg i32 %.0.lcssa to i64
   ret i64 %60
 }
 

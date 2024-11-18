@@ -10074,10 +10074,10 @@ _ZN4llvm19ValueLatticeElementD2Ev.exit141:        ; preds = %_ZN4llvm13ConstantR
 428:                                              ; preds = %_ZN4llvm19ValueLatticeElementD2Ev.exit141, %_ZN4llvm5APIntD2Ev.exit133
   %.not.i.i142 = icmp eq i64 %.sroa.2.0244, 4294967294
   %429 = add nuw nsw i64 %370, 3
-  %430 = and i64 %429, 4294967295
-  %431 = load ptr, ptr %265, align 8
-  %432 = select i1 %.not.i.i142, i64 1, i64 %430
-  %433 = getelementptr inbounds %"class.llvm::Use", ptr %431, i64 %432
+  %430 = load ptr, ptr %265, align 8
+  %431 = and i64 %429, 4294967295
+  %432 = select i1 %.not.i.i142, i64 1, i64 %431
+  %433 = getelementptr inbounds %"class.llvm::Use", ptr %430, i64 %432
   %434 = load ptr, ptr %433, align 8
   br i1 %342, label %435, label %459
 

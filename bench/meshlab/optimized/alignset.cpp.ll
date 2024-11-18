@@ -1638,13 +1638,13 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %43 = fcmp ugt float %.2, 0.000000e+00
   %.048 = select i1 %43, float %.2, float 0x3FB99999A0000000
   %44 = fcmp olt float %.251, %.048
-  %45 = fmul float %.251, 2.000000e+00
-  %46 = fmul float %.048, 5.000000e-01
-  %47 = select i1 %44, float 2.000000e+03, float %45
+  %45 = fmul float %.048, 5.000000e-01
+  %46 = fmul float %.251, 2.000000e+00
+  %47 = select i1 %44, float 2.000000e+03, float %46
   tail call void @glMatrixMode(i32 noundef 5889)
   tail call void @glPushMatrix()
   tail call void @glLoadIdentity()
-  tail call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %42, float noundef %46, float noundef %47)
+  tail call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %42, float noundef %45, float noundef %47)
   tail call void @glMatrixMode(i32 noundef 5888)
   tail call void @glPushMatrix()
   tail call void @glLoadIdentity()
@@ -2258,13 +2258,13 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %47 = fcmp ugt float %.4285, 0.000000e+00
   %.0283 = select i1 %47, float %.4285, float 0x3FB99999A0000000
   %48 = fcmp olt float %.4290, %.0283
-  %49 = fmul float %.4290, 2.000000e+00
-  %50 = fmul float %.0283, 5.000000e-01
-  %51 = select i1 %48, float 2.000000e+03, float %49
+  %49 = fmul float %.0283, 5.000000e-01
+  %50 = fmul float %.4290, 2.000000e+00
+  %51 = select i1 %48, float 2.000000e+03, float %50
   tail call void @glMatrixMode(i32 noundef 5889)
   tail call void @glPushMatrix()
   tail call void @glLoadIdentity()
-  tail call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %19, float noundef %50, float noundef %51)
+  tail call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %19, float noundef %49, float noundef %51)
   tail call void @glMatrixMode(i32 noundef 5888)
   tail call void @glPushMatrix()
   tail call void @glLoadIdentity()
@@ -2617,13 +2617,13 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %191 = fcmp ugt float %.6, 0.000000e+00
   %.1 = select i1 %191, float %.6, float 0x3FB99999A0000000
   %192 = fcmp olt float %.6292, %.1
-  %193 = fmul float %.6292, 2.000000e+00
-  %194 = fmul float %.1, 5.000000e-01
-  %195 = select i1 %192, float 2.000000e+03, float %193
+  %193 = fmul float %.1, 5.000000e-01
+  %194 = fmul float %.6292, 2.000000e+00
+  %195 = select i1 %192, float 2.000000e+03, float %194
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
   call void @glLoadIdentity()
-  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %164, float noundef %194, float noundef %195)
+  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %164, float noundef %193, float noundef %195)
   call void @glMatrixMode(i32 noundef 5888)
   call void @glPushMatrix()
   call void @glLoadIdentity()
@@ -2975,13 +2975,13 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %330 = fcmp ugt float %.8, 0.000000e+00
   %.2284 = select i1 %330, float %.8, float 0x3FB99999A0000000
   %331 = fcmp olt float %.8294, %.2284
-  %332 = fmul float %.8294, 2.000000e+00
-  %333 = fmul float %.2284, 5.000000e-01
-  %334 = select i1 %331, float 2.000000e+03, float %332
+  %332 = fmul float %.2284, 5.000000e-01
+  %333 = fmul float %.8294, 2.000000e+00
+  %334 = select i1 %331, float 2.000000e+03, float %333
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
   call void @glLoadIdentity()
-  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %303, float noundef %333, float noundef %334)
+  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %303, float noundef %332, float noundef %334)
   call void @glMatrixMode(i32 noundef 5888)
   call void @glPushMatrix()
   call void @glLoadIdentity()
@@ -3484,15 +3484,15 @@ define void @_ZN8AlignSet11renderSceneERN3vcg4ShotIfNS0_8Matrix44IfEEEEib(ptr no
   store i32 %13, ptr %14, align 4
   call void @_ZN26QGLFramebufferObjectFormatC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
   invoke void @_ZN26QGLFramebufferObjectFormat24setInternalTextureFormatEj(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 6408)
-          to label %15 unwind label %49
+          to label %15 unwind label %48
 
 15:                                               ; preds = %4
   invoke void @_ZN26QGLFramebufferObjectFormat13setAttachmentEN20QGLFramebufferObject10AttachmentE(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 2)
-          to label %16 unwind label %49
+          to label %16 unwind label %48
 
 16:                                               ; preds = %15
   invoke void @_ZN20QGLFramebufferObjectC1ERK5QSizeRK26QGLFramebufferObjectFormat(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %17 unwind label %49
+          to label %17 unwind label %48
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3565,32 +3565,32 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %45 = fcmp ugt float %.2, 0.000000e+00
   %.089 = select i1 %45, float %.2, float 0x3FB99999A0000000
   %46 = fcmp olt float %.292, %.089
-  %47 = fmul float %.292, 2.000000e+00
-  %48 = invoke noundef zeroext i1 @_ZN20QGLFramebufferObject4bindEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %51 unwind label %.loopexit.split-lp
+  %47 = invoke noundef zeroext i1 @_ZN20QGLFramebufferObject4bindEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %50 unwind label %.loopexit.split-lp
 
-49:                                               ; preds = %16, %15, %4
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %16, %15, %4
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %337
 
-51:                                               ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit
-  %52 = load i32, ptr %0, align 8
-  %53 = load i32, ptr %12, align 4
-  invoke void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %52, i32 noundef %53)
+50:                                               ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit
+  %51 = load i32, ptr %0, align 8
+  %52 = load i32, ptr %12, align 4
+  invoke void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %51, i32 noundef %52)
+          to label %53 unwind label %.loopexit.split-lp
+
+53:                                               ; preds = %50
+  invoke void @glClear(i32 noundef 16640)
           to label %54 unwind label %.loopexit.split-lp
 
-54:                                               ; preds = %51
-  invoke void @glClear(i32 noundef 16640)
-          to label %55 unwind label %.loopexit.split-lp
-
-55:                                               ; preds = %54
-  %56 = fmul float %.089, 5.000000e-01
-  %57 = select i1 %46, float 2.000000e+03, float %47
+54:                                               ; preds = %53
+  %55 = fmul float %.089, 5.000000e-01
+  %56 = fmul float %.292, 2.000000e+00
+  %57 = select i1 %46, float 2.000000e+03, float %56
   invoke void @glMatrixMode(i32 noundef 5889)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %55
+.noexc:                                           ; preds = %54
   invoke void @glPushMatrix()
           to label %.noexc69 unwind label %.loopexit.split-lp
 
@@ -3599,7 +3599,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
           to label %.noexc70 unwind label %.loopexit.split-lp
 
 .noexc70:                                         ; preds = %.noexc69
-  invoke void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %1, float noundef %56, float noundef %57)
+  invoke void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %1, float noundef %55, float noundef %57)
           to label %.noexc71 unwind label %.loopexit.split-lp
 
 .noexc71:                                         ; preds = %.noexc70
@@ -3633,7 +3633,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit: ; preds = %.no
           cleanup
   br label %336
 
-.loopexit.split-lp:                               ; preds = %switch.lookup108, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, %51, %54, %65, %66, %70, %71, %75, %76, %77, %80, %84, %85, %87, %91, %92, %94, %97, %100, %103, %105, %108, %110, %112, %115, %117, %120, %123, %126, %130, %133, %138, %141, %146, %149, %154, %157, %159, %162, %164, %166, %169, %171, %174, %177, %181, %184, %186, %189, %191, %193, %196, %198, %201, %204, %208, %211, %213, %216, %218, %220, %223, %225, %228, %249, %252, %254, %255, %257, %259, %261, %262, %264, %265, %267, %268, %270, %271, %273, %274, %276, %282, %288, %289, %295, %297, %299, %300, %302, %306, %307, %310, %328, %_ZN7QStringD2Ev.exit, %55, %.noexc, %.noexc69, %.noexc70, %.noexc71, %.noexc72, %.noexc73, %.noexc74, %309, %.noexc76, %.noexc77, %.noexc78, %.noexc79, %.noexc80
+.loopexit.split-lp:                               ; preds = %switch.lookup108, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, %50, %53, %65, %66, %70, %71, %75, %76, %77, %80, %84, %85, %87, %91, %92, %94, %97, %100, %103, %105, %108, %110, %112, %115, %117, %120, %123, %126, %130, %133, %138, %141, %146, %149, %154, %157, %159, %162, %164, %166, %169, %171, %174, %177, %181, %184, %186, %189, %191, %193, %196, %198, %201, %204, %208, %211, %213, %216, %218, %220, %223, %225, %228, %249, %252, %254, %255, %257, %259, %261, %262, %264, %265, %267, %268, %270, %271, %273, %274, %276, %282, %288, %289, %295, %297, %299, %300, %302, %306, %307, %310, %328, %_ZN7QStringD2Ev.exit, %54, %.noexc, %.noexc69, %.noexc70, %.noexc71, %.noexc72, %.noexc73, %.noexc74, %309, %.noexc76, %.noexc77, %.noexc78, %.noexc79, %.noexc80
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %336
@@ -4309,8 +4309,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QtPrivate8RefCo
   call void @_ZN20QGLFramebufferObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   br label %337
 
-337:                                              ; preds = %336, %49
-  %.pn66.pn = phi { ptr, i32 } [ %.pn66, %336 ], [ %50, %49 ]
+337:                                              ; preds = %336, %48
+  %.pn66.pn = phi { ptr, i32 } [ %.pn66, %336 ], [ %49, %48 ]
   call void @_ZN26QGLFramebufferObjectFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   resume { ptr, i32 } %.pn66.pn
 }

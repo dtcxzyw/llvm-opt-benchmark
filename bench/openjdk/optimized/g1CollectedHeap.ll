@@ -1650,9 +1650,9 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %47, %48
   %51 = load i8, ptr %27, align 1
   %52 = trunc i8 %51 to i1
   %53 = load i8, ptr %28, align 8
-  %54 = trunc i8 %53 to i1
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %3) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  %54 = trunc i8 %53 to i1
   %55 = select i1 %52, i1 %54, i1 false
   %56 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not35 = icmp eq ptr %56, null
@@ -1859,9 +1859,9 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11G1Allocator25a
   %56 = load i8, ptr %19, align 1
   %57 = trunc i8 %56 to i1
   %58 = load i8, ptr %20, align 8
-  %59 = trunc i8 %58 to i1
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %3) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  %59 = trunc i8 %58 to i1
   %60 = select i1 %57, i1 %59, i1 false
   %61 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not44 = icmp eq ptr %61, null

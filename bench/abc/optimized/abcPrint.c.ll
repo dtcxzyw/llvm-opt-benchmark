@@ -11,12 +11,12 @@ target triple = "x86_64-pc-linux-gnu"
 @s_MappingMem = local_unnamed_addr global i32 0, align 4
 @s_ResynTime = local_unnamed_addr global i64 0, align 8
 @Abc_NtkCompareAndSaveBest.ParsNew.0 = internal unnamed_addr global i32 0, align 8
-@Abc_NtkCompareAndSaveBest.ParsNew.1 = internal unnamed_addr global i32 0, align 8
-@Abc_NtkCompareAndSaveBest.ParsNew.3 = internal unnamed_addr global i32 0, align 8
+@Abc_NtkCompareAndSaveBest.ParsNew.1 = internal unnamed_addr global i32 0, align 4
+@Abc_NtkCompareAndSaveBest.ParsNew.3 = internal unnamed_addr global i32 0, align 4
 @Abc_NtkCompareAndSaveBest.ParsBest.0 = internal unnamed_addr global ptr null, align 8
 @Abc_NtkCompareAndSaveBest.ParsBest.1 = internal unnamed_addr global i32 0, align 8
-@Abc_NtkCompareAndSaveBest.ParsBest.2 = internal unnamed_addr global i32 0, align 8
-@Abc_NtkCompareAndSaveBest.ParsBest.4 = internal unnamed_addr global i32 0, align 8
+@Abc_NtkCompareAndSaveBest.ParsBest.2 = internal unnamed_addr global i32 0, align 4
+@Abc_NtkCompareAndSaveBest.ParsBest.4 = internal unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [11 x i8] c"_best.blif\00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"XMA stats:  \00", align 1
 @.str.3 = private unnamed_addr constant [22 x i8] c"Xor =%7d (%6.2f %%)  \00", align 1
@@ -193,9 +193,9 @@ define range(i32 0, 2) i32 @Abc_NtkCompareAndSaveBest(ptr noundef %0) local_unna
   store i32 %8, ptr @Abc_NtkCompareAndSaveBest.ParsNew.0, align 8
   %9 = getelementptr i8, ptr %0, i64 128
   %.val27 = load i32, ptr %9, align 8
-  store i32 %.val27, ptr @Abc_NtkCompareAndSaveBest.ParsNew.1, align 8
+  store i32 %.val27, ptr @Abc_NtkCompareAndSaveBest.ParsNew.1, align 4
   %10 = tail call i32 @Abc_NtkGetTotalFanins(ptr noundef nonnull %0) #19
-  store i32 %10, ptr @Abc_NtkCompareAndSaveBest.ParsNew.3, align 8
+  store i32 %10, ptr @Abc_NtkCompareAndSaveBest.ParsNew.3, align 4
   %11 = load ptr, ptr @Abc_NtkCompareAndSaveBest.ParsBest.0, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %32, label %13
@@ -218,14 +218,14 @@ define range(i32 0, 2) i32 @Abc_NtkCompareAndSaveBest(ptr noundef %0) local_unna
   br i1 %22, label %23, label %48
 
 23:                                               ; preds = %21
-  %24 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsBest.2, align 8
-  %25 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsNew.1, align 8
+  %24 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsBest.2, align 4
+  %25 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsNew.1, align 4
   %26 = icmp sgt i32 %24, %25
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %23
   %28 = icmp eq i32 %24, %25
-  %29 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsBest.4, align 8
+  %29 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsBest.4, align 4
   %30 = icmp sgt i32 %29, %10
   %or.cond = select i1 %28, i1 %30, i1 false
   br i1 %or.cond, label %31, label %48
@@ -242,10 +242,10 @@ define range(i32 0, 2) i32 @Abc_NtkCompareAndSaveBest(ptr noundef %0) local_unna
   store ptr %35, ptr @Abc_NtkCompareAndSaveBest.ParsBest.0, align 8
   %36 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsNew.0, align 8
   store i32 %36, ptr @Abc_NtkCompareAndSaveBest.ParsBest.1, align 8
-  %37 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsNew.1, align 8
-  store i32 %37, ptr @Abc_NtkCompareAndSaveBest.ParsBest.2, align 8
-  %38 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsNew.3, align 8
-  store i32 %38, ptr @Abc_NtkCompareAndSaveBest.ParsBest.4, align 8
+  %37 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsNew.1, align 4
+  store i32 %37, ptr @Abc_NtkCompareAndSaveBest.ParsBest.2, align 4
+  %38 = load i32, ptr @Abc_NtkCompareAndSaveBest.ParsNew.3, align 4
+  store i32 %38, ptr @Abc_NtkCompareAndSaveBest.ParsBest.4, align 4
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #20

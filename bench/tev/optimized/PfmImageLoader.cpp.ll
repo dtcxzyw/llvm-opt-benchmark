@@ -2085,19 +2085,19 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000E
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = icmp slt i64 %21, 1
-  %23 = call i64 @llvm.smax.i64(i64 %21, i64 1)
   invoke void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(136) %19)
-          to label %24 unwind label %.loopexit.split-lp
+          to label %23 unwind label %.loopexit.split-lp
 
-24:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit
-  %25 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
+23:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit
+  %24 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %.lr.ph unwind label %45
 
-.lr.ph:                                           ; preds = %24
+.lr.ph:                                           ; preds = %23
   call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %invariant.gep = getelementptr i8, ptr %0, i64 40
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
-  %smax = select i1 %22, i64 9223372036854775807, i64 %23
+  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = call i64 @llvm.smax.i64(i64 %21, i64 1)
+  %smax = select i1 %22, i64 9223372036854775807, i64 %26
   br label %27
 
 27:                                               ; preds = %.lr.ph, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcB8ne190000Ev.exit
@@ -2140,7 +2140,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcB8ne190000Ev.exit: ; pred
           catch ptr null
   br label %47
 
-45:                                               ; preds = %24
+45:                                               ; preds = %23
   %46 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
@@ -2179,7 +2179,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcB8ne190000Ev.exit: ; pred
   br i1 %66, label %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit, label %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.thread
 
 _ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit:         ; preds = %64
-  %67 = load ptr, ptr %26, align 8
+  %67 = load ptr, ptr %25, align 8
   %.mask = and i32 %.0.i41, 127
   %68 = zext nneg i32 %.mask to i64
   %69 = getelementptr inbounds i16, ptr %67, i64 %68

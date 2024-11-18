@@ -1659,8 +1659,8 @@ entry:
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !18
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
-  %3 = shl i64 %2, 1
   %shr.i.sink.i = lshr i64 %0, 1
+  %3 = shl i64 %2, 1
   %mul.i = select i1 %tobool.i.not.i, i64 2, i64 %3
   %cmp.i.i.i.i = icmp ugt i64 %mul.i, 192153584101141162
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl23inlined_vector_internal13MallocAdapterISaINS_15status_internal7PayloadEELb0EE8AllocateERS4_m.exit.i

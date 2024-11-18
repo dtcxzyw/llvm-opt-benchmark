@@ -4660,8 +4660,8 @@ _ZNKSt3mapIN5vcpkg13StringLiteralENS0_12DefineMetricESt4lessIS1_ESaISt4pairIKS1_
   %158 = trunc i8 %157 to i1
   %159 = getelementptr inbounds i8, ptr %1, i64 841
   %.val.i = load i8, ptr %159, align 1
-  %160 = and i8 %.val.i, 1
   %.sroa.gep876 = getelementptr inbounds i8, ptr %16, i64 496
+  %160 = and i8 %.val.i, 1
   %161 = select i1 %158, i8 %160, i8 0
   store i8 %161, ptr %.sroa.gep876, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)

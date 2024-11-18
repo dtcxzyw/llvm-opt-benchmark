@@ -3892,8 +3892,8 @@ _ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit: ; preds = %_ZNK
   resume { ptr, i32 } %.pn
 
 99:                                               ; preds = %84
-  %.sroa.2.0.insert.ext.i125.mux = select i1 %or.cond, i32 %88, i32 %87
-  %100 = icmp eq i32 %36, %.sroa.2.0.insert.ext.i125.mux
+  %.0101 = select i1 %or.cond, i32 %88, i32 %87
+  %100 = icmp eq i32 %36, %.0101
   br i1 %100, label %101, label %107
 
 101:                                              ; preds = %99
@@ -3912,7 +3912,7 @@ _ZN10open_spiel8quoridor13QuoridorState11SearchState16ClearSearchQueueEv.exit.th
   br label %._crit_edge
 
 107:                                              ; preds = %99
-  %108 = sub nsw i32 %36, %.sroa.2.0.insert.ext.i125.mux
+  %108 = sub nsw i32 %36, %.0101
   %109 = sub nsw i32 0, %108
   %110 = select i1 %37, i32 %109, i32 %108
   %111 = add nsw i32 %110, %70

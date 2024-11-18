@@ -17784,7 +17784,7 @@ define noundef zeroext i1 @"_ZN73_$LT$hir_expand..name..UnescapedDisplay$u20$as$
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !5, !noundef !4
   %5 = load i8, ptr %4, align 8, !range !260, !noundef !4
   %6 = icmp eq i8 %5, 26
-  br i1 %6, label %47, label %7
+  br i1 %6, label %43, label %7
 
 7:                                                ; preds = %2
   %8 = add nsw i8 %5, -24
@@ -17837,55 +17837,50 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit: ; pr
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit": ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hffb3447530e40bd1E.exit.i"
   %25 = phi ptr [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hffb3447530e40bd1E.exit.i" ], [ null, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit ]
   %26 = add i64 %.sroa.4.0.i, -2
-  %27 = insertvalue { ptr, i64 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i64 } %27, i64 %26, 1
   switch i8 %narrow.i, label %default.unreachable [
-    i8 0, label %29
-    i8 1, label %35
+    i8 0, label %27
+    i8 1, label %33
     i8 2, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i5"
   ]
 
-29:                                               ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit"
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
-  %31 = load ptr, ptr %30, align 8, !alias.scope !3987, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
-  %33 = load i64, ptr %32, align 8, !alias.scope !3987, !noundef !4
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+27:                                               ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit"
+  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = load ptr, ptr %28, align 8, !alias.scope !3987, !nonnull !4, !noundef !4
+  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %31 = load i64, ptr %30, align 8, !alias.scope !3987, !noundef !4
+  %32 = getelementptr inbounds i8, ptr %29, i64 16
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit9
 
-35:                                               ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit"
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  %37 = load ptr, ptr %36, align 8, !alias.scope !3987, !nonnull !4, !align !183, !noundef !4
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  %39 = load i64, ptr %38, align 8, !alias.scope !3987, !noundef !4
+33:                                               ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit"
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = load ptr, ptr %34, align 8, !alias.scope !3987, !nonnull !4, !align !183, !noundef !4
+  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = load i64, ptr %36, align 8, !alias.scope !3987, !noundef !4
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit9
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i5": ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit"
-  %40 = icmp samesign ult i8 %5, 24
-  tail call void @llvm.assume(i1 %40)
-  %41 = zext nneg i8 %5 to i64
-  %42 = getelementptr inbounds i8, ptr %4, i64 1
+  %38 = icmp samesign ult i8 %5, 24
+  tail call void @llvm.assume(i1 %38)
+  %39 = zext nneg i8 %5 to i64
+  %40 = getelementptr inbounds i8, ptr %4, i64 1
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit9
 
-_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit9: ; preds = %29, %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i5"
-  %.sroa.4.0.i6 = phi i64 [ %41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i5" ], [ %39, %35 ], [ %33, %29 ]
-  %.sroa.0.0.i7 = phi ptr [ %42, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i5" ], [ %37, %35 ], [ %34, %29 ]
-  %43 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i7, 0
-  %44 = insertvalue { ptr, i64 } %43, i64 %.sroa.4.0.i6, 1
-  %45 = icmp eq ptr %25, null
-  %.pn = select i1 %45, { ptr, i64 } %44, { ptr, i64 } %28
-  %.sroa.0.0 = select i1 %45, ptr %.sroa.0.0.i7, ptr %25
-  %.sroa.5.0 = extractvalue { ptr, i64 } %.pn, 1
-  %46 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.5.0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  br label %50
+_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit9: ; preds = %27, %33, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i5"
+  %.sroa.4.0.i6 = phi i64 [ %39, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i5" ], [ %37, %33 ], [ %31, %27 ]
+  %.sroa.0.0.i7 = phi ptr [ %40, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6a58d25bc9c1627eE.llvm.8462471242219372772.exit.i5" ], [ %35, %33 ], [ %32, %27 ]
+  %41 = icmp eq ptr %25, null
+  %.sroa.0.0 = select i1 %41, ptr %.sroa.0.0.i7, ptr %25
+  %.sroa.5.0 = select i1 %41, i64 %.sroa.4.0.i6, i64 %26
+  %42 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.5.0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  br label %46
 
-47:                                               ; preds = %2
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
-  %49 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %48, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  br label %50
+43:                                               ; preds = %2
+  %44 = getelementptr inbounds i8, ptr %4, i64 8
+  %45 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %44, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  br label %46
 
-50:                                               ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit9, %47
-  %.0.in = phi i1 [ %49, %47 ], [ %46, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit9 ]
+46:                                               ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit9, %43
+  %.0.in = phi i1 [ %45, %43 ], [ %42, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit9 ]
   ret i1 %.0.in
 }
 

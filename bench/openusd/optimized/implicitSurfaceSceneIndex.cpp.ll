@@ -18556,16 +18556,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %55 unwind label %60
 
 55:                                               ; preds = %53
-  %56 = fptrunc double %.05.i to float
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %54, ptr %4, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %58, align 8
-  %59 = select i1 %.not.i, float 1.000000e+00, float %56
+  %56 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %57, align 8
+  %58 = fptrunc double %.05.i to float
+  %59 = select i1 %.not.i, float 1.000000e+00, float %58
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27GeomUtilCuboidMeshGenerator19_GeneratePointsImplINS_7GfVec3fEEEvNT_10ScalarTypeES4_S4_RKNS_25GeomUtilMeshGeneratorBase12_PointWriterIS3_EE(float noundef %59, float noundef %59, float noundef %59, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %62 unwind label %60
 
@@ -23908,121 +23908,121 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %164
 
 164:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i16, %159, %146, %127
-  %165 = fptrunc double %.05.i to float
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc27 unwind label %227
 
 .noexc27:                                         ; preds = %164
-  %166 = load ptr, ptr %6, align 8
-  %.not.i18 = icmp eq ptr %166, null
-  br i1 %.not.i18, label %174, label %167
+  %165 = load ptr, ptr %6, align 8
+  %.not.i18 = icmp eq ptr %165, null
+  br i1 %.not.i18, label %173, label %166
 
-167:                                              ; preds = %.noexc27
-  %168 = load ptr, ptr %166, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 32
-  %170 = load ptr, ptr %169, align 8
-  %171 = invoke noundef double %170(ptr noundef nonnull align 8 dereferenceable(8) %166, float noundef %2)
-          to label %174 unwind label %172
+166:                                              ; preds = %.noexc27
+  %167 = load ptr, ptr %165, align 8
+  %168 = getelementptr inbounds i8, ptr %167, i64 32
+  %169 = load ptr, ptr %168, align 8
+  %170 = invoke noundef double %169(ptr noundef nonnull align 8 dereferenceable(8) %165, float noundef %2)
+          to label %173 unwind label %171
 
-172:                                              ; preds = %167
-  %173 = landingpad { ptr, i32 }
+171:                                              ; preds = %166
+  %172 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
   br label %.body
 
-174:                                              ; preds = %167, %.noexc27
-  %.05.i19 = phi double [ %171, %167 ], [ undef, %.noexc27 ]
-  %175 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %176 = load ptr, ptr %175, align 8
-  %.not.i.i.i.i20 = icmp eq ptr %176, null
-  br i1 %.not.i.i.i.i20, label %211, label %177
+173:                                              ; preds = %166, %.noexc27
+  %.05.i19 = phi double [ %170, %166 ], [ undef, %.noexc27 ]
+  %174 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %.not.i.i.i.i20 = icmp eq ptr %175, null
+  br i1 %.not.i.i.i.i20, label %210, label %176
 
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %179 = load atomic i64, ptr %178 acquire, align 8
-  %180 = icmp eq i64 %179, 4294967297
-  %181 = trunc i64 %179 to i32
-  br i1 %180, label %182, label %187
+176:                                              ; preds = %173
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %178 = load atomic i64, ptr %177 acquire, align 8
+  %179 = icmp eq i64 %178, 4294967297
+  %180 = trunc i64 %178 to i32
+  br i1 %179, label %181, label %186
 
-182:                                              ; preds = %177
-  store i32 0, ptr %178, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %176, i64 12
-  store i32 0, ptr %183, align 4
-  %184 = load ptr, ptr %176, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 16
-  %186 = load ptr, ptr %185, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(16) %176) #24
+181:                                              ; preds = %176
+  store i32 0, ptr %177, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %175, i64 12
+  store i32 0, ptr %182, align 4
+  %183 = load ptr, ptr %175, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 16
+  %185 = load ptr, ptr %184, align 8
+  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %175) #24
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i26
 
-187:                                              ; preds = %177
-  %188 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i21 = icmp eq i8 %188, 0
-  br i1 %.not.i.i.i.i.i21, label %191, label %189
+186:                                              ; preds = %176
+  %187 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i21 = icmp eq i8 %187, 0
+  br i1 %.not.i.i.i.i.i21, label %190, label %188
 
-189:                                              ; preds = %187
-  %190 = add nsw i32 %181, -1
-  store i32 %190, ptr %178, align 4
-  br label %193
+188:                                              ; preds = %186
+  %189 = add nsw i32 %180, -1
+  store i32 %189, ptr %177, align 4
+  br label %192
 
-191:                                              ; preds = %187
-  %192 = atomicrmw volatile add ptr %178, i32 -1 acq_rel, align 4
-  br label %193
+190:                                              ; preds = %186
+  %191 = atomicrmw volatile add ptr %177, i32 -1 acq_rel, align 4
+  br label %192
 
-193:                                              ; preds = %191, %189
-  %.0.i.i.i.i.i22 = phi i32 [ %181, %189 ], [ %192, %191 ]
-  %194 = icmp eq i32 %.0.i.i.i.i.i22, 1
-  br i1 %194, label %195, label %211
+192:                                              ; preds = %190, %188
+  %.0.i.i.i.i.i22 = phi i32 [ %180, %188 ], [ %191, %190 ]
+  %193 = icmp eq i32 %.0.i.i.i.i.i22, 1
+  br i1 %193, label %194, label %210
 
-195:                                              ; preds = %193
-  %196 = load ptr, ptr %176, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 16
-  %198 = load ptr, ptr %197, align 8
-  call void %198(ptr noundef nonnull align 8 dereferenceable(16) %176) #24
-  %199 = getelementptr inbounds nuw i8, ptr %176, i64 12
-  %200 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i24 = icmp eq i8 %200, 0
-  br i1 %.not.i.i.i.i.i.i.i24, label %204, label %201
+194:                                              ; preds = %192
+  %195 = load ptr, ptr %175, align 8
+  %196 = getelementptr inbounds i8, ptr %195, i64 16
+  %197 = load ptr, ptr %196, align 8
+  call void %197(ptr noundef nonnull align 8 dereferenceable(16) %175) #24
+  %198 = getelementptr inbounds nuw i8, ptr %175, i64 12
+  %199 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i24 = icmp eq i8 %199, 0
+  br i1 %.not.i.i.i.i.i.i.i24, label %203, label %200
 
-201:                                              ; preds = %195
-  %202 = load i32, ptr %199, align 4
-  %203 = add nsw i32 %202, -1
-  store i32 %203, ptr %199, align 4
-  br label %206
+200:                                              ; preds = %194
+  %201 = load i32, ptr %198, align 4
+  %202 = add nsw i32 %201, -1
+  store i32 %202, ptr %198, align 4
+  br label %205
 
-204:                                              ; preds = %195
-  %205 = atomicrmw volatile add ptr %199, i32 -1 acq_rel, align 4
-  br label %206
+203:                                              ; preds = %194
+  %204 = atomicrmw volatile add ptr %198, i32 -1 acq_rel, align 4
+  br label %205
 
-206:                                              ; preds = %204, %201
-  %.0.i.i.i.i.i.i.i25 = phi i32 [ %202, %201 ], [ %205, %204 ]
-  %207 = icmp eq i32 %.0.i.i.i.i.i.i.i25, 1
-  br i1 %207, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i26, label %211
+205:                                              ; preds = %203, %200
+  %.0.i.i.i.i.i.i.i25 = phi i32 [ %201, %200 ], [ %204, %203 ]
+  %206 = icmp eq i32 %.0.i.i.i.i.i.i.i25, 1
+  br i1 %206, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i26, label %210
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i26: ; preds = %206, %182
-  %208 = load ptr, ptr %176, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 24
-  %210 = load ptr, ptr %209, align 8
-  call void %210(ptr noundef nonnull align 8 dereferenceable(16) %176) #24
-  br label %211
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i26: ; preds = %205, %181
+  %207 = load ptr, ptr %175, align 8
+  %208 = getelementptr inbounds i8, ptr %207, i64 24
+  %209 = load ptr, ptr %208, align 8
+  call void %209(ptr noundef nonnull align 8 dereferenceable(16) %175) #24
+  br label %210
 
-211:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i26, %206, %193, %174
-  %212 = fptrunc double %.05.i19 to float
+210:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i26, %205, %192, %173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %117, ptr %4, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %9, ptr %213, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %9, ptr %211, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE23_TransformAndWritePointIPS2_EEvRKS2_ to i64), ptr %5, align 8
-  %214 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %214, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %215, align 8
-  %216 = select i1 %.not.i18, float 1.000000e+00, float %212
-  %217 = select i1 %.not.i10, float 1.000000e+00, float %165
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__25GeomUtilConeMeshGenerator19_GeneratePointsImplINS_7GfVec3fEEEvmNT_10ScalarTypeES4_S4_RKNS_25GeomUtilMeshGeneratorBase12_PointWriterIS3_EE(i64 noundef 10, float noundef %217, float noundef %216, float noundef 3.600000e+02, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %212 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %212, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %213, align 8
+  %214 = fptrunc double %.05.i19 to float
+  %215 = select i1 %.not.i18, float 1.000000e+00, float %214
+  %216 = fptrunc double %.05.i to float
+  %217 = select i1 %.not.i10, float 1.000000e+00, float %216
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__25GeomUtilConeMeshGenerator19_GeneratePointsImplINS_7GfVec3fEEEvmNT_10ScalarTypeES4_S4_RKNS_25GeomUtilMeshGeneratorBase12_PointWriterIS3_EE(i64 noundef 10, float noundef %217, float noundef %215, float noundef 3.600000e+02, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %229 unwind label %227
 
 218:                                              ; preds = %89, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource8_GetAxisEf.exit
@@ -24040,17 +24040,17 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %226 = atomicrmw sub ptr %225, i32 2 release, align 4
   br label %common.resume
 
-227:                                              ; preds = %211, %164, %118, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
+227:                                              ; preds = %210, %164, %118, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   %228 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %227, %172, %125
-  %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %228, %227 ], [ %173, %172 ]
+.body:                                            ; preds = %227, %171, %125
+  %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %228, %227 ], [ %172, %171 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   br label %common.resume
 
-229:                                              ; preds = %211
+229:                                              ; preds = %210
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret void
@@ -25431,8 +25431,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource22_GetHeightOffsetMatrixEf.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource22_GetHeightOffsetMatrixEf.exit: ; preds = %20, %39, %52, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  %57 = fmul double %.05.i.i, -5.000000e-01
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !184
+  %57 = fmul double %.05.i.i, -5.000000e-01
   %58 = select i1 %.not.i.i, double -5.000000e-01, double %57
   %59 = getelementptr inbounds i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !184
@@ -29202,19 +29202,19 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %355
 
 355:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i52, %350, %337, %318
-  %356 = fptrunc double %.05.i to float
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %120, ptr %4, align 8
-  %357 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %12, ptr %357, align 8
+  %356 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %12, ptr %356, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE23_TransformAndWritePointIPS2_EEvRKS2_ to i64), ptr %5, align 8
-  %358 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %358, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %359, align 8
-  %360 = select i1 %.not.i45, float 2.000000e+00, float %356
+  %357 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %357, align 8
+  %358 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %358, align 8
+  %359 = fptrunc double %.05.i to float
+  %360 = select i1 %.not.i45, float 2.000000e+00, float %359
   %361 = fptrunc double %.110.i28 to float
   %362 = fptrunc double %.110.i to float
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator19_GeneratePointsImplINS_7GfVec3fEEEvmNT_10ScalarTypeES4_S4_S4_RKNS_25GeomUtilMeshGeneratorBase12_PointWriterIS3_EE(i64 noundef 10, float noundef %362, float noundef %361, float noundef %360, float noundef 3.600000e+02, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -32787,17 +32787,17 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %55
 
 55:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %50, %37, %18
-  %56 = fptrunc double %.05.i to float
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %8, ptr %4, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %58, align 8
-  %59 = select i1 %.not.i, float 1.000000e+00, float %56
+  %56 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %57, align 8
+  %58 = fptrunc double %.05.i to float
+  %59 = select i1 %.not.i, float 1.000000e+00, float %58
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27GeomUtilSphereMeshGenerator19_GeneratePointsImplINS_7GfVec3fEEEvmmNT_10ScalarTypeES4_RKNS_25GeomUtilMeshGeneratorBase12_PointWriterIS3_EE(i64 noundef 10, i64 noundef 10, float noundef %59, float noundef 3.600000e+02, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %62 unwind label %60
 
@@ -35333,19 +35333,19 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %355
 
 355:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i52, %350, %337, %318
-  %356 = fptrunc double %.05.i to float
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %120, ptr %4, align 8
-  %357 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %12, ptr %357, align 8
+  %356 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %12, ptr %356, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE23_TransformAndWritePointIPS2_EEvRKS2_ to i64), ptr %5, align 8
-  %358 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %358, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %359, align 8
-  %360 = select i1 %.not.i45, float 1.000000e+00, float %356
+  %357 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %357, align 8
+  %358 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %358, align 8
+  %359 = fptrunc double %.05.i to float
+  %360 = select i1 %.not.i45, float 1.000000e+00, float %359
   %361 = fptrunc double %.110.i28 to float
   %362 = fptrunc double %.110.i to float
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator19_GeneratePointsImplINS_7GfVec3fEEEvmmNT_10ScalarTypeES4_S4_S4_RKNS_25GeomUtilMeshGeneratorBase12_PointWriterIS3_EE(i64 noundef 10, i64 noundef 4, float noundef %362, float noundef %361, float noundef %360, float noundef 3.600000e+02, ptr noundef nonnull align 8 dereferenceable(32) %5)

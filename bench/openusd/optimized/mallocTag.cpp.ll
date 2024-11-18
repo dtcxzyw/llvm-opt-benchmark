@@ -4668,8 +4668,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA37_S3_EEEOT_D
   br label %.preheader14.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader14.i.i.i
-  %19 = ptrtoint ptr %.ptr12.i.i.i to i64
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %20 = ptrtoint ptr %.ptr12.i.i.i to i64
   br label %23
 
 .preheader14.i.i.i:                               ; preds = %.preheader14.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA37_S3_EEEOT_DpOT0_.exit
@@ -4685,8 +4685,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA37_S3_EEEOT_D
 23:                                               ; preds = %23, %.preheader.i.i.i
   %.01016.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %27, %23 ]
   %24 = icmp eq i64 %.01016.i.i.i, 0
-  %25 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %20, i64 0, i64 %.01016.i.i.i
-  %26 = select i1 %24, i64 %19, i64 0
+  %25 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %19, i64 0, i64 %.01016.i.i.i
+  %26 = select i1 %24, i64 %20, i64 0
   store atomic i64 %26, ptr %25 monotonic, align 8
   %27 = add nuw nsw i64 %.01016.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %27, 64
@@ -4728,7 +4728,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock12AcquireWriteEv.
 
 47:                                               ; preds = %47, %30
   %.02026.i.i.i = phi i64 [ 1, %30 ], [ %52, %47 ]
-  %48 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %20, i64 0, i64 %.02026.i.i.i
+  %48 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %19, i64 0, i64 %.02026.i.i.i
   %49 = load atomic i64, ptr %48 monotonic, align 8
   %50 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %46, i64 0, i64 %.02026.i.i.i
   %51 = load atomic i64, ptr %50 monotonic, align 8
@@ -4779,7 +4779,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit: ; pred
   %69 = shl nuw i64 1, %68
   %70 = and i64 %69, -2
   %71 = sub i64 %.0.i.i.i.i.i.i.i, %70
-  %72 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %20, i64 0, i64 %68
+  %72 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %19, i64 0, i64 %68
   %73 = load atomic i64, ptr %72 acquire, align 8, !noalias !82
   %.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %73 to ptr
   %74 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const void *const, pxrInternal_v0_24__pxrReserved__::TfMallocTag::CallStackInfo>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i.i.i.i, i64 %71
@@ -4900,7 +4900,7 @@ _ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpO
   %122 = shl nuw i64 1, %121
   %123 = and i64 %122, -2
   %124 = sub i64 %.0.i.i.i, %123
-  %125 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %20, i64 0, i64 %121
+  %125 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %19, i64 0, i64 %121
   %126 = load atomic i64, ptr %125 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %126 to ptr
   %127 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const void *const, pxrInternal_v0_24__pxrReserved__::TfMallocTag::CallStackInfo>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i, i64 %124
@@ -6362,8 +6362,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIPKNS_17Tf_MallocPathNode
   br label %.preheader14.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader14.i.i.i
-  %57 = ptrtoint ptr %.ptr12.i.i.i to i64
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %58 = ptrtoint ptr %.ptr12.i.i.i to i64
   br label %61
 
 .preheader14.i.i.i:                               ; preds = %.preheader14.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIPKNS_17Tf_MallocPathNodeESt6vectorIS4_SaIS4_EESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS0_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit
@@ -6379,8 +6379,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIPKNS_17Tf_MallocPathNode
 61:                                               ; preds = %61, %.preheader.i.i.i
   %.01016.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %65, %61 ]
   %62 = icmp eq i64 %.01016.i.i.i, 0
-  %63 = getelementptr inbounds [64 x %"struct.std::atomic.27"], ptr %58, i64 0, i64 %.01016.i.i.i
-  %64 = select i1 %62, i64 %57, i64 0
+  %63 = getelementptr inbounds [64 x %"struct.std::atomic.27"], ptr %57, i64 0, i64 %.01016.i.i.i
+  %64 = select i1 %62, i64 %58, i64 0
   store atomic i64 %64, ptr %63 monotonic, align 8
   %65 = add nuw nsw i64 %.01016.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %65, 64
@@ -6426,7 +6426,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPKcPN32pxrInternal_v0_24__pxrReserved__17
   %83 = shl nuw i64 1, %82
   %84 = and i64 %83, -2
   %85 = sub i64 %.0.i.i.i.i.i.i.i, %84
-  %86 = getelementptr inbounds [64 x %"struct.std::atomic.27"], ptr %58, i64 0, i64 %82
+  %86 = getelementptr inbounds [64 x %"struct.std::atomic.27"], ptr %57, i64 0, i64 %82
   %87 = load atomic i64, ptr %86 acquire, align 8, !noalias !94
   %.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %87 to ptr
   %88 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const char *const, pxrInternal_v0_24__pxrReserved__::Tf_MallocCallSite *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i.i.i.i, i64 %85
@@ -6572,7 +6572,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_MallocCallSiteD2Ev.exit: ; preds = %12
   %136 = shl nuw i64 1, %135
   %137 = and i64 %136, -2
   %138 = sub i64 %.0.i.i.i, %137
-  %139 = getelementptr inbounds [64 x %"struct.std::atomic.27"], ptr %58, i64 0, i64 %135
+  %139 = getelementptr inbounds [64 x %"struct.std::atomic.27"], ptr %57, i64 0, i64 %135
   %140 = load atomic i64, ptr %139 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %140 to ptr
   %141 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const char *const, pxrInternal_v0_24__pxrReserved__::Tf_MallocCallSite *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i, i64 %138
@@ -6647,7 +6647,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIN3tbb6detail2d219concurrent_ha
 
 163:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPKcPN32pxrInternal_v0_24__pxrReserved__17Tf_MallocCallSiteEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i, %158
   %.038.i.i = phi i64 [ %162, %158 ], [ %182, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPKcPN32pxrInternal_v0_24__pxrReserved__17Tf_MallocCallSiteEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i ]
-  %164 = getelementptr inbounds [64 x %"struct.std::atomic.27"], ptr %58, i64 0, i64 %.038.i.i
+  %164 = getelementptr inbounds [64 x %"struct.std::atomic.27"], ptr %57, i64 0, i64 %.038.i.i
   %165 = load atomic i64, ptr %164 monotonic, align 8
   %.0.i.i.i67 = inttoptr i64 %165 to ptr
   %166 = call i64 @llvm.umax.i64(i64 %.038.i.i, i64 1)
@@ -7097,8 +7097,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_MallocGlobal
   br label %.preheader14.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader14.i.i.i
-  %5 = ptrtoint ptr %.ptr12.i.i.i to i64
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %6 = ptrtoint ptr %.ptr12.i.i.i to i64
   br label %9
 
 .preheader14.i.i.i:                               ; preds = %.preheader14.i.i.i, %1
@@ -7114,8 +7114,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_MallocGlobal
 9:                                                ; preds = %9, %.preheader.i.i.i
   %.01016.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %13, %9 ]
   %10 = icmp eq i64 %.01016.i.i.i, 0
-  %11 = getelementptr inbounds [64 x %"struct.std::atomic.23"], ptr %6, i64 0, i64 %.01016.i.i.i
-  %12 = select i1 %10, i64 %5, i64 0
+  %11 = getelementptr inbounds [64 x %"struct.std::atomic.23"], ptr %5, i64 0, i64 %.01016.i.i.i
+  %12 = select i1 %10, i64 %6, i64 0
   store atomic i64 %12, ptr %11 monotonic, align 8
   %13 = add nuw nsw i64 %.01016.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %13, 64
@@ -7133,8 +7133,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_MallocGlobal
 
 .preheader.i.i.i18:                               ; preds = %.preheader14.i.i.i13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = ptrtoint ptr %.ptr12.i.i.i12 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %20 = ptrtoint ptr %.ptr12.i.i.i12 to i64
   br label %23
 
 .preheader14.i.i.i13:                             ; preds = %.preheader14.i.i.i13, %14
@@ -7150,8 +7150,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_MallocGlobal
 23:                                               ; preds = %23, %.preheader.i.i.i18
   %.01016.i.i.i19 = phi i64 [ 0, %.preheader.i.i.i18 ], [ %27, %23 ]
   %24 = icmp eq i64 %.01016.i.i.i19, 0
-  %25 = getelementptr inbounds [64 x %"struct.std::atomic.27"], ptr %20, i64 0, i64 %.01016.i.i.i19
-  %26 = select i1 %24, i64 %19, i64 0
+  %25 = getelementptr inbounds [64 x %"struct.std::atomic.27"], ptr %19, i64 0, i64 %.01016.i.i.i19
+  %26 = select i1 %24, i64 %20, i64 0
   store atomic i64 %26, ptr %25 monotonic, align 8
   %27 = add nuw nsw i64 %.01016.i.i.i19, 1
   %exitcond.not.i.i.i20 = icmp eq i64 %27, 64
@@ -7167,8 +7167,8 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPKcPN32pxrInternal_v0_24__pxrReserved__17
   br label %.preheader14.i.i.i22
 
 .preheader.i.i.i27:                               ; preds = %.preheader14.i.i.i22
-  %31 = ptrtoint ptr %.ptr12.i.i.i21 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  %32 = ptrtoint ptr %.ptr12.i.i.i21 to i64
   br label %35
 
 .preheader14.i.i.i22:                             ; preds = %.preheader14.i.i.i22, %_ZN3tbb6detail2d219concurrent_hash_mapIPKcPN32pxrInternal_v0_24__pxrReserved__17Tf_MallocCallSiteENS5_12_GLOBAL__N_111_HashEqCStrENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit
@@ -7184,8 +7184,8 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPKcPN32pxrInternal_v0_24__pxrReserved__17
 35:                                               ; preds = %35, %.preheader.i.i.i27
   %.01016.i.i.i28 = phi i64 [ 0, %.preheader.i.i.i27 ], [ %39, %35 ]
   %36 = icmp eq i64 %.01016.i.i.i28, 0
-  %37 = getelementptr inbounds [64 x %"struct.std::atomic.32"], ptr %32, i64 0, i64 %.01016.i.i.i28
-  %38 = select i1 %36, i64 %31, i64 0
+  %37 = getelementptr inbounds [64 x %"struct.std::atomic.32"], ptr %31, i64 0, i64 %.01016.i.i.i28
+  %38 = select i1 %36, i64 %32, i64 0
   store atomic i64 %38, ptr %37 monotonic, align 8
   %39 = add nuw nsw i64 %.01016.i.i.i28, 1
   %exitcond.not.i.i.i29 = icmp eq i64 %39, 64
@@ -7211,8 +7211,8 @@ _ZN3tbb6detail2d219concurrent_hash_mapISt4pairIPN32pxrInternal_v0_24__pxrReserve
   br label %.preheader14.i.i.i31
 
 .preheader.i.i.i36:                               ; preds = %.preheader14.i.i.i31
-  %47 = ptrtoint ptr %.ptr12.i.i.i30 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1872
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1872
+  %48 = ptrtoint ptr %.ptr12.i.i.i30 to i64
   br label %51
 
 .preheader14.i.i.i31:                             ; preds = %.preheader14.i.i.i31, %44
@@ -7228,8 +7228,8 @@ _ZN3tbb6detail2d219concurrent_hash_mapISt4pairIPN32pxrInternal_v0_24__pxrReserve
 51:                                               ; preds = %51, %.preheader.i.i.i36
   %.01016.i.i.i37 = phi i64 [ 0, %.preheader.i.i.i36 ], [ %55, %51 ]
   %52 = icmp eq i64 %.01016.i.i.i37, 0
-  %53 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %48, i64 0, i64 %.01016.i.i.i37
-  %54 = select i1 %52, i64 %47, i64 0
+  %53 = getelementptr inbounds [64 x %"struct.std::atomic.37"], ptr %47, i64 0, i64 %.01016.i.i.i37
+  %54 = select i1 %52, i64 %48, i64 0
   store atomic i64 %54, ptr %53 monotonic, align 8
   %55 = add nuw nsw i64 %.01016.i.i.i37, 1
   %exitcond.not.i.i.i38 = icmp eq i64 %55, 64

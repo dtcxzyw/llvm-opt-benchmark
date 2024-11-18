@@ -1715,15 +1715,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %25 = load double, ptr %24, align 8
   %26 = sitofp i32 %23 to double
   %27 = fdiv double %25, %26
-  %28 = bitcast double %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %30, %32
-  %34 = inttoptr i64 %28 to ptr
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %29, %31
+  %33 = bitcast double %27 to i64
+  %34 = inttoptr i64 %33 to ptr
   %35 = select i1 %.not16, ptr null, ptr %34
-  br i1 %33, label %36, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE130560EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_130560EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
+  br i1 %32, label %36, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE130560EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_130560EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
 
 36:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #29
@@ -1749,7 +1749,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %40 = icmp eq i32 %39, -1
   %narrow = select i1 %40, i32 0, i32 %39
   %spec.select = sext i32 %narrow to i64
-  %41 = getelementptr inbounds double, ptr %30, i64 %spec.select
+  %41 = getelementptr inbounds double, ptr %29, i64 %spec.select
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %41, align 8, !noalias !15
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %4, align 8, !noalias !15
@@ -1813,7 +1813,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24: ; 
 67:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #29
-  br i1 %33, label %68, label %69
+  br i1 %32, label %68, label %69
 
 68:                                               ; preds = %67
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #29
@@ -1848,7 +1848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24: ; 
 
 .body22:                                          ; preds = %74, %76
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %75, %74 ]
-  br i1 %33, label %78, label %.body
+  br i1 %32, label %78, label %.body
 
 78:                                               ; preds = %.body22.thread, %.body22
   %.pn35 = phi { ptr, i32 } [ %38, %.body22.thread ], [ %.pn, %.body22 ]

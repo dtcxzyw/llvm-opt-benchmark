@@ -15581,8 +15581,8 @@ _ZNK4llvm10DILocation7getFileEv.exit260.i:        ; preds = %_ZNK4llvm6MDNode10g
   %1272 = getelementptr inbounds nuw i8, ptr %1197, i64 48
   %1273 = load i32, ptr %1272, align 8
   %.not233.i = icmp eq i32 %1273, 0
-  %1274 = select i1 %.not233.i, i32 %1270, i32 %1273
-  %1275 = call i32 @llvm.umin.i32(i32 %1270, i32 %1274)
+  %1274 = call i32 @llvm.umin.i32(i32 %1270, i32 %1273)
+  %1275 = select i1 %.not233.i, i32 %1270, i32 %1274
   store i32 %1275, ptr %1272, align 8
   br label %1276
 

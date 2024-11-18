@@ -2703,15 +2703,14 @@ cond.end133:                                      ; preds = %cond.false130, %con
   store float %cond146, ptr %m_motorERP.i, align 4
   %27 = add nuw nsw i64 %indvars.iv, 1
   %rem.cmp.not = icmp eq i64 %indvars.iv, 2
-  %28 = and i64 %27, 4294967295
   %rem149.cmp = icmp eq i64 %indvars.iv, 0
-  %29 = add i64 %indvars.iv, 4294967295
-  %30 = and i64 %29, 4294967295
-  %idxprom150 = select i1 %rem.cmp.not, i64 0, i64 %28
+  %28 = add i64 %indvars.iv, 4294967295
+  %29 = and i64 %27, 4294967295
+  %idxprom150 = select i1 %rem.cmp.not, i64 0, i64 %29
   %arrayidx151 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %idxprom150
   %m_currentLimit152 = getelementptr inbounds i8, ptr %arrayidx151, i64 84
-  %31 = load i32, ptr %m_currentLimit152, align 4
-  switch i32 %31, label %lor.end196.fold.split [
+  %30 = load i32, ptr %m_currentLimit152, align 4
+  switch i32 %30, label %lor.end196.fold.split [
     i32 1, label %lor.end196
     i32 2, label %lor.end196
     i32 3, label %land.lhs.true
@@ -2720,23 +2719,23 @@ cond.end133:                                      ; preds = %cond.false130, %con
 
 land.lhs.true:                                    ; preds = %cond.end133
   %m_currentLimitError169 = getelementptr inbounds i8, ptr %arrayidx151, i64 72
-  %32 = load float, ptr %m_currentLimitError169, align 8
-  %33 = tail call float @llvm.fabs.f32(float %32)
-  %34 = fpext float %33 to double
-  %or.cond = fcmp ogt double %34, 1.000000e-03
+  %31 = load float, ptr %m_currentLimitError169, align 8
+  %32 = tail call float @llvm.fabs.f32(float %31)
+  %33 = fpext float %32 to double
+  %or.cond = fcmp ogt double %33, 1.000000e-03
   br label %lor.end196
 
 land.rhs:                                         ; preds = %cond.end133
   %m_currentLimitError186 = getelementptr inbounds i8, ptr %arrayidx151, i64 72
-  %35 = load float, ptr %m_currentLimitError186, align 8
-  %conv187 = fpext float %35 to double
+  %34 = load float, ptr %m_currentLimitError186, align 8
+  %conv187 = fpext float %34 to double
   %cmp188 = fcmp olt double %conv187, -1.000000e-03
   br i1 %cmp188, label %lor.end196, label %lor.rhs189
 
 lor.rhs189:                                       ; preds = %land.rhs
   %m_currentLimitErrorHi193 = getelementptr inbounds i8, ptr %arrayidx151, i64 76
-  %36 = load float, ptr %m_currentLimitErrorHi193, align 4
-  %conv194 = fpext float %36 to double
+  %35 = load float, ptr %m_currentLimitErrorHi193, align 4
+  %conv194 = fpext float %35 to double
   %cmp195 = fcmp ogt double %conv194, 1.000000e-03
   br label %lor.end196
 
@@ -2744,8 +2743,9 @@ lor.end196.fold.split:                            ; preds = %cond.end133
   br label %lor.end196
 
 lor.end196:                                       ; preds = %land.lhs.true, %cond.end133, %cond.end133, %lor.end196.fold.split, %lor.rhs189, %land.rhs
-  %37 = phi i1 [ true, %cond.end133 ], [ true, %land.rhs ], [ %cmp195, %lor.rhs189 ], [ true, %cond.end133 ], [ %or.cond, %land.lhs.true ], [ false, %lor.end196.fold.split ]
-  %idxprom199 = select i1 %rem149.cmp, i64 2, i64 %30
+  %36 = phi i1 [ true, %cond.end133 ], [ true, %land.rhs ], [ %cmp195, %lor.rhs189 ], [ true, %cond.end133 ], [ %or.cond, %land.lhs.true ], [ false, %lor.end196.fold.split ]
+  %37 = and i64 %28, 4294967295
+  %idxprom199 = select i1 %rem149.cmp, i64 2, i64 %37
   %arrayidx200 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %idxprom199
   %m_currentLimit201 = getelementptr inbounds i8, ptr %arrayidx200, i64 84
   %38 = load i32, ptr %m_currentLimit201, align 4
@@ -2784,7 +2784,7 @@ lor.end251.thread:                                ; preds = %lor.end196, %lor.en
 
 lor.end251.thread60:                              ; preds = %lor.end196, %land.lhs.true215, %lor.end251, %lor.end251.thread
   %44 = phi i32 [ 0, %lor.end251.thread ], [ 1, %lor.end251 ], [ 1, %land.lhs.true215 ], [ 1, %lor.end196 ]
-  %rotAllowed.0 = select i1 %37, i32 %44, i32 1
+  %rotAllowed.0 = select i1 %36, i32 %44, i32 1
   %call257 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull %limot, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.addr.063, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 0, i32 noundef %rotAllowed.0)
   %add258 = add nsw i32 %call257, %row.addr.063
   br label %for.inc

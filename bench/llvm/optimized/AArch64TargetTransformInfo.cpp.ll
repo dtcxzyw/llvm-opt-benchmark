@@ -36512,8 +36512,8 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit103:    ; preds = %_ZN4llvmmlERKNS_15I
   %.fca.0.extract29 = extractvalue { i64, i32 } %.fr, 0
   %.fca.1.extract30 = extractvalue { i64, i32 } %.fr, 1
   %.not.i.not = icmp eq i32 %6, 0
-  %39 = select i1 %.not.i.not, i64 0, i64 %22
-  %.0.i.i108 = tail call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract29, i64 %39)
+  %39 = tail call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract29, i64 %22)
+  %.0.i.i108 = select i1 %.not.i.not, i64 %.fca.0.extract29, i64 %39
   %40 = icmp eq i32 %.fca.1.extract30, 1
   br label %41
 

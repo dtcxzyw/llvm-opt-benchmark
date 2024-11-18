@@ -6415,43 +6415,43 @@ sw.bb44:                                          ; preds = %if.end40
   %t45.sroa.4.0.extract.shift = lshr i16 %31, 8
   %add.ptr46 = getelementptr inbounds i8, ptr %30, i64 2
   store ptr %add.ptr46, ptr %pCur, align 8
-  %spec.select = select i1 %p_bBE, i16 %31, i16 %t45.sroa.4.0.extract.shift
-  %spec.select70.v = select i1 %p_bBE, i16 %t45.sroa.4.0.extract.shift, i16 %31
-  %t45.sroa.4.0.insert.ext = shl i16 %spec.select, 8
-  %t45.sroa.0.0.insert.ext = and i16 %spec.select70.v, 255
-  %t45.sroa.0.0.insert.insert = or disjoint i16 %t45.sroa.4.0.insert.ext, %t45.sroa.0.0.insert.ext
+  %32 = and i16 %31, 255
+  %t45.sroa.4.0.insert.ext = select i1 %p_bBE, i16 %32, i16 %t45.sroa.4.0.extract.shift
+  %t45.sroa.4.0.insert.shift = shl nuw i16 %t45.sroa.4.0.insert.ext, 8
+  %t45.sroa.0.0.insert.ext = select i1 %p_bBE, i16 %t45.sroa.4.0.extract.shift, i16 %32
+  %t45.sroa.0.0.insert.insert = or disjoint i16 %t45.sroa.4.0.insert.shift, %t45.sroa.0.0.insert.ext
   %conv50 = zext i16 %t45.sroa.0.0.insert.insert to i32
   store i32 %conv50, ptr %out, align 8
   br label %sw.epilog85
 
 sw.bb51:                                          ; preds = %if.end40
-  %32 = load ptr, ptr %pCur, align 8
-  %t52.0.copyload = load i8, ptr %32, align 1
-  %add.ptr53 = getelementptr inbounds i8, ptr %32, i64 1
+  %33 = load ptr, ptr %pCur, align 8
+  %t52.0.copyload = load i8, ptr %33, align 1
+  %add.ptr53 = getelementptr inbounds i8, ptr %33, i64 1
   store ptr %add.ptr53, ptr %pCur, align 8
   %conv54 = zext i8 %t52.0.copyload to i32
   store i32 %conv54, ptr %out, align 8
   br label %sw.epilog85
 
 sw.bb55:                                          ; preds = %if.end40
-  %33 = load ptr, ptr %pCur, align 8
-  %34 = load i32, ptr %33, align 1
-  %t56.sroa.4.0.extract.shift = lshr i32 %34, 8
-  %t56.sroa.6.0.extract.shift = lshr i32 %34, 16
-  %t56.sroa.8.0.extract.shift = lshr i32 %34, 24
-  %add.ptr57 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = load ptr, ptr %pCur, align 8
+  %35 = load i32, ptr %34, align 1
+  %t56.sroa.4.0.extract.shift = lshr i32 %35, 8
+  %t56.sroa.6.0.extract.shift = lshr i32 %35, 16
+  %t56.sroa.8.0.extract.shift = lshr i32 %35, 24
+  %add.ptr57 = getelementptr inbounds i8, ptr %34, i64 4
   store ptr %add.ptr57, ptr %pCur, align 8
   br i1 %p_bBE, label %if.then59, label %if.end60
 
 if.then59:                                        ; preds = %sw.bb55
-  %35 = and i32 %34, 255
+  %36 = and i32 %35, 255
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then59, %sw.bb55
-  %t56.sroa.8.0 = phi i32 [ %35, %if.then59 ], [ %t56.sroa.8.0.extract.shift, %sw.bb55 ]
+  %t56.sroa.8.0 = phi i32 [ %36, %if.then59 ], [ %t56.sroa.8.0.extract.shift, %sw.bb55 ]
   %t56.sroa.6.0 = phi i32 [ %t56.sroa.4.0.extract.shift, %if.then59 ], [ %t56.sroa.6.0.extract.shift, %sw.bb55 ]
   %t56.sroa.4.0.in = phi i32 [ %t56.sroa.6.0.extract.shift, %if.then59 ], [ %t56.sroa.4.0.extract.shift, %sw.bb55 ]
-  %t56.sroa.0.0.in = phi i32 [ %t56.sroa.8.0.extract.shift, %if.then59 ], [ %34, %sw.bb55 ]
+  %t56.sroa.0.0.in = phi i32 [ %t56.sroa.8.0.extract.shift, %if.then59 ], [ %35, %sw.bb55 ]
   %t56.sroa.8.0.insert.shift = shl nuw i32 %t56.sroa.8.0, 24
   %t56.sroa.6.0.insert.ext = shl i32 %t56.sroa.6.0, 16
   %t56.sroa.6.0.insert.shift = and i32 %t56.sroa.6.0.insert.ext, 16711680
@@ -6465,53 +6465,53 @@ if.end60:                                         ; preds = %if.then59, %sw.bb55
   br label %sw.epilog85
 
 sw.bb61:                                          ; preds = %if.end40
-  %36 = load ptr, ptr %pCur, align 8
-  %37 = load i16, ptr %36, align 1
-  %t62.sroa.4.0.extract.shift = lshr i16 %37, 8
-  %add.ptr63 = getelementptr inbounds i8, ptr %36, i64 2
+  %37 = load ptr, ptr %pCur, align 8
+  %38 = load i16, ptr %37, align 1
+  %t62.sroa.4.0.extract.shift = lshr i16 %38, 8
+  %add.ptr63 = getelementptr inbounds i8, ptr %37, i64 2
   store ptr %add.ptr63, ptr %pCur, align 8
-  %spec.select71 = select i1 %p_bBE, i16 %37, i16 %t62.sroa.4.0.extract.shift
-  %spec.select72.v = select i1 %p_bBE, i16 %t62.sroa.4.0.extract.shift, i16 %37
-  %t62.sroa.4.0.insert.ext = shl i16 %spec.select71, 8
-  %t62.sroa.0.0.insert.ext = and i16 %spec.select72.v, 255
-  %t62.sroa.0.0.insert.insert = or disjoint i16 %t62.sroa.4.0.insert.ext, %t62.sroa.0.0.insert.ext
+  %39 = and i16 %38, 255
+  %t62.sroa.4.0.insert.ext = select i1 %p_bBE, i16 %39, i16 %t62.sroa.4.0.extract.shift
+  %t62.sroa.4.0.insert.shift = shl nuw i16 %t62.sroa.4.0.insert.ext, 8
+  %t62.sroa.0.0.insert.ext = select i1 %p_bBE, i16 %t62.sroa.4.0.extract.shift, i16 %39
+  %t62.sroa.0.0.insert.insert = or disjoint i16 %t62.sroa.4.0.insert.shift, %t62.sroa.0.0.insert.ext
   %conv67 = sext i16 %t62.sroa.0.0.insert.insert to i32
   store i32 %conv67, ptr %out, align 8
   br label %sw.epilog85
 
 sw.bb68:                                          ; preds = %if.end40
-  %38 = load ptr, ptr %pCur, align 8
-  %t69.0.copyload = load i8, ptr %38, align 1
-  %add.ptr70 = getelementptr inbounds i8, ptr %38, i64 1
+  %40 = load ptr, ptr %pCur, align 8
+  %t69.0.copyload = load i8, ptr %40, align 1
+  %add.ptr70 = getelementptr inbounds i8, ptr %40, i64 1
   store ptr %add.ptr70, ptr %pCur, align 8
   %conv71 = sext i8 %t69.0.copyload to i32
   store i32 %conv71, ptr %out, align 8
   br label %sw.epilog85
 
 sw.bb72:                                          ; preds = %if.end40
-  %39 = load ptr, ptr %pCur, align 8
-  %40 = load i32, ptr %39, align 1
-  %add.ptr74 = getelementptr inbounds i8, ptr %39, i64 4
+  %41 = load ptr, ptr %pCur, align 8
+  %42 = load i32, ptr %41, align 1
+  %add.ptr74 = getelementptr inbounds i8, ptr %41, i64 4
   store ptr %add.ptr74, ptr %pCur, align 8
-  %t73.2.insert.insert = call i32 @llvm.bswap.i32(i32 %40)
-  %spec.select73 = select i1 %p_bBE, i32 %t73.2.insert.insert, i32 %40
-  store i32 %spec.select73, ptr %out, align 8
+  %t73.2.insert.insert = call i32 @llvm.bswap.i32(i32 %42)
+  %spec.select = select i1 %p_bBE, i32 %t73.2.insert.insert, i32 %42
+  store i32 %spec.select, ptr %out, align 8
   br label %sw.epilog85
 
 sw.bb78:                                          ; preds = %if.end40
-  %41 = load ptr, ptr %pCur, align 8
-  %42 = load i64, ptr %41, align 1
-  %add.ptr80 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = load ptr, ptr %pCur, align 8
+  %44 = load i64, ptr %43, align 1
+  %add.ptr80 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr %add.ptr80, ptr %pCur, align 8
-  %t79.4.insert.insert = call i64 @llvm.bswap.i64(i64 %42)
-  %spec.select74 = select i1 %p_bBE, i64 %t79.4.insert.insert, i64 %42
-  store i64 %spec.select74, ptr %out, align 8
+  %t79.4.insert.insert = call i64 @llvm.bswap.i64(i64 %44)
+  %spec.select73 = select i1 %p_bBE, i64 %t79.4.insert.insert, i64 %44
+  store i64 %spec.select73, ptr %out, align 8
   br label %sw.epilog85
 
 sw.epilog85:                                      ; preds = %if.end40, %sw.bb78, %sw.bb72, %sw.bb68, %sw.bb61, %if.end60, %sw.bb51, %sw.bb44, %if.end43
   %ret.0 = phi i1 [ true, %sw.bb78 ], [ true, %sw.bb72 ], [ true, %sw.bb68 ], [ true, %sw.bb61 ], [ true, %if.end60 ], [ true, %sw.bb51 ], [ true, %sw.bb44 ], [ true, %if.end43 ], [ false, %if.end40 ]
-  %43 = load i32, ptr %bufferSize, align 4
-  %sub = sub i32 %43, %lsize.069
+  %45 = load i32, ptr %bufferSize, align 4
+  %sub = sub i32 %45, %lsize.069
   store i32 %sub, ptr %bufferSize, align 4
   ret i1 %ret.0
 

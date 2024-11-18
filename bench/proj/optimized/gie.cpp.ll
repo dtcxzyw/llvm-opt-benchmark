@@ -3209,86 +3209,86 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
 
 1037:                                             ; preds = %1028
   %1038 = fcmp ogt double %.070.i.i, 1.000000e+06
-  %1039 = fmul double %.070.i.i, 1.000000e+03
-  %1040 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
-  %1041 = icmp eq i32 %1040, 0
-  %1042 = icmp samesign ult i32 %1035, 2
-  %or.cond.i145.i.i = select i1 %1041, i1 %1042, i1 false
-  br i1 %or.cond.i145.i.i, label %1043, label %1048
+  %1039 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
+  %1040 = icmp eq i32 %1039, 0
+  %1041 = icmp samesign ult i32 %1035, 2
+  %or.cond.i145.i.i = select i1 %1040, i1 %1041, i1 false
+  br i1 %or.cond.i145.i.i, label %1042, label %1047
 
-1043:                                             ; preds = %1037
+1042:                                             ; preds = %1037
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i32 3026478, ptr %4, align 4
   store i8 0, ptr %5, align 1
-  %1044 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZL1T) #26
-  %1045 = icmp ugt i64 %1044, 70
-  %spec.select.i.i150.i.i = select i1 %1045, ptr %4, ptr %5
-  %1046 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
-  %1047 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1046, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef nonnull @_ZL1T, ptr noundef nonnull %spec.select.i.i150.i.i) #25
+  %1043 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZL1T) #26
+  %1044 = icmp ugt i64 %1043, 70
+  %spec.select.i.i150.i.i = select i1 %1044, ptr %4, ptr %5
+  %1045 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %1046 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1045, ptr noundef nonnull @.str.130, ptr noundef nonnull @_ZL5delim, ptr noundef nonnull @_ZL1T, ptr noundef nonnull %spec.select.i.i150.i.i) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.pre.i151.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
-  br label %1048
+  br label %1047
 
-1048:                                             ; preds = %1043, %1037
-  %1049 = phi i32 [ %.pre.i151.i.i, %1043 ], [ %1040, %1037 ]
-  %1050 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
-  %.not.i146.i.i = icmp eq i32 %1049, 0
-  %1051 = select i1 %.not.i146.i.i, ptr @_ZL5delim, ptr @.str.105
-  %fputs.i147.i.i = call i32 @fputs(ptr nonnull %1051, ptr %1050)
-  %1052 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
-  %1053 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
-  %1054 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1053, i32 noundef 92) #26
-  %1055 = icmp ugt ptr %1054, %1053
-  %1056 = getelementptr inbounds i8, ptr %1054, i64 1
-  %spec.select.i11.i.i.i = select i1 %1055, ptr %1056, ptr %1053
-  %1057 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i11.i.i.i, i32 noundef 47) #26
-  %1058 = icmp ugt ptr %1057, %spec.select.i11.i.i.i
-  %1059 = getelementptr inbounds i8, ptr %1057, i64 1
-  %.1.i.i148.i.i = select i1 %1058, ptr %1059, ptr %spec.select.i11.i.i.i
-  %1060 = load ptr, ptr @F, align 8
-  %1061 = getelementptr inbounds i8, ptr %1060, i64 72
-  %1062 = load i64, ptr %1061, align 8
-  %1063 = trunc i64 %1062 to i32
-  %1064 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1052, ptr noundef nonnull @.str.106, ptr noundef %.1.i.i148.i.i, i32 noundef %1063) #25
-  %1065 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
-  %1066 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1065, ptr noundef nonnull @.str.115, ptr noundef %507) #25
-  %1067 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
-  %1068 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30048), align 8
-  %1069 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30056), align 8
-  %1070 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1067, ptr noundef nonnull @.str.116, double noundef %1068, double noundef %1069) #25
-  %1071 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30072), align 8
-  %1072 = fcmp une double %1071, 0.000000e+00
-  %1073 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30064), align 8
-  %1074 = fcmp une double %1073, 0.000000e+00
-  %or.cond6.i.i.i = select i1 %1072, i1 true, i1 %1074
-  br i1 %or.cond6.i.i.i, label %1075, label %1078
+1047:                                             ; preds = %1042, %1037
+  %1048 = phi i32 [ %.pre.i151.i.i, %1042 ], [ %1039, %1037 ]
+  %1049 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %.not.i146.i.i = icmp eq i32 %1048, 0
+  %1050 = select i1 %.not.i146.i.i, ptr @_ZL5delim, ptr @.str.105
+  %fputs.i147.i.i = call i32 @fputs(ptr nonnull %1050, ptr %1049)
+  %1051 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %1052 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
+  %1053 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1052, i32 noundef 92) #26
+  %1054 = icmp ugt ptr %1053, %1052
+  %1055 = getelementptr inbounds i8, ptr %1053, i64 1
+  %spec.select.i11.i.i.i = select i1 %1054, ptr %1055, ptr %1052
+  %1056 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i11.i.i.i, i32 noundef 47) #26
+  %1057 = icmp ugt ptr %1056, %spec.select.i11.i.i.i
+  %1058 = getelementptr inbounds i8, ptr %1056, i64 1
+  %.1.i.i148.i.i = select i1 %1057, ptr %1058, ptr %spec.select.i11.i.i.i
+  %1059 = load ptr, ptr @F, align 8
+  %1060 = getelementptr inbounds i8, ptr %1059, i64 72
+  %1061 = load i64, ptr %1060, align 8
+  %1062 = trunc i64 %1061 to i32
+  %1063 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1051, ptr noundef nonnull @.str.106, ptr noundef %.1.i.i148.i.i, i32 noundef %1062) #25
+  %1064 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %1065 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1064, ptr noundef nonnull @.str.115, ptr noundef %507) #25
+  %1066 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %1067 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30048), align 8
+  %1068 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30056), align 8
+  %1069 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1066, ptr noundef nonnull @.str.116, double noundef %1067, double noundef %1068) #25
+  %1070 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30072), align 8
+  %1071 = fcmp une double %1070, 0.000000e+00
+  %1072 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30064), align 8
+  %1073 = fcmp une double %1072, 0.000000e+00
+  %or.cond6.i.i.i = select i1 %1071, i1 true, i1 %1073
+  br i1 %or.cond6.i.i.i, label %1074, label %1077
 
-1075:                                             ; preds = %1048
-  %1076 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
-  %1077 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1076, ptr noundef nonnull @.str.117, double noundef %1073) #25
+1074:                                             ; preds = %1047
+  %1075 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %1076 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1075, ptr noundef nonnull @.str.117, double noundef %1072) #25
   %.pr.i.i.i = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30072), align 8
-  br label %1078
+  br label %1077
 
-1078:                                             ; preds = %1075, %1048
-  %1079 = phi double [ %1071, %1048 ], [ %.pr.i.i.i, %1075 ]
-  %1080 = fcmp une double %1079, 0.000000e+00
-  br i1 %1080, label %1081, label %1084
+1077:                                             ; preds = %1074, %1047
+  %1078 = phi double [ %1070, %1047 ], [ %.pr.i.i.i, %1074 ]
+  %1079 = fcmp une double %1078, 0.000000e+00
+  br i1 %1079, label %1080, label %1083
 
-1081:                                             ; preds = %1078
-  %1082 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
-  %1083 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1082, ptr noundef nonnull @.str.117, double noundef %1079) #25
-  br label %1084
+1080:                                             ; preds = %1077
+  %1081 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %1082 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1081, ptr noundef nonnull @.str.117, double noundef %1078) #25
+  br label %1083
 
-1084:                                             ; preds = %1081, %1078
+1083:                                             ; preds = %1080, %1077
+  %1084 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
+  %fputc.i149.i.i = call i32 @fputc(i32 10, ptr %1084)
   %1085 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
-  %fputc.i149.i.i = call i32 @fputc(i32 10, ptr %1085)
-  %1086 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
-  %1087 = select i1 %1038, double 0x41CDCD64FFFFDF3B, double %1039
+  %1086 = fmul double %.070.i.i, 1.000000e+03
+  %1087 = select i1 %1038, double 0x41CDCD64FFFFDF3B, double %1086
   %1088 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
   %1089 = fmul double %1088, 1.000000e+03
-  %1090 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1086, ptr noundef nonnull @.str.118, double noundef %1087, double noundef %1089) #25
+  %1090 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1085, ptr noundef nonnull @.str.118, double noundef %1087, double noundef %1089) #25
   br label %_ZL6expectPKc.exit.i
 
 1091:                                             ; preds = %1025
@@ -3305,7 +3305,7 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   %1099 = call i32 @proj_errno_reset(ptr noundef %1098)
   br label %_ZL6expectPKc.exit.i
 
-_ZL6expectPKc.exit.i:                             ; preds = %1091, %1084, %1028, %897, %879, %838, %829, %_ZL20err_const_from_errnoi.exit111.i.i, %787, %_ZL20err_const_from_errnoi.exit.i.i, %711, %_ZL20err_const_from_errnoi.exit13.i.i.i, %648, %636
+_ZL6expectPKc.exit.i:                             ; preds = %1091, %1083, %1028, %897, %879, %838, %829, %_ZL20err_const_from_errnoi.exit111.i.i, %787, %_ZL20err_const_from_errnoi.exit.i.i, %711, %_ZL20err_const_from_errnoi.exit13.i.i.i, %648, %636
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)

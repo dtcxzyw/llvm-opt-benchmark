@@ -12,8 +12,8 @@ define hidden noundef range(i64 0, 1844674407404509593) i64 @_ZN18ZAddressSpaceL
   store i64 0, ptr %1, align 8
   %2 = call noundef zeroext i1 @_ZN2os28has_allocatable_memory_limitEPm(ptr noundef nonnull %1) #3
   %3 = load i64, ptr %1, align 8
-  %4 = udiv i64 %3, 10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  %4 = udiv i64 %3, 10
   %5 = add nuw nsw i64 %4, 33554431
   %6 = and i64 %5, 4611686018393833472
   %7 = select i1 %2, i64 %6, i64 1844674407377666048
@@ -27,8 +27,8 @@ define hidden noundef range(i64 0, -9223372036852678657) i64 @_ZN18ZAddressSpace
   store i64 0, ptr %1, align 8
   %2 = call noundef zeroext i1 @_ZN2os28has_allocatable_memory_limitEPm(ptr noundef nonnull %1) #3
   %3 = load i64, ptr %1, align 8
-  %4 = lshr i64 %3, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  %4 = lshr i64 %3, 1
   %5 = add nuw i64 %4, 2097151
   %6 = and i64 %5, -2097152
   %7 = select i1 %2, i64 %6, i64 -9223372036854775808

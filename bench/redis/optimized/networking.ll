@@ -12613,9 +12613,8 @@ entry:
   %0 = load i64, ptr %flags1, align 8
   %and = and i64 %0, 4
   %tobool.not = icmp eq i64 %and, 0
-  %and2 = and i64 %0, 134217730
-  %spec.select = select i1 %tobool.not, i64 %0, i64 %and2
-  %and3 = and i64 %spec.select, 134217731
+  %and3.v = select i1 %tobool.not, i64 134217731, i64 134217730
+  %and3 = and i64 %and3.v, %0
   %tobool4.not = icmp eq i64 %and3, 0
   br i1 %tobool4.not, label %if.end6, label %if.then5
 

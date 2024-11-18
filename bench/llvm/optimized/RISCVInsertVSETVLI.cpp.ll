@@ -3658,8 +3658,8 @@ _ZNK12_GLOBAL__N_118RISCVInsertVSETVLI19computeInfoForInstrERKN4llvm12MachineIns
   %.sink.i = phi i8 [ 2, %112 ], [ 2, %113 ], [ 1, %118 ], [ 2, %117 ], [ 2, %126 ], [ 3, %_ZL12computeVLMAXjjN4llvm7RISCVII5VLMULE.exit.i ]
   store i8 %.sink.i, ptr %18, align 8, !alias.scope !42
   %128 = shl nuw i32 1, %74
-  %129 = trunc i32 %128 to i8
   store i8 %65, ptr %19, align 1, !alias.scope !42
+  %129 = trunc i32 %128 to i8
   %130 = select i1 %.not.i, i8 8, i8 %129
   store i8 %130, ptr %20, align 2, !alias.scope !42
   %131 = or i8 %.037.i, %.0.i

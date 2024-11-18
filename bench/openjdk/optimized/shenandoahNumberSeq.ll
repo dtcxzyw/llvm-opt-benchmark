@@ -266,11 +266,11 @@ define hidden void @_ZN18BinaryMagnitudeSeq3addEm(ptr noundef nonnull align 8 de
   %6 = trunc nuw nsw i64 %5 to i32
   %7 = xor i32 %6, 63
   %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 62)
-  %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = select i1 %4, i64 -1, i64 %9
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = zext nneg i32 %8 to i64
+  %12 = select i1 %4, i64 -1, i64 %11
+  %13 = getelementptr i64, ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 8
   %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %14) #9, !srcloc !14
   ret void

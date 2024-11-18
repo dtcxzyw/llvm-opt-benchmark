@@ -1483,16 +1483,16 @@ _ZN4llvm7CCState11AllocateRegEt.exit:             ; preds = %135, %146
   %.not.i.i = icmp eq i32 %154, 0
   %155 = trunc nuw nsw i32 %154 to i8
   %156 = add nsw i8 %155, -1
-  %.sroa.0.0.i.i.i = select i1 %.not.i.i, i8 0, i8 %156
-  %.sroa.speculated8 = call i8 @llvm.umin.i8(i8 %.sroa.0.0.i.i.i, i8 %.sroa.010.0.extract.trunc)
-  %157 = getelementptr inbounds nuw i8, ptr %10, i64 812
-  %158 = load i32, ptr %157, align 4
-  %159 = and i32 %158, -9
-  %spec.select.i.i.i = icmp eq i32 %159, 1
-  br i1 %spec.select.i.i.i, label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread, label %160
+  %157 = call i8 @llvm.umin.i8(i8 %156, i8 %.sroa.010.0.extract.trunc)
+  %.sroa.speculated8 = select i1 %.not.i.i, i8 0, i8 %157
+  %158 = getelementptr inbounds nuw i8, ptr %10, i64 812
+  %159 = load i32, ptr %158, align 4
+  %160 = and i32 %159, -9
+  %spec.select.i.i.i = icmp eq i32 %160, 1
+  br i1 %spec.select.i.i.i, label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread, label %161
 
-160:                                              ; preds = %.loopexit
-  switch i32 %158, label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit [
+161:                                              ; preds = %.loopexit
+  switch i32 %159, label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit [
     i32 26, label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread
     i32 5, label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread
     i32 27, label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread
@@ -1500,12 +1500,12 @@ _ZN4llvm7CCState11AllocateRegEt.exit:             ; preds = %135, %146
     i32 30, label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread
   ]
 
-_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %160
+_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %161
   %.sroa.speculated = call i8 @llvm.umax.i8(i8 %.sroa.speculated8, i8 3)
   br label %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread
 
-_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread: ; preds = %.loopexit, %160, %160, %160, %160, %160, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit
-  %.sroa.04.0 = phi i8 [ %.sroa.speculated, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit ], [ %.sroa.speculated8, %160 ], [ %.sroa.speculated8, %160 ], [ %.sroa.speculated8, %160 ], [ %.sroa.speculated8, %160 ], [ %.sroa.speculated8, %160 ], [ %.sroa.speculated8, %.loopexit ]
+_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit.thread: ; preds = %.loopexit, %161, %161, %161, %161, %161, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit
+  %.sroa.04.0 = phi i8 [ %.sroa.speculated, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit ], [ %.sroa.speculated8, %161 ], [ %.sroa.speculated8, %161 ], [ %.sroa.speculated8, %161 ], [ %.sroa.speculated8, %161 ], [ %.sroa.speculated8, %161 ], [ %.sroa.speculated8, %.loopexit ]
   %.sroa.02.0.copyload = load i16, ptr %1, align 2
   call fastcc void @_ZL16finishStackBlockRN4llvm15SmallVectorImplINS_11CCValAssignEEENS_3MVTERNS_3ISD10ArgFlagsTyERNS_7CCStateENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(16) %37, i16 %.sroa.02.0.copyload, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(420) %3, i8 %.sroa.04.0)
   br label %.thread43

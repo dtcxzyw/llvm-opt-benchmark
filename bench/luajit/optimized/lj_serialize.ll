@@ -1616,11 +1616,11 @@ if.end305:                                        ; preds = %if.then290
 if.end321:                                        ; preds = %if.end305
   %cmp325 = icmp eq i32 %tp.0, 16
   %cmp329 = icmp eq i32 %tp.0, 17
-  %64 = select i1 %cmp329, i16 12, i16 16
   %add.i = add nuw nsw i64 %cond293, 16
   %call.i546 = tail call ptr @lj_mem_newgco(ptr noundef nonnull %60, i64 noundef %add.i) #8
   %gct.i = getelementptr inbounds i8, ptr %call.i546, i64 9
   store i8 10, ptr %gct.i, align 1
+  %64 = select i1 %cmp329, i16 12, i16 16
   %conv1.i = select i1 %cmp325, i16 11, i16 %64
   %ctypeid.i = getelementptr inbounds i8, ptr %call.i546, i64 10
   store i16 %conv1.i, ptr %ctypeid.i, align 2

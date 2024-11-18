@@ -2544,23 +2544,23 @@ define internal fastcc range(i32 0, 2) i32 @parse_port_pasv(ptr noundef %0, i32 
   store i32 %71, ptr %7, align 4
   %72 = icmp slt i32 %40, 10
   %73 = icmp slt i32 %40, 100
-  %74 = select i1 %73, i32 5, i32 6
-  %75 = icmp slt i32 %42, 10
-  %76 = icmp slt i32 %42, 100
-  %77 = select i1 %76, i32 2, i32 3
-  %78 = select i1 %75, i32 1, i32 %77
-  %79 = icmp slt i32 %45, 10
-  %80 = icmp slt i32 %45, 100
-  %81 = select i1 %80, i32 2, i32 3
-  %82 = select i1 %79, i32 1, i32 %81
-  %83 = icmp slt i32 %48, 10
-  %84 = icmp slt i32 %48, 100
-  %85 = select i1 %84, i32 2, i32 3
-  %86 = select i1 %83, i32 1, i32 %85
-  %87 = select i1 %72, i32 4, i32 %74
-  %88 = add nuw nsw i32 %87, %78
-  %89 = add nuw nsw i32 %88, %82
-  %90 = add nuw nsw i32 %89, %86
+  %74 = icmp slt i32 %42, 10
+  %75 = icmp slt i32 %42, 100
+  %76 = select i1 %75, i32 2, i32 3
+  %77 = select i1 %74, i32 1, i32 %76
+  %78 = icmp slt i32 %45, 10
+  %79 = icmp slt i32 %45, 100
+  %80 = select i1 %79, i32 2, i32 3
+  %81 = select i1 %78, i32 1, i32 %80
+  %82 = icmp slt i32 %48, 10
+  %83 = icmp slt i32 %48, 100
+  %84 = select i1 %83, i32 2, i32 3
+  %85 = select i1 %82, i32 1, i32 %84
+  %86 = select i1 %73, i32 5, i32 6
+  %87 = select i1 %72, i32 4, i32 %86
+  %88 = add nuw nsw i32 %87, %77
+  %89 = add nuw nsw i32 %88, %81
+  %90 = add nuw nsw i32 %89, %85
   store i32 %90, ptr %6, align 4
   br label %.critedge.thread
 

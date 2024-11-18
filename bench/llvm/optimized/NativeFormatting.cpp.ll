@@ -396,22 +396,22 @@ define dso_local void @_ZN4llvm9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleE
   %6 = alloca [128 x i8], align 16
   %7 = trunc i8 %4 to i1
   %8 = tail call i64 @llvm.umin.i64(i64 %3, i64 128)
-  %9 = trunc nuw nsw i64 %8 to i32
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 false)
-  %11 = trunc nuw nsw i64 %10 to i32
-  %.lhs.trunc = sub nuw nsw i32 67, %11
-  %12 = lshr i32 %.lhs.trunc, 2
-  %13 = and i32 %2, -2
-  %14 = icmp eq i32 %13, 2
-  %15 = and i32 %2, -3
-  %.not36 = icmp eq i32 %15, 0
-  %16 = select i1 %14, i32 2, i32 0
-  %17 = select i1 %7, i32 %9, i32 0
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %12, i32 1)
-  %18 = add nuw nsw i32 %.sroa.speculated, %16
-  %.sroa.speculated23 = tail call i32 @llvm.umax.i32(i32 %17, i32 %18)
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 false)
+  %10 = trunc nuw nsw i64 %9 to i32
+  %.lhs.trunc = sub nuw nsw i32 67, %10
+  %11 = lshr i32 %.lhs.trunc, 2
+  %12 = and i32 %2, -2
+  %13 = icmp eq i32 %12, 2
+  %14 = and i32 %2, -3
+  %.not36 = icmp eq i32 %14, 0
+  %15 = select i1 %13, i32 2, i32 0
+  %16 = trunc nuw nsw i64 %8 to i32
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %11, i32 1)
+  %17 = add nuw nsw i32 %.sroa.speculated, %15
+  %18 = tail call i32 @llvm.umax.i32(i32 %16, i32 %17)
+  %.sroa.speculated23 = select i1 %7, i32 %18, i32 %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 48, i64 128, i1 false)
-  br i1 %14, label %19, label %21
+  br i1 %13, label %19, label %21
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds i8, ptr %6, i64 1

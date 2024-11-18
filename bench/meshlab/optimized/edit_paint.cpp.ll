@@ -16862,12 +16862,12 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %24, %_ZNSt6vectorI
 
 _ZNSt6vectorI7QPointFSaIS0_EE2atEm.exit:          ; preds = %56
   %64 = icmp eq i64 %indvars.iv.next, %55
-  %65 = and i64 %indvars.iv.next, 4294967295
-  %66 = getelementptr inbounds %class.QPointF, ptr %58, i64 %indvars.iv
-  %.sroa.077.0.copyload = load double, ptr %66, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 8
+  %65 = getelementptr inbounds %class.QPointF, ptr %58, i64 %indvars.iv
+  %.sroa.077.0.copyload = load double, ptr %65, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
-  %67 = select i1 %64, i64 0, i64 %65
+  %66 = and i64 %indvars.iv.next, 4294967295
+  %67 = select i1 %64, i64 0, i64 %66
   %.not.i.i37 = icmp ugt i64 %62, %67
   br i1 %.not.i.i37, label %_ZNSt6vectorI7QPointFSaIS0_EE2atEm.exit38, label %68
 

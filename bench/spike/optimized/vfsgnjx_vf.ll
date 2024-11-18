@@ -423,10 +423,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %184 = icmp ugt i64 %.sroa.025.0.copyload, -65537
   %or.cond4.i = select i1 %183, i1 %184, i1 false
   %185 = trunc i64 %.sroa.025.0.copyload to i16
-  %186 = and i16 %185, -32768
-  %187 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.023.0.copyload = load i16, ptr %187, align 2
-  %188 = select i1 %or.cond4.i, i16 %186, i16 0
+  %186 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.023.0.copyload = load i16, ptr %186, align 2
+  %187 = and i16 %185, -32768
+  %188 = select i1 %or.cond4.i, i16 %187, i16 0
   %189 = xor i16 %188, %.sroa.023.0.copyload
   store i16 %189, ptr %182, align 2
   %190 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -441,10 +441,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %194 = icmp ugt i64 %.sroa.015.0.copyload, -4294967297
   %or.cond.i = select i1 %193, i1 %194, i1 false
   %195 = trunc i64 %.sroa.015.0.copyload to i32
-  %196 = and i32 %195, -2147483648
-  %197 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.013.0.copyload = load i32, ptr %197, align 4
-  %198 = select i1 %or.cond.i, i32 %196, i32 0
+  %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.013.0.copyload = load i32, ptr %196, align 4
+  %197 = and i32 %195, -2147483648
+  %198 = select i1 %or.cond.i, i32 %197, i32 0
   %199 = xor i32 %198, %.sroa.013.0.copyload
   store i32 %199, ptr %192, align 4
   %200 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -456,10 +456,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.sroa.07.0.copyload = load i64, ptr %168, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %203 = icmp eq i64 %.sroa.2.0.copyload, -1
-  %204 = and i64 %.sroa.07.0.copyload, -9223372036854775808
-  %205 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.05.0.copyload = load i64, ptr %205, align 8
-  %206 = select i1 %203, i64 %204, i64 0
+  %204 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.05.0.copyload = load i64, ptr %204, align 8
+  %205 = and i64 %.sroa.07.0.copyload, -9223372036854775808
+  %206 = select i1 %203, i64 %205, i64 0
   %207 = xor i64 %206, %.sroa.05.0.copyload
   store i64 %207, ptr %202, align 8
   %208 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -883,10 +883,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %184 = icmp ugt i64 %.sroa.025.0.copyload, -65537
   %or.cond4.i = select i1 %183, i1 %184, i1 false
   %185 = trunc i64 %.sroa.025.0.copyload to i16
-  %186 = and i16 %185, -32768
-  %187 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.023.0.copyload = load i16, ptr %187, align 2
-  %188 = select i1 %or.cond4.i, i16 %186, i16 0
+  %186 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.023.0.copyload = load i16, ptr %186, align 2
+  %187 = and i16 %185, -32768
+  %188 = select i1 %or.cond4.i, i16 %187, i16 0
   %189 = xor i16 %188, %.sroa.023.0.copyload
   store i16 %189, ptr %182, align 2
   %190 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -901,10 +901,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %194 = icmp ugt i64 %.sroa.015.0.copyload, -4294967297
   %or.cond.i = select i1 %193, i1 %194, i1 false
   %195 = trunc i64 %.sroa.015.0.copyload to i32
-  %196 = and i32 %195, -2147483648
-  %197 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.013.0.copyload = load i32, ptr %197, align 4
-  %198 = select i1 %or.cond.i, i32 %196, i32 0
+  %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.013.0.copyload = load i32, ptr %196, align 4
+  %197 = and i32 %195, -2147483648
+  %198 = select i1 %or.cond.i, i32 %197, i32 0
   %199 = xor i32 %198, %.sroa.013.0.copyload
   store i32 %199, ptr %192, align 4
   %200 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -916,10 +916,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.sroa.07.0.copyload = load i64, ptr %168, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %203 = icmp eq i64 %.sroa.2.0.copyload, -1
-  %204 = and i64 %.sroa.07.0.copyload, -9223372036854775808
-  %205 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.05.0.copyload = load i64, ptr %205, align 8
-  %206 = select i1 %203, i64 %204, i64 0
+  %204 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.05.0.copyload = load i64, ptr %204, align 8
+  %205 = and i64 %.sroa.07.0.copyload, -9223372036854775808
+  %206 = select i1 %203, i64 %205, i64 0
   %207 = xor i64 %206, %.sroa.05.0.copyload
   store i64 %207, ptr %202, align 8
   %208 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -1309,10 +1309,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %184 = icmp ugt i64 %.sroa.025.0.copyload, -65537
   %or.cond4.i = select i1 %183, i1 %184, i1 false
   %185 = trunc i64 %.sroa.025.0.copyload to i16
-  %186 = and i16 %185, -32768
-  %187 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.023.0.copyload = load i16, ptr %187, align 2
-  %188 = select i1 %or.cond4.i, i16 %186, i16 0
+  %186 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.023.0.copyload = load i16, ptr %186, align 2
+  %187 = and i16 %185, -32768
+  %188 = select i1 %or.cond4.i, i16 %187, i16 0
   %189 = xor i16 %188, %.sroa.023.0.copyload
   store i16 %189, ptr %182, align 2
   %190 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -1327,10 +1327,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %194 = icmp ugt i64 %.sroa.015.0.copyload, -4294967297
   %or.cond.i = select i1 %193, i1 %194, i1 false
   %195 = trunc i64 %.sroa.015.0.copyload to i32
-  %196 = and i32 %195, -2147483648
-  %197 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.013.0.copyload = load i32, ptr %197, align 4
-  %198 = select i1 %or.cond.i, i32 %196, i32 0
+  %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.013.0.copyload = load i32, ptr %196, align 4
+  %197 = and i32 %195, -2147483648
+  %198 = select i1 %or.cond.i, i32 %197, i32 0
   %199 = xor i32 %198, %.sroa.013.0.copyload
   store i32 %199, ptr %192, align 4
   %200 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -1342,10 +1342,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.sroa.07.0.copyload = load i64, ptr %168, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %203 = icmp eq i64 %.sroa.2.0.copyload, -1
-  %204 = and i64 %.sroa.07.0.copyload, -9223372036854775808
-  %205 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.05.0.copyload = load i64, ptr %205, align 8
-  %206 = select i1 %203, i64 %204, i64 0
+  %204 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.05.0.copyload = load i64, ptr %204, align 8
+  %205 = and i64 %.sroa.07.0.copyload, -9223372036854775808
+  %206 = select i1 %203, i64 %205, i64 0
   %207 = xor i64 %206, %.sroa.05.0.copyload
   store i64 %207, ptr %202, align 8
   %208 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -1737,10 +1737,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %184 = icmp ugt i64 %.sroa.025.0.copyload, -65537
   %or.cond4.i = select i1 %183, i1 %184, i1 false
   %185 = trunc i64 %.sroa.025.0.copyload to i16
-  %186 = and i16 %185, -32768
-  %187 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.023.0.copyload = load i16, ptr %187, align 2
-  %188 = select i1 %or.cond4.i, i16 %186, i16 0
+  %186 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.023.0.copyload = load i16, ptr %186, align 2
+  %187 = and i16 %185, -32768
+  %188 = select i1 %or.cond4.i, i16 %187, i16 0
   %189 = xor i16 %188, %.sroa.023.0.copyload
   store i16 %189, ptr %182, align 2
   %190 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -1755,10 +1755,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %194 = icmp ugt i64 %.sroa.015.0.copyload, -4294967297
   %or.cond.i = select i1 %193, i1 %194, i1 false
   %195 = trunc i64 %.sroa.015.0.copyload to i32
-  %196 = and i32 %195, -2147483648
-  %197 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.013.0.copyload = load i32, ptr %197, align 4
-  %198 = select i1 %or.cond.i, i32 %196, i32 0
+  %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.013.0.copyload = load i32, ptr %196, align 4
+  %197 = and i32 %195, -2147483648
+  %198 = select i1 %or.cond.i, i32 %197, i32 0
   %199 = xor i32 %198, %.sroa.013.0.copyload
   store i32 %199, ptr %192, align 4
   %200 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -1770,10 +1770,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.sroa.07.0.copyload = load i64, ptr %168, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %203 = icmp eq i64 %.sroa.2.0.copyload, -1
-  %204 = and i64 %.sroa.07.0.copyload, -9223372036854775808
-  %205 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.05.0.copyload = load i64, ptr %205, align 8
-  %206 = select i1 %203, i64 %204, i64 0
+  %204 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.05.0.copyload = load i64, ptr %204, align 8
+  %205 = and i64 %.sroa.07.0.copyload, -9223372036854775808
+  %206 = select i1 %203, i64 %205, i64 0
   %207 = xor i64 %206, %.sroa.05.0.copyload
   store i64 %207, ptr %202, align 8
   %208 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -2163,10 +2163,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %184 = icmp ugt i64 %.sroa.025.0.copyload, -65537
   %or.cond4.i = select i1 %183, i1 %184, i1 false
   %185 = trunc i64 %.sroa.025.0.copyload to i16
-  %186 = and i16 %185, -32768
-  %187 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.023.0.copyload = load i16, ptr %187, align 2
-  %188 = select i1 %or.cond4.i, i16 %186, i16 0
+  %186 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.023.0.copyload = load i16, ptr %186, align 2
+  %187 = and i16 %185, -32768
+  %188 = select i1 %or.cond4.i, i16 %187, i16 0
   %189 = xor i16 %188, %.sroa.023.0.copyload
   store i16 %189, ptr %182, align 2
   %190 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -2181,10 +2181,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %194 = icmp ugt i64 %.sroa.015.0.copyload, -4294967297
   %or.cond.i = select i1 %193, i1 %194, i1 false
   %195 = trunc i64 %.sroa.015.0.copyload to i32
-  %196 = and i32 %195, -2147483648
-  %197 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.013.0.copyload = load i32, ptr %197, align 4
-  %198 = select i1 %or.cond.i, i32 %196, i32 0
+  %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.013.0.copyload = load i32, ptr %196, align 4
+  %197 = and i32 %195, -2147483648
+  %198 = select i1 %or.cond.i, i32 %197, i32 0
   %199 = xor i32 %198, %.sroa.013.0.copyload
   store i32 %199, ptr %192, align 4
   %200 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -2196,10 +2196,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.sroa.07.0.copyload = load i64, ptr %168, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %203 = icmp eq i64 %.sroa.2.0.copyload, -1
-  %204 = and i64 %.sroa.07.0.copyload, -9223372036854775808
-  %205 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.05.0.copyload = load i64, ptr %205, align 8
-  %206 = select i1 %203, i64 %204, i64 0
+  %204 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.05.0.copyload = load i64, ptr %204, align 8
+  %205 = and i64 %.sroa.07.0.copyload, -9223372036854775808
+  %206 = select i1 %203, i64 %205, i64 0
   %207 = xor i64 %206, %.sroa.05.0.copyload
   store i64 %207, ptr %202, align 8
   %208 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -2591,10 +2591,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %184 = icmp ugt i64 %.sroa.025.0.copyload, -65537
   %or.cond4.i = select i1 %183, i1 %184, i1 false
   %185 = trunc i64 %.sroa.025.0.copyload to i16
-  %186 = and i16 %185, -32768
-  %187 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.023.0.copyload = load i16, ptr %187, align 2
-  %188 = select i1 %or.cond4.i, i16 %186, i16 0
+  %186 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.023.0.copyload = load i16, ptr %186, align 2
+  %187 = and i16 %185, -32768
+  %188 = select i1 %or.cond4.i, i16 %187, i16 0
   %189 = xor i16 %188, %.sroa.023.0.copyload
   store i16 %189, ptr %182, align 2
   %190 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -2609,10 +2609,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %194 = icmp ugt i64 %.sroa.015.0.copyload, -4294967297
   %or.cond.i = select i1 %193, i1 %194, i1 false
   %195 = trunc i64 %.sroa.015.0.copyload to i32
-  %196 = and i32 %195, -2147483648
-  %197 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.013.0.copyload = load i32, ptr %197, align 4
-  %198 = select i1 %or.cond.i, i32 %196, i32 0
+  %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.013.0.copyload = load i32, ptr %196, align 4
+  %197 = and i32 %195, -2147483648
+  %198 = select i1 %or.cond.i, i32 %197, i32 0
   %199 = xor i32 %198, %.sroa.013.0.copyload
   store i32 %199, ptr %192, align 4
   %200 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -2624,10 +2624,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.sroa.07.0.copyload = load i64, ptr %168, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %203 = icmp eq i64 %.sroa.2.0.copyload, -1
-  %204 = and i64 %.sroa.07.0.copyload, -9223372036854775808
-  %205 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.05.0.copyload = load i64, ptr %205, align 8
-  %206 = select i1 %203, i64 %204, i64 0
+  %204 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.05.0.copyload = load i64, ptr %204, align 8
+  %205 = and i64 %.sroa.07.0.copyload, -9223372036854775808
+  %206 = select i1 %203, i64 %205, i64 0
   %207 = xor i64 %206, %.sroa.05.0.copyload
   store i64 %207, ptr %202, align 8
   %208 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -3017,10 +3017,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %184 = icmp ugt i64 %.sroa.025.0.copyload, -65537
   %or.cond4.i = select i1 %183, i1 %184, i1 false
   %185 = trunc i64 %.sroa.025.0.copyload to i16
-  %186 = and i16 %185, -32768
-  %187 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.023.0.copyload = load i16, ptr %187, align 2
-  %188 = select i1 %or.cond4.i, i16 %186, i16 0
+  %186 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.023.0.copyload = load i16, ptr %186, align 2
+  %187 = and i16 %185, -32768
+  %188 = select i1 %or.cond4.i, i16 %187, i16 0
   %189 = xor i16 %188, %.sroa.023.0.copyload
   store i16 %189, ptr %182, align 2
   %190 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -3035,10 +3035,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %194 = icmp ugt i64 %.sroa.015.0.copyload, -4294967297
   %or.cond.i = select i1 %193, i1 %194, i1 false
   %195 = trunc i64 %.sroa.015.0.copyload to i32
-  %196 = and i32 %195, -2147483648
-  %197 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.013.0.copyload = load i32, ptr %197, align 4
-  %198 = select i1 %or.cond.i, i32 %196, i32 0
+  %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.013.0.copyload = load i32, ptr %196, align 4
+  %197 = and i32 %195, -2147483648
+  %198 = select i1 %or.cond.i, i32 %197, i32 0
   %199 = xor i32 %198, %.sroa.013.0.copyload
   store i32 %199, ptr %192, align 4
   %200 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -3050,10 +3050,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.sroa.07.0.copyload = load i64, ptr %168, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %203 = icmp eq i64 %.sroa.2.0.copyload, -1
-  %204 = and i64 %.sroa.07.0.copyload, -9223372036854775808
-  %205 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.05.0.copyload = load i64, ptr %205, align 8
-  %206 = select i1 %203, i64 %204, i64 0
+  %204 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.05.0.copyload = load i64, ptr %204, align 8
+  %205 = and i64 %.sroa.07.0.copyload, -9223372036854775808
+  %206 = select i1 %203, i64 %205, i64 0
   %207 = xor i64 %206, %.sroa.05.0.copyload
   store i64 %207, ptr %202, align 8
   %208 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -3445,10 +3445,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %184 = icmp ugt i64 %.sroa.025.0.copyload, -65537
   %or.cond4.i = select i1 %183, i1 %184, i1 false
   %185 = trunc i64 %.sroa.025.0.copyload to i16
-  %186 = and i16 %185, -32768
-  %187 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.023.0.copyload = load i16, ptr %187, align 2
-  %188 = select i1 %or.cond4.i, i16 %186, i16 0
+  %186 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.023.0.copyload = load i16, ptr %186, align 2
+  %187 = and i16 %185, -32768
+  %188 = select i1 %or.cond4.i, i16 %187, i16 0
   %189 = xor i16 %188, %.sroa.023.0.copyload
   store i16 %189, ptr %182, align 2
   %190 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -3463,10 +3463,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %194 = icmp ugt i64 %.sroa.015.0.copyload, -4294967297
   %or.cond.i = select i1 %193, i1 %194, i1 false
   %195 = trunc i64 %.sroa.015.0.copyload to i32
-  %196 = and i32 %195, -2147483648
-  %197 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.013.0.copyload = load i32, ptr %197, align 4
-  %198 = select i1 %or.cond.i, i32 %196, i32 0
+  %196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.013.0.copyload = load i32, ptr %196, align 4
+  %197 = and i32 %195, -2147483648
+  %198 = select i1 %or.cond.i, i32 %197, i32 0
   %199 = xor i32 %198, %.sroa.013.0.copyload
   store i32 %199, ptr %192, align 4
   %200 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -3478,10 +3478,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.sroa.07.0.copyload = load i64, ptr %168, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %203 = icmp eq i64 %.sroa.2.0.copyload, -1
-  %204 = and i64 %.sroa.07.0.copyload, -9223372036854775808
-  %205 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
-  %.sroa.05.0.copyload = load i64, ptr %205, align 8
-  %206 = select i1 %203, i64 %204, i64 0
+  %204 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %13, i64 noundef %153, i64 noundef %.0117152, i1 noundef zeroext false)
+  %.sroa.05.0.copyload = load i64, ptr %204, align 8
+  %205 = and i64 %.sroa.07.0.copyload, -9223372036854775808
+  %206 = select i1 %203, i64 %205, i64 0
   %207 = xor i64 %206, %.sroa.05.0.copyload
   store i64 %207, ptr %202, align 8
   %208 = load i8, ptr @softfloat_exceptionFlags, align 1

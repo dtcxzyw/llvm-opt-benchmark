@@ -12527,9 +12527,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit53: ; preds =
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 8
   %81 = xor i1 %7, true
   %82 = icmp eq i8 %5, 4
-  %83 = ptrtoint ptr %4 to i64
-  %84 = or disjoint i64 %26, 4
-  %85 = or i64 %83, 2
+  %83 = or disjoint i64 %26, 4
+  %84 = ptrtoint ptr %4 to i64
+  %85 = or i64 %84, 2
   %86 = select i1 %82, i64 %85, i64 2
   %.sroa.2.0..sroa_idx82 = getelementptr inbounds i8, ptr %25, i64 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 16
@@ -12595,7 +12595,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit68: ; preds =
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr %2, ptr %25, align 8
   store i64 %86, ptr %.sroa.2.0..sroa_idx82, align 8
-  store i64 %84, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %83, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.not.i.i69 = icmp eq ptr %95, null
   br i1 %.not.i.i69, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit70, label %96

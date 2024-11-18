@@ -1093,8 +1093,8 @@ _ZNK4llvm9SourceMgr14FindLineNumberENS_5SMLocEj.exit: ; preds = %67, %_ZNK4llvm9
 96:                                               ; preds = %91
   %97 = icmp eq i64 %92, %93
   %98 = add i64 %92, 1
-  %99 = select i1 %97, i64 0, i64 %98
-  %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %93, i64 %99)
+  %99 = call i64 @llvm.umin.i64(i64 %93, i64 %98)
+  %.sroa.speculated5.i = select i1 %97, i64 0, i64 %99
   %100 = getelementptr inbounds i8, ptr %94, i64 %.sroa.speculated5.i
   %101 = sub i64 %93, %.sroa.speculated5.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16, !noalias !23

@@ -13132,10 +13132,10 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit1339.thread: ; preds = %_ZN4llvm16dy
   %4946 = zext nneg i16 %4945 to i32
   %.not888 = icmp eq i16 %4945, 3
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.11806, i32 %4946)
-  %4947 = trunc nuw nsw i32 %.sroa.speculated to i16
-  %4948 = and i16 %4944, -4
-  %4949 = select i1 %.not888, i16 3, i16 %4947
-  %4950 = or disjoint i16 %4949, %4948
+  %4947 = and i16 %4944, -4
+  %4948 = trunc nuw nsw i32 %.sroa.speculated to i16
+  %4949 = select i1 %.not888, i16 3, i16 %4948
+  %4950 = or disjoint i16 %4949, %4947
   store i16 %4950, ptr %4943, align 2
   %4951 = icmp eq i16 %4949, 2
   %4952 = zext i1 %4951 to i8

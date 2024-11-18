@@ -1287,10 +1287,10 @@ BufferGetPage.exit:                               ; preds = %9, %15
   %23 = zext i16 %.val to i32
   %24 = add nuw nsw i32 %23, 262120
   %25 = lshr i32 %24, 2
-  %26 = and i32 %25, 65535
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
-  %28 = select i1 %22, i32 0, i32 %26
-  %29 = load i32, ptr %27, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = and i32 %25, 65535
+  %28 = select i1 %22, i32 0, i32 %27
+  %29 = load i32, ptr %26, align 8
   %.not69.not = icmp sgt i32 %29, %28
   br i1 %.not69.not, label %._crit_edge, label %.lr.ph
 
@@ -1402,9 +1402,9 @@ BufferGetPage.exit:                               ; preds = %9, %15
   store double %91, ptr %2, align 8
   %92 = load i32, ptr %6, align 4
   %93 = tail call ptr @ExecStoreBufferHeapTuple(ptr noundef nonnull %30, ptr noundef nonnull %4, i32 noundef %92) #11
-  %94 = load i32, ptr %27, align 8
+  %94 = load i32, ptr %26, align 8
   %95 = add i32 %94, 1
-  store i32 %95, ptr %27, align 8
+  store i32 %95, ptr %26, align 8
   br label %105
 
 .critedge.sink.split:                             ; preds = %83, %46, %46, %38
@@ -1414,9 +1414,9 @@ BufferGetPage.exit:                               ; preds = %9, %15
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %70, %38
-  %98 = load i32, ptr %27, align 8
+  %98 = load i32, ptr %26, align 8
   %99 = add i32 %98, 1
-  store i32 %99, ptr %27, align 8
+  store i32 %99, ptr %26, align 8
   %.not.not = icmp sgt i32 %99, %28
   br i1 %.not.not, label %._crit_edge.loopexit, label %38, !llvm.loop !8
 

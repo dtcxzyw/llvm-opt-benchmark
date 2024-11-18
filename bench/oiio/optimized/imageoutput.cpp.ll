@@ -2204,22 +2204,22 @@ if.then146:                                       ; preds = %if.end144.thread, %
   store i32 0, ptr %arraylen4.i.i.i, align 4, !alias.scope !15
   %call.i = call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_09ImageSpec12getattributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPvb(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i, ptr noundef nonnull %result.i, i1 noundef zeroext false)
   %result.val.i = load i32, ptr %result.i, align 4
-  %77 = sub nsw i32 8, %result.val.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i)
+  %77 = sub nsw i32 8, %result.val.i
   %78 = shl nuw i32 1, %77
-  %79 = sitofp i32 %78 to float
-  %80 = load i32, ptr %nchannels28, align 4
+  %79 = load i32, ptr %nchannels28, align 4
   %mul159 = mul nsw i64 %mul150, %conv3.i.i
   %mul163 = mul nsw i64 %mul159, %conv8.i.i
-  %81 = fdiv float %79, 2.550000e+02
+  %80 = sitofp i32 %78 to float
+  %81 = fdiv float %80, 2.550000e+02
   %div = select i1 %call.i, float %81, float 0x3F70101020000000
   %alpha_channel = getelementptr inbounds i8, ptr %this, i64 128
   %82 = load i32, ptr %alpha_channel, align 8
   %z_channel = getelementptr inbounds i8, ptr %this, i64 132
   %83 = load i32, ptr %z_channel, align 4
-  call void @_ZN18OpenImageIO_v2_6_010add_ditherEiiiiPflllfiijiiii(i32 noundef %80, i32 noundef %sub, i32 noundef %sub29, i32 noundef %sub32, ptr noundef %buf.0201, i64 noundef %mul150, i64 noundef %mul159, i64 noundef %mul163, float noundef %div, i32 noundef %82, i32 noundef %83, i32 noundef %dither, i32 noundef 0, i32 noundef %xorigin, i32 noundef %yorigin, i32 noundef %zorigin)
+  call void @_ZN18OpenImageIO_v2_6_010add_ditherEiiiiPflllfiijiiii(i32 noundef %79, i32 noundef %sub, i32 noundef %sub29, i32 noundef %sub32, ptr noundef %buf.0201, i64 noundef %mul150, i64 noundef %mul159, i64 noundef %mul163, float noundef %div, i32 noundef %82, i32 noundef %83, i32 noundef %dither, i32 noundef 0, i32 noundef %xorigin, i32 noundef %yorigin, i32 noundef %zorigin)
   br label %if.end167
 
 if.end167:                                        ; preds = %if.then133, %if.then146, %if.end144

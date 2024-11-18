@@ -12653,8 +12653,8 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit2: ; preds
   %.not.i = icmp eq i16 %24, 0
   %25 = zext nneg i16 %24 to i64
   %26 = add nuw nsw i64 %25, 4294967295
-  %27 = and i64 %26, 4294967295
   store i16 3, ptr %5, align 8
+  %27 = and i64 %26, 4294967295
   %28 = select i1 %.not.i, i64 0, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %28, ptr %29, align 8

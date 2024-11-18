@@ -11157,9 +11157,9 @@ define dso_local void @_ZN4llvm11PassBuilder19addPreInlinerPassesERNS_11PassMana
 22:                                               ; preds = %4
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL18PreInlineThreshold, i64 128), align 8
   %.not = icmp ult i64 %2, 4294967296
-  %24 = zext i32 %23 to i64
   store i32 %23, ptr %13, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 4
+  %24 = zext i32 %23 to i64
   %25 = or disjoint i64 %24, 4294967296
   %.sroa.3.sroa.0126.0.insert.insert = select i1 %.not, i64 4294967621, i64 %25
   store i64 %.sroa.3.sroa.0126.0.insert.insert, ptr %.sroa.3.0..sroa_idx, align 4

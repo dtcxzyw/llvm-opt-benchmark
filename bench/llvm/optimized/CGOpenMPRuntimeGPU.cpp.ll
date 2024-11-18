@@ -5638,15 +5638,15 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPXBareClauseEEEPKT_v.
   %.sroa.327.0.copyload = load i64, ptr %.sroa.327.0..sroa_idx, align 8
   %.0.copyload.i.i.i.i.fr.i = freeze i64 %.sroa.025.0.copyload
   %39 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i, 7
-  %40 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.327.0.copyload, i1 false)
-  %41 = and i64 %.0.copyload.i.i.i.i.fr.i, -8
-  %42 = inttoptr i64 %41 to ptr
-  %43 = trunc nuw nsw i64 %40 to i16
+  %40 = and i64 %.0.copyload.i.i.i.i.fr.i, -8
+  %41 = inttoptr i64 %40 to ptr
+  %42 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.327.0.copyload, i1 false)
+  %43 = trunc nuw nsw i64 %42 to i16
   %44 = sub nsw i16 63, %43
   %45 = and i16 %44, 255
   %46 = or disjoint i16 %45, 256
   %.sroa.02.0.insert.insert.i = select i1 %39, i16 %46, i16 511
-  %47 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(160) %34, ptr noundef %38, ptr noundef %42, i16 %.sroa.02.0.insert.insert.i, i1 noundef zeroext false)
+  %47 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(160) %34, ptr noundef %38, ptr noundef %41, i16 %.sroa.02.0.insert.insert.i, i1 noundef zeroext false)
   %48 = getelementptr inbounds i8, ptr %9, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull %48, i64 noundef 16) #17
   br i1 %.0.i.i, label %63, label %49

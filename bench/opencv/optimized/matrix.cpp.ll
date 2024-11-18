@@ -7949,8 +7949,8 @@ define hidden i64 @_ZN2cv19getContinuousSize2DERNS_3MatEi(ptr nocapture noundef 
   %or.cond.i = select i1 %.not.i, i1 true, i1 %19
   %20 = mul nsw i32 %10, %1
   %21 = trunc i64 %17 to i32
-  %22 = zext i32 %12 to i64
   %.sroa.0.0.i = select i1 %or.cond.i, i32 %20, i32 %21
+  %22 = zext i32 %12 to i64
   %23 = shl nuw i64 %22, 32
   %.sroa.3.0.insert.shift.i = select i1 %or.cond.i, i64 %23, i64 4294967296
   %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.0.i to i64

@@ -11782,15 +11782,15 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
   %.sroa.363.0.copyload = load i64, ptr %.sroa.363.0..sroa_idx, align 8
   %.0.copyload.i.i.i.i.fr.i = freeze i64 %.sroa.061.0.copyload
   %41 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i, 7
-  %42 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.363.0.copyload, i1 false)
-  %43 = and i64 %.0.copyload.i.i.i.i.fr.i, -8
-  %44 = inttoptr i64 %43 to ptr
-  %45 = trunc nuw nsw i64 %42 to i16
+  %42 = and i64 %.0.copyload.i.i.i.i.fr.i, -8
+  %43 = inttoptr i64 %42 to ptr
+  %44 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.363.0.copyload, i1 false)
+  %45 = trunc nuw nsw i64 %44 to i16
   %46 = sub nsw i16 63, %45
   %47 = and i16 %46, 255
   %48 = or disjoint i16 %47, 256
   %.sroa.02.0.insert.insert.i = select i1 %41, i16 %48, i16 511
-  %49 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(160) %17, ptr noundef %40, ptr noundef %44, i16 %.sroa.02.0.insert.insert.i, i1 noundef zeroext false)
+  %49 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(160) %17, ptr noundef %40, ptr noundef %43, i16 %.sroa.02.0.insert.insert.i, i1 noundef zeroext false)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 1808
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 28
@@ -11910,17 +11910,17 @@ _ZN12_GLOBAL__N_19CGObjCGNU11EnforceTypeERN5clang7CodeGen11CGBuilderTyEPN4llvm5V
   %.0.copyload.i.i.i.i.fr.i39 = freeze i64 %.sroa.071.0.copyload
   %111 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i39, 7
   %.sink.i42 = select i1 %111, ptr %.sroa.272.0.copyload, ptr null
-  %112 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.373.0.copyload, i1 false)
-  %113 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %114 = and i64 %.0.copyload.i.i.i.i.fr.i39, -8
-  %115 = inttoptr i64 %114 to ptr
-  %116 = trunc nuw nsw i64 %112 to i16
+  %112 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %113 = and i64 %.0.copyload.i.i.i.i.fr.i39, -8
+  %114 = inttoptr i64 %113 to ptr
+  %115 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.373.0.copyload, i1 false)
+  %116 = trunc nuw nsw i64 %115 to i16
   %117 = sub nsw i16 63, %116
   %118 = and i16 %117, 255
   %119 = or disjoint i16 %118, 256
   %.sroa.02.0.insert.insert.i48 = select i1 %111, i16 %119, i16 511
-  store i16 257, ptr %113, align 8
-  %120 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(160) %17, ptr noundef %.sink.i42, ptr noundef %115, i16 %.sroa.02.0.insert.insert.i48, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(34) %16)
+  store i16 257, ptr %112, align 8
+  %120 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(160) %17, ptr noundef %.sink.i42, ptr noundef %114, i16 %.sroa.02.0.insert.insert.i48, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(34) %16)
   store ptr %120, ptr %2, align 8
   ret ptr %110
 }

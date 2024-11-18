@@ -7027,8 +7027,8 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i214: ; pr
   %321 = fneg double %.lcssa92.sink.i225
   %322 = fdiv double %321, %sqrt69.i226
   %323 = fcmp ord double %320, 0.000000e+00
-  %324 = fmul double %322, 0.000000e+00
   %.sroa.0.0.i.i231 = select i1 %323, double %320, double 0.000000e+00
+  %324 = fmul double %322, 0.000000e+00
   %325 = select i1 %323, double %324, double 0.000000e+00
   %326 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i.i231, double 0.000000e+00, double %325)
   %327 = fcmp olt double %326, 0.000000e+00
@@ -7110,8 +7110,8 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i188: ; pr
   %356 = fneg double %.lcssa92.sink.i199
   %357 = fdiv double %356, %sqrt69.i200
   %358 = fcmp ord double %355, 0.000000e+00
-  %359 = fmul double %357, 0.000000e+00
   %.sroa.0.0.i.i205 = select i1 %358, double %355, double 0.000000e+00
+  %359 = fmul double %357, 0.000000e+00
   %360 = select i1 %358, double %359, double 0.000000e+00
   %361 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i.i205, double 0.000000e+00, double %360)
   %362 = fcmp olt double %361, 0.000000e+00
@@ -7192,8 +7192,8 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i162: ; pr
   %390 = fneg double %.lcssa92.sink.i173
   %391 = fdiv double %390, %sqrt69.i174
   %392 = fcmp ord double %389, 0.000000e+00
-  %393 = fmul double %391, 0.000000e+00
   %.sroa.0.0.i.i179 = select i1 %392, double %389, double 0.000000e+00
+  %393 = fmul double %391, 0.000000e+00
   %394 = select i1 %392, double %393, double 0.000000e+00
   %395 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i.i179, double 0.000000e+00, double %394)
   %396 = fcmp olt double %395, 0.000000e+00
@@ -7324,8 +7324,8 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i136: ; pr
   %439 = fneg double %.lcssa92.sink.i147
   %440 = fdiv double %439, %sqrt69.i148
   %441 = fcmp ord double %438, 0.000000e+00
-  %442 = fmul double %440, 0.000000e+00
   %.sroa.0.0.i.i153 = select i1 %441, double %438, double 0.000000e+00
+  %442 = fmul double %440, 0.000000e+00
   %443 = select i1 %441, double %442, double 0.000000e+00
   %444 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i.i153, double 0.000000e+00, double %443)
   %445 = fcmp olt double %444, 0.000000e+00
@@ -7403,8 +7403,8 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i110: ; pr
   %472 = fneg double %.lcssa92.sink.i121
   %473 = fdiv double %472, %sqrt69.i122
   %474 = fcmp ord double %471, 0.000000e+00
-  %475 = fmul double %473, 0.000000e+00
   %.sroa.0.0.i.i127 = select i1 %474, double %471, double 0.000000e+00
+  %475 = fmul double %473, 0.000000e+00
   %476 = select i1 %474, double %475, double 0.000000e+00
   %477 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i.i127, double 0.000000e+00, double %476)
   %478 = fcmp olt double %477, 0.000000e+00
@@ -7482,8 +7482,8 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i: ; preds
   %505 = fneg double %.lcssa92.sink.i
   %506 = fdiv double %505, %sqrt69.i
   %507 = fcmp ord double %504, 0.000000e+00
-  %508 = fmul double %506, 0.000000e+00
   %.sroa.0.0.i.i104 = select i1 %507, double %504, double 0.000000e+00
+  %508 = fmul double %506, 0.000000e+00
   %509 = select i1 %507, double %508, double 0.000000e+00
   %510 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i.i104, double 0.000000e+00, double %509)
   %511 = fcmp olt double %510, 0.000000e+00

@@ -20317,9 +20317,9 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i:     ; preds = %41, %37
 
 _ZNK4llvm10SwitchInst10CaseHandle8setValueEPNS_11ConstantIntE.exit: ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i
   %44 = add nuw nsw i64 %22, 3
-  %45 = and i64 %44, 4294967295
-  %46 = load ptr, ptr %24, align 8
-  %47 = getelementptr inbounds %"class.llvm::Use", ptr %46, i64 %45
+  %45 = load ptr, ptr %24, align 8
+  %46 = and i64 %44, 4294967295
+  %47 = getelementptr inbounds %"class.llvm::Use", ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i5 = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i5, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i, label %49

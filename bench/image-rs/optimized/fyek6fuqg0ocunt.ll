@@ -3824,7 +3824,7 @@ define hidden void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$
   store i8 7, ptr %0, align 8
   %.sroa.246.sroa.2.0..sroa.246.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.246.sroa.2.0..sroa.246.0..sroa_idx.sroa_idx, align 8
-  br label %43
+  br label %44
 
 33:                                               ; preds = %"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$18total_bytes_buffer17h9f5157e343989e6bE.exit"
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.57) #22
@@ -3840,18 +3840,18 @@ define hidden void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$
   %38 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %37, i64 %.07.i)
   %39 = extractvalue { i64, i1 } %38, 1
   %40 = extractvalue { i64, i1 } %38, 0
-  %spec.select.i = select i1 %39, i64 -1, i64 %40
-  %41 = tail call i64 @llvm.usub.sat.i64(i64 %.0, i64 %spec.select.i)
-  %42 = sub i64 %.0, %41
+  %41 = tail call i64 @llvm.usub.sat.i64(i64 %.0, i64 %40)
+  %42 = select i1 %39, i64 0, i64 %41
+  %43 = sub i64 %.0, %42
   store i64 %.sroa.014.0.copyload, ptr %1, align 8
-  store i64 %42, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  store i64 %41, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  store i64 %41, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %43, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %42, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %42, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   store i64 %.sroa.5.sroa.7.0.copyload, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   store i8 10, ptr %0, align 8
-  br label %43
+  br label %44
 
-43:                                               ; preds = %34, %32
+44:                                               ; preds = %34, %32
   ret void
 }
 
@@ -3912,7 +3912,7 @@ define hidden void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$
   store i8 7, ptr %0, align 8
   %.sroa.246.sroa.2.0..sroa.246.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.246.sroa.2.0..sroa.246.0..sroa_idx.sroa_idx, align 8
-  br label %43
+  br label %44
 
 33:                                               ; preds = %"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$18total_bytes_buffer17h74c636d97e39f625E.exit"
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.57) #22
@@ -3928,18 +3928,18 @@ define hidden void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$
   %38 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %37, i64 %.07.i)
   %39 = extractvalue { i64, i1 } %38, 1
   %40 = extractvalue { i64, i1 } %38, 0
-  %spec.select.i = select i1 %39, i64 -1, i64 %40
-  %41 = tail call i64 @llvm.usub.sat.i64(i64 %.0, i64 %spec.select.i)
-  %42 = sub i64 %.0, %41
+  %41 = tail call i64 @llvm.usub.sat.i64(i64 %.0, i64 %40)
+  %42 = select i1 %39, i64 0, i64 %41
+  %43 = sub i64 %.0, %42
   store i64 %.sroa.014.0.copyload, ptr %1, align 8
-  store i64 %42, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  store i64 %41, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  store i64 %41, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %43, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %42, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %42, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   store i64 %.sroa.5.sroa.7.0.copyload, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   store i8 10, ptr %0, align 8
-  br label %43
+  br label %44
 
-43:                                               ; preds = %34, %32
+44:                                               ; preds = %34, %32
   ret void
 }
 

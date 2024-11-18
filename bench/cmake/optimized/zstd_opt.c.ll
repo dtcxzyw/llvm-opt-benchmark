@@ -3183,12 +3183,7 @@ define internal fastcc i32 @ZSTD_insertBt1(ptr nocapture noundef readonly %0, pt
   %77 = load i32, ptr %76, align 4
   store i32 %59, ptr %45, align 4
   %.not188 = icmp ult i32 %46, %74
-  br i1 %.not188, label %._crit_edge.thread, label %.lr.ph
-
-._crit_edge.thread:                               ; preds = %38
-  store i32 0, ptr %65, align 4
-  store i32 0, ptr %64, align 4
-  br label %169
+  br i1 %.not188, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38
   %78 = shl nuw i32 1, %77
@@ -3198,15 +3193,15 @@ define internal fastcc i32 @ZSTD_insertBt1(ptr nocapture noundef readonly %0, pt
   %81 = getelementptr inbounds i8, ptr %2, i64 -1
   br label %82
 
-82:                                               ; preds = %.lr.ph, %160
-  %.0127169 = phi i32 [ %78, %.lr.ph ], [ %161, %160 ]
-  %.0128168 = phi i64 [ 8, %.lr.ph ], [ %.2.fr, %160 ]
-  %.0129167 = phi i32 [ %75, %.lr.ph ], [ %.2131, %160 ]
-  %.0132166 = phi i32 [ %46, %.lr.ph ], [ %.1133, %160 ]
-  %.0134165 = phi ptr [ %65, %.lr.ph ], [ %.2136, %160 ]
-  %.0137164 = phi ptr [ %64, %.lr.ph ], [ %.2139, %160 ]
-  %.0140163 = phi i64 [ 0, %.lr.ph ], [ %.1141, %160 ]
-  %.0142162 = phi i64 [ 0, %.lr.ph ], [ %.1143, %160 ]
+82:                                               ; preds = %.lr.ph, %161
+  %.0127169 = phi i32 [ %78, %.lr.ph ], [ %162, %161 ]
+  %.0128168 = phi i64 [ 8, %.lr.ph ], [ %149, %161 ]
+  %.0129167 = phi i32 [ %75, %.lr.ph ], [ %.2131, %161 ]
+  %.0132166 = phi i32 [ %46, %.lr.ph ], [ %.1133, %161 ]
+  %.0134165 = phi ptr [ %65, %.lr.ph ], [ %.2136, %161 ]
+  %.0137164 = phi ptr [ %64, %.lr.ph ], [ %.2139, %161 ]
+  %.0140163 = phi i64 [ 0, %.lr.ph ], [ %.1141, %161 ]
+  %.0142162 = phi i64 [ 0, %.lr.ph ], [ %.1143, %161 ]
   %83 = and i32 %.0132166, %44
   %84 = shl nuw i32 %83, 1
   %85 = zext i32 %84 to i64
@@ -3352,63 +3347,60 @@ ZSTD_count.exit:                                  ; preds = %94, %100, %127
 148:                                              ; preds = %141, %145, %139
   %.2131 = phi i32 [ %147, %145 ], [ %.0129167, %141 ], [ %.0129167, %139 ]
   %.2 = phi i64 [ %.0125, %145 ], [ %.0125, %141 ], [ %.0128168, %139 ]
-  %.2.fr = freeze i64 %.2
-  %149 = getelementptr inbounds i8, ptr %1, i64 %.0125
-  %150 = icmp eq ptr %149, %2
-  br i1 %150, label %._crit_edge, label %151
+  %149 = freeze i64 %.2
+  %150 = getelementptr inbounds i8, ptr %1, i64 %.0125
+  %151 = icmp eq ptr %150, %2
+  br i1 %151, label %._crit_edge, label %152
 
-151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %.0144, i64 %.0125
-  %153 = load i8, ptr %152, align 1
-  %154 = load i8, ptr %149, align 1
-  %155 = icmp ult i8 %153, %154
+152:                                              ; preds = %148
+  %153 = getelementptr inbounds i8, ptr %.0144, i64 %.0125
+  %154 = load i8, ptr %153, align 1
+  %155 = load i8, ptr %150, align 1
+  %156 = icmp ult i8 %154, %155
   %.not151 = icmp ugt i32 %.0132166, %60
-  br i1 %155, label %156, label %159
+  br i1 %156, label %157, label %160
 
-156:                                              ; preds = %151
+157:                                              ; preds = %152
   store i32 %.0132166, ptr %.0137164, align 4
-  br i1 %.not151, label %157, label %._crit_edge
+  br i1 %.not151, label %158, label %._crit_edge
 
-157:                                              ; preds = %156
-  %158 = getelementptr inbounds i8, ptr %86, i64 4
-  br label %160
+158:                                              ; preds = %157
+  %159 = getelementptr inbounds i8, ptr %86, i64 4
+  br label %161
 
-159:                                              ; preds = %151
+160:                                              ; preds = %152
   store i32 %.0132166, ptr %.0134165, align 4
-  br i1 %.not151, label %160, label %._crit_edge
+  br i1 %.not151, label %161, label %._crit_edge
 
-160:                                              ; preds = %159, %157
-  %.1143 = phi i64 [ %.0142162, %157 ], [ %.0125, %159 ]
-  %.1141 = phi i64 [ %.0125, %157 ], [ %.0140163, %159 ]
-  %.2139 = phi ptr [ %158, %157 ], [ %.0137164, %159 ]
-  %.2136 = phi ptr [ %.0134165, %157 ], [ %86, %159 ]
-  %.1133.in = phi ptr [ %158, %157 ], [ %86, %159 ]
+161:                                              ; preds = %160, %158
+  %.1143 = phi i64 [ %.0142162, %158 ], [ %.0125, %160 ]
+  %.1141 = phi i64 [ %.0125, %158 ], [ %.0140163, %160 ]
+  %.2139 = phi ptr [ %159, %158 ], [ %.0137164, %160 ]
+  %.2136 = phi ptr [ %.0134165, %158 ], [ %86, %160 ]
+  %.1133.in = phi ptr [ %159, %158 ], [ %86, %160 ]
   %.1133 = load i32, ptr %.1133.in, align 4
-  %161 = add i32 %.0127169, -1
-  %162 = icmp ne i32 %161, 0
-  %163 = icmp uge i32 %.1133, %74
-  %164 = select i1 %162, i1 %163, i1 false
-  br i1 %164, label %82, label %._crit_edge, !llvm.loop !23
+  %162 = add i32 %.0127169, -1
+  %163 = icmp ne i32 %162, 0
+  %164 = icmp uge i32 %.1133, %74
+  %165 = select i1 %163, i1 %164, i1 false
+  br i1 %165, label %82, label %._crit_edge, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %160, %148, %156, %159
-  %.1138 = phi ptr [ %.2139, %160 ], [ %.0137164, %148 ], [ %7, %156 ], [ %.0137164, %159 ]
-  %.1135 = phi ptr [ %.2136, %160 ], [ %.0134165, %148 ], [ %.0134165, %156 ], [ %7, %159 ]
+._crit_edge:                                      ; preds = %161, %148, %157, %160, %38
+  %.1138 = phi ptr [ %64, %38 ], [ %.0137164, %160 ], [ %7, %157 ], [ %.0137164, %148 ], [ %.2139, %161 ]
+  %.1135 = phi ptr [ %65, %38 ], [ %7, %160 ], [ %.0134165, %157 ], [ %.0134165, %148 ], [ %.2136, %161 ]
+  %.1130 = phi i32 [ %75, %38 ], [ %.2131, %160 ], [ %.2131, %157 ], [ %.2131, %148 ], [ %.2131, %161 ]
+  %.1 = phi i64 [ 8, %38 ], [ %149, %160 ], [ %149, %157 ], [ %149, %148 ], [ %149, %161 ]
   store i32 0, ptr %.1135, align 4
   store i32 0, ptr %.1138, align 4
-  %165 = icmp ugt i64 %.2.fr, 384
-  %166 = trunc i64 %.2.fr to i32
-  %167 = add i32 %166, -384
-  %168 = tail call i32 @llvm.umin.i32(i32 %167, i32 192)
-  %spec.select200 = select i1 %165, i32 %168, i32 0
-  br label %169
-
-169:                                              ; preds = %._crit_edge, %._crit_edge.thread
-  %.1130197 = phi i32 [ %75, %._crit_edge.thread ], [ %.2131, %._crit_edge ]
-  %170 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select200, %._crit_edge ]
-  %reass.sub = sub i32 %.1130197, %59
-  %171 = add i32 %reass.sub, -8
-  %172 = tail call i32 @llvm.umax.i32(i32 %170, i32 %171)
-  ret i32 %172
+  %166 = icmp ugt i64 %.1, 384
+  %167 = trunc i64 %.1 to i32
+  %168 = add i32 %167, -384
+  %169 = tail call i32 @llvm.umin.i32(i32 %168, i32 192)
+  %reass.sub = sub i32 %.1130, %59
+  %170 = add i32 %reass.sub, -8
+  %171 = tail call i32 @llvm.umax.i32(i32 %169, i32 %170)
+  %spec.select194 = select i1 %166, i32 %171, i32 %170
+  ret i32 %spec.select194
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

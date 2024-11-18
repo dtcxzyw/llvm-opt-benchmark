@@ -2076,31 +2076,31 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %9 = icmp eq ptr %8, null
   %10 = getelementptr inbounds i8, ptr %4, i64 32
   %.val.i.i.i.i = load i64, ptr %10, align 8, !noalias !10
-  %.sroa.7.0.i.i.i = select i1 %9, i64 0, i64 %.val.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %4, i64 80
   %12 = load ptr, ptr %11, align 8, !noalias !10, !noundef !10
   %13 = icmp eq ptr %12, null
   %14 = getelementptr inbounds i8, ptr %4, i64 112
   %.val.i45.i.i.i = load i64, ptr %14, align 8, !noalias !10
   %.sroa.8.0.i.i.i = select i1 %13, i64 0, i64 %.val.i45.i.i.i
-  %15 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0.i.i.i, i64 %.sroa.8.0.i.i.i)
-  %16 = add i64 %15, 1
-  %17 = lshr i64 %16, 1
-  %.0 = select i1 %7, i64 %15, i64 %17
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !alias.scope !563, !noalias !566, !noundef !10
-  %20 = icmp ugt i64 %.0, %19
-  br i1 %20, label %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf114c0c756be22feE.exit"
+  %15 = tail call i64 @llvm.uadd.sat.i64(i64 %.val.i.i.i.i, i64 %.sroa.8.0.i.i.i)
+  %16 = select i1 %9, i64 %.sroa.8.0.i.i.i, i64 %15
+  %17 = add i64 %16, 1
+  %18 = lshr i64 %17, 1
+  %.0 = select i1 %7, i64 %16, i64 %18
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = load i64, ptr %19, align 8, !alias.scope !563, !noalias !566, !noundef !10
+  %21 = icmp ugt i64 %.0, %20
+  br i1 %21, label %22, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf114c0c756be22feE.exit"
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = invoke { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h5abf0244c9744dadE.llvm.9266542439947230232"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0, ptr noalias noundef nonnull readonly align 1 %22, i1 noundef zeroext true)
-          to label %.noexc unwind label %27
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = invoke { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h5abf0244c9744dadE.llvm.9266542439947230232"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0, ptr noalias noundef nonnull readonly align 1 %23, i1 noundef zeroext true)
+          to label %.noexc unwind label %28
 
-.noexc:                                           ; preds = %21
-  %24 = extractvalue { i64, i64 } %23, 0
-  %25 = icmp eq i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
+.noexc:                                           ; preds = %22
+  %25 = extractvalue { i64, i64 } %24, 0
+  %26 = icmp eq i64 %25, -9223372036854775807
+  tail call void @llvm.assume(i1 %26)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf114c0c756be22feE.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf114c0c756be22feE.exit": ; preds = %.noexc, %2
@@ -2111,17 +2111,17 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
   ret void
 
-26:                                               ; preds = %27
-  resume { ptr, i32 } %28
+27:                                               ; preds = %28
+  resume { ptr, i32 } %29
 
-27:                                               ; preds = %21
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %22
+  %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr1616drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..ValuesMut$LT$usize$C$std..collections..hash..map..HashMap$LT$vfs..FileId$C$alloc..vec..Vec$LT$lsp_types..Diagnostic$GT$$C$core..hash..BuildHasherDefault$LT$nohash_hasher..NoHashHasher$LT$vfs..FileId$GT$$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$std..collections..hash..map..Drain$LT$vfs..FileId$C$alloc..vec..Vec$LT$lsp_types..Diagnostic$GT$$GT$$C$rust_analyzer..diagnostics..DiagnosticCollection..clear_check_all..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..diagnostics..DiagnosticCollection..clear_check_all..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$hashbrown..set..HashSet$LT$vfs..FileId$C$core..hash..BuildHasherDefault$LT$nohash_hasher..NoHashHasher$LT$vfs..FileId$GT$$GT$$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$vfs..FileId$GT$$GT$..extend$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..ValuesMut$LT$usize$C$std..collections..hash..map..HashMap$LT$vfs..FileId$C$alloc..vec..Vec$LT$lsp_types..Diagnostic$GT$$C$core..hash..BuildHasherDefault$LT$nohash_hasher..NoHashHasher$LT$vfs..FileId$GT$$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$std..collections..hash..map..Drain$LT$vfs..FileId$C$alloc..vec..Vec$LT$lsp_types..Diagnostic$GT$$GT$$C$rust_analyzer..diagnostics..DiagnosticCollection..clear_check_all..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..diagnostics..DiagnosticCollection..clear_check_all..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hee76b38c3099aa91E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %4) #81
-          to label %26 unwind label %29
+          to label %27 unwind label %30
 
-29:                                               ; preds = %27
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #80
   unreachable

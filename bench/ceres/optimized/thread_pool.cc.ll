@@ -175,37 +175,37 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 17:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %18 = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #15
   %19 = icmp eq i32 %18, 0
-  %spec.select.i.i = select i1 %19, i32 2147483647, i32 %18
-  %.sroa.speculated.i = tail call noundef i32 @llvm.smin.i32(i32 %spec.select.i.i, i32 %1)
-  %20 = sub nsw i32 %.sroa.speculated.i, %16
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph, label %.loopexit
+  %20 = tail call i32 @llvm.smin.i32(i32 %18, i32 %1)
+  %.sroa.speculated.i = select i1 %19, i32 %1, i32 %20
+  %21 = sub nsw i32 %.sroa.speculated.i, %16
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %17
   %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
-  br label %22
+  br label %23
 
-22:                                               ; preds = %.lr.ph, %24
-  %.012 = phi i32 [ 0, %.lr.ph ], [ %25, %24 ]
+23:                                               ; preds = %.lr.ph, %25
+  %.012 = phi i32 [ 0, %.lr.ph ], [ %26, %25 ]
   store i64 ptrtoint (ptr @_ZN5ceres8internal10ThreadPool14ThreadMainLoopEv to i64), ptr %3, align 8
   store i64 0, ptr %.fca.1.gep, align 8
   store ptr %0, ptr %4, align 8
-  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJMN5ceres8internal10ThreadPoolEFvvEPS6_EEERS0_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %24 unwind label %26
+  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJMN5ceres8internal10ThreadPoolEFvvEPS6_EEERS0_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %25 unwind label %27
 
-24:                                               ; preds = %22
-  %25 = add nuw nsw i32 %.012, 1
-  %exitcond.not = icmp eq i32 %25, %20
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !4
+25:                                               ; preds = %23
+  %26 = add nuw nsw i32 %.012, 1
+  %exitcond.not = icmp eq i32 %26, %21
+  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !4
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %23
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #15
-  resume { ptr, i32 } %27
-
-.loopexit:                                        ; preds = %24, %17, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #15
+  resume { ptr, i32 } %28
+
+.loopexit:                                        ; preds = %25, %17, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+  %30 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #15
   ret void
 }
 

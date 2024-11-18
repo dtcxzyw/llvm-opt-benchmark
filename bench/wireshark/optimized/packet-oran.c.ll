@@ -2586,16 +2586,16 @@ write_section_info.exit:                          ; preds = %93, %94, %95
 
 361:                                              ; preds = %344
   %.not963 = icmp eq i32 %357, 0
-  %362 = and i32 %357, 255
-  %363 = load i32, ptr %24, align 4
-  %364 = shl i32 %363, 5
-  %365 = add i32 %364, -24
-  %366 = select i1 %.not963, i32 16, i32 %362
+  %362 = load i32, ptr %24, align 4
+  %363 = shl i32 %362, 5
+  %364 = add i32 %363, -24
+  %365 = and i32 %357, 255
+  %366 = select i1 %.not963, i32 16, i32 %365
   %367 = shl nuw nsw i32 %366, 1
-  %368 = udiv i32 %365, %367
+  %368 = udiv i32 %364, %367
   %369 = shl i32 %359, 3
   %invariant.op = add nuw nsw i32 %366, 7
-  %.not1108 = icmp ugt i32 %367, %365
+  %.not1108 = icmp ugt i32 %367, %364
   br i1 %.not1108, label %._crit_edge1089, label %.lr.ph1088
 
 .lr.ph1088:                                       ; preds = %361
@@ -3070,21 +3070,21 @@ switch.lookup:                                    ; preds = %546
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %653, ptr noundef nonnull @.str.712, i32 noundef %661, ptr noundef %663) #9
   %664 = load i32, ptr %44, align 4
   %.not948 = icmp eq i32 %664, 0
-  %665 = and i32 %664, 255
-  %666 = load i32, ptr %43, align 4
-  %667 = icmp eq i32 %666, 0
-  br i1 %667, label %.loopexit996, label %668
+  %665 = load i32, ptr %43, align 4
+  %666 = icmp eq i32 %665, 0
+  br i1 %666, label %.loopexit996, label %667
 
-668:                                              ; preds = %651
-  %669 = load i32, ptr %12, align 4
-  %670 = load i32, ptr %13, align 4
-  call fastcc void @ext11_work_out_bundles(i32 noundef %669, i32 noundef %670, i32 noundef %666, ptr noundef %16)
-  %671 = load i32, ptr %307, align 4
-  %.not1104 = icmp eq i32 %671, 0
+667:                                              ; preds = %651
+  %668 = load i32, ptr %12, align 4
+  %669 = load i32, ptr %13, align 4
+  call fastcc void @ext11_work_out_bundles(i32 noundef %668, i32 noundef %669, i32 noundef %665, ptr noundef %16)
+  %670 = load i32, ptr %307, align 4
+  %.not1104 = icmp eq i32 %670, 0
   br i1 %.not1104, label %.thread, label %.lr.ph1062
 
-.lr.ph1062:                                       ; preds = %668
-  %672 = select i1 %.not948, i32 16, i32 %665
+.lr.ph1062:                                       ; preds = %667
+  %671 = and i32 %664, 255
+  %672 = select i1 %.not948, i32 16, i32 %671
   %673 = shl nuw nsw i32 %672, 1
   %674 = add nsw i32 %672, -1
   %675 = shl nuw i32 1, %674
@@ -3094,7 +3094,7 @@ switch.lookup:                                    ; preds = %546
   %678 = sitofp i32 %677 to float
   %679 = add nuw nsw i32 %672, 7
   %680 = lshr i32 %679, 3
-  %wide.trip.count1137 = zext i32 %671 to i64
+  %wide.trip.count1137 = zext i32 %670 to i64
   br label %681
 
 681:                                              ; preds = %dissect_bfw_bundle.exit, %.lr.ph1062
@@ -3297,7 +3297,7 @@ dissect_bfw_bundle.exit:                          ; preds = %proto_item_set_hidd
   br i1 %or.cond1183, label %dissect_bfw_bundle.exit._crit_edge, label %681, !llvm.loop !18
 
 dissect_bfw_bundle.exit._crit_edge:               ; preds = %dissect_bfw_bundle.exit
-  %781 = add i32 %671, -1
+  %781 = add i32 %670, -1
   %782 = zext i32 %781 to i64
   %.idx951 = mul nuw nsw i64 %782, 12
   %783 = getelementptr i8, ptr %308, i64 %.idx951
@@ -3351,7 +3351,7 @@ dissect_bfw_bundle.exit._crit_edge:               ; preds = %dissect_bfw_bundle.
 
 .loopexit995:                                     ; preds = %799, %dissect_bfw_bundle.exit._crit_edge
   %.0910 = phi i32 [ %784, %dissect_bfw_bundle.exit._crit_edge ], [ %.2912, %799 ]
-  %.0909 = phi i32 [ %671, %dissect_bfw_bundle.exit._crit_edge ], [ %791, %799 ]
+  %.0909 = phi i32 [ %670, %dissect_bfw_bundle.exit._crit_edge ], [ %791, %799 ]
   %.8 = phi i32 [ %.0.i, %dissect_bfw_bundle.exit._crit_edge ], [ %800, %799 ]
   %.not953 = icmp eq i32 %.0910, 0
   br i1 %.not953, label %.thread, label %801
@@ -3360,9 +3360,9 @@ dissect_bfw_bundle.exit._crit_edge:               ; preds = %dissect_bfw_bundle.
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %315, ptr noundef nonnull @.str.697, i32 noundef %.0909) #9
   br label %.loopexit996
 
-.thread:                                          ; preds = %788, %668, %.loopexit995
-  %.8991 = phi i32 [ %.8, %.loopexit995 ], [ %660, %668 ], [ %644, %788 ]
-  %.0909990 = phi i32 [ %.0909, %.loopexit995 ], [ 0, %668 ], [ 0, %788 ]
+.thread:                                          ; preds = %788, %667, %.loopexit995
+  %.8991 = phi i32 [ %.8, %.loopexit995 ], [ %660, %667 ], [ %644, %788 ]
+  %.0909990 = phi i32 [ %.0909, %.loopexit995 ], [ 0, %667 ], [ 0, %788 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %315, ptr noundef nonnull @.str.698, i32 noundef %.0909990) #9
   br label %.loopexit996
 
@@ -3675,8 +3675,8 @@ dissect_bfw_bundle.exit._crit_edge:               ; preds = %dissect_bfw_bundle.
 
 .lr.ph1018:                                       ; preds = %987
   %990 = load i32, ptr %52, align 4
-  %991 = and i32 %990, 255
   %.not943 = icmp eq i32 %990, 0
+  %991 = and i32 %990, 255
   %992 = select i1 %.not943, i32 16, i32 %991
   %993 = shl nuw nsw i32 %992, 1
   %994 = add nsw i32 %992, -1

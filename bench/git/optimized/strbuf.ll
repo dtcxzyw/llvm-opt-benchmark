@@ -4162,9 +4162,9 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = and i8 %1, 4
   %cmp.not.i = icmp eq i8 %2, 0
   %and3.i = and i8 %0, -33
-  %x.addr.0.i = select i1 %cmp.not.i, i8 %0, i8 %and3.i
+  %conv3 = select i1 %cmp.not.i, i8 %0, i8 %and3.i
   %arrayidx4 = getelementptr inbounds i8, ptr %call1, i64 %i.08
-  store i8 %x.addr.0.i, ptr %arrayidx4, align 1
+  store i8 %conv3, ptr %arrayidx4, align 1
   %inc = add nuw i64 %i.08, 1
   %exitcond.not = icmp eq i64 %inc, %call
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21

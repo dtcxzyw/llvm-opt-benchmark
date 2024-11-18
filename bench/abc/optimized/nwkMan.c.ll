@@ -6,11 +6,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [15 x i8] c"LUTs by size: \00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"%d:%d \00", align 1
 @Nwk_ManCompareAndSaveBest.ParsNew.0 = internal unnamed_addr global i32 0, align 8
-@Nwk_ManCompareAndSaveBest.ParsNew.1 = internal unnamed_addr global i32 0, align 8
+@Nwk_ManCompareAndSaveBest.ParsNew.1 = internal unnamed_addr global i32 0, align 4
 @Nwk_ManCompareAndSaveBest.ParsNew.2 = internal unnamed_addr global i32 0, align 8
 @Nwk_ManCompareAndSaveBest.ParsBest.0 = internal unnamed_addr global ptr null, align 8
 @Nwk_ManCompareAndSaveBest.ParsBest.1 = internal unnamed_addr global i32 0, align 8
-@Nwk_ManCompareAndSaveBest.ParsBest.2 = internal unnamed_addr global i32 0, align 8
+@Nwk_ManCompareAndSaveBest.ParsBest.2 = internal unnamed_addr global i32 0, align 4
 @Nwk_ManCompareAndSaveBest.ParsBest.3 = internal unnamed_addr global i32 0, align 8
 @.str.2 = private unnamed_addr constant [10 x i8] c"nameless_\00", align 1
 @.str.3 = private unnamed_addr constant [13 x i8] c"%s_dump.blif\00", align 1
@@ -325,7 +325,7 @@ define range(i32 0, 2) i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr nocapt
   store i32 %8, ptr @Nwk_ManCompareAndSaveBest.ParsNew.0, align 8
   %9 = getelementptr i8, ptr %0, i64 56
   %.val = load i32, ptr %9, align 8
-  store i32 %.val, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 8
+  store i32 %.val, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 4
   %10 = getelementptr i8, ptr %0, i64 52
   %.val16 = load i32, ptr %10, align 4
   store i32 %.val16, ptr @Nwk_ManCompareAndSaveBest.ParsNew.2, align 8
@@ -352,8 +352,8 @@ define range(i32 0, 2) i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr nocapt
   br i1 %23, label %24, label %46
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsBest.2, align 8
-  %26 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 8
+  %25 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsBest.2, align 4
+  %26 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 4
   %27 = icmp sgt i32 %25, %26
   br i1 %27, label %34, label %28
 
@@ -388,8 +388,8 @@ Abc_UtilStrsav.exit:                              ; preds = %35, %37
   store ptr %42, ptr @Nwk_ManCompareAndSaveBest.ParsBest.0, align 8
   %43 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.0, align 8
   store i32 %43, ptr @Nwk_ManCompareAndSaveBest.ParsBest.1, align 8
-  %44 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 8
-  store i32 %44, ptr @Nwk_ManCompareAndSaveBest.ParsBest.2, align 8
+  %44 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 4
+  store i32 %44, ptr @Nwk_ManCompareAndSaveBest.ParsBest.2, align 4
   %45 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.2, align 8
   store i32 %45, ptr @Nwk_ManCompareAndSaveBest.ParsBest.3, align 8
   br label %46

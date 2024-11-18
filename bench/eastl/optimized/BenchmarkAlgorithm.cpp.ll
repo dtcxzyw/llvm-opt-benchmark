@@ -15997,8 +15997,8 @@ if.then81:                                        ; preds = %if.else76
 
 if.else83:                                        ; preds = %if.else76.thread, %if.else76
   %cond.i183235 = phi i64 [ %cond.i183234, %if.else76.thread ], [ %3, %if.else76 ]
-  %31 = shl nuw i64 %and.i.i.i.i, 1
   %add84 = add i64 %cond.i183235, %sub.ptr.sub5
+  %31 = shl nuw i64 %and.i.i.i.i, 1
   %mul.i = select i1 %tobool.i.i, i64 %31, i64 46
   %cond.i.i186 = tail call noundef i64 @llvm.umax.i64(i64 %add84, i64 %mul.i)
   br label %if.end87

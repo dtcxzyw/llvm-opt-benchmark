@@ -1203,8 +1203,8 @@ define dso_local { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr no
   %.sroa.024.0 = phi ptr [ %.039, %2 ], [ null, %11 ]
   %14 = trunc nuw i8 %.sroa.3.1.lcssa.sink to i1
   %15 = and i8 %.sroa.018.1.lcssa.sink, 1
-  %16 = zext nneg i8 %15 to i64
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.024.0, 0
+  %16 = zext nneg i8 %15 to i64
   %17 = shl nuw nsw i64 %16, 32
   %.sroa.6.8.insert.shift = select i1 %14, i64 %17, i64 4294967296
   %.sroa.325.8.insert.ext = zext i32 %.sroa.022.035 to i64

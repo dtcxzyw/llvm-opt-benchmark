@@ -3134,10 +3134,10 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit506:    ; preds = %478
   %495 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %496 = load ptr, ptr %495, align 8
   %497 = call noundef zeroext i1 @_ZNK4llvm4Type11isIntegerTyEj(ptr noundef nonnull align 8 dereferenceable(24) %496, i32 noundef 1) #21
-  %498 = select i1 %497, i64 3, i64 0
-  %499 = icmp eq i32 %.fca.1.extract21, 1
+  %498 = icmp eq i32 %.fca.1.extract21, 1
   %.0.i.i511 = call i64 @llvm.sadd.sat.i64(i64 %.sroa.0542.0760, i64 %.fca.0.extract20)
-  %.0.i.i518 = call i64 @llvm.sadd.sat.i64(i64 %.0.i.i511, i64 %498)
+  %499 = call i64 @llvm.sadd.sat.i64(i64 %.0.i.i511, i64 3)
+  %.0.i.i518 = select i1 %497, i64 %499, i64 %.0.i.i511
   %500 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.019.1.lcssa.sink.i, i64 %.0.i.i518)
   %501 = extractvalue { i64, i1 } %500, 1
   %502 = extractvalue { i64, i1 } %500, 0
@@ -3158,7 +3158,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit506:    ; preds = %478
 
 _ZN4llvmmlERKNS_15InstructionCostES2_.exit531:    ; preds = %493, %503, %506
   %.0.i.i524 = phi i64 [ %502, %493 ], [ 9223372036854775807, %503 ], [ %spec.select.i.i530, %506 ]
-  %spec.select.i525 = select i1 %499, i32 1, i32 %.sink.i
+  %spec.select.i525 = select i1 %498, i32 1, i32 %.sink.i
   br label %.loopexit
 
 .critedge.thread:                                 ; preds = %67, %62, %.critedge
@@ -17138,8 +17138,8 @@ _ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10V
   %.fca.0.extract29 = extractvalue { i64, i32 } %.pn.i85.fr, 0
   %.fca.1.extract30 = extractvalue { i64, i32 } %.pn.i85.fr, 1
   %.not.i.not = icmp eq i32 %6, 0
-  %148 = select i1 %.not.i.not, i64 0, i64 %68
-  %.0.i.i116 = call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract29, i64 %148)
+  %148 = call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract29, i64 %68)
+  %.0.i.i116 = select i1 %.not.i.not, i64 %.fca.0.extract29, i64 %148
   %149 = icmp eq i32 %.fca.1.extract30, 1
   br label %150
 

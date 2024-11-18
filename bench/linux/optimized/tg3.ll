@@ -15211,8 +15211,8 @@ define internal fastcc i32 @tg3_setup_phy(ptr noundef %0, i1 noundef zeroext %1)
   %266 = select i1 %265, i16 128, i16 0
   %267 = zext i8 %258 to i16
   %268 = shl nuw nsw i16 %267, 6
-  %269 = select i1 %261, i16 %268, i16 %266
-  %270 = and i16 %269, 128
+  %269 = and i16 %268, 128
+  %270 = select i1 %261, i16 %269, i16 %266
   %271 = icmp eq i16 %270, 0
   %272 = select i1 %271, i32 -2127002624, i32 -2127000576
   %273 = select i1 %261, i1 %263, i1 %265
@@ -15652,8 +15652,8 @@ define internal fastcc i32 @tg3_setup_phy(ptr noundef %0, i1 noundef zeroext %1)
   %542 = select i1 %541, i16 128, i16 0
   %543 = zext i8 %534 to i16
   %544 = shl nuw nsw i16 %543, 6
-  %545 = select i1 %537, i16 %544, i16 %542
-  %546 = and i16 %545, 128
+  %545 = and i16 %544, 128
+  %546 = select i1 %537, i16 %545, i16 %542
   %547 = icmp eq i16 %546, 0
   %548 = select i1 %547, i32 8192, i32 40960
   %549 = select i1 %537, i1 %539, i1 %541

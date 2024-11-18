@@ -39679,10 +39679,10 @@ sw.bb7:                                           ; preds = %if.end6
   %cmp19.i.i = icmp ult i8 %__value, 10
   %cmp3.i.i = icmp ult i8 %__value, 100
   %spec.select = select i1 %cmp3.i.i, i32 2, i32 3
-  %4 = zext nneg i32 %spec.select to i64
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i21 = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i21
+  %4 = zext nneg i32 %spec.select to i64
   %conv.i23 = select i1 %cmp19.i.i, i64 1, i64 %4
   %cmp.i24 = icmp slt i64 %sub.ptr.sub.i22, %conv.i23
   br i1 %cmp.i24, label %return, label %if.end.i25

@@ -1780,7 +1780,7 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %8, %1
-  %indvars.iv29 = phi i32 [ %indvars.iv.next30, %8 ], [ %5, %1 ]
+  %indvars.iv33 = phi i32 [ %indvars.iv.next34, %8 ], [ %5, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ %4, %1 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -1792,7 +1792,7 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   %10 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 16
   %12 = icmp eq ptr %0, %11
-  %indvars.iv.next30 = add i32 %indvars.iv29, -1
+  %indvars.iv.next34 = add i32 %indvars.iv33, -1
   br i1 %12, label %18, label %6, !llvm.loop !27
 
 13:                                               ; preds = %6
@@ -1812,16 +1812,16 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %18
-  %22 = zext i32 %indvars.iv29 to i64
+  %22 = zext i32 %indvars.iv33 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv32 = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next33, %.lr.ph ]
-  %23 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv32
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %24 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv.next33
+  %indvars.iv36 = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next37, %.lr.ph ]
+  %23 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv36
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %24 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv.next37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, ptr noundef nonnull align 16 dereferenceable(16) %24, i64 16, i1 false)
-  %25 = trunc nuw i64 %indvars.iv.next33 to i32
+  %25 = trunc nuw i64 %indvars.iv.next37 to i32
   %26 = icmp sgt i32 %5, %25
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
@@ -1829,9 +1829,9 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   %27 = icmp eq i32 %20, 0
   %28 = getelementptr inbounds i8, ptr %0, i64 4
   %. = select i1 %27, i32 16777216, i32 1
-  %.43 = select i1 %27, i32 2130706432, i32 2147483647
+  %.47 = select i1 %27, i32 2130706432, i32 2147483647
   %29 = atomicrmw sub ptr %28, i32 %. seq_cst, align 4
-  %30 = add i32 %29, %.43
+  %30 = add i32 %29, %.47
   %31 = and i32 %30, 1644167167
   %or.cond = icmp eq i32 %31, 1610612736
   br i1 %or.cond, label %32, label %.critedge
@@ -1883,213 +1883,207 @@ LWLockWaitListLock.exit.i:                        ; preds = %._crit_edge.i.i, %3
   %48 = getelementptr inbounds i8, ptr %0, i64 8
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, -1
-  br i1 %50, label %proclist_push_tail_offset.exit._crit_edge.thread.i, label %.lr.ph.i
-
-proclist_push_tail_offset.exit._crit_edge.thread.i: ; preds = %LWLockWaitListLock.exit.i
-  %51 = load volatile i32, ptr %33, align 4
-  br label %.split.us.preheader.i
+  br i1 %50, label %proclist_push_tail_offset.exit._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %LWLockWaitListLock.exit.i
-  %52 = load ptr, ptr @ProcGlobal, align 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = sext i32 %49 to i64
-  %55 = getelementptr %struct.PGPROC, ptr %53, i64 %54, i32 17
-  %56 = getelementptr inbounds i8, ptr %0, i64 12
-  br label %57
+  %51 = load ptr, ptr @ProcGlobal, align 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = sext i32 %49 to i64
+  %54 = getelementptr %struct.PGPROC, ptr %52, i64 %53, i32 17
+  %55 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %56
 
-57:                                               ; preds = %103, %.lr.ph.i
-  %58 = phi ptr [ %53, %.lr.ph.i ], [ %104, %103 ]
-  %59 = phi ptr [ %52, %.lr.ph.i ], [ %101, %103 ]
-  %.055.i = phi i1 [ true, %.lr.ph.i ], [ %.2.i, %103 ]
-  %.03254.i = phi i1 [ false, %.lr.ph.i ], [ %.133.i, %103 ]
-  %.sroa.19.053.in.i = phi ptr [ %55, %.lr.ph.i ], [ %106, %103 ]
-  %.sroa.0.052.i = phi i32 [ %49, %.lr.ph.i ], [ %.sroa.19.053.i, %103 ]
-  %.sroa.0.04651.i = phi i32 [ -1, %.lr.ph.i ], [ %.sroa.0.2.i, %103 ]
-  %.sroa.5.050.i = phi i32 [ -1, %.lr.ph.i ], [ %.sroa.5.1.i, %103 ]
+56:                                               ; preds = %102, %.lr.ph.i
+  %57 = phi ptr [ %52, %.lr.ph.i ], [ %103, %102 ]
+  %58 = phi ptr [ %51, %.lr.ph.i ], [ %100, %102 ]
+  %.055.i = phi i1 [ true, %.lr.ph.i ], [ %.2.i, %102 ]
+  %.03254.i = phi i1 [ false, %.lr.ph.i ], [ %.133.i, %102 ]
+  %.sroa.19.053.in.i = phi ptr [ %54, %.lr.ph.i ], [ %105, %102 ]
+  %.sroa.0.052.i = phi i32 [ %49, %.lr.ph.i ], [ %.sroa.19.053.i, %102 ]
+  %.sroa.0.04651.i = phi i32 [ -1, %.lr.ph.i ], [ %.sroa.0.2.i, %102 ]
+  %.sroa.5.050.i = phi i32 [ -1, %.lr.ph.i ], [ %.sroa.5.1.i, %102 ]
   %.sroa.19.053.i = load i32, ptr %.sroa.19.053.in.i, align 4
-  %60 = sext i32 %.sroa.0.052.i to i64
-  %61 = getelementptr %struct.PGPROC, ptr %58, i64 %60
-  br i1 %.03254.i, label %62, label %66
+  %59 = sext i32 %.sroa.0.052.i to i64
+  %60 = getelementptr %struct.PGPROC, ptr %57, i64 %59
+  br i1 %.03254.i, label %61, label %65
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %61, i64 91
-  %64 = load i8, ptr %63, align 1
-  %65 = icmp eq i8 %64, 0
-  br i1 %65, label %100, label %66
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds i8, ptr %60, i64 91
+  %63 = load i8, ptr %62, align 1
+  %64 = icmp eq i8 %63, 0
+  br i1 %64, label %99, label %65
 
-66:                                               ; preds = %62, %57
-  %67 = getelementptr %struct.PGPROC, ptr %58, i64 %60, i32 17
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %69, -1
-  %71 = load i32, ptr %67, align 4
-  br i1 %70, label %72, label %73
+65:                                               ; preds = %61, %56
+  %66 = getelementptr %struct.PGPROC, ptr %57, i64 %59, i32 17
+  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp eq i32 %68, -1
+  %70 = load i32, ptr %66, align 4
+  br i1 %69, label %71, label %72
 
-72:                                               ; preds = %66
-  store i32 %71, ptr %48, align 4
-  %.pre68.i = load i32, ptr %68, align 4
-  br label %76
+71:                                               ; preds = %65
+  store i32 %70, ptr %48, align 4
+  %.pre66.i = load i32, ptr %67, align 4
+  br label %75
 
-73:                                               ; preds = %66
-  %74 = sext i32 %69 to i64
-  %75 = getelementptr %struct.PGPROC, ptr %58, i64 %74, i32 17
-  store i32 %71, ptr %75, align 4
-  br label %76
+72:                                               ; preds = %65
+  %73 = sext i32 %68 to i64
+  %74 = getelementptr %struct.PGPROC, ptr %57, i64 %73, i32 17
+  store i32 %70, ptr %74, align 4
+  br label %75
 
-76:                                               ; preds = %73, %72
-  %77 = phi i32 [ %69, %73 ], [ %.pre68.i, %72 ]
-  %78 = icmp eq i32 %71, -1
-  br i1 %78, label %79, label %80
+75:                                               ; preds = %72, %71
+  %76 = phi i32 [ %68, %72 ], [ %.pre66.i, %71 ]
+  %77 = icmp eq i32 %70, -1
+  br i1 %77, label %78, label %79
 
-79:                                               ; preds = %76
-  store i32 %77, ptr %56, align 4
+78:                                               ; preds = %75
+  store i32 %76, ptr %55, align 4
   br label %proclist_delete_offset.exit.i
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr @ProcGlobal, align 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = sext i32 %71 to i64
-  %84 = getelementptr %struct.PGPROC, ptr %82, i64 %83, i32 17, i32 1
-  store i32 %77, ptr %84, align 4
+79:                                               ; preds = %75
+  %80 = load ptr, ptr @ProcGlobal, align 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = sext i32 %70 to i64
+  %83 = getelementptr %struct.PGPROC, ptr %81, i64 %82, i32 17, i32 1
+  store i32 %76, ptr %83, align 4
   br label %proclist_delete_offset.exit.i
 
-proclist_delete_offset.exit.i:                    ; preds = %80, %79
-  store i32 0, ptr %68, align 4
+proclist_delete_offset.exit.i:                    ; preds = %79, %78
   store i32 0, ptr %67, align 4
-  %85 = load ptr, ptr @ProcGlobal, align 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr %struct.PGPROC, ptr %86, i64 %60, i32 17
-  %88 = icmp eq i32 %.sroa.5.050.i, -1
-  %89 = getelementptr inbounds i8, ptr %87, i64 4
-  br i1 %88, label %90, label %91
+  store i32 0, ptr %66, align 4
+  %84 = load ptr, ptr @ProcGlobal, align 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr %struct.PGPROC, ptr %85, i64 %59, i32 17
+  %87 = icmp eq i32 %.sroa.5.050.i, -1
+  %88 = getelementptr inbounds i8, ptr %86, i64 4
+  br i1 %87, label %89, label %90
+
+89:                                               ; preds = %proclist_delete_offset.exit.i
+  store i32 -1, ptr %88, align 4
+  br label %proclist_push_tail_offset.exit.i
 
 90:                                               ; preds = %proclist_delete_offset.exit.i
-  store i32 -1, ptr %89, align 4
+  store i32 %.sroa.5.050.i, ptr %88, align 4
+  %91 = load ptr, ptr @ProcGlobal, align 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = sext i32 %.sroa.5.050.i to i64
+  %94 = getelementptr %struct.PGPROC, ptr %92, i64 %93, i32 17
+  store i32 %.sroa.0.052.i, ptr %94, align 4
   br label %proclist_push_tail_offset.exit.i
 
-91:                                               ; preds = %proclist_delete_offset.exit.i
-  store i32 %.sroa.5.050.i, ptr %89, align 4
-  %92 = load ptr, ptr @ProcGlobal, align 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = sext i32 %.sroa.5.050.i to i64
-  %95 = getelementptr %struct.PGPROC, ptr %93, i64 %94, i32 17
-  store i32 %.sroa.0.052.i, ptr %95, align 4
-  br label %proclist_push_tail_offset.exit.i
-
-proclist_push_tail_offset.exit.i:                 ; preds = %91, %90
-  %.sroa.0.3.i = phi i32 [ %.sroa.0.052.i, %90 ], [ %.sroa.0.04651.i, %91 ]
-  store i32 -1, ptr %87, align 4
-  %96 = getelementptr inbounds i8, ptr %61, i64 91
-  %97 = load i8, ptr %96, align 1
-  %.not39.i = icmp eq i8 %97, 2
+proclist_push_tail_offset.exit.i:                 ; preds = %90, %89
+  %.sroa.0.3.i = phi i32 [ %.sroa.0.052.i, %89 ], [ %.sroa.0.04651.i, %90 ]
+  store i32 -1, ptr %86, align 4
+  %95 = getelementptr inbounds i8, ptr %60, i64 91
+  %96 = load i8, ptr %95, align 1
+  %.not39.i = icmp eq i8 %96, 2
   %not..not39.i = xor i1 %.not39.i, true
   %spec.select.i = or i1 %.03254.i, %not..not39.i
   %spec.select41.i = select i1 %.not39.i, i1 %.055.i, i1 false
-  %98 = getelementptr inbounds i8, ptr %61, i64 90
-  store i8 2, ptr %98, align 2
-  %99 = icmp eq i8 %97, 0
+  %97 = getelementptr inbounds i8, ptr %60, i64 90
+  store i8 2, ptr %97, align 2
+  %98 = icmp eq i8 %96, 0
   %.pre.i = load ptr, ptr @ProcGlobal, align 8
-  br i1 %99, label %proclist_push_tail_offset.exit._crit_edge.i, label %100
+  br i1 %98, label %proclist_push_tail_offset.exit._crit_edge.loopexit.i, label %99
 
-100:                                              ; preds = %proclist_push_tail_offset.exit.i, %62
-  %101 = phi ptr [ %59, %62 ], [ %.pre.i, %proclist_push_tail_offset.exit.i ]
-  %.sroa.5.1.i = phi i32 [ %.sroa.5.050.i, %62 ], [ %.sroa.0.052.i, %proclist_push_tail_offset.exit.i ]
-  %.sroa.0.2.i = phi i32 [ %.sroa.0.04651.i, %62 ], [ %.sroa.0.3.i, %proclist_push_tail_offset.exit.i ]
-  %.133.i = phi i1 [ true, %62 ], [ %spec.select.i, %proclist_push_tail_offset.exit.i ]
-  %.2.i = phi i1 [ %.055.i, %62 ], [ %spec.select41.i, %proclist_push_tail_offset.exit.i ]
-  %102 = icmp eq i32 %.sroa.19.053.i, -1
-  br i1 %102, label %proclist_push_tail_offset.exit._crit_edge.i, label %103
+99:                                               ; preds = %proclist_push_tail_offset.exit.i, %61
+  %100 = phi ptr [ %58, %61 ], [ %.pre.i, %proclist_push_tail_offset.exit.i ]
+  %.sroa.5.1.i = phi i32 [ %.sroa.5.050.i, %61 ], [ %.sroa.0.052.i, %proclist_push_tail_offset.exit.i ]
+  %.sroa.0.2.i = phi i32 [ %.sroa.0.04651.i, %61 ], [ %.sroa.0.3.i, %proclist_push_tail_offset.exit.i ]
+  %.133.i = phi i1 [ true, %61 ], [ %spec.select.i, %proclist_push_tail_offset.exit.i ]
+  %.2.i = phi i1 [ %.055.i, %61 ], [ %spec.select41.i, %proclist_push_tail_offset.exit.i ]
+  %101 = icmp eq i32 %.sroa.19.053.i, -1
+  br i1 %101, label %proclist_push_tail_offset.exit._crit_edge.loopexit.i, label %102
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %101, align 8
-  %105 = sext i32 %.sroa.19.053.i to i64
-  %106 = getelementptr %struct.PGPROC, ptr %104, i64 %105, i32 17
-  br label %57, !llvm.loop !29
+102:                                              ; preds = %99
+  %103 = load ptr, ptr %100, align 8
+  %104 = sext i32 %.sroa.19.053.i to i64
+  %105 = getelementptr %struct.PGPROC, ptr %103, i64 %104, i32 17
+  br label %56, !llvm.loop !29
 
-proclist_push_tail_offset.exit._crit_edge.i:      ; preds = %100, %proclist_push_tail_offset.exit.i
-  %.sroa.0.147.ph.i = phi i32 [ %.sroa.0.3.i, %proclist_push_tail_offset.exit.i ], [ %.sroa.0.2.i, %100 ]
-  %.1.ph.i = phi i1 [ %spec.select41.i, %proclist_push_tail_offset.exit.i ], [ %.2.i, %100 ]
-  %107 = freeze i32 %.sroa.0.147.ph.i
-  %108 = select i1 %.1.ph.i, i32 536870912, i32 0
-  %109 = load volatile i32, ptr %33, align 4
-  %110 = icmp eq i32 %107, -1
-  br i1 %110, label %.split.us.preheader.i, label %.split.i
+proclist_push_tail_offset.exit._crit_edge.loopexit.i: ; preds = %99, %proclist_push_tail_offset.exit.i
+  %.sroa.0.147.ph.i = phi i32 [ %.sroa.0.3.i, %proclist_push_tail_offset.exit.i ], [ %.sroa.0.2.i, %99 ]
+  %.1.ph.i = phi i1 [ %spec.select41.i, %proclist_push_tail_offset.exit.i ], [ %.2.i, %99 ]
+  %106 = select i1 %.1.ph.i, i32 536870912, i32 0
+  br label %proclist_push_tail_offset.exit._crit_edge.i
 
-.split.us.preheader.i:                            ; preds = %proclist_push_tail_offset.exit._crit_edge.i, %proclist_push_tail_offset.exit._crit_edge.thread.i
-  %111 = phi i32 [ %51, %proclist_push_tail_offset.exit._crit_edge.thread.i ], [ %109, %proclist_push_tail_offset.exit._crit_edge.i ]
-  %.174.i = phi i32 [ 536870912, %proclist_push_tail_offset.exit._crit_edge.thread.i ], [ %108, %proclist_push_tail_offset.exit._crit_edge.i ]
-  br label %.split.us.i
+proclist_push_tail_offset.exit._crit_edge.i:      ; preds = %proclist_push_tail_offset.exit._crit_edge.loopexit.i, %LWLockWaitListLock.exit.i
+  %.sroa.0.147.i = phi i32 [ %.sroa.0.147.ph.i, %proclist_push_tail_offset.exit._crit_edge.loopexit.i ], [ -1, %LWLockWaitListLock.exit.i ]
+  %.1.i = phi i32 [ %106, %proclist_push_tail_offset.exit._crit_edge.loopexit.i ], [ 536870912, %LWLockWaitListLock.exit.i ]
+  %107 = load volatile i32, ptr %33, align 4
+  %108 = icmp eq i32 %.sroa.0.147.i, -1
+  %.v.i = select i1 %108, i32 -1342177281, i32 -268435457
+  br label %109
 
-.split.us.i:                                      ; preds = %.split.us.i, %.split.us.preheader.i
-  %.045.us.i = phi i32 [ %114, %.split.us.i ], [ %111, %.split.us.preheader.i ]
-  %112 = and i32 %.045.us.i, -1879048193
-  %.035.us.i = or disjoint i32 %112, %.174.i
-  %113 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 %.045.us.i, i32 %.035.us.i, ptr nonnull elementtype(i32) %33) #15, !srcloc !18
-  %114 = extractvalue { i32, i8 } %113, 0
-  %115 = extractvalue { i32, i8 } %113, 1
-  %.not48.us.i = icmp eq i8 %115, 0
-  br i1 %.not48.us.i, label %.split.us.i, label %.critedge
+109:                                              ; preds = %109, %proclist_push_tail_offset.exit._crit_edge.i
+  %.045.i = phi i32 [ %107, %proclist_push_tail_offset.exit._crit_edge.i ], [ %113, %109 ]
+  %110 = and i32 %.045.i, -805306369
+  %.035.i = or disjoint i32 %110, %.1.i
+  %111 = and i32 %.035.i, %.v.i
+  %112 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 %.045.i, i32 %111, ptr nonnull elementtype(i32) %33) #15, !srcloc !18
+  %113 = extractvalue { i32, i8 } %112, 0
+  %114 = extractvalue { i32, i8 } %112, 1
+  %.not48.i = icmp eq i8 %114, 0
+  br i1 %.not48.i, label %109, label %115
 
-.split.i:                                         ; preds = %proclist_push_tail_offset.exit._crit_edge.i, %.split.i
-  %.045.i = phi i32 [ %118, %.split.i ], [ %109, %proclist_push_tail_offset.exit._crit_edge.i ]
-  %116 = and i32 %.045.i, -805306369
-  %.035.i = or disjoint i32 %116, %108
-  %117 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 %.045.i, i32 %.035.i, ptr nonnull elementtype(i32) %33) #15, !srcloc !18
-  %118 = extractvalue { i32, i8 } %117, 0
-  %119 = extractvalue { i32, i8 } %117, 1
-  %.not48.i = icmp eq i8 %119, 0
-  br i1 %.not48.i, label %.split.i, label %.lr.ph65.i
+115:                                              ; preds = %109
+  br i1 %108, label %.critedge, label %.lr.ph63.i
 
-.lr.ph65.i:                                       ; preds = %.split.i, %proclist_delete_offset.exit42.i
-  %.sroa.19.163.i.sink = phi i32 [ %.sroa.19.163.i, %proclist_delete_offset.exit42.i ], [ %107, %.split.i ]
-  %120 = load ptr, ptr @ProcGlobal, align 8
-  %121 = load ptr, ptr %120, align 8
-  %122 = sext i32 %.sroa.19.163.i.sink to i64
-  %123 = getelementptr %struct.PGPROC, ptr %121, i64 %122, i32 17
-  %.sroa.19.163.i = load i32, ptr %123, align 4
-  %124 = sext i32 %.sroa.19.163.i.sink to i64
-  %125 = getelementptr %struct.PGPROC, ptr %121, i64 %124
-  %126 = getelementptr %struct.PGPROC, ptr %121, i64 %124, i32 17
-  %127 = getelementptr inbounds i8, ptr %126, i64 4
-  %128 = load i32, ptr %127, align 4
-  %129 = icmp eq i32 %128, -1
-  %130 = load i32, ptr %126, align 4
-  br i1 %129, label %134, label %131
+.lr.ph63.i:                                       ; preds = %115, %proclist_delete_offset.exit42.i
+  %.sink.i = phi i32 [ %120, %proclist_delete_offset.exit42.i ], [ %.sroa.0.147.i, %115 ]
+  %116 = load ptr, ptr @ProcGlobal, align 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = sext i32 %.sink.i to i64
+  %119 = getelementptr %struct.PGPROC, ptr %117, i64 %118, i32 17
+  %120 = load i32, ptr %119, align 4
+  %121 = getelementptr %struct.PGPROC, ptr %117, i64 %118
+  %122 = getelementptr inbounds i8, ptr %119, i64 4
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp eq i32 %123, -1
+  br i1 %124, label %128, label %125
 
-131:                                              ; preds = %.lr.ph65.i
-  %132 = sext i32 %128 to i64
-  %133 = getelementptr %struct.PGPROC, ptr %121, i64 %132, i32 17
-  store i32 %130, ptr %133, align 4
-  br label %134
+125:                                              ; preds = %.lr.ph63.i
+  %126 = sext i32 %123 to i64
+  %127 = getelementptr %struct.PGPROC, ptr %117, i64 %126, i32 17
+  store i32 %120, ptr %127, align 4
+  br label %128
 
-134:                                              ; preds = %131, %.lr.ph65.i
-  %135 = icmp eq i32 %130, -1
-  br i1 %135, label %proclist_delete_offset.exit42.i, label %136
+128:                                              ; preds = %125, %.lr.ph63.i
+  %129 = icmp eq i32 %120, -1
+  br i1 %129, label %.critedge.critedge, label %proclist_delete_offset.exit42.i
 
-136:                                              ; preds = %134
-  %137 = load ptr, ptr @ProcGlobal, align 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = sext i32 %130 to i64
-  %140 = getelementptr %struct.PGPROC, ptr %138, i64 %139, i32 17, i32 1
-  store i32 %128, ptr %140, align 4
-  br label %proclist_delete_offset.exit42.i
-
-proclist_delete_offset.exit42.i:                  ; preds = %136, %134
-  store i32 0, ptr %127, align 4
-  store i32 0, ptr %126, align 4
+proclist_delete_offset.exit42.i:                  ; preds = %128
+  %130 = load ptr, ptr @ProcGlobal, align 8
+  %131 = load ptr, ptr %130, align 8
+  %132 = sext i32 %120 to i64
+  %133 = getelementptr %struct.PGPROC, ptr %131, i64 %132, i32 17, i32 1
+  store i32 %123, ptr %133, align 4
+  store i32 0, ptr %122, align 4
+  store i32 0, ptr %119, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !30
-  %141 = getelementptr inbounds i8, ptr %125, i64 90
-  store i8 0, ptr %141, align 2
-  %142 = getelementptr inbounds i8, ptr %125, i64 24
-  %143 = load ptr, ptr %142, align 8
-  call void @PGSemaphoreUnlock(ptr noundef %143) #15
-  %144 = icmp eq i32 %.sroa.19.163.i, -1
-  br i1 %144, label %.critedge, label %.lr.ph65.i, !llvm.loop !31
+  %134 = getelementptr inbounds i8, ptr %121, i64 90
+  store i8 0, ptr %134, align 2
+  %135 = getelementptr inbounds i8, ptr %121, i64 24
+  %136 = load ptr, ptr %135, align 8
+  call void @PGSemaphoreUnlock(ptr noundef %136) #15
+  br label %.lr.ph63.i, !llvm.loop !31
 
-.critedge:                                        ; preds = %proclist_delete_offset.exit42.i, %.split.us.i, %._crit_edge
-  %145 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %146 = add i32 %145, -1
-  store volatile i32 %146, ptr @InterruptHoldoffCount, align 4
+.critedge.critedge:                               ; preds = %128
+  store i32 0, ptr %122, align 4
+  store i32 0, ptr %119, align 4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !30
+  %137 = getelementptr inbounds i8, ptr %121, i64 90
+  store i8 0, ptr %137, align 2
+  %138 = getelementptr inbounds i8, ptr %121, i64 24
+  %139 = load ptr, ptr %138, align 8
+  call void @PGSemaphoreUnlock(ptr noundef %139) #15
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.critedge, %115, %._crit_edge
+  %140 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %141 = add i32 %140, -1
+  store volatile i32 %141, ptr @InterruptHoldoffCount, align 4
   ret void
 }
 

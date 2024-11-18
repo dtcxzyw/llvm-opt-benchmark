@@ -11580,29 +11580,29 @@ define internal fastcc ptr @sema_create_synthetic_main(ptr noundef %0, ptr nound
   store i64 %137, ptr %138, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 12
   store i8 25, ptr %139, align 4
-  %140 = select i1 %4, i64 2, i64 0
-  switch i32 %2, label %143 [
-    i32 3, label %141
-    i32 2, label %142
+  switch i32 %2, label %142 [
+    i32 3, label %140
+    i32 2, label %141
     i32 4, label %switch.lookup
   ]
 
-141:                                              ; preds = %131
+140:                                              ; preds = %131
   %switch.table.sema_create_synthetic_main.9.switch.table.sema_create_synthetic_main.10 = select i1 %6, ptr @switch.table.sema_create_synthetic_main.9, ptr @switch.table.sema_create_synthetic_main.10
   %spec.select = select i1 %5, ptr @switch.table.sema_create_synthetic_main, ptr %switch.table.sema_create_synthetic_main.9.switch.table.sema_create_synthetic_main.10
   br label %switch.lookup
 
-142:                                              ; preds = %131
+141:                                              ; preds = %131
   %switch.table.sema_create_synthetic_main.11.switch.table.sema_create_synthetic_main.12 = select i1 %5, ptr @switch.table.sema_create_synthetic_main.11, ptr @switch.table.sema_create_synthetic_main.12
   br label %switch.lookup
 
-143:                                              ; preds = %131
+142:                                              ; preds = %131
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.sema_create_synthetic_main, ptr noundef nonnull @.str.4, i32 noundef 2706) #11
   unreachable
 
-switch.lookup:                                    ; preds = %141, %131, %142
-  %switch.table.sema_create_synthetic_main.13.sink = phi ptr [ %switch.table.sema_create_synthetic_main.11.switch.table.sema_create_synthetic_main.12, %142 ], [ @switch.table.sema_create_synthetic_main.13, %131 ], [ %spec.select, %141 ]
-  %144 = select i1 %3, i64 1, i64 %140
+switch.lookup:                                    ; preds = %140, %131, %141
+  %switch.table.sema_create_synthetic_main.13.sink = phi ptr [ %switch.table.sema_create_synthetic_main.11.switch.table.sema_create_synthetic_main.12, %141 ], [ @switch.table.sema_create_synthetic_main.13, %131 ], [ %spec.select, %140 ]
+  %143 = select i1 %4, i64 2, i64 0
+  %144 = select i1 %3, i64 1, i64 %143
   %switch.gep245 = getelementptr inbounds [3 x ptr], ptr %switch.table.sema_create_synthetic_main.13.sink, i64 0, i64 %144
   %switch.load246 = load ptr, ptr %switch.gep245, align 8
   %145 = tail call ptr @symtab_preset(ptr noundef nonnull %switch.load246, i32 noundef 73) #10

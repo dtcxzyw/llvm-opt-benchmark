@@ -436,7 +436,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
 
 8:                                                ; preds = %.lr.ph46, %.loopexit
   %.044 = phi i32 [ 0, %.lr.ph46 ], [ %.3, %.loopexit ]
-  %.03243 = phi ptr [ %1, %.lr.ph46 ], [ %66, %.loopexit ]
+  %.03243 = phi ptr [ %1, %.lr.ph46 ], [ %67, %.loopexit ]
   %9 = getelementptr inbounds i8, ptr %.03243, i64 48
   store i64 0, ptr %9, align 8
   %10 = load i32, ptr %.03243, align 8
@@ -453,7 +453,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
   %14 = getelementptr inbounds i8, ptr %.03243, i64 8
   %15 = sext i32 %.044 to i64
   %16 = zext nneg i32 %12 to i64
-  br label %55
+  br label %56
 
 17:                                               ; preds = %8
   %.not48 = icmp eq i32 %12, 31
@@ -503,66 +503,66 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
   %36 = icmp eq i32 %12, 0
   %37 = trunc i64 %35 to i1
   %38 = select i1 %37, i64 3, i64 0
-  %.025.i = select i1 %36, i64 %38, i64 %35
   %39 = icmp ult i32 %12, 2
-  %40 = and i64 %.025.i, 3
-  %41 = mul nuw nsw i64 %40, 5
-  %.126.i = select i1 %39, i64 %41, i64 %35
+  %40 = and i64 %35, 3
+  %41 = select i1 %36, i64 %38, i64 %40
+  %42 = mul nuw nsw i64 %41, 5
+  %.126.i = select i1 %39, i64 %42, i64 %35
   %.1.i = tail call i32 @llvm.umax.i32(i32 %12, i32 2)
-  %42 = icmp ult i32 %12, 3
-  %43 = and i64 %.126.i, 15
-  %44 = mul nuw nsw i64 %43, 17
-  %.227.i = select i1 %42, i64 %44, i64 %35
-  %.2.i = select i1 %42, i32 3, i32 %.1.i
-  %45 = icmp eq i32 %.2.i, 3
-  %46 = and i64 %.227.i, 255
-  %47 = mul nuw nsw i64 %46, 257
-  %.328.i = select i1 %45, i64 %47, i64 %.227.i
-  %.3.i = select i1 %45, i32 4, i32 %.2.i
-  %48 = icmp eq i32 %.3.i, 4
-  %49 = and i64 %.328.i, 65535
-  %50 = mul nuw nsw i64 %49, 65537
-  %.429.i = select i1 %48, i64 %50, i64 %.328.i
-  %51 = and i32 %.3.i, -2
-  %52 = icmp eq i32 %51, 4
-  %53 = and i64 %.429.i, 4294967295
-  %54 = mul nuw i64 %53, 4294967297
-  %.5.i = select i1 %52, i64 %54, i64 %.429.i
+  %43 = icmp ult i32 %12, 3
+  %44 = and i64 %.126.i, 15
+  %45 = mul nuw nsw i64 %44, 17
+  %.227.i = select i1 %43, i64 %45, i64 %35
+  %.2.i = select i1 %43, i32 3, i32 %.1.i
+  %46 = icmp eq i32 %.2.i, 3
+  %47 = and i64 %.227.i, 255
+  %48 = mul nuw nsw i64 %47, 257
+  %.328.i = select i1 %46, i64 %48, i64 %.227.i
+  %.3.i = select i1 %46, i32 4, i32 %.2.i
+  %49 = icmp eq i32 %.3.i, 4
+  %50 = and i64 %.328.i, 65535
+  %51 = mul nuw nsw i64 %50, 65537
+  %.429.i = select i1 %49, i64 %51, i64 %.328.i
+  %52 = and i32 %.3.i, -2
+  %53 = icmp eq i32 %52, 4
+  %54 = and i64 %.429.i, 4294967295
+  %55 = mul nuw i64 %54, 4294967297
+  %.5.i = select i1 %53, i64 %55, i64 %.429.i
   store i64 %.5.i, ptr %9, align 8
   br label %.loopexit
 
-55:                                               ; preds = %.lr.ph41, %63
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next54, %63 ]
-  %indvars.iv51 = phi i64 [ %15, %.lr.ph41 ], [ %indvars.iv.next52, %63 ]
+56:                                               ; preds = %.lr.ph41, %64
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next54, %64 ]
+  %indvars.iv51 = phi i64 [ %15, %.lr.ph41 ], [ %indvars.iv.next52, %64 ]
   %.val = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv51
-  %57 = load i32, ptr %56, align 4
-  %58 = and i32 %57, 1
-  %.not33 = icmp eq i32 %58, 0
-  br i1 %.not33, label %59, label %63
+  %57 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv51
+  %58 = load i32, ptr %57, align 4
+  %59 = and i32 %58, 1
+  %.not33 = icmp eq i32 %59, 0
+  br i1 %.not33, label %60, label %64
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds [10 x i32], ptr %14, i64 0, i64 %indvars.iv53
-  %61 = load i32, ptr %60, align 4
-  %62 = sext i32 %61 to i64
-  store i64 %62, ptr %9, align 8
-  br label %63
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds [10 x i32], ptr %14, i64 0, i64 %indvars.iv53
+  %62 = load i32, ptr %61, align 4
+  %63 = sext i32 %62 to i64
+  store i64 %63, ptr %9, align 8
+  br label %64
 
-63:                                               ; preds = %55, %59
+64:                                               ; preds = %56, %60
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
-  %64 = icmp samesign ult i64 %indvars.iv.next54, %16
-  br i1 %64, label %55, label %.loopexit.loopexit, !llvm.loop !20
+  %65 = icmp samesign ult i64 %indvars.iv.next54, %16
+  br i1 %65, label %56, label %.loopexit.loopexit, !llvm.loop !20
 
-.loopexit.loopexit:                               ; preds = %63
-  %65 = trunc nsw i64 %indvars.iv.next52 to i32
+.loopexit.loopexit:                               ; preds = %64
+  %66 = trunc nsw i64 %indvars.iv.next52 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %._crit_edge
-  %.3 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.044, %.preheader ], [ %65, %.loopexit.loopexit ]
-  %66 = getelementptr inbounds i8, ptr %.03243, i64 56
-  %67 = icmp ult ptr %66, %5
-  br i1 %67, label %8, label %._crit_edge47, !llvm.loop !21
+  %.3 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.044, %.preheader ], [ %66, %.loopexit.loopexit ]
+  %67 = getelementptr inbounds i8, ptr %.03243, i64 56
+  %68 = icmp ult ptr %67, %5
+  br i1 %68, label %8, label %._crit_edge47, !llvm.loop !21
 
 ._crit_edge47:                                    ; preds = %.loopexit, %3
   ret void

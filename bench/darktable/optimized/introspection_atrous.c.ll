@@ -664,14 +664,14 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   %28 = fmul reassoc nsz arcp contract afn float %25, 0x3FB99999A0000000
   %29 = fadd reassoc nsz arcp contract afn float %28, -5.000000e-01
   %30 = tail call reassoc nsz arcp contract afn float @llvm.log2.f32(float %29)
-  %31 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %30
-  %32 = fmul reassoc nsz arcp contract afn float %.104.val, 5.000000e-01
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
-  %35 = getelementptr inbounds i8, ptr %3, i64 32
-  %36 = getelementptr inbounds i8, ptr %3, i64 40
-  %37 = getelementptr inbounds i8, ptr %3, i64 24
-  %38 = select i1 %27, float 1.250000e-01, float %31
+  %31 = fmul reassoc nsz arcp contract afn float %.104.val, 5.000000e-01
+  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds i8, ptr %3, i64 32
+  %35 = getelementptr inbounds i8, ptr %3, i64 40
+  %36 = getelementptr inbounds i8, ptr %3, i64 24
+  %37 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %30
+  %38 = select i1 %27, float 1.250000e-01, float %37
   %invariant.op = fmul reassoc nsz arcp contract afn float %38, -7.000000e+00
   %39 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %17
   br label %40
@@ -682,14 +682,14 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   %43 = shl nuw nsw i32 4, %42
   %44 = or disjoint i32 %43, 1
   %45 = uitofp nneg i32 %44 to float
-  %46 = fmul reassoc nsz arcp contract afn float %32, %45
+  %46 = fmul reassoc nsz arcp contract afn float %31, %45
   %47 = fmul reassoc nsz arcp contract afn float %46, %39
   %48 = fadd reassoc nsz arcp contract afn float %47, -5.000000e-01
   %49 = call reassoc nsz arcp contract afn noundef float @llvm.log2.f32(float %48)
   %50 = fadd reassoc nsz arcp contract afn float %49, -5.000000e-01
   %51 = fmul reassoc nsz arcp contract afn float %50, %38
   %52 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %51
-  %53 = load ptr, ptr %33, align 8, !tbaa !12
+  %53 = load ptr, ptr %32, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #21
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #21
   %54 = getelementptr inbounds i8, ptr %53, i64 20
@@ -854,7 +854,7 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   store float %166, ptr %167, align 4, !tbaa !60
   %168 = getelementptr inbounds i8, ptr %167, i64 12
   store float %166, ptr %168, align 4, !tbaa !60
-  %169 = load ptr, ptr %34, align 8, !tbaa !12
+  %169 = load ptr, ptr %33, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #21
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #21
   %170 = getelementptr inbounds i8, ptr %169, i64 20
@@ -1027,7 +1027,7 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   %.reass = fmul reassoc nsz arcp contract afn float %50, %invariant.op
   %291 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %.reass)
   %292 = fmul reassoc nsz arcp contract afn float %291, 1.000000e+01
-  %293 = load ptr, ptr %35, align 8, !tbaa !12
+  %293 = load ptr, ptr %34, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #21
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #21
   %294 = getelementptr inbounds i8, ptr %293, i64 20
@@ -1193,7 +1193,7 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   store float %406, ptr %408, align 4, !tbaa !60
   store float %406, ptr %407, align 4, !tbaa !60
   %409 = fmul reassoc nsz arcp contract afn float %291, 2.000000e+01
-  %410 = load ptr, ptr %36, align 8, !tbaa !12
+  %410 = load ptr, ptr %35, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #21
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #21
   %411 = getelementptr inbounds i8, ptr %410, i64 20
@@ -1358,7 +1358,7 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   store float %523, ptr %524, align 4, !tbaa !60
   %525 = getelementptr inbounds i8, ptr %407, i64 4
   store float %523, ptr %525, align 4, !tbaa !60
-  %526 = load ptr, ptr %37, align 8, !tbaa !12
+  %526 = load ptr, ptr %36, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #21
   %527 = getelementptr inbounds i8, ptr %526, i64 20

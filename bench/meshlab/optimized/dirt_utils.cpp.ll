@@ -5050,7 +5050,6 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us: ; preds = %._crit_edge.i7
   %163 = uitofp i32 %162 to double
   %164 = fmul double %163, 0x3DF0000000000000
   %165 = fptrunc double %164 to float
-  %.sroa.0.4.vec.insert.i.us = insertelement <2 x float> poison, float %165, i64 1
   %166 = icmp sgt i32 %148, 622
   br i1 %166, label %.preheader27.i.us, label %216
 
@@ -5150,11 +5149,9 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit72.us: ; preds = %._crit_edge.i7
   %235 = fadd float %165, %234
   %236 = fcmp ogt float %235, 1.000000e+00
   %237 = fsub float 1.000000e+00, %165
-  %.sroa.0.4.vec.insert6.i.us = insertelement <2 x float> poison, float %237, i64 1
   %238 = fsub float 1.000000e+00, %234
   %.sroa.7.0.i.us = select i1 %236, float %238, float %234
-  %.sroa.0.0.i.us = select i1 %236, <2 x float> %.sroa.0.4.vec.insert6.i.us, <2 x float> %.sroa.0.4.vec.insert.i.us
-  %.sroa.0.4.vec.extract8.i.us = extractelement <2 x float> %.sroa.0.0.i.us, i64 1
+  %.sroa.0.4.vec.extract8.i.us = select i1 %236, float %237, float %165
   %239 = fadd float %.sroa.7.0.i.us, %.sroa.0.4.vec.extract8.i.us
   %240 = fsub float 1.000000e+00, %239
   %241 = load ptr, ptr %86, align 8
@@ -10907,7 +10904,6 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82: ; preds = %_Z17RandomBaricen
   %130 = uitofp i32 %129 to double
   %131 = fmul double %130, 0x3DF0000000000000
   %132 = fptrunc double %131 to float
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> poison, float %132, i64 1
   %133 = icmp sgt i32 %115, 622
   br i1 %133, label %.preheader27.i, label %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit
 
@@ -11007,11 +11003,9 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit: ; preds = %_ZN3vcg4math18Marse
   %201 = fadd float %132, %200
   %202 = fcmp ogt float %201, 1.000000e+00
   %203 = fsub float 1.000000e+00, %132
-  %.sroa.0.4.vec.insert6.i = insertelement <2 x float> poison, float %203, i64 1
   %204 = fsub float 1.000000e+00, %200
   %.sroa.7.0.i = select i1 %202, float %204, float %200
-  %.sroa.0.0.i = select i1 %202, <2 x float> %.sroa.0.4.vec.insert6.i, <2 x float> %.sroa.0.4.vec.insert.i
-  %.sroa.0.4.vec.extract8.i = extractelement <2 x float> %.sroa.0.0.i, i64 1
+  %.sroa.0.4.vec.extract8.i = select i1 %202, float %203, float %132
   %205 = fadd float %.sroa.7.0.i, %.sroa.0.4.vec.extract8.i
   %206 = fsub float 1.000000e+00, %205
   %207 = load ptr, ptr %47, align 8
@@ -22931,7 +22925,6 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67: ; preds = %_Z17RandomBaricen
   %169 = uitofp i32 %168 to double
   %170 = fmul double %169, 0x3DF0000000000000
   %171 = fptrunc double %170 to float
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> poison, float %171, i64 1
   %172 = icmp sgt i32 %154, 622
   br i1 %172, label %.preheader27.i, label %222
 
@@ -23031,11 +23024,9 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67: ; preds = %_Z17RandomBaricen
   %241 = fadd float %171, %240
   %242 = fcmp ogt float %241, 1.000000e+00
   %243 = fsub float 1.000000e+00, %171
-  %.sroa.0.4.vec.insert6.i = insertelement <2 x float> poison, float %243, i64 1
   %244 = fsub float 1.000000e+00, %240
   %.sroa.7.0.i = select i1 %242, float %244, float %240
-  %.sroa.0.0.i = select i1 %242, <2 x float> %.sroa.0.4.vec.insert6.i, <2 x float> %.sroa.0.4.vec.insert.i
-  %.sroa.0.4.vec.extract8.i = extractelement <2 x float> %.sroa.0.0.i, i64 1
+  %.sroa.0.4.vec.extract8.i = select i1 %242, float %243, float %171
   %245 = fadd float %.sroa.7.0.i, %.sroa.0.4.vec.extract8.i
   %246 = fsub float 1.000000e+00, %245
   %247 = load ptr, ptr %16, align 8

@@ -2238,8 +2238,8 @@ define dso_local noundef range(i64 -9223372036854775808, 9223372036854775777) i6
 4:                                                ; preds = %0
   %5 = icmp slt i64 %3, 1000
   %6 = add nsw i64 %3, -1000
-  %7 = select i1 %5, i64 0, i64 %6
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
+  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 %2)
+  %.sroa.speculated = select i1 %5, i64 0, i64 %7
   br label %8
 
 8:                                                ; preds = %4, %0

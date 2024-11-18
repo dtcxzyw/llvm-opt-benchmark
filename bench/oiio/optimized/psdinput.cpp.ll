@@ -963,8 +963,8 @@ entry:
   %buffer.promoted.i = load i32, ptr %buffer.i, align 4
   %1 = call i32 @llvm.bswap.i32(i32 %buffer.promoted.i)
   %conv.i = uitofp i32 %1 to float
-  %2 = fmul float %conv.i, 0x3EF0000000000000
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i)
+  %2 = fmul float %conv.i, 0x3EF0000000000000
   %div = select i1 %call.i, float %2, float 0.000000e+00
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buffer.i19)
   %call.i20 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput6ioreadEPvmm(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef nonnull %buffer.i19, i64 noundef 2, i64 noundef 1)
@@ -980,8 +980,8 @@ entry:
   %buffer.promoted.i31 = load i32, ptr %buffer.i28, align 4
   %4 = call i32 @llvm.bswap.i32(i32 %buffer.promoted.i31)
   %conv.i32 = uitofp i32 %4 to float
-  %5 = fmul float %conv.i32, 0x3EF0000000000000
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i28)
+  %5 = fmul float %conv.i32, 0x3EF0000000000000
   %div22 = select i1 %call.i29, float %5, float 0.000000e+00
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buffer.i34)
   %call.i35 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput6ioreadEPvmm(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef nonnull %buffer.i34, i64 noundef 2, i64 noundef 1)

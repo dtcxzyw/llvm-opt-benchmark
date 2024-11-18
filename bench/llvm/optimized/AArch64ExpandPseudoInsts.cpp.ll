@@ -2117,64 +2117,64 @@ _ZN4llvm8DebugLocD2Ev.exit575:                    ; preds = %_ZN4llvm10MIMetadat
   %776 = icmp eq i32 %775, 0
   %777 = lshr i32 %774, 8
   %778 = and i32 %777, 4091
-  %779 = or disjoint i32 %778, 4
-  %780 = load ptr, ptr %735, align 8
-  store ptr %780, ptr %98, align 8
-  %.not.i.i.i.i576 = icmp eq ptr %780, null
+  %779 = load ptr, ptr %735, align 8
+  store ptr %779, ptr %98, align 8
+  %.not.i.i.i.i576 = icmp eq ptr %779, null
   br i1 %.not.i.i.i.i576, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit579.sink.split, label %_ZN4llvm8DebugLocC2ERKS0_.exit577
 
 _ZN4llvm8DebugLocC2ERKS0_.exit577:                ; preds = %763
-  %781 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull align 4 dereferenceable(8) %780, i64 1) #14
+  %780 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull align 4 dereferenceable(8) %779, i64 1) #14
   %.pr966 = load ptr, ptr %98, align 8
   store ptr %.pr966, ptr %97, align 8
   %.not.i.i.i.i.i578 = icmp eq ptr %.pr966, null
-  br i1 %.not.i.i.i.i.i578, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit579, label %782
+  br i1 %.not.i.i.i.i.i578, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit579, label %781
 
-782:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit577
-  %783 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull align 4 dereferenceable(8) %.pr966, ptr noundef nonnull align 8 dereferenceable(24) %97) #14
+781:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit577
+  %782 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull align 4 dereferenceable(8) %.pr966, ptr noundef nonnull align 8 dereferenceable(24) %97) #14
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit579.sink.split
 
-_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit579.sink.split: ; preds = %763, %782
-  %.sink1009 = phi ptr [ %98, %782 ], [ %97, %763 ]
+_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit579.sink.split: ; preds = %763, %781
+  %.sink1009 = phi ptr [ %98, %781 ], [ %97, %763 ]
   store ptr null, ptr %.sink1009, align 8
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit579
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit579: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit579.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit577
-  %784 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %784, i8 0, i64 16, i1 false)
-  %785 = load ptr, ptr %742, align 8
-  %786 = getelementptr inbounds i8, ptr %785, i64 8
-  %787 = load ptr, ptr %786, align 8
-  %788 = getelementptr inbounds i8, ptr %787, i64 -142240
-  %789 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(32) %788)
-  %790 = extractvalue { ptr, ptr } %789, 0
-  store ptr %790, ptr %96, align 8
-  %791 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %792 = extractvalue { ptr, ptr } %789, 1
-  store ptr %792, ptr %791, align 8
+  %783 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %783, i8 0, i64 16, i1 false)
+  %784 = load ptr, ptr %742, align 8
+  %785 = getelementptr inbounds i8, ptr %784, i64 8
+  %786 = load ptr, ptr %785, align 8
+  %787 = getelementptr inbounds i8, ptr %786, i64 -142240
+  %788 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(32) %787)
+  %789 = extractvalue { ptr, ptr } %788, 0
+  store ptr %789, ptr %96, align 8
+  %790 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %791 = extractvalue { ptr, ptr } %788, 1
+  store ptr %791, ptr %790, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51)
-  %793 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr null, ptr %793, align 8, !alias.scope !52
-  %794 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store i32 %772, ptr %794, align 4, !alias.scope !52
-  %795 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %795, i8 0, i64 16, i1 false), !alias.scope !52
+  %792 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr null, ptr %792, align 8, !alias.scope !52
+  %793 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i32 %772, ptr %793, align 4, !alias.scope !52
+  %794 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %794, i8 0, i64 16, i1 false), !alias.scope !52
   store i32 16777216, ptr %51, align 8, !alias.scope !52
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %792, ptr noundef nonnull align 8 dereferenceable(1041) %790, ptr noundef nonnull align 8 dereferenceable(32) %51) #14
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %791, ptr noundef nonnull align 8 dereferenceable(1041) %789, ptr noundef nonnull align 8 dereferenceable(32) %51) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50)
-  %796 = load ptr, ptr %791, align 8
-  %797 = load ptr, ptr %96, align 8
-  %798 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr null, ptr %798, align 8, !alias.scope !55
-  %799 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %679, ptr %799, align 4, !alias.scope !55
-  %800 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %800, i8 0, i64 16, i1 false), !alias.scope !55
+  %795 = load ptr, ptr %790, align 8
+  %796 = load ptr, ptr %96, align 8
+  %797 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store ptr null, ptr %797, align 8, !alias.scope !55
+  %798 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store i32 %679, ptr %798, align 4, !alias.scope !55
+  %799 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %799, i8 0, i64 16, i1 false), !alias.scope !55
   store i32 67108864, ptr %50, align 8, !alias.scope !55
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %796, ptr noundef nonnull align 8 dereferenceable(1041) %797, ptr noundef nonnull align 8 dereferenceable(32) %50) #14
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %795, ptr noundef nonnull align 8 dereferenceable(1041) %796, ptr noundef nonnull align 8 dereferenceable(32) %50) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50)
-  %801 = select i1 %776, i32 4, i32 %779
+  %800 = or disjoint i32 %778, 4
+  %801 = select i1 %776, i32 4, i32 %800
   %802 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm19MachineInstrBuilder6addRegENS_8RegisterEjj(ptr noundef nonnull align 8 dereferenceable(16) %96, i32 %679, i32 noundef %801, i32 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %802, i64 16, i1 false)
   %803 = load ptr, ptr %97, align 8

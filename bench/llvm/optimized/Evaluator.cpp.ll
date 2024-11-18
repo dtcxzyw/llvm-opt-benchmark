@@ -2685,11 +2685,11 @@ _ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit: ; preds = %_ZN4llvm9Evaluato
   %.not.i.i291 = icmp eq i64 %754, 4294967294
   %755 = shl i64 %753, 1
   %756 = add i64 %755, 3
-  %757 = and i64 %756, 4294967295
-  %758 = getelementptr inbounds i8, ptr %752, i64 -8
-  %759 = load ptr, ptr %758, align 8
-  %760 = select i1 %.not.i.i291, i64 1, i64 %757
-  %761 = getelementptr inbounds %"class.llvm::Use", ptr %759, i64 %760
+  %757 = getelementptr inbounds i8, ptr %752, i64 -8
+  %758 = load ptr, ptr %757, align 8
+  %759 = and i64 %756, 4294967295
+  %760 = select i1 %.not.i.i291, i64 1, i64 %759
+  %761 = getelementptr inbounds %"class.llvm::Use", ptr %758, i64 %760
   %762 = load ptr, ptr %761, align 8
   br label %.thread354.sink.split
 

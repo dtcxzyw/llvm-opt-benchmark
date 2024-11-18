@@ -277,11 +277,11 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 
 132:                                              ; preds = %128
   %.not89 = icmp eq i64 %.075.sink, 0
-  %133 = and i8 %.3.sink, 1
-  %134 = and i32 %130, 1
-  %135 = zext nneg i8 %133 to i32
+  %133 = and i32 %130, 1
+  %134 = and i8 %.3.sink, 1
+  %135 = zext nneg i8 %134 to i32
   %136 = select i1 %.not89, i32 %135, i32 1
-  %137 = or i32 %134, %136
+  %137 = or i32 %133, %136
   %138 = add i32 %137, %130
   br label %107
 

@@ -10935,18 +10935,18 @@ split:                                            ; preds = %54, %._crit_edge
 
 80:                                               ; preds = %79
   %81 = load i8, ptr %37, align 8
-  %82 = zext i8 %81 to i32
-  %83 = icmp eq i8 %81, 0
-  br i1 %83, label %90, label %84
+  %82 = icmp eq i8 %81, 0
+  br i1 %82, label %90, label %83
 
-84:                                               ; preds = %80
-  %85 = icmp slt i32 %5, %82
+83:                                               ; preds = %80
+  %84 = zext i8 %81 to i32
+  %85 = icmp slt i32 %5, %84
   br i1 %85, label %86, label %256
 
-86:                                               ; preds = %84
+86:                                               ; preds = %83
   %87 = icmp slt i32 %5, 0
-  %88 = select i1 %87, i32 %82, i32 %5
-  %89 = trunc i32 %88 to i8
+  %88 = trunc i32 %5 to i8
+  %89 = select i1 %87, i8 %81, i8 %88
   br label %90
 
 90:                                               ; preds = %86, %80, %79
@@ -11240,8 +11240,8 @@ ieee80211_beacon_get_finish.exit:                 ; preds = %233, %238
   tail call void asm sideeffect "3376: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3376) #20, !srcloc !195
   br label %256
 
-256:                                              ; preds = %7, %14, %30, %.thread, %84, %90, %255, %ieee80211_beacon_get_finish.exit, %.loopexit, %93
-  %257 = phi ptr [ null, %.thread ], [ null, %84 ], [ %92, %90 ], [ null, %30 ], [ null, %255 ], [ null, %14 ], [ null, %7 ], [ %182, %ieee80211_beacon_get_finish.exit ], [ null, %93 ], [ null, %.loopexit ]
+256:                                              ; preds = %7, %14, %30, %.thread, %83, %90, %255, %ieee80211_beacon_get_finish.exit, %.loopexit, %93
+  %257 = phi ptr [ null, %.thread ], [ null, %83 ], [ %92, %90 ], [ null, %30 ], [ null, %255 ], [ null, %14 ], [ null, %7 ], [ %182, %ieee80211_beacon_get_finish.exit ], [ null, %93 ], [ null, %.loopexit ]
   tail call void @__rcu_read_unlock() #20
   ret ptr %257
 }

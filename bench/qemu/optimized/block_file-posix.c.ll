@@ -3316,8 +3316,8 @@ raw_is_io_aligned.exit:                           ; preds = %for.body
 
 if.then28:                                        ; preds = %for.body, %raw_is_io_aligned.exit
   %cmp29.not = icmp eq i64 %11, 1
-  %cond34 = select i1 %cmp29.not, i64 %spec.select, i64 %11
-  %conv35 = trunc i64 %cond34 to i32
+  %13 = trunc i64 %11 to i32
+  %conv35 = select i1 %cmp29.not, i32 %1, i32 %13
   store i32 %conv35, ptr %bl3, align 8
   br label %for.end
 
@@ -3326,8 +3326,8 @@ for.end:                                          ; preds = %for.cond, %if.then2
   br label %if.end39
 
 if.end39:                                         ; preds = %for.end, %if.end19
-  %13 = load i64, ptr %buf_align5, align 8
-  %tobool41.not = icmp eq i64 %13, 0
+  %14 = load i64, ptr %buf_align5, align 8
+  %tobool41.not = icmp eq i64 %14, 0
   br i1 %tobool41.not, label %if.then42, label %lor.lhs.false72
 
 if.then42:                                        ; preds = %if.end39
@@ -3343,28 +3343,28 @@ for.cond46:                                       ; preds = %raw_is_io_aligned.e
 for.body50:                                       ; preds = %if.then42, %for.cond46
   %indvars.iv61 = phi i64 [ 0, %if.then42 ], [ %indvars.iv.next62, %for.cond46 ]
   %arrayidx52 = getelementptr [5 x i64], ptr %alignments, i64 0, i64 %indvars.iv61
-  %14 = load i64, ptr %arrayidx52, align 8
-  %add.ptr = getelementptr i8, ptr %call45, i64 %14
+  %15 = load i64, ptr %arrayidx52, align 8
+  %add.ptr = getelementptr i8, ptr %call45, i64 %15
   %call.i41 = call i64 @pread64(i32 noundef %fd, ptr noundef %add.ptr, i64 noundef %spec.select, i64 noundef 0) #18
   %cmp.i42 = icmp sgt i64 %call.i41, -1
   br i1 %cmp.i42, label %if.then54, label %raw_is_io_aligned.exit47
 
 raw_is_io_aligned.exit47:                         ; preds = %for.body50
-  %15 = load i32, ptr %call.i38, align 4
-  %cmp2.not.i45.not = icmp eq i32 %15, 22
+  %16 = load i32, ptr %call.i38, align 4
+  %cmp2.not.i45.not = icmp eq i32 %16, 22
   br i1 %cmp2.not.i45.not, label %for.cond46, label %if.then54
 
 if.then54:                                        ; preds = %for.body50, %raw_is_io_aligned.exit47
-  %cmp55.not = icmp eq i64 %14, 1
+  %cmp55.not = icmp eq i64 %15, 1
   br i1 %cmp55.not, label %cond.false58, label %cond.end62
 
 cond.false58:                                     ; preds = %if.then54
-  %16 = load i32, ptr %bl3, align 8
-  %conv61 = zext i32 %16 to i64
+  %17 = load i32, ptr %bl3, align 8
+  %conv61 = zext i32 %17 to i64
   br label %cond.end62
 
 cond.end62:                                       ; preds = %if.then54, %cond.false58
-  %cond63 = phi i64 [ %conv61, %cond.false58 ], [ %14, %if.then54 ]
+  %cond63 = phi i64 [ %conv61, %cond.false58 ], [ %15, %if.then54 ]
   store i64 %cond63, ptr %buf_align5, align 8
   br label %if.end69
 
@@ -3375,8 +3375,8 @@ if.end69:                                         ; preds = %for.cond46, %cond.e
   br i1 %tobool71.not, label %if.then76, label %lor.lhs.false72
 
 lor.lhs.false72:                                  ; preds = %if.end39, %if.end69
-  %17 = load i32, ptr %bl3, align 8
-  %tobool75.not = icmp eq i32 %17, 0
+  %18 = load i32, ptr %bl3, align 8
+  %tobool75.not = icmp eq i32 %18, 0
   br i1 %tobool75.not, label %if.then76, label %if.end77
 
 if.then76:                                        ; preds = %lor.lhs.false72, %if.end69

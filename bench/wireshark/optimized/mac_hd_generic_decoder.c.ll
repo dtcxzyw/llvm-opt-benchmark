@@ -454,10 +454,10 @@ target triple = "x86_64-pc-linux-gnu"
 @cid_vernier = internal unnamed_addr global [64 x i32] zeroinitializer, align 16
 @cid_adjust = internal unnamed_addr global [64 x i32] zeroinitializer, align 16
 @save_src.0 = internal unnamed_addr global i32 0, align 8
-@save_src.1 = internal unnamed_addr global i32 0, align 8
+@save_src.1 = internal unnamed_addr global i32 0, align 4
 @save_src.2 = internal unnamed_addr global ptr null, align 8
 @save_dst.0 = internal unnamed_addr global i32 0, align 8
-@save_dst.1 = internal unnamed_addr global i32 0, align 8
+@save_dst.1 = internal unnamed_addr global i32 0, align 4
 @save_dst.2 = internal unnamed_addr global ptr null, align 8
 @.str.270 = private unnamed_addr constant [28 x i8] c"Payload Fragment (%d bytes)\00", align 1
 @.str.271 = private unnamed_addr constant [30 x i8] c"Reassembled WiMax MAC payload\00", align 1
@@ -1247,13 +1247,13 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   %441 = load i32, ptr %303, align 4
   %442 = load ptr, ptr %304, align 8
   store i32 %440, ptr @save_src.0, align 8
-  store i32 %441, ptr @save_src.1, align 8
+  store i32 %441, ptr @save_src.1, align 4
   store ptr %442, ptr @save_src.2, align 8
   %443 = load i32, ptr %305, align 8
   %444 = load i32, ptr %306, align 4
   %445 = load ptr, ptr %307, align 8
   store i32 %443, ptr @save_dst.0, align 8
-  store i32 %444, ptr @save_dst.1, align 8
+  store i32 %444, ptr @save_dst.1, align 4
   store ptr %445, ptr @save_dst.2, align 8
   %446 = load i32, ptr %308, align 8
   %447 = load i32, ptr %309, align 4
@@ -1275,14 +1275,14 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   %455 = zext i1 %454 to i32
   %456 = tail call ptr @fragment_add_seq(ptr noundef nonnull @payload_reassembly_table, ptr noundef %0, i32 noundef %.6, ptr noundef nonnull %1, i32 noundef %439, ptr noundef null, i32 noundef %452, i32 noundef %453, i32 noundef %455, i32 noundef 0) #4
   %457 = load i32, ptr @save_src.0, align 8
-  %458 = load i32, ptr @save_src.1, align 8
+  %458 = load i32, ptr @save_src.1, align 4
   %459 = load ptr, ptr @save_src.2, align 8
   store i32 %457, ptr %302, align 8
   store i32 %458, ptr %303, align 4
   store ptr %459, ptr %304, align 8
   store ptr null, ptr %311, align 8
   %460 = load i32, ptr @save_dst.0, align 8
-  %461 = load i32, ptr @save_dst.1, align 8
+  %461 = load i32, ptr @save_dst.1, align 4
   %462 = load ptr, ptr @save_dst.2, align 8
   store i32 %460, ptr %305, align 8
   store i32 %461, ptr %306, align 4

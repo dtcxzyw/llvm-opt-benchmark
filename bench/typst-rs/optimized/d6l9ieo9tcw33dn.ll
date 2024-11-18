@@ -169892,11 +169892,11 @@ _ZN5typst11foundations4args4Args6expect17he6d06f7cd3103576E.exit: ; preds = %22
 
 48:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$core..result..Result$LT$typst..visualize..color..Component$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$17h31c944136d1041d2E.exit"
   %switch38 = icmp eq ptr %44, null
-  %49 = fptrunc double %46 to float
-  %50 = fptrunc double %.02950 to float
-  %51 = select i1 %switch38, float 1.000000e+00, float %49
+  %49 = fptrunc double %.02950 to float
+  %50 = fptrunc double %46 to float
+  %51 = select i1 %switch38, float 1.000000e+00, float %50
   %52 = getelementptr inbounds i8, ptr %10, i64 4
-  store float %50, ptr %52, align 4
+  store float %49, ptr %52, align 4
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %51, ptr %.sroa.417.0..sroa_idx, align 4
   store i32 0, ptr %10, align 4
@@ -170171,11 +170171,11 @@ _ZN5typst11foundations4args4Args6expect17hbda5e9339bd4d592E.exit: ; preds = %27
 
 98:                                               ; preds = %89
   %switch62 = icmp eq ptr %92, null
-  %99 = fptrunc double %94 to float
-  %100 = fptrunc double %48 to float
-  %101 = select i1 %switch62, float 1.000000e+00, float %99
+  %99 = fptrunc double %48 to float
+  %100 = fptrunc double %94 to float
+  %101 = select i1 %switch62, float 1.000000e+00, float %100
   %102 = getelementptr inbounds i8, ptr %15, i64 4
-  store float %100, ptr %102, align 4
+  store float %99, ptr %102, align 4
   %.sroa.038.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store i32 %54, ptr %.sroa.038.sroa.4.0..sroa_idx, align 4
   %.sroa.038.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 12
@@ -170462,17 +170462,17 @@ _ZN5typst11foundations4args4Args6expect17hc80b218e45ae4d3eE.exit: ; preds = %69
 
 101:                                              ; preds = %90
   %switch53 = icmp eq ptr %94, null
-  %102 = fptrunc double %96 to float
-  %103 = fptrunc double %48 to float
-  %104 = fdiv double %91, 0x3F91DF46A2529D39
-  %105 = fptrunc double %104 to float
-  %106 = select i1 %switch53, float 1.000000e+00, float %102
+  %102 = fptrunc double %48 to float
+  %103 = fdiv double %91, 0x3F91DF46A2529D39
+  %104 = fptrunc double %103 to float
+  %105 = fptrunc double %96 to float
+  %106 = select i1 %switch53, float 1.000000e+00, float %105
   %107 = getelementptr inbounds i8, ptr %15, i64 4
-  store float %103, ptr %107, align 4
+  store float %102, ptr %107, align 4
   %.sroa.4.0..sroa_idx70 = getelementptr inbounds i8, ptr %15, i64 8
   store float %54, ptr %.sroa.4.0..sroa_idx70, align 4
   %.sroa.5.0..sroa_idx71 = getelementptr inbounds i8, ptr %15, i64 12
-  store float %105, ptr %.sroa.5.0..sroa_idx71, align 4
+  store float %104, ptr %.sroa.5.0..sroa_idx71, align 4
   %.sroa.673.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   store float %106, ptr %.sroa.673.0..sroa_idx, align 4
   store i32 2, ptr %15, align 4
@@ -170763,17 +170763,17 @@ _ZN5typst11foundations4args4Args6expect17he6d06f7cd3103576E.exit65: ; preds = %7
 
 104:                                              ; preds = %93
   %switch53 = icmp eq ptr %97, null
-  %105 = fptrunc double %99 to float
-  %106 = fptrunc double %48 to float
-  %107 = fptrunc double %71 to float
-  %108 = fptrunc double %94 to float
-  %109 = select i1 %switch53, float 1.000000e+00, float %105
+  %105 = fptrunc double %48 to float
+  %106 = fptrunc double %71 to float
+  %107 = fptrunc double %94 to float
+  %108 = fptrunc double %99 to float
+  %109 = select i1 %switch53, float 1.000000e+00, float %108
   %110 = getelementptr inbounds i8, ptr %15, i64 4
-  store float %106, ptr %110, align 4
+  store float %105, ptr %110, align 4
   %.sroa.029.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
-  store float %107, ptr %.sroa.029.sroa.4.0..sroa_idx, align 4
+  store float %106, ptr %.sroa.029.sroa.4.0..sroa_idx, align 4
   %.sroa.029.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 12
-  store float %108, ptr %.sroa.029.sroa.5.0..sroa_idx, align 4
+  store float %107, ptr %.sroa.029.sroa.5.0..sroa_idx, align 4
   %.sroa.430.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   store float %109, ptr %.sroa.430.0..sroa_idx, align 4
   store i32 4, ptr %15, align 4
@@ -171372,17 +171372,17 @@ _ZN5typst11foundations4args4Args6expect17he6d06f7cd3103576E.exit: ; preds = %.no
 
 229:                                              ; preds = %220
   %switch110 = icmp eq ptr %223, null
-  %230 = fptrunc double %225 to float
-  %231 = fptrunc double %197 to float
-  %232 = fptrunc double %206 to float
-  %233 = fptrunc double %215 to float
-  %234 = select i1 %switch110, float 1.000000e+00, float %230
+  %230 = fptrunc double %197 to float
+  %231 = fptrunc double %206 to float
+  %232 = fptrunc double %215 to float
+  %233 = fptrunc double %225 to float
+  %234 = select i1 %switch110, float 1.000000e+00, float %233
   %235 = getelementptr inbounds i8, ptr %18, i64 4
-  store float %231, ptr %235, align 4
+  store float %230, ptr %235, align 4
   %.sroa.052.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
-  store float %232, ptr %.sroa.052.sroa.4.0..sroa_idx, align 4
+  store float %231, ptr %.sroa.052.sroa.4.0..sroa_idx, align 4
   %.sroa.052.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 12
-  store float %233, ptr %.sroa.052.sroa.5.0..sroa_idx, align 4
+  store float %232, ptr %.sroa.052.sroa.5.0..sroa_idx, align 4
   %.sroa.453.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   store float %234, ptr %.sroa.453.0..sroa_idx, align 4
   store i32 3, ptr %18, align 4
@@ -171977,18 +171977,18 @@ _ZN5typst11foundations4args4Args6expect17he6d06f7cd3103576E.exit60: ; preds = %7
 
 104:                                              ; preds = %93
   %switch49 = icmp eq ptr %97, null
-  %105 = fptrunc double %99 to float
-  %106 = fdiv double %48, 0x3F91DF46A2529D39
-  %107 = fptrunc double %106 to float
-  %108 = fptrunc double %71 to float
-  %109 = fptrunc double %94 to float
-  %110 = select i1 %switch49, float 1.000000e+00, float %105
+  %105 = fdiv double %48, 0x3F91DF46A2529D39
+  %106 = fptrunc double %105 to float
+  %107 = fptrunc double %71 to float
+  %108 = fptrunc double %94 to float
+  %109 = fptrunc double %99 to float
+  %110 = select i1 %switch49, float 1.000000e+00, float %109
   %111 = getelementptr inbounds i8, ptr %15, i64 4
-  store float %107, ptr %111, align 4
+  store float %106, ptr %111, align 4
   %.sroa.4.0..sroa_idx69 = getelementptr inbounds i8, ptr %15, i64 8
-  store float %108, ptr %.sroa.4.0..sroa_idx69, align 4
+  store float %107, ptr %.sroa.4.0..sroa_idx69, align 4
   %.sroa.5.0..sroa_idx70 = getelementptr inbounds i8, ptr %15, i64 12
-  store float %109, ptr %.sroa.5.0..sroa_idx70, align 4
+  store float %108, ptr %.sroa.5.0..sroa_idx70, align 4
   %.sroa.672.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   store float %110, ptr %.sroa.672.0..sroa_idx, align 4
   store i32 6, ptr %15, align 4
@@ -172279,18 +172279,18 @@ _ZN5typst11foundations4args4Args6expect17he6d06f7cd3103576E.exit60: ; preds = %7
 
 104:                                              ; preds = %93
   %switch49 = icmp eq ptr %97, null
-  %105 = fptrunc double %99 to float
-  %106 = fdiv double %48, 0x3F91DF46A2529D39
-  %107 = fptrunc double %106 to float
-  %108 = fptrunc double %71 to float
-  %109 = fptrunc double %94 to float
-  %110 = select i1 %switch49, float 1.000000e+00, float %105
+  %105 = fdiv double %48, 0x3F91DF46A2529D39
+  %106 = fptrunc double %105 to float
+  %107 = fptrunc double %71 to float
+  %108 = fptrunc double %94 to float
+  %109 = fptrunc double %99 to float
+  %110 = select i1 %switch49, float 1.000000e+00, float %109
   %111 = getelementptr inbounds i8, ptr %15, i64 4
-  store float %107, ptr %111, align 4
+  store float %106, ptr %111, align 4
   %.sroa.4.0..sroa_idx69 = getelementptr inbounds i8, ptr %15, i64 8
-  store float %108, ptr %.sroa.4.0..sroa_idx69, align 4
+  store float %107, ptr %.sroa.4.0..sroa_idx69, align 4
   %.sroa.5.0..sroa_idx70 = getelementptr inbounds i8, ptr %15, i64 12
-  store float %109, ptr %.sroa.5.0..sroa_idx70, align 4
+  store float %108, ptr %.sroa.5.0..sroa_idx70, align 4
   %.sroa.672.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   store float %110, ptr %.sroa.672.0..sroa_idx, align 4
   store i32 7, ptr %15, align 4

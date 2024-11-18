@@ -430,7 +430,7 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
 172:                                              ; preds = %169, %._crit_edge339
   %173 = sub nsw i32 %.val.val, %.0249342
   %174 = icmp sgt i32 %.0246.lcssa407409412, %173
-  %.inv = icmp sgt i32 %.0252.lcssa, 0
+  %.inv = icmp ne i32 %.0252.lcssa, 0
   %narrow = select i1 %.inv, i1 true, i1 %174
   %175 = zext i1 %narrow to i32
   store i32 %175, ptr %24, align 4

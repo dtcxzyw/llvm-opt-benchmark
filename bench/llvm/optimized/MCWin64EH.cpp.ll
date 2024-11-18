@@ -162,7 +162,7 @@ define internal fastcc void @_ZL14EmitUnwindInfoRN4llvm10MCStreamerEPNS_5WinEH9F
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %232
+  br i1 %.not, label %5, label %233
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -323,7 +323,7 @@ _ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit: ; pre
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL14EmitUnwindCodeRN4llvm10MCStreamerEPKNS_8MCSymbolERNS_5WinEH11InstructionE.exit
-  %.082 = phi i8 [ %208, %_ZL14EmitUnwindCodeRN4llvm10MCStreamerEPKNS_8MCSymbolERNS_5WinEH11InstructionE.exit ], [ 0, %.lr.ph.preheader ]
+  %.082 = phi i8 [ %209, %_ZL14EmitUnwindCodeRN4llvm10MCStreamerEPKNS_8MCSymbolERNS_5WinEH11InstructionE.exit ], [ 0, %.lr.ph.preheader ]
   %93 = load ptr, ptr %44, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 -24
   %.sroa.061.0.copyload = load ptr, ptr %94, align 8
@@ -344,9 +344,9 @@ _ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit: ; pre
     i32 3, label %148
     i32 4, label %157
     i32 8, label %157
-    i32 5, label %177
-    i32 9, label %177
-    i32 10, label %197
+    i32 5, label %178
+    i32 9, label %178
+    i32 10, label %198
   ]
 
 98:                                               ; preds = %.lr.ph
@@ -455,113 +455,113 @@ _ZL18CountOfUnwindCodesRSt6vectorIN4llvm5WinEH11InstructionESaIS2_EE.exit: ; pre
   %169 = icmp eq i32 %.sroa.20.0.copyload, 8
   %170 = lshr i32 %.sroa.8.0.copyload, 4
   %171 = and i32 %170, 32767
-  %.1.in.i = select i1 %169, i32 %171, i32 %168
-  %172 = and i32 %.1.in.i, 65535
-  %173 = zext nneg i32 %172 to i64
-  %174 = load ptr, ptr %0, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 520
-  %176 = load ptr, ptr %175, align 8
-  tail call void %176(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %173, i32 noundef 2) #17
+  %172 = and i32 %168, 65535
+  %173 = select i1 %169, i32 %171, i32 %172
+  %174 = zext nneg i32 %173 to i64
+  %175 = load ptr, ptr %0, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 520
+  %177 = load ptr, ptr %176, align 8
+  tail call void %177(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %174, i32 noundef 2) #17
   br label %_ZL14EmitUnwindCodeRN4llvm10MCStreamerEPKNS_8MCSymbolERNS_5WinEH11InstructionE.exit
 
-177:                                              ; preds = %.lr.ph, %.lr.ph
-  %178 = shl i32 %.sroa.17.0.copyload, 4
-  %179 = load ptr, ptr %6, align 8
-  %180 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %.sroa.061.0.copyload, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %179, ptr null) #17
-  %181 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %95, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %179, ptr null) #17
-  %182 = tail call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 18, ptr noundef %180, ptr noundef %181, ptr noundef nonnull align 8 dereferenceable(2432) %179, ptr null) #17
-  tail call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %182, i32 noundef 1, ptr null) #17
-  %.masked.i = and i32 %178, 240
-  %183 = or disjoint i32 %.masked.i, %.sroa.20.0.copyload
-  %184 = zext nneg i32 %183 to i64
-  %185 = load ptr, ptr %0, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 520
-  %187 = load ptr, ptr %186, align 8
-  tail call void %187(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %184, i32 noundef 1) #17
-  %188 = icmp eq i32 %.sroa.20.0.copyload, 9
-  %.2.in.v.i = select i1 %188, i32 65520, i32 65528
+178:                                              ; preds = %.lr.ph, %.lr.ph
+  %179 = shl i32 %.sroa.17.0.copyload, 4
+  %180 = load ptr, ptr %6, align 8
+  %181 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %.sroa.061.0.copyload, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %180, ptr null) #17
+  %182 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %95, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %180, ptr null) #17
+  %183 = tail call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 18, ptr noundef %181, ptr noundef %182, ptr noundef nonnull align 8 dereferenceable(2432) %180, ptr null) #17
+  tail call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %183, i32 noundef 1, ptr null) #17
+  %.masked.i = and i32 %179, 240
+  %184 = or disjoint i32 %.masked.i, %.sroa.20.0.copyload
+  %185 = zext nneg i32 %184 to i64
+  %186 = load ptr, ptr %0, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 520
+  %188 = load ptr, ptr %187, align 8
+  tail call void %188(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %185, i32 noundef 1) #17
+  %189 = icmp eq i32 %.sroa.20.0.copyload, 9
+  %.2.in.v.i = select i1 %189, i32 65520, i32 65528
   %.2.in.i = and i32 %.2.in.v.i, %.sroa.8.0.copyload
   %.2.i = zext nneg i32 %.2.in.i to i64
-  %189 = load ptr, ptr %0, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 520
-  %191 = load ptr, ptr %190, align 8
-  tail call void %191(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %.2.i, i32 noundef 2) #17
-  %192 = lshr i32 %.sroa.8.0.copyload, 16
-  %193 = zext nneg i32 %192 to i64
-  %194 = load ptr, ptr %0, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 520
-  %196 = load ptr, ptr %195, align 8
-  tail call void %196(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %193, i32 noundef 2) #17
+  %190 = load ptr, ptr %0, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 520
+  %192 = load ptr, ptr %191, align 8
+  tail call void %192(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %.2.i, i32 noundef 2) #17
+  %193 = lshr i32 %.sroa.8.0.copyload, 16
+  %194 = zext nneg i32 %193 to i64
+  %195 = load ptr, ptr %0, align 8
+  %196 = getelementptr inbounds i8, ptr %195, i64 520
+  %197 = load ptr, ptr %196, align 8
+  tail call void %197(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %194, i32 noundef 2) #17
   br label %_ZL14EmitUnwindCodeRN4llvm10MCStreamerEPKNS_8MCSymbolERNS_5WinEH11InstructionE.exit
 
-197:                                              ; preds = %.lr.ph
-  %198 = icmp eq i32 %.sroa.8.0.copyload, 1
-  %199 = or disjoint i8 %97, 16
-  %.070.i = select i1 %198, i8 %199, i8 %97
-  %200 = load ptr, ptr %6, align 8
-  %201 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %.sroa.061.0.copyload, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %200, ptr null) #17
-  %202 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %95, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %200, ptr null) #17
-  %203 = tail call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 18, ptr noundef %201, ptr noundef %202, ptr noundef nonnull align 8 dereferenceable(2432) %200, ptr null) #17
-  tail call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %203, i32 noundef 1, ptr null) #17
-  %204 = zext nneg i8 %.070.i to i64
-  %205 = load ptr, ptr %0, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 520
-  %207 = load ptr, ptr %206, align 8
-  tail call void %207(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %204, i32 noundef 1) #17
+198:                                              ; preds = %.lr.ph
+  %199 = icmp eq i32 %.sroa.8.0.copyload, 1
+  %200 = or disjoint i8 %97, 16
+  %.070.i = select i1 %199, i8 %200, i8 %97
+  %201 = load ptr, ptr %6, align 8
+  %202 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %.sroa.061.0.copyload, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %201, ptr null) #17
+  %203 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %95, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %201, ptr null) #17
+  %204 = tail call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 18, ptr noundef %202, ptr noundef %203, ptr noundef nonnull align 8 dereferenceable(2432) %201, ptr null) #17
+  tail call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %204, i32 noundef 1, ptr null) #17
+  %205 = zext nneg i8 %.070.i to i64
+  %206 = load ptr, ptr %0, align 8
+  %207 = getelementptr inbounds i8, ptr %206, i64 520
+  %208 = load ptr, ptr %207, align 8
+  tail call void %208(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %205, i32 noundef 1) #17
   br label %_ZL14EmitUnwindCodeRN4llvm10MCStreamerEPKNS_8MCSymbolERNS_5WinEH11InstructionE.exit
 
-_ZL14EmitUnwindCodeRN4llvm10MCStreamerEPKNS_8MCSymbolERNS_5WinEH11InstructionE.exit: ; preds = %99, %129, %135, %148, %157, %177, %197
-  %208 = add nuw i8 %.082, 1
-  %209 = icmp ult i8 %208, %92
-  br i1 %209, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+_ZL14EmitUnwindCodeRN4llvm10MCStreamerEPKNS_8MCSymbolERNS_5WinEH11InstructionE.exit: ; preds = %99, %129, %135, %148, %157, %178, %198
+  %209 = add nuw i8 %.082, 1
+  %210 = icmp ult i8 %209, %92
+  br i1 %210, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_ZL14EmitUnwindCodeRN4llvm10MCStreamerEPKNS_8MCSymbolERNS_5WinEH11InstructionE.exit, %81
-  %210 = and i8 %.0.lcssa.i, 1
-  %.not55 = icmp eq i8 %210, 0
-  br i1 %.not55, label %215, label %211
+  %211 = and i8 %.0.lcssa.i, 1
+  %.not55 = icmp eq i8 %211, 0
+  br i1 %.not55, label %216, label %212
 
-211:                                              ; preds = %._crit_edge
-  %212 = load ptr, ptr %0, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 520
-  %214 = load ptr, ptr %213, align 8
-  tail call void %214(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef 0, i32 noundef 2) #17
-  br label %215
+212:                                              ; preds = %._crit_edge
+  %213 = load ptr, ptr %0, align 8
+  %214 = getelementptr inbounds i8, ptr %213, i64 520
+  %215 = load ptr, ptr %214, align 8
+  tail call void %215(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef 0, i32 noundef 2) #17
+  br label %216
 
-215:                                              ; preds = %211, %._crit_edge
-  %216 = zext nneg i8 %.049 to i32
-  %217 = and i32 %216, 32
-  %.not56 = icmp eq i32 %217, 0
-  br i1 %.not56, label %220, label %218
+216:                                              ; preds = %212, %._crit_edge
+  %217 = zext nneg i8 %.049 to i32
+  %218 = and i32 %217, 32
+  %.not56 = icmp eq i32 %218, 0
+  br i1 %.not56, label %221, label %219
 
-218:                                              ; preds = %215
-  %219 = load ptr, ptr %15, align 8
-  tail call fastcc void @_ZL19EmitRuntimeFunctionRN4llvm10MCStreamerEPKNS_5WinEH9FrameInfoE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %219)
-  br label %232
+219:                                              ; preds = %216
+  %220 = load ptr, ptr %15, align 8
+  tail call fastcc void @_ZL19EmitRuntimeFunctionRN4llvm10MCStreamerEPKNS_5WinEH9FrameInfoE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %220)
+  br label %233
 
-220:                                              ; preds = %215
-  %221 = and i32 %216, 24
-  %.not57 = icmp eq i32 %221, 0
-  br i1 %.not57, label %226, label %222
+221:                                              ; preds = %216
+  %222 = and i32 %217, 24
+  %.not57 = icmp eq i32 %222, 0
+  br i1 %.not57, label %227, label %223
 
-222:                                              ; preds = %220
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %224 = load ptr, ptr %223, align 8
-  %225 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %224, i16 noundef zeroext 125, ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr null) #17
-  tail call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %225, i32 noundef 4, ptr null) #17
-  br label %232
+223:                                              ; preds = %221
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %225 = load ptr, ptr %224, align 8
+  %226 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %225, i16 noundef zeroext 125, ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr null) #17
+  tail call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %226, i32 noundef 4, ptr null) #17
+  br label %233
 
-226:                                              ; preds = %220
-  %227 = icmp eq i8 %.0.lcssa.i, 0
-  br i1 %227, label %228, label %232
+227:                                              ; preds = %221
+  %228 = icmp eq i8 %.0.lcssa.i, 0
+  br i1 %228, label %229, label %233
 
-228:                                              ; preds = %226
-  %229 = load ptr, ptr %0, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 520
-  %231 = load ptr, ptr %230, align 8
-  tail call void %231(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef 0, i32 noundef 4) #17
-  br label %232
+229:                                              ; preds = %227
+  %230 = load ptr, ptr %0, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 520
+  %232 = load ptr, ptr %231, align 8
+  tail call void %232(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef 0, i32 noundef 4) #17
+  br label %233
 
-232:                                              ; preds = %222, %228, %226, %2, %218
+233:                                              ; preds = %223, %229, %227, %2, %219
   ret void
 }
 
@@ -2166,19 +2166,19 @@ _ZL20tryARM64PackedUnwindPN4llvm5WinEH9FrameInfoEji.exit.i: ; preds = %645
   %.2175.i.i = select i1 %.not201.i.i, i32 0, i32 %650
   %.mask.i.i = and i8 %.0181.lcssa.i.i, 1
   %651 = zext nneg i8 %.mask.i.i to i32
-  %652 = shl nuw nsw i32 %651, 21
-  %653 = select i1 %.0185.lcssa.mux.i.i, i32 6291456, i32 %652
-  %654 = load i32, ptr %366, align 8
-  %655 = and i32 %393, 8188
-  %656 = shl nuw nsw i32 %.0172.lcssa.i.i, 16
-  %657 = select i1 %.0187.lcssa.i.i, i32 4194304, i32 %653
+  %652 = load i32, ptr %366, align 8
+  %653 = and i32 %393, 8188
+  %654 = shl nuw nsw i32 %.0172.lcssa.i.i, 16
+  %655 = shl nuw nsw i32 %651, 21
+  %656 = select i1 %.0185.lcssa.mux.i.i, i32 6291456, i32 %655
+  %657 = select i1 %.0187.lcssa.i.i, i32 4194304, i32 %656
   %658 = shl nuw i32 %646, 19
-  %659 = or disjoint i32 %656, %655
+  %659 = or disjoint i32 %654, %653
   %660 = or disjoint i32 %659, 1
   %661 = or i32 %657, %658
   %662 = or disjoint i32 %661, %.2175.i.i
   %663 = or i32 %662, %660
-  %664 = or i32 %663, %654
+  %664 = or i32 %663, %652
   store i32 %664, ptr %366, align 8
   br label %_ZL29ARM64EmitUnwindInfoForSegmentRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoERNS3_7SegmentEb.exit
 

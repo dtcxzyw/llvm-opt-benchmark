@@ -1380,9 +1380,9 @@ call1.i.i.i.noexc:                                ; preds = %if.end8.i.i
   %cmp.i.i.i.i = fcmp olt double %mul.i.i.i, 1.000000e-02
   %cmp1.i.i.i.i = fcmp ogt double %mul.i.i.i, 1.000000e+00
   %max.val.i.i.i.i = select i1 %cmp1.i.i.i.i, double 1.000000e+00, double %mul.i.i.i
-  %18 = fmul double %max.val.i.i.i.i, 1.000000e+03
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %queue_deadline_cap.i.i, align 8
   %agg.tmp.sroa.0.0.copyload.sroa.speculated.i.i.i = call i64 @llvm.smax.i64(i64 %now.coerce, i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i)
+  %18 = fmul double %max.val.i.i.i.i, 1.000000e+03
   %mul.i.i.i.i = select i1 %cmp.i.i.i.i, double 1.000000e+01, double %18
   %cmp.i14.i.i.i = fcmp ult double %mul.i.i.i.i, 0x43E0000000000000
   br i1 %cmp.i14.i.i.i, label %if.end.i.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i.i.i

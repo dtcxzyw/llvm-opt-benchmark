@@ -1578,9 +1578,9 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN4llvm12DenseMapB
   %137 = icmp eq i32 %.sroa.6.0, 0
   %138 = select i1 %117, i1 %137, i1 false
   %139 = trunc i64 %.0.i to i32
-  %140 = trunc i64 %.0.i.i to i32
-  %141 = select i1 %138, i32 %139, i32 undef
-  %142 = select i1 %.not127, i32 undef, i32 %140
+  %140 = select i1 %138, i32 %139, i32 undef
+  %141 = trunc i64 %.0.i.i to i32
+  %142 = select i1 %.not127, i32 undef, i32 %141
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.074.0137 = load ptr, ptr %143, align 8
   %.not128138 = icmp eq ptr %.sroa.074.0137, null
@@ -1595,7 +1595,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN4llvm12DenseMapB
 147:                                              ; preds = %.lr.ph, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
   %.sroa.074.0141 = phi ptr [ %.sroa.074.0137, %.lr.ph ], [ %.sroa.074.0, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread ]
   %.sroa.6116.1140 = phi i32 [ %142, %.lr.ph ], [ %.sroa.6116.2, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread ]
-  %.sroa.0114.1139 = phi i32 [ %141, %.lr.ph ], [ %.sroa.0114.2, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread ]
+  %.sroa.0114.1139 = phi i32 [ %140, %.lr.ph ], [ %.sroa.0114.2, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread ]
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.074.0141, i64 24
   %149 = load ptr, ptr %148, align 8
   %150 = load i8, ptr %149, align 8
@@ -1674,7 +1674,7 @@ _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread: ; pr
   br i1 %.not128, label %.loopexit, label %147
 
 .loopexit:                                        ; preds = %24, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit, %77, %12
-  %.sroa.0114.0 = phi i32 [ 0, %12 ], [ 0, %77 ], [ %141, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit ], [ %.sroa.0114.2, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread ], [ 0, %24 ]
+  %.sroa.0114.0 = phi i32 [ 0, %12 ], [ 0, %77 ], [ %140, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit ], [ %.sroa.0114.2, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread ], [ 0, %24 ]
   %.sroa.6116.0 = phi i32 [ 0, %12 ], [ 0, %77 ], [ %142, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit ], [ %.sroa.6116.2, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread ], [ 0, %24 ]
   %.sroa.6116.0.insert.ext = zext i32 %.sroa.6116.0 to i64
   %.sroa.6116.0.insert.shift = shl nuw i64 %.sroa.6116.0.insert.ext, 32
@@ -1824,10 +1824,10 @@ define dso_local { i64, i32 } @_ZN4llvm15InstCostVisitor18estimateSwitchInstERNS
   %.not.i.i18 = icmp eq i64 %29, 4294967294
   %30 = shl nuw nsw i64 %29, 1
   %31 = add nuw nsw i64 %30, 3
-  %32 = and i64 %31, 4294967295
-  %33 = load ptr, ptr %4, align 8
-  %34 = select i1 %.not.i.i18, i64 1, i64 %32
-  %35 = getelementptr inbounds %"class.llvm::Use", ptr %33, i64 %34
+  %32 = load ptr, ptr %4, align 8
+  %33 = and i64 %31, 4294967295
+  %34 = select i1 %.not.i.i18, i64 1, i64 %33
+  %35 = getelementptr inbounds %"class.llvm::Use", ptr %32, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %37, i64 noundef 6) #16
@@ -1851,10 +1851,10 @@ define dso_local { i64, i32 } @_ZN4llvm15InstCostVisitor18estimateSwitchInstERNS
   %.not.i.i26 = icmp eq i64 %.sroa.2.042, 4294967294
   %48 = shl nuw i64 %.sroa.2.042, 1
   %49 = add nuw nsw i64 %48, 3
-  %50 = and i64 %49, 4294967295
-  %51 = load ptr, ptr %4, align 8
-  %52 = select i1 %.not.i.i26, i64 1, i64 %50
-  %53 = getelementptr inbounds %"class.llvm::Use", ptr %51, i64 %52
+  %50 = load ptr, ptr %4, align 8
+  %51 = and i64 %49, 4294967295
+  %52 = select i1 %.not.i.i26, i64 1, i64 %51
+  %53 = getelementptr inbounds %"class.llvm::Use", ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.not17 = icmp eq ptr %54, %36
   br i1 %.not17, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread, label %55

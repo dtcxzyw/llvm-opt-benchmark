@@ -381,7 +381,6 @@ if.end6:                                          ; preds = %do.end
   %dec = add nsw i32 %conv, -1
   %cmp31 = icmp eq i32 %dec, 0
   %spec.select36 = select i1 %cmp31, i16 2, i16 0
-  %nread.0 = select i1 %tobool29.not, i32 %conv, i32 %dec
   %res.0 = select i1 %tobool29.not, i16 0, i16 %spec.select36
   %11 = and i16 %9, 4
   %tobool44.not = icmp eq i16 %11, 0
@@ -389,7 +388,6 @@ if.end6:                                          ; preds = %do.end
   %cmp47 = icmp eq i32 %dec46, 0
   %12 = or disjoint i16 %res.0, 4
   %spec.select38 = select i1 %cmp47, i16 %12, i16 %res.0
-  %nwrite.0 = select i1 %tobool44.not, i32 %conv9, i32 %dec46
   %res.1 = select i1 %tobool44.not, i16 %res.0, i16 %spec.select38
   %13 = and i16 %9, 128
   %tobool60.not = icmp eq i16 %13, 0
@@ -424,28 +422,30 @@ if.then74:                                        ; preds = %if.then61, %if.end7
 if.end85:                                         ; preds = %if.then74, %if.end72
   %nclose.045 = phi i32 [ %nclose.0, %if.end72 ], [ %nclose.044, %if.then74 ]
   %retval3.0 = phi i32 [ 0, %if.end72 ], [ %., %if.then74 ]
-  %conv86 = trunc i32 %nread.0 to i16
+  %18 = trunc i32 %dec to i16
+  %conv86 = select i1 %tobool29.not, i16 %4, i16 %18
   store i16 %conv86, ptr %nread7, align 8
-  %conv88 = trunc i32 %nwrite.0 to i16
+  %19 = trunc i32 %dec46 to i16
+  %conv88 = select i1 %tobool44.not, i16 %5, i16 %19
   store i16 %conv88, ptr %nwrite8, align 2
   %conv90 = trunc i32 %nclose.045 to i16
   store i16 %conv90, ptr %nclose10, align 4
   %ev_ = getelementptr inbounds i8, ptr %ev, i64 72
-  %18 = load ptr, ptr %ev_, align 8
-  %cmp93.not = icmp eq ptr %18, null
+  %20 = load ptr, ptr %ev_, align 8
+  %cmp93.not = icmp eq ptr %20, null
   %le_prev110.phi.trans.insert = getelementptr inbounds i8, ptr %ev, i64 80
   %.pre47 = load ptr, ptr %le_prev110.phi.trans.insert, align 8
   br i1 %cmp93.not, label %if.end104, label %if.then95
 
 if.then95:                                        ; preds = %if.end85
-  %le_prev103 = getelementptr inbounds i8, ptr %18, i64 80
+  %le_prev103 = getelementptr inbounds i8, ptr %20, i64 80
   store ptr %.pre47, ptr %le_prev103, align 8
   %.pre = load ptr, ptr %ev_, align 8
   br label %if.end104
 
 if.end104:                                        ; preds = %if.end85, %if.then95
-  %19 = phi ptr [ %.pre, %if.then95 ], [ null, %if.end85 ]
-  store ptr %19, ptr %.pre47, align 8
+  %21 = phi ptr [ %.pre, %if.then95 ], [ null, %if.end85 ]
+  store ptr %21, ptr %.pre47, align 8
   br label %return
 
 return:                                           ; preds = %do.end, %entry, %if.end104

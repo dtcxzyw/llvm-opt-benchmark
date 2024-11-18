@@ -4664,14 +4664,14 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %129 = ptrtoint ptr %112 to i64
   %130 = sub nuw i64 %80, %129
   %131 = lshr exact i64 %130, 3
-  %132 = add nuw nsw i64 %131, 1
-  %133 = icmp eq ptr %113, null
-  %134 = ptrtoint ptr %.val3.i.i.i14.i.i17 to i64
-  %135 = ptrtoint ptr %113 to i64
-  %136 = sub nuw i64 %134, %135
-  %137 = lshr exact i64 %136, 3
-  %.sroa.7.0.i.i.i.i = select i1 %133, i64 0, i64 %137
-  %138 = select i1 %128, i64 1, i64 %132
+  %132 = icmp eq ptr %113, null
+  %133 = ptrtoint ptr %.val3.i.i.i14.i.i17 to i64
+  %134 = ptrtoint ptr %113 to i64
+  %135 = sub nuw i64 %133, %134
+  %136 = lshr exact i64 %135, 3
+  %.sroa.7.0.i.i.i.i = select i1 %132, i64 0, i64 %136
+  %137 = add nuw nsw i64 %131, 1
+  %138 = select i1 %128, i64 1, i64 %137
   %139 = add nuw nsw i64 %138, %.sroa.7.0.i.i.i.i
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h8cdf472325831340E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %115, i64 noundef %139)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6f18a20fff74550eE.exit.i.i" unwind label %121, !noalias !1085

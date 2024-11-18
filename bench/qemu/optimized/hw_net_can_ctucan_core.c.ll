@@ -805,11 +805,10 @@ if.then68:                                        ; preds = %sw.bb65
   %tobool70.not = icmp eq i32 %15, 0
   %16 = lshr i32 %val.0.copyload, 9
   %mul = and i32 %16, 124
-  %add75 = add nuw nsw i32 %mul, 4
-  %17 = select i1 %tobool70.not, i32 %add75, i32 %15
   %sub79 = add i32 %13, -4
   store i32 %sub79, ptr %rx_cnt66, align 8
-  %sub81 = add i32 %17, -4
+  %17 = add i32 %15, -4
+  %sub81 = select i1 %tobool70.not, i32 %mul, i32 %17
   store i32 %sub81, ptr %rx_frame_rem, align 4
   %tobool83.not = icmp eq i32 %sub81, 0
   br i1 %tobool83.not, label %if.then84, label %if.end113

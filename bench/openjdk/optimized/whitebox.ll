@@ -23638,8 +23638,8 @@ _ZN13GrowableArrayIP12CodeBlobStubE8allocateEv.exit.i: ; preds = %_ZN12CodeBlobS
   %84 = shl nuw i32 1, %83
   %.0.i.i.i.i = select i1 %81, i32 %79, i32 %84
   %85 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i, i32 noundef 8) #15
-  %.not131 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not131, label %.preheader16.i, label %.lr.ph.i
+  %.not129 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not129, label %.preheader16.i, label %.lr.ph.i
 
 .preheader16.loopexit.i:                          ; preds = %.lr.ph.i
   %86 = trunc nuw nsw i64 %umax to i32

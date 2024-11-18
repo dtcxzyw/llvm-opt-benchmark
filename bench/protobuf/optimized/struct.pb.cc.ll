@@ -2438,8 +2438,8 @@ sw.bb15:                                          ; preds = %entry
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit47.thread: ; preds = %sw.bb15
   %19 = getelementptr inbounds i8, ptr %this, i64 16
   %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 1
   store i8 32, ptr %target, align 1
+  %21 = and i8 %20, 1
   br label %26
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit47: ; preds = %sw.bb15
@@ -2449,8 +2449,8 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit47: ; preds = %s
   %22 = icmp eq i32 %.pre.fr, 4
   %23 = getelementptr inbounds i8, ptr %this, i64 16
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
   store i8 32, ptr %call.i45, align 1
+  %25 = and i8 %24, 1
   %spec.select83 = select i1 %22, i8 %25, i8 0
   br label %26
 

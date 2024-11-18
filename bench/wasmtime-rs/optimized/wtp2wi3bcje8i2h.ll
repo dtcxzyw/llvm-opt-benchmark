@@ -175,10 +175,10 @@ define i48 @"_ZN4core6option15Option$LT$T$GT$3zip17h3773f34f313af084E"(i16 %0, i
   %6 = icmp eq i16 %2, 1
   %or.cond = select i1 %5, i1 %6, i1 false
   %7 = zext i16 %3 to i48
-  %8 = zext i16 %1 to i48
-  %9 = shl nuw i48 %7, 32
-  %10 = shl nuw nsw i48 %8, 16
-  %11 = or disjoint i48 %9, %10
+  %8 = shl nuw i48 %7, 32
+  %9 = zext i16 %1 to i48
+  %10 = shl nuw nsw i48 %9, 16
+  %11 = or disjoint i48 %8, %10
   %.sroa.3.0.insert.insert = select i1 %or.cond, i48 %11, i48 0
   %.sroa.0.0.insert.ext = zext i1 %or.cond to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext

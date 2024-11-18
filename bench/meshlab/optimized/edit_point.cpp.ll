@@ -10065,14 +10065,14 @@ define linkonce_odr void @_ZN3vcg3tri4DiskI6CMeshOEEvRT_i(ptr noundef nonnull al
   %.not.i.i.i.i3.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i3.i, label %common.resume, label %common.resume.sink.split
 
-common.resume.sink.split:                         ; preds = %12, %39
-  %.sink = phi ptr [ %41, %39 ], [ %15, %12 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %40, %39 ], [ %13, %12 ]
+common.resume.sink.split:                         ; preds = %12, %38
+  %.sink = phi ptr [ %40, %38 ], [ %15, %12 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %39, %38 ], [ %13, %12 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #24
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %39, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %40, %39 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %38, %12
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %39, %38 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %8, %11
@@ -10121,42 +10121,42 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %8, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = icmp eq i64 %indvars.iv.next, %22
-  %34 = and i64 %indvars.iv.next, 4294967295
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %3, i8 0, i64 57, i1 false)
-  %35 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %0, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(57) %3)
-          to label %36 unwind label %39
+  %34 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %0, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(57) %3)
+          to label %35 unwind label %38
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %20, align 8
-  %.not.i.i.i.i.i27 = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i.i27, label %_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit, label %38
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %20, align 8
+  %.not.i.i.i.i.i27 = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i.i27, label %_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit, label %37
 
-38:                                               ; preds = %36
-  call void @_ZdlPv(ptr noundef nonnull %37) #24
+37:                                               ; preds = %35
+  call void @_ZdlPv(ptr noundef nonnull %36) #24
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit
 
-39:                                               ; preds = %32
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %32
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %41 = load ptr, ptr %20, align 8
-  %.not.i.i.i.i3.i26 = icmp eq ptr %41, null
+  %40 = load ptr, ptr %20, align 8
+  %.not.i.i.i.i3.i26 = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i3.i26, label %common.resume, label %common.resume.sink.split
 
-_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %36, %38
+_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %35, %37
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  %42 = load ptr, ptr %21, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
-  store ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds %class.CVertexO, ptr %42, i64 %indvars.iv
-  %45 = getelementptr inbounds i8, ptr %44, i64 48
-  %46 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr %45, ptr %46, align 8
-  %47 = load ptr, ptr %21, align 8
-  %48 = select i1 %33, i64 0, i64 %34
-  %49 = getelementptr inbounds %class.CVertexO, ptr %47, i64 %48
+  %41 = load ptr, ptr %21, align 8
+  %42 = getelementptr inbounds i8, ptr %34, i64 8
+  store ptr %41, ptr %42, align 8
+  %43 = getelementptr inbounds %class.CVertexO, ptr %41, i64 %indvars.iv
+  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %45 = getelementptr inbounds i8, ptr %34, i64 16
+  store ptr %44, ptr %45, align 8
+  %46 = load ptr, ptr %21, align 8
+  %47 = and i64 %indvars.iv.next, 4294967295
+  %48 = select i1 %33, i64 0, i64 %47
+  %49 = getelementptr inbounds %class.CVertexO, ptr %46, i64 %48
   %50 = getelementptr inbounds i8, ptr %49, i64 48
-  %51 = getelementptr inbounds i8, ptr %35, i64 24
+  %51 = getelementptr inbounds i8, ptr %34, i64 24
   store ptr %50, ptr %51, align 8
   %exitcond43.not = icmp eq i64 %indvars.iv.next, %22
   br i1 %exitcond43.not, label %._crit_edge, label %32, !llvm.loop !132

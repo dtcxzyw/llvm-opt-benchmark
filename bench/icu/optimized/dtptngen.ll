@@ -4198,11 +4198,10 @@ if.then20:                                        ; preds = %if.end10
   %25 = load i16, ptr %fUnion.i.i.i.i.i, align 8
   %cmp.i.i60 = icmp slt i16 %25, 0
   %26 = ashr i16 %25, 5
-  %shr.i.i = zext i16 %26 to i32
   %27 = load i32, ptr %fLength.i.i.i.i, align 4
-  %cond.i = select i1 %cmp.i.i60, i32 %27, i32 %shr.i.i
-  %28 = trunc i32 %cond.i to i16
-  %conv25 = add i16 %24, %28
+  %28 = trunc i32 %27 to i16
+  %29 = select i1 %cmp.i.i60, i16 %28, i16 %26
+  %conv25 = add i16 %29, %24
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then20, %if.end10
@@ -4213,27 +4212,27 @@ if.end26:                                         ; preds = %if.then20, %if.end1
   br label %for.inc31
 
 for.inc31:                                        ; preds = %for.body.i.i, %if.then16.i.i, %for.body4, %_ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit, %if.end26, %invoke.cont
-  %29 = phi i32 [ %storemerge42124, %for.body4 ], [ %storemerge42124, %_ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit ], [ %storemerge42124, %if.end26 ], [ %.pre144, %invoke.cont ], [ %storemerge42124, %if.then16.i.i ], [ %storemerge42124, %for.body.i.i ]
-  %inc32 = add nsw i32 %29, 1
+  %30 = phi i32 [ %storemerge42124, %for.body4 ], [ %storemerge42124, %_ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit ], [ %storemerge42124, %if.end26 ], [ %.pre144, %invoke.cont ], [ %storemerge42124, %if.then16.i.i ], [ %storemerge42124, %for.body.i.i ]
+  %inc32 = add nsw i32 %30, 1
   store i32 %inc32, ptr %i, align 4
-  %30 = load i32, ptr %itemNumber.i, align 8
-  %cmp3 = icmp slt i32 %inc32, %30
+  %31 = load i32, ptr %itemNumber.i, align 8
+  %cmp3 = icmp slt i32 %inc32, %31
   br i1 %cmp3, label %for.body4, label %for.end33, !llvm.loop !25
 
 for.end33:                                        ; preds = %for.inc31, %_ZN6icu_7512FormatParser3setERKNS_13UnicodeStringE.exit
   %arrayidx.i62 = getelementptr inbounds i8, ptr %skeletonResult, i64 100
-  %31 = load i8, ptr %arrayidx.i62, align 4
-  %cmp.i63.not = icmp eq i8 %31, 0
+  %32 = load i8, ptr %arrayidx.i62, align 4
+  %cmp.i63.not = icmp eq i8 %32, 0
   %arrayidx.i66 = getelementptr inbounds i8, ptr %skeletonResult, i64 102
-  %32 = load i8, ptr %arrayidx.i66, align 2
-  %cmp.i67.not = icmp eq i8 %32, 0
+  %33 = load i8, ptr %arrayidx.i66, align 2
+  %cmp.i67.not = icmp eq i8 %33, 0
   %or.cond = select i1 %cmp.i63.not, i1 true, i1 %cmp.i67.not
   br i1 %or.cond, label %if.end88, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %for.end33
   %arrayidx.i70 = getelementptr inbounds i8, ptr %skeletonResult, i64 101
-  %33 = load i8, ptr %arrayidx.i70, align 1
-  %cmp.i71.not = icmp eq i8 %33, 0
+  %34 = load i8, ptr %arrayidx.i70, align 1
+  %cmp.i71.not = icmp eq i8 %34, 0
   br i1 %cmp.i71.not, label %if.then56, label %if.end88
 
 if.then56:                                        ; preds = %land.lhs.true40
@@ -4250,22 +4249,22 @@ if.then56:                                        ; preds = %land.lhs.true40
 
 if.end88:                                         ; preds = %if.then56, %land.lhs.true40, %for.end33
   %arrayidx.i84 = getelementptr inbounds i8, ptr %skeletonResult, i64 99
-  %34 = load i8, ptr %arrayidx.i84, align 1
-  %cmp.i85.not = icmp eq i8 %34, 0
+  %35 = load i8, ptr %arrayidx.i84, align 1
+  %cmp.i85.not = icmp eq i8 %35, 0
   br i1 %cmp.i85.not, label %if.end151, label %if.then92
 
 if.then92:                                        ; preds = %if.end88
   %arrayidx.i87 = getelementptr inbounds i8, ptr %skeletonResult, i64 83
-  %35 = load i8, ptr %arrayidx.i87, align 1
-  switch i8 %35, label %if.else [
+  %36 = load i8, ptr %arrayidx.i87, align 1
+  switch i8 %36, label %if.else [
     i8 104, label %if.then101
     i8 75, label %if.then101
   ]
 
 if.then101:                                       ; preds = %if.then92, %if.then92
   %arrayidx.i92 = getelementptr inbounds i8, ptr %skeletonResult, i64 98
-  %36 = load i8, ptr %arrayidx.i92, align 2
-  %cmp.i93.not = icmp eq i8 %36, 0
+  %37 = load i8, ptr %arrayidx.i92, align 2
+  %cmp.i93.not = icmp eq i8 %37, 0
   br i1 %cmp.i93.not, label %if.then117, label %if.end151
 
 if.then117:                                       ; preds = %if.then101
@@ -4307,9 +4306,9 @@ if.end151:                                        ; preds = %if.else, %if.then11
   %lengths.i4.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %lengths6.i5.i.i = getelementptr inbounds i8, ptr %skeletonResult, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i.i, i64 16, i1 false)
-  %37 = load i8, ptr %addedDefaultDayPeriod, align 8
+  %38 = load i8, ptr %addedDefaultDayPeriod, align 8
   %addedDefaultDayPeriod6.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  store i8 %37, ptr %addedDefaultDayPeriod6.i.i, align 8
+  store i8 %38, ptr %addedDefaultDayPeriod6.i.i, align 8
   ret void
 }
 

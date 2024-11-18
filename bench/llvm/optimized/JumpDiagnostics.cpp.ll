@@ -2359,49 +2359,49 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4StmtELb1EE9push_backES3_.exit: ; pred
   %.pre-phi = phi i16 [ %.pre609, %._crit_edge605 ], [ %134, %132 ]
   %140 = icmp eq i16 %.pre-phi, 256
   %spec.select.i220 = icmp eq i16 %.pre-phi611, 512
-  %141 = select i1 %spec.select.i220, i64 25336012079104, i64 25353191948288
-  %142 = tail call noundef ptr @_ZN5clang6IfStmt20getConditionVariableEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
-  %.not205 = icmp eq ptr %142, null
-  br i1 %.not205, label %144, label %143
+  %141 = tail call noundef ptr @_ZN5clang6IfStmt20getConditionVariableEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
+  %.not205 = icmp eq ptr %141, null
+  br i1 %.not205, label %143, label %142
 
-143:                                              ; preds = %139
-  call fastcc void @_ZN12_GLOBAL__N_116JumpScopeChecker21BuildScopeInformationEPN5clang4DeclERj(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef nonnull %142, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %144
+142:                                              ; preds = %139
+  call fastcc void @_ZN12_GLOBAL__N_116JumpScopeChecker21BuildScopeInformationEPN5clang4DeclERj(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef nonnull %141, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %143
 
-144:                                              ; preds = %143, %139
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %146 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
-  %147 = trunc i64 %146 to i32
-  store i32 %147, ptr %7, align 4
-  %148 = load i32, ptr %5, align 4
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0.0.copyload.i.i = load i32, ptr %149, align 4
-  %.sroa.2482.0.insert.ext = select i1 %140, i64 25340307046400, i64 %141
-  %.sroa.0481.0.insert.ext = zext i32 %148 to i64
+143:                                              ; preds = %142, %139
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %145 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
+  %146 = trunc i64 %145 to i32
+  store i32 %146, ptr %7, align 4
+  %147 = load i32, ptr %5, align 4
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0.0.copyload.i.i = load i32, ptr %148, align 4
+  %149 = select i1 %spec.select.i220, i64 25336012079104, i64 25353191948288
+  %.sroa.2482.0.insert.ext = select i1 %140, i64 25340307046400, i64 %149
+  %.sroa.0481.0.insert.ext = zext i32 %147 to i64
   %.sroa.0481.0.insert.insert = or disjoint i64 %.sroa.2482.0.insert.ext, %.sroa.0481.0.insert.ext
   %.sroa.5484.8.insert.ext = zext i32 %.sroa.0.0.copyload.i.i to i64
   %.sroa.5484.8.insert.shift = shl nuw i64 %.sroa.5484.8.insert.ext, 32
-  %150 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %150 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %151 = add i64 %150, 1
-  %152 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %152 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %.not.i.i.i221 = icmp ugt i64 %151, %152
   br i1 %.not.i.i.i221, label %153, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit224
 
-153:                                              ; preds = %144
+153:                                              ; preds = %143
   %154 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull %154, i64 noundef %151, i64 noundef 16) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull %154, i64 noundef %151, i64 noundef 16) #12
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit224
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit224: ; preds = %144, %153
-  %.val.i.i222 = load ptr, ptr %145, align 8
-  %155 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit224: ; preds = %143, %153
+  %.val.i.i222 = load ptr, ptr %144, align 8
+  %155 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %156 = getelementptr inbounds %"struct.(anonymous namespace)::JumpScopeChecker::GotoScope", ptr %.val.i.i222, i64 %155
   store i64 %.sroa.0481.0.insert.insert, ptr %156, align 1
   %.sroa.2.0..sroa_idx.i223 = getelementptr inbounds i8, ptr %156, i64 8
   store i64 %.sroa.5484.8.insert.shift, ptr %.sroa.2.0..sroa_idx.i223, align 1
-  %157 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %157 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %158 = add i64 %157, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %145, i64 noundef %158) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %144, i64 noundef %158) #12
   %159 = load i16, ptr %1, align 8
   %160 = and i16 %159, 1536
   %spec.select.i225 = icmp eq i16 %160, 512
@@ -2421,36 +2421,36 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb
   br label %168
 
 168:                                              ; preds = %161, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit224
-  %169 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %169 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %170 = trunc i64 %169 to i32
   store i32 %170, ptr %7, align 4
   %171 = load i32, ptr %5, align 4
-  %.sroa.0.0.copyload.i.i226 = load i32, ptr %149, align 4
+  %.sroa.0.0.copyload.i.i226 = load i32, ptr %148, align 4
   %.sroa.0477.0.insert.ext = zext i32 %171 to i64
   %.sroa.0477.0.insert.insert = or disjoint i64 %.sroa.2482.0.insert.ext, %.sroa.0477.0.insert.ext
   %.sroa.5480.8.insert.ext = zext i32 %.sroa.0.0.copyload.i.i226 to i64
   %.sroa.5480.8.insert.shift = shl nuw i64 %.sroa.5480.8.insert.ext, 32
-  %172 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %172 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %173 = add i64 %172, 1
-  %174 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %174 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %.not.i.i.i227 = icmp ugt i64 %173, %174
   br i1 %.not.i.i.i227, label %175, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit230
 
 175:                                              ; preds = %168
   %176 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull %176, i64 noundef %173, i64 noundef 16) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull %176, i64 noundef %173, i64 noundef 16) #12
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit230
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit230: ; preds = %168, %175
-  %.val.i.i228 = load ptr, ptr %145, align 8
-  %177 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %.val.i.i228 = load ptr, ptr %144, align 8
+  %177 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %178 = getelementptr inbounds %"struct.(anonymous namespace)::JumpScopeChecker::GotoScope", ptr %.val.i.i228, i64 %177
   store i64 %.sroa.0477.0.insert.insert, ptr %178, align 1
   %.sroa.2.0..sroa_idx.i229 = getelementptr inbounds i8, ptr %178, i64 8
   store i64 %.sroa.5480.8.insert.shift, ptr %.sroa.2.0..sroa_idx.i229, align 1
-  %179 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %179 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %180 = add i64 %179, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %145, i64 noundef %180) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %144, i64 noundef %180) #12
   %181 = getelementptr inbounds i8, ptr %1, i64 16
   %182 = load i16, ptr %1, align 8
   %183 = lshr i16 %182, 13
@@ -2482,36 +2482,36 @@ _ZN5clang6IfStmt7getElseEv.exit:                  ; preds = %_ZN4llvm23SmallVect
   br i1 %.not206, label %_ZN5clang6IfStmt7getElseEv.exit.thread, label %195
 
 195:                                              ; preds = %_ZN5clang6IfStmt7getElseEv.exit
-  %196 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %196 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %197 = trunc i64 %196 to i32
   store i32 %197, ptr %7, align 4
   %198 = load i32, ptr %5, align 4
-  %.sroa.0.0.copyload.i.i237 = load i32, ptr %149, align 4
+  %.sroa.0.0.copyload.i.i237 = load i32, ptr %148, align 4
   %.sroa.0473.0.insert.ext = zext i32 %198 to i64
   %.sroa.0473.0.insert.insert = or disjoint i64 %.sroa.2482.0.insert.ext, %.sroa.0473.0.insert.ext
   %.sroa.5476.8.insert.ext = zext i32 %.sroa.0.0.copyload.i.i237 to i64
   %.sroa.5476.8.insert.shift = shl nuw i64 %.sroa.5476.8.insert.ext, 32
-  %199 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %199 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %200 = add i64 %199, 1
-  %201 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %201 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %.not.i.i.i238 = icmp ugt i64 %200, %201
   br i1 %.not.i.i.i238, label %202, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit241
 
 202:                                              ; preds = %195
   %203 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull %203, i64 noundef %200, i64 noundef 16) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull %203, i64 noundef %200, i64 noundef 16) #12
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit241
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit241: ; preds = %195, %202
-  %.val.i.i239 = load ptr, ptr %145, align 8
-  %204 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %.val.i.i239 = load ptr, ptr %144, align 8
+  %204 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %205 = getelementptr inbounds %"struct.(anonymous namespace)::JumpScopeChecker::GotoScope", ptr %.val.i.i239, i64 %204
   store i64 %.sroa.0473.0.insert.insert, ptr %205, align 1
   %.sroa.2.0..sroa_idx.i240 = getelementptr inbounds i8, ptr %205, i64 8
   store i64 %.sroa.5476.8.insert.shift, ptr %.sroa.2.0..sroa_idx.i240, align 1
-  %206 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #12
+  %206 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #12
   %207 = add i64 %206, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %145, i64 noundef %207) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %144, i64 noundef %207) #12
   call fastcc void @_ZN12_GLOBAL__N_116JumpScopeChecker21BuildScopeInformationEPN5clang4StmtERj(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef nonnull %194, ptr noundef nonnull align 4 dereferenceable(4) %7)
   br label %_ZN5clang6IfStmt7getElseEv.exit.thread
 

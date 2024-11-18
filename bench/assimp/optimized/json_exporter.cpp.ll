@@ -8347,10 +8347,9 @@ for.body150:                                      ; preds = %_ZNK6aiMesh16GetNum
   %arrayidx153 = getelementptr inbounds [8 x i32], ptr %mNumUVComponents, i64 0, i64 %indvars.iv1084
   %127 = load i32, ptr %arrayidx153, align 4
   %tobool154.not = icmp eq i32 %127, 0
-  %128 = call i32 @llvm.umax.i32(i32 %127, i32 1)
-  %129 = load i32, ptr %flags.i.i, align 4
-  %130 = and i32 %129, 5
-  %or.cond.i.i648 = icmp eq i32 %130, 0
+  %128 = load i32, ptr %flags.i.i, align 4
+  %129 = and i32 %128, 5
+  %or.cond.i.i648 = icmp eq i32 %129, 0
   br i1 %or.cond.i.i648, label %if.then.i.i662, label %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i649
 
 if.then.i.i662:                                   ; preds = %for.body150
@@ -8358,8 +8357,8 @@ if.then.i.i662:                                   ; preds = %for.body150
   br label %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i649
 
 _ZN6Assimp10JSONWriter14AddIndentationEv.exit.i649: ; preds = %if.then.i.i662, %for.body150
-  %131 = load i8, ptr %first.i, align 8
-  %tobool2.i651 = trunc i8 %131 to i1
+  %130 = load i8, ptr %first.i, align 8
+  %tobool2.i651 = trunc i8 %130 to i1
   br i1 %tobool2.i651, label %_ZN6Assimp10JSONWriter10StartArrayEb.exit, label %if.then3.i652
 
 if.then3.i652:                                    ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i649
@@ -8371,13 +8370,14 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit:        ; preds = %_ZN6Assimp10JSONWri
   %call8.i657 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
   %call9.i659 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i657, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i2.i661 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %132 = load i32, ptr %mNumVertices, align 4
-  %cmp1611055.not = icmp eq i32 %132, 0
+  %131 = load i32, ptr %mNumVertices, align 4
+  %cmp1611055.not = icmp eq i32 %131, 0
   br i1 %cmp1611055.not, label %for.end176, label %for.cond163.preheader.lr.ph
 
 for.cond163.preheader.lr.ph:                      ; preds = %_ZN6Assimp10JSONWriter10StartArrayEb.exit
   %arrayidx167 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv1084
-  %umax = select i1 %tobool154.not, i32 2, i32 %128
+  %132 = call i32 @llvm.umax.i32(i32 %127, i32 1)
+  %umax = select i1 %tobool154.not, i32 2, i32 %132
   br label %for.cond163.preheader
 
 for.cond163.preheader:                            ; preds = %for.cond163.preheader.lr.ph, %for.inc174

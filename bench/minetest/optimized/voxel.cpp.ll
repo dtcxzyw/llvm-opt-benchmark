@@ -582,13 +582,13 @@ if.else141:                                       ; preds = %_ZNK14NodeDefManage
   %45 = and i8 %retval.sroa.0.0.copyload.i.i, 16
   %bf.cast.not.i.i = icmp eq i8 %45, 0
   %46 = and i8 %n.sroa.5.0.extract.trunc, 15
-  %spec.select328 = select i1 %bf.cast.not.i.i, i8 0, i8 %46
   %bf.clear.i = and i8 %retval.sroa.0.0.copyload.i.i, 15
-  %cond.i = call noundef i8 @llvm.umax.i8(i8 %bf.clear.i, i8 %spec.select328)
+  %47 = call i8 @llvm.umax.i8(i8 %bf.clear.i, i8 %46)
+  %cond.i = select i1 %bf.cast.not.i.i, i8 %bf.clear.i, i8 %47
   %cmp146 = icmp samesign ult i8 %cond.i, 10
-  %47 = or disjoint i8 %cond.i, 48
+  %48 = or disjoint i8 %cond.i, 48
   %add153 = add nuw nsw i8 %cond.i, 87
-  %c.0 = select i1 %cmp146, i8 %47, i8 %add153
+  %c.0 = select i1 %cmp146, i8 %48, i8 %add153
   br label %if.end161
 
 if.end161:                                        ; preds = %if.else141, %_ZNK14NodeDefManager3getEt.exit279, %_ZNK14NodeDefManager3getEt.exit264.thread, %_ZNK14NodeDefManager3getEt.exit264.thread323, %_ZNK14NodeDefManager3getEt.exit264, %if.else123, %if.then115, %if.then105, %if.then102, %if.else92, %for.body84
@@ -599,8 +599,8 @@ if.end161:                                        ; preds = %if.else141, %_ZNK14
   %vbase.offset.ptr.i282 = getelementptr i8, ptr %vtable.i281, i64 -24
   %vbase.offset.i283 = load i64, ptr %vbase.offset.ptr.i282, align 8
   %gep = getelementptr i8, ptr %invariant.gep335, i64 %vbase.offset.i283
-  %48 = load i64, ptr %gep, align 8, !tbaa !41
-  %cmp.not.i286 = icmp eq i64 %48, 0
+  %49 = load i64, ptr %gep, align 8, !tbaa !41
+  %cmp.not.i286 = icmp eq i64 %49, 0
   br i1 %cmp.not.i286, label %if.end.i290, label %if.then.i287
 
 if.then.i287:                                     ; preds = %if.end161
@@ -614,8 +614,8 @@ if.end.i290:                                      ; preds = %if.end161
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit292: ; preds = %if.end.i290, %if.then.i287
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__c.addr.i280)
   %inc = add nsw i32 %x.0334, 1
-  %49 = load i16, ptr %MaxEdge, align 2, !tbaa !40
-  %conv81 = sext i16 %49 to i32
+  %50 = load i16, ptr %MaxEdge, align 2, !tbaa !40
+  %conv81 = sext i16 %50 to i32
   %cmp82.not.not = icmp slt i32 %x.0334, %conv81
   br i1 %cmp82.not.not, label %for.body84, label %for.cond.cleanup83, !llvm.loop !93
 }

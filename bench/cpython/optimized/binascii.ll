@@ -2021,8 +2021,8 @@ lor.lhs.false92.i:                                ; preds = %land.lhs.true90.i
 if.then102.i:                                     ; preds = %lor.lhs.false92.i, %land.lhs.true90.i, %land.lhs.true71.i, %land.lhs.true51.i, %land.lhs.true51.i, %lor.lhs.false31.i, %lor.lhs.false31.i, %lor.lhs.false31.i, %land.lhs.true28.i, %while.body.i
   %12 = add i32 %linelen.07.i, -73
   %cmp104.i = icmp ult i32 %12, -76
-  %13 = add i32 %linelen.07.i, 3
   %delta.0.i = select i1 %cmp104.i, i64 %..i, i64 3
+  %13 = add i32 %linelen.07.i, 3
   %add113.i = select i1 %cmp104.i, i32 3, i32 %13
   %inc.i = add i64 %in.08.i, 1
   br label %if.end194.i

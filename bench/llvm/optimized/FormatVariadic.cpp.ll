@@ -66,9 +66,9 @@ define dso_local void @_ZN4llvm19formatv_object_base17parseFormatStringENS_9Stri
   %.sroa.45.0..sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %16, i64 56
   br label %31
 
-31:                                               ; preds = %.lr.ph, %157
-  %.sroa.0.027 = phi ptr [ %1, %.lr.ph ], [ %.sroa.46.1, %157 ]
-  %.sroa.3.026 = phi i64 [ %2, %.lr.ph ], [ %.sroa.53.1, %157 ]
+31:                                               ; preds = %.lr.ph, %158
+  %.sroa.0.027 = phi ptr [ %1, %.lr.ph ], [ %.sroa.46.1, %158 ]
+  %.sroa.3.026 = phi i64 [ %2, %.lr.ph ], [ %.sroa.53.1, %158 ]
   store i32 0, ptr %16, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   store i32 2, ptr %20, align 8
@@ -85,341 +85,341 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %31
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %.sroa.0.027 to i64
   %36 = sub i64 %34, %35
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i64 -1, i64 %36
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %.0.i.i.i.i)
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated.i.i
-  %38 = sub i64 %.sroa.3.026, %.sroa.speculated.i.i
+  %37 = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %36)
+  %.sroa.speculated.i.i = select i1 %.not.i.i.i.i, i64 %.sroa.3.026, i64 %37
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated.i.i
+  %39 = sub i64 %.sroa.3.026, %.sroa.speculated.i.i
   br label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
 
 .lr.ph.i.i.ithread-pre-split.i:                   ; preds = %.lr.ph.i.i.i.preheader.i
-  %39 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i171.i, i64 1
-  %.pr.i = load i8, ptr %39, align 1, !noalias !4
-  %40 = icmp eq i8 %.pr.i, 123
-  br i1 %40, label %.lr.ph.i.i.i.preheader.i, label %41
+  %40 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i171.i, i64 1
+  %.pr.i = load i8, ptr %40, align 1, !noalias !4
+  %41 = icmp eq i8 %.pr.i, 123
+  br i1 %41, label %.lr.ph.i.i.i.preheader.i, label %42
 
-41:                                               ; preds = %.lr.ph.i.i.ithread-pre-split.i
-  %42 = sub i64 %.sroa.3.026, %43
+42:                                               ; preds = %.lr.ph.i.i.ithread-pre-split.i
+  %43 = sub i64 %.sroa.3.026, %44
   br label %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %31, %.lr.ph.i.i.ithread-pre-split.i
-  %.sroa.0.013.i.i.i171.i = phi ptr [ %39, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.0.027, %31 ]
-  %.pn914.i.i.i170.i = phi i64 [ %43, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.3.026, %31 ]
-  %43 = add i64 %.pn914.i.i.i170.i, -1
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i, label %.lr.ph.i.i.ithread-pre-split.i, !llvm.loop !7
+  %.sroa.0.013.i.i.i171.i = phi ptr [ %40, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.0.027, %31 ]
+  %.pn914.i.i.i170.i = phi i64 [ %44, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.3.026, %31 ]
+  %44 = add i64 %.pn914.i.i.i170.i, -1
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i, label %.lr.ph.i.i.ithread-pre-split.i, !llvm.loop !7
 
-_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i: ; preds = %.lr.ph.i.i.i.preheader.i, %41
-  %.0.i.i.i30.i = phi i64 [ %42, %41 ], [ -1, %.lr.ph.i.i.i.preheader.i ]
+_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i: ; preds = %.lr.ph.i.i.i.preheader.i, %42
+  %.0.i.i.i30.i = phi i64 [ %43, %42 ], [ -1, %.lr.ph.i.i.i.preheader.i ]
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %.0.i.i.i30.i)
-  %45 = icmp ugt i64 %.sroa.speculated.i.i.i, 1
-  br i1 %45, label %46, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i
+  %46 = icmp ugt i64 %.sroa.speculated.i.i.i, 1
+  br i1 %46, label %47, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i
 
-46:                                               ; preds = %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i
-  %47 = lshr i64 %.sroa.speculated.i.i.i, 1
-  %..i.i = call i64 @llvm.umin.i64(i64 %47, i64 %.sroa.3.026)
-  %48 = and i64 %.sroa.speculated.i.i.i, -2
-  %.sroa.speculated5.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %48)
-  %49 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated5.i.i.i
-  %50 = sub i64 %.sroa.3.026, %.sroa.speculated5.i.i.i
+47:                                               ; preds = %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i
+  %48 = lshr i64 %.sroa.speculated.i.i.i, 1
+  %..i.i = call i64 @llvm.umin.i64(i64 %48, i64 %.sroa.3.026)
+  %49 = and i64 %.sroa.speculated.i.i.i, -2
+  %.sroa.speculated5.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %49)
+  %50 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated5.i.i.i
+  %51 = sub i64 %.sroa.3.026, %.sroa.speculated5.i.i.i
   br label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i: ; preds = %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i
-  %51 = call ptr @memchr(ptr noundef nonnull %.sroa.0.027, i32 noundef 125, i64 noundef %.sroa.3.026) #9, !noalias !4
-  %.not.i.i.i38.i = icmp eq ptr %51, null
+  %52 = call ptr @memchr(ptr noundef nonnull %.sroa.0.027, i32 noundef 125, i64 noundef %.sroa.3.026) #9, !noalias !4
+  %.not.i.i.i38.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i38.i, label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i
 
 _ZNK4llvm9StringRef13find_first_ofEcm.exit39.i:   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i
-  %52 = ptrtoint ptr %51 to i64
-  %53 = ptrtoint ptr %.sroa.0.027 to i64
-  %54 = sub i64 %52, %53
-  %55 = icmp eq i64 %54, -1
-  br i1 %55, label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit, label %56
+  %53 = ptrtoint ptr %52 to i64
+  %54 = ptrtoint ptr %.sroa.0.027 to i64
+  %55 = sub i64 %53, %54
+  %56 = icmp eq i64 %55, -1
+  br i1 %56, label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit, label %57
 
-56:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i
+57:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i
   %.not152.i = icmp eq i64 %.sroa.3.026, 1
   br i1 %.not152.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i42.i
 
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i42.i: ; preds = %56
-  %57 = add i64 %.sroa.3.026, -1
-  %58 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 1
-  %59 = call ptr @memchr(ptr noundef nonnull %58, i32 noundef 123, i64 noundef %57) #9, !noalias !4
-  %.not.i.i.i43.i = icmp eq ptr %59, null
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i42.i: ; preds = %57
+  %58 = add i64 %.sroa.3.026, -1
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 1
+  %60 = call ptr @memchr(ptr noundef nonnull %59, i32 noundef 123, i64 noundef %58) #9, !noalias !4
+  %.not.i.i.i43.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i43.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.i
 
 _ZNK4llvm9StringRef13find_first_ofEcm.exit44.i:   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i42.i
-  %60 = ptrtoint ptr %59 to i64
-  %61 = sub i64 %60, %53
-  %62 = icmp ult i64 %61, %54
-  br i1 %62, label %63, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i
+  %61 = ptrtoint ptr %60 to i64
+  %62 = sub i64 %61, %54
+  %63 = icmp ult i64 %62, %55
+  br i1 %63, label %64, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i
 
-63:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.i
-  %.sroa.speculated.i46.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %61)
-  %64 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated.i46.i
-  %65 = sub i64 %.sroa.3.026, %.sroa.speculated.i46.i
+64:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.i
+  %.sroa.speculated.i46.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %62)
+  %65 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated.i46.i
+  %66 = sub i64 %.sroa.3.026, %.sroa.speculated.i46.i
   br label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
 
-_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i: ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i42.i, %56
-  %66 = icmp ugt i64 %54, %.sroa.3.026
-  %..i.i.val.i.i = call i64 @llvm.umax.i64(i64 %54, i64 1)
-  %67 = select i1 %66, i64 %.sroa.3.026, i64 %..i.i.val.i.i
-  %68 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 1
-  %69 = add i64 %67, -1
-  %70 = add nuw i64 %54, 1
-  %.sroa.speculated5.i56.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %70)
-  %71 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated5.i56.i
-  %72 = sub i64 %.sroa.3.026, %.sroa.speculated5.i56.i
+_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i: ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i42.i, %57
+  %67 = icmp ugt i64 %55, %.sroa.3.026
+  %..i.i.val.i.i = call i64 @llvm.umax.i64(i64 %55, i64 1)
+  %68 = select i1 %67, i64 %.sroa.3.026, i64 %..i.i.val.i.i
+  %69 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 1
+  %70 = add i64 %68, -1
+  %71 = add nuw i64 %55, 1
+  %.sroa.speculated5.i56.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %71)
+  %72 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.sroa.speculated5.i56.i
+  %73 = sub i64 %.sroa.3.026, %.sroa.speculated5.i56.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !4
-  store ptr %68, ptr %14, align 8, !noalias !9
-  store i64 %69, ptr %23, align 8, !noalias !9
+  store ptr %69, ptr %14, align 8, !noalias !9
+  store i64 %70, ptr %23, align 8, !noalias !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !9
-  %73 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr nonnull @.str.1, i64 2, i64 noundef 0) #9, !noalias !12
-  %74 = load i64, ptr %23, align 8, !noalias !9
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %73, i64 %74)
-  %75 = load ptr, ptr %14, align 8, !noalias !9
-  %76 = getelementptr inbounds i8, ptr %75, i64 %.sroa.speculated.i.i.i.i
-  %77 = sub i64 %74, %.sroa.speculated.i.i.i.i
-  store ptr %76, ptr %13, align 8, !noalias !9
-  store i64 %77, ptr %24, align 8, !noalias !9
-  %78 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr nonnull @.str.1, i64 2, i64 noundef -1) #9, !noalias !12
-  %79 = add i64 %78, 1
-  %80 = load i64, ptr %24, align 8, !noalias !9
-  %.sroa.speculated.i7.i.i.i = call i64 @llvm.umin.i64(i64 %79, i64 %80)
-  %.neg.i.i.i.i = sub i64 %80, %77
-  %81 = add i64 %.neg.i.i.i.i, %.sroa.speculated.i7.i.i.i
-  %82 = load ptr, ptr %13, align 8, !noalias !9
-  %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %80, i64 %81)
+  %74 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr nonnull @.str.1, i64 2, i64 noundef 0) #9, !noalias !12
+  %75 = load i64, ptr %23, align 8, !noalias !9
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %74, i64 %75)
+  %76 = load ptr, ptr %14, align 8, !noalias !9
+  %77 = getelementptr inbounds i8, ptr %76, i64 %.sroa.speculated.i.i.i.i
+  %78 = sub i64 %75, %.sroa.speculated.i.i.i.i
+  store ptr %77, ptr %13, align 8, !noalias !9
+  store i64 %78, ptr %24, align 8, !noalias !9
+  %79 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr nonnull @.str.1, i64 2, i64 noundef -1) #9, !noalias !12
+  %80 = add i64 %79, 1
+  %81 = load i64, ptr %24, align 8, !noalias !9
+  %.sroa.speculated.i7.i.i.i = call i64 @llvm.umin.i64(i64 %80, i64 %81)
+  %.neg.i.i.i.i = sub i64 %81, %78
+  %82 = add i64 %.neg.i.i.i.i, %.sroa.speculated.i7.i.i.i
+  %83 = load ptr, ptr %13, align 8, !noalias !9
+  %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %81, i64 %82)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !9
-  store ptr %82, ptr %15, align 8, !noalias !9
+  store ptr %83, ptr %15, align 8, !noalias !9
   store i64 %.sroa.speculated.i.i.i.i.i.i, ptr %25, align 8, !noalias !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !9
-  %83 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !12
-  %84 = load i64, ptr %25, align 8, !noalias !9
-  %.sroa.speculated.i.i11.i.i = call i64 @llvm.umin.i64(i64 %83, i64 %84)
-  %85 = load ptr, ptr %15, align 8, !noalias !9
-  %86 = getelementptr inbounds i8, ptr %85, i64 %.sroa.speculated.i.i11.i.i
-  %87 = sub i64 %84, %.sroa.speculated.i.i11.i.i
-  store ptr %86, ptr %12, align 8, !noalias !9
-  store i64 %87, ptr %26, align 8, !noalias !9
-  %88 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr nonnull @.str.2, i64 6, i64 noundef -1) #9, !noalias !12
-  %89 = add i64 %88, 1
-  %90 = load i64, ptr %26, align 8, !noalias !9
-  %.sroa.speculated.i7.i12.i.i = call i64 @llvm.umin.i64(i64 %89, i64 %90)
-  %.neg.i.i13.i.i = sub i64 %90, %87
-  %91 = add i64 %.neg.i.i13.i.i, %.sroa.speculated.i7.i12.i.i
-  %92 = load ptr, ptr %12, align 8, !noalias !9
-  %.sroa.speculated.i.i.i.i14.i.i = call i64 @llvm.umin.i64(i64 %90, i64 %91)
+  %84 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !12
+  %85 = load i64, ptr %25, align 8, !noalias !9
+  %.sroa.speculated.i.i11.i.i = call i64 @llvm.umin.i64(i64 %84, i64 %85)
+  %86 = load ptr, ptr %15, align 8, !noalias !9
+  %87 = getelementptr inbounds i8, ptr %86, i64 %.sroa.speculated.i.i11.i.i
+  %88 = sub i64 %85, %.sroa.speculated.i.i11.i.i
+  store ptr %87, ptr %12, align 8, !noalias !9
+  store i64 %88, ptr %26, align 8, !noalias !9
+  %89 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr nonnull @.str.2, i64 6, i64 noundef -1) #9, !noalias !12
+  %90 = add i64 %89, 1
+  %91 = load i64, ptr %26, align 8, !noalias !9
+  %.sroa.speculated.i7.i12.i.i = call i64 @llvm.umin.i64(i64 %90, i64 %91)
+  %.neg.i.i13.i.i = sub i64 %91, %88
+  %92 = add i64 %.neg.i.i13.i.i, %.sroa.speculated.i7.i12.i.i
+  %93 = load ptr, ptr %12, align 8, !noalias !9
+  %.sroa.speculated.i.i.i.i14.i.i = call i64 @llvm.umin.i64(i64 %91, i64 %92)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !9
-  store ptr %92, ptr %15, align 8, !noalias !9
+  store ptr %93, ptr %15, align 8, !noalias !9
   store i64 %.sroa.speculated.i.i.i.i14.i.i, ptr %25, align 8, !noalias !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !9
-  %93 = call noundef zeroext i1 @_ZN4llvm22consumeUnsignedIntegerERNS_9StringRefEjRy(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11) #9, !noalias !12
-  br i1 %93, label %94, label %95
-
-94:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i, i8 0, i64 3, i1 false), !noalias !4
-  br label %155
+  %94 = call noundef zeroext i1 @_ZN4llvm22consumeUnsignedIntegerERNS_9StringRefEjRy(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11) #9, !noalias !12
+  br i1 %94, label %95, label %96
 
 95:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i
-  %96 = load i64, ptr %11, align 8, !noalias !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i, i8 0, i64 3, i1 false), !noalias !4
+  br label %156
+
+96:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit44.thread.i
+  %97 = load i64, ptr %11, align 8, !noalias !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !9
-  %97 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !12
-  %98 = load i64, ptr %25, align 8, !noalias !9
-  %.sroa.speculated.i.i17.i.i = call i64 @llvm.umin.i64(i64 %97, i64 %98)
-  %99 = load ptr, ptr %15, align 8, !noalias !9
-  %100 = getelementptr inbounds i8, ptr %99, i64 %.sroa.speculated.i.i17.i.i
-  %101 = sub i64 %98, %.sroa.speculated.i.i17.i.i
-  store ptr %100, ptr %10, align 8, !noalias !9
-  store i64 %101, ptr %27, align 8, !noalias !9
-  %102 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull @.str.2, i64 6, i64 noundef -1) #9, !noalias !12
-  %103 = add i64 %102, 1
-  %104 = load i64, ptr %27, align 8, !noalias !9
-  %.sroa.speculated.i7.i18.i.i = call i64 @llvm.umin.i64(i64 %103, i64 %104)
-  %.neg.i.i19.i.i = sub i64 %104, %101
-  %105 = add i64 %.neg.i.i19.i.i, %.sroa.speculated.i7.i18.i.i
-  %106 = load ptr, ptr %10, align 8, !noalias !9
-  %.sroa.speculated.i.i.i.i20.i.i = call i64 @llvm.umin.i64(i64 %104, i64 %105)
+  %98 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !12
+  %99 = load i64, ptr %25, align 8, !noalias !9
+  %.sroa.speculated.i.i17.i.i = call i64 @llvm.umin.i64(i64 %98, i64 %99)
+  %100 = load ptr, ptr %15, align 8, !noalias !9
+  %101 = getelementptr inbounds i8, ptr %100, i64 %.sroa.speculated.i.i17.i.i
+  %102 = sub i64 %99, %.sroa.speculated.i.i17.i.i
+  store ptr %101, ptr %10, align 8, !noalias !9
+  store i64 %102, ptr %27, align 8, !noalias !9
+  %103 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull @.str.2, i64 6, i64 noundef -1) #9, !noalias !12
+  %104 = add i64 %103, 1
+  %105 = load i64, ptr %27, align 8, !noalias !9
+  %.sroa.speculated.i7.i18.i.i = call i64 @llvm.umin.i64(i64 %104, i64 %105)
+  %.neg.i.i19.i.i = sub i64 %105, %102
+  %106 = add i64 %.neg.i.i19.i.i, %.sroa.speculated.i7.i18.i.i
+  %107 = load ptr, ptr %10, align 8, !noalias !9
+  %.sroa.speculated.i.i.i.i20.i.i = call i64 @llvm.umin.i64(i64 %105, i64 %106)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !9
-  store ptr %106, ptr %15, align 8, !noalias !9
+  store ptr %107, ptr %15, align 8, !noalias !9
   store i64 %.sroa.speculated.i.i.i.i20.i.i, ptr %25, align 8, !noalias !9
   %.not.i.i.i60.i = icmp eq i64 %.sroa.speculated.i.i.i.i20.i.i, 0
   br i1 %.not.i.i.i60.i, label %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %95
-  %lhsc.i.i = load i8, ptr %106, align 1, !noalias !12
-  %107 = icmp eq i8 %lhsc.i.i, 44
-  br i1 %107, label %108, label %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %96
+  %lhsc.i.i = load i8, ptr %107, align 1, !noalias !12
+  %108 = icmp eq i8 %lhsc.i.i, 44
+  br i1 %108, label %109, label %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i
 
-108:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
-  %109 = getelementptr inbounds i8, ptr %106, i64 1
-  %110 = add i64 %.sroa.speculated.i.i.i.i20.i.i, -1
-  store ptr %109, ptr %15, align 8, !noalias !9
-  store i64 %110, ptr %25, align 8, !noalias !9
-  switch i64 %.sroa.speculated.i.i.i.i20.i.i, label %111 [
+109:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
+  %110 = getelementptr inbounds i8, ptr %107, i64 1
+  %111 = add i64 %.sroa.speculated.i.i.i.i20.i.i, -1
+  store ptr %110, ptr %15, align 8, !noalias !9
+  store i64 %111, ptr %25, align 8, !noalias !9
+  switch i64 %.sroa.speculated.i.i.i.i20.i.i, label %112 [
     i64 1, label %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i
     i64 2, label %_ZL16translateLocCharc.exit23.i.i.i
   ]
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %106, i64 2
-  %113 = load i8, ptr %112, align 1, !noalias !12
-  switch i8 %113, label %_ZL16translateLocCharc.exit.i.i.i [
-    i8 45, label %116
-    i8 61, label %114
-    i8 43, label %115
+112:                                              ; preds = %109
+  %113 = getelementptr inbounds i8, ptr %107, i64 2
+  %114 = load i8, ptr %113, align 1, !noalias !12
+  switch i8 %114, label %_ZL16translateLocCharc.exit.i.i.i [
+    i8 45, label %117
+    i8 61, label %115
+    i8 43, label %116
   ]
 
-114:                                              ; preds = %111
-  br label %116
+115:                                              ; preds = %112
+  br label %117
 
-115:                                              ; preds = %111
-  br label %116
+116:                                              ; preds = %112
+  br label %117
 
-116:                                              ; preds = %115, %114, %111
-  %.sroa.0.0.i.ph.i.i.i = phi i32 [ 0, %111 ], [ 1, %114 ], [ 2, %115 ]
-  %117 = load i8, ptr %109, align 1, !noalias !12
-  %118 = getelementptr inbounds i8, ptr %106, i64 3
+117:                                              ; preds = %116, %115, %112
+  %.sroa.0.0.i.ph.i.i.i = phi i32 [ 0, %112 ], [ 1, %115 ], [ 2, %116 ]
+  %118 = load i8, ptr %110, align 1, !noalias !12
+  %119 = getelementptr inbounds i8, ptr %107, i64 3
   br label %_ZL16translateLocCharc.exit23.sink.split.i.i.i
 
-_ZL16translateLocCharc.exit.i.i.i:                ; preds = %111
-  %119 = load i8, ptr %109, align 1, !noalias !12
-  switch i8 %119, label %_ZL16translateLocCharc.exit23.i.i.i [
+_ZL16translateLocCharc.exit.i.i.i:                ; preds = %112
+  %120 = load i8, ptr %110, align 1, !noalias !12
+  switch i8 %120, label %_ZL16translateLocCharc.exit23.i.i.i [
     i8 45, label %_ZL16translateLocCharc.exit23.sink.split.i.i.i
-    i8 61, label %120
-    i8 43, label %121
+    i8 61, label %121
+    i8 43, label %122
   ]
-
-120:                                              ; preds = %_ZL16translateLocCharc.exit.i.i.i
-  br label %_ZL16translateLocCharc.exit23.sink.split.i.i.i
 
 121:                                              ; preds = %_ZL16translateLocCharc.exit.i.i.i
   br label %_ZL16translateLocCharc.exit23.sink.split.i.i.i
 
-_ZL16translateLocCharc.exit23.sink.split.i.i.i:   ; preds = %121, %120, %_ZL16translateLocCharc.exit.i.i.i, %116
-  %.sink.i.i = phi i64 [ -3, %116 ], [ -2, %121 ], [ -2, %120 ], [ -2, %_ZL16translateLocCharc.exit.i.i.i ]
-  %.285.i.i = phi i32 [ %.sroa.0.0.i.ph.i.i.i, %116 ], [ 2, %121 ], [ 1, %120 ], [ 0, %_ZL16translateLocCharc.exit.i.i.i ]
-  %.2.i.i = phi i8 [ %117, %116 ], [ 32, %121 ], [ 32, %120 ], [ 32, %_ZL16translateLocCharc.exit.i.i.i ]
-  %.sink38.i.i.i = phi ptr [ %118, %116 ], [ %112, %121 ], [ %112, %120 ], [ %112, %_ZL16translateLocCharc.exit.i.i.i ]
-  %122 = add i64 %.sink.i.i, %.sroa.speculated.i.i.i.i20.i.i
+122:                                              ; preds = %_ZL16translateLocCharc.exit.i.i.i
+  br label %_ZL16translateLocCharc.exit23.sink.split.i.i.i
+
+_ZL16translateLocCharc.exit23.sink.split.i.i.i:   ; preds = %122, %121, %_ZL16translateLocCharc.exit.i.i.i, %117
+  %.sink.i.i = phi i64 [ -3, %117 ], [ -2, %122 ], [ -2, %121 ], [ -2, %_ZL16translateLocCharc.exit.i.i.i ]
+  %.285.i.i = phi i32 [ %.sroa.0.0.i.ph.i.i.i, %117 ], [ 2, %122 ], [ 1, %121 ], [ 0, %_ZL16translateLocCharc.exit.i.i.i ]
+  %.2.i.i = phi i8 [ %118, %117 ], [ 32, %122 ], [ 32, %121 ], [ 32, %_ZL16translateLocCharc.exit.i.i.i ]
+  %.sink38.i.i.i = phi ptr [ %119, %117 ], [ %113, %122 ], [ %113, %121 ], [ %113, %_ZL16translateLocCharc.exit.i.i.i ]
+  %123 = add i64 %.sink.i.i, %.sroa.speculated.i.i.i.i20.i.i
   store ptr %.sink38.i.i.i, ptr %15, align 8, !noalias !9
-  store i64 %122, ptr %25, align 8, !noalias !9
+  store i64 %123, ptr %25, align 8, !noalias !9
   br label %_ZL16translateLocCharc.exit23.i.i.i
 
-_ZL16translateLocCharc.exit23.i.i.i:              ; preds = %_ZL16translateLocCharc.exit23.sink.split.i.i.i, %_ZL16translateLocCharc.exit.i.i.i, %108
-  %.184.i.i = phi i32 [ 2, %_ZL16translateLocCharc.exit.i.i.i ], [ %.285.i.i, %_ZL16translateLocCharc.exit23.sink.split.i.i.i ], [ 2, %108 ]
-  %.1.i.i = phi i8 [ 32, %_ZL16translateLocCharc.exit.i.i.i ], [ %.2.i.i, %_ZL16translateLocCharc.exit23.sink.split.i.i.i ], [ 32, %108 ]
+_ZL16translateLocCharc.exit23.i.i.i:              ; preds = %_ZL16translateLocCharc.exit23.sink.split.i.i.i, %_ZL16translateLocCharc.exit.i.i.i, %109
+  %.184.i.i = phi i32 [ 2, %_ZL16translateLocCharc.exit.i.i.i ], [ %.285.i.i, %_ZL16translateLocCharc.exit23.sink.split.i.i.i ], [ 2, %109 ]
+  %.1.i.i = phi i8 [ 32, %_ZL16translateLocCharc.exit.i.i.i ], [ %.2.i.i, %_ZL16translateLocCharc.exit23.sink.split.i.i.i ], [ 32, %109 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !9
-  %123 = call noundef zeroext i1 @_ZN4llvm22consumeUnsignedIntegerERNS_9StringRefEjRy(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %9) #9, !noalias !12
-  %124 = load i64, ptr %9, align 8, !noalias !9
-  %spec.select.i.i = select i1 %123, i64 0, i64 %124
+  %124 = call noundef zeroext i1 @_ZN4llvm22consumeUnsignedIntegerERNS_9StringRefEjRy(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %9) #9, !noalias !12
+  %125 = load i64, ptr %9, align 8, !noalias !9
+  %spec.select.i.i = select i1 %124, i64 0, i64 %125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !9
   br label %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i
 
-_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i: ; preds = %_ZL16translateLocCharc.exit23.i.i.i, %108, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i, %95
-  %.083.i.i = phi i32 [ %.184.i.i, %_ZL16translateLocCharc.exit23.i.i.i ], [ 2, %108 ], [ 2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 2, %95 ]
-  %.080.i.i = phi i64 [ %spec.select.i.i, %_ZL16translateLocCharc.exit23.i.i.i ], [ 0, %108 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 0, %95 ]
-  %.0.i.i = phi i8 [ %.1.i.i, %_ZL16translateLocCharc.exit23.i.i.i ], [ 32, %108 ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 32, %95 ]
+_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i: ; preds = %_ZL16translateLocCharc.exit23.i.i.i, %109, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i, %96
+  %.083.i.i = phi i32 [ %.184.i.i, %_ZL16translateLocCharc.exit23.i.i.i ], [ 2, %109 ], [ 2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 2, %96 ]
+  %.080.i.i = phi i64 [ %spec.select.i.i, %_ZL16translateLocCharc.exit23.i.i.i ], [ 0, %109 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 0, %96 ]
+  %.0.i.i = phi i8 [ %.1.i.i, %_ZL16translateLocCharc.exit23.i.i.i ], [ 32, %109 ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 32, %96 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !9
-  %125 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !12
-  %126 = load i64, ptr %25, align 8, !noalias !9
-  %.sroa.speculated.i.i23.i.i = call i64 @llvm.umin.i64(i64 %125, i64 %126)
-  %127 = load ptr, ptr %15, align 8, !noalias !9
-  %128 = getelementptr inbounds i8, ptr %127, i64 %.sroa.speculated.i.i23.i.i
-  %129 = sub i64 %126, %.sroa.speculated.i.i23.i.i
-  store ptr %128, ptr %8, align 8, !noalias !9
-  store i64 %129, ptr %28, align 8, !noalias !9
-  %130 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull @.str.2, i64 6, i64 noundef -1) #9, !noalias !12
-  %131 = add i64 %130, 1
-  %132 = load i64, ptr %28, align 8, !noalias !9
-  %.sroa.speculated.i7.i24.i.i = call i64 @llvm.umin.i64(i64 %131, i64 %132)
-  %.neg.i.i25.i.i = sub i64 %132, %129
-  %133 = add i64 %.neg.i.i25.i.i, %.sroa.speculated.i7.i24.i.i
-  %134 = load ptr, ptr %8, align 8, !noalias !9
-  %.sroa.speculated.i.i.i.i26.i.i = call i64 @llvm.umin.i64(i64 %132, i64 %133)
+  %126 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !12
+  %127 = load i64, ptr %25, align 8, !noalias !9
+  %.sroa.speculated.i.i23.i.i = call i64 @llvm.umin.i64(i64 %126, i64 %127)
+  %128 = load ptr, ptr %15, align 8, !noalias !9
+  %129 = getelementptr inbounds i8, ptr %128, i64 %.sroa.speculated.i.i23.i.i
+  %130 = sub i64 %127, %.sroa.speculated.i.i23.i.i
+  store ptr %129, ptr %8, align 8, !noalias !9
+  store i64 %130, ptr %28, align 8, !noalias !9
+  %131 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull @.str.2, i64 6, i64 noundef -1) #9, !noalias !12
+  %132 = add i64 %131, 1
+  %133 = load i64, ptr %28, align 8, !noalias !9
+  %.sroa.speculated.i7.i24.i.i = call i64 @llvm.umin.i64(i64 %132, i64 %133)
+  %.neg.i.i25.i.i = sub i64 %133, %130
+  %134 = add i64 %.neg.i.i25.i.i, %.sroa.speculated.i7.i24.i.i
+  %135 = load ptr, ptr %8, align 8, !noalias !9
+  %.sroa.speculated.i.i.i.i26.i.i = call i64 @llvm.umin.i64(i64 %133, i64 %134)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !9
-  store ptr %134, ptr %15, align 8, !noalias !9
+  store ptr %135, ptr %15, align 8, !noalias !9
   store i64 %.sroa.speculated.i.i.i.i26.i.i, ptr %25, align 8, !noalias !9
   %.not.i.i29.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i26.i.i, 0
   br i1 %.not.i.i29.i.i, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i: ; preds = %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i
-  %lhsc89.i.i = load i8, ptr %134, align 1, !noalias !12
-  %135 = icmp eq i8 %lhsc89.i.i, 58
-  br i1 %135, label %136, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i
+  %lhsc89.i.i = load i8, ptr %135, align 1, !noalias !12
+  %136 = icmp eq i8 %lhsc89.i.i, 58
+  br i1 %136, label %137, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i
 
-136:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i
-  %137 = getelementptr inbounds i8, ptr %134, i64 1
-  %138 = add i64 %.sroa.speculated.i.i.i.i26.i.i, -1
-  store ptr %137, ptr %15, align 8, !noalias !9
-  store i64 %138, ptr %25, align 8, !noalias !9
+137:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i
+  %138 = getelementptr inbounds i8, ptr %135, i64 1
+  %139 = add i64 %.sroa.speculated.i.i.i.i26.i.i, -1
+  store ptr %138, ptr %15, align 8, !noalias !9
+  store i64 %139, ptr %25, align 8, !noalias !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !9
-  %139 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !12
-  %140 = load i64, ptr %25, align 8, !noalias !9
-  %.sroa.speculated.i.i35.i.i = call i64 @llvm.umin.i64(i64 %139, i64 %140)
-  %141 = load ptr, ptr %15, align 8, !noalias !9
-  %142 = getelementptr inbounds i8, ptr %141, i64 %.sroa.speculated.i.i35.i.i
-  %143 = sub i64 %140, %.sroa.speculated.i.i35.i.i
-  store ptr %142, ptr %7, align 8, !noalias !9
-  store i64 %143, ptr %29, align 8, !noalias !9
-  %144 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull @.str.2, i64 6, i64 noundef -1) #9, !noalias !12
-  %145 = add i64 %144, 1
-  %146 = load i64, ptr %29, align 8, !noalias !9
-  %.sroa.speculated.i7.i36.i.i = call i64 @llvm.umin.i64(i64 %145, i64 %146)
-  %.neg.i.i37.i.i = sub i64 %146, %143
-  %147 = add i64 %.neg.i.i37.i.i, %.sroa.speculated.i7.i36.i.i
-  %148 = load ptr, ptr %7, align 8, !noalias !9
-  %.sroa.speculated.i.i.i.i38.i.i = call i64 @llvm.umin.i64(i64 %146, i64 %147)
+  %140 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !12
+  %141 = load i64, ptr %25, align 8, !noalias !9
+  %.sroa.speculated.i.i35.i.i = call i64 @llvm.umin.i64(i64 %140, i64 %141)
+  %142 = load ptr, ptr %15, align 8, !noalias !9
+  %143 = getelementptr inbounds i8, ptr %142, i64 %.sroa.speculated.i.i35.i.i
+  %144 = sub i64 %141, %.sroa.speculated.i.i35.i.i
+  store ptr %143, ptr %7, align 8, !noalias !9
+  store i64 %144, ptr %29, align 8, !noalias !9
+  %145 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull @.str.2, i64 6, i64 noundef -1) #9, !noalias !12
+  %146 = add i64 %145, 1
+  %147 = load i64, ptr %29, align 8, !noalias !9
+  %.sroa.speculated.i7.i36.i.i = call i64 @llvm.umin.i64(i64 %146, i64 %147)
+  %.neg.i.i37.i.i = sub i64 %147, %144
+  %148 = add i64 %.neg.i.i37.i.i, %.sroa.speculated.i7.i36.i.i
+  %149 = load ptr, ptr %7, align 8, !noalias !9
+  %.sroa.speculated.i.i.i.i38.i.i = call i64 @llvm.umin.i64(i64 %147, i64 %148)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !noalias !9
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i
 
-_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i: ; preds = %136, %_ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i
-  %.sroa.370.0.i.i = phi i64 [ %.sroa.speculated.i.i.i.i38.i.i, %136 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i ], [ 0, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i ]
-  %.sroa.069.0.i.i = phi ptr [ %148, %136 ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i ], [ null, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i ]
+_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i: ; preds = %137, %_ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i
+  %.sroa.370.0.i.i = phi i64 [ %.sroa.speculated.i.i.i.i38.i.i, %137 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i ], [ 0, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i ]
+  %.sroa.069.0.i.i = phi ptr [ %149, %137 ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i ], [ null, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !9
-  %149 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !12
-  %150 = load i64, ptr %25, align 8, !noalias !9
-  %.sroa.speculated.i.i41.i.i = call i64 @llvm.umin.i64(i64 %149, i64 %150)
-  %151 = load ptr, ptr %15, align 8, !noalias !9
-  %152 = getelementptr inbounds i8, ptr %151, i64 %.sroa.speculated.i.i41.i.i
-  %153 = sub i64 %150, %.sroa.speculated.i.i41.i.i
-  store ptr %152, ptr %6, align 8, !noalias !9
-  store i64 %153, ptr %30, align 8, !noalias !9
-  %154 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @.str.2, i64 6, i64 noundef -1) #9, !noalias !12
+  %150 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !12
+  %151 = load i64, ptr %25, align 8, !noalias !9
+  %.sroa.speculated.i.i41.i.i = call i64 @llvm.umin.i64(i64 %150, i64 %151)
+  %152 = load ptr, ptr %15, align 8, !noalias !9
+  %153 = getelementptr inbounds i8, ptr %152, i64 %.sroa.speculated.i.i41.i.i
+  %154 = sub i64 %151, %.sroa.speculated.i.i41.i.i
+  store ptr %153, ptr %6, align 8, !noalias !9
+  store i64 %154, ptr %30, align 8, !noalias !9
+  %155 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @.str.2, i64 6, i64 noundef -1) #9, !noalias !12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !9
   %.sroa.0.0.copyload.i.i = load ptr, ptr %14, align 8, !noalias !9
   %.sroa.2.0.copyload.i.i = load i64, ptr %23, align 8, !noalias !9
-  br label %155
+  br label %156
 
-155:                                              ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i, %94
-  %.sroa.571.0.i = phi i64 [ 0, %94 ], [ %.sroa.2.0.copyload.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.470.0.i = phi ptr [ null, %94 ], [ %.sroa.0.0.copyload.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.672.0.i = phi i64 [ 0, %94 ], [ %96, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.068.0.i = phi i32 [ 0, %94 ], [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.773.0.i = phi i64 [ 0, %94 ], [ %.080.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.8.0.i = phi i32 [ 2, %94 ], [ %.083.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.10.0.i = phi i8 [ 0, %94 ], [ %.0.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.13.0.i = phi ptr [ null, %94 ], [ %.sroa.069.0.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
-  %.sroa.14.0.i = phi i64 [ 0, %94 ], [ %.sroa.370.0.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+156:                                              ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i, %95
+  %.sroa.571.0.i = phi i64 [ 0, %95 ], [ %.sroa.2.0.copyload.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.470.0.i = phi ptr [ null, %95 ], [ %.sroa.0.0.copyload.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.672.0.i = phi i64 [ 0, %95 ], [ %97, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.068.0.i = phi i32 [ 0, %95 ], [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.773.0.i = phi i64 [ 0, %95 ], [ %.080.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.8.0.i = phi i32 [ 2, %95 ], [ %.083.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.10.0.i = phi i8 [ 0, %95 ], [ %.0.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.13.0.i = phi ptr [ null, %95 ], [ %.sroa.069.0.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
+  %.sroa.14.0.i = phi i64 [ 0, %95 ], [ %.sroa.370.0.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.38, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i, i64 3, i1 false)
   br label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
 
-_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %46, %63, %155
-  %.sroa.46.1 = phi ptr [ %49, %46 ], [ %71, %155 ], [ %64, %63 ], [ %37, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ null, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.53.1 = phi i64 [ %50, %46 ], [ %72, %155 ], [ %65, %63 ], [ %38, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.45.0 = phi i64 [ 0, %46 ], [ %.sroa.14.0.i, %155 ], [ 0, %63 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.44.0 = phi ptr [ null, %46 ], [ %.sroa.13.0.i, %155 ], [ null, %63 ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ null, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.32.0 = phi i8 [ 0, %46 ], [ %.sroa.10.0.i, %155 ], [ 0, %63 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.26.0 = phi i32 [ 2, %46 ], [ %.sroa.8.0.i, %155 ], [ 2, %63 ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.8.0 = phi ptr [ %.sroa.0.027, %46 ], [ %.sroa.470.0.i, %155 ], [ %.sroa.0.027, %63 ], [ %.sroa.0.027, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ @.str, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ @.str, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.25.1 = phi i64 [ 0, %46 ], [ %.sroa.773.0.i, %155 ], [ 0, %63 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.01.0 = phi i32 [ 2, %46 ], [ %.sroa.068.0.i, %155 ], [ 2, %63 ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.20.1 = phi i64 [ 0, %46 ], [ %.sroa.672.0.i, %155 ], [ 0, %63 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
-  %.sroa.14.1 = phi i64 [ %..i.i, %46 ], [ %.sroa.571.0.i, %155 ], [ %.sroa.speculated.i46.i, %63 ], [ %.sroa.speculated.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 64, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 64, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %47, %64, %156
+  %.sroa.46.1 = phi ptr [ %50, %47 ], [ %72, %156 ], [ %65, %64 ], [ %38, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ null, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+  %.sroa.53.1 = phi i64 [ %51, %47 ], [ %73, %156 ], [ %66, %64 ], [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+  %.sroa.45.0 = phi i64 [ 0, %47 ], [ %.sroa.14.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+  %.sroa.44.0 = phi ptr [ null, %47 ], [ %.sroa.13.0.i, %156 ], [ null, %64 ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ null, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+  %.sroa.32.0 = phi i8 [ 0, %47 ], [ %.sroa.10.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+  %.sroa.26.0 = phi i32 [ 2, %47 ], [ %.sroa.8.0.i, %156 ], [ 2, %64 ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+  %.sroa.8.0 = phi ptr [ %.sroa.0.027, %47 ], [ %.sroa.470.0.i, %156 ], [ %.sroa.0.027, %64 ], [ %.sroa.0.027, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ @.str, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ @.str, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+  %.sroa.25.1 = phi i64 [ 0, %47 ], [ %.sroa.773.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+  %.sroa.01.0 = phi i32 [ 2, %47 ], [ %.sroa.068.0.i, %156 ], [ 2, %64 ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 2, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+  %.sroa.20.1 = phi i64 [ 0, %47 ], [ %.sroa.672.0.i, %156 ], [ 0, %64 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
+  %.sroa.14.1 = phi i64 [ %..i.i, %47 ], [ %.sroa.571.0.i, %156 ], [ %.sroa.speculated.i46.i, %64 ], [ %.sroa.speculated.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 64, %_ZNK4llvm9StringRef13find_first_ofEcm.exit39.i ], [ 64, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i37.i ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.12.i)
   store i32 %.sroa.01.0, ptr %16, align 8
   store i32 0, ptr %.sroa.7.0..sroa.2.8..sroa_idx, align 4
@@ -433,17 +433,17 @@ _ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNSt11char_tr
   store ptr %.sroa.44.0, ptr %22, align 8
   store i64 %.sroa.45.0, ptr %.sroa.45.0..sroa.2.8..sroa_idx, align 8
   %.not = icmp eq i32 %.sroa.01.0, 0
-  br i1 %.not, label %157, label %156
+  br i1 %.not, label %158, label %157
 
-156:                                              ; preds = %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
+157:                                              ; preds = %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_15ReplacementItemELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %16)
-  br label %157
+  br label %158
 
-157:                                              ; preds = %156, %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
-  %158 = icmp eq i64 %.sroa.53.1, 0
-  br i1 %158, label %._crit_edge, label %31, !llvm.loop !13
+158:                                              ; preds = %157, %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
+  %159 = icmp eq i64 %.sroa.53.1, 0
+  br i1 %159, label %._crit_edge, label %31, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %157, %5
+._crit_edge:                                      ; preds = %158, %5
   ret void
 }
 
