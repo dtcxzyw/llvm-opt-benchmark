@@ -74876,7 +74876,6 @@ common.resume:                                    ; preds = %151, %21
 .lr.ph.i.i.i.i.i.i.i.i.i.preheader:               ; preds = %56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %57, i8 0, i64 40, i1 false), !tbaa !263
   %58 = getelementptr inbounds i8, ptr %57, i64 4
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %57, ptr noundef nonnull align 4 dereferenceable(36) %58, i64 36, i1 false)
   %59 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %61, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit.i, !prof !101
