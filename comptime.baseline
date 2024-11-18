@@ -13239,7 +13239,7 @@ linux/keyring.ll 368497294
 linux/kfifo.ll 174952233
 linux/klist.ll 104547834
 linux/kmod.ll 55689638
-linux/knc.ll 90004172
+linux/knc.ll 90094220
 linux/kobject.ll 227922106
 linux/kobject_uevent.ll 165422925
 linux/kprobes.ll 692363558
@@ -27802,7 +27802,7 @@ openusd/pxrSampleFilterAdapter.cpp.ll 2103941475
 openusd/quadRefinement.cpp.ll 891390728
 openusd/quant_common.c.ll 160619184
 openusd/quatd.cpp.ll 126549136
-openusd/quaternion.cpp.ll 108568447
+openusd/quaternion.cpp.ll 108677030
 openusd/quatf.cpp.ll 131238674
 openusd/quath.cpp.ll 298029541
 openusd/range1d.cpp.ll 56330417
@@ -30081,7 +30081,7 @@ protobuf/message_builder_lite.cc.ll 1994968256
 protobuf/message_differencer.cc.ll 7102533343
 protobuf/message_field.cc.ll 3929922830
 protobuf/message_field_lite.cc.ll 2069919763
-protobuf/message_lite.cc.ll 819710489
+protobuf/message_lite.cc.ll 820530224
 protobuf/message_serialization.cc.ll 731840473
 protobuf/name_resolver.cc.ll 602973789
 protobuf/names.cc.ll 655272281
@@ -38491,7 +38491,7 @@ xgboost/c_api.cc.ll 40006967847
 xgboost/c_api_error.cc.ll 43684452
 xgboost/charconv.cc.ll 388869958
 xgboost/coll.cc.ll 5156116408
-xgboost/coll_c_api.cc.ll 1886474680
+xgboost/coll_c_api.cc.ll 1888362440
 xgboost/column_matrix.cc.ll 977256963
 xgboost/comm.cc.ll 2919362467
 xgboost/comm_group.cc.ll 1135157340
