@@ -7228,7 +7228,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit181:            ; preds = %_ZSt6fill_nIPfmfET_
   store i64 %351, ptr %26, align 8, !llvm.access.group !39
   call void @__kmpc_critical(ptr nonnull @2, i32 %272, ptr nonnull @.gomp_critical_user_.var), !llvm.access.group !39
   %352 = load ptr, ptr %17, align 8, !llvm.access.group !39
-  %353 = load i64, ptr %6, align 8
+  %353 = load i64, ptr %6, align 8, !llvm.access.group !39
   %354 = mul i64 %353, %319
   %355 = getelementptr inbounds float, ptr %352, i64 %354
   %356 = load ptr, ptr %18, align 8, !llvm.access.group !39

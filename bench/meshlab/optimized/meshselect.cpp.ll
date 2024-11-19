@@ -21305,7 +21305,7 @@ define internal void @_ZN3vcg3tri5CleanI6CMeshOE32SelectFoldedFaceFromOneRingFac
   %.sroa.8.3179 = phi ptr [ %.sroa.8.2186, %.lr.ph ], [ %.sroa.8.4, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.18.3177 = phi ptr [ %.sroa.18.2185, %.lr.ph ], [ %.sroa.18.4, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.0111.0176 = phi ptr [ %53, %.lr.ph ], [ %130, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
-  %66 = load ptr, ptr %.sroa.0111.0176, align 8
+  %66 = load ptr, ptr %.sroa.0111.0176, align 8, !llvm.access.group !146
   %67 = load ptr, ptr %59, align 8, !llvm.access.group !146
   %.not43 = icmp eq ptr %66, %67
   br i1 %.not43, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit, label %68
