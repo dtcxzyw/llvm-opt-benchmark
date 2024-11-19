@@ -8879,7 +8879,7 @@ gromacs/selmethod.cpp.ll 215868611
 gromacs/selvalue.cpp.ll 79501442
 gromacs/session.cpp.ll 1098256986
 gromacs/setatoms.cpp.ll 210586414
-gromacs/setforces.cpp.ll 181594929
+gromacs/setforces.cpp.ll 181413241
 gromacs/setprecision.cpp.ll 172992100
 gromacs/settle.cpp.ll 4184003409
 gromacs/setup.cpp.ll 655965677
@@ -27801,7 +27801,7 @@ openusd/pxrRenderTerminalHelper.cpp.ll 690859962
 openusd/pxrSampleFilterAdapter.cpp.ll 2105156243
 openusd/quadRefinement.cpp.ll 892755241
 openusd/quant_common.c.ll 160803242
-openusd/quatd.cpp.ll 126640048
+openusd/quatd.cpp.ll 126513223
 openusd/quaternion.cpp.ll 108654534
 openusd/quatf.cpp.ll 131437424
 openusd/quath.cpp.ll 298466769
