@@ -26486,7 +26486,7 @@ openssl/libcrypto-shlib-ec_backend.ll 248545552
 openssl/libcrypto-shlib-ec_key.ll 238616745
 openssl/libcrypto-shlib-ec_lib.ll 428093944
 openssl/libcrypto-shlib-ec_mult.ll 332087563
-openssl/libcrypto-shlib-ec_support.ll 63535927
+openssl/libcrypto-shlib-ec_support.ll 63599500
 openssl/libcrypto-shlib-ecb3_enc.ll 40179318
 openssl/libcrypto-shlib-ecb_enc.ll 40855372
 openssl/libcrypto-shlib-ecdh_ossl.ll 52896252
