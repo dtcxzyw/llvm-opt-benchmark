@@ -23516,7 +23516,7 @@ openjdk/mlib_c_ImageLookUp.ll 118089163
 openjdk/mlib_c_ImageLookUp_f.ll 4091090581
 openjdk/mlib_sys.ll 41161540
 openjdk/modRefBarrierSetAssembler_x86.ll 59760002
-openjdk/modRefBarrierSetC1.ll 174946041
+openjdk/modRefBarrierSetC1.ll 175120988
 openjdk/modRefBarrierSetC2.ll 105873818
 openjdk/moduleEntry.ll 1315565074
 openjdk/modules.ll 1277943431
