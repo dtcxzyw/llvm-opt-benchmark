@@ -25915,8 +25915,6 @@ if.then.i.i175:                                   ; preds = %lpad3
 
 ehcleanup:                                        ; preds = %if.then.i.i175, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i176, %lpad
   %.pn = phi { ptr, i32 } [ %16, %lpad ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i176 ], [ %17, %if.then.i.i175 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #34
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit291
 
@@ -26371,18 +26369,12 @@ lpad90:                                           ; preds = %if.then.i281, %invo
 lpad96:                                           ; preds = %invoke.cont93
   %74 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup100
+  br label %ehcleanup125
 
 ehcleanup98:                                      ; preds = %lpad90, %lpad83
   %.pn155 = phi { ptr, i32 } [ %73, %lpad90 ], [ %72, %lpad83 ]
   invoke void @__cxa_end_catch()
-          to label %ehcleanup100 unwind label %terminate.lpad
-
-ehcleanup100:                                     ; preds = %ehcleanup98, %lpad96
-  %.pn157 = phi { ptr, i32 } [ %74, %lpad96 ], [ %.pn155, %ehcleanup98 ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn157, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn157, 1
-  br label %ehcleanup125
+          to label %ehcleanup125 unwind label %terminate.lpad
 
 lpad104:                                          ; preds = %invoke.cont105, %_ZTW11errorstream.exit271
   %75 = landingpad { ptr, i32 }
@@ -26398,33 +26390,23 @@ lpad113:                                          ; preds = %if.then.i273, %invo
 lpad119:                                          ; preds = %invoke.cont116
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup123
+  br label %ehcleanup125
 
 ehcleanup121:                                     ; preds = %lpad113, %lpad104
   %.pn159 = phi { ptr, i32 } [ %76, %lpad113 ], [ %75, %lpad104 ]
   invoke void @__cxa_end_catch()
-          to label %ehcleanup123 unwind label %terminate.lpad
+          to label %ehcleanup125 unwind label %terminate.lpad
 
-ehcleanup123:                                     ; preds = %ehcleanup121, %lpad119
-  %.pn161 = phi { ptr, i32 } [ %77, %lpad119 ], [ %.pn159, %ehcleanup121 ]
-  %exn.slot.6 = extractvalue { ptr, i32 } %.pn161, 0
-  %ehselector.slot.6 = extractvalue { ptr, i32 } %.pn161, 1
-  br label %ehcleanup125
-
-ehcleanup125:                                     ; preds = %ehcleanup123, %ehcleanup100, %catch.fallthrough
-  %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup123 ], [ %ehselector.slot.4, %ehcleanup100 ], [ %ehselector.slot.2, %catch.fallthrough ]
-  %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup123 ], [ %exn.slot.4, %ehcleanup100 ], [ %exn.slot.2, %catch.fallthrough ]
+ehcleanup125:                                     ; preds = %lpad119, %ehcleanup121, %lpad96, %ehcleanup98, %catch.fallthrough
+  %.merged = phi { ptr, i32 } [ %.pn153, %catch.fallthrough ], [ %74, %lpad96 ], [ %.pn155, %ehcleanup98 ], [ %77, %lpad119 ], [ %.pn159, %ehcleanup121 ]
   call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %sp) #34
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit291
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit291:         ; preds = %ehcleanup125, %ehcleanup
-  %ehselector.slot.8 = phi i32 [ %ehselector.slot.7, %ehcleanup125 ], [ %ehselector.slot.0, %ehcleanup ]
-  %exn.slot.8 = phi ptr [ %exn.slot.7, %ehcleanup125 ], [ %exn.slot.0, %ehcleanup ]
+  %lpad.val138.merged = phi { ptr, i32 } [ %.merged, %ehcleanup125 ], [ %.pn, %ehcleanup ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %sp) #34
   %call1.i.i.i.i290 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_env_mutex) #34
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.8, 0
-  %lpad.val138 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.8, 1
-  resume { ptr, i32 } %lpad.val138
+  resume { ptr, i32 } %lpad.val138.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup121, %ehcleanup98
   %78 = landingpad { ptr, i32 }
@@ -58551,8 +58533,6 @@ if.then.i.i357:                                   ; preds = %lpad2
 
 ehcleanup:                                        ; preds = %if.then.i.i357, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i358, %lpad
   %.pn = phi { ptr, i32 } [ %46, %lpad ], [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i358 ], [ %47, %if.then.i.i357 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #34
   br label %ehcleanup277
 
@@ -60186,25 +60166,26 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %268 = load i64, ptr %_M_string_length.i.i.i.i325, align 8, !tbaa !14
   %cmp3.i.i.i777 = icmp ult i64 %268, 16
   call void @llvm.assume(i1 %cmp3.i.i.i777)
+  %269 = insertvalue { ptr, i32 } poison, ptr %exn.slot.20, 0
+  %270 = insertvalue { ptr, i32 } %269, i32 %ehselector.slot.20, 1
   br label %ehcleanup277
 
 if.then.i.i773:                                   ; preds = %ehcleanup269
   call void @_ZdlPv(ptr noundef %267) #35
+  %271 = insertvalue { ptr, i32 } poison, ptr %exn.slot.20, 0
+  %272 = insertvalue { ptr, i32 } %271, i32 %ehselector.slot.20, 1
   br label %ehcleanup277
 
 ehcleanup277:                                     ; preds = %if.then.i.i773, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i775, %ehcleanup
-  %ehselector.slot.22 = phi i32 [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i775 ], [ %ehselector.slot.20, %if.then.i.i773 ]
-  %exn.slot.22 = phi ptr [ %exn.slot.0, %ehcleanup ], [ %exn.slot.20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i775 ], [ %exn.slot.20, %if.then.i.i773 ]
+  %lpad.val280.merged = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %270, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i775 ], [ %272, %if.then.i.i773 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %migrate_to) #34
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.22, 0
-  %lpad.val280 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.22, 1
-  resume { ptr, i32 } %lpad.val280
+  resume { ptr, i32 } %lpad.val280.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup209
-  %269 = landingpad { ptr, i32 }
+  %273 = landingpad { ptr, i32 }
           catch ptr null
-  %270 = extractvalue { ptr, i32 } %269, 0
-  call void @__clang_call_terminate(ptr %270) #36
+  %274 = extractvalue { ptr, i32 } %273, 0
+  call void @__clang_call_terminate(ptr %274) #36
   unreachable
 }
 

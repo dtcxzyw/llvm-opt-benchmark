@@ -2206,16 +2206,11 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %12, %12, %12,
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = tail call { ptr, i8 } %48(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef %45, ptr nonnull %1, i8 4, i64 0) #18
-  %.fca.0.extract = extractvalue { ptr, i8 } %49, 0
-  %.fca.1.extract = extractvalue { ptr, i8 } %49, 1
   br label %50
 
 50:                                               ; preds = %12, %7, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %29, %2, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
-  %.sroa.07.0 = phi ptr [ %.fca.0.extract, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ null, %2 ], [ null, %29 ], [ null, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ null, %7 ], [ null, %12 ]
-  %.sroa.4.0 = phi i8 [ %.fca.1.extract, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ 1, %2 ], [ 1, %29 ], [ 1, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 1, %7 ], [ 1, %12 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.07.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %49, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ { ptr null, i8 1 }, %2 ], [ { ptr null, i8 1 }, %29 ], [ { ptr null, i8 1 }, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ { ptr null, i8 1 }, %7 ], [ { ptr null, i8 1 }, %12 ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

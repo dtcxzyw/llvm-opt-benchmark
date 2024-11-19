@@ -2336,7 +2336,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorISt10shared_ptrI
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
   %23 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableISt6vectorISt10shared_ptrINS_11Usd_ClipSetEESaIS4_EEE18_InsertInTableImplIZNS7_14_InsertInTableERKSt4pairINS_7SdfPathES6_EEUlPNS7_6_EntryEE_EES9_INS7_8IteratorISB_SF_EEbERKSA_OT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.noexc unwind label %27
+          to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorISt10shared_ptrINS0_11Usd_ClipSetEESaIS5_EEEC2IRKS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -2350,25 +2350,29 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorISt10shared_ptrI
 
 25:                                               ; preds = %.noexc
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableISt6vectorISt10shared_ptrINS_11Usd_ClipSetEESaIS4_EEE22_UpdateTreeForNewEntryERKSt4pairINS7_8IteratorIS8_INS_7SdfPathES6_EPNS7_6_EntryEEEbE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(9) %4)
-          to label %.noexc3 unwind label %27
+          to label %.noexc3 unwind label %29
 
 .noexc3:                                          ; preds = %25
   %.fca.0.load.pre.i = load ptr, ptr %4, align 8
+  %.fca.1.load.pre.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %26 = insertvalue { ptr, i8 } poison, ptr %.fca.0.load.pre.i, 0
+  %27 = insertvalue { ptr, i8 } %26, i8 %.fca.1.load.pre.i, 1
   br label %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__11Usd_ClipSetEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__11Usd_ClipSetEESaIS3_EED2Ev.exit: ; preds = %.noexc, %.noexc3
-  %.fca.0.load.i = phi ptr [ %.fca.0.load.pre.i, %.noexc3 ], [ %.fca.0.extract.i, %.noexc ]
+  %.fca.1.insert.merged.i = phi { ptr, i8 } [ %27, %.noexc3 ], [ %23, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorISt10shared_ptrINS0_11Usd_ClipSetEESaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  %26 = getelementptr inbounds nuw i8, ptr %.fca.0.load.i, i64 8
-  ret ptr %26
+  %.fca.0.extract = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 0
+  %28 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
+  ret ptr %28
 
-27:                                               ; preds = %25, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorISt10shared_ptrINS0_11Usd_ClipSetEESaIS5_EEEC2IRKS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_.exit
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %25, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorISt10shared_ptrINS0_11Usd_ClipSetEESaIS5_EEEC2IRKS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_.exit
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorISt10shared_ptrINS0_11Usd_ClipSetEESaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__11Usd_ClipSetEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable

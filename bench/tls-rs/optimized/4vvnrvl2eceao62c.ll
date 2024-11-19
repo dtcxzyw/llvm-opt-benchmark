@@ -1106,22 +1106,26 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..0.1.sroa_idx.i, align 8, !alias.scope !69
   store i64 0, ptr %1, align 8, !alias.scope !69
   %4 = icmp eq i64 %.sroa.02.0.copyload.i, 1
-  br i1 %4, label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hf1a6d5812e9fa89aE.llvm.6030771845222660662.exit", label %5
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
   %6 = tail call { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17ha2ae1622ab906f3fE(), !noalias !69
-  %7 = extractvalue { i64, i64 } %6, 0
-  %8 = extractvalue { i64, i64 } %6, 1
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hf1a6d5812e9fa89aE.llvm.6030771845222660662.exit"
 
-"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hf1a6d5812e9fa89aE.llvm.6030771845222660662.exit": ; preds = %3, %5
-  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
-  %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
+7:                                                ; preds = %3
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.6.0.copyload.i, 1
+  br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hf1a6d5812e9fa89aE.llvm.6030771845222660662.exit"
+
+"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hf1a6d5812e9fa89aE.llvm.6030771845222660662.exit": ; preds = %5, %7
+  %.merged.i = phi { i64, i64 } [ %9, %7 ], [ %6, %5 ]
+  %10 = extractvalue { i64, i64 } %.merged.i, 0
+  %11 = extractvalue { i64, i64 } %.merged.i, 1
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %10, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.i, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %11, ptr %.sroa.5.0..sroa_idx, align 8
   ret ptr %.sroa.4.0..sroa_idx
 }
 
@@ -1138,20 +1142,20 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..0.1.sroa_idx, align 8
   store i64 0, ptr %0, align 8
   %3 = icmp eq i64 %.sroa.02.0.copyload, 1
-  br i1 %3, label %8, label %4
+  br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2, %1
   %5 = tail call { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17ha2ae1622ab906f3fE()
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = extractvalue { i64, i64 } %5, 1
-  br label %8
+  br label %9
 
-8:                                                ; preds = %2, %4
-  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
-  %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
-  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+6:                                                ; preds = %2
+  %7 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload, 0
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.6.0.copyload, 1
+  br label %9
+
+9:                                                ; preds = %6, %4
+  %.merged = phi { i64, i64 } [ %8, %6 ], [ %5, %4 ]
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10311,13 +10315,13 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets17from_key_exchange17h466
   %.sroa.3.031 = phi i64 [ 22, %20 ], [ 13, %.thread ]
   %.sroa.010.030 = phi ptr [ @anon.ad5063a02d8bdc6ace820a31447ddce3.49, %20 ], [ @anon.ad5063a02d8bdc6ace820a31447ddce3.48, %.thread ]
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep24, %.thread ]
-  %.sroa.3.0.i = phi i64 [ %23, %20 ], [ 64, %.thread ]
+  %.pn1.i = phi i64 [ %23, %20 ], [ 64, %.thread ]
   %29 = load ptr, ptr %7, align 8, !nonnull !7, !align !72, !noundef !7
   %.in = getelementptr inbounds i8, ptr %7, i64 8
   %30 = load ptr, ptr %.in, align 8, !nonnull !7, !align !81, !noundef !7
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8, !invariant.load !7, !nonnull !7
-  invoke void %32(ptr noalias nocapture noundef nonnull sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %11, ptr noundef nonnull align 1 %29, ptr noalias noundef nonnull align 1 dereferenceable(48) %14, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %.sroa.010.030, i64 noundef %.sroa.3.031, ptr noalias noundef nonnull readonly align 1 %.sink.i.sroa.phi, i64 noundef %.sroa.3.0.i)
+  invoke void %32(ptr noalias nocapture noundef nonnull sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %11, ptr noundef nonnull align 1 %29, ptr noalias noundef nonnull align 1 dereferenceable(48) %14, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %.sroa.010.030, i64 noundef %.sroa.3.031, ptr noalias noundef nonnull readonly align 1 %.sink.i.sroa.phi, i64 noundef %.pn1.i)
           to label %33 unwind label %26
 
 33:                                               ; preds = %28
@@ -11319,11 +11323,11 @@ define { ptr, i64 } @"_ZN80_$LT$rustls..tls12..Seed$u20$as$u20$core..convert..As
 
 "_ZN89_$LT$rustls..crypto..hash..Output$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17haa47380823ece8f6E.exit": ; preds = %1, %3
   %.sink = phi i64 [ 8, %3 ], [ 1, %1 ]
-  %.sroa.3.0 = phi i64 [ %5, %3 ], [ 64, %1 ]
+  %.pn1 = phi i64 [ %5, %3 ], [ 64, %1 ]
   %8 = getelementptr inbounds i8, ptr %0, i64 %.sink
-  %9 = insertvalue { ptr, i64 } poison, ptr %8, 0
-  %10 = insertvalue { ptr, i64 } %9, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %10
+  %.pn = insertvalue { ptr, i64 } poison, ptr %8, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

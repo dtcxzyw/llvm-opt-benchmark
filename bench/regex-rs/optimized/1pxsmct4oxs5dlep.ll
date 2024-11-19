@@ -5161,25 +5161,25 @@ default.unreachable1:                             ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define { i64, ptr } @_ZN12regex_syntax3ast7visitor10ClassFrame5child17h7e3679483dd22f43E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #10 {
   %2 = load i64, ptr %0, align 8, !range !33, !noundef !5
-  switch i64 %2, label %default.unreachable6 [
+  switch i64 %2, label %default.unreachable7 [
     i64 0, label %3
     i64 1, label %6
     i64 2, label %9
-    i64 3, label %15
+    i64 3, label %16
   ]
 
-default.unreachable6:                             ; preds = %1
+default.unreachable7:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !34, !noundef !5
-  br label %21
+  br label %23
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !34, !noundef !5
-  br label %21
+  br label %23
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5187,23 +5187,25 @@ default.unreachable6:                             ; preds = %1
   %12 = getelementptr inbounds i8, ptr %11, i64 152
   %13 = load i32, ptr %12, align 8, !range !37, !alias.scope !38, !noundef !5
   %14 = icmp eq i32 %13, 1114120
-  br label %21
+  %..i = zext i1 %14 to i64
+  %15 = insertvalue { i64, ptr } poison, i64 %..i, 0
+  br label %23
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !nonnull !5, !align !34, !noundef !5
-  %18 = getelementptr inbounds i8, ptr %17, i64 152
-  %19 = load i32, ptr %18, align 8, !range !37, !alias.scope !41, !noundef !5
-  %20 = icmp eq i32 %19, 1114120
-  br label %21
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8, !nonnull !5, !align !34, !noundef !5
+  %19 = getelementptr inbounds i8, ptr %18, i64 152
+  %20 = load i32, ptr %19, align 8, !range !37, !alias.scope !41, !noundef !5
+  %21 = icmp eq i32 %20, 1114120
+  %..i5 = zext i1 %21 to i64
+  %22 = insertvalue { i64, ptr } poison, i64 %..i5, 0
+  br label %23
 
-21:                                               ; preds = %15, %9, %6, %3
-  %.sroa.5.0 = phi ptr [ %17, %15 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ]
-  %.sroa.0.0.shrunk = phi i1 [ %20, %15 ], [ %14, %9 ], [ true, %6 ], [ false, %3 ]
-  %.sroa.0.0 = zext i1 %.sroa.0.0.shrunk to i64
-  %22 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %23 = insertvalue { i64, ptr } %22, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %23
+23:                                               ; preds = %16, %9, %6, %3
+  %.pn = phi { i64, ptr } [ %22, %16 ], [ %15, %9 ], [ { i64 1, ptr poison }, %6 ], [ { i64 0, ptr poison }, %3 ]
+  %.pn6 = phi ptr [ %18, %16 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ]
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn6, 1
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

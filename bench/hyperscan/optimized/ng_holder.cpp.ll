@@ -629,6 +629,8 @@ sw.bb:                                            ; preds = %entry
   %retval.sroa.0.0.copyload = load ptr, ptr %start, align 8
   %retval.sroa.6.0.start.sroa_idx = getelementptr inbounds i8, ptr %this, i64 80
   %retval.sroa.6.0.copyload = load i64, ptr %retval.sroa.6.0.start.sroa_idx, align 8
+  %0 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
+  %1 = insertvalue { ptr, i64 } %0, i64 %retval.sroa.6.0.copyload, 1
   br label %return
 
 sw.bb2:                                           ; preds = %entry
@@ -636,6 +638,8 @@ sw.bb2:                                           ; preds = %entry
   %retval.sroa.0.0.copyload1 = load ptr, ptr %startDs, align 8
   %retval.sroa.6.0.startDs.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
   %retval.sroa.6.0.copyload4 = load i64, ptr %retval.sroa.6.0.startDs.sroa_idx, align 8
+  %2 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload1, 0
+  %3 = insertvalue { ptr, i64 } %2, i64 %retval.sroa.6.0.copyload4, 1
   br label %return
 
 sw.bb3:                                           ; preds = %entry
@@ -643,6 +647,8 @@ sw.bb3:                                           ; preds = %entry
   %retval.sroa.0.0.copyload2 = load ptr, ptr %accept, align 8
   %retval.sroa.6.0.accept.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
   %retval.sroa.6.0.copyload5 = load i64, ptr %retval.sroa.6.0.accept.sroa_idx, align 8
+  %4 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload2, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %retval.sroa.6.0.copyload5, 1
   br label %return
 
 sw.bb4:                                           ; preds = %entry
@@ -650,14 +656,13 @@ sw.bb4:                                           ; preds = %entry
   %retval.sroa.0.0.copyload3 = load ptr, ptr %acceptEod, align 8
   %retval.sroa.6.0.acceptEod.sroa_idx = getelementptr inbounds i8, ptr %this, i64 128
   %retval.sroa.6.0.copyload6 = load i64, ptr %retval.sroa.6.0.acceptEod.sroa_idx, align 8
+  %6 = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload3, 0
+  %7 = insertvalue { ptr, i64 } %6, i64 %retval.sroa.6.0.copyload6, 1
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload3, %sw.bb4 ], [ %retval.sroa.0.0.copyload2, %sw.bb3 ], [ %retval.sroa.0.0.copyload1, %sw.bb2 ], [ %retval.sroa.0.0.copyload, %sw.bb ], [ null, %entry ]
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.6.0.copyload6, %sw.bb4 ], [ %retval.sroa.6.0.copyload5, %sw.bb3 ], [ %retval.sroa.6.0.copyload4, %sw.bb2 ], [ %retval.sroa.6.0.copyload, %sw.bb ], [ 0, %entry ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %7, %sw.bb4 ], [ %5, %sw.bb3 ], [ %3, %sw.bb2 ], [ %1, %sw.bb ], [ zeroinitializer, %entry ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

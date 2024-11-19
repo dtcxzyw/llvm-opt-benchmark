@@ -2447,7 +2447,7 @@ define { ptr, i64 } @_ZN6uucore8features2fs15OwningComponent9as_os_str17h93119f5
     i64 1, label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit
     i64 2, label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14
     i64 3, label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21
-    i64 4, label %8
+    i64 4, label %10
   ]
 
 default.unreachable38:                            ; preds = %1
@@ -2458,6 +2458,8 @@ default.unreachable38:                            ; preds = %1
   %5 = load ptr, ptr %4, align 8, !nonnull !7, !noundef !7
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !noundef !7
+  %8 = insertvalue { ptr, i64 } poison, ptr %5, 0
+  %9 = insertvalue { ptr, i64 } %8, i64 %7, 1
   br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit
 
 _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14: ; preds = %1
@@ -2466,19 +2468,18 @@ _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14: ; preds = %1
 _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21: ; preds = %1
   br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !nonnull !7, !noundef !7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !noundef !7
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8, !nonnull !7, !noundef !7
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = load i64, ptr %13, align 8, !noundef !7
+  %15 = insertvalue { ptr, i64 } poison, ptr %12, 0
+  %16 = insertvalue { ptr, i64 } %15, i64 %14, 1
   br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit
 
-_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit: ; preds = %1, %8, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14, %3
-  %.sroa.6.0 = phi i64 [ %12, %8 ], [ 2, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21 ], [ 1, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14 ], [ %7, %3 ], [ %2, %1 ]
-  %.sroa.0.0 = phi ptr [ %10, %8 ], [ @anon.27aa217f45c270b761c4ad406800e76c.3, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21 ], [ @anon.27aa217f45c270b761c4ad406800e76c.2, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14 ], [ %5, %3 ], [ @anon.27aa217f45c270b761c4ad406800e76c.1, %1 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.6.0, 1
-  ret { ptr, i64 } %14
+_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit: ; preds = %1, %10, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14, %3
+  %.merged = phi { ptr, i64 } [ %16, %10 ], [ { ptr @anon.27aa217f45c270b761c4ad406800e76c.3, i64 2 }, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit21 ], [ { ptr @anon.27aa217f45c270b761c4ad406800e76c.2, i64 1 }, %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit14 ], [ %9, %3 ], [ { ptr @anon.27aa217f45c270b761c4ad406800e76c.1, i64 1 }, %1 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2864,15 +2865,15 @@ define void @_ZN6uucore8features2fs26dir_strip_dot_for_creation17he592bdd815b393
   %7 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17hc81afb44f3a3eefcE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %.sroa.5.0.in.i = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !318, !noundef !7
-  %.not.i = icmp ult i64 %.sroa.5.0.i, 2
+  %.pn1.in.i = getelementptr inbounds i8, ptr %7, i64 16
+  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !318, !noundef !7
+  %.not.i = icmp ult i64 %.pn1.i, 2
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb6e8d0d2cc57a50eE.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb6e8d0d2cc57a50eE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb6e8d0d2cc57a50eE.exit": ; preds = %3
-  %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !318, !nonnull !7, !noundef !7
-  %8 = getelementptr i8, ptr %.sroa.0.0.i, i64 %.sroa.5.0.i
+  %.pn3.in.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !318, !nonnull !7, !noundef !7
+  %8 = getelementptr i8, ptr %.pn3.i, i64 %.pn1.i
   %9 = getelementptr i8, ptr %8, i64 -2
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.27aa217f45c270b761c4ad406800e76c.112, ptr noundef nonnull readonly align 1 dereferenceable(2) %9, i64 2), !alias.scope !321
   %10 = icmp eq i32 %bcmp.i.i, 0

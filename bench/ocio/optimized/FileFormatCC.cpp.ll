@@ -401,10 +401,8 @@ lpad.i:                                           ; preds = %entry
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_transform.i) #19
-  %26 = extractvalue { ptr, i32 } %25, 0
-  %27 = extractvalue { ptr, i32 } %25, 1
   call void @_ZdlPv(ptr noundef nonnull %call) #21
-  br label %eh.resume
+  br label %common.resume
 
 invoke.cont:                                      ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEEaSEOS2_.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -412,42 +410,42 @@ invoke.cont:                                      ; preds = %if.end8.sink.split.
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileEEC2IS2_vEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont
-  %28 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  %30 = call ptr @__cxa_begin_catch(ptr %29) #19
+  %27 = extractvalue { ptr, i32 } %26, 0
+  %28 = call ptr @__cxa_begin_catch(ptr %27) #19
   %vtable.i.i.i.i = load ptr, ptr %call, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %31 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(24) %call) #19
+  %29 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(24) %call) #19
   invoke void @__cxa_rethrow() #22
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
-common.resume:                                    ; preds = %lpad3.i.i.i.i, %eh.resume
-  %common.resume.op = phi { ptr, i32 } [ %lpad.val56, %eh.resume ], [ %32, %lpad3.i.i.i.i ]
+common.resume:                                    ; preds = %lpad.i, %ehcleanup53, %lpad3.i.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %30, %lpad3.i.i.i.i ], [ %.merged, %ehcleanup53 ], [ %25, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %33 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #23
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #23
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
   unreachable
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileEEC2IS2_vEEPT_.exit: ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i11, align 8
-  %_M_weak_count.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i12, align 4
+  %_M_use_count.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i12, align 8
+  %_M_weak_count.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i13, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
@@ -463,24 +461,22 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %try.cont unwind label %lpad4
 
 lpad2:                                            ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileEEC2IS2_vEEPT_.exit
-  %35 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  %37 = extractvalue { ptr, i32 } %35, 1
   br label %ehcleanup53
 
 lpad4:                                            ; preds = %invoke.cont5, %invoke.cont3
-  %38 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
-  %39 = extractvalue { ptr, i32 } %38, 0
-  %40 = extractvalue { ptr, i32 } %38, 1
-  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #19
-  %matches = icmp eq i32 %40, %41
+  %35 = extractvalue { ptr, i32 } %34, 1
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #19
+  %matches = icmp eq i32 %35, %36
   br i1 %matches, label %catch, label %ehcleanup52
 
 catch:                                            ; preds = %lpad4
-  %42 = call ptr @__cxa_begin_catch(ptr %39) #19
+  %37 = extractvalue { ptr, i32 } %34, 0
+  %38 = call ptr @__cxa_begin_catch(ptr %37) #19
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -493,10 +489,10 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %invoke.cont13 unwind label %lpad10
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %vtable = load ptr, ptr %42, align 8
+  %vtable = load ptr, ptr %38, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %43 = load ptr, ptr %vfn, align 8
-  %call15 = call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(16) %42) #19
+  %39 = load ptr, ptr %vfn, align 8
+  %call15 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(16) %38) #19
   %call17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %call15)
           to label %invoke.cont16 unwind label %lpad10
 
@@ -508,10 +504,10 @@ invoke.cont16:                                    ; preds = %invoke.cont13
 invoke.cont19:                                    ; preds = %invoke.cont16
   %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %call20)
-          to label %invoke.cont22 unwind label %ehcleanup.thread31
+          to label %invoke.cont22 unwind label %ehcleanup.thread32
 
-ehcleanup.thread31:                               ; preds = %invoke.cont19
-  %44 = landingpad { ptr, i32 }
+ehcleanup.thread32:                               ; preds = %invoke.cont19
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %cleanup.action
@@ -521,40 +517,38 @@ invoke.cont22:                                    ; preds = %invoke.cont19
           to label %unreachable unwind label %ehcleanup
 
 lpad8:                                            ; preds = %catch
-  %45 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup24
 
 lpad10:                                           ; preds = %invoke.cont13, %invoke.cont11, %invoke.cont9
-  %46 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup23
 
 ehcleanup.thread:                                 ; preds = %invoke.cont16
-  %47 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont22
-  %48 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %ehcleanup23
 
-cleanup.action:                                   ; preds = %ehcleanup.thread31, %ehcleanup.thread
-  %.pn30 = phi { ptr, i32 } [ %47, %ehcleanup.thread ], [ %44, %ehcleanup.thread31 ]
+cleanup.action:                                   ; preds = %ehcleanup.thread32, %ehcleanup.thread
+  %.pn31 = phi { ptr, i32 } [ %43, %ehcleanup.thread ], [ %40, %ehcleanup.thread32 ]
   call void @__cxa_free_exception(ptr %exception) #19
   br label %ehcleanup23
 
 ehcleanup23:                                      ; preds = %ehcleanup, %cleanup.action, %lpad10
-  %.pn.pn = phi { ptr, i32 } [ %.pn30, %cleanup.action ], [ %48, %ehcleanup ], [ %46, %lpad10 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn31, %cleanup.action ], [ %44, %ehcleanup ], [ %42, %lpad10 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #19
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %ehcleanup23, %lpad8
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup23 ], [ %45, %lpad8 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup23 ], [ %41, %lpad8 ]
   invoke void @__cxa_end_catch()
           to label %ehcleanup52 unwind label %terminate.lpad
 
@@ -589,10 +583,10 @@ invoke.cont36:                                    ; preds = %invoke.cont34
 invoke.cont41:                                    ; preds = %invoke.cont36
   %call42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception38, ptr noundef %call42)
-          to label %invoke.cont44 unwind label %ehcleanup47.thread36
+          to label %invoke.cont44 unwind label %ehcleanup47.thread37
 
-ehcleanup47.thread36:                             ; preds = %invoke.cont41
-  %49 = landingpad { ptr, i32 }
+ehcleanup47.thread37:                             ; preds = %invoke.cont41
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #19
   br label %cleanup.action49
@@ -602,71 +596,58 @@ invoke.cont44:                                    ; preds = %invoke.cont41
           to label %unreachable unwind label %ehcleanup47
 
 lpad26:                                           ; preds = %if.then, %try.cont
-  %50 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  %52 = extractvalue { ptr, i32 } %50, 1
   br label %ehcleanup52
 
 lpad31:                                           ; preds = %invoke.cont34, %invoke.cont32, %invoke.cont30
-  %53 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup51
 
 ehcleanup47.thread:                               ; preds = %invoke.cont36
-  %54 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action49
 
 ehcleanup47:                                      ; preds = %invoke.cont44
-  %55 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #19
   br label %ehcleanup51
 
-cleanup.action49:                                 ; preds = %ehcleanup47.thread36, %ehcleanup47.thread
-  %.pn635 = phi { ptr, i32 } [ %54, %ehcleanup47.thread ], [ %49, %ehcleanup47.thread36 ]
+cleanup.action49:                                 ; preds = %ehcleanup47.thread37, %ehcleanup47.thread
+  %.pn636 = phi { ptr, i32 } [ %48, %ehcleanup47.thread ], [ %45, %ehcleanup47.thread37 ]
   call void @__cxa_free_exception(ptr %exception38) #19
   br label %ehcleanup51
 
 ehcleanup51:                                      ; preds = %ehcleanup47, %cleanup.action49, %lpad31
-  %.pn6.pn = phi { ptr, i32 } [ %.pn635, %cleanup.action49 ], [ %55, %ehcleanup47 ], [ %53, %lpad31 ]
-  %exn.slot.6 = extractvalue { ptr, i32 } %.pn6.pn, 0
-  %ehselector.slot.6 = extractvalue { ptr, i32 } %.pn6.pn, 1
+  %.pn6.pn = phi { ptr, i32 } [ %.pn636, %cleanup.action49 ], [ %49, %ehcleanup47 ], [ %47, %lpad31 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os29) #19
   br label %ehcleanup52
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileEED2Ev.exit: ; preds = %invoke.cont27
   store ptr %call, ptr %agg.result, align 8
-  %_M_refcount.i.i13 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %call.i.i.i.i, ptr %_M_refcount.i.i13, align 8
+  %_M_refcount.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %call.i.i.i.i, ptr %_M_refcount.i.i14, align 8
   call void @_ZN19OpenColorIO_v2_4dev9CDLParserD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %parser) #19
   ret void
 
 ehcleanup52:                                      ; preds = %ehcleanup24, %ehcleanup51, %lpad26, %lpad4
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.6, %ehcleanup51 ], [ %52, %lpad26 ], [ %ehselector.slot.3, %ehcleanup24 ], [ %40, %lpad4 ]
-  %exn.slot.2 = phi ptr [ %exn.slot.6, %ehcleanup51 ], [ %51, %lpad26 ], [ %exn.slot.3, %ehcleanup24 ], [ %39, %lpad4 ]
+  %.merged9 = phi { ptr, i32 } [ %.pn6.pn, %ehcleanup51 ], [ %46, %lpad26 ], [ %.pn.pn.pn, %ehcleanup24 ], [ %34, %lpad4 ]
   call void @_ZN19OpenColorIO_v2_4dev9CDLParserD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %parser) #19
   br label %ehcleanup53
 
 ehcleanup53:                                      ; preds = %ehcleanup52, %lpad2
-  %ehselector.slot.1 = phi i32 [ %ehselector.slot.2, %ehcleanup52 ], [ %37, %lpad2 ]
-  %exn.slot.1 = phi ptr [ %exn.slot.2, %ehcleanup52 ], [ %36, %lpad2 ]
+  %.merged = phi { ptr, i32 } [ %.merged9, %ehcleanup52 ], [ %33, %lpad2 ]
   call fastcc void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileEED2Ev(ptr nonnull %call.i.i.i.i) #19
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup53, %lpad.i
-  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup53 ], [ %27, %lpad.i ]
-  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup53 ], [ %26, %lpad.i ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
-  %lpad.val56 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   br label %common.resume
 
 terminate.lpad:                                   ; preds = %ehcleanup24
-  %56 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #23
+  %51 = extractvalue { ptr, i32 } %50, 0
+  call void @__clang_call_terminate(ptr %51) #23
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont44, %invoke.cont22

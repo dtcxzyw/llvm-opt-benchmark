@@ -921,8 +921,6 @@ if.then:                                          ; preds = %entry
   %2 = extractvalue { i64, i64 } %call, 0
   %3 = extractvalue { i64, i64 } %call, 1
   %call5 = tail call { i64, i64 } @_ZN3re28Compiler5QuestENS_4FragEb(ptr noundef nonnull align 8 dereferenceable(212) %this, i64 %2, i64 %3, i1 noundef zeroext %nongreedy)
-  %4 = extractvalue { i64, i64 } %call5, 0
-  %5 = extractvalue { i64, i64 } %call5, 1
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -941,6 +939,8 @@ if.then7:                                         ; preds = %if.end
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  %4 = insertvalue { i64, i64 } poison, i64 %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, 0
+  %5 = insertvalue { i64, i64 } %4, i64 %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, 1
   br label %return
 
 if.end9:                                          ; preds = %if.end
@@ -1013,14 +1013,13 @@ _ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit: ; preds = %if.end.i, %if.end20
   %retval.0.retval.0.retval.0..fca.0.load.pre = load i64, ptr %retval, align 8
   %retval.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 8
   %retval.8.retval.8.retval.8..fca.1.load.pre = load i64, ptr %retval.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
+  %12 = insertvalue { i64, i64 } poison, i64 %retval.0.retval.0.retval.0..fca.0.load.pre, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %retval.8.retval.8.retval.8..fca.1.load.pre, 1
   br label %return
 
 return:                                           ; preds = %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit, %if.then7, %if.then
-  %retval.8.retval.8..fca.1.load = phi i64 [ %retval.8.retval.8.retval.8..fca.1.load.pre, %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit ], [ %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, %if.then7 ], [ %5, %if.then ]
-  %retval.0.retval.0..fca.0.load = phi i64 [ %retval.0.retval.0.retval.0..fca.0.load.pre, %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit ], [ %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, %if.then7 ], [ %4, %if.then ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.0.retval.0..fca.0.load, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.8.retval.8..fca.1.load, 1
-  ret { i64, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, i64 } [ %13, %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit ], [ %5, %if.then7 ], [ %call5, %if.then ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
