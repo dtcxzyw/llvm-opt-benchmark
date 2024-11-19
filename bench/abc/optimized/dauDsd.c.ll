@@ -3737,7 +3737,7 @@ define i32 @Dau_DsdDecompose(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   br i1 %14, label %20, label %Abc_TtIsConst0.exit.thread50
 
 20:                                               ; preds = %5
-  br i1 %19, label %.lr.ph.preheader.i, label %.loopexit
+  br i1 %19, label %.lr.ph.preheader.i, label %.loopexit53
 
 .lr.ph.preheader.i:                               ; preds = %20
   %wide.trip.count.i = zext nneg i32 %18 to i64
@@ -3746,7 +3746,7 @@ define i32 @Dau_DsdDecompose(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
 21:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %.loopexit53, label %.lr.ph.i, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %21 ]
@@ -3755,12 +3755,12 @@ define i32 @Dau_DsdDecompose(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   %.not.i = icmp eq i64 %23, 0
   br i1 %.not.i, label %21, label %Abc_TtIsConst1.exit
 
-.loopexit:                                        ; preds = %21, %20
+.loopexit53:                                      ; preds = %21, %20
   %.not35 = icmp eq ptr %4, null
   br i1 %.not35, label %._crit_edge, label %._crit_edge.sink.split
 
 Abc_TtIsConst0.exit.thread50:                     ; preds = %5
-  br i1 %19, label %.lr.ph.preheader.i37, label %.loopexit54
+  br i1 %19, label %.lr.ph.preheader.i37, label %.loopexit
 
 .lr.ph.preheader.i37:                             ; preds = %Abc_TtIsConst0.exit.thread50
   %wide.trip.count.i38 = zext nneg i32 %18 to i64
@@ -3769,7 +3769,7 @@ Abc_TtIsConst0.exit.thread50:                     ; preds = %5
 24:                                               ; preds = %.lr.ph.i39
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i38
-  br i1 %exitcond.not.i43, label %.loopexit54, label %.lr.ph.i39, !llvm.loop !33
+  br i1 %exitcond.not.i43, label %.loopexit, label %.lr.ph.i39, !llvm.loop !33
 
 .lr.ph.i39:                                       ; preds = %24, %.lr.ph.preheader.i37
   %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i42, %24 ]
@@ -3778,7 +3778,7 @@ Abc_TtIsConst0.exit.thread50:                     ; preds = %5
   %.not.i41 = icmp eq i64 %26, -1
   br i1 %.not.i41, label %24, label %Abc_TtIsConst1.exit
 
-.loopexit54:                                      ; preds = %24, %Abc_TtIsConst0.exit.thread50
+.loopexit:                                        ; preds = %24, %Abc_TtIsConst0.exit.thread50
   %.not34 = icmp eq ptr %4, null
   br i1 %.not34, label %._crit_edge, label %._crit_edge.sink.split
 
@@ -3852,15 +3852,15 @@ Dau_DsdComputeMatches.exit:                       ; preds = %45, %Abc_TtIsConst1
   %spec.select = select i1 %or.cond, i32 -1, i32 %.pre
   br label %._crit_edge
 
-._crit_edge.sink.split:                           ; preds = %.loopexit54, %.loopexit
-  %.sink = phi i8 [ 48, %.loopexit ], [ 49, %.loopexit54 ]
+._crit_edge.sink.split:                           ; preds = %.loopexit, %.loopexit53
+  %.sink = phi i8 [ 48, %.loopexit53 ], [ 49, %.loopexit ]
   store i8 %.sink, ptr %4, align 1
   %53 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %53, align 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %50, %._crit_edge.sink.split, %.loopexit, %.loopexit54
-  %.0 = phi i32 [ 0, %.loopexit54 ], [ 0, %.loopexit ], [ %spec.select, %50 ], [ 0, %._crit_edge.sink.split ]
+._crit_edge:                                      ; preds = %50, %._crit_edge.sink.split, %.loopexit53, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit53 ], [ %spec.select, %50 ], [ 0, %._crit_edge.sink.split ]
   ret i32 %.0
 }
 
@@ -11367,7 +11367,7 @@ define i32 @Dau_DsdDecomposeLevel(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %15, label %21, label %Abc_TtIsConst0.exit.thread51
 
 21:                                               ; preds = %6
-  br i1 %20, label %.lr.ph.preheader.i, label %.loopexit
+  br i1 %20, label %.lr.ph.preheader.i, label %.loopexit54
 
 .lr.ph.preheader.i:                               ; preds = %21
   %wide.trip.count.i = zext nneg i32 %19 to i64
@@ -11376,7 +11376,7 @@ define i32 @Dau_DsdDecomposeLevel(ptr noundef %0, i32 noundef %1, i32 noundef %2
 22:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %.loopexit54, label %.lr.ph.i, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %22 ]
@@ -11385,12 +11385,12 @@ define i32 @Dau_DsdDecomposeLevel(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %.not.i = icmp eq i64 %24, 0
   br i1 %.not.i, label %22, label %Abc_TtIsConst1.exit
 
-.loopexit:                                        ; preds = %22, %21
+.loopexit54:                                      ; preds = %22, %21
   %.not36 = icmp eq ptr %4, null
   br i1 %.not36, label %._crit_edge, label %._crit_edge.sink.split
 
 Abc_TtIsConst0.exit.thread51:                     ; preds = %6
-  br i1 %20, label %.lr.ph.preheader.i38, label %.loopexit55
+  br i1 %20, label %.lr.ph.preheader.i38, label %.loopexit
 
 .lr.ph.preheader.i38:                             ; preds = %Abc_TtIsConst0.exit.thread51
   %wide.trip.count.i39 = zext nneg i32 %19 to i64
@@ -11399,7 +11399,7 @@ Abc_TtIsConst0.exit.thread51:                     ; preds = %6
 25:                                               ; preds = %.lr.ph.i40
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i39
-  br i1 %exitcond.not.i44, label %.loopexit55, label %.lr.ph.i40, !llvm.loop !33
+  br i1 %exitcond.not.i44, label %.loopexit, label %.lr.ph.i40, !llvm.loop !33
 
 .lr.ph.i40:                                       ; preds = %25, %.lr.ph.preheader.i38
   %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.preheader.i38 ], [ %indvars.iv.next.i43, %25 ]
@@ -11408,7 +11408,7 @@ Abc_TtIsConst0.exit.thread51:                     ; preds = %6
   %.not.i42 = icmp eq i64 %27, -1
   br i1 %.not.i42, label %25, label %Abc_TtIsConst1.exit
 
-.loopexit55:                                      ; preds = %25, %Abc_TtIsConst0.exit.thread51
+.loopexit:                                        ; preds = %25, %Abc_TtIsConst0.exit.thread51
   %.not35 = icmp eq ptr %4, null
   br i1 %.not35, label %._crit_edge, label %._crit_edge.sink.split
 
@@ -11482,15 +11482,15 @@ Dau_DsdComputeMatches.exit:                       ; preds = %46, %Abc_TtIsConst1
   %spec.select = select i1 %or.cond, i32 -1, i32 %.pre
   br label %._crit_edge
 
-._crit_edge.sink.split:                           ; preds = %.loopexit55, %.loopexit
-  %.sink = phi i8 [ 48, %.loopexit ], [ 49, %.loopexit55 ]
+._crit_edge.sink.split:                           ; preds = %.loopexit, %.loopexit54
+  %.sink = phi i8 [ 48, %.loopexit54 ], [ 49, %.loopexit ]
   store i8 %.sink, ptr %4, align 1
   %54 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %54, align 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %51, %._crit_edge.sink.split, %.loopexit, %.loopexit55
-  %.0 = phi i32 [ 0, %.loopexit55 ], [ 0, %.loopexit ], [ %spec.select, %51 ], [ 0, %._crit_edge.sink.split ]
+._crit_edge:                                      ; preds = %51, %._crit_edge.sink.split, %.loopexit54, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit54 ], [ %spec.select, %51 ], [ 0, %._crit_edge.sink.split ]
   ret i32 %.0
 }
 

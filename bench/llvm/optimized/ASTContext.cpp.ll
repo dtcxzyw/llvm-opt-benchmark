@@ -2071,7 +2071,7 @@ define internal fastcc void @_ZL27getDeclLocsForCommentSearchPKN5clang4DeclERNS_
 
 ._crit_edge:                                      ; preds = %16
   %.pre = load i32, ptr %7, align 4
-  %.pre89 = and i32 %.pre, 127
+  %.pre88 = and i32 %.pre, 127
   br label %21
 
 19:                                               ; preds = %16
@@ -2080,7 +2080,7 @@ define internal fastcc void @_ZL27getDeclLocsForCommentSearchPKN5clang4DeclERNS_
   br label %126
 
 21:                                               ; preds = %._crit_edge, %12
-  %.pre-phi = phi i32 [ %.pre89, %._crit_edge ], [ %13, %12 ]
+  %.pre-phi = phi i32 [ %.pre88, %._crit_edge ], [ %13, %12 ]
   %22 = phi i32 [ %.pre, %._crit_edge ], [ %8, %12 ]
   %23 = add nsw i32 %.pre-phi, -44
   %24 = icmp ult i32 %23, -7
@@ -2118,8 +2118,8 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit:    ; preds = %26, %32
   br i1 %40, label %41, label %._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge
 
 ._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge: ; preds = %38
-  %.pre83 = load i32, ptr %7, align 4
-  %.pre90 = and i32 %.pre83, 127
+  %.pre82 = load i32, ptr %7, align 4
+  %.pre89 = and i32 %.pre82, 127
   br label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
 
 41:                                               ; preds = %38
@@ -2128,19 +2128,19 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit:    ; preds = %26, %32
   br label %126
 
 _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit, %21
-  %.pre-phi91 = phi i32 [ %.pre90, %._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge ], [ %.pre-phi, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit ], [ %.pre-phi, %21 ]
-  %43 = phi i32 [ %.pre83, %._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge ], [ %22, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit ], [ %22, %21 ]
-  %44 = add nsw i32 %.pre-phi91, -59
+  %.pre-phi90 = phi i32 [ %.pre89, %._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge ], [ %.pre-phi, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit ], [ %.pre-phi, %21 ]
+  %43 = phi i32 [ %.pre82, %._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge ], [ %22, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit ], [ %22, %21 ]
+  %44 = add nsw i32 %.pre-phi90, -59
   %45 = icmp ult i32 %44, -3
   br i1 %45, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread.thread, label %46
 
 46:                                               ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
   %47 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %1) #29
   %48 = icmp eq i32 %47, 1
-  br i1 %48, label %49, label %._crit_edge84
+  br i1 %48, label %49, label %._crit_edge83
 
-._crit_edge84:                                    ; preds = %46
-  %.pre85 = load i32, ptr %7, align 4
+._crit_edge83:                                    ; preds = %46
+  %.pre84 = load i32, ptr %7, align 4
   br label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread.thread
 
 49:                                               ; preds = %46
@@ -2148,8 +2148,8 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %._ZNK5clang7Var
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %50, i64 noundef 2) #29
   br label %126
 
-_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread.thread: ; preds = %25, %._crit_edge84, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
-  %51 = phi i32 [ %.pre85, %._crit_edge84 ], [ %43, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread ], [ %22, %25 ]
+_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread.thread: ; preds = %25, %._crit_edge83, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
+  %51 = phi i32 [ %.pre84, %._crit_edge83 ], [ %43, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread ], [ %22, %25 ]
   %52 = and i32 %51, 127
   %53 = add nsw i32 %52, -59
   %54 = icmp ult i32 %53, -2
@@ -2174,10 +2174,10 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread.thread: ; preds = %25, %._c
 62:                                               ; preds = %61
   %63 = tail call noundef i32 @_ZNK5clang8EnumDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(156) %1) #29
   %64 = icmp eq i32 %63, 1
-  br i1 %64, label %65, label %._crit_edge86
+  br i1 %64, label %65, label %._crit_edge85
 
-._crit_edge86:                                    ; preds = %62
-  %.pre87 = load i32, ptr %7, align 4
+._crit_edge85:                                    ; preds = %62
+  %.pre86 = load i32, ptr %7, align 4
   br label %.thread
 
 65:                                               ; preds = %62
@@ -2185,8 +2185,8 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread.thread: ; preds = %25, %._c
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %66, i64 noundef 2) #29
   br label %126
 
-.thread:                                          ; preds = %55, %._crit_edge86, %61
-  %67 = phi i32 [ %.pre87, %._crit_edge86 ], [ %51, %61 ], [ %51, %55 ]
+.thread:                                          ; preds = %55, %._crit_edge85, %61
+  %67 = phi i32 [ %.pre86, %._crit_edge85 ], [ %51, %61 ], [ %51, %55 ]
   %68 = and i32 %67, 127
   %69 = add nsw i32 %68, -60
   %70 = icmp ult i32 %69, -5

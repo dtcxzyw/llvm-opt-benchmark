@@ -13245,7 +13245,7 @@ entry:
   %avx = getelementptr inbounds i8, ptr %cpuId, i64 5
   %0 = load i8, ptr %avx, align 1
   %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.else.critedge
+  br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
   %f16c = getelementptr inbounds i8, ptr %cpuId, i64 6
@@ -13258,7 +13258,7 @@ if.then:                                          ; preds = %land.lhs.true
   store ptr @_ZN7Imf_3_212_GLOBAL__N_119fromHalfZigZag_f16cEPtPf, ptr @_ZN7Imf_3_212_GLOBAL__N_114fromHalfZigZagE, align 8
   br label %if.end8.sink.split
 
-if.else.critedge:                                 ; preds = %entry
+if.else:                                          ; preds = %entry
   store ptr @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi0EEEvPf, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_0E, align 8
   store ptr @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi1EEEvPf, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_1E, align 8
   store ptr @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi2EEEvPf, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_2E, align 8
@@ -13271,15 +13271,15 @@ if.else.critedge:                                 ; preds = %entry
   %tobool5 = trunc i8 %2 to i1
   br i1 %tobool5, label %if.end8.sink.split, label %if.end8
 
-if.end8.sink.split:                               ; preds = %if.else.critedge, %land.lhs.true, %if.then
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi0EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi0EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf, %if.else.critedge ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi1EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi1EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf, %if.else.critedge ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi2EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi2EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf, %if.else.critedge ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi3EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi3EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi3EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi3EEEvPf, %if.else.critedge ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi4EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi4EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi4EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi4EEEvPf, %if.else.critedge ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi5EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi5EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi5EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi5EEEvPf, %if.else.critedge ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi6EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi6EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi6EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi6EEEvPf, %if.else.critedge ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi7EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi7EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf, %if.else.critedge ]
+if.end8.sink.split:                               ; preds = %if.else, %if.then, %land.lhs.true
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi0EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi0EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf, %if.else ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi1EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi1EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf, %if.else ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi2EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi2EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf, %if.else ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi3EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi3EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi3EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi3EEEvPf, %if.else ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi4EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi4EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi4EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi4EEEvPf, %if.else ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi5EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi5EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi5EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi5EEEvPf, %if.else ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi6EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi6EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi6EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi6EEEvPf, %if.else ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi7EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi7EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf, %if.else ]
   store ptr %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf.sink, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_0E, align 8
   store ptr %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf.sink, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_1E, align 8
   store ptr %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf.sink, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_2E, align 8
@@ -13290,7 +13290,7 @@ if.end8.sink.split:                               ; preds = %if.else.critedge, %
   store ptr %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf.sink, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_7E, align 8
   br label %if.end8
 
-if.end8:                                          ; preds = %if.end8.sink.split, %if.else.critedge
+if.end8:                                          ; preds = %if.end8.sink.split, %if.else
   ret void
 }
 

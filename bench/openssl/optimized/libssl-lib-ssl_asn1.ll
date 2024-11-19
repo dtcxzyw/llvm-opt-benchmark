@@ -66,15 +66,15 @@ lor.lhs.false:                                    ; preds = %entry
   %cipher1 = getelementptr inbounds i8, ptr %in, i64 768
   %0 = load ptr, ptr %cipher1, align 8
   %cmp2 = icmp eq ptr %0, null
-  br i1 %cmp2, label %land.lhs.true, label %if.else.critedge
+  br i1 %cmp2, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %cipher_id = getelementptr inbounds i8, ptr %in, i64 776
   %1 = load i64, ptr %cipher_id, align 8
   %cmp3 = icmp eq i64 %1, 0
-  br i1 %cmp3, label %return, label %if.end
+  br i1 %cmp3, label %return, label %if.then8
 
-if.end:                                           ; preds = %land.lhs.true
+if.then8:                                         ; preds = %land.lhs.true
   %2 = getelementptr inbounds i8, ptr %as, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %2, i8 0, i64 184, i1 false)
   store i32 1, ptr %as, align 8
@@ -87,7 +87,7 @@ if.end:                                           ; preds = %land.lhs.true
   store i32 %4, ptr %kex_group5, align 8
   br label %if.end11
 
-if.else.critedge:                                 ; preds = %lor.lhs.false
+if.else:                                          ; preds = %lor.lhs.false
   %5 = getelementptr inbounds i8, ptr %as, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %5, i8 0, i64 184, i1 false)
   store i32 1, ptr %as, align 8
@@ -103,8 +103,8 @@ if.else.critedge:                                 ; preds = %lor.lhs.false
   %conv = zext i32 %8 to i64
   br label %if.end11
 
-if.end11:                                         ; preds = %if.else.critedge, %if.end
-  %l.0 = phi i64 [ %1, %if.end ], [ %conv, %if.else.critedge ]
+if.end11:                                         ; preds = %if.else, %if.then8
+  %l.0 = phi i64 [ %1, %if.then8 ], [ %conv, %if.else ]
   %9 = lshr i64 %l.0, 8
   %conv14 = trunc i64 %9 to i8
   store i8 %conv14, ptr %cipher_data, align 1

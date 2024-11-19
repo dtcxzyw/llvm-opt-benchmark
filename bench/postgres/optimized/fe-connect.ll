@@ -7276,24 +7276,24 @@ conninfo_init.exit.thread:                        ; preds = %8
   %18 = getelementptr i8, ptr %.02731.i, i64 112
   %19 = icmp ult ptr %11, %18
   %or.cond = or i1 %17, %19
-  br i1 %or.cond, label %conninfo_init.exit.sink.split, label %conninfo_init.exit.preheader
+  br i1 %or.cond, label %.preheader.sink.split, label %.preheader.preheader
 
-conninfo_init.exit.sink.split:                    ; preds = %14
+.preheader.sink.split:                            ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %11, i8 0, i64 56, i1 false)
-  br label %conninfo_init.exit.preheader
+  br label %.preheader.preheader
 
-conninfo_init.exit.preheader:                     ; preds = %14, %conninfo_init.exit.sink.split
-  br label %conninfo_init.exit
+.preheader.preheader:                             ; preds = %14, %.preheader.sink.split
+  br label %.preheader
 
-conninfo_init.exit:                               ; preds = %conninfo_init.exit.preheader, %conninfo_storeval.exit
-  %20 = phi ptr [ %48, %conninfo_storeval.exit ], [ @.str.130, %conninfo_init.exit.preheader ]
-  %.01322 = phi ptr [ %47, %conninfo_storeval.exit ], [ @PQconninfoOptions, %conninfo_init.exit.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %conninfo_storeval.exit
+  %20 = phi ptr [ %48, %conninfo_storeval.exit ], [ @.str.130, %.preheader.preheader ]
+  %.01322 = phi ptr [ %47, %conninfo_storeval.exit ], [ @PQconninfoOptions, %.preheader.preheader ]
   %21 = getelementptr inbounds i8, ptr %.01322, i64 56
   %22 = load i64, ptr %21, align 8
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %conninfo_storeval.exit, label %24
 
-24:                                               ; preds = %conninfo_init.exit
+24:                                               ; preds = %.preheader
   %25 = getelementptr i8, ptr %0, i64 %22
   %26 = load ptr, ptr %25, align 8
   %.not20 = icmp eq ptr %26, null
@@ -7346,11 +7346,11 @@ conninfo_find.exit.i:                             ; preds = %.lr.ph.i.i
   store ptr %41, ptr %45, align 8
   br label %conninfo_storeval.exit
 
-conninfo_storeval.exit:                           ; preds = %38, %44, %43, %33, %24, %conninfo_init.exit
+conninfo_storeval.exit:                           ; preds = %38, %44, %43, %33, %24, %.preheader
   %47 = getelementptr i8, ptr %.01322, i64 64
   %48 = load ptr, ptr %47, align 8
   %.not19 = icmp eq ptr %48, null
-  br i1 %.not19, label %.loopexit, label %conninfo_init.exit, !llvm.loop !49
+  br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !49
 
 .loopexit:                                        ; preds = %conninfo_storeval.exit, %conninfo_init.exit.thread
   call void @termPQExpBuffer(ptr noundef nonnull %2) #23

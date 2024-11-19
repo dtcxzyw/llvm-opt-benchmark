@@ -6834,7 +6834,7 @@ define internal i32 @dissect_h248_SigParameterName(i1 noundef zeroext %0, ptr no
   %.not28 = icmp eq ptr %40, null
   br i1 %.not28, label %.thread32, label %.lr.ph, !llvm.loop !33
 
-.thread32:                                        ; preds = %37, %.preheader, %36, %29
+.thread32:                                        ; preds = %37, %36, %.preheader, %29
   %41 = getelementptr inbounds i8, ptr %28, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not30 = icmp eq ptr %42, null

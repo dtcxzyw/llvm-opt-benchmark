@@ -4703,118 +4703,119 @@ declare dso_local ptr @get_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @acpi_device_del_work_fn(ptr nocapture readnone %0) #0 align 16 {
+.split:
   tail call void @mutex_lock(ptr noundef nonnull @acpi_device_del_lock) #19
-  %2 = load volatile ptr, ptr @acpi_device_del_list, align 8
-  %3 = icmp eq ptr %2, @acpi_device_del_list
-  br i1 %3, label %.thread, label %.lr.ph
+  %1 = load volatile ptr, ptr @acpi_device_del_list, align 8
+  %2 = icmp eq ptr %1, @acpi_device_del_list
+  br i1 %2, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %55, %1
+.thread:                                          ; preds = %54, %.split
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_device_del_lock) #19
   ret void
 
-.lr.ph:                                           ; preds = %1, %55
-  %4 = phi ptr [ %56, %55 ], [ %2, %1 ]
-  %5 = getelementptr i8, ptr %4, i64 -96
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %7, ptr %9, align 8
-  store volatile ptr %8, ptr %7, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %6, align 8
+.lr.ph:                                           ; preds = %.split, %54
+  %3 = phi ptr [ %55, %54 ], [ %1, %.split ]
+  %4 = getelementptr i8, ptr %3, i64 -96
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %6, ptr %8, align 8
+  store volatile ptr %7, ptr %6, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %3, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_device_del_lock) #19
-  %10 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @acpi_reconfig_chain, i64 noundef 1, ptr noundef %5) #19
+  %9 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @acpi_reconfig_chain, i64 noundef 1, ptr noundef %4) #19
   tail call void @mutex_lock(ptr noundef nonnull @acpi_device_lock) #19
-  %11 = getelementptr i8, ptr %4, i64 56
-  br label %12
+  %10 = getelementptr i8, ptr %3, i64 56
+  br label %11
 
-12:                                               ; preds = %24, %.lr.ph
-  %13 = phi ptr [ @acpi_bus_id_list, %.lr.ph ], [ %14, %24 ]
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr i8, ptr %14, i64 -24
-  %16 = icmp eq ptr %14, @acpi_bus_id_list
-  br i1 %16, label %.loopexit, label %17
+11:                                               ; preds = %23, %.lr.ph
+  %12 = phi ptr [ @acpi_bus_id_list, %.lr.ph ], [ %13, %23 ]
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr i8, ptr %13, i64 -24
+  %15 = icmp eq ptr %13, @acpi_bus_id_list
+  br i1 %15, label %.loopexit, label %16
 
-17:                                               ; preds = %12
-  %18 = load ptr, ptr %15, align 8
-  %19 = load volatile ptr, ptr %11, align 8
-  %20 = icmp eq ptr %19, %11
-  br i1 %20, label %24, label %21
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %14, align 8
+  %18 = load volatile ptr, ptr %10, align 8
+  %19 = icmp eq ptr %18, %10
+  br i1 %19, label %23, label %20
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
-  %23 = load ptr, ptr %22, align 8
-  br label %24
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %18, i64 16
+  %22 = load ptr, ptr %21, align 8
+  br label %23
 
-24:                                               ; preds = %21, %17
-  %25 = phi ptr [ %23, %21 ], [ @.str.40, %17 ]
-  %26 = tail call i32 @strcmp(ptr noundef %18, ptr noundef %25) #19
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %12, !llvm.loop !36
+23:                                               ; preds = %20, %16
+  %24 = phi ptr [ %22, %20 ], [ @.str.40, %16 ]
+  %25 = tail call i32 @strcmp(ptr noundef %17, ptr noundef %24) #19
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %11, !llvm.loop !36
 
-28:                                               ; preds = %24
-  %29 = getelementptr i8, ptr %14, i64 -16
-  %30 = getelementptr i8, ptr %4, i64 32
-  %31 = load i32, ptr %30, align 8
-  tail call void @ida_free(ptr noundef %29, i32 noundef %31) #19
-  %32 = getelementptr i8, ptr %14, i64 -8
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %.loopexit
+27:                                               ; preds = %23
+  %28 = getelementptr i8, ptr %13, i64 -16
+  %29 = getelementptr i8, ptr %3, i64 32
+  %30 = load i32, ptr %29, align 8
+  tail call void @ida_free(ptr noundef %28, i32 noundef %30) #19
+  %31 = getelementptr i8, ptr %13, i64 -8
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %.loopexit
 
-35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %14, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %14, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %37, ptr %39, align 8
-  store volatile ptr %38, ptr %37, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %14, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %36, align 8
-  %40 = load ptr, ptr %15, align 8
-  tail call void @kfree_const(ptr noundef %40) #19
-  tail call void @kfree(ptr noundef %15) #19
+34:                                               ; preds = %27
+  %35 = getelementptr inbounds i8, ptr %13, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %13, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %36, ptr %38, align 8
+  store volatile ptr %37, ptr %36, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %13, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %35, align 8
+  %39 = load ptr, ptr %14, align 8
+  tail call void @kfree_const(ptr noundef %39) #19
+  tail call void @kfree(ptr noundef %14) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %35, %28
-  %41 = getelementptr i8, ptr %4, i64 -16
-  %42 = getelementptr i8, ptr %4, i64 -8
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  store ptr %43, ptr %45, align 8
-  store volatile ptr %44, ptr %43, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %41, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %42, align 8
+.loopexit:                                        ; preds = %11, %34, %27
+  %40 = getelementptr i8, ptr %3, i64 -16
+  %41 = getelementptr i8, ptr %3, i64 -8
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %40, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr %42, ptr %44, align 8
+  store volatile ptr %43, ptr %42, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %40, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %41, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_device_lock) #19
-  tail call void @acpi_power_add_remove_device(ptr noundef %5, i1 noundef zeroext false) #19
-  tail call void @acpi_device_remove_files(ptr noundef %5) #19
-  %46 = getelementptr i8, ptr %4, i64 1304
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %50, label %49
+  tail call void @acpi_power_add_remove_device(ptr noundef %4, i1 noundef zeroext false) #19
+  tail call void @acpi_device_remove_files(ptr noundef %4) #19
+  %45 = getelementptr i8, ptr %3, i64 1304
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %49, label %48
 
-49:                                               ; preds = %.loopexit
-  tail call void %47(ptr noundef %5) #19
-  br label %50
+48:                                               ; preds = %.loopexit
+  tail call void %46(ptr noundef %4) #19
+  br label %49
 
-50:                                               ; preds = %49, %.loopexit
-  %51 = getelementptr i8, ptr %4, i64 520
-  tail call void @device_del(ptr noundef %51) #19
-  %52 = tail call i32 @acpi_power_transition(ptr noundef %5, i32 noundef 4) #19
-  %53 = icmp eq ptr %5, null
-  br i1 %53, label %55, label %54
+49:                                               ; preds = %48, %.loopexit
+  %50 = getelementptr i8, ptr %3, i64 520
+  tail call void @device_del(ptr noundef %50) #19
+  %51 = tail call i32 @acpi_power_transition(ptr noundef %4, i32 noundef 4) #19
+  %52 = icmp eq ptr %4, null
+  br i1 %52, label %54, label %53
 
-54:                                               ; preds = %50
-  tail call void @put_device(ptr noundef %51) #19
-  br label %55
+53:                                               ; preds = %49
+  tail call void @put_device(ptr noundef %50) #19
+  br label %54
 
-55:                                               ; preds = %54, %50
+54:                                               ; preds = %53, %49
   tail call void @mutex_lock(ptr noundef nonnull @acpi_device_del_lock) #19
-  %56 = load volatile ptr, ptr @acpi_device_del_list, align 8
-  %57 = icmp eq ptr %56, @acpi_device_del_list
-  br i1 %57, label %.thread, label %.lr.ph
+  %55 = load volatile ptr, ptr @acpi_device_del_list, align 8
+  %56 = icmp eq ptr %55, @acpi_device_del_list
+  br i1 %56, label %.thread, label %.lr.ph
 }
 
 ; Function Attrs: null_pointer_is_valid

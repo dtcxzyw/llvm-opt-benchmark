@@ -7397,22 +7397,22 @@ sub_1:                                            ; preds = %sub_0
   %10 = getelementptr inbounds i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1
   %.not17 = icmp eq i8 %11, 46
-  br i1 %.not17, label %.tail, label %switch.early.test
+  br i1 %.not17, label %sub_2, label %switch.early.test
 
-.tail:                                            ; preds = %sub_1
+sub_2:                                            ; preds = %sub_1
   %12 = getelementptr inbounds i8, ptr %0, i64 2
   %13 = load i8, ptr %12, align 1
   %.fr = freeze i8 %13
   %14 = icmp eq i8 %.fr, 0
   br i1 %14, label %15, label %switch.early.test
 
-switch.early.test:                                ; preds = %sub_1, %sub_0, %.tail
+switch.early.test:                                ; preds = %sub_0, %sub_1, %sub_2
   switch i8 %2, label %27 [
     i8 92, label %15
     i8 46, label %15
   ]
 
-15:                                               ; preds = %switch.early.test, %switch.early.test, %.tail, %6, %3
+15:                                               ; preds = %switch.early.test, %switch.early.test, %sub_2, %6, %3
   %16 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
   br label %17
 

@@ -233,7 +233,7 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
   %47 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 0, ptr %47, align 4
   %48 = call ptr @new_object_addresses() #6
-  br i1 %6, label %49, label %.critedge
+  br i1 %6, label %49, label %58
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i8, ptr %18, i64 79
@@ -252,228 +252,228 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
   br label %.thread
 
-.critedge:                                        ; preds = %45
+58:                                               ; preds = %45
   store i32 2615, ptr %12, align 4
-  %58 = getelementptr inbounds i8, ptr %18, i64 68
-  %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %61, align 4
+  %59 = getelementptr inbounds i8, ptr %18, i64 68
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %60, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %62, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  %62 = getelementptr inbounds i8, ptr %18, i64 72
-  %63 = load i32, ptr %62, align 4
-  call void @recordDependencyOnOwner(i32 noundef 1247, i32 noundef %19, i32 noundef %63) #6
-  %64 = load i32, ptr %62, align 4
-  call void @recordDependencyOnNewAcl(i32 noundef 1247, i32 noundef %19, i32 noundef 0, i32 noundef %64, ptr noundef %.067) #6
-  br i1 %7, label %65, label %.thread
+  %63 = getelementptr inbounds i8, ptr %18, i64 72
+  %64 = load i32, ptr %63, align 4
+  call void @recordDependencyOnOwner(i32 noundef 1247, i32 noundef %19, i32 noundef %64) #6
+  %65 = load i32, ptr %63, align 4
+  call void @recordDependencyOnNewAcl(i32 noundef 1247, i32 noundef %19, i32 noundef 0, i32 noundef %65, ptr noundef %.067) #6
+  br i1 %7, label %66, label %.thread
 
-65:                                               ; preds = %.critedge
+66:                                               ; preds = %58
   call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %11, i1 noundef zeroext %8) #6
   br label %.thread
 
-.thread:                                          ; preds = %53, %49, %.critedge, %65
-  %66 = getelementptr inbounds i8, ptr %18, i64 100
-  %67 = load i32, ptr %66, align 4
-  %.not = icmp eq i32 %67, 0
-  br i1 %.not, label %71, label %68
+.thread:                                          ; preds = %53, %49, %58, %66
+  %67 = getelementptr inbounds i8, ptr %18, i64 100
+  %68 = load i32, ptr %67, align 4
+  %.not = icmp eq i32 %68, 0
+  br i1 %.not, label %72, label %69
 
-68:                                               ; preds = %.thread
+69:                                               ; preds = %.thread
   store i32 1255, ptr %12, align 4
-  %69 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %67, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %70, align 4
+  %70 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %68, ptr %70, align 4
+  %71 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %71, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  br label %71
+  br label %72
 
-71:                                               ; preds = %68, %.thread
-  %72 = getelementptr inbounds i8, ptr %18, i64 104
-  %73 = load i32, ptr %72, align 4
-  %.not72 = icmp eq i32 %73, 0
-  br i1 %.not72, label %77, label %74
+72:                                               ; preds = %69, %.thread
+  %73 = getelementptr inbounds i8, ptr %18, i64 104
+  %74 = load i32, ptr %73, align 4
+  %.not72 = icmp eq i32 %74, 0
+  br i1 %.not72, label %78, label %75
 
-74:                                               ; preds = %71
+75:                                               ; preds = %72
   store i32 1255, ptr %12, align 4
-  %75 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %73, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %76, align 4
+  %76 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %74, ptr %76, align 4
+  %77 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %77, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  br label %77
+  br label %78
 
-77:                                               ; preds = %74, %71
-  %78 = getelementptr inbounds i8, ptr %18, i64 108
-  %79 = load i32, ptr %78, align 4
-  %.not73 = icmp eq i32 %79, 0
-  br i1 %.not73, label %83, label %80
+78:                                               ; preds = %75, %72
+  %79 = getelementptr inbounds i8, ptr %18, i64 108
+  %80 = load i32, ptr %79, align 4
+  %.not73 = icmp eq i32 %80, 0
+  br i1 %.not73, label %84, label %81
 
-80:                                               ; preds = %77
+81:                                               ; preds = %78
   store i32 1255, ptr %12, align 4
-  %81 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %79, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %82, align 4
+  %82 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %80, ptr %82, align 4
+  %83 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %83, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  br label %83
+  br label %84
 
-83:                                               ; preds = %80, %77
-  %84 = getelementptr inbounds i8, ptr %18, i64 112
-  %85 = load i32, ptr %84, align 4
-  %.not74 = icmp eq i32 %85, 0
-  br i1 %.not74, label %89, label %86
+84:                                               ; preds = %81, %78
+  %85 = getelementptr inbounds i8, ptr %18, i64 112
+  %86 = load i32, ptr %85, align 4
+  %.not74 = icmp eq i32 %86, 0
+  br i1 %.not74, label %90, label %87
 
-86:                                               ; preds = %83
+87:                                               ; preds = %84
   store i32 1255, ptr %12, align 4
-  %87 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %85, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %88, align 4
+  %88 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %86, ptr %88, align 4
+  %89 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %89, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  br label %89
+  br label %90
 
-89:                                               ; preds = %86, %83
-  %90 = getelementptr inbounds i8, ptr %18, i64 116
-  %91 = load i32, ptr %90, align 4
-  %.not75 = icmp eq i32 %91, 0
-  br i1 %.not75, label %95, label %92
+90:                                               ; preds = %87, %84
+  %91 = getelementptr inbounds i8, ptr %18, i64 116
+  %92 = load i32, ptr %91, align 4
+  %.not75 = icmp eq i32 %92, 0
+  br i1 %.not75, label %96, label %93
 
-92:                                               ; preds = %89
+93:                                               ; preds = %90
   store i32 1255, ptr %12, align 4
-  %93 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %91, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %94, align 4
+  %94 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %92, ptr %94, align 4
+  %95 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %95, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  br label %95
+  br label %96
 
-95:                                               ; preds = %92, %89
-  %96 = getelementptr inbounds i8, ptr %18, i64 120
-  %97 = load i32, ptr %96, align 4
-  %.not76 = icmp eq i32 %97, 0
-  br i1 %.not76, label %101, label %98
+96:                                               ; preds = %93, %90
+  %97 = getelementptr inbounds i8, ptr %18, i64 120
+  %98 = load i32, ptr %97, align 4
+  %.not76 = icmp eq i32 %98, 0
+  br i1 %.not76, label %102, label %99
 
-98:                                               ; preds = %95
+99:                                               ; preds = %96
   store i32 1255, ptr %12, align 4
-  %99 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %97, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %100, align 4
+  %100 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %98, ptr %100, align 4
+  %101 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %101, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  br label %101
+  br label %102
 
-101:                                              ; preds = %98, %95
-  %102 = getelementptr inbounds i8, ptr %18, i64 124
-  %103 = load i32, ptr %102, align 4
-  %.not77 = icmp eq i32 %103, 0
-  br i1 %.not77, label %107, label %104
+102:                                              ; preds = %99, %96
+  %103 = getelementptr inbounds i8, ptr %18, i64 124
+  %104 = load i32, ptr %103, align 4
+  %.not77 = icmp eq i32 %104, 0
+  br i1 %.not77, label %108, label %105
 
-104:                                              ; preds = %101
+105:                                              ; preds = %102
   store i32 1255, ptr %12, align 4
-  %105 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %103, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %106, align 4
+  %106 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %104, ptr %106, align 4
+  %107 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %107, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  br label %107
+  br label %108
 
-107:                                              ; preds = %104, %101
-  %108 = getelementptr inbounds i8, ptr %18, i64 88
-  %109 = load i32, ptr %108, align 4
-  %.not78 = icmp eq i32 %109, 0
-  br i1 %.not78, label %113, label %110
+108:                                              ; preds = %105, %102
+  %109 = getelementptr inbounds i8, ptr %18, i64 88
+  %110 = load i32, ptr %109, align 4
+  %.not78 = icmp eq i32 %110, 0
+  br i1 %.not78, label %114, label %111
 
-110:                                              ; preds = %107
+111:                                              ; preds = %108
   store i32 1255, ptr %12, align 4
-  %111 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %109, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %112, align 4
+  %112 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %110, ptr %112, align 4
+  %113 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %113, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  br label %113
+  br label %114
 
-113:                                              ; preds = %110, %107
-  %114 = getelementptr inbounds i8, ptr %18, i64 132
-  %115 = load i32, ptr %114, align 4
-  %.not79 = icmp eq i32 %115, 0
-  br i1 %.not79, label %119, label %116
+114:                                              ; preds = %111, %108
+  %115 = getelementptr inbounds i8, ptr %18, i64 132
+  %116 = load i32, ptr %115, align 4
+  %.not79 = icmp eq i32 %116, 0
+  br i1 %.not79, label %120, label %117
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   store i32 1247, ptr %12, align 4
-  %117 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %115, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %118, align 4
+  %118 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %116, ptr %118, align 4
+  %119 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %119, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  br label %119
+  br label %120
 
-119:                                              ; preds = %116, %113
-  %120 = getelementptr inbounds i8, ptr %18, i64 144
-  %121 = load i32, ptr %120, align 4
-  switch i32 %121, label %122 [
-    i32 0, label %125
-    i32 100, label %125
+120:                                              ; preds = %117, %114
+  %121 = getelementptr inbounds i8, ptr %18, i64 144
+  %122 = load i32, ptr %121, align 4
+  switch i32 %122, label %123 [
+    i32 0, label %126
+    i32 100, label %126
   ]
 
-122:                                              ; preds = %119
+123:                                              ; preds = %120
   store i32 3456, ptr %12, align 4
-  %123 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %121, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %124, align 4
+  %124 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %122, ptr %124, align 4
+  %125 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %125, align 4
   call void @add_exact_object_address(ptr noundef nonnull %12, ptr noundef %48) #6
-  br label %125
+  br label %126
 
-125:                                              ; preds = %119, %119, %122
+126:                                              ; preds = %120, %120, %123
   call void @record_object_address_dependencies(ptr noundef nonnull %11, ptr noundef %48, i32 noundef 110) #6
   call void @free_object_addresses(ptr noundef %48) #6
   %.not82 = icmp eq ptr %.0, null
-  br i1 %.not82, label %127, label %126
+  br i1 %.not82, label %128, label %127
 
-126:                                              ; preds = %125
+127:                                              ; preds = %126
   call void @recordDependencyOnExpr(ptr noundef nonnull %11, ptr noundef nonnull %.0, ptr noundef null, i32 noundef 110) #6
-  br label %127
+  br label %128
 
-127:                                              ; preds = %126, %125
-  %128 = getelementptr inbounds i8, ptr %18, i64 84
-  %129 = load i32, ptr %128, align 4
-  %.not83 = icmp eq i32 %129, 0
-  br i1 %.not83, label %135, label %130
+128:                                              ; preds = %127, %126
+  %129 = getelementptr inbounds i8, ptr %18, i64 84
+  %130 = load i32, ptr %129, align 4
+  %.not83 = icmp eq i32 %130, 0
+  br i1 %.not83, label %136, label %131
 
-130:                                              ; preds = %127
+131:                                              ; preds = %128
   store i32 1259, ptr %12, align 4
-  %131 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %129, ptr %131, align 4
-  %132 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %132, align 4
+  %132 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %130, ptr %132, align 4
+  %133 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %133, align 4
   %.not84 = icmp eq i8 %4, 99
-  br i1 %.not84, label %134, label %133
+  br i1 %.not84, label %135, label %134
 
-133:                                              ; preds = %130
+134:                                              ; preds = %131
   call void @recordDependencyOn(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 105) #6
-  br label %135
+  br label %136
 
-134:                                              ; preds = %130
+135:                                              ; preds = %131
   call void @recordDependencyOn(ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef 105) #6
-  br label %135
+  br label %136
 
-135:                                              ; preds = %133, %134, %127
-  %136 = getelementptr inbounds i8, ptr %18, i64 92
-  %137 = load i32, ptr %136, align 4
-  %.not85 = icmp eq i32 %137, 0
-  br i1 %.not85, label %142, label %138
+136:                                              ; preds = %134, %135, %128
+  %137 = getelementptr inbounds i8, ptr %18, i64 92
+  %138 = load i32, ptr %137, align 4
+  %.not85 = icmp eq i32 %138, 0
+  br i1 %.not85, label %143, label %139
 
-138:                                              ; preds = %135
+139:                                              ; preds = %136
   store i32 1247, ptr %12, align 4
-  %139 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %137, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %140, align 4
-  %141 = select i1 %5, i32 105, i32 110
-  call void @recordDependencyOn(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %141) #6
-  br label %142
+  %140 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %138, ptr %140, align 4
+  %141 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %141, align 4
+  %142 = select i1 %5, i32 105, i32 110
+  call void @recordDependencyOn(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %142) #6
+  br label %143
 
-142:                                              ; preds = %138, %135
+143:                                              ; preds = %139, %136
   ret void
 }
 

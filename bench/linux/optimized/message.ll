@@ -557,8 +557,8 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 36
   %27 = load i32, ptr %26, align 4
-  %.fr22 = freeze i32 %27
-  %28 = icmp eq i32 %.fr22, 0
+  %.fr24 = freeze i32 %27
+  %28 = icmp eq i32 %.fr24, 0
   %29 = getelementptr inbounds i8, ptr %0, i64 36
   %30 = select i1 %28, i32 %5, i32 1
   store i32 %30, ptr %29, align 4
@@ -576,20 +576,20 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
   %39 = select i1 %38, i32 128, i32 129
   %40 = load i32, ptr %29, align 4
   %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.preheader14, label %146
+  br i1 %41, label %.preheader14.split, label %146
 
-.preheader14:                                     ; preds = %36
-  br i1 %28, label %.preheader14.split.us, label %.preheader14.split
+.preheader14.split:                               ; preds = %36
+  br i1 %28, label %.preheader14.split.split.us, label %.preheader14.split.split
 
-.preheader14.split.us:                            ; preds = %.preheader14, %.thread11.us
-  %42 = phi i64 [ %83, %.thread11.us ], [ 0, %.preheader14 ]
-  %43 = phi ptr [ %84, %.thread11.us ], [ %4, %.preheader14 ]
-  %44 = phi i64 [ %.ph10.us, %.thread11.us ], [ %6, %.preheader14 ]
+.preheader14.split.split.us:                      ; preds = %.preheader14.split, %.thread11.us
+  %42 = phi i64 [ %83, %.thread11.us ], [ 0, %.preheader14.split ]
+  %43 = phi ptr [ %84, %.thread11.us ], [ %4, %.preheader14.split ]
+  %44 = phi i64 [ %.ph10.us, %.thread11.us ], [ %6, %.preheader14.split ]
   %45 = tail call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef %7) #12
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread, label %47
 
-47:                                               ; preds = %.preheader14.split.us
+47:                                               ; preds = %.preheader14.split.split.us
   %48 = load ptr, ptr %34, align 8
   %49 = getelementptr ptr, ptr %48, i64 %42
   store ptr %45, ptr %49, align 8
@@ -650,21 +650,21 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
   %85 = load i32, ptr %29, align 4
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %83, %86
-  br i1 %87, label %.preheader14.split.us, label %.split.us, !llvm.loop !7
+  br i1 %87, label %.preheader14.split.split.us, label %.split.us, !llvm.loop !7
 
-.preheader14.split:                               ; preds = %.preheader14
+.preheader14.split.split:                         ; preds = %.preheader14.split
   %88 = trunc i64 %6 to i32
   %.not = icmp eq i32 %88, 0
-  br i1 %.not, label %.preheader14.split.split.us, label %.preheader14.split.split
+  br i1 %.not, label %.preheader14.split.split.split.us, label %.preheader14.split.split.split
 
-.preheader14.split.split.us:                      ; preds = %.preheader14.split, %114
-  %89 = phi i64 [ %116, %114 ], [ 0, %.preheader14.split ]
-  %90 = phi ptr [ %117, %114 ], [ %4, %.preheader14.split ]
+.preheader14.split.split.split.us:                ; preds = %.preheader14.split.split, %114
+  %89 = phi i64 [ %116, %114 ], [ 0, %.preheader14.split.split ]
+  %90 = phi ptr [ %117, %114 ], [ %4, %.preheader14.split.split ]
   %91 = tail call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef %7) #12
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.thread, label %.preheader13.us
 
-.preheader13.us:                                  ; preds = %.preheader14.split.split.us
+.preheader13.us:                                  ; preds = %.preheader14.split.split.split.us
   %93 = load ptr, ptr %34, align 8
   %94 = getelementptr ptr, ptr %93, i64 %89
   store ptr %91, ptr %94, align 8
@@ -708,24 +708,24 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
   %118 = load i32, ptr %29, align 4
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %116, %119
-  br i1 %120, label %.preheader14.split.split.us, label %.split.us, !llvm.loop !7
+  br i1 %120, label %.preheader14.split.split.split.us, label %.split.us, !llvm.loop !7
 
-.preheader14.split.split:                         ; preds = %.preheader14.split, %.thread11
-  %121 = phi i64 [ %139, %.thread11 ], [ 0, %.preheader14.split ]
-  %122 = phi ptr [ %140, %.thread11 ], [ %4, %.preheader14.split ]
+.preheader14.split.split.split:                   ; preds = %.preheader14.split.split, %.thread11
+  %121 = phi i64 [ %139, %.thread11 ], [ 0, %.preheader14.split.split ]
+  %122 = phi ptr [ %140, %.thread11 ], [ %4, %.preheader14.split.split ]
   %123 = tail call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef %7) #12
   %124 = icmp eq ptr %123, null
   br i1 %124, label %.thread, label %.thread11
 
-.thread:                                          ; preds = %.preheader14.split.split, %.preheader14.split.split.us, %.preheader14.split.us
-  %.us-phi = phi i64 [ %42, %.preheader14.split.us ], [ %89, %.preheader14.split.split.us ], [ %121, %.preheader14.split.split ]
+.thread:                                          ; preds = %.preheader14.split.split.split, %.preheader14.split.split.split.us, %.preheader14.split.split.us
+  %.us-phi = phi i64 [ %42, %.preheader14.split.split.us ], [ %89, %.preheader14.split.split.split.us ], [ %121, %.preheader14.split.split.split ]
   %125 = trunc i64 %.us-phi to i32
   store i32 %125, ptr %29, align 4
   %.pr = load ptr, ptr %34, align 8
   %126 = icmp eq ptr %.pr, null
   br i1 %126, label %.thread12, label %159
 
-.thread11:                                        ; preds = %.preheader14.split.split
+.thread11:                                        ; preds = %.preheader14.split.split.split
   %127 = load ptr, ptr %34, align 8
   %128 = getelementptr ptr, ptr %127, i64 %121
   store ptr %123, ptr %128, align 8
@@ -754,11 +754,11 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
   %141 = load i32, ptr %29, align 4
   %142 = sext i32 %141 to i64
   %143 = icmp slt i64 %139, %142
-  br i1 %143, label %.preheader14.split.split, label %.split.us, !llvm.loop !7
+  br i1 %143, label %.preheader14.split.split.split, label %.split.us, !llvm.loop !7
 
 .split.us:                                        ; preds = %.thread11, %114, %.thread11.us
-  %.us-phi17 = phi i64 [ %42, %.thread11.us ], [ %89, %114 ], [ %121, %.thread11 ]
-  %144 = shl i64 %.us-phi17, 32
+  %.us-phi19 = phi i64 [ %42, %.thread11.us ], [ %89, %114 ], [ %121, %.thread11 ]
+  %144 = shl i64 %.us-phi19, 32
   %145 = ashr exact i64 %144, 32
   %.pre = load ptr, ptr %34, align 8
   br label %146
@@ -804,11 +804,11 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
   br i1 %169, label %.loopexit.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %.pre33 = load ptr, ptr %34, align 8
+  %.pre35 = load ptr, ptr %34, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %159
-  %170 = phi ptr [ %.pre33, %.loopexit.loopexit ], [ %.pr, %159 ]
+  %170 = phi ptr [ %.pre35, %.loopexit.loopexit ], [ %.pr, %159 ]
   tail call void @kfree(ptr noundef %170) #12
   store ptr null, ptr %34, align 8
   br label %.thread12

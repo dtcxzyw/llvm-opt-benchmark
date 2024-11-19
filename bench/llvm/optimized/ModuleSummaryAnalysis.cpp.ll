@@ -2563,9 +2563,9 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %scevgep141.i.i.i.i.i = getelementptr i8, ptr %826, i64 %836
   br i1 %834, label %._crit_edge.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i
 
-.lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i230, %.thread93.loopexit.i.i.i.i.i
-  %.0126.i.i.i.i.i = phi i64 [ %919, %.thread93.loopexit.i.i.i.i.i ], [ %832, %.lr.ph.i.i.i.i.i230 ]
-  %.029125.i.i.i.i.i = phi ptr [ %918, %.thread93.loopexit.i.i.i.i.i ], [ %826, %.lr.ph.i.i.i.i.i230 ]
+.lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i230, %.thread93.i.i.i.i.i
+  %.0126.i.i.i.i.i = phi i64 [ %919, %.thread93.i.i.i.i.i ], [ %832, %.lr.ph.i.i.i.i.i230 ]
+  %.029125.i.i.i.i.i = phi ptr [ %918, %.thread93.i.i.i.i.i ], [ %826, %.lr.ph.i.i.i.i.i230 ]
   %.029.val.i.i.i.i.i = load i64, ptr %.029125.i.i.i.i.i, align 8
   %837 = and i64 %.029.val.i.i.i.i.i, -8
   %838 = inttoptr i64 %837 to ptr
@@ -2688,7 +2688,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %.01521.i.i.i.i.i.i.i63.i.i.i.i.i = phi i32 [ %.015.i.i.i.i.i.i.i66.i.i.i.i.i, %911 ], [ %.01519.i.i.i.i.i.i.i61.i.i.i.i.i, %897 ]
   %.01420.i.i.i.i.i.i.i64.i.i.i.i.i = phi i32 [ %912, %911 ], [ 1, %897 ]
   %.not.i65.i.i.i.i.i = icmp eq i64 %910, -1
-  br i1 %.not.i65.i.i.i.i.i, label %.thread93.loopexit.i.i.i.i.i, label %911
+  br i1 %.not.i65.i.i.i.i.i, label %.thread93.i.i.i.i.i, label %911
 
 911:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i
   %912 = add i32 %.01420.i.i.i.i.i.i.i64.i.i.i.i.i, 1
@@ -2700,14 +2700,14 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %917 = icmp eq i64 %901, %916
   br i1 %917, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i, !llvm.loop !52
 
-.thread93.loopexit.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i
+.thread93.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i
   %918 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 32
   %919 = add nsw i64 %.0126.i.i.i.i.i, -1
   %920 = icmp sgt i64 %.0126.i.i.i.i.i, 1
   br i1 %920, label %.lr.ph.split.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !53
 
-._crit_edge.i.i.i.i.i:                            ; preds = %.thread93.loopexit.i.i.i.i.i, %.lr.ph.i.i.i.i.i230, %824
-  %.029.lcssa.i.i.i.i.i = phi ptr [ %826, %824 ], [ %scevgep141.i.i.i.i.i, %.lr.ph.i.i.i.i.i230 ], [ %scevgep141.i.i.i.i.i, %.thread93.loopexit.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i:                            ; preds = %.thread93.i.i.i.i.i, %.lr.ph.i.i.i.i.i230, %824
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %826, %824 ], [ %scevgep141.i.i.i.i.i, %.lr.ph.i.i.i.i.i230 ], [ %scevgep141.i.i.i.i.i, %.thread93.i.i.i.i.i ]
   %921 = ptrtoint ptr %.029.lcssa.i.i.i.i.i to i64
   %922 = sub i64 %829, %921
   %923 = ashr exact i64 %922, 3
@@ -2897,9 +2897,9 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %scevgep141.i.i.i.i.i265 = getelementptr i8, ptr %1005, i64 %1015
   br i1 %1013, label %._crit_edge.i.i.i.i.i235, label %.lr.ph.split.i.i.i.i.i266
 
-.lr.ph.split.i.i.i.i.i266:                        ; preds = %.lr.ph.i.i.i.i.i263, %.thread93.loopexit.i.i.i.i.i297
-  %.0126.i.i.i.i.i267 = phi i64 [ %1098, %.thread93.loopexit.i.i.i.i.i297 ], [ %1011, %.lr.ph.i.i.i.i.i263 ]
-  %.029125.i.i.i.i.i268 = phi ptr [ %1097, %.thread93.loopexit.i.i.i.i.i297 ], [ %1005, %.lr.ph.i.i.i.i.i263 ]
+.lr.ph.split.i.i.i.i.i266:                        ; preds = %.lr.ph.i.i.i.i.i263, %.thread93.i.i.i.i.i297
+  %.0126.i.i.i.i.i267 = phi i64 [ %1098, %.thread93.i.i.i.i.i297 ], [ %1011, %.lr.ph.i.i.i.i.i263 ]
+  %.029125.i.i.i.i.i268 = phi ptr [ %1097, %.thread93.i.i.i.i.i297 ], [ %1005, %.lr.ph.i.i.i.i.i263 ]
   %.029.val.i.i.i.i.i269 = load i64, ptr %.029125.i.i.i.i.i268, align 8
   %1016 = and i64 %.029.val.i.i.i.i.i269, -8
   %1017 = inttoptr i64 %1016 to ptr
@@ -3022,7 +3022,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %.01521.i.i.i.i.i.i.i63.i.i.i.i.i293 = phi i32 [ %.015.i.i.i.i.i.i.i66.i.i.i.i.i296, %1090 ], [ %.01519.i.i.i.i.i.i.i61.i.i.i.i.i291, %1076 ]
   %.01420.i.i.i.i.i.i.i64.i.i.i.i.i294 = phi i32 [ %1091, %1090 ], [ 1, %1076 ]
   %.not.i65.i.i.i.i.i295 = icmp eq i64 %1089, -1
-  br i1 %.not.i65.i.i.i.i.i295, label %.thread93.loopexit.i.i.i.i.i297, label %1090
+  br i1 %.not.i65.i.i.i.i.i295, label %.thread93.i.i.i.i.i297, label %1090
 
 1090:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i292
   %1091 = add i32 %.01420.i.i.i.i.i.i.i64.i.i.i.i.i294, 1
@@ -3034,14 +3034,14 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1096 = icmp eq i64 %1080, %1095
   br i1 %1096, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i292, !llvm.loop !52
 
-.thread93.loopexit.i.i.i.i.i297:                  ; preds = %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i292
+.thread93.i.i.i.i.i297:                           ; preds = %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i292
   %1097 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 64
   %1098 = add nsw i64 %.0126.i.i.i.i.i267, -1
   %1099 = icmp sgt i64 %.0126.i.i.i.i.i267, 1
   br i1 %1099, label %.lr.ph.split.i.i.i.i.i266, label %._crit_edge.i.i.i.i.i235, !llvm.loop !54
 
-._crit_edge.i.i.i.i.i235:                         ; preds = %.thread93.loopexit.i.i.i.i.i297, %.lr.ph.i.i.i.i.i263, %1003
-  %.029.lcssa.i.i.i.i.i236 = phi ptr [ %1005, %1003 ], [ %scevgep141.i.i.i.i.i265, %.lr.ph.i.i.i.i.i263 ], [ %scevgep141.i.i.i.i.i265, %.thread93.loopexit.i.i.i.i.i297 ]
+._crit_edge.i.i.i.i.i235:                         ; preds = %.thread93.i.i.i.i.i297, %.lr.ph.i.i.i.i.i263, %1003
+  %.029.lcssa.i.i.i.i.i236 = phi ptr [ %1005, %1003 ], [ %scevgep141.i.i.i.i.i265, %.lr.ph.i.i.i.i.i263 ], [ %scevgep141.i.i.i.i.i265, %.thread93.i.i.i.i.i297 ]
   %1100 = ptrtoint ptr %.029.lcssa.i.i.i.i.i236 to i64
   %1101 = sub i64 %1008, %1100
   %1102 = ashr exact i64 %1101, 4

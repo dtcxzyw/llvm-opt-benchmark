@@ -43636,11 +43636,11 @@ _ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE15FindSingularValEPNS3_
   %.val.i62.i = load ptr, ptr %1466, align 8
   %1467 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1466) #21
   %1468 = getelementptr inbounds %"class.(anonymous namespace)::LDVSSAPhi", ptr %.val.i62.i, i64 %1467
-  %.not48.i.i = icmp eq i64 %1467, 0
-  br i1 %.not48.i.i, label %.loopexit.i.i128, label %.lr.ph.i63.i
+  %.not51.i.i = icmp eq i64 %1467, 0
+  br i1 %.not51.i.i, label %.loopexit.i.i128, label %.lr.ph.i63.i
 
 .lr.ph.i63.i:                                     ; preds = %.loopexit.i122, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread27.i.i
-  %.049.i.i = phi ptr [ %1772, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread27.i.i ], [ %.val.i62.i, %.loopexit.i122 ]
+  %.052.i.i = phi ptr [ %1772, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread27.i.i ], [ %.val.i62.i, %.loopexit.i122 ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull %1403, i64 noundef range(i64 8, 21) 20) #21
@@ -43658,12 +43658,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_19LDVSSAPhiELb1EE9push_backES3_
   %.val.i.i.i.i.i = load ptr, ptr %5, align 8
   %1473 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   %1474 = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i, i64 %1473
-  %1475 = ptrtoint ptr %.049.i.i to i64
+  %1475 = ptrtoint ptr %.052.i.i to i64
   store i64 %1475, ptr %1474, align 1
   %1476 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   %1477 = add i64 %1476, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %1477) #21
-  %1478 = getelementptr i8, ptr %.049.i.i, i64 80
+  %1478 = getelementptr i8, ptr %.052.i.i, i64 80
   %.val42.i.i.i = load ptr, ptr %1478, align 8
   store ptr %.val42.i.i.i, ptr %6, align 8
   %.val.i.i54.i.i.i = load ptr, ptr %43, align 8
@@ -43726,7 +43726,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdat
   %1507 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   %1508 = load ptr, ptr %1507, align 8
   %1509 = getelementptr inbounds nuw i8, ptr %1508, i64 56
-  store ptr %.049.i.i, ptr %1509, align 8
+  store ptr %.052.i.i, ptr %1509, align 8
   %1510 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   %1511 = add i64 %1510, 1
   %1512 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
@@ -44275,7 +44275,7 @@ _ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS
   store i32 0, ptr %1404, align 8
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %1772 = getelementptr inbounds i8, ptr %.049.i.i, i64 96
+  %1772 = getelementptr inbounds i8, ptr %.052.i.i, i64 96
   %.not.i65.i = icmp eq ptr %1772, %1468
   br i1 %.not.i65.i, label %.loopexit.i.i128, label %.lr.ph.i63.i
 

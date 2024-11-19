@@ -9167,14 +9167,14 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %_ZN4llv
   %33 = and i32 %32, 8
   %.not33 = icmp ne i32 %33, 0
   %.pre = load i32, ptr %5, align 8
-  %.fr35 = freeze i32 %.pre
-  %34 = and i32 %.fr35, 67108864
+  %.pre.fr = freeze i32 %.pre
+  %34 = and i32 %.pre.fr, 67108864
   %.not34 = icmp eq i32 %34, 0
-  %or.cond = and i1 %.not33, %.not34
-  %35 = and i32 %.fr35, 15
+  %or.cond35 = and i1 %.not33, %.not34
+  %35 = and i32 %.pre.fr, 15
   %36 = icmp eq i32 %35, 10
-  %or.cond37 = or i1 %or.cond, %36
-  br i1 %or.cond37, label %37, label %switch.early.test
+  %or.cond = or i1 %or.cond35, %36
+  br i1 %or.cond, label %37, label %switch.early.test
 
 switch.early.test:                                ; preds = %30
   switch i8 %23, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread [
@@ -9182,14 +9182,14 @@ switch.early.test:                                ; preds = %30
     i8 14, label %37
   ]
 
-37:                                               ; preds = %30, %switch.early.test, %switch.early.test
+37:                                               ; preds = %switch.early.test, %switch.early.test, %30
   %.sroa.0.0.insert.ext = and i32 %22, 255
   %38 = tail call noundef ptr @_ZNK4llvm24TargetLoweringObjectFile16SectionForGlobalEPKNS_12GlobalObjectENS_11SectionKindERKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull %1, i32 %.sroa.0.0.insert.ext, ptr noundef nonnull align 8 dereferenceable(1232) %2) #24
   br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread.sink.split
 
 _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread.sink.split: ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread, %19, %25, %37
-  %.sink38 = phi ptr [ %38, %37 ], [ %29, %25 ], [ %20, %19 ], [ %13, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sink38, i64 152
+  %.sink36 = phi ptr [ %38, %37 ], [ %29, %25 ], [ %20, %19 ], [ %13, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sink36, i64 152
   %40 = load ptr, ptr %39, align 8
   br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread
 

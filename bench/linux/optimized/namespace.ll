@@ -447,10 +447,10 @@ define internal void @free_ipc(ptr nocapture readnone %0) #0 align 16 {
   %2 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @free_ipc_list, ptr null, ptr nonnull elementtype(ptr) @free_ipc_list) #4, !srcloc !12
   %3 = getelementptr i8, ptr %2, i64 -1072
   %4 = icmp eq ptr %3, inttoptr (i64 -1072 to ptr)
-  br i1 %4, label %.critedge, label %.preheader
+  br i1 %4, label %.critedge, label %.preheader1
 
-.preheader:                                       ; preds = %1, %.preheader
-  %5 = phi ptr [ %8, %.preheader ], [ %3, %1 ]
+.preheader1:                                      ; preds = %1, %.preheader1
+  %5 = phi ptr [ %8, %.preheader1 ], [ %3, %1 ]
   %6 = getelementptr inbounds i8, ptr %5, i64 1072
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -1072
@@ -458,40 +458,40 @@ define internal void @free_ipc(ptr nocapture readnone %0) #0 align 16 {
   %10 = load ptr, ptr %9, align 8
   tail call void @mnt_make_shortterm(ptr noundef %10) #4
   %11 = icmp eq ptr %8, inttoptr (i64 -1072 to ptr)
-  br i1 %11, label %12, label %.preheader, !llvm.loop !13
+  br i1 %11, label %.preheader, label %.preheader1, !llvm.loop !13
 
-12:                                               ; preds = %.preheader
+.preheader:                                       ; preds = %.preheader1
   tail call void @synchronize_rcu() #4
-  br label %13
+  br label %12
 
-13:                                               ; preds = %12, %13
-  %14 = phi ptr [ %17, %13 ], [ %3, %12 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 1072
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr i8, ptr %16, i64 -1072
-  %18 = getelementptr inbounds i8, ptr %14, i64 816
-  %19 = load ptr, ptr %18, align 8
-  tail call void @mntput(ptr noundef %19) #4
-  tail call void @sem_exit_ns(ptr noundef %14) #4
-  tail call void @msg_exit_ns(ptr noundef %14) #4
-  tail call void @shm_exit_ns(ptr noundef %14) #4
-  tail call void @retire_mq_sysctls(ptr noundef %14) #4
-  tail call void @retire_ipc_sysctls(ptr noundef %14) #4
-  %20 = getelementptr inbounds i8, ptr %14, i64 1064
-  %21 = load ptr, ptr %20, align 8
-  tail call void @dec_ucount(ptr noundef %21, i32 noundef 3) #4
-  %22 = getelementptr inbounds i8, ptr %14, i64 1096
-  %23 = load i32, ptr %22, align 8
-  tail call void @proc_free_inum(i32 noundef %23) #4
-  tail call void @kfree(ptr noundef %14) #4
-  %24 = icmp eq ptr %17, inttoptr (i64 -1072 to ptr)
-  br i1 %24, label %.loopexit, label %13, !llvm.loop !14
+12:                                               ; preds = %.preheader, %12
+  %13 = phi ptr [ %16, %12 ], [ %3, %.preheader ]
+  %14 = getelementptr inbounds i8, ptr %13, i64 1072
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr i8, ptr %15, i64 -1072
+  %17 = getelementptr inbounds i8, ptr %13, i64 816
+  %18 = load ptr, ptr %17, align 8
+  tail call void @mntput(ptr noundef %18) #4
+  tail call void @sem_exit_ns(ptr noundef %13) #4
+  tail call void @msg_exit_ns(ptr noundef %13) #4
+  tail call void @shm_exit_ns(ptr noundef %13) #4
+  tail call void @retire_mq_sysctls(ptr noundef %13) #4
+  tail call void @retire_ipc_sysctls(ptr noundef %13) #4
+  %19 = getelementptr inbounds i8, ptr %13, i64 1064
+  %20 = load ptr, ptr %19, align 8
+  tail call void @dec_ucount(ptr noundef %20, i32 noundef 3) #4
+  %21 = getelementptr inbounds i8, ptr %13, i64 1096
+  %22 = load i32, ptr %21, align 8
+  tail call void @proc_free_inum(i32 noundef %22) #4
+  tail call void @kfree(ptr noundef %13) #4
+  %23 = icmp eq ptr %16, inttoptr (i64 -1072 to ptr)
+  br i1 %23, label %.loopexit, label %12, !llvm.loop !14
 
 .critedge:                                        ; preds = %1
   tail call void @synchronize_rcu() #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %13, %.critedge
+.loopexit:                                        ; preds = %12, %.critedge
   ret void
 }
 

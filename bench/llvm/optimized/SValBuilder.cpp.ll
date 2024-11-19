@@ -182,7 +182,7 @@ define dso_local { ptr, i8 } @_ZN5clang4ento11SValBuilder11makeZeroValENS_8QualT
   %9 = load ptr, ptr %8, align 16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 16
-  switch i8 %11, label %._crit_edge52 [
+  switch i8 %11, label %._crit_edge51 [
     i8 43, label %15
     i8 42, label %15
     i8 41, label %15
@@ -211,11 +211,11 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %2
   %21 = tail call i64 @_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %19, i64 %20) #12
   %.pre.i = and i64 %21, -16
   %.pre8.i = inttoptr i64 %.pre.i to ptr
-  %.pre50 = load ptr, ptr %.pre8.i, align 16
+  %.pre49 = load ptr, ptr %.pre8.i, align 16
   br label %_ZN5clang4ento11SValBuilder16makeNullWithTypeENS_8QualTypeE.exit
 
 _ZN5clang4ento11SValBuilder16makeNullWithTypeENS_8QualTypeE.exit: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %15, %17
-  %22 = phi ptr [ %5, %15 ], [ %.pre50, %17 ], [ %5, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ]
+  %22 = phi ptr [ %5, %15 ], [ %.pre49, %17 ], [ %5, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %24, ptr noundef %22) #12
@@ -234,23 +234,23 @@ _ZN5clang4ento11SValBuilder16makeNullWithTypeENS_8QualTypeE.exit: ; preds = %_ZN
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %35, align 8
   %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
   %36 = select i1 %34, i1 true, i1 %.not.i.i.i.i.i
-  %.pre51 = load ptr, ptr %4, align 16
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre51, i64 8
+  %.pre50 = load ptr, ptr %4, align 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre50, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre57 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.pre, -16
-  %.pre59 = inttoptr i64 %.pre57 to ptr
-  br i1 %36, label %._crit_edge, label %._crit_edge52
+  %.pre56 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.pre, -16
+  %.pre58 = inttoptr i64 %.pre56 to ptr
+  br i1 %36, label %._crit_edge, label %._crit_edge51
 
 _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit
   %37 = lshr i32 %12, 19
   %38 = and i32 %37, 511
   %39 = add nsw i32 %38, -429
   %spec.select.i = icmp ult i32 %39, 20
-  br i1 %spec.select.i, label %._crit_edge, label %._crit_edge52
+  br i1 %spec.select.i, label %._crit_edge, label %._crit_edge51
 
 ._crit_edge:                                      ; preds = %29, %2, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
-  %.pre-phi60 = phi ptr [ %8, %2 ], [ %8, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ %.pre59, %29 ]
-  %40 = load ptr, ptr %.pre-phi60, align 8
+  %.pre-phi59 = phi ptr [ %8, %2 ], [ %8, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ %.pre58, %29 ]
+  %40 = load ptr, ptr %.pre-phi59, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i8, ptr %41, align 16
   switch i8 %42, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i [
@@ -277,26 +277,26 @@ _ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit: ; preds = %._crit_e
   %47 = tail call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %46, i64 noundef 0, i64 %1) #12
   br label %55
 
-._crit_edge52:                                    ; preds = %29, %2, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
-  %.pre-phi56 = phi ptr [ %8, %2 ], [ %8, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ %.pre59, %29 ]
-  %48 = load ptr, ptr %.pre-phi56, align 8
+._crit_edge51:                                    ; preds = %29, %2, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+  %.pre-phi55 = phi ptr [ %8, %2 ], [ %8, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ %.pre58, %29 ]
+  %48 = load ptr, ptr %.pre-phi55, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i8, ptr %49, align 16
-  %.fr48 = freeze i8 %50
-  %51 = zext i8 %.fr48 to i32
+  %.fr60 = freeze i8 %50
+  %51 = zext i8 %.fr60 to i32
   %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %51, -2
   %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %52, label %switch.early.test
 
-switch.early.test:                                ; preds = %._crit_edge52
-  switch i8 %.fr48, label %55 [
+switch.early.test:                                ; preds = %._crit_edge51
+  switch i8 %.fr60, label %55 [
     i8 57, label %52
     i8 56, label %52
     i8 47, label %52
     i8 14, label %52
   ]
 
-52:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %._crit_edge52
+52:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %._crit_edge51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = tail call noundef ptr @_ZN5clang4ento17BasicValueFactory18getCompoundValDataENS_8QualTypeEN4llvm13ImmutableListINS0_4SValEEE(ptr noundef nonnull align 8 dereferenceable(144) %53, i64 %1, ptr null) #12
   br label %55
