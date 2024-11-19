@@ -13281,7 +13281,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl12Alterna
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds i8, ptr %1, i64 300
   %21 = load i32, ptr %20, align 4
-  %22 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %21, i1 true)
+  %22 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %21, i1 true)
   %23 = and i32 %21, %19
   %24 = lshr i32 %23, %22
   %25 = icmp eq i32 %24, 255

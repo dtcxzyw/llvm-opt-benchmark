@@ -2885,7 +2885,7 @@ _ZL15splitBitmaskImmIjEbT_jRS0_S1_.exit.thread.i.i.i: ; preds = %5
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %13
-  %18 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.val, i1 true)
+  %18 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.val, i1 true)
   %19 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val, i1 false)
   %20 = sub nsw i32 31, %19
   %21 = shl i32 2, %20

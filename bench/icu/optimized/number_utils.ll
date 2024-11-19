@@ -1053,8 +1053,8 @@ entry:
   %length = alloca i32, align 4
   %point = alloca i32, align 4
   %0 = tail call double @llvm.fabs.f64(double %d)
-  %or.cond = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %or.cond, label %if.then, label %if.end
+  %1 = fcmp ueq double %0, 0x7FF0000000000000
+  br i1 %1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i32 16, ptr %status, align 4
@@ -1062,8 +1062,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @_ZN6icu_7517double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %d, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %buffer, i32 noundef 23, ptr noundef nonnull %sign, ptr noundef nonnull %length, ptr noundef nonnull %point)
-  %1 = load i32, ptr %length, align 4
-  %cmp.i = icmp sgt i32 %1, 34
+  %2 = load i32, ptr %length, align 4
+  %cmp.i = icmp sgt i32 %2, 34
   br i1 %cmp.i, label %if.then.i.i, label %if.end.if.end.i_crit_edge
 
 if.end.if.end.i_crit_edge:                        ; preds = %if.end
@@ -1071,7 +1071,7 @@ if.end.if.end.i_crit_edge:                        ; preds = %if.end
   br label %if.end.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %narrow.i.i = add nuw i32 %1, 12
+  %narrow.i.i = add nuw i32 %2, 12
   %add.i.i = zext i32 %narrow.i.i to i64
   %call.i.i = call noalias ptr @uprv_malloc_75(i64 noundef %add.i.i) #12
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
@@ -1081,8 +1081,8 @@ if.then.i.i:                                      ; preds = %if.end
 if.then3.i.i:                                     ; preds = %if.then.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.pre6, i64 12, i1 false)
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
-  %2 = load i8, ptr %needToRelease.i.i.i, align 4
-  %tobool.not.i.i.i = icmp eq i8 %2, 0
+  %3 = load i8, ptr %needToRelease.i.i.i, align 4
+  %tobool.not.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_7524MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3.i.i
@@ -1092,24 +1092,24 @@ if.then.i.i.i:                                    ; preds = %if.then3.i.i
 _ZN6icu_7524MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then3.i.i
   store ptr %call.i.i, ptr %this, align 8
   %capacity20.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store i32 %1, ptr %capacity20.i.i, align 8
+  store i32 %2, ptr %capacity20.i.i, align 8
   store i8 1, ptr %needToRelease.i.i.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.if.end.i_crit_edge, %_ZN6icu_7524MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i, %if.then.i.i
-  %3 = phi ptr [ %.pre6, %if.then.i.i ], [ %call.i.i, %_ZN6icu_7524MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %.pre, %if.end.if.end.i_crit_edge ]
-  %.sink.i = phi i32 [ %1, %if.then.i.i ], [ %1, %_ZN6icu_7524MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ 34, %if.end.if.end.i_crit_edge ]
+  %4 = phi ptr [ %.pre6, %if.then.i.i ], [ %call.i.i, %_ZN6icu_7524MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %.pre, %if.end.if.end.i_crit_edge ]
+  %.sink.i = phi i32 [ %2, %if.then.i.i ], [ %2, %_ZN6icu_7524MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ 34, %if.end.if.end.i_crit_edge ]
   %fContext2.i = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %.sink.i, ptr %fContext2.i, align 8
-  %call7.i = call ptr @uprv_decNumberFromString_75(ptr noundef %3, ptr noundef nonnull %buffer, ptr noundef nonnull %fContext2.i)
+  %call7.i = call ptr @uprv_decNumberFromString_75(ptr noundef %4, ptr noundef nonnull %buffer, ptr noundef nonnull %fContext2.i)
   %status9.i = getelementptr inbounds i8, ptr %this, i64 84
-  %4 = load i32, ptr %status9.i, align 4
-  %and.i = and i32 %4, 1
+  %5 = load i32, ptr %status9.i, align 4
+  %and.i = and i32 %5, 1
   %cmp10.not.i = icmp eq i32 %and.i, 0
   br i1 %cmp10.not.i, label %if.else12.i, label %if.end18.sink.split.i
 
 if.else12.i:                                      ; preds = %if.end.i
-  %cmp15.not.i = icmp eq i32 %4, 0
+  %cmp15.not.i = icmp eq i32 %5, 0
   br i1 %cmp15.not.i, label %_ZN6icu_756number4impl6DecNum6_setToEPKciR10UErrorCode.exit, label %if.end18.sink.split.i
 
 if.end18.sink.split.i:                            ; preds = %if.else12.i, %if.end.i
@@ -1118,22 +1118,22 @@ if.end18.sink.split.i:                            ; preds = %if.else12.i, %if.en
   br label %_ZN6icu_756number4impl6DecNum6_setToEPKciR10UErrorCode.exit
 
 _ZN6icu_756number4impl6DecNum6_setToEPKciR10UErrorCode.exit: ; preds = %if.else12.i, %if.end18.sink.split.i
-  %5 = load i32, ptr %point, align 4
-  %6 = load i32, ptr %length, align 4
-  %sub = sub i32 %5, %6
-  %7 = load ptr, ptr %this, align 8
-  %exponent = getelementptr inbounds i8, ptr %7, i64 4
-  %8 = load i32, ptr %exponent, align 4
-  %add = add nsw i32 %sub, %8
+  %6 = load i32, ptr %point, align 4
+  %7 = load i32, ptr %length, align 4
+  %sub = sub i32 %6, %7
+  %8 = load ptr, ptr %this, align 8
+  %exponent = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = load i32, ptr %exponent, align 4
+  %add = add nsw i32 %sub, %9
   store i32 %add, ptr %exponent, align 4
-  %9 = bitcast double %d to i64
-  %10 = lshr i64 %9, 56
-  %11 = trunc nuw i64 %10 to i8
-  %conv9 = and i8 %11, -128
-  %12 = load ptr, ptr %this, align 8
-  %bits = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load i8, ptr %bits, align 4
-  %or = or i8 %13, %conv9
+  %10 = bitcast double %d to i64
+  %11 = lshr i64 %10, 56
+  %12 = trunc nuw i64 %11 to i8
+  %conv9 = and i8 %12, -128
+  %13 = load ptr, ptr %this, align 8
+  %bits = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load i8, ptr %bits, align 4
+  %or = or i8 %14, %conv9
   store i8 %or, ptr %bits, align 4
   br label %return
 

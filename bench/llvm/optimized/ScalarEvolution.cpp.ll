@@ -55535,7 +55535,7 @@ _ZN4llvm15ScalarEvolution28getSmallConstantTripMultipleEPKNS_4LoopEPKNS_10BasicB
   %.02835.i.i = phi i32 [ %40, %.lr.ph.i.i ], [ %34, %30 ]
   %spec.select.i.i = call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %38 = sub i32 %spec.select.i.i, %spec.select3337.i.i
-  %39 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %38, i1 true)
+  %39 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %38, i1 true)
   %40 = lshr i32 %38, %39
   %spec.select33.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %40)
   %41 = icmp eq i32 %spec.select3337.i.i, %40

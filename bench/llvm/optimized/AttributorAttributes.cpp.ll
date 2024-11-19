@@ -68146,7 +68146,7 @@ _ZN4llvm32GetPointerBaseWithConstantOffsetEPNS_5ValueERlRKNS_10DataLayoutEb.exit
   %.02835.i.i.i = phi i32 [ %134, %.lr.ph.i.i.i ], [ %128, %124 ]
   %spec.select.i.i.i = call i32 @llvm.umax.i32(i32 %.02736.i.i.i, i32 %.02835.i.i.i)
   %132 = sub i32 %spec.select.i.i.i, %spec.select3337.i.i.i
-  %133 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %132, i1 true)
+  %133 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %132, i1 true)
   %134 = lshr i32 %132, %133
   %spec.select33.i.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i, i32 %134)
   %135 = icmp eq i32 %spec.select3337.i.i.i, %134
@@ -68900,7 +68900,7 @@ _ZN4llvm32GetPointerBaseWithConstantOffsetEPKNS_5ValueERlRKNS_10DataLayoutEb.exi
   %.02835.i.i.i = phi i32 [ %226, %.lr.ph.i.i.i ], [ %220, %216 ]
   %spec.select.i.i.i = call i32 @llvm.umax.i32(i32 %.02736.i.i.i, i32 %.02835.i.i.i)
   %224 = sub i32 %spec.select.i.i.i, %spec.select3337.i.i.i
-  %225 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %224, i1 true)
+  %225 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %224, i1 true)
   %226 = lshr i32 %224, %225
   %spec.select33.i.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i, i32 %226)
   %227 = icmp eq i32 %spec.select3337.i.i.i, %226

@@ -303,19 +303,19 @@ define hidden noundef i64 @_ZN14CompilerConfig24scaled_compile_thresholdEl(i64 n
   %7 = sitofp i64 %0 to double
   %8 = fmul double %3, %7
   %9 = tail call double @llvm.fabs.f64(double %8)
-  %or.cond15.i = fcmp ueq double %9, 0x7FF0000000000000
-  br i1 %or.cond15.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit, label %10
+  %10 = fcmp ueq double %9, 0x7FF0000000000000
+  br i1 %10, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit, label %11
 
-10:                                               ; preds = %6
-  %11 = call double @frexp(double noundef %8, ptr noundef nonnull %2) #11
-  %12 = load i32, ptr %2, align 4
-  %13 = icmp sgt i32 %12, 63
-  %14 = fptosi double %8 to i64
-  %spec.select.i = select i1 %13, i64 9223372036854775807, i64 %14
+11:                                               ; preds = %6
+  %12 = call double @frexp(double noundef %8, ptr noundef nonnull %2) #11
+  %13 = load i32, ptr %2, align 4
+  %14 = icmp sgt i32 %13, 63
+  %15 = fptosi double %8 to i64
+  %spec.select.i = select i1 %14, i64 9223372036854775807, i64 %15
   br label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit: ; preds = %1, %6, %10
-  %.0.i = phi i64 [ %0, %1 ], [ 9223372036854775807, %6 ], [ %spec.select.i, %10 ]
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit: ; preds = %1, %6, %11
+  %.0.i = phi i64 [ %0, %1 ], [ 9223372036854775807, %6 ], [ %spec.select.i, %11 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   ret i64 %.0.i
 }
@@ -326,25 +326,25 @@ define hidden noundef i64 @_ZN14CompilerConfig24scaled_compile_thresholdEld(i64 
   %4 = fcmp oeq double %1, 1.000000e+00
   %5 = fcmp olt double %1, 0.000000e+00
   %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %15, label %6
+  br i1 %or.cond, label %16, label %6
 
 6:                                                ; preds = %2
   %7 = sitofp i64 %0 to double
   %8 = fmul double %1, %7
   %9 = tail call double @llvm.fabs.f64(double %8)
-  %or.cond15 = fcmp ueq double %9, 0x7FF0000000000000
-  br i1 %or.cond15, label %15, label %10
+  %10 = fcmp ueq double %9, 0x7FF0000000000000
+  br i1 %10, label %16, label %11
 
-10:                                               ; preds = %6
-  %11 = call double @frexp(double noundef %8, ptr noundef nonnull %3) #11
-  %12 = load i32, ptr %3, align 4
-  %13 = icmp sgt i32 %12, 63
-  %14 = fptosi double %8 to i64
-  %spec.select = select i1 %13, i64 9223372036854775807, i64 %14
-  br label %15
+11:                                               ; preds = %6
+  %12 = call double @frexp(double noundef %8, ptr noundef nonnull %3) #11
+  %13 = load i32, ptr %3, align 4
+  %14 = icmp sgt i32 %13, 63
+  %15 = fptosi double %8 to i64
+  %spec.select = select i1 %14, i64 9223372036854775807, i64 %15
+  br label %16
 
-15:                                               ; preds = %10, %6, %2
-  %.0 = phi i64 [ %0, %2 ], [ 9223372036854775807, %6 ], [ %spec.select, %10 ]
+16:                                               ; preds = %11, %6, %2
+  %.0 = phi i64 [ %0, %2 ], [ 9223372036854775807, %6 ], [ %spec.select, %11 ]
   ret i64 %.0
 }
 
@@ -369,36 +369,36 @@ define hidden noundef i64 @_ZN14CompilerConfig15scaled_freq_logEl(i64 noundef %0
   %11 = sitofp i64 %10 to double
   %12 = fmul double %3, %11
   %13 = tail call double @llvm.fabs.f64(double %12)
-  %or.cond15.i.i = fcmp ueq double %13, 0x7FF0000000000000
-  br i1 %or.cond15.i.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i, label %14
+  %14 = fcmp ueq double %13, 0x7FF0000000000000
+  br i1 %14, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i, label %15
 
-14:                                               ; preds = %9
-  %15 = call double @frexp(double noundef %12, ptr noundef nonnull %2) #11
-  %16 = load i32, ptr %2, align 4
-  %17 = icmp sgt i32 %16, 63
-  br i1 %17, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i
+15:                                               ; preds = %9
+  %16 = call double @frexp(double noundef %12, ptr noundef nonnull %2) #11
+  %17 = load i32, ptr %2, align 4
+  %18 = icmp sgt i32 %17, 63
+  br i1 %18, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i: ; preds = %14, %9
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i: ; preds = %15, %9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %20
+  br label %21
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i: ; preds = %14
-  %18 = fptosi double %12 to i64
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i: ; preds = %15
+  %19 = fptosi double %12 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %_ZN14CompilerConfig15scaled_freq_logEld.exit, label %20
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %_ZN14CompilerConfig15scaled_freq_logEld.exit, label %21
 
-20:                                               ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i
-  %.0.i17.i = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i ], [ %18, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i ]
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i, i1 true)
-  %22 = trunc nuw nsw i64 %21 to i32
-  %23 = xor i32 %22, 63
-  %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 32)
-  %25 = zext nneg i32 %24 to i64
+21:                                               ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i
+  %.0.i17.i = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i ], [ %19, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i ]
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i, i1 true)
+  %23 = trunc nuw nsw i64 %22 to i32
+  %24 = xor i32 %23, 63
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 32)
+  %26 = zext nneg i32 %25 to i64
   br label %_ZN14CompilerConfig15scaled_freq_logEld.exit
 
-_ZN14CompilerConfig15scaled_freq_logEld.exit:     ; preds = %1, %6, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i, %20
-  %.0.i = phi i64 [ %25, %20 ], [ %0, %1 ], [ 0, %6 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i ]
+_ZN14CompilerConfig15scaled_freq_logEld.exit:     ; preds = %1, %6, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i, %21
+  %.0.i = phi i64 [ %26, %21 ], [ %0, %1 ], [ 0, %6 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i ]
   ret i64 %.0.i
 }
 
@@ -408,13 +408,13 @@ define hidden noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %
   %4 = fcmp oeq double %1, 1.000000e+00
   %5 = fcmp olt double %1, 0.000000e+00
   %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %26, label %6
+  br i1 %or.cond, label %27, label %6
 
 6:                                                ; preds = %2
   %7 = fcmp oeq double %1, 0.000000e+00
   %8 = icmp eq i64 %0, 0
   %or.cond3 = or i1 %8, %7
-  br i1 %or.cond3, label %26, label %9
+  br i1 %or.cond3, label %27, label %9
 
 9:                                                ; preds = %6
   %10 = shl nuw i64 1, %0
@@ -422,36 +422,36 @@ define hidden noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %
   %11 = sitofp i64 %10 to double
   %12 = fmul double %1, %11
   %13 = tail call double @llvm.fabs.f64(double %12)
-  %or.cond15.i = fcmp ueq double %13, 0x7FF0000000000000
-  br i1 %or.cond15.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread, label %14
+  %14 = fcmp ueq double %13, 0x7FF0000000000000
+  br i1 %14, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread, label %15
 
-14:                                               ; preds = %9
-  %15 = call double @frexp(double noundef %12, ptr noundef nonnull %3) #11
-  %16 = load i32, ptr %3, align 4
-  %17 = icmp sgt i32 %16, 63
-  br i1 %17, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit
+15:                                               ; preds = %9
+  %16 = call double @frexp(double noundef %12, ptr noundef nonnull %3) #11
+  %17 = load i32, ptr %3, align 4
+  %18 = icmp sgt i32 %17, 63
+  br i1 %18, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread: ; preds = %9, %14
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread: ; preds = %9, %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %20
+  br label %21
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit: ; preds = %14
-  %18 = fptosi double %12 to i64
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit: ; preds = %15
+  %19 = fptosi double %12 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %26, label %20
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %27, label %21
 
-20:                                               ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit
-  %.0.i17 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread ], [ %18, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit ]
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17, i1 true)
-  %22 = trunc nuw nsw i64 %21 to i32
-  %23 = xor i32 %22, 63
-  %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 32)
-  %25 = zext nneg i32 %24 to i64
-  br label %26
+21:                                               ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit
+  %.0.i17 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread ], [ %19, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit ]
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17, i1 true)
+  %23 = trunc nuw nsw i64 %22 to i32
+  %24 = xor i32 %23, 63
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 32)
+  %26 = zext nneg i32 %25 to i64
+  br label %27
 
-26:                                               ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit, %6, %2, %20
-  %.0 = phi i64 [ %25, %20 ], [ %0, %2 ], [ 0, %6 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit ]
+27:                                               ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit, %6, %2, %21
+  %.0 = phi i64 [ %26, %21 ], [ %0, %2 ], [ 0, %6 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit ]
   ret i64 %.0
 }
 
@@ -469,23 +469,23 @@ define hidden noundef range(i64 0, 2147483648) i64 @_ZN14CompilerConfig32jvmflag
   %7 = sitofp i64 %0 to double
   %8 = fmul double %3, %7
   %9 = tail call double @llvm.fabs.f64(double %8)
-  %or.cond15.i.i = fcmp ueq double %9, 0x7FF0000000000000
-  br i1 %or.cond15.i.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, label %10
+  %10 = fcmp ueq double %9, 0x7FF0000000000000
+  br i1 %10, label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, label %11
 
-10:                                               ; preds = %6
-  %11 = call double @frexp(double noundef %8, ptr noundef nonnull %2) #11
-  %12 = load i32, ptr %2, align 4
-  %13 = icmp sgt i32 %12, 63
-  %14 = fptosi double %8 to i64
-  %spec.select.i.i = select i1 %13, i64 9223372036854775807, i64 %14
+11:                                               ; preds = %6
+  %12 = call double @frexp(double noundef %8, ptr noundef nonnull %2) #11
+  %13 = load i32, ptr %2, align 4
+  %14 = icmp sgt i32 %13, 63
+  %15 = fptosi double %8 to i64
+  %spec.select.i.i = select i1 %14, i64 9223372036854775807, i64 %15
   br label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit
 
-_ZN14CompilerConfig24scaled_compile_thresholdEl.exit: ; preds = %1, %6, %10
-  %.0.i.i = phi i64 [ %0, %1 ], [ 9223372036854775807, %6 ], [ %spec.select.i.i, %10 ]
+_ZN14CompilerConfig24scaled_compile_thresholdEl.exit: ; preds = %1, %6, %11
+  %.0.i.i = phi i64 [ %0, %1 ], [ 9223372036854775807, %6 ], [ %spec.select.i.i, %11 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %15 = tail call noundef i64 @llvm.smin.i64(i64 %.0.i.i, i64 2147483647)
-  %16 = tail call noundef i64 @llvm.smax.i64(i64 %15, i64 0)
-  ret i64 %16
+  %16 = tail call noundef i64 @llvm.smin.i64(i64 %.0.i.i, i64 2147483647)
+  %17 = tail call noundef i64 @llvm.smax.i64(i64 %16, i64 0)
+  ret i64 %17
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
@@ -509,39 +509,39 @@ define hidden noundef range(i64 0, 31) i64 @_ZN14CompilerConfig23jvmflag_scaled_
   %11 = sitofp i64 %10 to double
   %12 = fmul double %3, %11
   %13 = tail call double @llvm.fabs.f64(double %12)
-  %or.cond15.i.i.i = fcmp ueq double %13, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i, label %14
+  %14 = fcmp ueq double %13, 0x7FF0000000000000
+  br i1 %14, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i, label %15
 
-14:                                               ; preds = %9
-  %15 = call double @frexp(double noundef %12, ptr noundef nonnull %2) #11
-  %16 = load i32, ptr %2, align 4
-  %17 = icmp sgt i32 %16, 63
-  br i1 %17, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i
+15:                                               ; preds = %9
+  %16 = call double @frexp(double noundef %12, ptr noundef nonnull %2) #11
+  %17 = load i32, ptr %2, align 4
+  %18 = icmp sgt i32 %17, 63
+  br i1 %18, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i: ; preds = %14, %9
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i: ; preds = %15, %9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %20
+  br label %21
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i: ; preds = %14
-  %18 = fptosi double %12 to i64
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i: ; preds = %15
+  %19 = fptosi double %12 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %_ZN14CompilerConfig15scaled_freq_logEl.exit, label %20
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %_ZN14CompilerConfig15scaled_freq_logEl.exit, label %21
 
-20:                                               ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i
-  %.0.i17.i.i = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i ], [ %18, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i ]
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i, i1 true)
-  %22 = trunc nuw nsw i64 %21 to i32
-  %23 = xor i32 %22, 63
-  %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 32)
-  %25 = zext nneg i32 %24 to i64
+21:                                               ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i
+  %.0.i17.i.i = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i ], [ %19, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i ]
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i, i1 true)
+  %23 = trunc nuw nsw i64 %22 to i32
+  %24 = xor i32 %23, 63
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 32)
+  %26 = zext nneg i32 %25 to i64
   br label %_ZN14CompilerConfig15scaled_freq_logEl.exit
 
-_ZN14CompilerConfig15scaled_freq_logEl.exit:      ; preds = %1, %6, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i, %20
-  %.0.i.i = phi i64 [ %25, %20 ], [ %0, %1 ], [ 0, %6 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i ]
-  %26 = tail call noundef i64 @llvm.smin.i64(i64 %.0.i.i, i64 30)
-  %27 = tail call noundef i64 @llvm.smax.i64(i64 %26, i64 0)
-  ret i64 %27
+_ZN14CompilerConfig15scaled_freq_logEl.exit:      ; preds = %1, %6, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i, %21
+  %.0.i.i = phi i64 [ %26, %21 ], [ %0, %1 ], [ 0, %6 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i ]
+  %27 = tail call noundef i64 @llvm.smin.i64(i64 %.0.i.i, i64 30)
+  %28 = tail call noundef i64 @llvm.smax.i64(i64 %27, i64 0)
+  ret i64 %28
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
@@ -963,32 +963,32 @@ _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread: ; preds = %_ZN1
   %145 = uitofp nneg i64 %139 to double
   %146 = fmul double %137, %145
   %147 = call double @llvm.fabs.f64(double %146)
-  %or.cond15.i.i = fcmp ueq double %147, 0x7FF0000000000000
-  br i1 %or.cond15.i.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, label %148
+  %148 = fcmp ueq double %147, 0x7FF0000000000000
+  br i1 %148, label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, label %149
 
-148:                                              ; preds = %144
-  %149 = call double @frexp(double noundef %146, ptr noundef nonnull %2) #11
-  %150 = load i32, ptr %2, align 4
-  %151 = icmp sgt i32 %150, 63
-  %152 = fptosi double %146 to i64
-  %spec.select.i.i = select i1 %151, i64 9223372036854775807, i64 %152
+149:                                              ; preds = %144
+  %150 = call double @frexp(double noundef %146, ptr noundef nonnull %2) #11
+  %151 = load i32, ptr %2, align 4
+  %152 = icmp sgt i32 %151, 63
+  %153 = fptosi double %146 to i64
+  %spec.select.i.i = select i1 %152, i64 9223372036854775807, i64 %153
   br label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit
 
-_ZN14CompilerConfig24scaled_compile_thresholdEl.exit: ; preds = %141, %144, %148
-  %.0.i.i = phi i64 [ %139, %141 ], [ 9223372036854775807, %144 ], [ %spec.select.i.i, %148 ]
+_ZN14CompilerConfig24scaled_compile_thresholdEl.exit: ; preds = %141, %144, %149
+  %.0.i.i = phi i64 [ %139, %141 ], [ 9223372036854775807, %144 ], [ %spec.select.i.i, %149 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %153 = call noundef i32 @_Z30CompileThresholdConstraintFunclb(i64 noundef %.0.i.i, i1 noundef zeroext true) #11
-  %.not26 = icmp eq i32 %153, 6
-  br i1 %.not26, label %_ZL18check_legacy_flagsv.exit.thread, label %154
+  %154 = call noundef i32 @_Z30CompileThresholdConstraintFunclb(i64 noundef %.0.i.i, i1 noundef zeroext true) #11
+  %.not26 = icmp eq i32 %154, 6
+  br i1 %.not26, label %_ZL18check_legacy_flagsv.exit.thread, label %155
 
-154:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit
+155:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 %.0.i.i, ptr %1, align 8
-  %155 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 844, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 5) #11
+  %156 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 844, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   br label %_ZL18check_legacy_flagsv.exit.thread
 
-_ZL18check_legacy_flagsv.exit.thread:             ; preds = %_ZN12JVMFlagLimit14get_constraintEPK7JVMFlag.exit12.i, %34, %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, %154, %_ZL18check_legacy_flagsv.exit, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread
+_ZL18check_legacy_flagsv.exit.thread:             ; preds = %_ZN12JVMFlagLimit14get_constraintEPK7JVMFlag.exit12.i, %34, %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, %155, %_ZL18check_legacy_flagsv.exit, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread
   ret void
 }
 
@@ -1049,8 +1049,8 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %0
   %.not = xor i1 %46, true
   %47 = icmp ne i32 %44, 2
   %48 = and i1 %47, %.not
-  %or.cond102 = and i1 %48, %41
-  br i1 %or.cond102, label %49, label %_ZN14CompilerConfig9is_tieredEv.exit.thread
+  %or.cond89 = and i1 %48, %41
+  br i1 %or.cond89, label %49, label %_ZN14CompilerConfig9is_tieredEv.exit.thread
 
 49:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
   %50 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 811) #11
@@ -1212,7 +1212,7 @@ _ZN14CompilerConfig9is_tieredEv.exit.thread:      ; preds = %0, %_ZN14CompilerCo
   %116 = load double, ptr @CompileThresholdScaling, align 8
   %117 = fcmp ule double %116, 0.000000e+00
   %or.cond3.not = select i1 %115, i1 true, i1 %117
-  br i1 %or.cond3.not, label %435, label %118
+  br i1 %or.cond3.not, label %450, label %118
 
 118:                                              ; preds = %114
   %119 = load i64, ptr @Tier0InvokeNotifyFreqLog, align 8
@@ -1233,684 +1233,684 @@ _ZN14CompilerConfig9is_tieredEv.exit.thread:      ; preds = %0, %_ZN14CompilerCo
   %127 = sitofp i64 %126 to double
   %128 = fmul double %116, %127
   %129 = call double @llvm.fabs.f64(double %128)
-  %or.cond15.i.i.i.i = fcmp ueq double %129, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i, label %130
+  %130 = fcmp ueq double %129, 0x7FF0000000000000
+  br i1 %130, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i, label %131
 
-130:                                              ; preds = %125
-  %131 = call double @frexp(double noundef %128, ptr noundef nonnull %30) #11
-  %132 = load i32, ptr %30, align 4
-  %133 = icmp sgt i32 %132, 63
-  br i1 %133, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i
+131:                                              ; preds = %125
+  %132 = call double @frexp(double noundef %128, ptr noundef nonnull %30) #11
+  %133 = load i32, ptr %30, align 4
+  %134 = icmp sgt i32 %133, 63
+  br i1 %134, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i: ; preds = %130, %125
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i: ; preds = %131, %125
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  br label %136
+  br label %137
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i: ; preds = %130
-  %134 = fptosi double %128 to i64
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i: ; preds = %131
+  %135 = fptosi double %128 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  %135 = icmp eq i64 %134, 0
-  br i1 %135, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit, label %136
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit, label %137
 
-136:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i
-  %.0.i17.i.i.i = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i ], [ %134, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i ]
-  %137 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i, i1 true)
-  %138 = trunc nuw nsw i64 %137 to i32
-  %139 = xor i32 %138, 63
-  %140 = call i32 @llvm.umin.i32(i32 %139, i32 32)
-  %141 = zext nneg i32 %140 to i64
+137:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i
+  %.0.i17.i.i.i = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i ], [ %135, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i ]
+  %138 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i, i1 true)
+  %139 = trunc nuw nsw i64 %138 to i32
+  %140 = xor i32 %139, 63
+  %141 = call i32 @llvm.umin.i32(i32 %140, i32 32)
+  %142 = zext nneg i32 %141 to i64
   br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit
 
-_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit: ; preds = %118, %122, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i, %136
-  %.0.i.i.i = phi i64 [ %141, %136 ], [ %119, %118 ], [ 0, %122 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i ]
-  %142 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i, i64 30)
-  %143 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %142, i64 0)
+_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit: ; preds = %118, %122, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i, %137
+  %.0.i.i.i = phi i64 [ %142, %137 ], [ %119, %118 ], [ 0, %122 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i ]
+  %143 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i, i64 30)
+  %144 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %143, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
-  store i64 %143, ptr %29, align 8
-  %144 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 392, i32 noundef 3, ptr noundef nonnull %29, i32 noundef 5) #11
+  store i64 %144, ptr %29, align 8
+  %145 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 392, i32 noundef 3, ptr noundef nonnull %29, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  %145 = load i64, ptr @Tier0BackedgeNotifyFreqLog, align 8
-  %146 = load double, ptr @CompileThresholdScaling, align 8
-  %147 = fcmp oeq double %146, 1.000000e+00
-  %148 = fcmp olt double %146, 0.000000e+00
-  %or.cond.i.i.i8 = or i1 %147, %148
-  br i1 %or.cond.i.i.i8, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit15, label %149
+  %146 = load i64, ptr @Tier0BackedgeNotifyFreqLog, align 8
+  %147 = load double, ptr @CompileThresholdScaling, align 8
+  %148 = fcmp oeq double %147, 1.000000e+00
+  %149 = fcmp olt double %147, 0.000000e+00
+  %or.cond.i.i.i8 = or i1 %148, %149
+  br i1 %or.cond.i.i.i8, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14, label %150
 
-149:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit
-  %150 = fcmp oeq double %146, 0.000000e+00
-  %151 = icmp eq i64 %145, 0
-  %or.cond3.i.i.i9 = or i1 %151, %150
-  br i1 %or.cond3.i.i.i9, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit15, label %152
+150:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit
+  %151 = fcmp oeq double %147, 0.000000e+00
+  %152 = icmp eq i64 %146, 0
+  %or.cond3.i.i.i9 = or i1 %152, %151
+  br i1 %or.cond3.i.i.i9, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14, label %153
 
-152:                                              ; preds = %149
-  %153 = shl nuw i64 1, %145
+153:                                              ; preds = %150
+  %154 = shl nuw i64 1, %146
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
-  %154 = sitofp i64 %153 to double
-  %155 = fmul double %146, %154
-  %156 = call double @llvm.fabs.f64(double %155)
-  %or.cond15.i.i.i.i10 = fcmp ueq double %156, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i.i10, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i14, label %157
+  %155 = sitofp i64 %154 to double
+  %156 = fmul double %147, %155
+  %157 = call double @llvm.fabs.f64(double %156)
+  %158 = fcmp ueq double %157, 0x7FF0000000000000
+  br i1 %158, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i13, label %159
 
-157:                                              ; preds = %152
-  %158 = call double @frexp(double noundef %155, ptr noundef nonnull %28) #11
-  %159 = load i32, ptr %28, align 4
-  %160 = icmp sgt i32 %159, 63
-  br i1 %160, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i14, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i11
+159:                                              ; preds = %153
+  %160 = call double @frexp(double noundef %156, ptr noundef nonnull %28) #11
+  %161 = load i32, ptr %28, align 4
+  %162 = icmp sgt i32 %161, 63
+  br i1 %162, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i13, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i10
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i14: ; preds = %157, %152
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i13: ; preds = %159, %153
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  br label %163
+  br label %165
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i11: ; preds = %157
-  %161 = fptosi double %155 to i64
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i10: ; preds = %159
+  %163 = fptosi double %156 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  %162 = icmp eq i64 %161, 0
-  br i1 %162, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit15, label %163
+  %164 = icmp eq i64 %163, 0
+  br i1 %164, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14, label %165
 
-163:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i11, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i14
-  %.0.i17.i.i.i12 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i14 ], [ %161, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i11 ]
-  %164 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i12, i1 true)
-  %165 = trunc nuw nsw i64 %164 to i32
-  %166 = xor i32 %165, 63
-  %167 = call i32 @llvm.umin.i32(i32 %166, i32 32)
-  %168 = zext nneg i32 %167 to i64
-  br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit15
+165:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i10, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i13
+  %.0.i17.i.i.i11 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i13 ], [ %163, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i10 ]
+  %166 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i11, i1 true)
+  %167 = trunc nuw nsw i64 %166 to i32
+  %168 = xor i32 %167, 63
+  %169 = call i32 @llvm.umin.i32(i32 %168, i32 32)
+  %170 = zext nneg i32 %169 to i64
+  br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14
 
-_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit15: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit, %149, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i11, %163
-  %.0.i.i.i13 = phi i64 [ %168, %163 ], [ %145, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit ], [ 0, %149 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i11 ]
-  %169 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i13, i64 30)
-  %170 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %169, i64 0)
+_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit, %150, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i10, %165
+  %.0.i.i.i12 = phi i64 [ %170, %165 ], [ %146, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit ], [ 0, %150 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i10 ]
+  %171 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i12, i64 30)
+  %172 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %171, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
-  store i64 %170, ptr %27, align 8
-  %171 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 396, i32 noundef 3, ptr noundef nonnull %27, i32 noundef 5) #11
+  store i64 %172, ptr %27, align 8
+  %173 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 396, i32 noundef 3, ptr noundef nonnull %27, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  %172 = load i64, ptr @Tier3InvocationThreshold, align 8
-  %173 = load double, ptr @CompileThresholdScaling, align 8
+  %174 = load i64, ptr @Tier3InvocationThreshold, align 8
+  %175 = load double, ptr @CompileThresholdScaling, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
-  %174 = fcmp oeq double %173, 1.000000e+00
-  %175 = fcmp olt double %173, 0.000000e+00
-  %or.cond.i.i.i16 = or i1 %174, %175
-  br i1 %or.cond.i.i.i16, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit, label %176
+  %176 = fcmp oeq double %175, 1.000000e+00
+  %177 = fcmp olt double %175, 0.000000e+00
+  %or.cond.i.i.i15 = or i1 %176, %177
+  br i1 %or.cond.i.i.i15, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit, label %178
 
-176:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit15
-  %177 = sitofp i64 %172 to double
-  %178 = fmul double %173, %177
-  %179 = call double @llvm.fabs.f64(double %178)
-  %or.cond15.i.i.i = fcmp ueq double %179, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit, label %180
+178:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14
+  %179 = sitofp i64 %174 to double
+  %180 = fmul double %175, %179
+  %181 = call double @llvm.fabs.f64(double %180)
+  %182 = fcmp ueq double %181, 0x7FF0000000000000
+  br i1 %182, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit, label %183
 
-180:                                              ; preds = %176
-  %181 = call double @frexp(double noundef %178, ptr noundef nonnull %26) #11
-  %182 = load i32, ptr %26, align 4
-  %183 = icmp sgt i32 %182, 63
-  %184 = fptosi double %178 to i64
-  %spec.select.i.i.i = select i1 %183, i64 9223372036854775807, i64 %184
+183:                                              ; preds = %178
+  %184 = call double @frexp(double noundef %180, ptr noundef nonnull %26) #11
+  %185 = load i32, ptr %26, align 4
+  %186 = icmp sgt i32 %185, 63
+  %187 = fptosi double %180 to i64
+  %spec.select.i.i.i = select i1 %186, i64 9223372036854775807, i64 %187
   br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit
 
-_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit15, %176, %180
-  %.0.i.i.i17 = phi i64 [ %172, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit15 ], [ 9223372036854775807, %176 ], [ %spec.select.i.i.i, %180 ]
+_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14, %178, %183
+  %.0.i.i.i16 = phi i64 [ %174, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14 ], [ 9223372036854775807, %178 ], [ %spec.select.i.i.i, %183 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  %185 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i17, i64 2147483647)
-  %186 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %185, i64 0)
+  %188 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i16, i64 2147483647)
+  %189 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %188, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
-  store i64 %186, ptr %25, align 8
-  %187 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 401, i32 noundef 3, ptr noundef nonnull %25, i32 noundef 5) #11
+  store i64 %189, ptr %25, align 8
+  %190 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 401, i32 noundef 3, ptr noundef nonnull %25, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  %188 = load i64, ptr @Tier3MinInvocationThreshold, align 8
-  %189 = load double, ptr @CompileThresholdScaling, align 8
+  %191 = load i64, ptr @Tier3MinInvocationThreshold, align 8
+  %192 = load double, ptr @CompileThresholdScaling, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
-  %190 = fcmp oeq double %189, 1.000000e+00
-  %191 = fcmp olt double %189, 0.000000e+00
-  %or.cond.i.i.i18 = or i1 %190, %191
-  br i1 %or.cond.i.i.i18, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit22, label %192
+  %193 = fcmp oeq double %192, 1.000000e+00
+  %194 = fcmp olt double %192, 0.000000e+00
+  %or.cond.i.i.i17 = or i1 %193, %194
+  br i1 %or.cond.i.i.i17, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20, label %195
 
-192:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit
-  %193 = sitofp i64 %188 to double
-  %194 = fmul double %189, %193
-  %195 = call double @llvm.fabs.f64(double %194)
-  %or.cond15.i.i.i19 = fcmp ueq double %195, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i19, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit22, label %196
+195:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit
+  %196 = sitofp i64 %191 to double
+  %197 = fmul double %192, %196
+  %198 = call double @llvm.fabs.f64(double %197)
+  %199 = fcmp ueq double %198, 0x7FF0000000000000
+  br i1 %199, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20, label %200
 
-196:                                              ; preds = %192
-  %197 = call double @frexp(double noundef %194, ptr noundef nonnull %24) #11
-  %198 = load i32, ptr %24, align 4
-  %199 = icmp sgt i32 %198, 63
-  %200 = fptosi double %194 to i64
-  %spec.select.i.i.i20 = select i1 %199, i64 9223372036854775807, i64 %200
-  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit22
+200:                                              ; preds = %195
+  %201 = call double @frexp(double noundef %197, ptr noundef nonnull %24) #11
+  %202 = load i32, ptr %24, align 4
+  %203 = icmp sgt i32 %202, 63
+  %204 = fptosi double %197 to i64
+  %spec.select.i.i.i18 = select i1 %203, i64 9223372036854775807, i64 %204
+  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20
 
-_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit22: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit, %192, %196
-  %.0.i.i.i21 = phi i64 [ %188, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit ], [ 9223372036854775807, %192 ], [ %spec.select.i.i.i20, %196 ]
+_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit, %195, %200
+  %.0.i.i.i19 = phi i64 [ %191, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit ], [ 9223372036854775807, %195 ], [ %spec.select.i.i.i18, %200 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  %201 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i21, i64 2147483647)
-  %202 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %201, i64 0)
+  %205 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i19, i64 2147483647)
+  %206 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %205, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
-  store i64 %202, ptr %23, align 8
-  %203 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 402, i32 noundef 3, ptr noundef nonnull %23, i32 noundef 5) #11
+  store i64 %206, ptr %23, align 8
+  %207 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 402, i32 noundef 3, ptr noundef nonnull %23, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  %204 = load i64, ptr @Tier3CompileThreshold, align 8
-  %205 = load double, ptr @CompileThresholdScaling, align 8
+  %208 = load i64, ptr @Tier3CompileThreshold, align 8
+  %209 = load double, ptr @CompileThresholdScaling, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
-  %206 = fcmp oeq double %205, 1.000000e+00
-  %207 = fcmp olt double %205, 0.000000e+00
-  %or.cond.i.i.i23 = or i1 %206, %207
-  br i1 %or.cond.i.i.i23, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit27, label %208
+  %210 = fcmp oeq double %209, 1.000000e+00
+  %211 = fcmp olt double %209, 0.000000e+00
+  %or.cond.i.i.i21 = or i1 %210, %211
+  br i1 %or.cond.i.i.i21, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24, label %212
 
-208:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit22
-  %209 = sitofp i64 %204 to double
-  %210 = fmul double %205, %209
-  %211 = call double @llvm.fabs.f64(double %210)
-  %or.cond15.i.i.i24 = fcmp ueq double %211, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i24, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit27, label %212
+212:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20
+  %213 = sitofp i64 %208 to double
+  %214 = fmul double %209, %213
+  %215 = call double @llvm.fabs.f64(double %214)
+  %216 = fcmp ueq double %215, 0x7FF0000000000000
+  br i1 %216, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24, label %217
 
-212:                                              ; preds = %208
-  %213 = call double @frexp(double noundef %210, ptr noundef nonnull %22) #11
-  %214 = load i32, ptr %22, align 4
-  %215 = icmp sgt i32 %214, 63
-  %216 = fptosi double %210 to i64
-  %spec.select.i.i.i25 = select i1 %215, i64 9223372036854775807, i64 %216
-  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit27
+217:                                              ; preds = %212
+  %218 = call double @frexp(double noundef %214, ptr noundef nonnull %22) #11
+  %219 = load i32, ptr %22, align 4
+  %220 = icmp sgt i32 %219, 63
+  %221 = fptosi double %214 to i64
+  %spec.select.i.i.i22 = select i1 %220, i64 9223372036854775807, i64 %221
+  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24
 
-_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit27: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit22, %208, %212
-  %.0.i.i.i26 = phi i64 [ %204, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit22 ], [ 9223372036854775807, %208 ], [ %spec.select.i.i.i25, %212 ]
+_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20, %212, %217
+  %.0.i.i.i23 = phi i64 [ %208, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20 ], [ 9223372036854775807, %212 ], [ %spec.select.i.i.i22, %217 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  %217 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i26, i64 2147483647)
-  %218 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %217, i64 0)
+  %222 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i23, i64 2147483647)
+  %223 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %222, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
-  store i64 %218, ptr %21, align 8
-  %219 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 403, i32 noundef 3, ptr noundef nonnull %21, i32 noundef 5) #11
+  store i64 %223, ptr %21, align 8
+  %224 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 403, i32 noundef 3, ptr noundef nonnull %21, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  %220 = load i64, ptr @Tier3BackEdgeThreshold, align 8
-  %221 = load double, ptr @CompileThresholdScaling, align 8
+  %225 = load i64, ptr @Tier3BackEdgeThreshold, align 8
+  %226 = load double, ptr @CompileThresholdScaling, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
-  %222 = fcmp oeq double %221, 1.000000e+00
-  %223 = fcmp olt double %221, 0.000000e+00
-  %or.cond.i.i.i28 = or i1 %222, %223
-  br i1 %or.cond.i.i.i28, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit32, label %224
+  %227 = fcmp oeq double %226, 1.000000e+00
+  %228 = fcmp olt double %226, 0.000000e+00
+  %or.cond.i.i.i25 = or i1 %227, %228
+  br i1 %or.cond.i.i.i25, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28, label %229
 
-224:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit27
-  %225 = sitofp i64 %220 to double
-  %226 = fmul double %221, %225
-  %227 = call double @llvm.fabs.f64(double %226)
-  %or.cond15.i.i.i29 = fcmp ueq double %227, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i29, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit32, label %228
+229:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24
+  %230 = sitofp i64 %225 to double
+  %231 = fmul double %226, %230
+  %232 = call double @llvm.fabs.f64(double %231)
+  %233 = fcmp ueq double %232, 0x7FF0000000000000
+  br i1 %233, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28, label %234
 
-228:                                              ; preds = %224
-  %229 = call double @frexp(double noundef %226, ptr noundef nonnull %20) #11
-  %230 = load i32, ptr %20, align 4
-  %231 = icmp sgt i32 %230, 63
-  %232 = fptosi double %226 to i64
-  %spec.select.i.i.i30 = select i1 %231, i64 9223372036854775807, i64 %232
-  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit32
+234:                                              ; preds = %229
+  %235 = call double @frexp(double noundef %231, ptr noundef nonnull %20) #11
+  %236 = load i32, ptr %20, align 4
+  %237 = icmp sgt i32 %236, 63
+  %238 = fptosi double %231 to i64
+  %spec.select.i.i.i26 = select i1 %237, i64 9223372036854775807, i64 %238
+  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28
 
-_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit32: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit27, %224, %228
-  %.0.i.i.i31 = phi i64 [ %220, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit27 ], [ 9223372036854775807, %224 ], [ %spec.select.i.i.i30, %228 ]
+_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24, %229, %234
+  %.0.i.i.i27 = phi i64 [ %225, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24 ], [ 9223372036854775807, %229 ], [ %spec.select.i.i.i26, %234 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  %233 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i31, i64 2147483647)
-  %234 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %233, i64 0)
+  %239 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i27, i64 2147483647)
+  %240 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %239, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  store i64 %234, ptr %19, align 8
-  %235 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 404, i32 noundef 3, ptr noundef nonnull %19, i32 noundef 5) #11
+  store i64 %240, ptr %19, align 8
+  %241 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 404, i32 noundef 3, ptr noundef nonnull %19, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  %236 = load i64, ptr @Tier2InvokeNotifyFreqLog, align 8
-  %237 = load double, ptr @CompileThresholdScaling, align 8
-  %238 = fcmp oeq double %237, 1.000000e+00
-  %239 = fcmp olt double %237, 0.000000e+00
-  %or.cond.i.i.i33 = or i1 %238, %239
-  br i1 %or.cond.i.i.i33, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit40, label %240
+  %242 = load i64, ptr @Tier2InvokeNotifyFreqLog, align 8
+  %243 = load double, ptr @CompileThresholdScaling, align 8
+  %244 = fcmp oeq double %243, 1.000000e+00
+  %245 = fcmp olt double %243, 0.000000e+00
+  %or.cond.i.i.i29 = or i1 %244, %245
+  br i1 %or.cond.i.i.i29, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35, label %246
 
-240:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit32
-  %241 = fcmp oeq double %237, 0.000000e+00
-  %242 = icmp eq i64 %236, 0
-  %or.cond3.i.i.i34 = or i1 %242, %241
-  br i1 %or.cond3.i.i.i34, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit40, label %243
+246:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28
+  %247 = fcmp oeq double %243, 0.000000e+00
+  %248 = icmp eq i64 %242, 0
+  %or.cond3.i.i.i30 = or i1 %248, %247
+  br i1 %or.cond3.i.i.i30, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35, label %249
 
-243:                                              ; preds = %240
-  %244 = shl nuw i64 1, %236
+249:                                              ; preds = %246
+  %250 = shl nuw i64 1, %242
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
-  %245 = sitofp i64 %244 to double
-  %246 = fmul double %237, %245
-  %247 = call double @llvm.fabs.f64(double %246)
-  %or.cond15.i.i.i.i35 = fcmp ueq double %247, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i.i35, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i39, label %248
+  %251 = sitofp i64 %250 to double
+  %252 = fmul double %243, %251
+  %253 = call double @llvm.fabs.f64(double %252)
+  %254 = fcmp ueq double %253, 0x7FF0000000000000
+  br i1 %254, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i34, label %255
 
-248:                                              ; preds = %243
-  %249 = call double @frexp(double noundef %246, ptr noundef nonnull %18) #11
-  %250 = load i32, ptr %18, align 4
-  %251 = icmp sgt i32 %250, 63
-  br i1 %251, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i39, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i36
+255:                                              ; preds = %249
+  %256 = call double @frexp(double noundef %252, ptr noundef nonnull %18) #11
+  %257 = load i32, ptr %18, align 4
+  %258 = icmp sgt i32 %257, 63
+  br i1 %258, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i34, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i31
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i39: ; preds = %248, %243
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i34: ; preds = %255, %249
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  br label %254
+  br label %261
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i36: ; preds = %248
-  %252 = fptosi double %246 to i64
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i31: ; preds = %255
+  %259 = fptosi double %252 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  %253 = icmp eq i64 %252, 0
-  br i1 %253, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit40, label %254
+  %260 = icmp eq i64 %259, 0
+  br i1 %260, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35, label %261
 
-254:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i36, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i39
-  %.0.i17.i.i.i37 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i39 ], [ %252, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i36 ]
-  %255 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i37, i1 true)
-  %256 = trunc nuw nsw i64 %255 to i32
-  %257 = xor i32 %256, 63
-  %258 = call i32 @llvm.umin.i32(i32 %257, i32 32)
-  %259 = zext nneg i32 %258 to i64
-  br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit40
+261:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i31, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i34
+  %.0.i17.i.i.i32 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i34 ], [ %259, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i31 ]
+  %262 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i32, i1 true)
+  %263 = trunc nuw nsw i64 %262 to i32
+  %264 = xor i32 %263, 63
+  %265 = call i32 @llvm.umin.i32(i32 %264, i32 32)
+  %266 = zext nneg i32 %265 to i64
+  br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35
 
-_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit40: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit32, %240, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i36, %254
-  %.0.i.i.i38 = phi i64 [ %259, %254 ], [ %236, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit32 ], [ 0, %240 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i36 ]
-  %260 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i38, i64 30)
-  %261 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %260, i64 0)
+_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28, %246, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i31, %261
+  %.0.i.i.i33 = phi i64 [ %266, %261 ], [ %242, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28 ], [ 0, %246 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i31 ]
+  %267 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i33, i64 30)
+  %268 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %267, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
-  store i64 %261, ptr %17, align 8
-  %262 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 393, i32 noundef 3, ptr noundef nonnull %17, i32 noundef 5) #11
+  store i64 %268, ptr %17, align 8
+  %269 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 393, i32 noundef 3, ptr noundef nonnull %17, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  %263 = load i64, ptr @Tier2BackedgeNotifyFreqLog, align 8
-  %264 = load double, ptr @CompileThresholdScaling, align 8
-  %265 = fcmp oeq double %264, 1.000000e+00
-  %266 = fcmp olt double %264, 0.000000e+00
-  %or.cond.i.i.i41 = or i1 %265, %266
-  br i1 %or.cond.i.i.i41, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit48, label %267
+  %270 = load i64, ptr @Tier2BackedgeNotifyFreqLog, align 8
+  %271 = load double, ptr @CompileThresholdScaling, align 8
+  %272 = fcmp oeq double %271, 1.000000e+00
+  %273 = fcmp olt double %271, 0.000000e+00
+  %or.cond.i.i.i36 = or i1 %272, %273
+  br i1 %or.cond.i.i.i36, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42, label %274
 
-267:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit40
-  %268 = fcmp oeq double %264, 0.000000e+00
-  %269 = icmp eq i64 %263, 0
-  %or.cond3.i.i.i42 = or i1 %269, %268
-  br i1 %or.cond3.i.i.i42, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit48, label %270
+274:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35
+  %275 = fcmp oeq double %271, 0.000000e+00
+  %276 = icmp eq i64 %270, 0
+  %or.cond3.i.i.i37 = or i1 %276, %275
+  br i1 %or.cond3.i.i.i37, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42, label %277
 
-270:                                              ; preds = %267
-  %271 = shl nuw i64 1, %263
+277:                                              ; preds = %274
+  %278 = shl nuw i64 1, %270
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  %272 = sitofp i64 %271 to double
-  %273 = fmul double %264, %272
-  %274 = call double @llvm.fabs.f64(double %273)
-  %or.cond15.i.i.i.i43 = fcmp ueq double %274, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i.i43, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i47, label %275
+  %279 = sitofp i64 %278 to double
+  %280 = fmul double %271, %279
+  %281 = call double @llvm.fabs.f64(double %280)
+  %282 = fcmp ueq double %281, 0x7FF0000000000000
+  br i1 %282, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i41, label %283
 
-275:                                              ; preds = %270
-  %276 = call double @frexp(double noundef %273, ptr noundef nonnull %16) #11
-  %277 = load i32, ptr %16, align 4
-  %278 = icmp sgt i32 %277, 63
-  br i1 %278, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i47, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i44
+283:                                              ; preds = %277
+  %284 = call double @frexp(double noundef %280, ptr noundef nonnull %16) #11
+  %285 = load i32, ptr %16, align 4
+  %286 = icmp sgt i32 %285, 63
+  br i1 %286, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i41, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i38
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i47: ; preds = %275, %270
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i41: ; preds = %283, %277
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  br label %281
+  br label %289
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i44: ; preds = %275
-  %279 = fptosi double %273 to i64
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i38: ; preds = %283
+  %287 = fptosi double %280 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  %280 = icmp eq i64 %279, 0
-  br i1 %280, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit48, label %281
+  %288 = icmp eq i64 %287, 0
+  br i1 %288, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42, label %289
 
-281:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i44, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i47
-  %.0.i17.i.i.i45 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i47 ], [ %279, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i44 ]
-  %282 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i45, i1 true)
-  %283 = trunc nuw nsw i64 %282 to i32
-  %284 = xor i32 %283, 63
-  %285 = call i32 @llvm.umin.i32(i32 %284, i32 32)
-  %286 = zext nneg i32 %285 to i64
-  br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit48
+289:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i38, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i41
+  %.0.i17.i.i.i39 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i41 ], [ %287, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i38 ]
+  %290 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i39, i1 true)
+  %291 = trunc nuw nsw i64 %290 to i32
+  %292 = xor i32 %291, 63
+  %293 = call i32 @llvm.umin.i32(i32 %292, i32 32)
+  %294 = zext nneg i32 %293 to i64
+  br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42
 
-_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit48: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit40, %267, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i44, %281
-  %.0.i.i.i46 = phi i64 [ %286, %281 ], [ %263, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit40 ], [ 0, %267 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i44 ]
-  %287 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i46, i64 30)
-  %288 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %287, i64 0)
+_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35, %274, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i38, %289
+  %.0.i.i.i40 = phi i64 [ %294, %289 ], [ %270, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35 ], [ 0, %274 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i38 ]
+  %295 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i40, i64 30)
+  %296 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %295, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  store i64 %288, ptr %15, align 8
-  %289 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 397, i32 noundef 3, ptr noundef nonnull %15, i32 noundef 5) #11
+  store i64 %296, ptr %15, align 8
+  %297 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 397, i32 noundef 3, ptr noundef nonnull %15, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  %290 = load i64, ptr @Tier3InvokeNotifyFreqLog, align 8
-  %291 = load double, ptr @CompileThresholdScaling, align 8
-  %292 = fcmp oeq double %291, 1.000000e+00
-  %293 = fcmp olt double %291, 0.000000e+00
-  %or.cond.i.i.i49 = or i1 %292, %293
-  br i1 %or.cond.i.i.i49, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56, label %294
+  %298 = load i64, ptr @Tier3InvokeNotifyFreqLog, align 8
+  %299 = load double, ptr @CompileThresholdScaling, align 8
+  %300 = fcmp oeq double %299, 1.000000e+00
+  %301 = fcmp olt double %299, 0.000000e+00
+  %or.cond.i.i.i43 = or i1 %300, %301
+  br i1 %or.cond.i.i.i43, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49, label %302
 
-294:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit48
-  %295 = fcmp oeq double %291, 0.000000e+00
-  %296 = icmp eq i64 %290, 0
-  %or.cond3.i.i.i50 = or i1 %296, %295
-  br i1 %or.cond3.i.i.i50, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56, label %297
+302:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42
+  %303 = fcmp oeq double %299, 0.000000e+00
+  %304 = icmp eq i64 %298, 0
+  %or.cond3.i.i.i44 = or i1 %304, %303
+  br i1 %or.cond3.i.i.i44, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49, label %305
 
-297:                                              ; preds = %294
-  %298 = shl nuw i64 1, %290
+305:                                              ; preds = %302
+  %306 = shl nuw i64 1, %298
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  %299 = sitofp i64 %298 to double
-  %300 = fmul double %291, %299
-  %301 = call double @llvm.fabs.f64(double %300)
-  %or.cond15.i.i.i.i51 = fcmp ueq double %301, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i.i51, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i55, label %302
+  %307 = sitofp i64 %306 to double
+  %308 = fmul double %299, %307
+  %309 = call double @llvm.fabs.f64(double %308)
+  %310 = fcmp ueq double %309, 0x7FF0000000000000
+  br i1 %310, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i48, label %311
 
-302:                                              ; preds = %297
-  %303 = call double @frexp(double noundef %300, ptr noundef nonnull %14) #11
-  %304 = load i32, ptr %14, align 4
-  %305 = icmp sgt i32 %304, 63
-  br i1 %305, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i55, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52
+311:                                              ; preds = %305
+  %312 = call double @frexp(double noundef %308, ptr noundef nonnull %14) #11
+  %313 = load i32, ptr %14, align 4
+  %314 = icmp sgt i32 %313, 63
+  br i1 %314, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i48, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i45
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i55: ; preds = %302, %297
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i48: ; preds = %311, %305
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  br label %308
+  br label %317
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52: ; preds = %302
-  %306 = fptosi double %300 to i64
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i45: ; preds = %311
+  %315 = fptosi double %308 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  %307 = icmp eq i64 %306, 0
-  br i1 %307, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56, label %308
+  %316 = icmp eq i64 %315, 0
+  br i1 %316, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49, label %317
 
-308:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i55
-  %.0.i17.i.i.i53 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i55 ], [ %306, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52 ]
-  %309 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i53, i1 true)
-  %310 = trunc nuw nsw i64 %309 to i32
-  %311 = xor i32 %310, 63
-  %312 = call i32 @llvm.umin.i32(i32 %311, i32 32)
-  %313 = zext nneg i32 %312 to i64
+317:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i45, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i48
+  %.0.i17.i.i.i46 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i48 ], [ %315, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i45 ]
+  %318 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i46, i1 true)
+  %319 = trunc nuw nsw i64 %318 to i32
+  %320 = xor i32 %319, 63
+  %321 = call i32 @llvm.umin.i32(i32 %320, i32 32)
+  %322 = zext nneg i32 %321 to i64
+  br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49
+
+_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42, %302, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i45, %317
+  %.0.i.i.i47 = phi i64 [ %322, %317 ], [ %298, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42 ], [ 0, %302 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i45 ]
+  %323 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i47, i64 30)
+  %324 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %323, i64 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  store i64 %324, ptr %13, align 8
+  %325 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 394, i32 noundef 3, ptr noundef nonnull %13, i32 noundef 5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  %326 = load i64, ptr @Tier3BackedgeNotifyFreqLog, align 8
+  %327 = load double, ptr @CompileThresholdScaling, align 8
+  %328 = fcmp oeq double %327, 1.000000e+00
+  %329 = fcmp olt double %327, 0.000000e+00
+  %or.cond.i.i.i50 = or i1 %328, %329
+  br i1 %or.cond.i.i.i50, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56, label %330
+
+330:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49
+  %331 = fcmp oeq double %327, 0.000000e+00
+  %332 = icmp eq i64 %326, 0
+  %or.cond3.i.i.i51 = or i1 %332, %331
+  br i1 %or.cond3.i.i.i51, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56, label %333
+
+333:                                              ; preds = %330
+  %334 = shl nuw i64 1, %326
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  %335 = sitofp i64 %334 to double
+  %336 = fmul double %327, %335
+  %337 = call double @llvm.fabs.f64(double %336)
+  %338 = fcmp ueq double %337, 0x7FF0000000000000
+  br i1 %338, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i55, label %339
+
+339:                                              ; preds = %333
+  %340 = call double @frexp(double noundef %336, ptr noundef nonnull %12) #11
+  %341 = load i32, ptr %12, align 4
+  %342 = icmp sgt i32 %341, 63
+  br i1 %342, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i55, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52
+
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i55: ; preds = %339, %333
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  br label %345
+
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52: ; preds = %339
+  %343 = fptosi double %336 to i64
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  %344 = icmp eq i64 %343, 0
+  br i1 %344, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56, label %345
+
+345:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i55
+  %.0.i17.i.i.i53 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i55 ], [ %343, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52 ]
+  %346 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i53, i1 true)
+  %347 = trunc nuw nsw i64 %346 to i32
+  %348 = xor i32 %347, 63
+  %349 = call i32 @llvm.umin.i32(i32 %348, i32 32)
+  %350 = zext nneg i32 %349 to i64
   br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56
 
-_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit48, %294, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52, %308
-  %.0.i.i.i54 = phi i64 [ %313, %308 ], [ %290, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit48 ], [ 0, %294 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52 ]
-  %314 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i54, i64 30)
-  %315 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %314, i64 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  store i64 %315, ptr %13, align 8
-  %316 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 394, i32 noundef 3, ptr noundef nonnull %13, i32 noundef 5) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %317 = load i64, ptr @Tier3BackedgeNotifyFreqLog, align 8
-  %318 = load double, ptr @CompileThresholdScaling, align 8
-  %319 = fcmp oeq double %318, 1.000000e+00
-  %320 = fcmp olt double %318, 0.000000e+00
-  %or.cond.i.i.i57 = or i1 %319, %320
-  br i1 %or.cond.i.i.i57, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit64, label %321
-
-321:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56
-  %322 = fcmp oeq double %318, 0.000000e+00
-  %323 = icmp eq i64 %317, 0
-  %or.cond3.i.i.i58 = or i1 %323, %322
-  br i1 %or.cond3.i.i.i58, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit64, label %324
-
-324:                                              ; preds = %321
-  %325 = shl nuw i64 1, %317
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %326 = sitofp i64 %325 to double
-  %327 = fmul double %318, %326
-  %328 = call double @llvm.fabs.f64(double %327)
-  %or.cond15.i.i.i.i59 = fcmp ueq double %328, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i.i59, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i63, label %329
-
-329:                                              ; preds = %324
-  %330 = call double @frexp(double noundef %327, ptr noundef nonnull %12) #11
-  %331 = load i32, ptr %12, align 4
-  %332 = icmp sgt i32 %331, 63
-  br i1 %332, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i63, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i60
-
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i63: ; preds = %329, %324
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  br label %335
-
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i60: ; preds = %329
-  %333 = fptosi double %327 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  %334 = icmp eq i64 %333, 0
-  br i1 %334, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit64, label %335
-
-335:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i60, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i63
-  %.0.i17.i.i.i61 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i63 ], [ %333, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i60 ]
-  %336 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i61, i1 true)
-  %337 = trunc nuw nsw i64 %336 to i32
-  %338 = xor i32 %337, 63
-  %339 = call i32 @llvm.umin.i32(i32 %338, i32 32)
-  %340 = zext nneg i32 %339 to i64
-  br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit64
-
-_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit64: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56, %321, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i60, %335
-  %.0.i.i.i62 = phi i64 [ %340, %335 ], [ %317, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56 ], [ 0, %321 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i60 ]
-  %341 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i62, i64 30)
-  %342 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %341, i64 0)
+_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49, %330, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52, %345
+  %.0.i.i.i54 = phi i64 [ %350, %345 ], [ %326, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49 ], [ 0, %330 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52 ]
+  %351 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i54, i64 30)
+  %352 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %351, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  store i64 %342, ptr %11, align 8
-  %343 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 398, i32 noundef 3, ptr noundef nonnull %11, i32 noundef 5) #11
+  store i64 %352, ptr %11, align 8
+  %353 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 398, i32 noundef 3, ptr noundef nonnull %11, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %344 = load i64, ptr @Tier23InlineeNotifyFreqLog, align 8
-  %345 = load double, ptr @CompileThresholdScaling, align 8
-  %346 = fcmp oeq double %345, 1.000000e+00
-  %347 = fcmp olt double %345, 0.000000e+00
-  %or.cond.i.i.i65 = or i1 %346, %347
-  br i1 %or.cond.i.i.i65, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit72, label %348
+  %354 = load i64, ptr @Tier23InlineeNotifyFreqLog, align 8
+  %355 = load double, ptr @CompileThresholdScaling, align 8
+  %356 = fcmp oeq double %355, 1.000000e+00
+  %357 = fcmp olt double %355, 0.000000e+00
+  %or.cond.i.i.i57 = or i1 %356, %357
+  br i1 %or.cond.i.i.i57, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63, label %358
 
-348:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit64
-  %349 = fcmp oeq double %345, 0.000000e+00
-  %350 = icmp eq i64 %344, 0
-  %or.cond3.i.i.i66 = or i1 %350, %349
-  br i1 %or.cond3.i.i.i66, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit72, label %351
+358:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56
+  %359 = fcmp oeq double %355, 0.000000e+00
+  %360 = icmp eq i64 %354, 0
+  %or.cond3.i.i.i58 = or i1 %360, %359
+  br i1 %or.cond3.i.i.i58, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63, label %361
 
-351:                                              ; preds = %348
-  %352 = shl nuw i64 1, %344
+361:                                              ; preds = %358
+  %362 = shl nuw i64 1, %354
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %353 = sitofp i64 %352 to double
-  %354 = fmul double %345, %353
-  %355 = call double @llvm.fabs.f64(double %354)
-  %or.cond15.i.i.i.i67 = fcmp ueq double %355, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i.i67, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i71, label %356
+  %363 = sitofp i64 %362 to double
+  %364 = fmul double %355, %363
+  %365 = call double @llvm.fabs.f64(double %364)
+  %366 = fcmp ueq double %365, 0x7FF0000000000000
+  br i1 %366, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i62, label %367
 
-356:                                              ; preds = %351
-  %357 = call double @frexp(double noundef %354, ptr noundef nonnull %10) #11
-  %358 = load i32, ptr %10, align 4
-  %359 = icmp sgt i32 %358, 63
-  br i1 %359, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i71, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i68
+367:                                              ; preds = %361
+  %368 = call double @frexp(double noundef %364, ptr noundef nonnull %10) #11
+  %369 = load i32, ptr %10, align 4
+  %370 = icmp sgt i32 %369, 63
+  br i1 %370, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i62, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i59
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i71: ; preds = %356, %351
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i62: ; preds = %367, %361
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %362
+  br label %373
 
-_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i68: ; preds = %356
-  %360 = fptosi double %354 to i64
+_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i59: ; preds = %367
+  %371 = fptosi double %364 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %361 = icmp eq i64 %360, 0
-  br i1 %361, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit72, label %362
+  %372 = icmp eq i64 %371, 0
+  br i1 %372, label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63, label %373
 
-362:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i68, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i71
-  %.0.i17.i.i.i69 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i71 ], [ %360, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i68 ]
-  %363 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i69, i1 true)
-  %364 = trunc nuw nsw i64 %363 to i32
-  %365 = xor i32 %364, 63
-  %366 = call i32 @llvm.umin.i32(i32 %365, i32 32)
-  %367 = zext nneg i32 %366 to i64
-  br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit72
+373:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i59, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i62
+  %.0.i17.i.i.i60 = phi i64 [ 9223372036854775807, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread.i.i.i62 ], [ %371, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i59 ]
+  %374 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i17.i.i.i60, i1 true)
+  %375 = trunc nuw nsw i64 %374 to i32
+  %376 = xor i32 %375, 63
+  %377 = call i32 @llvm.umin.i32(i32 %376, i32 32)
+  %378 = zext nneg i32 %377 to i64
+  br label %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63
 
-_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit72: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit64, %348, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i68, %362
-  %.0.i.i.i70 = phi i64 [ %367, %362 ], [ %344, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit64 ], [ 0, %348 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i68 ]
-  %368 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i70, i64 30)
-  %369 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %368, i64 0)
+_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56, %358, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i59, %373
+  %.0.i.i.i61 = phi i64 [ %378, %373 ], [ %354, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56 ], [ 0, %358 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i59 ]
+  %379 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i61, i64 30)
+  %380 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %379, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store i64 %369, ptr %9, align 8
-  %370 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 395, i32 noundef 3, ptr noundef nonnull %9, i32 noundef 5) #11
+  store i64 %380, ptr %9, align 8
+  %381 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 395, i32 noundef 3, ptr noundef nonnull %9, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %371 = load i64, ptr @Tier4InvocationThreshold, align 8
-  %372 = load double, ptr @CompileThresholdScaling, align 8
+  %382 = load i64, ptr @Tier4InvocationThreshold, align 8
+  %383 = load double, ptr @CompileThresholdScaling, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %373 = fcmp oeq double %372, 1.000000e+00
-  %374 = fcmp olt double %372, 0.000000e+00
-  %or.cond.i.i.i73 = or i1 %373, %374
-  br i1 %or.cond.i.i.i73, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit77, label %375
+  %384 = fcmp oeq double %383, 1.000000e+00
+  %385 = fcmp olt double %383, 0.000000e+00
+  %or.cond.i.i.i64 = or i1 %384, %385
+  br i1 %or.cond.i.i.i64, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67, label %386
 
-375:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit72
-  %376 = sitofp i64 %371 to double
-  %377 = fmul double %372, %376
-  %378 = call double @llvm.fabs.f64(double %377)
-  %or.cond15.i.i.i74 = fcmp ueq double %378, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i74, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit77, label %379
+386:                                              ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63
+  %387 = sitofp i64 %382 to double
+  %388 = fmul double %383, %387
+  %389 = call double @llvm.fabs.f64(double %388)
+  %390 = fcmp ueq double %389, 0x7FF0000000000000
+  br i1 %390, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67, label %391
 
-379:                                              ; preds = %375
-  %380 = call double @frexp(double noundef %377, ptr noundef nonnull %8) #11
-  %381 = load i32, ptr %8, align 4
-  %382 = icmp sgt i32 %381, 63
-  %383 = fptosi double %377 to i64
-  %spec.select.i.i.i75 = select i1 %382, i64 9223372036854775807, i64 %383
-  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit77
+391:                                              ; preds = %386
+  %392 = call double @frexp(double noundef %388, ptr noundef nonnull %8) #11
+  %393 = load i32, ptr %8, align 4
+  %394 = icmp sgt i32 %393, 63
+  %395 = fptosi double %388 to i64
+  %spec.select.i.i.i65 = select i1 %394, i64 9223372036854775807, i64 %395
+  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67
 
-_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit77: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit72, %375, %379
-  %.0.i.i.i76 = phi i64 [ %371, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit72 ], [ 9223372036854775807, %375 ], [ %spec.select.i.i.i75, %379 ]
+_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63, %386, %391
+  %.0.i.i.i66 = phi i64 [ %382, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63 ], [ 9223372036854775807, %386 ], [ %spec.select.i.i.i65, %391 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %384 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i76, i64 2147483647)
-  %385 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %384, i64 0)
+  %396 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i66, i64 2147483647)
+  %397 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %396, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store i64 %385, ptr %7, align 8
-  %386 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 405, i32 noundef 3, ptr noundef nonnull %7, i32 noundef 5) #11
+  store i64 %397, ptr %7, align 8
+  %398 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 405, i32 noundef 3, ptr noundef nonnull %7, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %387 = load i64, ptr @Tier4MinInvocationThreshold, align 8
-  %388 = load double, ptr @CompileThresholdScaling, align 8
+  %399 = load i64, ptr @Tier4MinInvocationThreshold, align 8
+  %400 = load double, ptr @CompileThresholdScaling, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %389 = fcmp oeq double %388, 1.000000e+00
-  %390 = fcmp olt double %388, 0.000000e+00
-  %or.cond.i.i.i78 = or i1 %389, %390
-  br i1 %or.cond.i.i.i78, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit82, label %391
+  %401 = fcmp oeq double %400, 1.000000e+00
+  %402 = fcmp olt double %400, 0.000000e+00
+  %or.cond.i.i.i68 = or i1 %401, %402
+  br i1 %or.cond.i.i.i68, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71, label %403
 
-391:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit77
-  %392 = sitofp i64 %387 to double
-  %393 = fmul double %388, %392
-  %394 = call double @llvm.fabs.f64(double %393)
-  %or.cond15.i.i.i79 = fcmp ueq double %394, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i79, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit82, label %395
+403:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67
+  %404 = sitofp i64 %399 to double
+  %405 = fmul double %400, %404
+  %406 = call double @llvm.fabs.f64(double %405)
+  %407 = fcmp ueq double %406, 0x7FF0000000000000
+  br i1 %407, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71, label %408
 
-395:                                              ; preds = %391
-  %396 = call double @frexp(double noundef %393, ptr noundef nonnull %6) #11
-  %397 = load i32, ptr %6, align 4
-  %398 = icmp sgt i32 %397, 63
-  %399 = fptosi double %393 to i64
-  %spec.select.i.i.i80 = select i1 %398, i64 9223372036854775807, i64 %399
-  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit82
+408:                                              ; preds = %403
+  %409 = call double @frexp(double noundef %405, ptr noundef nonnull %6) #11
+  %410 = load i32, ptr %6, align 4
+  %411 = icmp sgt i32 %410, 63
+  %412 = fptosi double %405 to i64
+  %spec.select.i.i.i69 = select i1 %411, i64 9223372036854775807, i64 %412
+  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71
 
-_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit82: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit77, %391, %395
-  %.0.i.i.i81 = phi i64 [ %387, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit77 ], [ 9223372036854775807, %391 ], [ %spec.select.i.i.i80, %395 ]
+_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67, %403, %408
+  %.0.i.i.i70 = phi i64 [ %399, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67 ], [ 9223372036854775807, %403 ], [ %spec.select.i.i.i69, %408 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %400 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i81, i64 2147483647)
-  %401 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %400, i64 0)
+  %413 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i70, i64 2147483647)
+  %414 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %413, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store i64 %401, ptr %5, align 8
-  %402 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 406, i32 noundef 3, ptr noundef nonnull %5, i32 noundef 5) #11
+  store i64 %414, ptr %5, align 8
+  %415 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 406, i32 noundef 3, ptr noundef nonnull %5, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %403 = load i64, ptr @Tier4CompileThreshold, align 8
-  %404 = load double, ptr @CompileThresholdScaling, align 8
+  %416 = load i64, ptr @Tier4CompileThreshold, align 8
+  %417 = load double, ptr @CompileThresholdScaling, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %405 = fcmp oeq double %404, 1.000000e+00
-  %406 = fcmp olt double %404, 0.000000e+00
-  %or.cond.i.i.i83 = or i1 %405, %406
-  br i1 %or.cond.i.i.i83, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit87, label %407
+  %418 = fcmp oeq double %417, 1.000000e+00
+  %419 = fcmp olt double %417, 0.000000e+00
+  %or.cond.i.i.i72 = or i1 %418, %419
+  br i1 %or.cond.i.i.i72, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75, label %420
 
-407:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit82
-  %408 = sitofp i64 %403 to double
-  %409 = fmul double %404, %408
-  %410 = call double @llvm.fabs.f64(double %409)
-  %or.cond15.i.i.i84 = fcmp ueq double %410, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i84, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit87, label %411
+420:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71
+  %421 = sitofp i64 %416 to double
+  %422 = fmul double %417, %421
+  %423 = call double @llvm.fabs.f64(double %422)
+  %424 = fcmp ueq double %423, 0x7FF0000000000000
+  br i1 %424, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75, label %425
 
-411:                                              ; preds = %407
-  %412 = call double @frexp(double noundef %409, ptr noundef nonnull %4) #11
-  %413 = load i32, ptr %4, align 4
-  %414 = icmp sgt i32 %413, 63
-  %415 = fptosi double %409 to i64
-  %spec.select.i.i.i85 = select i1 %414, i64 9223372036854775807, i64 %415
-  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit87
+425:                                              ; preds = %420
+  %426 = call double @frexp(double noundef %422, ptr noundef nonnull %4) #11
+  %427 = load i32, ptr %4, align 4
+  %428 = icmp sgt i32 %427, 63
+  %429 = fptosi double %422 to i64
+  %spec.select.i.i.i73 = select i1 %428, i64 9223372036854775807, i64 %429
+  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75
 
-_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit87: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit82, %407, %411
-  %.0.i.i.i86 = phi i64 [ %403, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit82 ], [ 9223372036854775807, %407 ], [ %spec.select.i.i.i85, %411 ]
+_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71, %420, %425
+  %.0.i.i.i74 = phi i64 [ %416, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71 ], [ 9223372036854775807, %420 ], [ %spec.select.i.i.i73, %425 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %416 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i86, i64 2147483647)
-  %417 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %416, i64 0)
+  %430 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i74, i64 2147483647)
+  %431 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %430, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i64 %417, ptr %3, align 8
-  %418 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 407, i32 noundef 3, ptr noundef nonnull %3, i32 noundef 5) #11
+  store i64 %431, ptr %3, align 8
+  %432 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 407, i32 noundef 3, ptr noundef nonnull %3, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %419 = load i64, ptr @Tier4BackEdgeThreshold, align 8
-  %420 = load double, ptr @CompileThresholdScaling, align 8
+  %433 = load i64, ptr @Tier4BackEdgeThreshold, align 8
+  %434 = load double, ptr @CompileThresholdScaling, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %421 = fcmp oeq double %420, 1.000000e+00
-  %422 = fcmp olt double %420, 0.000000e+00
-  %or.cond.i.i.i88 = or i1 %421, %422
-  br i1 %or.cond.i.i.i88, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit92, label %423
+  %435 = fcmp oeq double %434, 1.000000e+00
+  %436 = fcmp olt double %434, 0.000000e+00
+  %or.cond.i.i.i76 = or i1 %435, %436
+  br i1 %or.cond.i.i.i76, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit79, label %437
 
-423:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit87
-  %424 = sitofp i64 %419 to double
-  %425 = fmul double %420, %424
-  %426 = call double @llvm.fabs.f64(double %425)
-  %or.cond15.i.i.i89 = fcmp ueq double %426, 0x7FF0000000000000
-  br i1 %or.cond15.i.i.i89, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit92, label %427
+437:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75
+  %438 = sitofp i64 %433 to double
+  %439 = fmul double %434, %438
+  %440 = call double @llvm.fabs.f64(double %439)
+  %441 = fcmp ueq double %440, 0x7FF0000000000000
+  br i1 %441, label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit79, label %442
 
-427:                                              ; preds = %423
-  %428 = call double @frexp(double noundef %425, ptr noundef nonnull %2) #11
-  %429 = load i32, ptr %2, align 4
-  %430 = icmp sgt i32 %429, 63
-  %431 = fptosi double %425 to i64
-  %spec.select.i.i.i90 = select i1 %430, i64 9223372036854775807, i64 %431
-  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit92
+442:                                              ; preds = %437
+  %443 = call double @frexp(double noundef %439, ptr noundef nonnull %2) #11
+  %444 = load i32, ptr %2, align 4
+  %445 = icmp sgt i32 %444, 63
+  %446 = fptosi double %439 to i64
+  %spec.select.i.i.i77 = select i1 %445, i64 9223372036854775807, i64 %446
+  br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit79
 
-_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit92: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit87, %423, %427
-  %.0.i.i.i91 = phi i64 [ %419, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit87 ], [ 9223372036854775807, %423 ], [ %spec.select.i.i.i90, %427 ]
+_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit79: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75, %437, %442
+  %.0.i.i.i78 = phi i64 [ %433, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75 ], [ 9223372036854775807, %437 ], [ %spec.select.i.i.i77, %442 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %432 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i91, i64 2147483647)
-  %433 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %432, i64 0)
+  %447 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i78, i64 2147483647)
+  %448 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %447, i64 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  store i64 %433, ptr %1, align 8
-  %434 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 408, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 5) #11
+  store i64 %448, ptr %1, align 8
+  %449 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 408, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %435
+  br label %450
 
-435:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit92, %114
-  %436 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 110) #11
-  %437 = load i64, ptr @TieredStopAtLevel, align 8
-  %438 = icmp eq i64 %437, 4
-  %or.cond5 = select i1 %436, i1 %438, i1 false
+450:                                              ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit79, %114
+  %451 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 110) #11
+  %452 = load i64, ptr @TieredStopAtLevel, align 8
+  %453 = icmp eq i64 %452, 4
+  %or.cond5 = select i1 %451, i1 %453, i1 false
   %.pre = load i32, ptr @_ZN9Arguments5_modeE, align 4
-  br i1 %or.cond5, label %439, label %443
+  br i1 %or.cond5, label %454, label %458
 
-439:                                              ; preds = %435
-  %440 = icmp ne i32 %.pre, 0
-  %441 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %442 = icmp eq i32 %441, 1
-  %or.cond111 = select i1 %440, i1 %442, i1 false
-  br i1 %or.cond111, label %443, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.thread
+454:                                              ; preds = %450
+  %455 = icmp ne i32 %.pre, 0
+  %456 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %457 = icmp eq i32 %456, 1
+  %or.cond98 = select i1 %455, i1 %457, i1 false
+  br i1 %or.cond98, label %458, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.thread
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.thread:    ; preds = %439
+_ZN14CompilerConfig10is_c1_onlyEv.exit.thread:    ; preds = %454
   store i64 5, ptr @C1InlineStackLimit, align 8
-  br label %443
+  br label %458
 
-443:                                              ; preds = %439, %_ZN14CompilerConfig10is_c1_onlyEv.exit.thread, %435
-  %444 = icmp eq i32 %.pre, 0
-  %445 = icmp eq i64 %437, 0
-  %446 = select i1 %444, i1 true, i1 %445
-  br i1 %446, label %_ZN14CompilerConfig9is_tieredEv.exit97.thread, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i94
+458:                                              ; preds = %454, %_ZN14CompilerConfig10is_c1_onlyEv.exit.thread, %450
+  %459 = icmp eq i32 %.pre, 0
+  %460 = icmp eq i64 %452, 0
+  %461 = select i1 %459, i1 true, i1 %460
+  br i1 %461, label %_ZN14CompilerConfig9is_tieredEv.exit84.thread, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i81
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i94:       ; preds = %443
-  %447 = load i8, ptr @TieredCompilation, align 1
-  %448 = trunc i8 %447 to i1
-  %449 = add i64 %437, -1
-  %450 = icmp ult i64 %449, 3
-  %spec.select.i.i95 = select i1 %448, i1 %450, i1 false
-  %451 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %452 = icmp eq i32 %451, 1
-  %453 = or i1 %spec.select.i.i95, %452
-  %.not103 = xor i1 %453, true
-  %454 = icmp ne i32 %451, 2
-  %455 = and i1 %454, %.not103
-  %or.cond105 = and i1 %455, %448
-  %or.cond105.not = xor i1 %or.cond105, true
-  %456 = load i8, ptr @UseJVMCICompiler, align 1
-  %457 = trunc i8 %456 to i1
-  %458 = select i1 %or.cond105.not, i1 true, i1 %450
-  %or.cond114 = select i1 %458, i1 true, i1 %457
-  br i1 %or.cond114, label %_ZN14CompilerConfig9is_tieredEv.exit97.thread, label %459
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i81:       ; preds = %458
+  %462 = load i8, ptr @TieredCompilation, align 1
+  %463 = trunc i8 %462 to i1
+  %464 = add i64 %452, -1
+  %465 = icmp ult i64 %464, 3
+  %spec.select.i.i82 = select i1 %463, i1 %465, i1 false
+  %466 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %467 = icmp eq i32 %466, 1
+  %468 = or i1 %spec.select.i.i82, %467
+  %.not90 = xor i1 %468, true
+  %469 = icmp ne i32 %466, 2
+  %470 = and i1 %469, %.not90
+  %or.cond92 = and i1 %470, %463
+  %or.cond92.not = xor i1 %or.cond92, true
+  %471 = load i8, ptr @UseJVMCICompiler, align 1
+  %472 = trunc i8 %471 to i1
+  %473 = select i1 %or.cond92.not, i1 true, i1 %465
+  %or.cond101 = select i1 %473, i1 true, i1 %472
+  br i1 %or.cond101, label %_ZN14CompilerConfig9is_tieredEv.exit84.thread, label %474
 
-459:                                              ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i94
-  %460 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 330) #11
-  br i1 %460, label %461, label %_ZN14CompilerConfig9is_tieredEv.exit97.thread
+474:                                              ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i81
+  %475 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 330) #11
+  br i1 %475, label %476, label %_ZN14CompilerConfig9is_tieredEv.exit84.thread
 
-461:                                              ; preds = %459
+476:                                              ; preds = %474
   store i64 2500, ptr @InlineSmallCode, align 8
-  br label %_ZN14CompilerConfig9is_tieredEv.exit97.thread
+  br label %_ZN14CompilerConfig9is_tieredEv.exit84.thread
 
-_ZN14CompilerConfig9is_tieredEv.exit97.thread:    ; preds = %443, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i94, %459, %461
+_ZN14CompilerConfig9is_tieredEv.exit84.thread:    ; preds = %458, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i81, %474, %476
   ret void
 }
 

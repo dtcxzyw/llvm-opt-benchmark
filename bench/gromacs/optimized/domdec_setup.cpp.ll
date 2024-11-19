@@ -2263,7 +2263,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %_ZNSt6vectorIiSaIiE
   %.02835.i.i = phi i32 [ %42, %.lr.ph.i.i ], [ %36, %32 ]
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %40 = sub i32 %spec.select.i.i, %spec.select3337.i.i
-  %41 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %40, i1 true)
+  %41 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %40, i1 true)
   %42 = lshr i32 %40, %41
   %spec.select33.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %42)
   %43 = icmp eq i32 %spec.select3337.i.i, %42
@@ -2341,7 +2341,7 @@ define linkonce_odr noundef i32 @_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S
   %.02835.i = phi i32 [ %16, %.lr.ph.i ], [ %10, %6 ]
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.02736.i, i32 %.02835.i)
   %14 = sub i32 %spec.select.i, %spec.select3337.i
-  %15 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %14, i1 true)
+  %15 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %14, i1 true)
   %16 = lshr i32 %14, %15
   %spec.select33.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i, i32 %16)
   %17 = icmp eq i32 %spec.select3337.i, %16

@@ -2866,7 +2866,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEZNS_10UnrollLoopEPNS_4LoopE
   %.02835.i.i = phi i32 [ %217, %.lr.ph.i.i ], [ %211, %207 ]
   %spec.select.i.i397 = call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %215 = sub i32 %spec.select.i.i397, %spec.select3337.i.i
-  %216 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %215, i1 true)
+  %216 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %215, i1 true)
   %217 = lshr i32 %215, %216
   %spec.select33.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %217)
   %218 = icmp eq i32 %spec.select3337.i.i, %217

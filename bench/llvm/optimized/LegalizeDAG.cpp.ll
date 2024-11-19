@@ -2330,7 +2330,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread.i:                ; preds = %885, %._ZNK4llvm3EV
 
 _ZN4llvm13isPowerOf2_64Em.exit.thread.i:          ; preds = %.critedge.i
   %892 = trunc i64 %.fca.0.extract367997.i to i32
-  %893 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %892, i1 true)
+  %893 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %892, i1 true)
   %894 = lshr exact i32 -2147483648, %893
   %895 = sub i32 %892, %894
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4085,7 +4085,7 @@ _ZNK4llvm3EVT8isVectorEv.exit.i:                  ; preds = %_ZNK4llvm7details23
 
 _ZN4llvm13isPowerOf2_64Em.exit.thread.i540:       ; preds = %1526
   %1528 = trunc i64 %.fca.0.extract266631.i to i32
-  %1529 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1528, i1 true)
+  %1529 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1528, i1 true)
   %1530 = lshr exact i32 -2147483648, %1529
   %1531 = sub i32 %1528, %1530
   switch i32 %1530, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i415.i [

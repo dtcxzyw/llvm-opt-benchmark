@@ -809,25 +809,23 @@ define internal fastcc void @_ZL15drawOpticalFlowRKN2cv4Mat_INS_6Point_IfEEEERNS
 
 31:                                               ; preds = %28
   %.sroa.0.4.vec.extract.i.us = extractelement <2 x float> %.sroa.011.0.copyload.us, i64 1
-  %32 = fcmp ord float %.sroa.0.4.vec.extract.i.us, 0.000000e+00
-  %33 = call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i.us)
-  %34 = fcmp olt float %33, 1.000000e+09
-  %or.cond.i.us = and i1 %32, %34
-  %35 = call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i.us)
-  %36 = fcmp olt float %35, 1.000000e+09
-  %or.cond.us = and i1 %36, %or.cond.i.us
-  br i1 %or.cond.us, label %37, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
+  %32 = call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i.us)
+  %33 = fcmp olt float %32, 1.000000e+09
+  %34 = call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i.us)
+  %35 = fcmp olt float %34, 1.000000e+09
+  %or.cond.us = and i1 %35, %33
+  br i1 %or.cond.us, label %36, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
 
-37:                                               ; preds = %31
-  %38 = fmul float %.sroa.0.4.vec.extract.i.us, %.sroa.0.4.vec.extract.i.us
-  %39 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i.us, float %.sroa.0.0.vec.extract.i.us, float %38)
-  %sqrt.us = call float @llvm.sqrt.f32(float %39)
-  %40 = fcmp olt float %.151.us, %sqrt.us
-  %.sroa.speculated.us = select i1 %40, float %sqrt.us, float %.151.us
+36:                                               ; preds = %31
+  %37 = fmul float %.sroa.0.4.vec.extract.i.us, %.sroa.0.4.vec.extract.i.us
+  %38 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i.us, float %.sroa.0.0.vec.extract.i.us, float %37)
+  %sqrt.us = call float @llvm.sqrt.f32(float %38)
+  %39 = fcmp olt float %.151.us, %sqrt.us
+  %.sroa.speculated.us = select i1 %39, float %sqrt.us, float %.151.us
   br label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
 
-_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %37, %31, %28
-  %.2.us = phi float [ %.sroa.speculated.us, %37 ], [ %.151.us, %31 ], [ %.151.us, %28 ]
+_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
+  %.2.us = phi float [ %.sroa.speculated.us, %36 ], [ %.151.us, %31 ], [ %.151.us, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !5
@@ -839,79 +837,77 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %37, %31, %28
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge.us, %.preheader50.lr.ph
   %.045.lcssa75 = phi float [ 1.000000e+00, %.preheader50.lr.ph ], [ %.2.us, %._crit_edge.us ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 12
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
-  %45 = getelementptr inbounds i8, ptr %1, i64 72
-  %46 = load i32, ptr %41, align 4
-  %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.preheader, label %._crit_edge58
+  %40 = getelementptr inbounds i8, ptr %0, i64 12
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds i8, ptr %1, i64 72
+  %45 = load i32, ptr %40, align 4
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %.preheader, label %._crit_edge58
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %48 = phi i32 [ %149, %._crit_edge ], [ %16, %.preheader.lr.ph ]
-  %49 = phi i32 [ %150, %._crit_edge ], [ %46, %.preheader.lr.ph ]
-  %50 = phi i32 [ %151, %._crit_edge ], [ %46, %.preheader.lr.ph ]
+  %47 = phi i32 [ %147, %._crit_edge ], [ %16, %.preheader.lr.ph ]
+  %48 = phi i32 [ %148, %._crit_edge ], [ %45, %.preheader.lr.ph ]
+  %49 = phi i32 [ %149, %._crit_edge ], [ %45, %.preheader.lr.ph ]
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph, label %._crit_edge
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
-  %52 = phi i32 [ %146, %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread ], [ %49, %.preheader ]
+  %51 = phi i32 [ %144, %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread ], [ %48, %.preheader ]
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread ], [ 0, %.preheader ]
+  %52 = load ptr, ptr %41, align 8
   %53 = load ptr, ptr %42, align 8
-  %54 = load ptr, ptr %43, align 8
-  %55 = load i64, ptr %54, align 8
-  %56 = mul i64 %55, %indvars.iv70
-  %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = getelementptr inbounds %"class.cv::Point_", ptr %57, i64 %indvars.iv67
-  %.sroa.01.0.copyload = load <2 x float>, ptr %58, align 4
+  %54 = load i64, ptr %53, align 8
+  %55 = mul i64 %54, %indvars.iv70
+  %56 = getelementptr inbounds i8, ptr %52, i64 %55
+  %57 = getelementptr inbounds %"class.cv::Point_", ptr %56, i64 %indvars.iv67
+  %.sroa.01.0.copyload = load <2 x float>, ptr %57, align 4
   %.sroa.0.0.vec.extract.i40 = extractelement <2 x float> %.sroa.01.0.copyload, i64 0
-  %59 = fcmp ord float %.sroa.0.0.vec.extract.i40, 0.000000e+00
-  br i1 %59, label %60, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
+  %58 = fcmp ord float %.sroa.0.0.vec.extract.i40, 0.000000e+00
+  br i1 %58, label %59, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
 
-60:                                               ; preds = %.lr.ph
+59:                                               ; preds = %.lr.ph
   %.sroa.0.4.vec.extract.i41 = extractelement <2 x float> %.sroa.01.0.copyload, i64 1
-  %61 = fcmp ord float %.sroa.0.4.vec.extract.i41, 0.000000e+00
-  %62 = call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i40)
+  %60 = call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i40)
+  %61 = fcmp olt float %60, 1.000000e+09
+  %62 = call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i41)
   %63 = fcmp olt float %62, 1.000000e+09
-  %or.cond.i42 = and i1 %61, %63
-  %64 = call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i41)
-  %65 = fcmp olt float %64, 1.000000e+09
-  %or.cond48 = and i1 %65, %or.cond.i42
-  br i1 %or.cond48, label %66, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
+  %or.cond48 = and i1 %63, %61
+  br i1 %or.cond48, label %64, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
 
-66:                                               ; preds = %60
-  %67 = fdiv float %.sroa.0.0.vec.extract.i40, %.045.lcssa75
-  %68 = fdiv float %.sroa.0.4.vec.extract.i41, %.045.lcssa75
+64:                                               ; preds = %59
+  %65 = fdiv float %.sroa.0.0.vec.extract.i40, %.045.lcssa75
+  %66 = fdiv float %.sroa.0.4.vec.extract.i41, %.045.lcssa75
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %69 = load atomic i8, ptr @_ZGVZL12computeColorffE10colorWheel acquire, align 8, !noalias !8
-  %70 = icmp eq i8 %69, 0
-  br i1 %70, label %71, label %73, !prof !11
+  %67 = load atomic i8, ptr @_ZGVZL12computeColorffE10colorWheel acquire, align 8, !noalias !8
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %69, label %71, !prof !11
 
-71:                                               ; preds = %66
-  %72 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL12computeColorffE10colorWheel) #14, !noalias !8
-  %.not.i = icmp eq i32 %72, 0
-  br i1 %.not.i, label %73, label %.preheader95.preheader.i
+69:                                               ; preds = %64
+  %70 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL12computeColorffE10colorWheel) #14, !noalias !8
+  %.not.i = icmp eq i32 %70, 0
+  br i1 %.not.i, label %71, label %.preheader95.preheader.i
 
-.preheader95.preheader.i:                         ; preds = %71
+.preheader95.preheader.i:                         ; preds = %69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(660) @_ZZL12computeColorffE10colorWheel, i8 0, i64 660, i1 false), !noalias !8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL12computeColorffE10colorWheel) #14, !noalias !8
-  br label %73
+  br label %71
 
-73:                                               ; preds = %.preheader95.preheader.i, %71, %66
+71:                                               ; preds = %.preheader95.preheader.i, %69, %64
   %.b.i = load i1, ptr @_ZZL12computeColorffE5first, align 1, !noalias !8
-  br i1 %.b.i, label %100, label %.preheader94.i
+  br i1 %.b.i, label %98, label %.preheader94.i
 
-.preheader94.i:                                   ; preds = %73, %.preheader94.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader94.i ], [ 0, %73 ]
+.preheader94.i:                                   ; preds = %71, %.preheader94.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader94.i ], [ 0, %71 ]
   %indvars115.i = trunc i64 %indvars.iv.i to i32
-  %74 = mul nuw nsw i32 %indvars115.i, 17
-  %75 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv.i
-  store i32 255, ptr %75, align 4, !noalias !8
-  %.sroa.282.0..sroa_idx.i = getelementptr inbounds i8, ptr %75, i64 4
-  store i32 %74, ptr %.sroa.282.0..sroa_idx.i, align 4, !noalias !8
-  %.sroa.383.0..sroa_idx.i = getelementptr inbounds i8, ptr %75, i64 8
+  %72 = mul nuw nsw i32 %indvars115.i, 17
+  %73 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv.i
+  store i32 255, ptr %73, align 4, !noalias !8
+  %.sroa.282.0..sroa_idx.i = getelementptr inbounds i8, ptr %73, i64 4
+  store i32 %72, ptr %.sroa.282.0..sroa_idx.i, align 4, !noalias !8
+  %.sroa.383.0..sroa_idx.i = getelementptr inbounds i8, ptr %73, i64 8
   store i32 0, ptr %.sroa.383.0..sroa_idx.i, align 4, !noalias !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
@@ -919,180 +915,180 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %37, %31, %28
 
 .preheader93.i:                                   ; preds = %.preheader94.i, %.preheader93.i
   %indvars.iv116.i = phi i64 [ %indvars.iv.next117.i, %.preheader93.i ], [ 15, %.preheader94.i ]
-  %.06198.i = phi i32 [ %80, %.preheader93.i ], [ 0, %.preheader94.i ]
-  %76 = trunc nuw i32 %.06198.i to i16
-  %.lhs.trunc.i = mul nuw nsw i16 %76, 255
-  %77 = udiv i16 %.lhs.trunc.i, 6
-  %.zext.i = zext nneg i16 %77 to i32
-  %78 = sub nuw nsw i32 255, %.zext.i
-  %79 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv116.i
-  store i32 %78, ptr %79, align 4, !noalias !8
-  %.sroa.279.0..sroa_idx.i = getelementptr inbounds i8, ptr %79, i64 4
+  %.06198.i = phi i32 [ %78, %.preheader93.i ], [ 0, %.preheader94.i ]
+  %74 = trunc nuw i32 %.06198.i to i16
+  %.lhs.trunc.i = mul nuw nsw i16 %74, 255
+  %75 = udiv i16 %.lhs.trunc.i, 6
+  %.zext.i = zext nneg i16 %75 to i32
+  %76 = sub nuw nsw i32 255, %.zext.i
+  %77 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv116.i
+  store i32 %76, ptr %77, align 4, !noalias !8
+  %.sroa.279.0..sroa_idx.i = getelementptr inbounds i8, ptr %77, i64 4
   store i32 255, ptr %.sroa.279.0..sroa_idx.i, align 4, !noalias !8
-  %.sroa.380.0..sroa_idx.i = getelementptr inbounds i8, ptr %79, i64 8
+  %.sroa.380.0..sroa_idx.i = getelementptr inbounds i8, ptr %77, i64 8
   store i32 0, ptr %.sroa.380.0..sroa_idx.i, align 4, !noalias !8
-  %80 = add nuw nsw i32 %.06198.i, 1
+  %78 = add nuw nsw i32 %.06198.i, 1
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
-  %exitcond119.not.i = icmp eq i32 %80, 6
+  %exitcond119.not.i = icmp eq i32 %78, 6
   br i1 %exitcond119.not.i, label %.preheader92.i, label %.preheader93.i, !llvm.loop !13
 
 .preheader92.i:                                   ; preds = %.preheader93.i, %.preheader92.i
   %indvars.iv120.i = phi i64 [ %indvars.iv.next121.i, %.preheader92.i ], [ 21, %.preheader93.i ]
-  %.062100.i = phi i32 [ %84, %.preheader92.i ], [ 0, %.preheader93.i ]
-  %81 = mul nuw nsw i32 %.062100.i, 255
-  %82 = lshr i32 %81, 2
-  %83 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv120.i
-  store i32 0, ptr %83, align 4, !noalias !8
-  %.sroa.276.0..sroa_idx.i = getelementptr inbounds i8, ptr %83, i64 4
+  %.062100.i = phi i32 [ %82, %.preheader92.i ], [ 0, %.preheader93.i ]
+  %79 = mul nuw nsw i32 %.062100.i, 255
+  %80 = lshr i32 %79, 2
+  %81 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv120.i
+  store i32 0, ptr %81, align 4, !noalias !8
+  %.sroa.276.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 4
   store i32 255, ptr %.sroa.276.0..sroa_idx.i, align 4, !noalias !8
-  %.sroa.377.0..sroa_idx.i = getelementptr inbounds i8, ptr %83, i64 8
-  store i32 %82, ptr %.sroa.377.0..sroa_idx.i, align 4, !noalias !8
-  %84 = add nuw nsw i32 %.062100.i, 1
+  %.sroa.377.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 8
+  store i32 %80, ptr %.sroa.377.0..sroa_idx.i, align 4, !noalias !8
+  %82 = add nuw nsw i32 %.062100.i, 1
   %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 1
-  %exitcond123.not.i = icmp eq i32 %84, 4
+  %exitcond123.not.i = icmp eq i32 %82, 4
   br i1 %exitcond123.not.i, label %.preheader91.i, label %.preheader92.i, !llvm.loop !14
 
 .preheader91.i:                                   ; preds = %.preheader92.i, %.preheader91.i
   %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %.preheader91.i ], [ 25, %.preheader92.i ]
-  %.063102.i = phi i32 [ %89, %.preheader91.i ], [ 0, %.preheader92.i ]
-  %85 = trunc nuw i32 %.063102.i to i16
-  %.lhs.trunc84.i = mul nuw nsw i16 %85, 255
-  %86 = udiv i16 %.lhs.trunc84.i, 11
-  %.zext85.i = zext nneg i16 %86 to i32
-  %87 = sub nuw nsw i32 255, %.zext85.i
-  %88 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv124.i
-  store i32 0, ptr %88, align 4, !noalias !8
-  %.sroa.273.0..sroa_idx.i = getelementptr inbounds i8, ptr %88, i64 4
-  store i32 %87, ptr %.sroa.273.0..sroa_idx.i, align 4, !noalias !8
-  %.sroa.374.0..sroa_idx.i = getelementptr inbounds i8, ptr %88, i64 8
+  %.063102.i = phi i32 [ %87, %.preheader91.i ], [ 0, %.preheader92.i ]
+  %83 = trunc nuw i32 %.063102.i to i16
+  %.lhs.trunc84.i = mul nuw nsw i16 %83, 255
+  %84 = udiv i16 %.lhs.trunc84.i, 11
+  %.zext85.i = zext nneg i16 %84 to i32
+  %85 = sub nuw nsw i32 255, %.zext85.i
+  %86 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv124.i
+  store i32 0, ptr %86, align 4, !noalias !8
+  %.sroa.273.0..sroa_idx.i = getelementptr inbounds i8, ptr %86, i64 4
+  store i32 %85, ptr %.sroa.273.0..sroa_idx.i, align 4, !noalias !8
+  %.sroa.374.0..sroa_idx.i = getelementptr inbounds i8, ptr %86, i64 8
   store i32 255, ptr %.sroa.374.0..sroa_idx.i, align 4, !noalias !8
-  %89 = add nuw nsw i32 %.063102.i, 1
+  %87 = add nuw nsw i32 %.063102.i, 1
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
-  %exitcond127.not.i = icmp eq i32 %89, 11
+  %exitcond127.not.i = icmp eq i32 %87, 11
   br i1 %exitcond127.not.i, label %.preheader90.i, label %.preheader91.i, !llvm.loop !15
 
 .preheader90.i:                                   ; preds = %.preheader91.i, %.preheader90.i
   %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %.preheader90.i ], [ 36, %.preheader91.i ]
-  %.064104.i = phi i32 [ %93, %.preheader90.i ], [ 0, %.preheader91.i ]
-  %90 = trunc nuw i32 %.064104.i to i16
-  %.lhs.trunc86.i = mul nuw nsw i16 %90, 255
-  %91 = udiv i16 %.lhs.trunc86.i, 13
-  %.zext87.i = zext nneg i16 %91 to i32
-  %92 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv128.i
-  store i32 %.zext87.i, ptr %92, align 4, !noalias !8
-  %.sroa.270.0..sroa_idx.i = getelementptr inbounds i8, ptr %92, i64 4
+  %.064104.i = phi i32 [ %91, %.preheader90.i ], [ 0, %.preheader91.i ]
+  %88 = trunc nuw i32 %.064104.i to i16
+  %.lhs.trunc86.i = mul nuw nsw i16 %88, 255
+  %89 = udiv i16 %.lhs.trunc86.i, 13
+  %.zext87.i = zext nneg i16 %89 to i32
+  %90 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv128.i
+  store i32 %.zext87.i, ptr %90, align 4, !noalias !8
+  %.sroa.270.0..sroa_idx.i = getelementptr inbounds i8, ptr %90, i64 4
   store i32 0, ptr %.sroa.270.0..sroa_idx.i, align 4, !noalias !8
-  %.sroa.371.0..sroa_idx.i = getelementptr inbounds i8, ptr %92, i64 8
+  %.sroa.371.0..sroa_idx.i = getelementptr inbounds i8, ptr %90, i64 8
   store i32 255, ptr %.sroa.371.0..sroa_idx.i, align 4, !noalias !8
-  %93 = add nuw nsw i32 %.064104.i, 1
+  %91 = add nuw nsw i32 %.064104.i, 1
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
-  %exitcond131.not.i = icmp eq i32 %93, 13
+  %exitcond131.not.i = icmp eq i32 %91, 13
   br i1 %exitcond131.not.i, label %.preheader.i, label %.preheader90.i, !llvm.loop !16
 
 .preheader.i:                                     ; preds = %.preheader90.i, %.preheader.i
   %indvars.iv132.i = phi i64 [ %indvars.iv.next133.i, %.preheader.i ], [ 49, %.preheader90.i ]
-  %.065106.i = phi i32 [ %98, %.preheader.i ], [ 0, %.preheader90.i ]
-  %94 = trunc nuw i32 %.065106.i to i16
-  %.lhs.trunc88.i = mul nuw nsw i16 %94, 255
-  %95 = udiv i16 %.lhs.trunc88.i, 6
-  %.zext89.i = zext nneg i16 %95 to i32
-  %96 = sub nuw nsw i32 255, %.zext89.i
-  %97 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv132.i
-  store i32 255, ptr %97, align 4, !noalias !8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 4
+  %.065106.i = phi i32 [ %96, %.preheader.i ], [ 0, %.preheader90.i ]
+  %92 = trunc nuw i32 %.065106.i to i16
+  %.lhs.trunc88.i = mul nuw nsw i16 %92, 255
+  %93 = udiv i16 %.lhs.trunc88.i, 6
+  %.zext89.i = zext nneg i16 %93 to i32
+  %94 = sub nuw nsw i32 255, %.zext89.i
+  %95 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv132.i
+  store i32 255, ptr %95, align 4, !noalias !8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %95, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx.i, align 4, !noalias !8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 8
-  store i32 %96, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !8
-  %98 = add nuw nsw i32 %.065106.i, 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %95, i64 8
+  store i32 %94, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !8
+  %96 = add nuw nsw i32 %.065106.i, 1
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
-  %exitcond135.not.i = icmp eq i32 %98, 6
-  br i1 %exitcond135.not.i, label %99, label %.preheader.i, !llvm.loop !17
+  %exitcond135.not.i = icmp eq i32 %96, 6
+  br i1 %exitcond135.not.i, label %97, label %.preheader.i, !llvm.loop !17
 
-99:                                               ; preds = %.preheader.i
+97:                                               ; preds = %.preheader.i
   store i1 true, ptr @_ZZL12computeColorffE5first, align 1, !noalias !8
-  br label %100
+  br label %98
 
-100:                                              ; preds = %99, %73
-  %101 = fmul float %68, %68
-  %102 = call float @llvm.fmuladd.f32(float %67, float %67, float %101)
-  %sqrt.i = call float @llvm.sqrt.f32(float %102)
-  %103 = fneg float %68
-  %104 = fneg float %67
-  %105 = call noundef float @atan2f(float noundef %103, float noundef %104) #14, !noalias !8
-  %106 = fdiv float %105, 0x400921FB60000000
-  %107 = fadd float %106, 1.000000e+00
-  %108 = fmul float %107, 5.000000e-01
-  %109 = fmul float %108, 5.400000e+01
-  %110 = fptosi float %109 to i32
-  %111 = add nsw i32 %110, 1
-  %112 = srem i32 %111, 55
-  %113 = sitofp i32 %110 to float
-  %114 = fsub float %109, %113
+98:                                               ; preds = %97, %71
+  %99 = fmul float %66, %66
+  %100 = call float @llvm.fmuladd.f32(float %65, float %65, float %99)
+  %sqrt.i = call float @llvm.sqrt.f32(float %100)
+  %101 = fneg float %66
+  %102 = fneg float %65
+  %103 = call noundef float @atan2f(float noundef %101, float noundef %102) #14, !noalias !8
+  %104 = fdiv float %103, 0x400921FB60000000
+  %105 = fadd float %104, 1.000000e+00
+  %106 = fmul float %105, 5.000000e-01
+  %107 = fmul float %106, 5.400000e+01
+  %108 = fptosi float %107 to i32
+  %109 = add nsw i32 %108, 1
+  %110 = srem i32 %109, 55
+  %111 = sitofp i32 %108 to float
+  %112 = fsub float %107, %111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 0, i64 3, i1 false), !alias.scope !8
+  %113 = sext i32 %108 to i64
+  %114 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %113
   %115 = sext i32 %110 to i64
   %116 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %115
-  %117 = sext i32 %112 to i64
-  %118 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %117
-  %119 = fsub float 1.000000e+00, %114
-  %120 = fcmp ugt float %sqrt.i, 1.000000e+00
-  %121 = fneg float %sqrt.i
-  br label %122
+  %117 = fsub float 1.000000e+00, %112
+  %118 = fcmp ugt float %sqrt.i, 1.000000e+00
+  %119 = fneg float %sqrt.i
+  br label %120
 
-122:                                              ; preds = %122, %100
-  %indvars.iv136.i = phi i64 [ 0, %100 ], [ %indvars.iv.next137.i, %122 ]
-  %123 = getelementptr inbounds [3 x i32], ptr %116, i64 0, i64 %indvars.iv136.i
-  %124 = load i32, ptr %123, align 4, !noalias !8
-  %125 = sitofp i32 %124 to float
-  %126 = fdiv float %125, 2.550000e+02
-  %127 = getelementptr inbounds [3 x i32], ptr %118, i64 0, i64 %indvars.iv136.i
-  %128 = load i32, ptr %127, align 4, !noalias !8
-  %129 = sitofp i32 %128 to float
-  %130 = fdiv float %129, 2.550000e+02
-  %131 = fmul float %114, %130
-  %132 = call float @llvm.fmuladd.f32(float %119, float %126, float %131)
-  %133 = fsub float 1.000000e+00, %132
-  %134 = call float @llvm.fmuladd.f32(float %121, float %133, float 1.000000e+00)
-  %135 = fmul float %132, 7.500000e-01
-  %.0.i = select i1 %120, float %135, float %134
-  %136 = fmul float %.0.i, 2.550000e+02
-  %137 = fptoui float %136 to i8
-  %138 = sub nuw nsw i64 2, %indvars.iv136.i
-  %139 = getelementptr inbounds [3 x i8], ptr %5, i64 0, i64 %138
-  store i8 %137, ptr %139, align 1, !alias.scope !8
+120:                                              ; preds = %120, %98
+  %indvars.iv136.i = phi i64 [ 0, %98 ], [ %indvars.iv.next137.i, %120 ]
+  %121 = getelementptr inbounds [3 x i32], ptr %114, i64 0, i64 %indvars.iv136.i
+  %122 = load i32, ptr %121, align 4, !noalias !8
+  %123 = sitofp i32 %122 to float
+  %124 = fdiv float %123, 2.550000e+02
+  %125 = getelementptr inbounds [3 x i32], ptr %116, i64 0, i64 %indvars.iv136.i
+  %126 = load i32, ptr %125, align 4, !noalias !8
+  %127 = sitofp i32 %126 to float
+  %128 = fdiv float %127, 2.550000e+02
+  %129 = fmul float %112, %128
+  %130 = call float @llvm.fmuladd.f32(float %117, float %124, float %129)
+  %131 = fsub float 1.000000e+00, %130
+  %132 = call float @llvm.fmuladd.f32(float %119, float %131, float 1.000000e+00)
+  %133 = fmul float %130, 7.500000e-01
+  %.0.i = select i1 %118, float %133, float %132
+  %134 = fmul float %.0.i, 2.550000e+02
+  %135 = fptoui float %134 to i8
+  %136 = sub nuw nsw i64 2, %indvars.iv136.i
+  %137 = getelementptr inbounds [3 x i8], ptr %5, i64 0, i64 %136
+  store i8 %135, ptr %137, align 1, !alias.scope !8
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
   %exitcond139.not.i = icmp eq i64 %indvars.iv.next137.i, 3
-  br i1 %exitcond139.not.i, label %_ZL12computeColorff.exit, label %122, !llvm.loop !18
+  br i1 %exitcond139.not.i, label %_ZL12computeColorff.exit, label %120, !llvm.loop !18
 
-_ZL12computeColorff.exit:                         ; preds = %122
-  %140 = load ptr, ptr %44, align 8
-  %141 = load ptr, ptr %45, align 8
-  %142 = load i64, ptr %141, align 8
-  %143 = mul i64 %142, %indvars.iv70
-  %144 = getelementptr inbounds i8, ptr %140, i64 %143
-  %145 = getelementptr inbounds %"class.cv::Vec.0", ptr %144, i64 %indvars.iv67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %145, ptr noundef nonnull align 1 dereferenceable(3) %5, i64 3, i1 false)
-  %.pre = load i32, ptr %41, align 4
+_ZL12computeColorff.exit:                         ; preds = %120
+  %138 = load ptr, ptr %43, align 8
+  %139 = load ptr, ptr %44, align 8
+  %140 = load i64, ptr %139, align 8
+  %141 = mul i64 %140, %indvars.iv70
+  %142 = getelementptr inbounds i8, ptr %138, i64 %141
+  %143 = getelementptr inbounds %"class.cv::Vec.0", ptr %142, i64 %indvars.iv67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %143, ptr noundef nonnull align 1 dereferenceable(3) %5, i64 3, i1 false)
+  %.pre = load i32, ptr %40, align 4
   br label %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
 
-_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread:   ; preds = %.lr.ph, %60, %_ZL12computeColorff.exit
-  %146 = phi i32 [ %52, %.lr.ph ], [ %52, %60 ], [ %.pre, %_ZL12computeColorff.exit ]
+_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread:   ; preds = %.lr.ph, %59, %_ZL12computeColorff.exit
+  %144 = phi i32 [ %51, %.lr.ph ], [ %51, %59 ], [ %.pre, %_ZL12computeColorff.exit ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %147 = sext i32 %146 to i64
-  %148 = icmp slt i64 %indvars.iv.next68, %147
-  br i1 %148, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
+  %145 = sext i32 %144 to i64
+  %146 = icmp slt i64 %indvars.iv.next68, %145
+  br i1 %146, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
   %.pre73 = load i32, ptr %15, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %149 = phi i32 [ %.pre73, %._crit_edge.loopexit ], [ %48, %.preheader ]
-  %150 = phi i32 [ %146, %._crit_edge.loopexit ], [ %49, %.preheader ]
-  %151 = phi i32 [ %146, %._crit_edge.loopexit ], [ %50, %.preheader ]
+  %147 = phi i32 [ %.pre73, %._crit_edge.loopexit ], [ %47, %.preheader ]
+  %148 = phi i32 [ %144, %._crit_edge.loopexit ], [ %48, %.preheader ]
+  %149 = phi i32 [ %144, %._crit_edge.loopexit ], [ %49, %.preheader ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %152 = sext i32 %149 to i64
-  %153 = icmp slt i64 %indvars.iv.next71, %152
-  br i1 %153, label %.preheader, label %._crit_edge58, !llvm.loop !20
+  %150 = sext i32 %147 to i64
+  %151 = icmp slt i64 %indvars.iv.next71, %150
+  br i1 %151, label %.preheader, label %._crit_edge58, !llvm.loop !20
 
 ._crit_edge58:                                    ; preds = %._crit_edge, %2, %.preheader.lr.ph
   ret void

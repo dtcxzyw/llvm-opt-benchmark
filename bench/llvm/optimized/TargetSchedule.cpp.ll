@@ -203,7 +203,7 @@ define dso_local void @_ZN4llvm16TargetSchedModel4initEPKNS_19TargetSubtargetInf
   %.02835.i.i = phi i32 [ %37, %.lr.ph.i.i ], [ %32, %28 ]
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %35 = sub i32 %spec.select.i.i, %spec.select3337.i.i
-  %36 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %35, i1 true)
+  %36 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %35, i1 true)
   %37 = lshr i32 %35, %36
   %spec.select33.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %37)
   %38 = icmp eq i32 %spec.select3337.i.i, %37

@@ -4917,7 +4917,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo14analyzeCompare
   %47 = and i32 %44, 64
   %48 = or disjoint i32 %47, %46
   %49 = xor i32 %48, 63
-  %50 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %49, i1 true)
+  %50 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %49, i1 true)
   %51 = lshr exact i32 -2147483648, %50
   %52 = add nsw i32 %51, -1
   %53 = and i32 %45, %52
@@ -4978,7 +4978,7 @@ define internal fastcc noundef i64 @_ZN4llvm10AArch64_AML22decodeLogicalImmediat
   %7 = and i32 %4, 64
   %8 = or disjoint i32 %7, %6
   %9 = xor i32 %8, 63
-  %10 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %11 = lshr exact i32 -2147483648, %10
   %12 = add nsw i32 %11, -1
   %13 = and i32 %5, %12

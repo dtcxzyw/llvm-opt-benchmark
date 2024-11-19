@@ -299,7 +299,7 @@ common.resume:                                    ; preds = %.body, %.body87, %2
 
 71:                                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %66, %42, %._crit_edge.i, %._crit_edge.thread.i
   %72 = load i32, ptr %7, align 4
-  %73 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %72, i1 true)
+  %73 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %72, i1 true)
   %.neg.i = shl nsw i32 -1, %73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)

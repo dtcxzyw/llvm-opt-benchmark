@@ -30740,7 +30740,7 @@ define dso_local noundef ptr @_ZN4llvm15OpenMPIRBuilder14getNVPTXLaneIDEv(ptr no
   %4 = alloca %"class.llvm::Twine", align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 396
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 4
-  %5 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.1.0.copyload, i1 true)
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.1.0.copyload, i1 true)
   %6 = lshr i32 2147483647, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 512
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)

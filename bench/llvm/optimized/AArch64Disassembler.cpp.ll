@@ -22267,7 +22267,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL30DecodeSVELogicalImmInst
 
 _ZN4llvm10AArch64_AML29isValidDecodeLogicalImmediateEmj.exit: ; preds = %2
   %12 = xor i32 %10, 63
-  %13 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %12, i1 true)
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %12, i1 true)
   %14 = lshr exact i32 -2147483648, %13
   %15 = sub nsw i32 0, %14
   %16 = or i32 %7, %15
@@ -25873,7 +25873,7 @@ _ZL25DecodeSimpleRegisterClassILj40ELj0ELj32EEN4llvm14MCDisassembler12DecodeStat
 _ZN4llvm10AArch64_AML29isValidDecodeLogicalImmediateEmj.exit: ; preds = %_ZL25DecodeSimpleRegisterClassILj40ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit42
   %52 = and i32 %46, 8191
   %53 = xor i32 %50, 63
-  %54 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
+  %54 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
   %55 = lshr exact i32 -2147483648, %54
   %56 = sub nsw i32 0, %55
   %57 = or i32 %47, %56
@@ -25959,7 +25959,7 @@ _ZL25DecodeSimpleRegisterClassILj24ELj0ELj32EEN4llvm14MCDisassembler12DecodeStat
 _ZN4llvm10AArch64_AML29isValidDecodeLogicalImmediateEmj.exit61: ; preds = %_ZL25DecodeSimpleRegisterClassILj24ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit59
   %98 = and i32 %95, 4095
   %99 = xor i32 %96, 63
-  %100 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %99, i1 true)
+  %100 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %99, i1 true)
   %101 = lshr exact i32 -2147483648, %100
   %102 = sub nsw i32 0, %101
   %103 = or i32 %96, %102

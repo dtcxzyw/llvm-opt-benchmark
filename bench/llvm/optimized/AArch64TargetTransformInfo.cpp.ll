@@ -21974,7 +21974,7 @@ define dso_local void @_ZN4llvm14AArch64TTIImpl23getUnrollingPreferencesEPNS_4Lo
 "_ZZL29getFalkorUnrollingPreferencesPN4llvm4LoopERNS_15ScalarEvolutionERNS_19TargetTransformInfo20UnrollingPreferencesEENK3$_0clES1_S3_.exit.thread6.i": ; preds = %47, %"_ZZL29getFalkorUnrollingPreferencesPN4llvm4LoopERNS_15ScalarEvolutionERNS_19TargetTransformInfo20UnrollingPreferencesEENK3$_0clES1_S3_.exit.i"
   %.0.i9.i = phi i32 [ %.1.lcssa.i.i, %"_ZZL29getFalkorUnrollingPreferencesPN4llvm4LoopERNS_15ScalarEvolutionERNS_19TargetTransformInfo20UnrollingPreferencesEENK3$_0clES1_S3_.exit.i" ], [ %48, %47 ]
   %53 = sdiv i32 7, %.0.i9.i
-  %54 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
+  %54 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
   %55 = lshr exact i32 -2147483648, %54
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %55, ptr %56, align 4
