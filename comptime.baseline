@@ -26105,7 +26105,7 @@ openssl/libcrypto-lib-ec_backend.ll 248545148
 openssl/libcrypto-lib-ec_key.ll 238514794
 openssl/libcrypto-lib-ec_lib.ll 428534159
 openssl/libcrypto-lib-ec_mult.ll 331869235
-openssl/libcrypto-lib-ec_support.ll 63535259
+openssl/libcrypto-lib-ec_support.ll 63598831
 openssl/libcrypto-lib-ecb3_enc.ll 40178898
 openssl/libcrypto-lib-ecb_enc.ll 40854968
 openssl/libcrypto-lib-ecdh_ossl.ll 52895773
