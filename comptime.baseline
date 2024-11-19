@@ -10557,7 +10557,7 @@ icu/number_formatimpl.ll 603621870
 icu/number_grouping.ll 71541131
 icu/number_integerwidth.ll 50099374
 icu/number_longnames.ll 1366390123
-icu/number_mapper.ll 365031700
+icu/number_mapper.ll 365397145
 icu/number_modifiers.ll 282488799
 icu/number_multiplier.ll 145248322
 icu/number_output.ll 156131060
@@ -13663,7 +13663,7 @@ linux/relay.ll 288722897
 linux/remap_range.ll 184987631
 linux/request.ll 238880402
 linux/request_key_auth.ll 78512727
-linux/requeue.ll 229823976
+linux/requeue.ll 230053831
 linux/resend.ll 57141041
 linux/resize.ll 845785490
 linux/restrict.ll 77821279
@@ -25625,7 +25625,7 @@ openspiel/dark_chess.cc.ll 3417273887
 openspiel/dark_chess_test.cc.ll 405732552
 openspiel/dark_hex.cc.ll 2352256245
 openspiel/dark_hex_test.cc.ll 1255966467
-openspiel/data_logger.cc.ll 585987486
+openspiel/data_logger.cc.ll 586573479
 openspiel/dds.cpp.ll 33834574
 openspiel/deep_sea.cc.ll 2339600294
 openspiel/deep_sea_test.cc.ll 156442153
@@ -26228,7 +26228,7 @@ openssl/libcrypto-lib-rsa_crpt.ll 65593422
 openssl/libcrypto-lib-rsa_gen.ll 182689590
 openssl/libcrypto-lib-rsa_lib.ll 306766910
 openssl/libcrypto-lib-rsa_mp.ll 55545464
-openssl/libcrypto-lib-rsa_oaep.ll 167654442
+openssl/libcrypto-lib-rsa_oaep.ll 167822239
 openssl/libcrypto-lib-rsa_ossl.ll 284811811
 openssl/libcrypto-lib-rsa_pk1.ll 241134386
 openssl/libcrypto-lib-rsa_pmeth.ll 213523004
